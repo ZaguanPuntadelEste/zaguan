@@ -3,9 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Contacto directo con Ariana Wajntraub en ZAGUÁN Propiedades. Punta del Este · Maldonado.">
+  <meta
+    name="description"
+    content="Contacto directo con Ariana Wajntraub en ZAGUÁN Propiedades. Punta del Este · Maldonado."
+  >
   <meta name="robots" content="noindex,nofollow">
   <title>Ariana Wajntraub · ZAGUÁN Propiedades</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
     :root {
       --zaguan-estuario: #123B4A;
@@ -17,8 +28,9 @@
       --zaguan-feather: #66717A;
       --zaguan-umbral: #1B5463;
 
-      --font-display: Archivo, Arial, sans-serif;
-      --font-body: Inter, Arial, sans-serif;
+      --font-display: "Archivo", sans-serif;
+      --font-body: "Inter", sans-serif;
+
       --radius: 16px;
       --focus-ring: 0 0 0 4px rgba(27, 84, 99, 0.28);
     }
@@ -49,7 +61,7 @@
       padding: 24px;
     }
 
-    .card {
+    .contact-page {
       width: min(100%, 460px);
       text-align: center;
     }
@@ -63,6 +75,7 @@
 
     h1 {
       margin: 0;
+      color: var(--zaguan-bigua);
       font-family: var(--font-display);
       font-size: clamp(2rem, 8vw, 2.75rem);
       font-weight: 600;
@@ -71,9 +84,10 @@
     }
 
     .role {
-      min-height: 1.3em;
+      min-height: 1.45em;
       margin: 12px 0 0;
       color: var(--zaguan-feather);
+      font-family: var(--font-body);
       font-size: 1rem;
       font-weight: 500;
       line-height: 1.45;
@@ -82,7 +96,10 @@
     .message {
       max-width: 34ch;
       margin: 28px auto 0;
+      color: var(--zaguan-bigua);
+      font-family: var(--font-body);
       font-size: 1.05rem;
+      font-weight: 400;
       line-height: 1.55;
     }
 
@@ -98,13 +115,17 @@
       border-radius: var(--radius);
       color: var(--zaguan-bone);
       background: var(--zaguan-estuario);
-      font: 600 1rem/1.2 var(--font-body);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.2;
       text-align: center;
       text-decoration: none;
-      transition: background-color 160ms ease, transform 160ms ease;
+      transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
     }
 
     .primary-action:hover {
+      border-color: var(--zaguan-umbral);
       background: var(--zaguan-umbral);
     }
 
@@ -121,7 +142,9 @@
     .notice {
       margin: 12px 0 0;
       color: var(--zaguan-feather);
+      font-family: var(--font-body);
       font-size: 0.875rem;
+      font-weight: 400;
       line-height: 1.45;
     }
 
@@ -129,8 +152,11 @@
       display: inline-block;
       margin-top: 30px;
       color: var(--zaguan-bigua);
+      font-family: var(--font-body);
       font-size: 0.9375rem;
       font-weight: 500;
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
       text-underline-offset: 3px;
     }
 
@@ -165,9 +191,10 @@
     }
   </style>
 </head>
+
 <body>
   <main>
-    <section class="card" aria-labelledby="page-title">
+    <section class="contact-page" aria-labelledby="page-title">
       <img
         class="brand"
         src="/assets/brand/zaguan-propiedades-black.png"
@@ -176,10 +203,12 @@
 
       <h1 id="page-title">Ariana Wajntraub</h1>
 
-      <!-- Completar este campo cuando se defina el cargo. -->
+      <!-- Reemplazar solamente el texto entre corchetes cuando se defina el cargo. -->
       <p class="role">[CARGO]</p>
 
-      <p class="message">Estoy para acompañarte en tu próxima decisión inmobiliaria.</p>
+      <p class="message">
+        Estoy para acompañarte en tu próxima decisión inmobiliaria.
+      </p>
 
       <a
         class="primary-action"
