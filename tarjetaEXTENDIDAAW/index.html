@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Contacto directo con Ariana Wajntraub en ZAGUÁN Propiedades. Punta del Este · Maldonado.">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Ariana Wajntraub · ZAGUÁN Propiedades</title>
+  <style>
+    :root {
+      --zaguan-estuario: #123B4A;
+      --zaguan-bigua: #081521;
+      --zaguan-black: #05090D;
+      --zaguan-bone: #F3F0E8;
+      --zaguan-limestone: #E8E4DA;
+      --zaguan-mist: #D9DDDA;
+      --zaguan-feather: #66717A;
+      --zaguan-umbral: #1B5463;
+
+      --font-display: Archivo, Arial, sans-serif;
+      --font-body: Inter, Arial, sans-serif;
+      --radius: 16px;
+      --focus-ring: 0 0 0 4px rgba(27, 84, 99, 0.28);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      min-height: 100%;
+      background: var(--zaguan-bone);
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--zaguan-bigua);
+      background: var(--zaguan-bone);
+      font-family: var(--font-body);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    main {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .card {
+      width: min(100%, 460px);
+      text-align: center;
+    }
+
+    .brand {
+      display: block;
+      width: min(100%, 270px);
+      height: auto;
+      margin: 0 auto 42px;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 8vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+
+    .role {
+      min-height: 1.3em;
+      margin: 12px 0 0;
+      color: var(--zaguan-feather);
+      font-size: 1rem;
+      font-weight: 500;
+      line-height: 1.45;
+    }
+
+    .message {
+      max-width: 34ch;
+      margin: 28px auto 0;
+      font-size: 1.05rem;
+      line-height: 1.55;
+    }
+
+    .primary-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 56px;
+      margin-top: 32px;
+      padding: 14px 20px;
+      border: 1px solid var(--zaguan-estuario);
+      border-radius: var(--radius);
+      color: var(--zaguan-bone);
+      background: var(--zaguan-estuario);
+      font: 600 1rem/1.2 var(--font-body);
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 160ms ease, transform 160ms ease;
+    }
+
+    .primary-action:hover {
+      background: var(--zaguan-umbral);
+    }
+
+    .primary-action:active {
+      transform: translateY(1px);
+    }
+
+    .primary-action:focus-visible,
+    .secondary-link:focus-visible {
+      outline: none;
+      box-shadow: var(--focus-ring);
+    }
+
+    .notice {
+      margin: 12px 0 0;
+      color: var(--zaguan-feather);
+      font-size: 0.875rem;
+      line-height: 1.45;
+    }
+
+    .secondary-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: var(--zaguan-bigua);
+      font-size: 0.9375rem;
+      font-weight: 500;
+      text-underline-offset: 3px;
+    }
+
+    @media (max-height: 650px) {
+      main {
+        align-items: start;
+        padding-top: 32px;
+      }
+
+      .brand {
+        width: 220px;
+        margin-bottom: 26px;
+      }
+
+      .message {
+        margin-top: 18px;
+      }
+
+      .primary-action {
+        margin-top: 22px;
+      }
+
+      .secondary-link {
+        margin-top: 20px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .primary-action {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card" aria-labelledby="page-title">
+      <img
+        class="brand"
+        src="/assets/brand/zaguan-propiedades-black.png"
+        alt="ZAGUÁN Propiedades"
+      >
+
+      <h1 id="page-title">Ariana Wajntraub</h1>
+
+      <!-- Completar este campo cuando se defina el cargo. -->
+      <p class="role">[CARGO]</p>
+
+      <p class="message">Estoy para acompañarte en tu próxima decisión inmobiliaria.</p>
+
+      <a
+        class="primary-action"
+        href="https://api.whatsapp.com/send/?phone=598712064&text=Hola%2C+ZAGU%C3%81N.+Es+un+mensaje+para+Ariana+Wajntraub.&type=phone_number&app_absent=0"
+        aria-label="Escribir a Ariana Wajntraub por WhatsApp"
+      >
+        Escribir a Ariana por WhatsApp
+      </a>
+
+      <p class="notice">Al continuar se abrirá WhatsApp.</p>
+
+      <a class="secondary-link" href="/links/">
+        Ver canales generales de ZAGUÁN
+      </a>
+    </section>
+  </main>
+</body>
+</html>
