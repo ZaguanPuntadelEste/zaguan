@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Prueba selector | ZAGUÁN Propiedades</title>
+  <style>
+    :root{--b:#081521;--h:#f3f0e8;--line:rgba(243,240,232,.55)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--h);color:var(--b);font-family:Arial,sans-serif}button,select{font:inherit}.hero{min-height:100svh;padding:24px 20px 42px;background:var(--b);color:var(--h)}.header{display:flex;align-items:center;justify-content:space-between;min-height:48px}.brand{margin:0;font-size:18px;font-weight:700;letter-spacing:.03em}.menu{font-size:28px;line-height:1}.entry{max-width:430px;margin:170px auto 0}.tabs{display:grid;grid-template-columns:1fr 1fr;align-items:end}.tab{min-height:56px;padding:0 12px;border:1px solid var(--line);border-bottom:0;background:transparent;color:rgba(243,240,232,.7);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.tab:first-child{border-right:0}.tab.is-active{border-color:var(--h);background:var(--h);color:var(--b)}.entry-form{display:grid;gap:12px;padding:18px;border:1px solid var(--h);background:var(--b)}.entry-form[hidden]{display:none}select,.submit{width:100%;min-height:58px;border-radius:0;font-size:16px}select{padding:0 16px;border:1px solid var(--line);background:var(--h);color:var(--b)}.submit{border:1px solid var(--h);background:var(--h);color:var(--b);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.resto{min-height:100svh;padding:72px 20px;background:var(--h)}.resto h1,.resto p{max-width:500px;margin-right:auto;margin-left:auto}.resto h1{margin-top:0;font-size:42px;line-height:1}.resto p{margin-top:18px;font-size:18px;line-height:1.55}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <header class="header"><p class="brand">ZAGUÁN PROPIEDADES</p><span class="menu" aria-hidden="true">☰</span></header>
+    <div class="entry">
+      <div class="tabs" role="tablist" aria-label="Elegí una opción">
+        <button class="tab" id="tab-busco" type="button" role="tab" aria-selected="false" aria-controls="form-busco" data-mode="busco">Busco</button>
+        <button class="tab" id="tab-ofrezco" type="button" role="tab" aria-selected="false" aria-controls="form-ofrezco" data-mode="ofrezco">Ofrezco</button>
+      </div>
+      <form class="entry-form" id="form-busco" role="tabpanel" aria-labelledby="tab-busco" hidden>
+        <label class="sr-only" for="busco-operacion">Operación</label>
+        <select id="busco-operacion" required><option value="" selected disabled>¿Comprar o alquilar?</option><option value="comprar">Comprar</option><option value="alquilar-anual">Alquilar anual</option></select>
+        <label class="sr-only" for="busco-zona">Zona o barrio</label>
+        <select id="busco-zona" required><option value="" selected disabled>Zona o barrio</option><option>Punta del Este</option><option>La Barra</option><option>Manantiales</option><option>José Ignacio</option><option>Maldonado</option><option>Todavía no lo definí</option></select>
+        <button class="submit" type="submit">Buscar →</button>
+      </form>
+      <form class="entry-form" id="form-ofrezco" role="tabpanel" aria-labelledby="tab-ofrezco" hidden>
+        <label class="sr-only" for="ofrezco-operacion">Operación</label>
+        <select id="ofrezco-operacion" required><option value="" selected disabled>¿Vender o alquilar?</option><option value="vender">Vender</option><option value="alquilar-anual">Alquilar anual</option></select>
+        <label class="sr-only" for="ofrezco-tipo">Tipo de propiedad</label>
+        <select id="ofrezco-tipo" required><option value="" selected disabled>Tipo de propiedad</option><option>Casa</option><option>Apartamento</option><option>Terreno</option><option>Local comercial</option><option>Oficina</option><option>Consultorio</option></select>
+        <button class="submit" type="submit">Ofrecer →</button>
+      </form>
+    </div>
+  </section>
+  <section class="resto"><h1>El resto de la home sigue acá.</h1><p>Si no tocás BUSCO ni OFREZCO, el scroll sigue normalmente. Este archivo es una prueba aislada: los botones no envían datos ni cambian páginas.</p></section>
+  <script>
+    const tabs=document.querySelectorAll('.tab');
+    const forms={busco:document.getElementById('form-busco'),ofrezco:document.getElementById('form-ofrezco')};
+    let activeMode=null;
+    const setMode=mode=>{activeMode=activeMode===mode?null:mode;tabs.forEach(tab=>{const active=tab.dataset.mode===activeMode;tab.classList.toggle('is-active',active);tab.setAttribute('aria-selected',String(active))});Object.entries(forms).forEach(([name,form])=>{form.hidden=name!==activeMode})};
+    tabs.forEach(tab=>tab.addEventListener('click',()=>setMode(tab.dataset.mode)));
+    Object.values(forms).forEach(form=>form.addEventListener('submit',event=>{event.preventDefault();if(!form.checkValidity()){form.reportValidity();return}alert('Prueba correcta: en la versión final este botón llevará al siguiente paso.')}));
+  </script>
+</body>
+</html>
