@@ -32,11 +32,242 @@
     <section class="contact-section" id="contacto" aria-labelledby="titulo-contacto"><div class="container"><p class="eyebrow">Contacto</p><h2 class="contact-title" id="titulo-contacto">Hablemos.</h2><div class="contact-layout"><div class="contact-main"><p>Consultá por una propiedad, una búsqueda personalizada o la publicación de tu propiedad.</p><a class="button button--dark" href="/whatsapp/" target="_blank" rel="noopener noreferrer">Consultar por WhatsApp</a></div><div class="contact-aside"><div class="contact-item"><p class="eyebrow">Instagram</p><p><a href="https://www.instagram.com/zaguanpropiedades" target="_blank" rel="noopener noreferrer">@zaguanpropiedades</a></p></div><div class="contact-item"><p class="eyebrow">Dirección</p><p>Parada 7 1/2, La Brava<br>Punta del Este, Maldonado</p></div></div></div></div></section>
   </main>
   <footer class="site-footer"><div class="container footer-inner"><img class="footer-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN"><div class="footer-links"><span>© 2026 ZAGUÁN</span><a href="/privacidad/">Privacidad</a><a href="/aviso-legal/">Aviso legal</a></div></div></footer>
-  <script>
-  (()=>{const h=document.getElementById('site-header'),t=document.getElementById('menu-toggle'),update=()=>h.classList.toggle('is-scrolled',window.scrollY>30);update();window.addEventListener('scroll',update,{passive:true});t.addEventListener('click',()=>{const o=h.classList.toggle('menu-open');document.body.classList.toggle('menu-open',o);t.setAttribute('aria-expanded',String(o));t.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú')});document.querySelectorAll('#mobile-menu a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('menu-open');document.body.classList.remove('menu-open');t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Abrir menú')}));
-  const modes=['busco','ofrezco'];const config={busco:{first:['busco-operacion','busco-zona'],phone:'busco-whatsapp',form:'lead-form-busco',panel:'lead-panel-busco'},ofrezco:{first:['ofrezco-operacion','ofrezco-tipo'],phone:'ofrezco-whatsapp',form:'lead-form-ofrezco',panel:'lead-panel-ofrezco'}};const val=id=>document.getElementById(id).value;const normalize=v=>v.replace(/[^\d+]/g,'').replace(/^00/,'+');const phoneOK=v=>{const n=normalize(v),digits=n.replace(/\D/g,'');return n.startsWith('+')&&digits.length>=8&&digits.length<=15};const setStep=(mode,step)=>{const form=document.getElementById(config[mode].form);form.querySelectorAll('[data-lead-step]').forEach(el=>el.hidden=el.dataset.leadStep!==step)};const nextState=mode=>document.querySelector(`[data-next="${mode}"]`).disabled=!config[mode].first.every(id=>val(id));const clearPhone=mode=>{document.getElementById(config[mode].phone).classList.remove('is-invalid');document.getElementById(`${mode}-phone-error`).classList.remove('is-visible')};const phoneError=mode=>{const input=document.getElementById(config[mode].phone);input.classList.add('is-invalid');document.getElementById(`${mode}-phone-error`).classList.add('is-visible');input.focus()};const clearErrors=mode=>document.querySelectorAll(`[data-error^="${mode}"]`).forEach(el=>{el.textContent='';el.style.display='none'});const showError=(mode,message)=>{const el=document.querySelector(`[data-error="${mode}"]`);el.textContent=message;el.style.display='block'};
-  document.querySelectorAll('.lead-tab').forEach(tab=>tab.addEventListener('click',()=>{const mode=tab.dataset.mode;modes.forEach(item=>{const active=item===mode;document.getElementById(config[item].panel).hidden=!active;document.getElementById(`lead-tab-${item}`).classList.toggle('is-active',active);document.getElementById(`lead-tab-${item}`).setAttribute('aria-selected',String(active))})}));
-  modes.forEach(mode=>{config[mode].first.forEach(id=>document.getElementById(id).addEventListener('change',()=>nextState(mode)));document.getElementById(config[mode].phone).addEventListener('input',()=>clearPhone(mode));document.querySelector(`[data-next="${mode}"]`).addEventListener('click',()=>{if(!config[mode].first.every(id=>val(id)))return;document.querySelector(`[data-summary="${mode}"]`).textContent=mode==='busco'?`BUSCO · ${val('busco-operacion')} · ${val('busco-zona')}`:`OFREZCO · ${val('ofrezco-operacion').replace('Ofrezco ','')} · ${val('ofrezco-tipo')}`;clearErrors(mode);setStep(mode,'two')});document.querySelector(`[data-edit="${mode}"]`).addEventListener('click',()=>setStep(mode,'one'));document.querySelector(`[data-review="${mode}"]`).addEventListener('click',()=>{clearErrors(mode);const form=document.getElementById(config[mode].form),step=form.querySelector('[data-lead-step="two"]');if(!step.checkValidity()){showError(mode,'Completá los campos obligatorios para continuar.');step.reportValidity();return}const phone=document.getElementById(config[mode].phone);if(!phoneOK(phone.value)){phoneError(mode);return}clearPhone(mode);phone.value=normalize(phone.value);document.querySelector(`[data-number="${mode}"]`).textContent=phone.value;setStep(mode,'review')});document.querySelector(`[data-correct="${mode}"]`).addEventListener('click',()=>setStep(mode,'two'));document.querySelector(`[data-send="${mode}"]`).addEventListener('click',()=>{const form=document.getElementById(config[mode].form);const button=document.querySelector(`[data-send="${mode}"]`);button.disabled=true;button.textContent='Enviando…';form.submit()});setStep(mode,'one');nextState(mode)});})();
-  </script>
+<script>
+<script>
+(() => {
+  const h = document.getElementById('site-header');
+  const t = document.getElementById('menu-toggle');
+
+  const update = () => h.classList.toggle('is-scrolled', window.scrollY > 30);
+
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+
+  t.addEventListener('click', () => {
+    const open = h.classList.toggle('menu-open');
+    document.body.classList.toggle('menu-open', open);
+    t.setAttribute('aria-expanded', String(open));
+    t.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+  });
+
+  document.querySelectorAll('#mobile-menu a').forEach(a => {
+    a.addEventListener('click', () => {
+      h.classList.remove('menu-open');
+      document.body.classList.remove('menu-open');
+      t.setAttribute('aria-expanded', 'false');
+      t.setAttribute('aria-label', 'Abrir menú');
+    });
+  });
+
+  const modes = ['busco', 'ofrezco'];
+
+  const config = {
+    busco: {
+      first: ['busco-operacion', 'busco-zona'],
+      phone: 'busco-whatsapp',
+      form: 'lead-form-busco',
+      panel: 'lead-panel-busco'
+    },
+    ofrezco: {
+      first: ['ofrezco-operacion', 'ofrezco-tipo'],
+      phone: 'ofrezco-whatsapp',
+      form: 'lead-form-ofrezco',
+      panel: 'lead-panel-ofrezco'
+    }
+  };
+
+  const val = id => document.getElementById(id).value;
+
+  const normalize = value =>
+    value.replace(/[^\d+]/g, '').replace(/^00/, '+');
+
+  const phoneOK = value => {
+    const normalized = normalize(value);
+    const digits = normalized.replace(/\D/g, '');
+    return normalized.startsWith('+') && digits.length >= 8 && digits.length <= 15;
+  };
+
+  const setStep = (mode, step) => {
+    const form = document.getElementById(config[mode].form);
+
+    form.querySelectorAll('[data-lead-step]').forEach(el => {
+      el.hidden = el.dataset.leadStep !== step;
+    });
+  };
+
+  const nextState = mode => {
+    const button = document.querySelector(`[data-next="${mode}"]`);
+    button.disabled = !config[mode].first.every(id => val(id));
+  };
+
+  const clearPhone = mode => {
+    document.getElementById(config[mode].phone).classList.remove('is-invalid');
+    document.getElementById(`${mode}-phone-error`).classList.remove('is-visible');
+  };
+
+  const phoneError = mode => {
+    const input = document.getElementById(config[mode].phone);
+
+    input.classList.add('is-invalid');
+    document.getElementById(`${mode}-phone-error`).classList.add('is-visible');
+    input.focus();
+  };
+
+  const clearErrors = mode => {
+    document.querySelectorAll(`[data-error^="${mode}"]`).forEach(el => {
+      el.textContent = '';
+      el.style.display = 'none';
+    });
+  };
+
+  const showError = (mode, message) => {
+    const el = document.querySelector(`[data-error="${mode}"]`);
+
+    el.textContent = message;
+    el.style.display = 'block';
+  };
+
+  document.querySelectorAll('.lead-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      const mode = tab.dataset.mode;
+
+      modes.forEach(item => {
+        const active = item === mode;
+
+        document.getElementById(config[item].panel).hidden = !active;
+        document.getElementById(`lead-tab-${item}`).classList.toggle('is-active', active);
+        document.getElementById(`lead-tab-${item}`).setAttribute(
+          'aria-selected',
+          String(active)
+        );
+      });
+    });
+  });
+
+  modes.forEach(mode => {
+    const form = document.getElementById(config[mode].form);
+    const phone = document.getElementById(config[mode].phone);
+
+    config[mode].first.forEach(id => {
+      document.getElementById(id).addEventListener('change', () => {
+        nextState(mode);
+      });
+    });
+
+    phone.addEventListener('input', () => clearPhone(mode));
+
+    document.querySelector(`[data-next="${mode}"]`).addEventListener('click', () => {
+      if (!config[mode].first.every(id => val(id))) return;
+
+      document.querySelector(`[data-summary="${mode}"]`).textContent =
+        mode === 'busco'
+          ? `BUSCO · ${val('busco-operacion')} · ${val('busco-zona')}`
+          : `OFREZCO · ${val('ofrezco-operacion').replace('Ofrezco ', '')} · ${val('ofrezco-tipo')}`;
+
+      clearErrors(mode);
+      setStep(mode, 'two');
+    });
+
+    document.querySelector(`[data-edit="${mode}"]`).addEventListener('click', () => {
+      clearErrors(mode);
+      setStep(mode, 'one');
+    });
+
+    document.querySelector(`[data-review="${mode}"]`).addEventListener('click', () => {
+      clearErrors(mode);
+
+      const secondStep = form.querySelector('[data-lead-step="two"]');
+
+      if (!secondStep.checkValidity()) {
+        showError(mode, 'Completá los campos obligatorios para continuar.');
+        secondStep.reportValidity();
+        return;
+      }
+
+      if (!phoneOK(phone.value)) {
+        phoneError(mode);
+        return;
+      }
+
+      clearPhone(mode);
+      phone.value = normalize(phone.value);
+
+      document.querySelector(`[data-number="${mode}"]`).textContent = phone.value;
+
+      setStep(mode, 'review');
+    });
+
+    document.querySelector(`[data-correct="${mode}"]`).addEventListener('click', () => {
+      clearErrors(mode);
+      setStep(mode, 'two');
+      phone.focus();
+    });
+
+    document.querySelector(`[data-send="${mode}"]`).addEventListener('click', async () => {
+      clearErrors(mode);
+
+      const button = document.querySelector(`[data-send="${mode}"]`);
+      const originalText = button.textContent;
+
+      button.disabled = true;
+      button.textContent = 'Enviando…';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          let message =
+            'No pudimos enviar la consulta. Probá nuevamente en unos minutos.';
+
+          try {
+            const data = await response.json();
+
+            if (data.errors && data.errors.length) {
+              message = data.errors.map(error => error.message).join(' ');
+            }
+          } catch (_) {}
+
+          throw new Error(message);
+        }
+
+        const review = form.querySelector('[data-lead-step="review"]');
+        const phoneNumber = document.querySelector(`[data-number="${mode}"]`).textContent;
+
+        review.innerHTML = `
+          <p class="lead-kicker">Consulta enviada</p>
+          <h2>Gracias. Te contactaremos pronto.</h2>
+          <strong>${phoneNumber}</strong>
+        `;
+
+        form.reset();
+        clearPhone(mode);
+        nextState(mode);
+
+      } catch (error) {
+        setStep(mode, 'two');
+
+        showError(
+          mode,
+          error.message ||
+            'No pudimos conectar con el formulario. Revisá tu conexión e intentá otra vez.'
+        );
+
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
+
+    setStep(mode, 'one');
+    nextState(mode);
+  });
+})();
+</script>
+</script>
 </body>
 </html>
