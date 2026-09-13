@@ -173,30 +173,37 @@
       setStep(mode, 'one');
     });
 
-    document.querySelector(`[data-review="${mode}"]`).addEventListener('click', () => {
-      clearErrors(mode);
+   document.querySelector(`[data-review="${mode}"]`).addEventListener('click',()=>{
+  clearErrors(mode);
 
-      const secondStep = form.querySelector('[data-lead-step="two"]');
+  const form = document.getElementById(config[mode].form);
+  const phone = document.getElementById(config[mode].phone);
 
-      if (!secondStep.checkValidity()) {
-        showError(mode, 'Completá los campos obligatorios para continuar.');
-        secondStep.reportValidity();
-        return;
-      }
+  const requiredFields = Array.from(
+    form.querySelectorAll('[data-lead-step="two"] [required]')
+  );
 
-      if (!phoneOK(phone.value)) {
-        phoneError(mode);
-        return;
-      }
+  const missing = requiredFields.find(field => {
+    if (field.type === 'checkbox') return !field.checked;
+    return !field.value.trim();
+  });
 
-      clearPhone(mode);
-      phone.value = normalize(phone.value);
+  if (missing) {
+    showError(mode,'Completá los campos obligatorios para continuar.');
+    missing.focus();
+    return;
+  }
 
-      document.querySelector(`[data-number="${mode}"]`).textContent = phone.value;
+  if(!phoneOK(phone.value)){
+    phoneError(mode);
+    return;
+  }
 
-      setStep(mode, 'review');
-    });
-
+  clearPhone(mode);
+  phone.value=normalize(phone.value);
+  document.querySelector(`[data-number="${mode}"]`).textContent=phone.value;
+  setStep(mode,'review');
+});
     document.querySelector(`[data-correct="${mode}"]`).addEventListener('click', () => {
       clearErrors(mode);
       setStep(mode, 'two');
