@@ -11,7 +11,7 @@
 .ficha-photos .photo .tag{padding:6px 9px;font-size:10px}
 .ficha-photos .photo-render{right:12px;bottom:12px}
 @media(max-width:900px){
-  .ficha-photos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-right:-16px;padding-right:16px}
+  .ficha-photos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-right:-16px;padding-right:16px;padding-bottom:18px}
   .ficha-photos::-webkit-scrollbar{display:none}
   .ficha-photos .photo,.ficha-photos .photo:first-child{flex:0 0 82%;grid-row:auto;min-height:0;scroll-snap-align:start}
 }
@@ -30,3 +30,33 @@ body.lb-open{overflow:hidden}
 .lb-nav{flex:0 0 auto;width:48px;height:48px;display:grid;place-items:center;padding:0;border:1px solid rgba(243,240,232,.7);border-radius:50%;background:rgba(243,240,232,.12);color:var(--h)}
 .lb-nav:hover{background:rgba(243,240,232,.28)}
 @media(max-width:620px){.lb-nav{position:absolute;bottom:20px}.lb-nav--prev{left:16px}.lb-nav--next{right:16px}.lightbox{padding:72px 12px 84px}.lb-img{max-height:calc(100dvh - 190px)}}
+
+/* ACABADO PREMIUM */
+.ficha-photos .photo{border:1px solid rgba(8,21,33,.08);box-shadow:0 1px 2px rgba(8,21,33,.06),0 8px 20px -6px rgba(8,21,33,.14),0 24px 48px -18px rgba(8,21,33,.18);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s cubic-bezier(.16,1,.3,1)}
+.ficha-photos .photo.has-images::before,.ficha-photos .photo.has-images::after{content:'';position:absolute;left:0;right:0;z-index:1;pointer-events:none}
+.ficha-photos .photo.has-images::before{top:0;height:34%;background:linear-gradient(to bottom,rgba(8,21,33,.5),rgba(8,21,33,0))}
+.ficha-photos .photo.has-images::after{bottom:0;height:22%;background:linear-gradient(to top,rgba(8,21,33,.4),rgba(8,21,33,0))}
+.photo .car-track img{transition:transform 1.1s cubic-bezier(.16,1,.3,1)}
+.photo-render{border-radius:999px;padding:6px 11px;background:rgba(8,21,33,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(243,240,232,.28)}
+.ficha-photos .tag{border-radius:999px}
+.car-btn{opacity:1;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+.car-btn:active,.lb-nav:active,.lb-close:active{transform:scale(.94)}
+@media(hover:hover) and (min-width:901px){
+  .ficha-photos .photo:hover{transform:translateY(-6px);box-shadow:0 2px 4px rgba(8,21,33,.06),0 16px 32px -8px rgba(8,21,33,.2),0 40px 72px -20px rgba(8,21,33,.28)}
+  .ficha-photos .photo:hover .car-track img{transform:scale(1.05)}
+  .ficha-photos .photo .car-btn{opacity:0;transition:opacity .3s ease,background var(--ease),transform var(--ease)}
+  .ficha-photos .photo:hover .car-btn,.ficha-photos .photo .car-btn:focus-visible{opacity:1}
+  .car-btn:hover{transform:scale(1.08)}
+  .card{box-shadow:0 1px 2px rgba(8,21,33,.05),0 10px 24px -10px rgba(8,21,33,.12)}
+  .card:hover{box-shadow:0 2px 4px rgba(8,21,33,.06),0 22px 44px -14px rgba(8,21,33,.24)}
+}
+.button{transition:color var(--ease),background var(--ease),transform var(--ease),border-color var(--ease),box-shadow var(--ease)}
+.button--dark:hover{box-shadow:0 12px 24px -10px rgba(8,21,33,.55)}
+.facts .fact strong{font-feature-settings:'tnum' 1,'lnum' 1}
+@keyframes lbFade{from{opacity:0}to{opacity:1}}
+@keyframes lbPop{from{opacity:0;transform:scale(.96) translateY(8px)}to{opacity:1;transform:none}}
+.lightbox.is-open{animation:lbFade .28s ease both}
+.lightbox.is-open .lb-fig{animation:lbPop .45s cubic-bezier(.16,1,.3,1) both}
+.lb-img{box-shadow:0 30px 80px -20px rgba(0,0,0,.6)}
+.lb-close,.lb-nav{backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background var(--ease),transform var(--ease)}
+.lb-close:hover{transform:rotate(90deg)}
