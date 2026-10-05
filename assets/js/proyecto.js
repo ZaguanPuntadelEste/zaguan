@@ -1,0 +1,13 @@
+(()=>{const sh=[...document.querySelectorAll('[data-gallery] .shot')];if(!sh.length)return;
+const d=document.createElement('dialog');d.className='lb';d.setAttribute('aria-label','Imagen ampliada');
+d.innerHTML='<div class="lb-in"><img alt=""></div><button type="button" class="lb-x" aria-label="Cerrar">×</button><button type="button" class="lb-p" aria-label="Anterior">‹</button><button type="button" class="lb-n" aria-label="Siguiente">›</button>';
+document.body.appendChild(d);
+const im=d.querySelector('img');let list=[],i=0;
+const show=n=>{i=(n+list.length)%list.length;const s=list[i].querySelector('img');im.src=s.currentSrc||s.src;im.alt=s.alt};
+sh.forEach(f=>{const b=f.querySelector('button');if(!b)return;b.addEventListener('click',()=>{if(f.classList.contains('is-empty'))return;const g=f.closest('[data-gallery]');list=sh.filter(x=>x.closest('[data-gallery]')===g&&!x.classList.contains('is-empty'));show(list.indexOf(f));d.showModal()})});
+d.querySelector('.lb-x').onclick=()=>d.close();
+d.querySelector('.lb-p').onclick=()=>show(i-1);
+d.querySelector('.lb-n').onclick=()=>show(i+1);
+d.addEventListener('click',e=>{if(e.target===d||e.target.classList.contains('lb-in'))d.close()});
+d.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+})();
