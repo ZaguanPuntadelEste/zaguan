@@ -3,3 +3,15 @@
 .photo.has-images .ph-label{display:none}.photo.has-images{border-style:solid;border-color:transparent}
 .car-btn{position:absolute;top:50%;z-index:3;width:44px;height:44px;margin-top:-22px;padding:0;display:grid;place-items:center;border:1px solid rgba(243,240,232,.7);border-radius:50%;background:rgba(8,21,33,.55);color:var(--h);transition:background var(--ease),transform var(--ease)}.car-btn:hover{background:rgba(8,21,33,.85)}.car-btn--prev{left:12px}.car-btn--next{right:12px}
 .cta-band{padding:56px 0;background:var(--b);color:var(--h)}.cta-band .container{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px}.cta-band h2{max-width:460px;font-size:clamp(26px,2.6vw,36px)}.cta-band .hero-actions{margin-top:0}.cta-band .button--light{color:var(--b)}
+
+/* FICHAS: fotos verticales 4:5 (exportar 1200x1500 px), 3 en fila, esquinas 16px */
+.ficha-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:auto;gap:16px}
+.ficha-photos .photo,.ficha-photos .photo:first-child{grid-row:auto;aspect-ratio:4/5;min-height:0;border-radius:16px}
+.ficha-photos .photo .tags{top:12px;left:12px;right:12px;gap:6px}
+.ficha-photos .photo .tag{padding:6px 9px;font-size:10px}
+.ficha-photos .photo-render{right:12px;bottom:12px}
+@media(max-width:900px){
+  .ficha-photos{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-right:-16px;padding-right:16px}
+  .ficha-photos::-webkit-scrollbar{display:none}
+  .ficha-photos .photo,.ficha-photos .photo:first-child{flex:0 0 82%;grid-row:auto;min-height:0;scroll-snap-align:start}
+}
