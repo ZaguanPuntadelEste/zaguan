@@ -1,0 +1,9 @@
+.ficha-gallery{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:1fr 1fr;gap:8px;margin:0}
+.ficha-gallery .ph{position:relative;display:flex;align-items:center;justify-content:center;min-height:200px;background:#102632;color:rgba(243,240,232,.6);font-size:13px;letter-spacing:.09em;text-transform:uppercase;overflow:hidden}
+.ficha-gallery .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ficha-gallery .ph:first-child{grid-row:1/3;min-height:460px}
+.ficha-gallery .ph .tags{position:absolute;top:14px;left:14px;z-index:1;margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.ficha-gallery .ph .photo-render{position:absolute;right:14px;bottom:12px;z-index:1}
+.ficha-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.ficha-back{display:inline-block;margin-top:20px;font-size:13px}
+@media(max-width:700px){.ficha-gallery{grid-template-columns:1fr;grid-template-rows:auto}.ficha-gallery .ph:first-child{grid-row:auto;min-height:300px}.ficha-gallery .ph{min-height:200px}}
