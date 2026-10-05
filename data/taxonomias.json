@@ -1,0 +1,56 @@
+{
+  "_nota": "Valores cerrados. Agregar un valor acá lo suma al filtro automáticamente. Zonas: validar lista final.",
+  "operacion": [
+    {"id":"venta","es":"Venta","en":"For sale","pt":"Venda","prefijo":"V"},
+    {"id":"alquiler-anual","es":"Alquiler anual","en":"Annual rental","pt":"Aluguel anual","prefijo":"A"},
+    {"id":"alquiler-invernal","es":"Alquiler invernal","en":"Winter rental","pt":"Aluguel de inverno","prefijo":"I"}
+  ],
+  "tipo": [
+    {"id":"casa","es":"Casa","en":"House","pt":"Casa"},
+    {"id":"apartamento","es":"Apartamento","en":"Apartment","pt":"Apartamento"},
+    {"id":"local","es":"Local comercial","en":"Retail unit","pt":"Loja"},
+    {"id":"oficina","es":"Oficina","en":"Office","pt":"Escritório"},
+    {"id":"consultorio","es":"Consultorio","en":"Medical office","pt":"Consultório"},
+    {"id":"terreno","es":"Terreno","en":"Land","pt":"Terreno"},
+    {"id":"chacra","es":"Chacra","en":"Rural property","pt":"Chácara"},
+    {"id":"cochera","es":"Cochera","en":"Parking space","pt":"Garagem"},
+    {"id":"emprendimiento","es":"Emprendimiento","en":"Development","pt":"Empreendimento"}
+  ],
+  "estado": [
+    {"id":"disponible","es":"Disponible","en":"Available","pt":"Disponível"},
+    {"id":"reservado","es":"Reservado","en":"Reserved","pt":"Reservado"},
+    {"id":"cerrado","es":"Vendido / alquilado","en":"Sold / rented","pt":"Vendido / alugado"}
+  ],
+  "zona": [
+    {"id":"punta-del-este-peninsula","es":"Península","en":"Peninsula","pt":"Península"},
+    {"id":"playa-mansa","es":"Playa Mansa","en":"Playa Mansa","pt":"Playa Mansa"},
+    {"id":"playa-brava","es":"Playa Brava / La Brava","en":"Playa Brava / La Brava","pt":"Playa Brava / La Brava"},
+    {"id":"pinares","es":"Pinares","en":"Pinares","pt":"Pinares"},
+    {"id":"cantegril","es":"Cantegril","en":"Cantegril","pt":"Cantegril"},
+    {"id":"maldonado","es":"Maldonado ciudad","en":"Maldonado city","pt":"Cidade de Maldonado"},
+    {"id":"la-barra","es":"La Barra","en":"La Barra","pt":"La Barra"},
+    {"id":"manantiales","es":"Manantiales","en":"Manantiales","pt":"Manantiales"},
+    {"id":"jose-ignacio","es":"José Ignacio","en":"José Ignacio","pt":"José Ignacio"}
+  ],
+  "moneda": [
+    {"id":"USD","es":"USD","en":"USD","pt":"USD"},
+    {"id":"UYU","es":"$U","en":"UYU","pt":"UYU"}
+  ],
+  "entrega": [
+    {"id":"inmediata","es":"Entrega inmediata","en":"Immediate","pt":"Imediata"},
+    {"id":"a-convenir","es":"A convenir","en":"To be agreed","pt":"A combinar"},
+    {"id":"en-obra","es":"En obra","en":"Under construction","pt":"Em obra"},
+    {"id":"pozo","es":"En pozo","en":"Off-plan","pt":"Na planta"}
+  ],
+  "atributos": [
+    {"id":"vista-al-mar","es":"Vista al mar","en":"Sea view","pt":"Vista para o mar"},
+    {"id":"apto-banco","es":"Apto banco","en":"Mortgage-ready","pt":"Apto financiamento"},
+    {"id":"amoblado","es":"Amoblado","en":"Furnished","pt":"Mobiliado"},
+    {"id":"cochera","es":"Cochera","en":"Parking","pt":"Garagem"},
+    {"id":"a-estrenar","es":"A estrenar","en":"Brand new","pt":"Novo"},
+    {"id":"frente-a-calle","es":"Frente a calle","en":"Street front","pt":"Frente para a rua"},
+    {"id":"mascotas","es":"Acepta mascotas","en":"Pets allowed","pt":"Aceita animais"},
+    {"id":"piscina","es":"Piscina","en":"Pool","pt":"Piscina"},
+    {"id":"parrillero","es":"Parrillero","en":"BBQ","pt":"Churrasqueira"}
+  ]
+}

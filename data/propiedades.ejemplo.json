@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ZG-V-0000",
+    "publicado": false,
+    "operacion": "venta",
+    "tipo": "local",
+    "estado": "disponible",
+    "zona": "punta-del-este-peninsula",
+    "titulo": { "es": "Local a la calle (EJEMPLO)", "en": "Street-front retail unit (EXAMPLE)", "pt": "Loja de rua (EXEMPLO)" },
+    "descripcion": { "es": "Texto de ejemplo. No publicar.", "en": "Sample text. Do not publish.", "pt": "Texto de exemplo. Não publicar." },
+    "precio": 250000,
+    "moneda": "USD",
+    "precio_a_consultar": false,
+    "gastos_comunes": null,
+    "superficie_total_m2": 80,
+    "superficie_cubierta_m2": 70,
+    "dormitorios": null,
+    "banos": 1,
+    "entrega": "inmediata",
+    "atributos": ["apto-banco", "frente-a-calle"],
+    "imagenes": [{ "src": "/assets/propiedades/ZG-V-0000/01.webp", "alt": "Frente del local" }],
+    "actualizado": "2026-10-05"
+  }
+]
