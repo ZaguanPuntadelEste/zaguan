@@ -1,0 +1,23 @@
+.emp{padding:80px 0 88px;background:var(--h);color:var(--b)}
+.emp-head{display:flex;align-items:end;justify-content:space-between;gap:24px;padding-bottom:25px}
+.emp-head h2{max-width:520px}
+.emp-nav{display:flex;gap:10px}
+.emp-nav button{width:48px;height:48px;border:1px solid var(--line);border-radius:0;background:transparent;color:var(--b);font-size:20px;line-height:1;transition:border-color var(--ease),background var(--ease),color var(--ease)}
+.emp-nav button:hover:not(:disabled){border-color:var(--b);background:var(--b);color:var(--h)}
+.emp-nav button:disabled{opacity:.35;cursor:default}
+.emp-rule{height:1px;background:var(--line)}
+.emp-track{display:flex;gap:18px;margin-top:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.emp-track::-webkit-scrollbar{display:none}
+.emp-card{flex:0 0 min(420px,86%);display:flex;flex-direction:column;border:1px solid var(--line);border-radius:var(--radius);background:var(--h);color:inherit;text-decoration:none;overflow:hidden;scroll-snap-align:start;transition:transform var(--ease),border-color var(--ease)}
+.emp-card:hover{transform:translateY(-3px);border-color:var(--b)}
+.emp-media{position:relative;aspect-ratio:4/3;background:var(--b);color:var(--h);overflow:hidden}
+.emp-media img{width:100%;height:100%;object-fit:cover}
+.emp-media--empty{display:flex;align-items:end;padding:22px;font-family:Archivo,Arial,sans-serif;font-size:34px;font-weight:600;letter-spacing:-.045em;line-height:1}
+.emp-tags{position:absolute;top:14px;left:14px;right:14px;display:flex;flex-wrap:wrap;gap:6px}
+.emp-tags span{padding:6px 9px;border:1px solid rgba(243,240,232,.6);background:rgba(8,21,33,.38);color:var(--h);font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;backdrop-filter:blur(6px)}
+.emp-body{display:flex;flex-direction:column;gap:6px;padding:22px 24px 26px}
+.emp-body h3{font-size:clamp(24px,2vw,30px)}
+.emp-body p{margin:0;color:#48545a;font-size:14px;line-height:1.55}
+.emp-price{margin-top:10px!important;color:var(--b)!important;font-size:15px!important;font-weight:600}
+.emp-note{margin:14px 0 0;color:#687170;font-size:12px}
+@media(max-width:620px){.emp{padding:60px 0 64px}.emp-head{align-items:start;flex-direction:column}.emp-card{flex-basis:88%}}
