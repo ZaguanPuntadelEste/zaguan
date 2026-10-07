@@ -8,6 +8,24 @@
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/proyecto.css">
+<style>
+.obra-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;margin-top:32px}
+.obra-grid figure{margin:0}
+.obra-grid .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:#e4e0d6;display:block;width:100%;padding:0;border:0;cursor:zoom-in}
+.obra-grid .ph img{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block;transition:transform .5s ease}
+.obra-grid .ph:hover img,.obra-grid .ph:focus-visible img{transform:scale(1.06)}
+.obra-grid .ph::after{content:"Ampliar +";position:absolute;right:10px;bottom:10px;background:rgba(10,20,30,.85);color:#fff;font:600 12px/1 Inter,sans-serif;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;opacity:0;transition:opacity .25s}
+.obra-grid .ph:hover::after,.obra-grid .ph:focus-visible::after{opacity:1}
+@media (hover:none){.obra-grid .ph::after{opacity:1}}
+.obra-grid figcaption{margin-top:10px;font-size:15px}
+.lb{position:fixed;inset:0;z-index:9999;background:rgba(8,12,18,.94);display:none;align-items:center;justify-content:center;flex-direction:column;padding:16px}
+.lb.on{display:flex}
+.lb img{max-width:100%;max-height:78vh;object-fit:contain;display:block}
+.lb p{color:#f3f0e8;font:400 15px/1.4 Inter,sans-serif;max-width:70ch;text-align:center;margin-top:14px}
+.lb button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;width:48px;height:48px;font-size:26px;line-height:1;cursor:pointer}
+.lb button:hover{background:rgba(255,255,255,.28)}
+.lb .x{top:14px;right:14px}.lb .pv{left:14px;top:50%}.lb .nx{right:14px;top:50%}
+</style>
 </head>
 <body>
 <header class="site-header"><div class="container hi"><a class="brand" href="/" aria-label="ZAGUÁN, inicio"><img src="/assets/brand/zaguan-white.png" alt="ZAGUÁN"></a><nav aria-label="Navegación principal"><a href="/proyectos/">Proyectos</a><a href="/busqueda-personalizada/#formulario">Búsqueda personalizada</a><a href="/publicar/">Publicar propiedad</a></nav></div></header>
@@ -37,11 +55,11 @@
 <p class="eyebrow">Avance de obra · Agosto 2026</p>
 <h2>Acá se están construyendo 102 apartamentos.</h2>
 <p style="margin-top:18px;max-width:62ch">Cada semana Betania IV toma más forma en el corazón de Maldonado. 1, 2 y 3 dormitorios, terrazas privadas y rooftop. Desde US$ 79.800 con financiación en 24 cuotas.</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:24px;margin-top:32px">
-<figure style="margin:0"><div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#e4e0d6"><img src="/assets/images/betania-iv/obra-1.jpg" alt="Obra de Betania IV: hormigonado de losa" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block" onerror="this.closest('figure').style.display='none'"></div><figcaption style="margin-top:10px;font-size:15px">Hormigonando losa: la obra no para.</figcaption></figure>
-<figure style="margin:0"><div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#e4e0d6"><img src="/assets/images/betania-iv/obra-2.jpg" alt="Obra de Betania IV: nivel completado" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block" onerror="this.closest('figure').style.display='none'"></div><figcaption style="margin-top:10px;font-size:15px">Nivel completado, y vamos por más.</figcaption></figure>
-<figure style="margin:0"><div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#e4e0d6"><img src="/assets/images/betania-iv/obra-3.jpg" alt="Obra de Betania IV: puntales, encofrados y bloques" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block" onerror="this.closest('figure').style.display='none'"></div><figcaption style="margin-top:10px;font-size:15px">Esto que ves es Betania IV hoy: puntales, encofrados y bloques en Av. Leandro Gómez, Maldonado.</figcaption></figure>
-<figure style="margin:0"><div style="position:relative;aspect-ratio:4/3;overflow:hidden;background:#e4e0d6"><img src="/assets/images/betania-iv/obra-4.jpg" alt="Obra de Betania IV: estructura de hormigón" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;display:block" onerror="this.closest('figure').style.display='none'"></div><figcaption style="margin-top:10px;font-size:15px">Hay tres niveles de hormigón hechos y las columnas del siguiente ya armadas.</figcaption></figure>
+<div class="obra-grid" data-obra>
+<figure><button type="button" class="ph" aria-label="Ampliar foto: hormigonando losa"><img src="/assets/images/betania-iv/obra-1.jpg" alt="Obra de Betania IV: hormigonado de losa" loading="lazy" onerror="this.closest('figure').style.display='none'"></button><figcaption>Hormigonando losa: la obra no para.</figcaption></figure>
+<figure><button type="button" class="ph" aria-label="Ampliar foto: nivel completado"><img src="/assets/images/betania-iv/obra-2.jpg" alt="Obra de Betania IV: nivel completado" loading="lazy" onerror="this.closest('figure').style.display='none'"></button><figcaption>Nivel completado, y vamos por más.</figcaption></figure>
+<figure><button type="button" class="ph" aria-label="Ampliar foto: puntales, encofrados y bloques"><img src="/assets/images/betania-iv/obra-3.jpg" alt="Obra de Betania IV: puntales, encofrados y bloques" loading="lazy" onerror="this.closest('figure').style.display='none'"></button><figcaption>Esto que ves es Betania IV hoy: puntales, encofrados y bloques en Av. Leandro Gómez, Maldonado.</figcaption></figure>
+<figure><button type="button" class="ph" aria-label="Ampliar foto: estructura de hormigón"><img src="/assets/images/betania-iv/obra-4.jpg" alt="Obra de Betania IV: estructura de hormigón" loading="lazy" onerror="this.closest('figure').style.display='none'"></button><figcaption>Hay tres niveles de hormigón hechos y las columnas del siguiente ya armadas.</figcaption></figure>
 </div>
 <p style="margin-top:32px;max-width:62ch"><b>Comprar en pozo tiene su premio: desde US$ 79.800.</b> Betania IV: 102 apartamentos de 1, 2 y 3 dormitorios, rooftop con ocho parrilleros, SUM y cinco locales comerciales. Un tamaño para cada etapa: 1·2·3 dormitorios, con terrazas privadas en todas las unidades.</p>
 <p style="margin-top:14px;max-width:62ch">102 apartamentos en construcción, y ya podés asegurarte el tuyo. ¿Querés que uno de estos 102 sea tuyo?</p>
@@ -62,5 +80,18 @@
 </div></section>
 </main>
 <footer class="site-footer"><div class="container"><span>© 2026 ZAGUÁN</span><span><a href="/privacidad/">Privacidad</a><a href="/aviso-legal/">Aviso legal</a></span></div></footer>
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" type="button" aria-label="Cerrar">×</button><button class="pv" type="button" aria-label="Anterior">‹</button><img alt=""><p></p><button class="nx" type="button" aria-label="Siguiente">›</button></div>
+<script>
+(function(){var g=document.querySelector('[data-obra]');if(!g)return;var lb=document.getElementById('lb'),im=lb.querySelector('img'),cp=lb.querySelector('p'),i=0;
+function items(){return Array.prototype.filter.call(g.querySelectorAll('figure'),function(f){return f.style.display!=='none'})}
+function show(n){var l=items();if(!l.length)return;i=(n+l.length)%l.length;var f=l[i],s=f.querySelector('img');im.src=s.currentSrc||s.src;im.alt=s.alt;cp.textContent=f.querySelector('figcaption').textContent}
+function open(n){show(n);lb.classList.add('on');document.body.style.overflow='hidden';lb.querySelector('.x').focus()}
+function close(){lb.classList.remove('on');document.body.style.overflow=''}
+g.addEventListener('click',function(e){var b=e.target.closest('.ph');if(!b)return;open(items().indexOf(b.closest('figure')))});
+lb.querySelector('.x').onclick=close;lb.querySelector('.pv').onclick=function(){show(i-1)};lb.querySelector('.nx').onclick=function(){show(i+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)close()});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
+})();
+</script>
 <script src="/assets/js/proyecto.js" defer></script>
 </body></html>
