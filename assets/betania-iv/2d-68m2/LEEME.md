@@ -1,3 +1,1 @@
-# Imágenes · Betania IV · 2 dorm 68 m²
-
-Carpetas: espacio-1/, espacio-2/, espacio-3/. Archivos 01.webp, 02.webp... WebP 1600x1000 px (16:10), calidad 80, máx. 250 KB.
+Ver /assets/betania-iv/LEEME.md. Archivos: /assets/images/betania-iv/2d-68m2-1.jpg, -2.jpg, -3.jpg. Vertical 3:4, 1200x1600, JPG q82, máx. 400 KB.
