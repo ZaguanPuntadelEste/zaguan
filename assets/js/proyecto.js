@@ -1,57 +1,23 @@
-(()=>{
-const css='.shot .slides{position:absolute;inset:0}.shot .slides img{position:absolute;inset:0;opacity:0;transition:opacity .7s ease,transform .6s ease}.shot .slides img.on{opacity:1}.shot .c-btn{position:absolute;z-index:3;top:50%;bottom:auto;transform:translateY(-50%);width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.35);border-radius:50%;background:rgba(8,21,33,.45);color:#fff;font-size:24px;line-height:1;cursor:pointer;opacity:0;transition:opacity .2s ease,background .2s ease}.shot .c-btn:hover{background:rgba(8,21,33,.75)}.shot:hover .c-btn,.shot:focus-within .c-btn{opacity:1}@media(hover:none){.shot .c-btn{opacity:1}}.shot .c-prev{left:10px;right:auto}.shot .c-next{right:10px;left:auto}.shot .c-dots{position:absolute;z-index:3;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:0}.shot .c-dots button{position:relative;inset:auto;width:20px;height:20px;padding:0;border:0;background:none;cursor:pointer}.shot .c-dots button::after{content:"";display:block;width:8px;height:8px;margin:auto;border-radius:50%;background:rgba(255,255,255,.5)}.shot .c-dots button[aria-current=true]::after{background:#fff}.shot.is-empty .slides,.shot.is-empty .c-btn,.shot.is-empty .c-dots{display:none}';
-const st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
-const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches,MAX=6;
-const probe=u=>new Promise(r=>{const i=new Image();i.onload=()=>r(u);i.onerror=()=>r(null);i.src=u});
-const parse=s=>{const m=(s||'').match(/^(.*\/)([^\/]+)-(\d+)\.jpg/);return m?{dir:m[1],base:m[2]}:null};
-const cards=[...document.querySelectorAll('.card .shot')];
-cards.forEach(f=>{const im=f.querySelector('img');const p=im&&parse(im.getAttribute('src'));if(!p)return;probe(p.dir+p.base+'-e1-1.jpg').then(u=>{if(u){im.src=u;f.classList.remove('is-empty')}})});
-const sh=[...document.querySelectorAll('[data-gallery] .shot')];if(!sh.length)return;
-const d=document.createElement('dialog');d.className='lb';d.setAttribute('aria-label','Imagen ampliada');
-d.innerHTML='<div class="lb-in"><img alt=""></div><button type="button" class="lb-x" aria-label="Cerrar">×</button><button type="button" class="lb-p" aria-label="Anterior">‹</button><button type="button" class="lb-n" aria-label="Siguiente">›</button>';
-document.body.appendChild(d);
-const im=d.querySelector('img');let list=[],i=0,lalt='';
-const show=n=>{i=(n+list.length)%list.length;im.src=list[i];im.alt=lalt+' · foto '+(i+1)};
-d.querySelector('.lb-x').onclick=()=>d.close();
-d.querySelector('.lb-p').onclick=()=>show(i-1);
-d.querySelector('.lb-n').onclick=()=>show(i+1);
-d.addEventListener('click',e=>{if(e.target===d||e.target.classList.contains('lb-in'))d.close()});
-d.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});
-const build=(f,urls,alt)=>{
-const z=f.querySelector('button');if(!z)return;f.classList.remove('is-empty');z.innerHTML='';
-const box=document.createElement('div');box.className='slides';
-urls.forEach((u,k)=>{const g=document.createElement('img');g.src=u;g.alt=alt+' · foto '+(k+1);g.width=900;g.height=1200;if(k)g.loading='lazy';box.appendChild(g)});
-z.appendChild(box);
-const imgs=[...box.children];let n=0,t=null,moved=false;
-let dots=[];
-const go=k=>{n=(k+imgs.length)%imgs.length;imgs.forEach((x,j)=>x.classList.toggle('on',j===n));dots.forEach((x,j)=>x.setAttribute('aria-current',String(j===n)))};
-if(imgs.length>1){
-const mk=(c,l,tx)=>{const b=document.createElement('button');b.type='button';b.className='c-btn '+c;b.setAttribute('aria-label',l);b.textContent=tx;f.appendChild(b);return b};
-mk('c-prev','Foto anterior','‹').onclick=()=>{go(n-1);rs()};
-mk('c-next','Foto siguiente','›').onclick=()=>{go(n+1);rs()};
-const dw=document.createElement('div');dw.className='c-dots';
-imgs.forEach((_,j)=>{const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Ir a la foto '+(j+1));b.onclick=()=>{go(j);rs()};dw.appendChild(b);dots.push(b)});
-f.appendChild(dw);
-}
-go(0);
-const st0=()=>{if(t||reduce||imgs.length<2)return;t=setInterval(()=>go(n+1),5000)};
-const sp=()=>{clearInterval(t);t=null};
-const rs=()=>{sp()};
-if(imgs.length>1&&!reduce){
-setTimeout(st0,sh.indexOf(f)*1200);
-f.addEventListener('mouseenter',sp);f.addEventListener('mouseleave',st0);f.addEventListener('focusin',sp);f.addEventListener('focusout',st0);
-}
-let x0=null;
-f.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;moved=false;sp()},{passive:true});
-f.addEventListener('touchend',e=>{if(x0===null)return;const dx=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(dx)>40){moved=true;go(dx<0?n+1:n-1)}st0()});
-z.addEventListener('click',()=>{if(moved){moved=false;return}list=urls;lalt=alt;show(n);d.showModal()});
-};
-sh.forEach((f,s)=>{
-const o=f.querySelector('img');const src=o&&o.getAttribute('src');const p=parse(src);const alt=(o&&o.alt||'Imagen').replace(/,?\s*imagen\s*\d+$/i,'');
-if(!p){return}
-const cands=[];for(let k=1;k<=MAX;k++)cands.push(p.dir+p.base+'-e'+(s+1)+'-'+k+'.jpg');
-Promise.all(cands.map(probe)).then(r=>{let urls=r.filter(Boolean);
-if(urls.length){build(f,urls,alt);return}
-probe(src).then(u=>{if(u)build(f,[u],alt);else f.classList.add('is-empty')})});
-});
+(() => {
+  const css=document.createElement('link');css.rel='stylesheet';css.href='/assets/css/proyecto-interacciones.css';document.head.appendChild(css);
+  const main=document.querySelector('main');if(!main)return;
+  const project=(location.pathname.match(/\/proyectos\/([^/]+)/)||[])[1]||'';
+  const name=(document.querySelector('h1')?.textContent||project).trim().replace(/\.$/,'');
+  const newsHome='/novedades-del-este/';
+  const notes={'betania-iv':[{url:newsHome+'betania-iv-apartamentos-en-pozo-maldonado/',title:'Betania IV: el proyecto y su financiación',summary:'Viviendas de 1, 2 y 3 dormitorios y financiación hasta en 24 cuotas.'},{url:newsHome+'betania-iv-avances-obra-octubre-2026/',title:'Betania IV: avances de obra',summary:'Encofrado de losas, estacionamiento y objetivo de etapa para fin de 2026.'}]};
+  const wa=context=>'https://wa.me/59898712064?text='+encodeURIComponent('Hola, vi '+context+' en ZAGUÁN. Quiero conocer disponibilidad, precio y condiciones de compra.');
+  document.querySelectorAll('a').forEach(a=>{const href=a.getAttribute('href')||'';if(href==='/whatsapp/'||href==='/#contacto'||href==='#contacto'){a.href=wa(name+(location.pathname.split('/').filter(Boolean).length>2?' · '+document.querySelector('h1').textContent.trim():''));a.textContent='Contactanos por WhatsApp';a.target='_blank';a.rel='noopener noreferrer';}});
+  document.querySelectorAll('h2').forEach(h=>{if(h.textContent.trim()==='Elegí por dormitorios.')h.textContent='Elegí el tuyo.';});
+  if(project==='betania-iv'){document.querySelectorAll('.price small').forEach(e=>{e.textContent=e.textContent.replace('Cochera con precio aparte','Cochera opcional, con precio aparte');});document.querySelectorAll('dl > div').forEach(row=>{if(row.querySelector('dt')?.textContent.trim()==='Cochera'){const dd=row.querySelector('dd');if(dd)dd.textContent='Opcional, disponible y cotizada por separado';}});}
+  const probe=url=>new Promise(resolve=>{const im=new Image();im.onload=()=>resolve(url);im.onerror=()=>resolve(null);im.src=url;});
+  const clean=s=>(s||name).replace(/[,·]\s*(imagen|foto)\s*\d+$/i,'').trim();
+  const dialog=document.createElement('dialog');dialog.className='zg-modal';dialog.setAttribute('aria-label','Imagen ampliada');dialog.innerHTML='<button type="button" class="zg-close" aria-label="Cerrar imagen ampliada">×</button><img alt=""><div class="zg-controls"><button type="button" data-step="-1" aria-label="Imagen anterior">‹</button><small></small><button type="button" data-step="1" aria-label="Imagen siguiente">›</button></div>';document.body.appendChild(dialog);
+  let modalItems=[],modalIndex=0,returnFocus=null;
+  const modalShow=step=>{if(!modalItems.length)return;modalIndex=(modalIndex+step+modalItems.length)%modalItems.length;const item=modalItems[modalIndex];dialog.querySelector('img').src=item.src;dialog.querySelector('img').alt=item.alt;dialog.querySelector('small').textContent=item.alt;};
+  dialog.querySelector('.zg-close').onclick=()=>dialog.close();dialog.querySelectorAll('[data-step]').forEach(b=>b.onclick=()=>modalShow(Number(b.dataset.step)));dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});dialog.addEventListener('close',()=>returnFocus?.focus());dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();modalShow(-1);}if(e.key==='ArrowRight'){e.preventDefault();modalShow(1);}});
+  const build=(host,items)=>{if(!items.length){host.hidden=true;host.style.display='none';return;}host.hidden=false;host.style.display='block';const figure=document.createElement('figure');figure.className='zg-carousel';figure.innerHTML='<button type="button" class="zg-view" aria-label="Ampliar imagen"><img alt="" loading="lazy"></button><figcaption class="zg-controls"><button type="button" data-step="-1" aria-label="Imagen anterior">‹</button><small></small><button type="button" data-step="1" aria-label="Imagen siguiente">›</button></figcaption>';host.replaceChildren(figure);let i=0,x=null,moved=false;const view=figure.querySelector('.zg-view'),img=view.querySelector('img');const show=step=>{i=(i+step+items.length)%items.length;img.src=items[i].src;img.alt=items[i].alt;figure.querySelector('small').textContent=items[i].alt;};show(0);figure.querySelectorAll('[data-step]').forEach(b=>{b.hidden=items.length<2;b.onclick=()=>show(Number(b.dataset.step));});view.addEventListener('click',()=>{if(moved){moved=false;return;}modalItems=items;modalIndex=i;returnFocus=view;modalShow(0);dialog.querySelectorAll('[data-step]').forEach(b=>b.hidden=items.length<2);dialog.showModal();});view.addEventListener('touchstart',e=>{x=e.touches[0].clientX;moved=false;},{passive:true});view.addEventListener('touchend',e=>{if(x===null)return;const dx=e.changedTouches[0].clientX-x;x=null;if(Math.abs(dx)>40){moved=true;show(dx<0?1:-1);}},{passive:true});figure.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();show(-1);}if(e.key==='ArrowRight'){e.preventDefault();show(1);}});};
+  const groups=[...document.querySelectorAll('[data-gallery],[data-obra]')];groups.forEach(host=>{const images=[...host.querySelectorAll('img')];const items=images.map(im=>({src:im.getAttribute('src'),alt:clean(im.alt)})).filter(i=>i.src);Promise.all(items.map(i=>probe(i.src).then(src=>src?i:null))).then(r=>{build(host,r.filter(Boolean));if(host.matches('[data-gallery]')&&r.some(Boolean)){const hero=main.querySelector(':scope > section.ph');if(hero){hero.classList.add('zg-hero');hero.style.backgroundImage='linear-gradient(90deg,rgba(8,21,33,.93),rgba(8,21,33,.70)),url('+JSON.stringify(r.find(Boolean).src)+')';}}});});
+  [...document.querySelectorAll('.cards > .card')].forEach(card=>{const heading=card.querySelector('h3'),desc=card.querySelector('p'),image=card.querySelector('img');if(!heading||!image)return;const href=card.getAttribute('href'),original=heading.textContent.trim();const area=(original.match(/\d+(?:[.,]\d+)?\s*m²/)||(desc?.textContent||'').match(/\d+(?:[.,]\d+)?\s*m²/))?.[0];const label=original+(area&&!original.includes(area)?' · '+area:'');heading.textContent=label;if(desc){const parts=desc.textContent.split('·').filter(p=>!/(terraza|m²)/i.test(p));desc.textContent=parts.map(p=>p.trim()).filter(Boolean).join(' · ');if(!desc.textContent)desc.hidden=true;}let container=card;if(card.tagName==='A'){container=document.createElement('article');container.className=card.className;while(card.firstChild)container.appendChild(card.firstChild);card.replaceWith(container);if(href){const a=document.createElement('a');a.href=href;a.className='zg-option-link';a.textContent='Ver esta opción';container.appendChild(a);}}const oldFigure=image.closest('figure');if(!oldFigure)return;const host=document.createElement('div');oldFigure.replaceWith(host);const explicit=container.getAttribute('data-images');let urls=[];if(explicit){try{urls=JSON.parse(explicit);}catch{urls=[];}}else{const src=image.getAttribute('src')||'',match=src.match(/^(.*)-\d+\.jpg$/);urls=match?Array.from({length:6},(_,i)=>match[1]+'-'+(i+1)+'.jpg'):[src];}Promise.all(urls.filter(Boolean).map(probe)).then(r=>build(host,r.filter(Boolean).map(src=>({src,alt:name+' · '+label}))));});
+  let slot=main.querySelector('[data-project-news]');if(!slot){slot=document.createElement('section');slot.className='zg-news';slot.dataset.projectNews=project;slot.id='novedades-del-proyecto';main.appendChild(slot);}const inner=document.createElement('div');inner.className='container';const own=notes[project]||[];if(own.length){const h=document.createElement('h2');h.textContent='Novedades de '+name;inner.appendChild(h);const grid=document.createElement('div');grid.className='zg-news-grid';own.forEach(note=>{const a=document.createElement('a');a.className='zg-news-card';a.href=note.url;const t=document.createElement('strong');t.textContent=note.title;const s=document.createElement('span');s.textContent=note.summary;a.append(t,s);grid.appendChild(a);});inner.appendChild(grid);const hero=main.querySelector(':scope > section.ph .container');if(hero&&!hero.querySelector('a[href="#novedades-del-proyecto"]')){const a=document.createElement('a');a.href='#novedades-del-proyecto';a.className='zg-option-link';a.textContent='Conocé las novedades de '+name;hero.appendChild(a);}}const all=document.createElement('a');all.href=newsHome;all.className='button';all.textContent='Conocé las novedades de nuestros proyectos';inner.appendChild(all);slot.replaceChildren(inner);
+  const nav=document.querySelector('.site-header nav');if(nav&&!nav.querySelector('a[href="/novedades-del-este/"]')){const a=document.createElement('a');a.href=newsHome;a.textContent='Novedades del Este';nav.appendChild(a);}const footer=document.querySelector('.site-footer .container');if(footer&&!footer.querySelector('a[href="/novedades-del-este/"]')){const a=document.createElement('a');a.href=newsHome;a.textContent='Novedades del Este';footer.appendChild(a);}
 })();
