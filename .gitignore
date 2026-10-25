@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+.agents/
+TEST_INFRA.md
+TEST_READY.md
+prospecting/
+catalog/
+tools/
+tests/
