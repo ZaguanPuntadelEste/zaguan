@@ -1,0 +1,23 @@
+# ZAGUÁN Propiedades · zaguanpropiedades.com
+# Última actualización: octubre 2026
+
+User-agent: *
+Allow: /
+
+# Bots de IA — acceso permitido explícitamente
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+Sitemap: https://zaguanpropiedades.com/sitemap.xml
