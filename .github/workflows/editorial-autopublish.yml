@@ -1,0 +1,37 @@
+name: Publicación Quincenal — Novedades del Este
+
+on:
+  schedule:
+    # Día 1 y 15 de cada mes a las 09:00 AM hora Uruguay (12:00 UTC)
+    - cron: '0 12 1,15 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish_scheduled_article:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Editorial Auto-Publisher
+        run: python3 tools/editorial/auto_publish.py
+
+      - name: Commit and Push if new article published
+        run: |
+          git config user.name "ZAGUÁN Editorial Bot"
+          git config user.email "ariana@starunionservicios.com.ar"
+          if [[ -n $(git status --porcelain) ]]; then
+            git add novedades-del-este/ proyectos/ assets/js/emprendimientos.js sitemap.xml catalog/editorial_queue.json
+            git commit -m "Publicación automática quincenal en Novedades del Este"
+            git push origin main
+          else
+            echo "Sin notas pendientes para la fecha de hoy."
+          fi

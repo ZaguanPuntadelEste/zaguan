@@ -1,0 +1,14 @@
+.DS_Store
+__pycache__/
+*.pyc
+.agents/
+TEST_INFRA.md
+TEST_READY.md
+prospecting/
+catalog/developments/
+catalog/schema/
+tools/ads/
+tools/catalog/
+tools/leads/
+tools/site_sync/
+tests/
