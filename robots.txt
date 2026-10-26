@@ -1,17 +1,35 @@
 # ZAGUÁN Propiedades · zaguanpropiedades.com
-# Última actualización: octubre 2026
+# Última actualización: 2026-10-26
 
 User-agent: *
 Allow: /
+Disallow: /prospecting/
+Disallow: /test/
+Disallow: /whatsapp/
+Disallow: /generadorqr/
+Disallow: /tarjetaAW/
+Disallow: /tarjetaEXTENDIDAAW/
 
-# Bots de IA — acceso permitido explícitamente
-User-agent: ClaudeBot
-Allow: /
-
+# Motores de búsqueda y asistentes de IA — acceso e indexación permitidos explícitamente
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
 User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
 Allow: /
 
 User-agent: Googlebot
@@ -20,4 +38,9 @@ Allow: /
 User-agent: Bingbot
 Allow: /
 
+User-agent: Applebot-Extended
+Allow: /
+
+# Mapa del sitio y guía estructurada para modelos de lenguaje (LLMs)
 Sitemap: https://zaguanpropiedades.com/sitemap.xml
+# LLMs Context File: https://zaguanpropiedades.com/llms.txt
