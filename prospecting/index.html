@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ZAGUÁN · Cabina Operativa (Canva Kit + WhatsApp + Arquitectura de Pauta y Benchmark)</title>
+<style>
+  :root {
+    --bg: #F5F2EB;
+    --card: #FFFFFF;
+    --dark: #0B1926;
+    --gold: #8C6D46;
+    --gold-light: #FDF9F3;
+    --green: #1E6B45;
+    --text: #18222C;
+    --muted: #5A6570;
+    --line: #DFD9CE;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding-bottom: 60px;
+  }
+  .top-status {
+    background: var(--dark);
+    color: #F3F0E8;
+    padding: 12px 24px;
+    font-size: 13.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-bottom: 2px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-jumps {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .jump-btn {
+    background: rgba(255,255,255,0.1);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .jump-btn:hover { background: var(--gold); border-color: var(--gold); }
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(30, 107, 69, 0.28);
+    border: 1px solid #2b8a5b;
+    color: #98f5c4;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  .wrap {
+    max-width: 1160px;
+    margin: 24px auto;
+    padding: 0 18px;
+  }
+  .block {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 26px;
+    box-shadow: 0 4px 14px rgba(11, 25, 38, 0.04);
+  }
+  .block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  .step-tag {
+    display: inline-block;
+    background: var(--gold);
+    color: #fff;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 6px;
+  }
+  .block-title {
+    font-size: 21px;
+    font-weight: 800;
+    color: var(--dark);
+  }
+  .counter-box {
+    background: var(--gold-light);
+    border: 1px solid #DCC8AE;
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .canva-kit-banner {
+    background: #F4F7F5;
+    border: 1px solid #B7D8C6;
+    border-left: 5px solid var(--green);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 13.5px;
+  }
+  .post-stage {
+    background: #FAF8F4;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .post-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .post-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--dark);
+  }
+  .slides-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .slide-card {
+    background: var(--dark);
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    text-align: center;
+  }
+  .slide-card img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+  }
+  .slide-card a {
+    display: block;
+    padding: 8px;
+    color: #F3F0E8;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    background: #13283c;
+  }
+  .slide-card a:hover { background: var(--gold); }
+  .copy-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+  .copy-box {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .copy-box h4 {
+    font-size: 12.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  .copy-box textarea {
+    width: 100%;
+    height: 118px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 9px;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.45;
+    resize: vertical;
+    margin-bottom: 8px;
+  }
+  .decision-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: all 0.12s ease;
+  }
+  .btn:active { transform: scale(0.98); }
+  .btn--approve {
+    background: var(--green);
+    color: #fff;
+    font-size: 14.5px;
+    padding: 12px 20px;
+  }
+  .btn--approve:hover { opacity: 0.93; }
+  .btn--secondary {
+    background: #fff;
+    border-color: var(--line);
+    color: var(--text);
+  }
+  .btn--secondary:hover { border-color: var(--gold); }
+  .btn--danger {
+    background: #FFF5F5;
+    border-color: #FEB2B2;
+    color: #9B2C2C;
+  }
+  .btn--gold {
+    background: var(--gold);
+    color: #fff;
+  }
+  .btn--wa {
+    background: #25D366;
+    color: #072312;
+  }
+  .building-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .b-btn {
+    padding: 16px 14px;
+    border-radius: 12px;
+    border: 2px solid var(--line);
+    background: #FAF8F4;
+    color: var(--dark);
+    font-size: 15px;
+    font-weight: 800;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.12s ease;
+  }
+  .b-btn span {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .b-btn.active {
+    border-color: var(--gold);
+    background: var(--gold-light);
+    box-shadow: 0 4px 12px rgba(140, 109, 70, 0.15);
+  }
+  .wa-panel {
+    display: none;
+    background: #FAF8F4;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .wa-panel.active { display: block; }
+  .wa-step {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 14px;
+  }
+  .wa-step h4 {
+    font-size: 14px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .wa-text {
+    background: #F4F7F5;
+    border-left: 4px solid var(--green);
+    padding: 12px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    white-space: pre-line;
+    margin-bottom: 10px;
+  }
+  .alert-fiscal {
+    background: #FFF8EB;
+    border: 1px solid #E6B85C;
+    border-left: 5px solid #D9822B;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    font-size: 13.5px;
+  }
+  .typo-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+  .typo-pill {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  .typo-pill.active {
+    background: var(--dark);
+    color: #fff;
+    border-color: var(--dark);
+  }
+  .bench-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 13.5px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  .bench-table th {
+    background: var(--dark);
+    color: #fff;
+    text-align: left;
+    padding: 10px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .bench-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+  .tier-card {
+    background: #FAF8F4;
+    border: 2px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.12s ease;
+  }
+  .tier-card.active {
+    border-color: var(--green);
+    background: #F2F9F5;
+    box-shadow: 0 4px 14px rgba(30, 107, 69, 0.12);
+  }
+  .ad-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .ad-card {
+    background: #FAF8F4;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .ad-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    background: var(--dark);
+    color: #fff;
+    margin-bottom: 6px;
+  }
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--dark);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 10px;
+    font-weight: 700;
+    display: none;
+    z-index: 9999;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  }
+  @media (max-width: 860px) {
+    .slides-row, .copy-columns, .building-selector, .ad-grid, .tier-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-status">
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <strong>ZAGUÁN · CABINA OPERATIVA</strong>
+    <div class="nav-jumps">
+      <a class="jump-btn" href="#bloque-redes">1. 🟡 Canales Orgánicos + Kit Canva Bulk</a>
+      <a class="jump-btn" href="#bloque-wa">2. 💬 Qué Responder (WhatsApp)</a>
+      <a class="jump-btn" href="#bloque-ads">3. 🎯 Cómo Armar la Pauta desde Cero + Benchmark Real</a>
+    </div>
+  </div>
+  <div class="status-pill">
+    🟢 Web + 11 Notas en vivo
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ================================================================== -->
+  <!-- BLOQUE 1: LOS 5 CANALES + KIT COMPLETO DE CANVA BULK               -->
+  <!-- ================================================================== -->
+  <section class="block" id="bloque-redes">
+    <div class="block-header">
+      <div>
+        <span class="step-tag">BLOQUE 1 · TUS 5 CANALES ORGÁNICOS (IG, FB, LINKEDIN, GOOGLE MAPS Y WHATSAPP ESTADO)</span>
+        <h2 class="block-title">🟡 Publicación por nota (Placas ya armadas + Kit para "Crear en Lote" en Canva)</h2>
+      </div>
+      <div class="counter-box" id="queueCounter">Cargando...</div>
+    </div>
+
+    <!-- PASO 0: PONER LAS URLs VISIBLES EN EL PERFIL DE CADA RED (1 SOLA VEZ · 60 SEGUNDOS) -->
+    <div style="background:#FFF8EB;border:2px solid #D9822B;border-radius:12px;padding:16px 18px;margin-bottom:16px;">
+      <div style="font-size:15px;font-weight:800;color:var(--dark);margin-bottom:6px;">
+        🔗 Paso 0 (Hacelo 1 sola vez): Poner las URLs de Pozo y del Blog visibles en tus Perfiles de Redes
+      </div>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:12px;">
+        Ya actualicé tu página pública <code>https://zaguanpropiedades.com/links/</code> (la que va en la Bio de Instagram <code>@zaguanpropiedades</code>) para que muestre los botones directos a <strong>Desarrollos en Pozo</strong>, <strong>Betania IV</strong>, <strong>EVE Tower</strong>, <strong>Golden Rise</strong> y <strong>Novedades del Este (Blog)</strong>. Copiá y pegá esto en el perfil de cada red:
+      </p>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;">
+          <strong style="font-size:12.5px;display:block;margin-bottom:4px;">1. Link para Bio de Instagram / FB:</strong>
+          <code id="bio-url-1" style="display:block;font-size:12px;background:#F4F7F5;padding:6px;border-radius:4px;margin-bottom:6px;">https://zaguanpropiedades.com/links/</code>
+          <button type="button" class="btn btn--gold" style="width:100%;padding:7px 10px;font-size:12.5px;" onclick="copyElem('bio-url-1', this)">📋 Copiar Link de Bio</button>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;">
+          <strong style="font-size:12.5px;display:block;margin-bottom:4px;">2. Link para LinkedIn / Google Maps:</strong>
+          <code id="bio-url-2" style="display:block;font-size:12px;background:#F4F7F5;padding:6px;border-radius:4px;margin-bottom:6px;">https://zaguanpropiedades.com/proyectos/</code>
+          <button type="button" class="btn btn--gold" style="width:100%;padding:7px 10px;font-size:12.5px;" onclick="copyElem('bio-url-2', this)">📋 Copiar URL Desarrollos en Pozo</button>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;">
+          <strong style="font-size:12.5px;display:block;margin-bottom:4px;">3. Texto para Bio de Instagram:</strong>
+          <code id="bio-txt-3" style="display:block;font-size:11.5px;background:#F4F7F5;padding:6px;border-radius:4px;margin-bottom:6px;">Desarrollos en Pozo · Alquiler Anual · Venta en Punta del Este y Maldonado. Betania IV · EVE Tower · Golden Rise 👇</code>
+          <button type="button" class="btn btn--gold" style="width:100%;padding:7px 10px;font-size:12.5px;" onclick="copyElem('bio-txt-3', this)">📋 Copiar Texto de Bio</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANNER DEL KIT COMPLETO DE CANVA BULK (PLANTILLAS SVG + 22 FONDOS LIMPIOS SIN TEXTO + CSV) -->
+    <div class="canva-kit-banner">
+      <div style="max-width:720px;">
+        <strong>🎨 Kit Completo para "Crear en Lote" (Bulk Create) en Canva Pro:</strong><br>
+        Para que el Bulk de Canva funcione de verdad, armé la carpeta <code>CANVA_KIT_LOTE_COMPLETO</code> con las <strong>3 piezas físicas necesarias</strong>:<br>
+        1) <strong>2 Plantillas Base Editables (<code>.svg</code>):</strong> <code>PLANTILLA_BASE_FEED_1080x1350.svg</code> y <code>PLANTILLA_BASE_STORY_1080x1920.svg</code> con las capas <code>{{Etiqueta_Superior}}</code>, <code>{{Titulo_Placa}}</code>, <code>{{Bajada_Datos}}</code> y <code>{{Pie_CTA}}</code>.<br>
+        2) <strong>22 Fotos de Fondo Limpias (SIN texto quemado encima):</strong> 11 en <code>1080x1350</code> y 11 en <code>1080x1920</code> de cada edificio real.<br>
+        3) <strong>El CSV sincronizado (<code>3_DATOS_CANVA_BULK_11_NOTAS.csv</code>):</strong> Con las mismas columnas de la plantilla + los 4 copys.
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a class="btn btn--approve" href="CANVA_KIT_LOTE_COMPLETO.zip" download="CANVA_KIT_LOTE_COMPLETO.zip">📦 Bajar Kit Completo Canva (.ZIP: Plantillas SVG + 22 Fondos Limpios + CSV)</a>
+        <a class="btn btn--secondary" href="CANVA_KIT_LOTE_COMPLETO/0_PLANTILLAS_BASE_EDITABLES_SVG/PLANTILLA_BASE_FEED_1080x1350.svg" download="PLANTILLA_BASE_FEED_1080x1350.svg">⬇️ Solo Plantilla Feed (.SVG)</a>
+      </div>
+    </div>
+
+    <!-- CAJA DE CONEXIÓN DIRECTA DE APIs (CERO MAKE / CERO ZAPIER / 100% GRATIS DIRECTO) -->
+    <div style="background:#0F171A;color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <strong style="font-size:15.5px;color:#E6B85C;">🔌 Conexión Directa por API Oficial ($0 · Sin Make ni Zapier)</strong>
+          <div id="api-status-line" style="font-size:12.5px;color:#C8D1D6;margin-top:3px;">Verificando llaves guardadas en <code>.agents/vault/social_keys.json</code>...</div>
+        </div>
+        <button type="button" class="btn btn--secondary" style="font-size:12.5px;padding:7px 12px;" onclick="toggleApiBox()">⚙️ Abrir / Cerrar Llaves de API</button>
+      </div>
+
+      <div id="api-config-box" style="display:block;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:8px;">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12.5px;">
+          <!-- 1. META API (IG + FB + STORIES) -->
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
+            <strong style="color:#fff;display:block;margin-bottom:4px;">1. Meta API (IG Carrusel + IG Story + FB Page)</strong>
+            <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
+              1) Abrí <a href="https://developers.facebook.com/tools/explorer/" target="_blank" style="color:#E6B85C;text-decoration:underline;">Meta Graph API Explorer ↗</a><br>
+              2) Marcá permisos: <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>.<br>
+              3) Tocá <strong>Generate Access Token</strong> y pegalo acá (auto-detecta tu FB Page e IG <code>@zaguanpropiedades</code>):
+            </p>
+            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token de Meta (EAA...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Meta (IG + FB + Stories)</button>
+          </div>
+
+          <!-- 2. LINKEDIN API -->
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
+            <strong style="color:#fff;display:block;margin-bottom:4px;">2. LinkedIn API Oficial (Posts + Artículos)</strong>
+            <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
+              1) Abrí <a href="https://www.linkedin.com/developers/tools/oauth/token-generator" target="_blank" style="color:#E6B85C;text-decoration:underline;">LinkedIn OAuth Token Generator ↗</a><br>
+              2) Marcá permisos: <code>openid</code>, <code>profile</code>, <code>w_member_social</code> (o <code>w_organization_social</code>).<br>
+              3) Pegá tu Access Token acá (auto-detecta tu URN):
+            </p>
+            <input id="inp-li-token" type="password" placeholder="Pegar Access Token de LinkedIn (AQV...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar LinkedIn</button>
+          </div>
+
+          <!-- 3. GOOGLE BUSINESS PROFILE API -->
+          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
+            <strong style="color:#fff;display:block;margin-bottom:4px;">3. Google Maps (Business Profile API)</strong>
+            <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
+              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground ↗</a> con scope <code>https://www.googleapis.com/auth/business.manage</code>.<br>
+              2) Pegá el Access Token y el ID de ubicación (<code>accounts/X/locations/Y</code>):
+            </p>
+            <input id="inp-gmb-token" type="password" placeholder="Token Google (ya29...)" style="width:100%;padding:7px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:4px;">
+            <input id="inp-gmb-loc" type="text" placeholder="accounts/123.../locations/456..." style="width:100%;padding:7px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Google Maps</button>
+          </div>
+        </div>
+        <div id="api-connect-log" style="margin-top:10px;font-size:12.5px;color:#7AE582;"></div>
+      </div>
+    </div>
+
+    <div class="post-stage" id="postStage"></div>
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- BLOQUE 2: CONTESTADOR DE WHATSAPP (CON DATOS FISCALES CORREGIDOS)  -->
+  <!-- ================================================================== -->
+  <section class="block" id="bloque-wa">
+    <div class="block-header">
+      <div>
+        <span class="step-tag">BLOQUE 2 · CUANDO TE ESCRIBEN AL WHATSAPP</span>
+        <h2 class="block-title">💬 Me entró una consulta: ¿por qué edificio me preguntan?</h2>
+        <p style="font-size:14px;color:var(--muted)">Tocá el edificio y copiá el mensaje. <strong>El link al plano ya viene metido adentro del mensaje.</strong></p>
+      </div>
+      <div>
+        <a class="btn btn--secondary" href="GUIA_DE_RESPUESTA_VENTAS_ZAGUAN.pdf" target="_blank">📄 Abrir PDF Guía de Venta</a>
+      </div>
+    </div>
+
+    <div class="building-selector">
+      <button type="button" class="b-btn active" onclick="selectBuilding('betania', this)">
+        🏢 BETANIA IV
+        <span>Maldonado · Desde USD 79.800</span>
+      </button>
+      <button type="button" class="b-btn" onclick="selectBuilding('eve', this)">
+        🌊 EVE TOWER
+        <span>Playa Brava Pda. 7 · Desde USD 156.970</span>
+      </button>
+      <button type="button" class="b-btn" onclick="selectBuilding('golden', this)">
+        🌳 GOLDEN RISE
+        <span>Roosevelt Pda. 18 · Hasta 70 cuotas</span>
+      </button>
+      <button type="button" class="b-btn" onclick="selectBuilding('exterior', this)">
+        🇦🇷 CLIENTE EXTERIOR / FISCAL
+        <span>UI 3.5M (~USD 585k) y Papeles</span>
+      </button>
+    </div>
+
+    <!-- PANEL BETANIA IV -->
+    <div class="wa-panel active" id="panel-betania">
+      <div class="wa-step">
+        <h4>Paso 1 · Rompehielo y pregunta filtro (Cuando recién te escribe)</h4>
+        <div class="wa-text" id="txt-betania-1">Hola, ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades.
+Te paso en limpio los datos de Betania IV: está sobre Av. Batlle y Ordóñez en Maldonado, ya en obra con entrega prevista en octubre de 2028 y financiación hasta en 24 cuotas.
+Para pasarte el plano y números exactos sin marearte: ¿estás buscando de 1, 2 o 3 dormitorios? ¿Lo pensás para renta o para uso propio?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-betania-1', this)">📋 Copiar Mensaje 1</button>
+      </div>
+
+      <div class="wa-step">
+        <h4>Paso 2 · Respuesta con Plano y Precio (Elegí qué dormitorio te pidió)</h4>
+        <div class="typo-pills">
+          <button type="button" class="typo-pill active" onclick="setTypo('betania', '1d', this)">1 Dormitorio (USD 79.800)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('betania', '1de', this)">1 Dorm. Esquinero (USD 115.000)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('betania', '2d', this)">2 Dormitorios (USD 149.000)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('betania', '3d', this)">3 Dormitorios (USD 225.000)</button>
+        </div>
+        <div class="wa-text" id="txt-betania-2">En 1 dormitorio tenés la tipología estándar de 47,8 m² totales (41,6 m² interiores + 6,2 m² de terraza propia con parrillero), desde USD 79.800 (cochera opcional aparte) y financiación hasta en 24 cuotas.
+
+Acá podés ver el plano y distribución exacta:
+https://zaguanpropiedades.com/proyectos/betania-iv/1-dormitorio/
+
+¿Preferís piso intermedio o alto así te paso una unidad disponible hoy?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-betania-2', this)">📋 Copiar Mensaje 2 (Ya incluye el link al plano)</button>
+      </div>
+
+      <div class="wa-step" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>
+          <h4>Paso 3 · ¿Te pidió cotización exacta de una unidad hoy?</h4>
+          <p style="font-size:13.5px;color:var(--muted)">Pedísela en 1 clic a tu contacto directo de Betania IV: <strong>Sebastián (Inmobiliaria Mi Lugar · +598 99 573 462)</strong></p>
+        </div>
+        <a class="btn btn--wa" href="https://wa.me/59899573462?text=Hola%20Sebasti%C3%A1n%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Te%20escribo%20de%20ZAGU%C3%81N%20Propiedades.%20Tengo%20un%20interesado%20para%20Betania%20IV%20y%20quer%C3%ADa%20confirmar%20disponibilidad%20y%20cotizaci%C3%B3n%20actualizada." target="_blank">📲 Pedir unidad a Sebastián por WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- PANEL EVE TOWER -->
+    <div class="wa-panel" id="panel-eve">
+      <div class="wa-step">
+        <h4>Paso 1 · Rompehielo y pregunta filtro</h4>
+        <div class="wa-text" id="txt-eve-1">Hola, ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades.
+EVE Tower está en plena obra sobre Parada 7 (Av. Roosevelt y Av. Naciones Unidas), a 150 metros de Playa Brava. Tiene piscina interior climatizada, piscina exterior, gimnasio, sauna, cowork y recepción 24 horas.
+Para mandarte el plano exacto: ¿buscás de 1 dormitorio, 1 dormitorio y medio, o 2 dormitorios en esquina?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-eve-1', this)">📋 Copiar Mensaje 1</button>
+      </div>
+
+      <div class="wa-step">
+        <h4>Paso 2 · Respuesta con Plano y Precio (Elegí qué tipología te pidió)</h4>
+        <div class="typo-pills">
+          <button type="button" class="typo-pill active" onclick="setTypo('eve', '1d', this)">1 Dormitorio (USD 156.970)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('eve', '15d', this)">1 Dormitorio y medio (USD 205.786)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('eve', '2d', this)">2 Dormitorios Esquina (USD 261.267)</button>
+        </div>
+        <div class="wa-text" id="txt-eve-2">En 1 dormitorio tenés las columnas C, D y E, con superficies entre 54,5 m² y 64,2 m² totales y terraza continua, desde USD 156.970 (cochera opcional en subsuelo).
+
+Acá podés ver el plano y las medidas de la planta:
+https://zaguanpropiedades.com/proyectos/eve-tower/1-dormitorio/
+
+El ingreso se estructura con compromiso de compraventa y cuotas durante el saldo de obra. ¿Querés que veamos disponibilidad en piso intermedio o alto?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-eve-2', this)">📋 Copiar Mensaje 2 (Ya incluye el link al plano)</button>
+      </div>
+
+      <div class="wa-step" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>
+          <h4>Paso 3 · ¿Te pidió cotización exacta de una unidad hoy?</h4>
+          <p style="font-size:13.5px;color:var(--muted)">Pedísela en 1 clic a tu contacto directo de EVE Tower: <strong>One Propiedades (+598 99 488 262)</strong></p>
+        </div>
+        <a class="btn btn--wa" href="https://wa.me/59899488262?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1n%3F%20Les%20escribo%20de%20ZAGU%C3%81N%20Propiedades.%20Tengo%20un%20interesado%20para%20EVE%20Tower%20y%20quer%C3%ADa%20confirmar%20unidades%20disponibles%20hoy%20y%20lista%20vigente." target="_blank">📲 Pedir unidad a One Propiedades</a>
+      </div>
+    </div>
+
+    <!-- PANEL GOLDEN RISE -->
+    <div class="wa-panel" id="panel-golden">
+      <div class="wa-step">
+        <h4>Paso 1 · Rompehielo y explicación de las 70 cuotas (Sin precio público)</h4>
+        <div class="wa-text" id="txt-golden-1">Hola, ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades.
+Golden Rise está sobre Av. Roosevelt en Parada 18, con un parque privado de 6.000 m², más de 20 amenities y financiación directa del desarrollador hasta en 70 cuotas (10% reserva + 20% compromiso + 50% en hasta 40 cuotas de obra + 20% en hasta 30 cuotas post-ocupación).
+Para pasarte el plano y armarte la simulación personalizada: ¿estás evaluando monoambiente, 1 dormitorio o 2 dormitorios?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-golden-1', this)">📋 Copiar Mensaje 1</button>
+      </div>
+
+      <div class="wa-step">
+        <h4>Paso 2 · Respuesta con Plano (Elegí qué tipología te pidió)</h4>
+        <div class="typo-pills">
+          <button type="button" class="typo-pill active" onclick="setTypo('golden', 'mono', this)">Monoambiente (37 a 39,5 m²)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('golden', '1d', this)">1 Dormitorio (52 a 58 m²)</button>
+          <button type="button" class="typo-pill" onclick="setTypo('golden', '2d', this)">2 Dormitorios (78 a 86 m²)</button>
+        </div>
+        <div class="wa-text" id="txt-golden-2">El monoambiente de Golden Rise tiene entre 37,0 y 39,5 m² totales con terraza integrada y acceso completo a los más de 20 amenities y al parque central de 6.000 m².
+
+Acá podés ver el plano y el esquema de las 70 cuotas:
+https://zaguanpropiedades.com/proyectos/golden-rise/monoambiente/
+
+¿Querés que te pida la cotización y cuadro de cuotas de una unidad disponible hoy según la orientación que prefieras?</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-golden-2', this)">📋 Copiar Mensaje 2 (Ya incluye el link al plano)</button>
+      </div>
+
+      <div class="wa-step" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+        <div>
+          <h4>Paso 3 · ¿Te pidió el precio exacto de una unidad hoy?</h4>
+          <p style="font-size:13.5px;color:var(--muted)">Pedíselo en 1 clic a tu contacto directo de Golden Rise: <strong>Mauricio (Caldeyro Victorica · +598 94 401 661)</strong></p>
+        </div>
+        <a class="btn btn--wa" href="https://wa.me/59894401661?text=Hola%20Mauricio%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Te%20escribo%20de%20ZAGU%C3%81N%20Propiedades.%20Tengo%20un%20cliente%20consultando%20por%20Golden%20Rise%20y%20quer%C3%ADa%20pedirte%20cotizaci%C3%B3n%20y%20disponibilidad%20para%20enviarle." target="_blank">📲 Pedir cotización a Mauricio</a>
+      </div>
+    </div>
+
+    <!-- PANEL CLIENTE EXTERIOR / FISCAL -->
+    <div class="wa-panel" id="panel-exterior">
+      <div class="alert-fiscal">
+        <strong>⚠️ RESIDENCIA FISCAL URUGUAY (Cotización UI 2025/2026 verificada):</strong><br>
+        <code>3.500.000 UI</code> equivalen hoy a <strong><u>USD 580.000 – USD 590.000</u></strong> (en 2020 eran USD 378.000).<br>
+        👉 <strong>Regla comercial:</strong> Ninguna unidad individual de Betania IV, EVE Tower o Golden Rise alcanza sola ese piso. Para usar la vía inmobiliaria de <code>3.500.000 UI</code> (+ 60 días de presencia física), el inversor debe <strong>acumular 2 o 3 unidades</strong> (o sumarlas a otra propiedad en Uruguay) con compromiso de compraventa inscripto.
+      </div>
+
+      <div class="wa-step">
+        <h4>1 · Respuesta sobre Residencia Fiscal con estos proyectos</h4>
+        <div class="wa-text" id="txt-ext-2">Respecto a la Residencia Fiscal en Uruguay por inversión inmobiliaria (Decreto 163/020), el piso legal es de 3.500.000 Unidades Indexadas acompañadas de 60 días de presencia física al año.
+Tené en cuenta que a la cotización actual de la UI, 3.500.000 UI equivalen hoy a unos USD 580.000 - 590.000 de capital efectivamente integrado en inmuebles con compromiso de compraventa inscripto.
+Por lo tanto, una unidad individual de USD 100.000 a USD 260.000 no alcanza por sí sola ese tope, pero sí computa si acumulás más de una unidad o la sumás a otros inmuebles en Uruguay hasta superar las 3.500.000 UI.</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-ext-2', this)">📋 Copiar Respuesta Fiscal Exacta</button>
+      </div>
+
+      <div class="wa-step">
+        <h4>2 · Documentación para comprar desde Argentina / Exterior</h4>
+        <div class="wa-text" id="txt-ext-1">Para comprar desde Argentina o el exterior como Persona Física no necesitás residencia previa en Uruguay. La escribanía solicita únicamente:
+1) Documento de identidad vigente (DNI o Pasaporte) y constancia de domicilio para notificaciones.
+2) Ficha de conocimiento del cliente y beneficiario final firmada.
+3) Comprobante de origen de los fondos: últimos 3 recibos de sueldo (con antigüedad mayor a 6 meses) o certificación contable de ingresos emitida por contador público (o escritura si proviene de la venta de otro bien).</div>
+        <button type="button" class="btn btn--gold" onclick="copyElem('txt-ext-1', this)">📋 Copiar Respuesta Documentación</button>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================================================================== -->
+  <!-- BLOQUE 3: ARQUITECTURA DE CAMPAÑAS DESDE CERO + BENCHMARK EN DATOS -->
+  <!-- ================================================================== -->
+  <section class="block" id="bloque-ads">
+    <div class="block-header">
+      <div>
+        <span class="step-tag">BLOQUE 3 · ESTRUCTURA DE CUENTA DESDE CERO + MATEMÁTICA DE INVERSIÓN CON BENCHMARK REAL</span>
+        <h2 class="block-title">🎯 Cómo se divide la cuenta hoy (que no existe) y cuánto rinde cada escalón de inversión</h2>
+      </div>
+    </div>
+
+    <!-- PASO A: CÓMO SE DIVIDE LA CUENTA PARA NO MEZCLAR POZO CON ALQUILER ANUAL -->
+    <div style="background:#FAF8F4;border:1px solid var(--line);border-radius:12px;padding:18px;margin-bottom:22px;">
+      <h3 style="font-size:16.5px;color:var(--dark);margin-bottom:8px;">🏗️ Paso 1: Cómo se estructura tu cuenta desde cero (Por qué no se mezcla Pozo con Alquiler Anual)</h3>
+      <p style="font-size:13.5px;color:var(--muted);margin-bottom:12px;">ZAGUÁN tiene dos negocios con búsquedas distintas: <strong>Desarrollos en Pozo</strong> y <strong>Alquiler Anual / Venta</strong>. Si metés todo en una misma campaña, las palabras negativas de Pozo matan Alquiler Anual o el presupuesto se va al clic más barato. Por eso la cuenta se divide así:</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:13.5px;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;">
+          <strong style="color:var(--dark)">🔍 EN GOOGLE ADS (Red de Búsqueda): 1 Campaña de Pozo dividida en 3 Grupos de Anuncios</strong>
+          <ul style="margin:8px 0 0 18px;line-height:1.6;">
+            <li><strong>Nombre de la Campaña:</strong> <code>01_SEARCH_POZO_PDE_MALDONADO</code></li>
+            <li><strong>Grupo de Anuncios 1 (Maldonado Centro):</strong> Palabras de pozo/cuotas en Maldonado → aterriza en <em>Betania IV (Desde USD 79.800)</em>.</li>
+            <li><strong>Grupo de Anuncios 2 (Playa Brava / Parada 7):</strong> Palabras de pozo en Brava / Punta del Este → aterriza en <em>EVE Tower (Desde USD 156.970)</em>.</li>
+            <li><strong>Grupo de Anuncios 3 (Financiación Larga / Roosevelt):</strong> Palabras de pozo financiado en cuotas → aterriza en <em>Golden Rise (Hasta 70 cuotas)</em>.</li>
+            <li><em>(Cuando quieras pautar Alquiler Anual, va en otra campaña separada llamada <code>02_SEARCH_ALQUILER_ANUAL</code> sin las negativas de pozo).</em></li>
+          </ul>
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px;">
+          <strong style="color:var(--dark)">📱 EN META ADS (Instagram + Facebook): 1 Campaña CBO a WhatsApp con 2 Conjuntos</strong>
+          <ul style="margin:8px 0 0 18px;line-height:1.6;">
+            <li><strong>Nombre de la Campaña:</strong> <code>01_META_WHATSAPP_POZO_CBO</code> (Objetivo: Conversaciones de WhatsApp con pregunta filtro).</li>
+            <li><strong>Conjunto de Anuncios 1 (Uruguay Local):</strong> Maldonado (+40 km) y Montevideo (Pocitos, Carrasco, Punta Carretas, Malvín, Buceo · 30 a 65 años). Muestra <em>Betania IV (USD 99k)</em> y <em>Golden Rise (70 cuotas)</em>.</li>
+            <li><strong>Conjunto de Anuncios 2 (Inversor Argentina / Sur de Brasil):</strong> CABA + Zona Norte GBA (Vicente López, San Isidro, Pilar, Tigre) + RS/SP · 35 a 65+ años. Muestra <em>EVE Tower (150m del mar)</em> y <em>Golden Rise</em>.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO B: MATEMÁTICA DE INVERSIÓN BASADA EN BENCHMARK REAL URUGUAY / ARGENTINA 2025-2026 -->
+    <h3 style="font-size:16.5px;color:var(--dark);margin-bottom:6px;">📊 Paso 2: Por dónde empezar sin quemar plata (100% dirigido a Compradores en Pozo)</h3>
+    <div style="background:#F2F9F5;border:1px solid var(--green);border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:13.5px;">
+      • <strong>¿A quién le hablamos en TODOS los escalones?</strong> <strong>100% a COMPRADORES EN POZO</strong> (tanto en Meta Ads como en Google Search). Todo anuncio muestra precio real (<em>desde USD 79.800</em>) o plan de cuotas (<em>hasta 24 o 70 cuotas</em>) para filtrar curiosos.<br>
+      • <strong>¿Tenés Analytics y Circuito de WhatsApp instalados?</strong> <strong>SÍ:</strong> Las 34 páginas públicas de <code>zaguanpropiedades.com</code> ya tienen instalado Google Tag Manager (<code>GTM-KTKLTW5T</code>) midiendo clics a WhatsApp (<code>whatsapp_click</code> y <code>editorial_cta_click</code>), y todos los formularios + botones de la web abren directo tu WhatsApp (<code>+598 98 712 064</code>), que vos respondés con el <strong>Bloque 2 de arriba</strong>.<br>
+      • <strong>¿Por qué NO empezar con USD 300 o USD 600/mes?</strong> Para arrancar desde cero y probar que el circuito de WhatsApp fluya cómodo, se empieza con el <strong>Escalón 0 (Micro-Prueba de 7 días: USD 4/día = USD 28 totales en la semana)</strong>.
+    </div>
+
+    <div class="tier-grid">
+      <div class="tier-card active" id="tier-1" onclick="selectTier(1)">
+        <span class="ad-badge" style="background:var(--green)">ESCALÓN 0 · PARA ARRANCAR (MICRO-PRUEBA 7 DÍAS)</span>
+        <h4 style="font-size:18px;color:var(--dark);margin:4px 0;">USD 4 / día <span style="font-size:13px;font-weight:500;color:var(--muted)">(USD 28 totales por 7 días)</span></h4>
+        <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px;">Para probar el circuito de WhatsApp con Compradores en Pozo reales sin arriesgar presupuesto mensual.</p>
+        <div style="font-size:13px;background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);">
+          • <strong>Público:</strong> <strong>Compradores en Pozo</strong> en Montevideo (Carrasco, Pocitos, Punta Carretas) y Maldonado (32 a 65 años).<br>
+          • <strong>Dónde va:</strong> 1 sola campaña en Meta Ads directo a tu WhatsApp mostrando <em>Betania IV (Desde USD 79.800 · 24 cuotas)</em> y <em>Golden Rise (70 cuotas)</em>.<br>
+          • <strong>Qué produce en 7 días:</strong> <strong>3 a 5 conversaciones reales en tu WhatsApp</strong> para validar el circuito del Bloque 2.
+        </div>
+      </div>
+
+      <div class="tier-card" id="tier-2" onclick="selectTier(2)">
+        <span class="ad-badge" style="background:var(--gold)">ESCALÓN 1 · CUANDO EL CIRCUITO YA FLUYE</span>
+        <h4 style="font-size:18px;color:var(--dark);margin:4px 0;">USD 10 / día <span style="font-size:13px;font-weight:500;color:var(--muted)">(USD 300/mes)</span></h4>
+        <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px;">Recién cuando ya probaste la semana de USD 28 y querés flujo continuo de Compradores en Pozo.</p>
+        <div style="font-size:13px;background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);">
+          • <strong>Público:</strong> <strong>Compradores en Pozo</strong> en Uruguay.<br>
+          • <strong>Dónde va:</strong> 100% en <code>Meta Ads → WhatsApp</code>.<br>
+          • <strong>Resultado por Benchmark:</strong> <strong>35 a 45 WhatsApps iniciados/mes</strong> (a ~USD 7,50 c/u) → <strong>~8 a 10 compradores calificados/mes</strong>.
+        </div>
+      </div>
+
+      <div class="tier-card" id="tier-3" onclick="selectTier(3)">
+        <span class="ad-badge" style="background:var(--dark)">ESCALÓN 2 · ESCALA COMPLETA (META + GOOGLE SEARCH)</span>
+        <h4 style="font-size:18px;color:var(--dark);margin:4px 0;">USD 20 / día <span style="font-size:13px;font-weight:500;color:var(--muted)">(USD 600/mes)</span></h4>
+        <p style="font-size:12.5px;color:var(--muted);margin-bottom:8px;">Suma Google Search (donde 1 clic cuesta ~USD 1,20 y 1 consulta cuesta ~USD 20) además de Meta Ads.</p>
+        <div style="font-size:13px;background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);">
+          • <strong>Público:</strong> <strong>Compradores en Pozo</strong> en Meta + Búsqueda activa en Google.<br>
+          • <strong>División:</strong> <strong>USD 10/día Meta Ads</strong> + <strong>USD 10/día Google Search</strong>.<br>
+          • <strong>Resultado por Benchmark:</strong> <strong>50 a 55 contactos/mes</strong> (~15 compradores calificados reales).
+        </div>
+      </div>
+    </div>
+
+    <!-- PASO C: LOS BLOQUES LISTOS PARA COPIAR Y PEGAR AL CREAR LA CAMPAÑA -->
+    <h3 style="font-size:16.5px;color:var(--dark);margin-bottom:10px;">📋 Paso 3: Los bloques exactos para copiar cuando crees las 2 campañas</h3>
+
+    <div class="ad-grid">
+      <!-- GOOGLE SEARCH GRUPO 1, 2, 3 -->
+      <div class="ad-card">
+        <span class="ad-badge">GOOGLE SEARCH · GRUPO 1 (BETANIA IV · MALDONADO)</span>
+        <h4 style="font-size:15px;margin-bottom:6px;">Palabras Clave Positivas (Solo Frase y Exacta) + Anuncio</h4>
+        <pre id="gs-g1" style="background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;white-space:pre-wrap;margin-bottom:8px;">[apartamentos en pozo maldonado]
+[betania iv maldonado]
+[comprar apartamento maldonado cuotas]
+[apartamentos 1 dormitorio maldonado en pozo]
+[apartamentos 2 dormitorios maldonado en pozo]
+"apartamentos en pozo maldonado"
+"proyectos en construccion maldonado"
+"venta en pozo maldonado uruguay"
+
+Títulos (30 car.): Betania IV Maldonado | En Pozo Desde USD 79.800 | 1, 2 y 3 Dormitorios | Entrega Octubre 2028 | Hasta 24 Cuotas en Obra
+Descripción (90 car.): Apartamentos en pozo sobre Av. Batlle y Ordóñez, Maldonado. Terraza con parrillero propio.
+URL Final: https://zaguanpropiedades.com/proyectos/betania-iv/</pre>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyElem('gs-g1', this)">📋 Copiar Grupo 1 (Betania IV)</button>
+      </div>
+
+      <div class="ad-card">
+        <span class="ad-badge">GOOGLE SEARCH · GRUPO 2 (EVE TOWER · PLAYA BRAVA)</span>
+        <h4 style="font-size:15px;margin-bottom:6px;">Palabras Clave Positivas (Solo Frase y Exacta) + Anuncio</h4>
+        <pre id="gs-g2" style="background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;white-space:pre-wrap;margin-bottom:8px;">[eve tower punta del este]
+[apartamentos playa brava en pozo]
+[torres en pozo punta del este]
+[comprar apartamento playa brava pozo]
+"eve tower playa brava"
+"apartamentos en pozo roosevelt"
+"torres en construccion punta del este"
+
+Títulos (30 car.): EVE Tower Playa Brava | A 150 m del Mar en Pozo | 1, 1.5 y 2 Dormitorios | Desde USD 156.970 | Obra en Estructura
+Descripción (90 car.): Parada 7 de Av. Roosevelt a 150 m de Playa Brava. Piscina interior climatizada, gym y sauna.
+URL Final: https://zaguanpropiedades.com/proyectos/eve-tower/</pre>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyElem('gs-g2', this)">📋 Copiar Grupo 2 (EVE Tower)</button>
+      </div>
+
+      <div class="ad-card">
+        <span class="ad-badge">GOOGLE SEARCH · GRUPO 3 (GOLDEN RISE · 70 CUOTAS)</span>
+        <h4 style="font-size:15px;margin-bottom:6px;">Palabras Clave Positivas (Solo Frase y Exacta) + Anuncio</h4>
+        <pre id="gs-g3" style="background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;white-space:pre-wrap;margin-bottom:8px;">[golden rise punta del este]
+[apartamentos parada 18 roosevelt]
+[apartamentos financiados punta del este]
+[comprar en pozo en cuotas punta del este]
+"golden rise roosevelt"
+"apartamentos en pozo financiacion directa"
+"proyectos con parque privado punta del este"
+
+Títulos (30 car.): Golden Rise Parada 18 | Financiación Hasta 70 Cuotas | Parque Privado 6.000 m² | Mono, 1 y 2 Dormitorios
+Descripción (90 car.): 10% reserva, 20% compromiso, 40 cuotas en obra y 30 cuotas post-ocupación en Punta del Este.
+URL Final: https://zaguanpropiedades.com/proyectos/golden-rise/</pre>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyElem('gs-g3', this)">📋 Copiar Grupo 3 (Golden Rise)</button>
+      </div>
+
+      <div class="ad-card" style="background:#FFF8EB;border-color:#E6B85C;">
+        <span class="ad-badge" style="background:#9B2C2C">GOOGLE SEARCH · NEGATIVAS DE LA CAMPAÑA POZO (NO BLOQUEAN ALQUILER ANUAL)</span>
+        <h4 style="font-size:15px;margin-bottom:6px;">Pegar a nivel de la Campaña 01_SEARCH_POZO (1 por renglón, Frase y Exacta)</h4>
+        <pre id="gs-neg" style="background:#fff;padding:10px;border-radius:8px;border:1px solid var(--line);font-size:12.5px;white-space:pre-wrap;margin-bottom:8px;height:142px;overflow-y:auto;">"alquiler por dia"
+"alquiler primera quincena"
+"alquiler segunda quincena"
+"alquiler fin de semana"
+[airbnb]
+[booking]
+[despegar]
+[hostel]
+"trabajo en inmobiliaria"
+"empleo inmobiliaria"
+"curriculum inmobiliaria"
+"remate judicial"
+"remates judiciales maldonado"
+"sorteo bhu"
+"cooperativa de vivienda"
+"casa prefabricada"
+"contenedor vivienda"
+[gratis]
+"plano municipal gratis"</pre>
+        <button type="button" class="btn btn--gold" style="width:100%" onclick="copyElem('gs-neg', this)">📋 Copiar Negativas Seguras (Frase y Exacta)</button>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<!-- MODAL DE PREVISUALIZACIÓN EN PANTALLA COMPLETA (SIN DESCARGAR) -->
+<div id="lightboxModal" style="display:none;position:fixed;inset:0;background:rgba(5,9,13,0.92);z-index:10000;align-items:center;justify-content:center;flex-direction:column;padding:24px;" onclick="if(event.target.id==='lightboxModal')closeLightbox()">
+  <div style="display:flex;align-items:center;justify-content:space-between;width:min(100%,760px);margin-bottom:12px;color:#fff;">
+    <strong id="lightboxCaption" style="font-size:15px;">Previsualización</strong>
+    <div style="display:flex;gap:8px;">
+      <button type="button" class="btn btn--secondary" onclick="stepLightbox(-1)">◀ Anterior</button>
+      <button type="button" class="btn btn--secondary" onclick="stepLightbox(1)">Siguiente ▶</button>
+      <button type="button" class="btn btn--danger" onclick="closeLightbox()">✕ Cerrar (Esc)</button>
+    </div>
+  </div>
+  <img id="lightboxImg" src="" alt="Preview" style="max-height:82vh;max-width:92vw;border-radius:12px;box-shadow:0 16px 48px rgba(0,0,0,0.6);border:1px solid rgba(255,255,255,0.2);">
+</div>
+
+<div class="toast" id="toast">✅ Copiado al portapapeles</div>
+
+<script>
+const PACKS = [{"slug": "betania-iv-apartamentos-en-pozo-maldonado", "project": "Betania IV", "title": "Betania IV: apartamentos en pozo en Maldonado", "article_url": "/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "feed_slides": ["packs-redes/betania-iv-apartamentos-en-pozo-maldonado/01-feed-1080x1350.jpg", "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/02-feed-1080x1350.jpg", "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/04-story-1080x1920.jpg", "caption_ig": "Betania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/\n\nConsultá planos y unidades por WhatsApp: https://wa.me/59898712064\n\nImagen ilustrativa. Comercializa ZAGUÁN Propiedades.", "caption_li": "Publicamos en Novedades del Este el análisis completo de Betania IV en Maldonado: composición de sus 102 viviendas (1, 2 y 3 dormitorios), equipamiento común en nivel 4 y condiciones de ingreso en pozo desde USD 79.800 con financiación hasta en 24 cuotas.\n\nNota completa y ficha técnica: https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "caption_gmb": "📍 Betania IV: apartamentos en pozo en Maldonado\n\nBetania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "caption_wa_status": "Betania IV: apartamentos en pozo en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/"}, {"slug": "betania-iv-avances-obra-octubre-2026", "project": "Betania IV", "title": "Betania IV: avances de obra en losas y estacionamiento", "article_url": "/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "feed_slides": ["packs-redes/betania-iv-avances-obra-octubre-2026/01-feed-1080x1350.jpg", "packs-redes/betania-iv-avances-obra-octubre-2026/02-feed-1080x1350.jpg", "packs-redes/betania-iv-avances-obra-octubre-2026/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-avances-obra-octubre-2026/04-story-1080x1920.jpg", "caption_ig": "Avance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\n\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nLeé la actualización en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Actualización de obra de Betania IV en Maldonado: estado del encofrado de losas, trabajos en planta baja y cronograma hacia octubre de 2028.\n\nRegistro completo en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "caption_gmb": "📍 Betania IV: avances de obra en losas y estacionamiento\n\nAvance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "caption_wa_status": "Betania IV: avances de obra en losas y estacionamiento · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/"}, {"slug": "eve-tower-apartamentos-pozo-playa-brava", "project": "EVE Tower", "title": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava", "article_url": "/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "feed_slides": ["packs-redes/eve-tower-apartamentos-pozo-playa-brava/01-feed-1080x1350.jpg", "packs-redes/eve-tower-apartamentos-pozo-playa-brava/02-feed-1080x1350.jpg", "packs-redes/eve-tower-apartamentos-pozo-playa-brava/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-apartamentos-pozo-playa-brava/04-story-1080x1920.jpg", "caption_ig": "EVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\n\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/\n\nPedí planos y disponibilidad por WhatsApp: https://wa.me/59898712064", "caption_li": "Presentamos en Novedades del Este a EVE Tower: torre residencial de 26 niveles en Parada 8 de Playa Brava (Av. Roosevelt y Guanabara), a 100 metros de la costa.\n\nSuperficies por tipología, equipamiento de año completo y estado de obra: https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "caption_gmb": "📍 EVE Tower: apartamentos en pozo a 100 metros de Playa Brava\n\nEVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "caption_wa_status": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/"}, {"slug": "golden-rise-roosevelt-parada-18-financiacion", "project": "Golden Rise", "title": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas", "article_url": "/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "feed_slides": ["packs-redes/golden-rise-roosevelt-parada-18-financiacion/01-feed-1080x1350.jpg", "packs-redes/golden-rise-roosevelt-parada-18-financiacion/02-feed-1080x1350.jpg", "packs-redes/golden-rise-roosevelt-parada-18-financiacion/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-roosevelt-parada-18-financiacion/04-story-1080x1920.jpg", "caption_ig": "Golden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\n\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/\n\nPedí carpeta y condiciones por WhatsApp: https://wa.me/59898712064", "caption_li": "Analizamos en Novedades del Este la propuesta de Golden Rise en Parada 18 de Avenida Roosevelt, Punta del Este: tipologías de 41 a 86 m², parque privado y esquema de financiación con 40 cuotas en obra y 30 cuotas post-ocupación.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "caption_gmb": "📍 Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas\n\nGolden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "caption_wa_status": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/"}, {"slug": "comprar-en-pozo-maldonado-playa-brava-roosevelt-2028", "project": "Comparativa 2028", "title": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt", "article_url": "/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "feed_slides": ["packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/01-feed-1080x1350.jpg", "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/02-feed-1080x1350.jpg", "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/03-feed-1080x1350.jpg"], "story_img": "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/04-story-1080x1920.jpg", "caption_ig": "¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\n\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nLeé la comparativa completa:\nhttps://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Guía comparativa para compradores en pozo hacia 2028 en Punta del Este y Maldonado: cómo evaluar ticket de ingreso, ubicación y plazo de financiación entre Betania IV (Maldonado), EVE Tower (Playa Brava) y Golden Rise (Av. Roosevelt).\n\nLeé el análisis en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "caption_gmb": "📍 Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt\n\n¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "caption_wa_status": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/"}, {"slug": "eve-tower-avance-obra-estructura-roosevelt", "project": "EVE Tower", "title": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt", "article_url": "/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "feed_slides": ["packs-redes/eve-tower-avance-obra-estructura-roosevelt/01-feed-1080x1350.jpg", "packs-redes/eve-tower-avance-obra-estructura-roosevelt/02-feed-1080x1350.jpg", "packs-redes/eve-tower-avance-obra-estructura-roosevelt/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-avance-obra-estructura-roosevelt/04-story-1080x1920.jpg", "caption_ig": "Registro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\n\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nMirá la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/\n\nWhatsApp directo: https://wa.me/59898712064", "caption_li": "Seguimiento de obra en EVE Tower (Parada 8, Playa Brava): excavación de tres subsuelos de garajes, montaje de grúa y fundación sobre Avenida Roosevelt.\n\nNota y registro fotográfico: https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "caption_gmb": "📍 EVE Tower: avance de excavación y estructura inicial sobre Roosevelt\n\nRegistro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "caption_wa_status": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/"}, {"slug": "golden-rise-esquema-cuotas-obra-post-ocupacion", "project": "Golden Rise", "title": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo", "article_url": "/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "feed_slides": ["packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/01-feed-1080x1350.jpg", "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/02-feed-1080x1350.jpg", "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/04-story-1080x1920.jpg", "caption_ig": "Cómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nLeé el detalle en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/\n\nPedí la simulación de cuotas por WhatsApp: https://wa.me/59898712064", "caption_li": "Desglose financiero de Golden Rise en Parada 18 (Av. Roosevelt, Punta del Este): cómo funcionan los cuatro tramos de pago con 30 cuotas constructivas y hasta 70 cuotas posteriores a la entrega.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "caption_gmb": "📍 Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo\n\nCómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "caption_wa_status": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/"}, {"slug": "betania-iv-comparativa-tipologias-1-2-3-dormitorios", "project": "Betania IV", "title": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado", "article_url": "/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "feed_slides": ["packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/01-feed-1080x1350.jpg", "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/02-feed-1080x1350.jpg", "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/04-story-1080x1920.jpg", "caption_ig": "Las 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nLeé la comparativa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/\n\nPedí planos y precios por WhatsApp: https://wa.me/59898712064", "caption_li": "Comparativa de las cinco tipologías residenciales de Betania IV en Maldonado: superficies interiores, terrazas y perfil de demanda entre 1, 2 y 3 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "caption_gmb": "📍 Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado\n\nLas 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "caption_wa_status": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/"}, {"slug": "eve-tower-tipologias-1-y-2-dormitorios-playa-brava", "project": "EVE Tower", "title": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios", "article_url": "/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "feed_slides": ["packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/01-feed-1080x1350.jpg", "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/02-feed-1080x1350.jpg", "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/04-story-1080x1920.jpg", "caption_ig": "Cómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/\n\nPedí los planos por WhatsApp: https://wa.me/59898712064", "caption_li": "Análisis de plantas y superficies en EVE Tower (Parada 8, Playa Brava): equipamiento de cocina, metrajes de terraza y distribución en monoambientes y unidades de 1 y 2 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "caption_gmb": "📍 EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios\n\nCómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "caption_wa_status": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/"}, {"slug": "golden-rise-amenities-parque-privado-parada-18", "project": "Golden Rise", "title": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt", "article_url": "/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "feed_slides": ["packs-redes/golden-rise-amenities-parque-privado-parada-18/01-feed-1080x1350.jpg", "packs-redes/golden-rise-amenities-parque-privado-parada-18/02-feed-1080x1350.jpg", "packs-redes/golden-rise-amenities-parque-privado-parada-18/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-amenities-parque-privado-parada-18/04-story-1080x1920.jpg", "caption_ig": "En Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/\n\nConsultá por WhatsApp: https://wa.me/59898712064", "caption_li": "El equipamiento de año completo en proyectos residenciales sobre el eje Roosevelt: analizamos el programa de 15 áreas comunes y parque privado de Golden Rise en Parada 18.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "caption_gmb": "📍 Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt\n\nEn Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "caption_wa_status": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/"}, {"slug": "etapas-compra-en-pozo-respaldo-escribania-maldonado", "project": "Guía Jurídica Pozo", "title": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado", "article_url": "/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "feed_slides": ["packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/01-feed-1080x1350.jpg", "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/02-feed-1080x1350.jpg", "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/03-feed-1080x1350.jpg"], "story_img": "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/04-story-1080x1920.jpg", "caption_ig": "¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nLeé la guía completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Seguridad jurídica en operaciones de pozo en Punta del Este y Maldonado: qué instancias documentales intervienen entre la reserva inicial, el compromiso de compraventa y la posesión.\n\nGuía completa en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "caption_gmb": "📍 Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado\n\n¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "caption_wa_status": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/"}];
+
+const TYPO_TEXTS = {
+  betania: {
+    '1d': "En 1 dormitorio tenés la tipología estándar de 47,8 m² totales (41,6 m² interiores + 6,2 m² de terraza propia con parrillero), desde USD 79.800 (cochera opcional aparte) y financiación hasta en 24 cuotas.\n\nAcá podés ver el plano y distribución exacta:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1-dormitorio/\n\n¿Preferís piso intermedio o alto así te paso una unidad disponible hoy?",
+    '1de': "En 1 dormitorio esquinero tenés 52,7 m² totales con doble orientación y terraza con parrillero propio, desde USD 115.000 (cochera opcional aparte) y financiación hasta en 24 cuotas.\n\nAcá podés ver el plano y distribución exacta:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1-dormitorio-esquinero/\n\n¿Preferís piso intermedio o alto así te paso una unidad disponible hoy?",
+    '2d': "En 2 dormitorios tenés 71,6 m² totales (63,3 m² interiores + 8,3 m² de terraza con parrillero), desde USD 149.000 (cochera opcional aparte) y financiación hasta en 24 cuotas.\n\nAcá podés ver el plano y distribución exacta:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/2-dormitorios/\n\n¿Preferís piso intermedio o alto así te paso una unidad disponible hoy?",
+    '3d': "La tipología de 3 dormitorios se ubica en los pisos 5 al 8 y tiene 114,4 m² totales (suite con vestidor, 2 baños y terraza de 16,6 m² con parrillero), desde USD 225.000 (cochera opcional aparte).\n\nAcá podés ver el plano y distribución exacta:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/3-dormitorios/\n\n¿Querés que te confirme qué piso está disponible hoy?"
+  },
+  eve: {
+    '1d': "En 1 dormitorio tenés las columnas C, D y E, con superficies entre 54,5 m² y 64,2 m² totales y terraza continua, desde USD 156.970 (cochera opcional en subsuelo).\n\nAcá podés ver el plano y las medidas de la planta:\nhttps://zaguanpropiedades.com/proyectos/eve-tower/1-dormitorio/\n\nEl ingreso se estructura con compromiso de compraventa y cuotas durante el saldo de obra. ¿Querés que veamos disponibilidad en piso intermedio o alto?",
+    '15d': "La tipología de 1 dormitorio y medio (columna B) tiene 71,8 m² totales (56,8 m² interiores + 15 m² de terraza), sumando un ambiente extra ideal para escritorio o huéspedes, desde USD 205.786.\n\nAcá podés ver el plano de la planta:\nhttps://zaguanpropiedades.com/proyectos/eve-tower/1-dormitorio-y-medio/\n\n¿Querés que te pase qué piso está disponible hoy en esta columna?",
+    '2d': "En 2 dormitorios tenés las unidades esquineras (columnas A y F) de 95,4 m² a 108,3 m² totales, con suite principal, segundo baño completo y terraza perimetral a 150 metros de Playa Brava, desde USD 261.267.\n\nAcá podés ver el plano de la planta:\nhttps://zaguanpropiedades.com/proyectos/eve-tower/2-dormitorios/\n\n¿Preferís que consultemos piso intermedio o alto?"
+  },
+  golden: {
+    'mono': "El monoambiente de Golden Rise tiene entre 37,0 y 39,5 m² totales con terraza integrada y acceso completo a los más de 20 amenities y al parque central de 6.000 m².\n\nAcá podés ver el plano y el esquema de las 70 cuotas:\nhttps://zaguanpropiedades.com/proyectos/golden-rise/monoambiente/\n\n¿Querés que te pida la cotización y cuadro de cuotas de una unidad disponible hoy?",
+    '1d': "La tipología de 1 dormitorio en Golden Rise tiene entre 52,0 y 58,0 m² totales con terraza con parrillero propio y financiación directa hasta en 70 cuotas (durante la obra y post-ocupación).\n\nAcá podés ver el plano de la unidad:\nhttps://zaguanpropiedades.com/proyectos/golden-rise/1-dormitorio/\n\n¿Querés que te arme la simulación de entrega y cuota mensual para una unidad disponible hoy?",
+    '2d': "La tipología de 2 dormitorios en Golden Rise tiene entre 78,0 y 86,0 m² totales (suite, segundo baño y terraza con parrillero propio sobre el parque de 6.000 m²), con financiación directa hasta en 70 cuotas.\n\nAcá podés ver el plano de la unidad:\nhttps://zaguanpropiedades.com/proyectos/golden-rise/2-dormitorios/\n\n¿Querés que te pase la simulación de cuotas y valores de una unidad disponible hoy?"
+  }
+};
+
+let state = {
+  approved: [],
+  discarded: [],
+  skippedOffset: 0,
+  selectedTier: 2
+};
+try {
+  const saved = localStorage.getItem('zaguan_cabin_state_v4');
+  if (saved) state = Object.assign(state, JSON.parse(saved));
+} catch (e) {}
+
+function saveState() {
+  try {
+    localStorage.setItem('zaguan_cabin_state_v4', JSON.stringify(state));
+  } catch (e) {}
+}
+
+function selectTier(n) {
+  state.selectedTier = n;
+  saveState();
+  document.querySelectorAll('.tier-card').forEach(el => el.classList.remove('active'));
+  const t = document.getElementById('tier-' + n);
+  if (t) t.classList.add('active');
+}
+
+function safeCopyText(text, btnEl) {
+  function onCopied() {
+    if (btnEl) {
+      const orig = btnEl.innerHTML;
+      btnEl.innerHTML = '✅ ¡COPIADO!';
+      setTimeout(() => { btnEl.innerHTML = orig; }, 1800);
+    }
+    showToast('✅ Copiado al portapapeles (Cmd+V)');
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onCopied).catch(() => fallbackCopy(text, onCopied));
+  } else {
+    fallbackCopy(text, onCopied);
+  }
+}
+
+function fallbackCopy(text, cb) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.left = '-9999px';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  if (cb) cb();
+}
+
+const INTERCALATED_ORDER = [
+  'betania-iv-apartamentos-en-pozo-maldonado',
+  'eve-tower-apartamentos-pozo-playa-brava',
+  'golden-rise-roosevelt-parada-18-financiacion',
+  'comprar-en-pozo-maldonado-playa-brava-roosevelt-2028',
+  'betania-iv-avances-obra-octubre-2026',
+  'eve-tower-avance-obra-estructura-roosevelt',
+  'golden-rise-amenities-parque-privado-parada-18',
+  'etapas-compra-en-pozo-respaldo-escribania-maldonado',
+  'betania-iv-comparativa-tipologias-1-2-3-dormitorios',
+  'eve-tower-tipologias-1-y-2-dormitorios-playa-brava',
+  'golden-rise-esquema-cuotas-obra-post-ocupacion'
+];
+
+function getPendingPacks() {
+  const ordered = INTERCALATED_ORDER.map(slug => PACKS.find(p => p.slug === slug)).filter(Boolean);
+  return ordered.filter(p => !state.approved.includes(p.slug) && !state.discarded.includes(p.slug));
+}
+
+let currentPreviewList = [];
+let currentPreviewIdx = 0;
+
+function openLightbox(idx) {
+  currentPreviewIdx = idx;
+  const modal = document.getElementById('lightboxModal');
+  const img = document.getElementById('lightboxImg');
+  const vid = document.getElementById('lightboxVideo');
+  const cap = document.getElementById('lightboxCaption');
+  const item = currentPreviewList[currentPreviewIdx];
+  if (!item) return;
+  if (item.isVideo) {
+    img.style.display = 'none';
+    if (vid) {
+      vid.style.display = 'block';
+      vid.src = item.url;
+      vid.play().catch(() => {});
+    }
+  } else {
+    if (vid) {
+      vid.pause();
+      vid.style.display = 'none';
+    }
+    img.style.display = 'block';
+    img.src = item.url;
+  }
+  cap.textContent = item.label + ' (' + (currentPreviewIdx + 1) + ' de ' + currentPreviewList.length + ')';
+  modal.style.display = 'flex';
+}
+
+function stepLightbox(dir) {
+  if (!currentPreviewList.length) return;
+  currentPreviewIdx = (currentPreviewIdx + dir + currentPreviewList.length) % currentPreviewList.length;
+  openLightbox(currentPreviewIdx);
+}
+
+function closeLightbox() {
+  const vid = document.getElementById('lightboxVideo');
+  if (vid) vid.pause();
+  document.getElementById('lightboxModal').style.display = 'none';
+}
+
+function selectPackIndex(i) {
+  state.skippedOffset = i;
+  saveState();
+  renderCurrentPost();
+}
+
+function renderCurrentPost() {
+  const pending = getPendingPacks();
+  const counterEl = document.getElementById('queueCounter');
+  counterEl.innerHTML = '✅ Usados: ' + state.approved.length + ' &nbsp;·&nbsp; 🟡 En cola intercalada: ' + pending.length;
+
+  const stage = document.getElementById('postStage');
+  if (pending.length === 0) {
+    stage.innerHTML = '<div style="text-align:center;padding:28px;"><h3 style="font-size:20px;margin-bottom:8px;">🎉 Ya recorriste los 11 packs.</h3><button type="button" class="btn btn--secondary" onclick="resetQueue()">🔄 Volver a mostrar los 11 packs desde el #1</button></div>';
+    return;
+  }
+
+  const idx = (state.skippedOffset || 0) % pending.length;
+  const pack = pending[idx];
+  const reelMap = {
+    'betania-iv-apartamentos-en-pozo-maldonado': 'PZ-BIV-V1.mp4',
+    'betania-iv-avances-obra-octubre-2026': 'PZ-BIV-V2.mp4',
+    'eve-tower-apartamentos-pozo-playa-brava': 'PZ-EVE-V1.mp4',
+    'golden-rise-roosevelt-parada-18-financiacion': 'PZ-GR-V1.mp4',
+    'comprar-en-pozo-maldonado-playa-brava-roosevelt-2028': 'PZ-EVE-V2.mp4',
+    'eve-tower-avance-obra-estructura-roosevelt': 'PZ-EVE-V3.mp4',
+    'golden-rise-amenities-parque-privado-parada-18': 'PZ-GR-V1.mp4',
+    'betania-iv-comparativa-tipologias-1-2-3-dormitorios': 'PZ-BIV-V3.mp4',
+    'eve-tower-tipologias-1-y-2-dormitorios-playa-brava': 'PZ-EVE-V4.mp4',
+    'financiacion-en-pozo-punta-del-este-24-a-70-cuotas': 'PZ-EVE-V5.mp4',
+    'etapas-compra-en-pozo-respaldo-escribania-maldonado': 'PZ-BIV-V4.mp4'
+  };
+  const reelFile = reelMap[pack.slug] || 'PZ-BIV-V1.mp4';
+  const s1Url = `/assets/packs-redes/${pack.slug}/01-feed-1080x1350.jpg?v=3`;
+  const s2Url = `/assets/packs-redes/${pack.slug}/02-feed-1080x1350.jpg?v=3`;
+  const s3Url = `/assets/packs-redes/${pack.slug}/03-feed-1080x1350.jpg?v=3`;
+  const s4Url = `/assets/packs-redes/${pack.slug}/04-story-1080x1920.jpg?v=3`;
+  const reelUrl = `/assets/reels-con-audio/${reelFile}`;
+
+  currentPreviewList = [
+    { url: s1Url, label: 'Placa 1/3 · Portada (' + pack.project + ')' },
+    { url: s2Url, label: 'Placa 2/3 · Editorial Estuario (' + pack.project + ')' },
+    { url: s3Url, label: 'Placa 3/3 · Cierre WhatsApp (' + pack.project + ')' },
+    { url: s4Url, label: 'Placa 4 · Story 9:16 (' + pack.project + ')' },
+    { url: reelUrl, label: '🎬 Reel MP4 15s con Música ZAGUÁN (' + pack.project + ')', isVideo: true }
+  ];
+
+  const rotationPillsHtml = pending.map((p, i) => {
+    const activeStyle = (i === idx)
+      ? 'background:var(--dark);color:#fff;border-color:var(--dark);'
+      : 'background:#fff;color:var(--text);border-color:var(--line);';
+    return `<button type="button" onclick="selectPackIndex(${i})" style="padding:6px 11px;border-radius:999px;border:1px solid;font-size:12px;font-weight:700;cursor:pointer;${activeStyle}">${i + 1}. ${p.project}</button>`;
+  }).join('');
+
+  stage.innerHTML = `
+    <!-- BARRA DE ROTACIÓN INTERCALADA (TOCÁ CUALQUIERA PARA SALTAR DIRECTO) -->
+    <div style="margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line);">
+      <div style="font-size:12px;font-weight:800;color:var(--muted);margin-bottom:6px;text-transform:uppercase;">
+        🔄 Secuencia Intercalada Oficial (Betania IV → EVE Tower → Golden Rise → Comparativa / Guía · Tocá cualquiera para verla):
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:6px;">
+        ${rotationPillsHtml}
+      </div>
+    </div>
+
+    <div class="post-meta">
+      <div>
+        <span style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;">PIEZA ${idx + 1} DE ${pending.length} · PROYECTO: ${pack.project}</span>
+        <div class="post-title">${pack.title}</div>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button type="button" class="btn btn--gold" onclick="openLightbox(0)">🔍 Ver Placas en Pantalla Completa (Sin descargar)</button>
+      </div>
+    </div>
+
+    <div class="slides-row" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="slide-card">
+        <img src="${s1Url}" alt="Placa 1" style="cursor:zoom-in" onclick="openLightbox(0)" title="Tocá para ver grande sin descargar">
+        <div style="display:flex;gap:6px;">
+          <button type="button" class="btn btn--secondary" style="flex:1;padding:6px;font-size:12px;" onclick="openLightbox(0)">🔍 Ver grande</button>
+          <a href="${s1Url}" download="${pack.slug}-01-feed.jpg" style="padding:6px 8px;font-size:12px;">⬇️</a>
+        </div>
+      </div>
+      <div class="slide-card">
+        <img src="${s2Url}" alt="Placa 2" style="cursor:zoom-in" onclick="openLightbox(1)" title="Tocá para ver grande sin descargar">
+        <div style="display:flex;gap:6px;">
+          <button type="button" class="btn btn--secondary" style="flex:1;padding:6px;font-size:12px;" onclick="openLightbox(1)">🔍 Ver grande</button>
+          <a href="${s2Url}" download="${pack.slug}-02-feed.jpg" style="padding:6px 8px;font-size:12px;">⬇️</a>
+        </div>
+      </div>
+      <div class="slide-card">
+        <img src="${s3Url}" alt="Placa 3" style="cursor:zoom-in" onclick="openLightbox(2)" title="Tocá para ver grande sin descargar">
+        <div style="display:flex;gap:6px;">
+          <button type="button" class="btn btn--secondary" style="flex:1;padding:6px;font-size:12px;" onclick="openLightbox(2)">🔍 Ver grande</button>
+          <a href="${s3Url}" download="${pack.slug}-03-feed.jpg" style="padding:6px 8px;font-size:12px;">⬇️</a>
+        </div>
+      </div>
+      <div class="slide-card">
+        <img src="${s4Url}" alt="Story" style="cursor:zoom-in" onclick="openLightbox(3)" title="Tocá para ver grande sin descargar">
+        <div style="display:flex;gap:6px;">
+          <button type="button" class="btn btn--secondary" style="flex:1;padding:6px;font-size:12px;" onclick="openLightbox(3)">🔍 Ver grande</button>
+          <a href="${s4Url}" download="${pack.slug}-04-story.jpg" style="padding:6px 8px;font-size:12px;">⬇️</a>
+        </div>
+      </div>
+      <div class="slide-card" style="border:2px solid var(--gold);background:#0F171A;">
+        <video src="${reelUrl}" controls style="width:100%;height:auto;border-radius:6px;display:block;margin-bottom:8px;max-height:220px;"></video>
+        <div style="display:flex;gap:6px;margin-bottom:6px;">
+          <button type="button" class="btn btn--gold" style="flex:1;padding:6px;font-size:11.5px;" onclick="openLightbox(4)">🔍 Ver / Escuchar Grande</button>
+          <a href="${reelUrl}" download="${reelFile}" style="padding:6px 8px;font-size:11.5px;color:#E6B85C;border:1px solid #E6B85C;border-radius:6px;">⬇️</a>
+        </div>
+        <button type="button" class="btn btn--approve" style="width:100%;padding:8px 6px;font-size:12px;" onclick="publishOnlyReelViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\'")}', '${reelFile}', this)">🚀 Publicar SOLO este Reel por API (IG + FB)</button>
+      </div>
+    </div>
+
+    <div class="copy-columns">
+      <div class="copy-box">
+        <h4>1. 📸 Instagram y Facebook Page</h4>
+        <textarea id="current-ig-copy"></textarea>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-ig-copy', this)">📋 Copiar para IG / Facebook</button>
+      </div>
+      <div class="copy-box">
+        <h4>2. 💼 LinkedIn</h4>
+        <textarea id="current-li-copy"></textarea>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-li-copy', this)">📋 Copiar para LinkedIn</button>
+      </div>
+      <div class="copy-box">
+        <h4>3. 📍 Google Business Profile (Google Maps)</h4>
+        <textarea id="current-gmb-copy"></textarea>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-gmb-copy', this)">📋 Copiar para Ficha de Google Maps</button>
+      </div>
+      <div class="copy-box">
+        <h4>4. 📲 Estado de WhatsApp Business (Subir Placa 4 o Reel en WhatsApp Mac + este texto)</h4>
+        <textarea id="current-wa-copy"></textarea>
+        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-wa-copy', this)">📋 Copiar línea con Link para Estado de WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- BARRA DE DISPARO DIRECTO POR API -->
+    <div style="background:#F2F9F5;border:1px solid var(--green);border-radius:10px;padding:12px 16px;margin-bottom:12px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div style="display:flex;gap:14px;flex-wrap:wrap;font-size:13px;font-weight:700;color:var(--dark);">
+          <label><input type="checkbox" id="chk-ig-feed" checked> 📸 IG Carrusel (3 placas)</label>
+          <label><input type="checkbox" id="chk-ig-story" checked> 📱 IG Story (9:16)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-ig-reel" checked> 🎬 IG Reel con tu Música (MP4 15s)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-fb-reel" checked> 🎬 FB Reel con tu Música (MP4 15s)</label>
+          <label><input type="checkbox" id="chk-fb-page" checked> 👍 FB Post (3 placas)</label>
+          <label title="El permiso actual publica en tu muro personal Ariana Wajntraub, no en la página de empresa"><input type="checkbox" id="chk-linkedin"> 💼 LinkedIn (⚠️ Perfil personal Ariana Wajntraub)</label>
+          <label><input type="checkbox" id="chk-gmb"> 📍 Google Maps</label>
+        </div>
+        <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
+      </div>
+      <div id="api-publish-result" style="font-size:12.5px;margin-top:8px;display:none;"></div>
+    </div>
+
+    <div class="decision-bar">
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button type="button" class="btn btn--gold" onclick="approvePack('${pack.slug}')">✅ MARCAR COMO USADO Y PASAR AL SIGUIENTE</button>
+        <button type="button" class="btn btn--secondary" onclick="skipPack()">⏭️ Ver el siguiente</button>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center">
+        ${(state.approved.length > 0 || state.discarded.length > 0) ? '<button type="button" class="btn btn--secondary" onclick="resetQueue()">🔄 Reiniciar los 11</button>' : ''}
+        <button type="button" class="btn btn--danger" onclick="discardPack('${pack.slug}')">🛑 Descartar este</button>
+      </div>
+    </div>
+  `;
+
+  document.getElementById('current-ig-copy').value = pack.caption_ig;
+  document.getElementById('current-li-copy').value = pack.caption_li;
+  document.getElementById('current-gmb-copy').value = pack.caption_gmb;
+  document.getElementById('current-wa-copy').value = pack.caption_wa_status;
+}
+
+function toggleApiBox() {
+  const b = document.getElementById('api-config-box');
+  b.style.display = (b.style.display === 'none') ? 'block' : 'none';
+}
+
+async function loadApiStatus() {
+  const line = document.getElementById('api-status-line');
+  try {
+    const r = await fetch('/api/status');
+    const st = await r.json();
+    const parts = [];
+    if (st.meta_connected) {
+      parts.push(`🟢 Meta ACTIVO (${st.fb_page_name || 'FB'} + @${st.ig_username || 'IG'})`);
+      document.getElementById('api-config-box').style.display = 'none';
+    } else if (st.meta_expired) {
+      parts.push(`🟠 Token de Meta de 1 hora vencido (tocá "Generate Access Token" en Graph Explorer y pegalo abajo)`);
+      document.getElementById('api-config-box').style.display = 'block';
+    } else {
+      parts.push(`🔴 Meta pendiente`);
+      document.getElementById('api-config-box').style.display = 'block';
+    }
+    parts.push(st.linkedin_connected ? `🟢 LinkedIn (${st.linkedin_name})` : `⚪ LinkedIn opcional`);
+    parts.push(st.gmb_connected ? `🟢 Google Maps conectado` : `⚪ Google Maps opcional`);
+    line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
+  } catch (e) {
+    line.innerHTML = '⚠️ Servidor API local verificando...';
+  }
+}
+
+async function saveApiTokens() {
+  const logEl = document.getElementById('api-connect-log');
+  logEl.innerHTML = '⏳ Conectando y auto-detectando IDs de cuentas...';
+  const payload = {
+    meta_token: document.getElementById('inp-meta-token').value,
+    meta_app_secret: document.getElementById('inp-meta-secret') ? document.getElementById('inp-meta-secret').value : '',
+    linkedin_token: document.getElementById('inp-li-token').value,
+    gmb_token: document.getElementById('inp-gmb-token').value,
+    gmb_location_name: document.getElementById('inp-gmb-loc').value
+  };
+  try {
+    const r = await fetch('/api/connect', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await r.json();
+    logEl.innerHTML = (data.messages || []).join('<br>') || '✅ Guardado.';
+    loadApiStatus();
+  } catch (e) {
+    logEl.innerHTML = '❌ Error conectando al servidor local: ' + e.message;
+  }
+}
+
+
+async function publishOnlyReelViaApi(slug, publicUrl, title, reelFile, btnEl) {
+  const resBox = document.getElementById('api-publish-result');
+  resBox.style.display = 'block';
+  resBox.innerHTML = '⏳ Subiendo y publicando el Reel MP4 con tu música en Instagram (@zaguanpropiedades) y Facebook (Zaguan Propiedades)... Demora ~15 a 25 segundos mientras Meta procesa el video.';
+  const orig = btnEl.innerHTML;
+  btnEl.innerHTML = '⏳ Subiendo Reel MP4...';
+  btnEl.disabled = true;
+  try {
+    const r = await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        slug: slug,
+        public_url: publicUrl,
+        title: title,
+        reel_file: reelFile,
+        channels: ['ig_reel', 'fb_reel'],
+        caption_ig: document.getElementById('current-ig-copy').value,
+        caption_li: document.getElementById('current-li-copy').value,
+        caption_gmb: document.getElementById('current-gmb-copy').value
+      })
+    });
+    const data = await r.json();
+    const lines = [];
+    for (const [ch, info] of Object.entries(data.results || {})) {
+      if (info.ok) {
+        lines.push(`✅ <strong>${ch}:</strong> Publicado en vivo (ID: <code>${info.id}</code>)`);
+      } else {
+        lines.push(`⚠️ <strong>${ch}:</strong> ${info.error}`);
+      }
+    }
+    resBox.innerHTML = lines.join('<br>');
+  } catch (e) {
+    resBox.innerHTML = '❌ Error llamando a /api/publish: ' + e.message;
+  } finally {
+    btnEl.innerHTML = orig;
+    btnEl.disabled = false;
+  }
+}
+
+async function publishPackViaApi(slug, publicUrl, title, reelFile, btnEl) {
+  const channels = [];
+  if (document.getElementById('chk-ig-feed').checked) channels.push('ig_feed');
+  if (document.getElementById('chk-ig-story').checked) channels.push('ig_story');
+  if (document.getElementById('chk-ig-reel') && document.getElementById('chk-ig-reel').checked) channels.push('ig_reel');
+  if (document.getElementById('chk-fb-reel') && document.getElementById('chk-fb-reel').checked) channels.push('fb_reel');
+  if (document.getElementById('chk-fb-page') && document.getElementById('chk-fb-page').checked) channels.push('fb_page');
+  if (document.getElementById('chk-linkedin').checked) channels.push('linkedin');
+  if (document.getElementById('chk-gmb').checked) channels.push('gmb');
+
+  const resBox = document.getElementById('api-publish-result');
+  resBox.style.display = 'block';
+  resBox.innerHTML = '⏳ Publicando en vivo por API oficial (demora unos segundos mientras Instagram procesa las placas/video)...';
+  const orig = btnEl.innerHTML;
+  btnEl.innerHTML = '⏳ Publicando por API...';
+  btnEl.disabled = true;
+
+  try {
+    const r = await fetch('/api/publish', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        slug: slug,
+        public_url: publicUrl,
+        title: title,
+        reel_file: reelFile,
+        channels: channels,
+        caption_ig: document.getElementById('current-ig-copy').value,
+        caption_li: document.getElementById('current-li-copy').value,
+        caption_gmb: document.getElementById('current-gmb-copy').value
+      })
+    });
+    const data = await r.json();
+    const lines = [];
+    for (const [ch, info] of Object.entries(data.results || {})) {
+      if (info.ok) {
+        lines.push(`✅ <strong>${ch}:</strong> Publicado en vivo (ID: <code>${info.id}</code>)`);
+      } else {
+        lines.push(`⚠️ <strong>${ch}:</strong> ${info.error}`);
+      }
+    }
+    resBox.innerHTML = lines.join('<br>');
+  } catch (e) {
+    resBox.innerHTML = '❌ Error llamando a /api/publish: ' + e.message;
+  } finally {
+    btnEl.innerHTML = orig;
+    btnEl.disabled = false;
+  }
+}
+
+function approvePack(slug) {
+  if (!state.approved.includes(slug)) state.approved.push(slug);
+  state.skippedOffset = 0;
+  saveState();
+  showToast('✅ Marcado como usado. Mostrando el siguiente...');
+  renderCurrentPost();
+}
+
+function skipPack() {
+  state.skippedOffset = (state.skippedOffset || 0) + 1;
+  saveState();
+  renderCurrentPost();
+}
+
+function discardPack(slug) {
+  if (!state.discarded.includes(slug)) state.discarded.push(slug);
+  state.skippedOffset = 0;
+  saveState();
+  renderCurrentPost();
+}
+
+function resetQueue() {
+  state.approved = [];
+  state.discarded = [];
+  state.skippedOffset = 0;
+  saveState();
+  renderCurrentPost();
+}
+
+function selectBuilding(id, btn) {
+  document.querySelectorAll('.b-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.wa-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+}
+
+function setTypo(building, key, btn) {
+  const parent = btn.parentElement;
+  parent.querySelectorAll('.typo-pill').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('txt-' + building + '-2').textContent = TYPO_TEXTS[building][key];
+}
+
+function copyElem(id, btnEl) {
+  const txt = document.getElementById(id).textContent;
+  safeCopyText(txt, btnEl);
+}
+
+function copyValue(id, btnEl) {
+  const txt = document.getElementById(id).value;
+  safeCopyText(txt, btnEl);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 2600);
+}
+
+renderCurrentPost();
+selectTier(state.selectedTier || 1);
+loadApiStatus();
+</script>
+</body>
+</html>
