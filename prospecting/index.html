@@ -524,8 +524,9 @@
               2) Marcá permisos: <code>pages_show_list</code>, <code>pages_read_engagement</code>, <code>pages_manage_posts</code>, <code>instagram_basic</code>, <code>instagram_content_publish</code>.<br>
               3) Tocá <strong>Generate Access Token</strong> y pegalo acá (auto-detecta tu FB Page e IG <code>@zaguanpropiedades</code>):
             </p>
-            <input id="inp-meta-token" type="password" placeholder="Pegar Access Token de Meta (EAA...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
-            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Meta (IG + FB + Stories)</button>
+            <input id="inp-meta-token" type="password" placeholder="1) Pegar Access Token de Meta (EAA...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <input id="inp-meta-secret" type="password" placeholder="2) Opcional: Clave secreta de la app (para que NO venza en 1h)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Meta (IG + FB + Reels)</button>
           </div>
 
           <!-- 2. LINKEDIN API -->
@@ -540,16 +541,16 @@
             <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar LinkedIn</button>
           </div>
 
-          <!-- 3. GOOGLE BUSINESS PROFILE API -->
+          <!-- 3. YOUTUBE SHORTS API (ACTIVO HOY) + GOOGLE MAPS (PENDIENTE ALTA) -->
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
-            <strong style="color:#fff;display:block;margin-bottom:4px;">3. Google Maps (Business Profile API)</strong>
+            <strong style="color:#fff;display:block;margin-bottom:4px;">3. ▶️ YouTube Shorts API (Hoy) + 📍 Maps (En espera de alta)</strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              1) Abrí <a href="https://developers.google.com/oauthplayground/" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground ↗</a> con scope <code>https://www.googleapis.com/auth/business.manage</code>.<br>
-              2) Pegá el Access Token y el ID de ubicación (<code>accounts/X/locations/Y</code>):
+              1) Para <strong>YouTube Shorts</strong>: abrí <a href="https://developers.google.com/oauthplayground/?scope=https://www.googleapis.com/auth/youtube.upload" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground (YouTube Upload) ↗</a>, autorizá el canal de Zaguán, tocá <em>Exchange authorization code for tokens</em> y pegá el <code>Access token</code> acá:<br>
             </p>
-            <input id="inp-gmb-token" type="password" placeholder="Token Google (ya29...)" style="width:100%;padding:7px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:4px;">
-            <input id="inp-gmb-loc" type="text" placeholder="accounts/123.../locations/456..." style="width:100%;padding:7px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
-            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Google Maps</button>
+            <input id="inp-yt-token" type="password" placeholder="1) Access Token de YouTube (ya29...)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
+            <input id="inp-gmb-token" type="password" placeholder="2) Google Maps Token (⏳ En espera hasta que Google verifique)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:11.5px;margin-bottom:5px;">
+            <input id="inp-gmb-loc" type="hidden" value="">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Canal YouTube Shorts</button>
           </div>
         </div>
         <div id="api-connect-log" style="margin-top:10px;font-size:12.5px;color:#7AE582;"></div>
@@ -1172,9 +1173,12 @@ function renderCurrentPost() {
         <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-li-copy', this)">📋 Copiar para LinkedIn</button>
       </div>
       <div class="copy-box">
-        <h4>3. 📍 Google Business Profile (Google Maps)</h4>
+        <h4>3. ▶️ YouTube Shorts (MP4 15s con Música) · <span style="font-weight:500;color:var(--muted);">+ Maps en espera</span></h4>
         <textarea id="current-gmb-copy"></textarea>
-        <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-gmb-copy', this)">📋 Copiar para Ficha de Google Maps</button>
+        <div style="display:flex;gap:6px;">
+          <button type="button" class="btn btn--gold" style="flex:1;padding:8px;font-size:12px;" onclick="copyValue('current-gmb-copy', this)">📋 Copiar Título + Descripción Short</button>
+          <a class="btn btn--secondary" style="padding:8px 10px;font-size:12px;" href="https://studio.youtube.com/" target="_blank">▶️ YouTube Studio ↗</a>
+        </div>
       </div>
       <div class="copy-box">
         <h4>4. 📲 Estado de WhatsApp Business (Subir Placa 4 o Reel en WhatsApp Mac + este texto)</h4>
@@ -1193,7 +1197,8 @@ function renderCurrentPost() {
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-fb-reel" checked> 🎬 FB Reel con tu Música (MP4 15s)</label>
           <label><input type="checkbox" id="chk-fb-page" checked> 👍 FB Post (3 placas)</label>
           <label title="El permiso actual publica en tu muro personal Ariana Wajntraub, no en la página de empresa"><input type="checkbox" id="chk-linkedin"> 💼 LinkedIn (⚠️ Perfil personal Ariana Wajntraub)</label>
-          <label><input type="checkbox" id="chk-gmb"> 📍 Google Maps</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-youtube"> ▶️ YouTube Shorts (MP4 15s)</label>
+          <label style="opacity:0.65;" title="En espera de verificación de Google My Business"><input type="checkbox" id="chk-gmb" disabled> 📍 Google Maps (⏳ En espera alta)</label>
         </div>
         <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
       </div>
@@ -1214,7 +1219,7 @@ function renderCurrentPost() {
 
   document.getElementById('current-ig-copy').value = pack.caption_ig;
   document.getElementById('current-li-copy').value = pack.caption_li;
-  document.getElementById('current-gmb-copy').value = pack.caption_gmb;
+  document.getElementById('current-gmb-copy').value = 'TÍTULO SHORT: ' + pack.title.slice(0, 80) + ' #Shorts #PuntaDelEste\n\n' + pack.caption_gmb;
   document.getElementById('current-wa-copy').value = pack.caption_wa_status;
 }
 
@@ -1231,7 +1236,7 @@ async function loadApiStatus() {
     const parts = [];
     if (st.meta_connected) {
       parts.push(`🟢 Meta ACTIVO (${st.fb_page_name || 'FB'} + @${st.ig_username || 'IG'})`);
-      document.getElementById('api-config-box').style.display = 'none';
+      document.getElementById('api-config-box').style.display = 'block';
     } else if (st.meta_expired) {
       parts.push(`🟠 Token de Meta de 1 hora vencido (tocá "Generate Access Token" en Graph Explorer y pegalo abajo)`);
       document.getElementById('api-config-box').style.display = 'block';
@@ -1240,7 +1245,8 @@ async function loadApiStatus() {
       document.getElementById('api-config-box').style.display = 'block';
     }
     parts.push(st.linkedin_connected ? `🟢 LinkedIn (${st.linkedin_name})` : `⚪ LinkedIn opcional`);
-    parts.push(st.gmb_connected ? `🟢 Google Maps conectado` : `⚪ Google Maps opcional`);
+    parts.push(st.youtube_connected ? `🟢 YouTube Shorts conectado` : `⚪ YouTube Shorts listo para conectar`);
+    parts.push(`⏳ Google Maps (en espera de verificación de Google)`);
     line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
   } catch (e) {
     line.innerHTML = '⚠️ Servidor API local verificando...';
@@ -1254,6 +1260,7 @@ async function saveApiTokens() {
     meta_token: document.getElementById('inp-meta-token').value,
     meta_app_secret: document.getElementById('inp-meta-secret') ? document.getElementById('inp-meta-secret').value : '',
     linkedin_token: document.getElementById('inp-li-token').value,
+    youtube_token: document.getElementById('inp-yt-token') ? document.getElementById('inp-yt-token').value : '',
     gmb_token: document.getElementById('inp-gmb-token').value,
     gmb_location_name: document.getElementById('inp-gmb-loc').value
   };
@@ -1320,7 +1327,8 @@ async function publishPackViaApi(slug, publicUrl, title, reelFile, btnEl) {
   if (document.getElementById('chk-fb-reel') && document.getElementById('chk-fb-reel').checked) channels.push('fb_reel');
   if (document.getElementById('chk-fb-page') && document.getElementById('chk-fb-page').checked) channels.push('fb_page');
   if (document.getElementById('chk-linkedin').checked) channels.push('linkedin');
-  if (document.getElementById('chk-gmb').checked) channels.push('gmb');
+  if (document.getElementById('chk-youtube') && document.getElementById('chk-youtube').checked) channels.push('youtube_short');
+  if (document.getElementById('chk-gmb') && document.getElementById('chk-gmb').checked) channels.push('gmb');
 
   const resBox = document.getElementById('api-publish-result');
   resBox.style.display = 'block';
