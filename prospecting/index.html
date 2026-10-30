@@ -504,6 +504,265 @@
       </div>
     </div>
 
+    
+    <!-- BARRA DE CALENDARIO GOOGLE (ariana@starunionservicios.com.ar) + MEDIDOR DE POST GANADOR DE VIERNES + BASE 28 CONTACTOS CSV -->
+    <div style="background:#123B4A;color:#fff;border-radius:12px;padding:16px 18px;margin-bottom:16px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+        <div>
+          <strong style="font-size:15px;color:#E6B85C;">📅 Tu Calendario Automático (Martes, Jueves y Sábados 11:00 hs + Viernes 11:30 hs Ganador Ads)</strong>
+          <div style="font-size:12.5px;color:#D8E4E8;margin-top:3px;">
+            Ya dejé encendidas las alertas automáticas acá en Antigravity y armé el archivo <code>.ICS</code> con los 14 turnos para tu Google Calendar (<code>ariana@starunionservicios.com.ar</code>):
+          </div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a class="btn btn--gold" href="CALENDARIO_ZAGUAN_GOOGLE_CALENDAR.ics" download="CALENDARIO_ZAGUAN_GOOGLE_CALENDAR.ics" style="font-size:12px;padding:8px 12px;">📅 1) Bajar los 14 Eventos (.ICS)</a>
+          <a class="btn btn--secondary" href="https://calendar.google.com/calendar/u/0/r/settings/export?authuser=ariana@starunionservicios.com.ar" target="_blank" style="font-size:12px;padding:8px 12px;background:#fff;color:#0F171A;">📥 2) Abrir Importador de tu Google Calendar (Star Union) ↗</a>
+          <button type="button" class="btn btn--approve" style="font-size:12px;padding:8px 12px;" onclick="checkWeeklyWinner(this)">🏆 Medir Post Ganador en Vivo (Meta API)</button>
+          <button type="button" class="btn btn--secondary" style="font-size:12px;padding:8px 12px;background:#0F171A;color:#E6B85C;border-color:#E6B85C;" onclick="toggleB2bTable()">📋 Ver / Ocultar los 28 Contactos Reales de tu CSV (1 Clic a WhatsApp)</button>
+        </div>
+      </div>
+
+      <!-- CAJA DE RESULTADO DEL GANADOR SEMANAL PARA META ADS -->
+      <div id="winner-result-box" style="display:none;background:#0F171A;border:1px solid #E6B85C;border-radius:8px;padding:12px;margin-top:10px;font-size:12.5px;"></div>
+
+      <!-- TABLA DESPLEGABLE CON LOS 28 CONTACTOS REALES DEL CSV DE ZAGUÁN -->
+      <div id="b2b-csv-box" style="display:none;background:#fff;color:var(--text);border-radius:8px;padding:12px;margin-top:10px;max-height:360px;overflow-y:auto;">
+        <div style="font-size:13px;font-weight:800;margin-bottom:8px;color:var(--dark);">
+          📲 Base Oficial cargada de <code>Mensajes de prospección por desarrollo persona — ZAGUÁN (1).csv</code> (28 Contactos Reales con Teléfono y Mail listos en 1 clic):
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:12px;">
+          <thead>
+            <tr style="background:#F4F7F5;text-align:left;border-bottom:2px solid var(--line);">
+              <th style="padding:8px;">Desarrollo</th>
+              <th style="padding:8px;">Empresa / Contacto</th>
+              <th style="padding:8px;">Nota operativa</th>
+              <th style="padding:8px;">Disparo en 1 Clic (Ya abre WhatsApp o Mail con el texto escrito)</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">ERRE16</td>
+        <td style="padding:8px;">ERRE16<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Roosevelt, parada 16, Cantegril</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto directo</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59894500599?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20ERRE16%20en%20Av.%20Roosevelt%2C%20parada%2016%2C%20Cantegril.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 94 500 599)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">ERRE16</td>
+        <td style="padding:8px;">ERRE16<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Roosevelt, parada 16, Cantegril</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp en 3-4 días</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:info@erre16.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20ERRE16%2C%20Av.%20Roosevelt%2C%20parada%2016%2C%20Cantegril&body=Hola%20equipo%20de%20ERRE16%2C%20vi%20ERRE16%20en%20Av.%20Roosevelt%2C%20parada%2016%2C%20Cantegril%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (info@erre16.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Manglar Albor</td>
+        <td style="padding:8px;">Grupo Fonte<br><span style="color:var(--muted);font-size:11px;">Contacto general · Rosa de los Vientos 18, parada 5 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Mismo contacto que Manglar Umbra (fila siguiente): no enviar los dos mensajes el mismo día, esperar respuesta o alternar días</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59897343108?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Manglar%20Albor%20en%20Rosa%20de%20los%20Vientos%2018%2C%20parada%205%20de%20Playa%20Brava.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 97 343 108)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Manglar Albor</td>
+        <td style="padding:8px;">Grupo Fonte<br><span style="color:var(--muted);font-size:11px;">Contacto general · Rosa de los Vientos 18, parada 5 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp; mismo correo que Manglar Umbra</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:contacto@manglar.com.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Manglar%20Albor%2C%20Rosa%20de%20los%20Vientos%2018%2C%20parada%205%20de%20Playa%20Brava&body=Hola%20equipo%20de%20Manglar%2C%20vi%20Manglar%20Albor%20en%20Rosa%20de%20los%20Vientos%2018%2C%20parada%205%20de%20Playa%20Brava%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (contacto@manglar.com.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Manglar Umbra</td>
+        <td style="padding:8px;">Grupo Fonte<br><span style="color:var(--muted);font-size:11px;">Contacto general · Calle Pampas, Aidy Grill, parada 5 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Mismo contacto que Manglar Albor (fila anterior): no enviar los dos mensajes el mismo día. Entrega estimada publicada: junio 2029</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59897343108?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Manglar%20Umbra%20en%20Calle%20Pampas%2C%20Aidy%20Grill%2C%20parada%205%20de%20Playa%20Brava.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 97 343 108)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Manglar Umbra</td>
+        <td style="padding:8px;">Grupo Fonte<br><span style="color:var(--muted);font-size:11px;">Contacto general · Calle Pampas, Aidy Grill, parada 5 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp; mismo correo que Manglar Albor</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:contacto@manglar.com.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Manglar%20Umbra%2C%20Calle%20Pampas%2C%20Aidy%20Grill%2C%20parada%205%20de%20Playa%20Brava&body=Hola%20equipo%20de%20Manglar%2C%20vi%20Manglar%20Umbra%20en%20Calle%20Pampas%2C%20Aidy%20Grill%2C%20parada%205%20de%20Playa%20Brava%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (contacto@manglar.com.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Eve Tower</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Cristina Mondillo · Av. Roosevelt y Juan Zorrilla de San Martín</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto principal WMW. Mismo número que Ocean Drive Country II (más abajo): si se envían los dos, hacerlo en días distintos</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59894487084?text=Hola%20Cristina%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Eve%20Tower%20en%20Av.%20Roosevelt%20y%20Juan%20Zorrilla%20de%20San%20Mart%C3%ADn.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%20y%20estamos%20ampliando%20los%20desarrollos%20que%20ofrecemos.%20%C2%BFUstedes%20trabajan%20con%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%2010%20minutos%20para%20conocer%20condiciones%2C%20stock%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 94 487 084)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Eve Tower</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Cristina Mondillo · Av. Roosevelt y Juan Zorrilla de San Martín</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:cmondillo@wmw.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Eve%20Tower%2C%20Av.%20Roosevelt%20y%20Juan%20Zorrilla%20de%20San%20Mart%C3%ADn&body=Hola%20Cristina%2C%20vi%20Eve%20Tower%20en%20Av.%20Roosevelt%20y%20Juan%20Zorrilla%20de%20San%20Mart%C3%ADn%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (cmondillo@wmw.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Eve Tower</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Rosario Silvera Lima · Av. Roosevelt y Juan Zorrilla de San Martín</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto alternativo: usar solo si Cristina Mondillo no responde en 3-4 días. Email alternativo disponible: rsilveralima@wmw.uy</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59895405520?text=Hola%20Rosario%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Eve%20Tower%20en%20Av.%20Roosevelt%20y%20Juan%20Zorrilla%20de%20San%20Mart%C3%ADn.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%20y%20estamos%20ampliando%20los%20desarrollos%20que%20ofrecemos.%20%C2%BFUstedes%20trabajan%20con%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%2010%20minutos%20para%20conocer%20condiciones%2C%20stock%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 95 405 520)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Nostrum Roosevelt</td>
+        <td style="padding:8px;">Altius Group<br><span style="color:var(--muted);font-size:11px;">Equipo comercial Altius · Av. Roosevelt, parada 19</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Tel. oficina 0800 8911. Completar también alta en https://canalinmo.altius.com.uy/. Mismo contacto que More Atlántico Torre 3: no enviar los dos mensajes el mismo día</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59896424235?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Nostrum%20Roosevelt%20en%20Av.%20Roosevelt%2C%20parada%2019.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Vi%20que%20tienen%20un%20canal%20para%20inmobiliarias%20en%20su%20web.%20Quer%C3%ADa%20consultarles%20el%20proceso%20de%20alta%20como%20canal%20externo%20y%20las%20condiciones%20de%20comercializaci%C3%B3n%20compartida%20para%20el%20proyecto." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 96 424 235)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">More Atlántico Torre 3</td>
+        <td style="padding:8px;">Altius Group<br><span style="color:var(--muted);font-size:11px;">Equipo comercial Altius · Av. Roosevelt, parada 22, esquina Camacho</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Tel. oficina 0800 8911. Mismo contacto que Nostrum Roosevelt (fila anterior): no enviar los dos mensajes el mismo día</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59896424235?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20More%20Atl%C3%A1ntico%20Torre%203%20en%20Av.%20Roosevelt%2C%20parada%2022%2C%20esquina%20Camacho.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Vi%20que%20tienen%20un%20canal%20para%20inmobiliarias%20en%20su%20web.%20Quer%C3%ADa%20consultarles%20el%20proceso%20de%20alta%20como%20canal%20externo%20y%20las%20condiciones%20de%20comercializaci%C3%B3n%20compartida%20para%20el%20proyecto." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 96 424 235)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Betania IV</td>
+        <td style="padding:8px;">EZMA Construcciones<br><span style="color:var(--muted);font-size:11px;">Contacto general · Leandro Gómez casi Tauro, fraccionamiento 4H, Maldonado</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto directo</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59895024203?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Betania%20IV%20en%20Leandro%20G%C3%B3mez%20casi%20Tauro%2C%20fraccionamiento%204H%2C%20Maldonado.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 95 024 203)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Betania IV</td>
+        <td style="padding:8px;">EZMA Construcciones<br><span style="color:var(--muted);font-size:11px;">Contacto general · Leandro Gómez casi Tauro, fraccionamiento 4H, Maldonado</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:ezmaconstruccionessas@gmail.com?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Betania%20IV%2C%20Leandro%20G%C3%B3mez%20casi%20Tauro%2C%20fraccionamiento%204H%2C%20Maldonado&body=Hola%20equipo%20de%20EZMA%20Construcciones%2C%20vi%20Betania%20IV%20en%20Leandro%20G%C3%B3mez%20casi%20Tauro%2C%20fraccionamiento%204H%2C%20Maldonado%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (ezmaconstruccionessas@gmail.com)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Ocean Drive Country II</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Cristina Mondillo · Av. Roosevelt, parada 16</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Mismo número que Eve Tower (más arriba): si se envían los dos, hacerlo en días distintos</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59894487084?text=Hola%20Cristina%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Ocean%20Drive%20Country%20II%20en%20Av.%20Roosevelt%2C%20parada%2016.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%20y%20estamos%20ampliando%20los%20desarrollos%20que%20ofrecemos.%20%C2%BFUstedes%20trabajan%20con%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%2010%20minutos%20para%20conocer%20condiciones%2C%20stock%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 94 487 084)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Ocean Drive Country II</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Cristina Mondillo · Av. Roosevelt, parada 16</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:cmondillo@wmw.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Ocean%20Drive%20Country%20II%2C%20Av.%20Roosevelt%2C%20parada%2016&body=Hola%20Cristina%2C%20vi%20Ocean%20Drive%20Country%20II%20en%20Av.%20Roosevelt%2C%20parada%2016%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (cmondillo@wmw.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Ocean Drive Country II</td>
+        <td style="padding:8px;">WMW<br><span style="color:var(--muted);font-size:11px;">Rosario Silvera Lima · Av. Roosevelt, parada 16</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto alternativo: usar solo si Cristina Mondillo no responde en 3-4 días. Email alternativo disponible: rsilveralima@wmw.uy</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59895405520?text=Hola%20Rosario%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Ocean%20Drive%20Country%20II%20en%20Av.%20Roosevelt%2C%20parada%2016.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%20y%20estamos%20ampliando%20los%20desarrollos%20que%20ofrecemos.%20%C2%BFUstedes%20trabajan%20con%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%2010%20minutos%20para%20conocer%20condiciones%2C%20stock%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 95 405 520)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Golden Rise</td>
+        <td style="padding:8px;">Grupo Caybo<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Roosevelt y Salt Lake, Punta del Este</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Tel. oficina +598 4249 8210. Sin correo publicado</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59894161888?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Golden%20Rise%20en%20Av.%20Roosevelt%20y%20Salt%20Lake%2C%20Punta%20del%20Este.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 94 161 888)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Golden Rise</td>
+        <td style="padding:8px;">Grupo Caybo<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Roosevelt y Salt Lake, Punta del Este</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp en 5 días; completar en el formulario del sitio</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:https://goldenrisepuntadeleste.uy/contacto/?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Golden%20Rise%2C%20Av.%20Roosevelt%20y%20Salt%20Lake%2C%20Punta%20del%20Este&body=Hola%20equipo%20de%20Golden%20Rise%2C%20vi%20Golden%20Rise%20en%20Av.%20Roosevelt%20y%20Salt%20Lake%2C%20Punta%20del%20Este%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (https://goldenrisepuntadeleste.uy/contacto/)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">SEE Bosque</td>
+        <td style="padding:8px;">SEE Bosque<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. del Cabildo esquina Av. Roosevelt, Maldonado</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto directo</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59895880892?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20SEE%20Bosque%20en%20Av.%20del%20Cabildo%20esquina%20Av.%20Roosevelt%2C%20Maldonado.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 95 880 892)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">SEE Bosque</td>
+        <td style="padding:8px;">SEE Bosque<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. del Cabildo esquina Av. Roosevelt, Maldonado</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:info@seebosque.com?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20SEE%20Bosque%2C%20Av.%20del%20Cabildo%20esquina%20Av.%20Roosevelt%2C%20Maldonado&body=Hola%20equipo%20de%20SEE%20Bosque%2C%20vi%20SEE%20Bosque%20en%20Av.%20del%20Cabildo%20esquina%20Av.%20Roosevelt%2C%20Maldonado%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (info@seebosque.com)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Aurora II</td>
+        <td style="padding:8px;">Grupo Alonzo<br><span style="color:var(--muted);font-size:11px;">Contacto general · Parada 33 de Playa Mansa</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Contacto directo</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59891039455?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Aurora%20II%20en%20parada%2033%20de%20Playa%20Mansa.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 91 039 455)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Aurora II</td>
+        <td style="padding:8px;">Grupo Alonzo<br><span style="color:var(--muted);font-size:11px;">Contacto general · Parada 33 de Playa Mansa</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:contacto@grupoalonzo.com.uy?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Aurora%20II%2C%20parada%2033%20de%20Playa%20Mansa&body=Hola%20equipo%20de%20Grupo%20Alonzo%2C%20vi%20Aurora%20II%20en%20parada%2033%20de%20Playa%20Mansa%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (contacto@grupoalonzo.com.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Solerios Península</td>
+        <td style="padding:8px;">Zulamián<br><span style="color:var(--muted);font-size:11px;">Equipo de ventas · Las Focas y Av. Gorlero, Península</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Oficina: Roosevelt y Pedragosa Sierra, Torres Place Lafayette, local 01</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59894810000?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Solerios%20Pen%C3%ADnsula%20en%20Las%20Focas%20y%20Av.%20Gorlero%2C%20Pen%C3%ADnsula.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 94 810 000)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Solerios Península</td>
+        <td style="padding:8px;">Zulamián<br><span style="color:var(--muted);font-size:11px;">Equipo de ventas · Las Focas y Av. Gorlero, Península</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:ventas@zulamian.com?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Solerios%20Pen%C3%ADnsula%2C%20Las%20Focas%20y%20Av.%20Gorlero%2C%20Pen%C3%ADnsula&body=Hola%20equipo%20de%20Zulami%C3%A1n%2C%20vi%20Solerios%20Pen%C3%ADnsula%20en%20Las%20Focas%20y%20Av.%20Gorlero%2C%20Pen%C3%ADnsula%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (ventas@zulamian.com)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Le Parc Punta del Este — Torre IV</td>
+        <td style="padding:8px;">Le Parc Punta del Este<br><span style="color:var(--muted);font-size:11px;">Contacto general · Rambla Lorenzo Batlle, parada 10 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Tel. oficina +598 4248 1111</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59898558604?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20Le%20Parc%20Punta%20del%20Este%20Torre%20IV%20en%20Rambla%20Lorenzo%20Batlle%2C%20parada%2010%20de%20Playa%20Brava.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 98 558 604)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Le Parc Punta del Este — Torre IV</td>
+        <td style="padding:8px;">Le Parc Punta del Este<br><span style="color:var(--muted);font-size:11px;">Contacto general · Rambla Lorenzo Batlle, parada 10 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:info@leparcpuntadeleste.com?subject=Consulta%20comercializaci%C3%B3n%20compartida%20%E2%80%94%20Le%20Parc%20Punta%20del%20Este%20Torre%20IV%2C%20Rambla%20Lorenzo%20Batlle%2C%20parada%2010%20de%20Playa%20Brava&body=Hola%20equipo%20de%20Le%20Parc%20Punta%20del%20Este%2C%20vi%20Le%20Parc%20Punta%20del%20Este%20Torre%20IV%20en%20Rambla%20Lorenzo%20Batlle%2C%20parada%2010%20de%20Playa%20Brava%20y%20quer%C3%ADa%20consultarles%20directamente.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Recibimos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles%20opciones%20concretas.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20o%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20reuni%C3%B3n%20breve%20%E2%80%94presencial%20o%20virtual%E2%80%94%20para%20conocer%20stock%20disponible%2C%20condiciones%20de%20colaboraci%C3%B3n%20y%20material%20comercial%20actualizado.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (info@leparcpuntadeleste.com)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">SLS Punta del Este — Hotel & Residences</td>
+        <td style="padding:8px;">SLS Punta del Este<br><span style="color:var(--muted);font-size:11px;">Canal de consultas · Av. del Mar, zona de parada 10 de Playa Brava</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Sin correo comercial publicado; el sitio tiene formulario de contacto en https://slspuntadelesteresidences.com/es/</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59895007576?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Vi%20SLS%20Punta%20del%20Este%20en%20Av.%20del%20Mar%2C%20zona%20de%20parada%2010%20de%20Playa%20Brava.%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Tenemos%20consultas%20de%20compradores%20locales%20y%20extranjeros%20interesados%20en%20la%20zona%2C%20y%20estamos%20sumando%20desarrollos%20para%20ofrecerles.%20%C2%BFEl%20proyecto%20admite%20comercializaci%C3%B3n%20compartida%20/%20agentes%20externos%3F%20Si%20es%20as%C3%AD%2C%20te%20propongo%20una%20llamada%20corta%20de%2010%20minutos%20para%20conocer%20stock%2C%20condiciones%20y%20material%20disponible." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 95 007 576)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Torres del Este (Torres Mansa y Torre Brava)</td>
+        <td style="padding:8px;">Grupo Torres G (inmobiliaria)<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Chiverta, Aidy Grill</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">La web del proyecto (torresdeleste.net) indica exclusividad de Inmobiliaria Río de la Plata: preguntar por la política general de co-corretaje de Grupo Torres G, no asumir que este proyecto puntual está disponible. Oficina: Av. Gorlero y calle 31, Galería Sagasti, local 4</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59891284200?text=Hola%2C%20%C2%BFc%C3%B3mo%20est%C3%A1n%3F%20Te%20escribo%20de%20ZAGU%C3%81N%20Propiedades%2C%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Estamos%20recibiendo%20consultas%20de%20compradores%20interesados%20en%20la%20zona%20de%20Torres%20del%20Este%2C%20Av.%20Chiverta%2C%20Aidy%20Grill%2C%20y%20quer%C3%ADa%20preguntarles%20si%20trabajan%20con%20co-corretaje%20o%20referidos%20entre%20inmobiliarias.%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20charla%20corta%20para%20ver%20c%C3%B3mo%20manejan%20las%20condiciones%20y%20c%C3%B3mo%20evitamos%20duplicar%20clientes." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 91 284 200)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">Torres del Este (Torres Mansa y Torre Brava)</td>
+        <td style="padding:8px;">Grupo Torres G (inmobiliaria)<br><span style="color:var(--muted);font-size:11px;">Contacto general · Av. Chiverta, Aidy Grill</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:info@grupotorresg.uy?subject=Consulta%20co-corretaje%20%E2%80%94%20Torres%20del%20Este%2C%20Av.%20Chiverta%2C%20Aidy%20Grill&body=Hola%2C%20equipo%20de%20Grupo%20Torres%20G%2C%20les%20escribo%20de%20ZAGU%C3%81N%20Propiedades%2C%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Estamos%20recibiendo%20consultas%20de%20compradores%20interesados%20en%20la%20zona%20de%20Torres%20del%20Este%2C%20Av.%20Chiverta%2C%20Aidy%20Grill%2C%20y%20quer%C3%ADa%20preguntarles%20si%20trabajan%20con%20co-corretaje%20o%20referidos%20entre%20inmobiliarias.%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20charla%20corta%20para%20ver%20c%C3%B3mo%20manejan%20las%20condiciones%20y%20evitamos%20duplicar%20clientes.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (info@grupotorresg.uy)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">VIEW II (a confirmar)</td>
+        <td style="padding:8px;">Organización Acassuso — sucursal Punta del Este<br><span style="color:var(--muted);font-size:11px;">Carla Schilling · Punta del Este</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Confirmar en la conversación si actualmente comercializan VIEW II. Tel. oficina +598 4249 1683. Oficina: Av. Pedragosa Sierra esquina De los Eucaliptus</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--wa" style="padding:5px 10px;font-size:11.5px;" href="https://wa.me/59897311877?text=Hola%20Carla%2C%20%C2%BFc%C3%B3mo%20est%C3%A1s%3F%20Te%20escribo%20de%20ZAGU%C3%81N%20Propiedades%2C%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Estamos%20recibiendo%20consultas%20de%20compradores%20interesados%20en%20la%20zona%20de%20VIEW%20II%2C%20Punta%20del%20Este%2C%20y%20quer%C3%ADa%20preguntarte%20si%20trabajan%20con%20co-corretaje%20o%20referidos%20entre%20inmobiliarias.%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20charla%20corta%20para%20ver%20c%C3%B3mo%20manejan%20las%20condiciones%20y%20c%C3%B3mo%20evitamos%20duplicar%20clientes." target="_blank">📲 Mandar WhatsApp en 1 Clic (+598 97 311 877)</a></td>
+      </tr>
+    
+      <tr style="border-bottom:1px solid var(--line);">
+        <td style="padding:8px;font-weight:700;">VIEW II (a confirmar)</td>
+        <td style="padding:8px;">Organización Acassuso — sucursal Punta del Este<br><span style="color:var(--muted);font-size:11px;">Carla Schilling · Punta del Este</span></td>
+        <td style="padding:8px;font-size:11.5px;color:var(--muted);">Usar solo si no hay respuesta por WhatsApp</td>
+        <td style="padding:8px;white-space:nowrap;"><a class="btn btn--secondary" style="padding:5px 10px;font-size:11.5px;" href="mailto:carlas@org-acassuso.com.uy?subject=Consulta%20co-corretaje%20%E2%80%94%20VIEW%20II%2C%20Punta%20del%20Este&body=Hola%20Carla%2C%20te%20escribo%20de%20ZAGU%C3%81N%20Propiedades%2C%20Punta%20del%20Este%20%C2%B7%20Maldonado.%20Estamos%20recibiendo%20consultas%20de%20compradores%20interesados%20en%20la%20zona%20de%20VIEW%20II%2C%20Punta%20del%20Este%2C%20y%20quer%C3%ADa%20preguntarte%20si%20trabajan%20con%20co-corretaje%20o%20referidos%20entre%20inmobiliarias.%20Si%20es%20as%C3%AD%2C%20me%20gustar%C3%ADa%20coordinar%20una%20charla%20corta%20para%20ver%20c%C3%B3mo%20manejan%20las%20condiciones%20y%20evitamos%20duplicar%20clientes.%20Quedo%20atenta%2C%20Mar%20%E2%80%94%20ZAGU%C3%81N%20Propiedades%20%E2%80%94%20zaguanpropiedades.com" target="_blank">✉️ Mandar Email en 1 Clic (carlas@org-acassuso.com.uy)</a></td>
+      </tr>
+    
+          </tbody>
+        </table>
+      </div>
+    </div>
+
     <!-- CAJA DE CONEXIÓN DIRECTA DE APIs (CERO MAKE / CERO ZAPIER / 100% GRATIS DIRECTO) -->
     <div style="background:#0F171A;color:#fff;border-radius:12px;padding:18px 20px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
@@ -1203,24 +1462,24 @@ const SCHEDULE_META = {
     date: 'Jue 29 Oct (✅ YA PUBLICADA EN VIVO)',
     seo_kw: 'apartamentos en pozo maldonado / betania iv',
     cold_personas: [
-      { role: 'Inversor Renta Anual (Sub-USD 100k)', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades en Punta del Este. Estamos comercializando Betania IV en Maldonado (entrega octubre 2027), con unidades desde USD 79.800 y financiación directa en hasta 24 cuotas. Es un producto pensado para renta anual sostenida todo el año. ¿Te interesa que te envíe planos y disponibilidad?' },
-      { role: 'Familia / Vivienda Permanente o Polo Universitario', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto la nota técnica que publicamos hoy sobre Betania IV en Maldonado (1, 2 y 3 dormitorios en obra con SUM, parrillero y terraza lavadero desde USD 79.800): https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/ ¿Buscás de 1 o de 2 dormitorios?' }
+      { role: 'Inversor Renta Anual (Sub-USD 100k)', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Socio%20OR%20Contador%20OR%20Escribano%20OR%20Medico%20Montevideo%20Maldonado', search_label: '🔍 Abrir Lista de Contadores/Escribanos/Socios en UY (LinkedIn) ↗', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades en Punta del Este. Estamos comercializando Betania IV en Maldonado (entrega octubre 2027), con unidades desde USD 79.800 y financiación directa en hasta 24 cuotas. Es un producto pensado para renta anual sostenida todo el año. ¿Te interesa que te envíe planos y disponibilidad?' },
+      { role: 'Familia / Vivienda Permanente o Polo Universitario', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Director%20OR%20Gerente%20Maldonado%20OR%20%22Punta%20del%20Este%22', search_label: '🔍 Abrir Lista de Directores/Profesionales en Maldonado (LinkedIn) ↗', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto la nota técnica que publicamos hoy sobre Betania IV en Maldonado (1, 2 y 3 dormitorios en obra con SUM, parrillero y terraza lavadero desde USD 79.800): https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/ ¿Buscás de 1 o de 2 dormitorios?' }
     ]
   },
   'eve-tower-apartamentos-pozo-playa-brava': {
     date: 'Sáb 31 Oct · Próximo turno (11:00 hs)',
     seo_kw: 'apartamentos en pozo playa brava / eve tower punta del este',
     cold_personas: [
-      { role: 'Inversor Renta Temporaria Premium (Playa Brava)', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades. Sobre Parada 7 (a 150 m de Playa Brava) avanza la obra de EVE Tower: unidades de 1, 1 y ½ y 2 dormitorios en esquina desde USD 156.970 con piscina interior climatizada, sauna, gimnasio y recepción 24 hs. ¿Querés que te mande las plantas disponibles hoy?' },
-      { role: 'Comprador Segunda Residencia (Argentina / Brasil / Montevideo)', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto el análisis y planos de EVE Tower en Parada 7 de Playa Brava (en obra, frente al mar y con amenities de uso anual): https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/ ¿Preferís ver planta de 1 dormitorio o 2 dormitorios esquina?' }
+      { role: 'Inversor Renta Temporaria Premium (Playa Brava)', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Director%20OR%20Socio%20OR%20CEO%20Montevideo%20%22Punta%20del%20Este%22', search_label: '🔍 Abrir Lista de Directores/CEOs en Uruguay (LinkedIn) ↗', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades. Sobre Parada 7 (a 150 m de Playa Brava) avanza la obra de EVE Tower: unidades de 1, 1 y ½ y 2 dormitorios en esquina desde USD 156.970 con piscina interior climatizada, sauna, gimnasio y recepción 24 hs. ¿Querés que te mande las plantas disponibles hoy?' },
+      { role: 'Comprador Segunda Residencia (Argentina / Brasil / Montevideo)', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Founder%20OR%20Socio%20OR%20Director%20%22Buenos%20Aires%22%20agro%20OR%20finanzas', search_label: '🔍 Abrir Lista de Empresarios/Socios en Buenos Aires (LinkedIn) ↗', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto el análisis y planos de EVE Tower en Parada 7 de Playa Brava (en obra, frente al mar y con amenities de uso anual): https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/ ¿Preferís ver planta de 1 dormitorio o 2 dormitorios esquina?' }
     ]
   },
   'golden-rise-roosevelt-parada-18-financiacion': {
     date: 'Mar 3 Nov · Turno #3 (11:00 hs)',
     seo_kw: 'apartamentos financiados punta del este / golden rise roosevelt',
     cold_personas: [
-      { role: 'Inversor Apalancado (Hasta 70 Cuotas sin Banco)', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. En Av. Roosevelt Parada 18 estamos trabajando Golden Rise, que permite estructurar el pago en hasta 70 cuotas directas (10% reserva + 20% compromiso + 50% en 40 cuotas de obra + 20% en 30 cuotas post-ocupación). ¿Querés que te arme una simulación sobre monoambiente, 1 o 2 dormitorios?' },
-      { role: 'Familia / Amenities y Parque 6.000 m²', msg: 'Hola [Nombre], te comparto el desglose del esquema de financiación y amenities de Golden Rise en Parada 18 de Roosevelt (6.000 m² de parque privado y más de 20 amenities): https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/' }
+      { role: 'Inversor Apalancado (Hasta 70 Cuotas sin Banco)', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Founder%20OR%20CTO%20OR%20Director%20Software%20Uruguay%20OR%20Argentina', search_label: '🔍 Abrir Lista de Founders IT / Directores en UY y AR (LinkedIn) ↗', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. En Av. Roosevelt Parada 18 estamos trabajando Golden Rise, que permite estructurar el pago en hasta 70 cuotas directas (10% reserva + 20% compromiso + 50% en 40 cuotas de obra + 20% en 30 cuotas post-ocupación). ¿Querés que te arme una simulación sobre monoambiente, 1 o 2 dormitorios?' },
+      { role: 'Familia / Amenities y Parque 6.000 m²', search_url: 'https://www.linkedin.com/search/results/people/?keywords=Medico%20OR%20Arquitecto%20OR%20Gerente%20Montevideo%20%22Punta%20del%20Este%22', search_label: '🔍 Abrir Lista de Profesionales en Montevideo/PDE (LinkedIn) ↗', msg: 'Hola [Nombre], te comparto el desglose del esquema de financiación y amenities de Golden Rise en Parada 18 de Roosevelt (6.000 m² de parque privado y más de 20 amenities): https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/' }
     ]
   },
   'comprar-en-pozo-maldonado-playa-brava-roosevelt-2028': {
@@ -1521,8 +1780,9 @@ function renderCurrentPost() {
             ${((SCHEDULE_META[pack.slug] && SCHEDULE_META[pack.slug].cold_personas) || []).map((cp, cpi) => `
               <div style="background:#F4F7F5;padding:8px;border-radius:6px;">
                 <strong style="display:block;font-size:11.5px;margin-bottom:4px;color:var(--dark);">${cp.role}</strong>
+                <a href="${cp.search_url || 'https://www.linkedin.com/search/results/people/?keywords=Director%20OR%20Socio%20Montevideo%20%22Punta%20del%20Este%22'}" target="_blank" style="display:block;font-size:11px;font-weight:700;color:#123B4A;background:#E3EEF2;padding:5px 7px;border-radius:5px;margin-bottom:6px;text-decoration:underline;">${cp.search_label || '🔍 1) Abrir Lista de Prospectos Filtrada en LinkedIn ↗'}</a>
                 <div id="cold-msg-${cpi}" style="font-size:11.5px;color:var(--text);margin-bottom:6px;line-height:1.35;">${cp.msg}</div>
-                <button type="button" class="btn btn--gold" style="width:100%;padding:5px 8px;font-size:11.5px;" onclick="copyElem('cold-msg-${cpi}', this)">📋 Copiar Mensaje en Frío</button>
+                <button type="button" class="btn btn--gold" style="width:100%;padding:5px 8px;font-size:11.5px;" onclick="copyElem('cold-msg-${cpi}', this)">📋 2) Copiar Mensaje para pegarle</button>
               </div>
             `).join('')}
           </div>
@@ -1546,6 +1806,51 @@ function renderCurrentPost() {
   document.getElementById('current-li-copy').value = pack.caption_li;
   document.getElementById('current-gmb-copy').value = 'TÍTULO SHORT: ' + pack.title.slice(0, 80) + ' #Shorts #PuntaDelEste\n\n' + pack.caption_gmb;
   document.getElementById('current-wa-copy').value = pack.caption_wa_status;
+}
+
+
+function toggleB2bTable() {
+  const b = document.getElementById('b2b-csv-box');
+  b.style.display = (b.style.display === 'none') ? 'block' : 'none';
+}
+
+async function checkWeeklyWinner(btnEl) {
+  const box = document.getElementById('winner-result-box');
+  box.style.display = 'block';
+  box.innerHTML = '⏳ Consultando en vivo las métricas de Instagram (@zaguanpropiedades) por API...';
+  const orig = btnEl ? btnEl.innerHTML : '';
+  if (btnEl) btnEl.innerHTML = '⏳ Midiendo...';
+  try {
+    const r = await fetch('/api/winner');
+    const data = await r.json();
+    if (!data.ok || !data.winner) {
+      box.innerHTML = '⚠️ ' + (data.error || 'Todavía no hay publicaciones para comparar.');
+      return;
+    }
+    const w = data.winner;
+    const rows = (data.items || []).map((it, idx) => `
+      <div style="padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;gap:10px;">
+        <div>
+          <strong>#${idx + 1} (${it.media_type})</strong> · ❤️ ${it.like_count || 0} likes · 💬 ${it.comments_count || 0} comentarios · ID: <code>${it.id}</code><br>
+          <span style="color:#B8C2C8;font-size:11.5px;">${(it.caption || 'Story / Video').slice(0, 95)}...</span>
+        </div>
+        <a href="${it.permalink}" target="_blank" style="color:#E6B85C;text-decoration:underline;white-space:nowrap;">Ver post ↗</a>
+      </div>
+    `).join('');
+    box.innerHTML = `
+      <div style="color:#7AE582;font-weight:800;font-size:13.5px;margin-bottom:6px;">
+        🏆 POST GANADOR ACTUAL PARA ACTIVAR EN META ADS (Bloque 3): ID <code>${w.id}</code> (${w.media_type})
+      </div>
+      <div style="margin-bottom:8px;color:#D8E4E8;">
+        En <strong>Meta Ads Manager</strong>, al crear el anuncio elegí <em>"Usar publicación existente" (Use Existing Post)</em> y seleccioná esta pieza (<a href="${w.permalink}" target="_blank" style="color:#E6B85C;text-decoration:underline;">abrir en Instagram ↗</a>) para conservar todas sus reproducciones y likes.
+      </div>
+      <div style="margin-top:8px;">${rows}</div>
+    `;
+  } catch (e) {
+    box.innerHTML = '❌ Error consultando /api/winner: ' + e.message;
+  } finally {
+    if (btnEl) btnEl.innerHTML = orig;
+  }
 }
 
 function toggleApiBox() {

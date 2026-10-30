@@ -1,0 +1,204 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZAGUAN Propiedades//Calendario Editorial y Ads 360//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:ZAGUÁN · Redes, Prospección y Pauta
+X-WR-TIMEZONE:America/Montevideo
+BEGIN:VEVENT
+UID:zaguan-2026-event-1@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261030T113000
+DTEND;TZID=America/Montevideo:20261030T114500
+SUMMARY:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador de la Semana → Meta Ads
+DESCRIPTION:1) Abrir http://127.0.0.1:8080/prospecting/index.html?v=12#bloque-ads\n2) Tocar el botón '🏆 Medir Post Ganador en Vivo (Meta API)'.\n3) Copiar el Post ID ganador para activar en Meta Ads (Uruguay USD 8/día + AR/BR USD 12/día).
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador de la Semana → Meta Ads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-2@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261031T110000
+DTEND;TZID=America/Montevideo:20261031T111500
+SUMMARY:🚀 [ZAGUÁN #2] Publicar EVE Tower (Playa Brava) + 3 Mensajes en Frío
+DESCRIPTION:1) Abrir http://127.0.0.1:8080/prospecting/index.html?v=12\n2) Tocar '🚀 PUBLICAR AHORA POR API' (Pieza #2: EVE Tower).\n3) Abrir el buscador pre-filtrado de LinkedIn de esa tarjeta y mandar 3 mensajes en frío.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #2] Publicar EVE Tower (Playa Brava) + 3 Mensajes en Frío
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-3@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261103T110000
+DTEND;TZID=America/Montevideo:20261103T111500
+SUMMARY:🚀 [ZAGUÁN #3] Publicar Golden Rise (70 Cuotas Roosevelt) + 3 Mensajes en Frío
+DESCRIPTION:1) Abrir http://127.0.0.1:8080/prospecting/index.html?v=12\n2) Tocar '🚀 PUBLICAR AHORA POR API' (Pieza #3: Golden Rise).\n3) Mandar 3 mensajes en frío desde la caja de Prospección.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #3] Publicar Golden Rise (70 Cuotas Roosevelt) + 3 Mensajes en Frío
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-4@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261105T110000
+DTEND;TZID=America/Montevideo:20261105T111500
+SUMMARY:🚀 [ZAGUÁN #4] Publicar Comparativa SEO 2028 (Maldonado vs Brava vs Roosevelt)
+DESCRIPTION:1) Abrir http://127.0.0.1:8080/prospecting/index.html?v=12\n2) Tocar '🚀 PUBLICAR AHORA POR API' (Pieza #4: Comparativa 2028).\n3) Mandar la comparativa por WhatsApp a prospectos indecisos.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #4] Publicar Comparativa SEO 2028 (Maldonado vs Brava vs Roosevelt)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-5@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261106T113000
+DTEND;TZID=America/Montevideo:20261106T114500
+SUMMARY:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 2 → Meta Ads
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12#bloque-ads y tocar '🏆 Medir Post Ganador en Vivo'.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 2 → Meta Ads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-6@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261107T110000
+DTEND;TZID=America/Montevideo:20261107T111500
+SUMMARY:🚀 [ZAGUÁN #5] Publicar Betania IV (Avance de Obra) + Seguimiento Leads
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #5 (Avance de Obra Betania IV).
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #5] Publicar Betania IV (Avance de Obra) + Seguimiento Leads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-7@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261110T110000
+DTEND;TZID=America/Montevideo:20261110T111500
+SUMMARY:🚀 [ZAGUÁN #6] Publicar EVE Tower (Avance Estructura Parada 7)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #6 (Avance de Obra EVE Tower).
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #6] Publicar EVE Tower (Avance Estructura Parada 7)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-8@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261112T110000
+DTEND;TZID=America/Montevideo:20261112T111500
+SUMMARY:🚀 [ZAGUÁN #7] Publicar Golden Rise (Parque 6.000 m² y +20 Amenities)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #7 (Golden Rise Parque).
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #7] Publicar Golden Rise (Parque 6.000 m² y +20 Amenities)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-9@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261113T113000
+DTEND;TZID=America/Montevideo:20261113T114500
+SUMMARY:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 3 → Meta Ads
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12#bloque-ads y tocar '🏆 Medir Post Ganador en Vivo'.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 3 → Meta Ads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-10@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261114T110000
+DTEND;TZID=America/Montevideo:20261114T111500
+SUMMARY:🚀 [ZAGUÁN #8] Publicar Guía Jurídica Pozo (Respaldo Escribanía UY)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #8 (Guía Jurídica).
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #8] Publicar Guía Jurídica Pozo (Respaldo Escribanía UY)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-11@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261117T110000
+DTEND;TZID=America/Montevideo:20261117T111500
+SUMMARY:🚀 [ZAGUÁN #9] Publicar Betania IV (Comparativa Tipologías 1, 2 y 3 Dorms)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #9.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #9] Publicar Betania IV (Comparativa Tipologías 1, 2 y 3 Dorms)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-12@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261119T110000
+DTEND;TZID=America/Montevideo:20261119T111500
+SUMMARY:🚀 [ZAGUÁN #10] Publicar EVE Tower (Tipologías 1, 1.5 y 2 Dorms Esquina)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #10.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #10] Publicar EVE Tower (Tipologías 1, 1.5 y 2 Dorms Esquina)
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-13@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261120T113000
+DTEND;TZID=America/Montevideo:20261120T114500
+SUMMARY:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 4 → Meta Ads
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12#bloque-ads y tocar '🏆 Medir Post Ganador en Vivo'.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🏆 [ZAGUÁN] Viernes de Pauta: Medir Post Ganador Semana 4 → Meta Ads
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-2026-event-14@zaguanpropiedades.com
+DTSTAMP:20261030T020000Z
+DTSTART;TZID=America/Montevideo:20261121T110000
+DTEND;TZID=America/Montevideo:20261121T111500
+SUMMARY:🚀 [ZAGUÁN #11] Publicar Golden Rise (Esquema 40 Cuotas Obra + 30 Post-Ocupación)
+DESCRIPTION:Abrir http://127.0.0.1:8080/prospecting/index.html?v=12 y publicar Pieza #11.
+LOCATION:http://127.0.0.1:8080/prospecting/index.html?v=12
+BEGIN:VALARM
+TRIGGER:-PT10M
+ACTION:DISPLAY
+DESCRIPTION:🚀 [ZAGUÁN #11] Publicar Golden Rise (Esquema 40 Cuotas Obra + 30 Post-Ocupación)
+END:VALARM
+END:VEVENT
+END:VCALENDAR
