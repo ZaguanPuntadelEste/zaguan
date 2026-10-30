@@ -515,7 +515,7 @@
       </div>
 
       <div id="api-config-box" style="display:block;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:8px;">
-        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-size:12.5px;">
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:12.5px;">
           <!-- 1. META API (IG + FB + STORIES) -->
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
             <strong style="color:#fff;display:block;margin-bottom:4px;">1. Meta API (IG Carrusel + IG Story + FB Page)</strong>
@@ -541,17 +541,28 @@
             <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar LinkedIn</button>
           </div>
 
-          <!-- 3. YOUTUBE SHORTS API (ACTIVO HOY) + GOOGLE MAPS (PENDIENTE ALTA) -->
+          <!-- 3. YOUTUBE SHORTS API -->
           <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
-            <strong style="color:#fff;display:block;margin-bottom:4px;">3. ▶️ YouTube Shorts API (Hoy) + 📍 Maps (En espera de alta)</strong>
+            <strong style="color:#fff;display:block;margin-bottom:4px;">3. ▶️ YouTube Shorts API (🟢 Ya Conectado)</strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              1) Para <strong>YouTube Shorts</strong>: abrí <a href="https://developers.google.com/oauthplayground/?scope=https://www.googleapis.com/auth/youtube.upload" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground (YouTube Upload) ↗</a>, autorizá el canal de Zaguán, tocá <em>Exchange authorization code for tokens</em> y pegá el <code>Access token</code> acá:<br>
+              Canal YouTube Shorts de Zaguán activo. Si necesitás renovar token: <a href="https://developers.google.com/oauthplayground/?scope=https://www.googleapis.com/auth/youtube.upload" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground ↗</a>
             </p>
-            <input id="inp-yt-token" type="password" placeholder="1) Access Token de YouTube (ya29...)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
-            <input id="inp-tk-token" type="password" placeholder="2) Access Token de TikTok (act....)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
+            <input id="inp-yt-token" type="password" placeholder="Access Token de YouTube (ya29...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
             <input id="inp-gmb-token" type="hidden" value="">
             <input id="inp-gmb-loc" type="hidden" value="">
-            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar YouTube Shorts / TikTok</button>
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Guardar YouTube Shorts</button>
+          </div>
+
+          <!-- 4. TIKTOK API (CLIENT KEY + CLIENT SECRET) -->
+          <div style="background:rgba(230,184,92,0.12);border:2px solid #E6B85C;border-radius:10px;padding:12px;">
+            <strong style="color:#E6B85C;display:block;margin-bottom:4px;">4. 🎵 TikTok API (Pegar Client Key y Client Secret)</strong>
+            <p style="color:#B8C2C8;margin-bottom:6px;line-height:1.35;">
+              Pegá acá el <strong>Client Key</strong> y el <strong>Client Secret</strong> de tu Sandbox de TikTok y tocá el botón dorado:
+            </p>
+            <input id="inp-tk-key" type="text" placeholder="1) Pegar Client Key de TikTok" style="width:100%;padding:7px 8px;border-radius:6px;border:1px solid #E6B85C;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
+            <input id="inp-tk-secret" type="password" placeholder="2) Pegar Client Secret de TikTok" style="width:100%;padding:7px 8px;border-radius:6px;border:1px solid #E6B85C;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <input id="inp-tk-token" type="hidden" value="">
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="connectTikTokOAuth()">🎵 Guardar y Autorizar TikTok (1 Clic)</button>
           </div>
         </div>
         <div id="api-connect-log" style="margin-top:10px;font-size:12.5px;color:#7AE582;"></div>
@@ -912,7 +923,206 @@ URL Final: https://zaguanpropiedades.com/proyectos/golden-rise/</pre>
 <div class="toast" id="toast">✅ Copiado al portapapeles</div>
 
 <script>
-const PACKS = [{"slug": "betania-iv-apartamentos-en-pozo-maldonado", "project": "Betania IV", "title": "Betania IV: apartamentos en pozo en Maldonado", "article_url": "/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "feed_slides": ["packs-redes/betania-iv-apartamentos-en-pozo-maldonado/01-feed-1080x1350.jpg", "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/02-feed-1080x1350.jpg", "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/04-story-1080x1920.jpg", "caption_ig": "Betania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/\n\nConsultá planos y unidades por WhatsApp: https://wa.me/59898712064\n\nImagen ilustrativa. Comercializa ZAGUÁN Propiedades.", "caption_li": "Publicamos en Novedades del Este el análisis completo de Betania IV en Maldonado: composición de sus 102 viviendas (1, 2 y 3 dormitorios), equipamiento común en nivel 4 y condiciones de ingreso en pozo desde USD 79.800 con financiación hasta en 24 cuotas.\n\nNota completa y ficha técnica: https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "caption_gmb": "📍 Betania IV: apartamentos en pozo en Maldonado\n\nBetania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/", "caption_wa_status": "Betania IV: apartamentos en pozo en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/"}, {"slug": "betania-iv-avances-obra-octubre-2026", "project": "Betania IV", "title": "Betania IV: avances de obra en losas y estacionamiento", "article_url": "/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "feed_slides": ["packs-redes/betania-iv-avances-obra-octubre-2026/01-feed-1080x1350.jpg", "packs-redes/betania-iv-avances-obra-octubre-2026/02-feed-1080x1350.jpg", "packs-redes/betania-iv-avances-obra-octubre-2026/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-avances-obra-octubre-2026/04-story-1080x1920.jpg", "caption_ig": "Avance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\n\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nLeé la actualización en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Actualización de obra de Betania IV en Maldonado: estado del encofrado de losas, trabajos en planta baja y cronograma hacia octubre de 2028.\n\nRegistro completo en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "caption_gmb": "📍 Betania IV: avances de obra en losas y estacionamiento\n\nAvance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/", "caption_wa_status": "Betania IV: avances de obra en losas y estacionamiento · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/"}, {"slug": "eve-tower-apartamentos-pozo-playa-brava", "project": "EVE Tower", "title": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava", "article_url": "/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "feed_slides": ["packs-redes/eve-tower-apartamentos-pozo-playa-brava/01-feed-1080x1350.jpg", "packs-redes/eve-tower-apartamentos-pozo-playa-brava/02-feed-1080x1350.jpg", "packs-redes/eve-tower-apartamentos-pozo-playa-brava/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-apartamentos-pozo-playa-brava/04-story-1080x1920.jpg", "caption_ig": "EVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\n\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/\n\nPedí planos y disponibilidad por WhatsApp: https://wa.me/59898712064", "caption_li": "Presentamos en Novedades del Este a EVE Tower: torre residencial de 26 niveles en Parada 8 de Playa Brava (Av. Roosevelt y Guanabara), a 100 metros de la costa.\n\nSuperficies por tipología, equipamiento de año completo y estado de obra: https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "caption_gmb": "📍 EVE Tower: apartamentos en pozo a 100 metros de Playa Brava\n\nEVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/", "caption_wa_status": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/"}, {"slug": "golden-rise-roosevelt-parada-18-financiacion", "project": "Golden Rise", "title": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas", "article_url": "/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "feed_slides": ["packs-redes/golden-rise-roosevelt-parada-18-financiacion/01-feed-1080x1350.jpg", "packs-redes/golden-rise-roosevelt-parada-18-financiacion/02-feed-1080x1350.jpg", "packs-redes/golden-rise-roosevelt-parada-18-financiacion/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-roosevelt-parada-18-financiacion/04-story-1080x1920.jpg", "caption_ig": "Golden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\n\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/\n\nPedí carpeta y condiciones por WhatsApp: https://wa.me/59898712064", "caption_li": "Analizamos en Novedades del Este la propuesta de Golden Rise en Parada 18 de Avenida Roosevelt, Punta del Este: tipologías de 41 a 86 m², parque privado y esquema de financiación con 40 cuotas en obra y 30 cuotas post-ocupación.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "caption_gmb": "📍 Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas\n\nGolden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/", "caption_wa_status": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/"}, {"slug": "comprar-en-pozo-maldonado-playa-brava-roosevelt-2028", "project": "Comparativa 2028", "title": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt", "article_url": "/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "feed_slides": ["packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/01-feed-1080x1350.jpg", "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/02-feed-1080x1350.jpg", "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/03-feed-1080x1350.jpg"], "story_img": "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/04-story-1080x1920.jpg", "caption_ig": "¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\n\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nLeé la comparativa completa:\nhttps://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Guía comparativa para compradores en pozo hacia 2028 en Punta del Este y Maldonado: cómo evaluar ticket de ingreso, ubicación y plazo de financiación entre Betania IV (Maldonado), EVE Tower (Playa Brava) y Golden Rise (Av. Roosevelt).\n\nLeé el análisis en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "caption_gmb": "📍 Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt\n\n¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/", "caption_wa_status": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/"}, {"slug": "eve-tower-avance-obra-estructura-roosevelt", "project": "EVE Tower", "title": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt", "article_url": "/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "feed_slides": ["packs-redes/eve-tower-avance-obra-estructura-roosevelt/01-feed-1080x1350.jpg", "packs-redes/eve-tower-avance-obra-estructura-roosevelt/02-feed-1080x1350.jpg", "packs-redes/eve-tower-avance-obra-estructura-roosevelt/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-avance-obra-estructura-roosevelt/04-story-1080x1920.jpg", "caption_ig": "Registro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\n\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nMirá la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/\n\nWhatsApp directo: https://wa.me/59898712064", "caption_li": "Seguimiento de obra en EVE Tower (Parada 8, Playa Brava): excavación de tres subsuelos de garajes, montaje de grúa y fundación sobre Avenida Roosevelt.\n\nNota y registro fotográfico: https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "caption_gmb": "📍 EVE Tower: avance de excavación y estructura inicial sobre Roosevelt\n\nRegistro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/", "caption_wa_status": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/"}, {"slug": "golden-rise-esquema-cuotas-obra-post-ocupacion", "project": "Golden Rise", "title": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo", "article_url": "/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "feed_slides": ["packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/01-feed-1080x1350.jpg", "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/02-feed-1080x1350.jpg", "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/04-story-1080x1920.jpg", "caption_ig": "Cómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nLeé el detalle en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/\n\nPedí la simulación de cuotas por WhatsApp: https://wa.me/59898712064", "caption_li": "Desglose financiero de Golden Rise en Parada 18 (Av. Roosevelt, Punta del Este): cómo funcionan los cuatro tramos de pago con 30 cuotas constructivas y hasta 70 cuotas posteriores a la entrega.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "caption_gmb": "📍 Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo\n\nCómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/", "caption_wa_status": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/"}, {"slug": "betania-iv-comparativa-tipologias-1-2-3-dormitorios", "project": "Betania IV", "title": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado", "article_url": "/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "feed_slides": ["packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/01-feed-1080x1350.jpg", "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/02-feed-1080x1350.jpg", "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/03-feed-1080x1350.jpg"], "story_img": "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/04-story-1080x1920.jpg", "caption_ig": "Las 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nLeé la comparativa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/\n\nPedí planos y precios por WhatsApp: https://wa.me/59898712064", "caption_li": "Comparativa de las cinco tipologías residenciales de Betania IV en Maldonado: superficies interiores, terrazas y perfil de demanda entre 1, 2 y 3 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "caption_gmb": "📍 Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado\n\nLas 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/", "caption_wa_status": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/"}, {"slug": "eve-tower-tipologias-1-y-2-dormitorios-playa-brava", "project": "EVE Tower", "title": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios", "article_url": "/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "feed_slides": ["packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/01-feed-1080x1350.jpg", "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/02-feed-1080x1350.jpg", "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/03-feed-1080x1350.jpg"], "story_img": "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/04-story-1080x1920.jpg", "caption_ig": "Cómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/\n\nPedí los planos por WhatsApp: https://wa.me/59898712064", "caption_li": "Análisis de plantas y superficies en EVE Tower (Parada 8, Playa Brava): equipamiento de cocina, metrajes de terraza y distribución en monoambientes y unidades de 1 y 2 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "caption_gmb": "📍 EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios\n\nCómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/", "caption_wa_status": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/"}, {"slug": "golden-rise-amenities-parque-privado-parada-18", "project": "Golden Rise", "title": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt", "article_url": "/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "feed_slides": ["packs-redes/golden-rise-amenities-parque-privado-parada-18/01-feed-1080x1350.jpg", "packs-redes/golden-rise-amenities-parque-privado-parada-18/02-feed-1080x1350.jpg", "packs-redes/golden-rise-amenities-parque-privado-parada-18/03-feed-1080x1350.jpg"], "story_img": "packs-redes/golden-rise-amenities-parque-privado-parada-18/04-story-1080x1920.jpg", "caption_ig": "En Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/\n\nConsultá por WhatsApp: https://wa.me/59898712064", "caption_li": "El equipamiento de año completo en proyectos residenciales sobre el eje Roosevelt: analizamos el programa de 15 áreas comunes y parque privado de Golden Rise en Parada 18.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "caption_gmb": "📍 Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt\n\nEn Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/", "caption_wa_status": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/"}, {"slug": "etapas-compra-en-pozo-respaldo-escribania-maldonado", "project": "Guía Jurídica Pozo", "title": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado", "article_url": "/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "public_url": "https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "feed_slides": ["packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/01-feed-1080x1350.jpg", "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/02-feed-1080x1350.jpg", "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/03-feed-1080x1350.jpg"], "story_img": "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/04-story-1080x1920.jpg", "caption_ig": "¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nLeé la guía completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/\n\nConsultanos por WhatsApp: https://wa.me/59898712064", "caption_li": "Seguridad jurídica en operaciones de pozo en Punta del Este y Maldonado: qué instancias documentales intervienen entre la reserva inicial, el compromiso de compraventa y la posesión.\n\nGuía completa en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "caption_gmb": "📍 Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado\n\n¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/", "caption_wa_status": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/"}];
+const PACKS = [
+  {
+    "slug": "betania-iv-apartamentos-en-pozo-maldonado",
+    "project": "Betania IV",
+    "title": "Betania IV: apartamentos en pozo en Maldonado",
+    "article_url": "/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/",
+    "feed_slides": [
+      "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/01-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/02-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/betania-iv-apartamentos-en-pozo-maldonado/04-story-1080x1920.jpg",
+    "caption_ig": "Betania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nImagen ilustrativa. Comercializa ZAGUÁN Propiedades.\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Publicamos en Novedades del Este el análisis completo de Betania IV en Maldonado: composición de sus 102 viviendas (1, 2 y 3 dormitorios), equipamiento común en nivel 4 y condiciones de ingreso en pozo desde USD 79.800 con financiación hasta en 24 cuotas.\n\nNota completa y ficha técnica: https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/",
+    "caption_gmb": "📍 Betania IV: apartamentos en pozo en Maldonado\n\nBetania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/",
+    "caption_wa_status": "Betania IV: apartamentos en pozo en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/",
+    "caption_fb": "Betania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nUbicado en Leandro Gómez casi Tauro (Fraccionamiento 4H), el proyecto reúne 102 viviendas con cocina definida, terraza privada y un nivel 4 con salón de usos múltiples, ocho parrilleros y solárium. Entrega estimada: octubre de 2028. Cochera opcional, con precio aparte.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/\n\nConsultá planos y unidades por WhatsApp: https://wa.me/59898712064\n\nImagen ilustrativa. Comercializa ZAGUÁN Propiedades."
+  },
+  {
+    "slug": "betania-iv-avances-obra-octubre-2026",
+    "project": "Betania IV",
+    "title": "Betania IV: avances de obra en losas y estacionamiento",
+    "article_url": "/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
+    "feed_slides": [
+      "packs-redes/betania-iv-avances-obra-octubre-2026/01-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-avances-obra-octubre-2026/02-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-avances-obra-octubre-2026/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/betania-iv-avances-obra-octubre-2026/04-story-1080x1920.jpg",
+    "caption_ig": "Avance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\n\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nLeé la actualización en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Actualización de obra de Betania IV en Maldonado: estado del encofrado de losas, trabajos en planta baja y cronograma hacia octubre de 2028.\n\nRegistro completo en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
+    "caption_gmb": "📍 Betania IV: avances de obra en losas y estacionamiento\n\nAvance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
+    "caption_wa_status": "Betania IV: avances de obra en losas y estacionamiento · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
+    "caption_fb": "Avance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\n\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nLeé la actualización en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/\n\nConsultanos por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "eve-tower-apartamentos-pozo-playa-brava",
+    "project": "EVE Tower",
+    "title": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava",
+    "article_url": "/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/",
+    "feed_slides": [
+      "packs-redes/eve-tower-apartamentos-pozo-playa-brava/01-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-apartamentos-pozo-playa-brava/02-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-apartamentos-pozo-playa-brava/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/eve-tower-apartamentos-pozo-playa-brava/04-story-1080x1920.jpg",
+    "caption_ig": "EVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\n\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Presentamos en Novedades del Este a EVE Tower: torre residencial de 26 niveles en Parada 8 de Playa Brava (Av. Roosevelt y Guanabara), a 100 metros de la costa.\n\nSuperficies por tipología, equipamiento de año completo y estado de obra: https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/",
+    "caption_gmb": "📍 EVE Tower: apartamentos en pozo a 100 metros de Playa Brava\n\nEVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/",
+    "caption_wa_status": "EVE Tower: apartamentos en pozo a 100 metros de Playa Brava · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/",
+    "caption_fb": "EVE Tower en Parada 8 de Playa Brava, Punta del Este: una torre de 26 pisos en Avenida Roosevelt y Guanabara, a 100 metros del mar.\n\nCon obra iniciada y entrega estimada en diciembre de 2028, ofrece monoambientes (39,26 m²), 1 dormitorio (49,58 m²) y 2 dormitorios con suite (81,49 m²), desde USD 150.000. Incluye piscina interior climatizada, piscina exterior, gimnasio, saunas, cowork, parrilleros cerrados y canchas de pádel y pickleball.\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/\n\nPedí planos y disponibilidad por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "golden-rise-roosevelt-parada-18-financiacion",
+    "project": "Golden Rise",
+    "title": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas",
+    "article_url": "/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
+    "feed_slides": [
+      "packs-redes/golden-rise-roosevelt-parada-18-financiacion/01-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-roosevelt-parada-18-financiacion/02-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-roosevelt-parada-18-financiacion/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/golden-rise-roosevelt-parada-18-financiacion/04-story-1080x1920.jpg",
+    "caption_ig": "Golden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\n\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Analizamos en Novedades del Este la propuesta de Golden Rise en Parada 18 de Avenida Roosevelt, Punta del Este: tipologías de 41 a 86 m², parque privado y esquema de financiación con 40 cuotas en obra y 30 cuotas post-ocupación.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
+    "caption_gmb": "📍 Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas\n\nGolden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
+    "caption_wa_status": "Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
+    "caption_fb": "Golden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\n\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nLeé la nota completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/\n\nPedí carpeta y condiciones por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "comprar-en-pozo-maldonado-playa-brava-roosevelt-2028",
+    "project": "Comparativa 2028",
+    "title": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt",
+    "article_url": "/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
+    "feed_slides": [
+      "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/01-feed-1080x1350.jpg",
+      "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/02-feed-1080x1350.jpg",
+      "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/04-story-1080x1920.jpg",
+    "caption_ig": "¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\n\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nLeé la comparativa completa:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Guía comparativa para compradores en pozo hacia 2028 en Punta del Este y Maldonado: cómo evaluar ticket de ingreso, ubicación y plazo de financiación entre Betania IV (Maldonado), EVE Tower (Playa Brava) y Golden Rise (Av. Roosevelt).\n\nLeé el análisis en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
+    "caption_gmb": "📍 Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt\n\n¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
+    "caption_wa_status": "Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
+    "caption_fb": "¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\n\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nLeé la comparativa completa:\nhttps://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/\n\nConsultanos por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "eve-tower-avance-obra-estructura-roosevelt",
+    "project": "EVE Tower",
+    "title": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt",
+    "article_url": "/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/",
+    "feed_slides": [
+      "packs-redes/eve-tower-avance-obra-estructura-roosevelt/01-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-avance-obra-estructura-roosevelt/02-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-avance-obra-estructura-roosevelt/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/eve-tower-avance-obra-estructura-roosevelt/04-story-1080x1920.jpg",
+    "caption_ig": "Registro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\n\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nMirá la nota en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Seguimiento de obra en EVE Tower (Parada 8, Playa Brava): excavación de tres subsuelos de garajes, montaje de grúa y fundación sobre Avenida Roosevelt.\n\nNota y registro fotográfico: https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/",
+    "caption_gmb": "📍 EVE Tower: avance de excavación y estructura inicial sobre Roosevelt\n\nRegistro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/",
+    "caption_wa_status": "EVE Tower: avance de excavación y estructura inicial sobre Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/",
+    "caption_fb": "Registro de obra en EVE Tower (Parada 8 de Playa Brava, sobre Avenida Roosevelt y Guanabara): avanzan las tareas en los tres subsuelos de estacionamiento y la estructura inicial del edificio.\n\nCon 26 pisos proyectados a 100 metros del mar y entrega estimada en diciembre de 2028, cuenta con unidades disponibles desde USD 150.000 y financiación durante la obra.\n\nMirá la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/\n\nWhatsApp directo: https://wa.me/59898712064"
+  },
+  {
+    "slug": "golden-rise-esquema-cuotas-obra-post-ocupacion",
+    "project": "Golden Rise",
+    "title": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo",
+    "article_url": "/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/",
+    "feed_slides": [
+      "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/01-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/02-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/golden-rise-esquema-cuotas-obra-post-ocupacion/04-story-1080x1920.jpg",
+    "caption_ig": "Cómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nLeé el detalle en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Desglose financiero de Golden Rise en Parada 18 (Av. Roosevelt, Punta del Este): cómo funcionan los cuatro tramos de pago con 30 cuotas constructivas y hasta 70 cuotas posteriores a la entrega.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/",
+    "caption_gmb": "📍 Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo\n\nCómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/",
+    "caption_wa_status": "Golden Rise: cómo se organiza el pago en 30 cuotas de obra y hasta 120 de saldo · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/",
+    "caption_fb": "Cómo se estructura el plan de pagos de Golden Rise en Parada 18 de Avenida Roosevelt:\n\n1. 10% en la reserva inicial.\n2. 20% a la firma del compromiso de compraventa.\n3. 30 cuotas durante la construcción (entrega estimada: diciembre de 2028).\n4. Saldo financiado en hasta 70 cuotas posteriores a la posesión.\n\nLeé el detalle en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/\n\nPedí la simulación de cuotas por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "betania-iv-comparativa-tipologias-1-2-3-dormitorios",
+    "project": "Betania IV",
+    "title": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado",
+    "article_url": "/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/",
+    "feed_slides": [
+      "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/01-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/02-feed-1080x1350.jpg",
+      "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/betania-iv-comparativa-tipologias-1-2-3-dormitorios/04-story-1080x1920.jpg",
+    "caption_ig": "Las 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nLeé la comparativa en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Comparativa de las cinco tipologías residenciales de Betania IV en Maldonado: superficies interiores, terrazas y perfil de demanda entre 1, 2 y 3 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/",
+    "caption_gmb": "📍 Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado\n\nLas 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/",
+    "caption_wa_status": "Betania IV: cómo elegir entre 1, 2 y 3 dormitorios en Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/",
+    "caption_fb": "Las 102 viviendas de Betania IV en Maldonado se dividen en 5 tipologías con cocina definida y terraza privada:\n\n• 1 dormitorio: 40 m² interiores + 2,85 m² terraza (36 unidades)\n• 2 dormitorios: opciones de 62 m² y 68 m² interiores + terraza (54 unidades, incluye 3 accesibles)\n• 3 dormitorios: 78 m² interiores + 9,1 m² en 2 terrazas, 2 baños (1 en suite) y vestidor (12 unidades)\n\nLeé la comparativa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/\n\nPedí planos y precios por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "eve-tower-tipologias-1-y-2-dormitorios-playa-brava",
+    "project": "EVE Tower",
+    "title": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios",
+    "article_url": "/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/",
+    "feed_slides": [
+      "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/01-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/02-feed-1080x1350.jpg",
+      "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/04-story-1080x1920.jpg",
+    "caption_ig": "Cómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nLeé la nota en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Análisis de plantas y superficies en EVE Tower (Parada 8, Playa Brava): equipamiento de cocina, metrajes de terraza y distribución en monoambientes y unidades de 1 y 2 dormitorios.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/",
+    "caption_gmb": "📍 EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios\n\nCómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/",
+    "caption_wa_status": "EVE Tower: distribución y terrazas en monoambientes y 1 y 2 dormitorios · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/",
+    "caption_fb": "Cómo se distribuyen las tres tipologías de EVE Tower a 100 metros de Playa Brava (Parada 8, Punta del Este):\n\n• Monoambientes: 39,26 m² totales con terraza privada.\n• 1 dormitorio: 49,58 m² totales con estar-comedor independiente.\n• 2 dormitorios: 81,49 m² totales con 2 baños (principal en suite) y terrazas de hasta 9,53 m².\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/\n\nPedí los planos por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "golden-rise-amenities-parque-privado-parada-18",
+    "project": "Golden Rise",
+    "title": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt",
+    "article_url": "/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/",
+    "feed_slides": [
+      "packs-redes/golden-rise-amenities-parque-privado-parada-18/01-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-amenities-parque-privado-parada-18/02-feed-1080x1350.jpg",
+      "packs-redes/golden-rise-amenities-parque-privado-parada-18/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/golden-rise-amenities-parque-privado-parada-18/04-story-1080x1920.jpg",
+    "caption_ig": "En Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nLeé la nota en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "El equipamiento de año completo en proyectos residenciales sobre el eje Roosevelt: analizamos el programa de 15 áreas comunes y parque privado de Golden Rise en Parada 18.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/",
+    "caption_gmb": "📍 Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt\n\nEn Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/",
+    "caption_wa_status": "Golden Rise: parque privado, spa y servicios para vivir todo el año en Roosevelt · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/",
+    "caption_fb": "En Parada 18 de Avenida Roosevelt y Salt Lake, Golden Rise proyecta 15 espacios comunes pensados para funcionar los doce meses del año:\n\n• Piscina interior climatizada, piscinas exteriores, spa, hidromasaje y saunas.\n• Gimnasio equipado y cancha de pádel.\n• Parque privado parquizado, parque para mascotas y juegos infantiles.\n• Salas de reuniones, barbacoas comunes, recepción 24 h y estacionamiento de cortesía.\n\nLeé la nota en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/\n\nConsultá por WhatsApp: https://wa.me/59898712064"
+  },
+  {
+    "slug": "etapas-compra-en-pozo-respaldo-escribania-maldonado",
+    "project": "Guía Jurídica Pozo",
+    "title": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado",
+    "article_url": "/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/",
+    "public_url": "https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/",
+    "feed_slides": [
+      "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/01-feed-1080x1350.jpg",
+      "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/02-feed-1080x1350.jpg",
+      "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/03-feed-1080x1350.jpg"
+    ],
+    "story_img": "packs-redes/etapas-compra-en-pozo-respaldo-escribania-maldonado/04-story-1080x1920.jpg",
+    "caption_ig": "¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nLeé la guía completa en Novedades del Este:\n\n📲 Planos, memoria descriptiva y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades).",
+    "caption_li": "Seguridad jurídica en operaciones de pozo en Punta del Este y Maldonado: qué instancias documentales intervienen entre la reserva inicial, el compromiso de compraventa y la posesión.\n\nGuía completa en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/",
+    "caption_gmb": "📍 Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado\n\n¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/",
+    "caption_wa_status": "Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado · Planos y nota completa acá 👉 https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/",
+    "caption_fb": "¿Cómo se instrumenta una compra en pozo en Punta del Este y Maldonado?\n\n1. Selección de unidad con plano específico, metraje interior y de terraza, y cronograma completo de pagos.\n2. Boleto de reserva para bloquear la unidad elegida.\n3. Revisión de antecedentes dominiales, reglamento y firma del compromiso de compraventa con respaldo de escribanía local.\n\nLeé la guía completa en Novedades del Este:\nhttps://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/\n\nConsultanos por WhatsApp: https://wa.me/59898712064"
+  }
+];
 
 const TYPO_TEXTS = {
   betania: {
@@ -986,6 +1196,90 @@ function fallbackCopy(text, cb) {
   document.body.removeChild(ta);
   if (cb) cb();
 }
+
+
+const SCHEDULE_META = {
+  'betania-iv-apartamentos-en-pozo-maldonado': {
+    date: 'Jue 29 Oct (✅ YA PUBLICADA EN VIVO)',
+    seo_kw: 'apartamentos en pozo maldonado / betania iv',
+    cold_personas: [
+      { role: 'Inversor Renta Anual (Sub-USD 100k)', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades en Punta del Este. Estamos comercializando Betania IV en Maldonado (entrega octubre 2027), con unidades desde USD 79.800 y financiación directa en hasta 24 cuotas. Es un producto pensado para renta anual sostenida todo el año. ¿Te interesa que te envíe planos y disponibilidad?' },
+      { role: 'Familia / Vivienda Permanente o Polo Universitario', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto la nota técnica que publicamos hoy sobre Betania IV en Maldonado (1, 2 y 3 dormitorios en obra con SUM, parrillero y terraza lavadero desde USD 79.800): https://zaguanpropiedades.com/novedades-del-este/betania-iv-apartamentos-en-pozo-maldonado/ ¿Buscás de 1 o de 2 dormitorios?' }
+    ]
+  },
+  'eve-tower-apartamentos-pozo-playa-brava': {
+    date: 'Sáb 31 Oct · Próximo turno (11:00 hs)',
+    seo_kw: 'apartamentos en pozo playa brava / eve tower punta del este',
+    cold_personas: [
+      { role: 'Inversor Renta Temporaria Premium (Playa Brava)', msg: 'Hola [Nombre], ¿cómo estás? Te escribo de ZAGUÁN Propiedades. Sobre Parada 7 (a 150 m de Playa Brava) avanza la obra de EVE Tower: unidades de 1, 1 y ½ y 2 dormitorios en esquina desde USD 156.970 con piscina interior climatizada, sauna, gimnasio y recepción 24 hs. ¿Querés que te mande las plantas disponibles hoy?' },
+      { role: 'Comprador Segunda Residencia (Argentina / Brasil / Montevideo)', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. Te comparto el análisis y planos de EVE Tower en Parada 7 de Playa Brava (en obra, frente al mar y con amenities de uso anual): https://zaguanpropiedades.com/novedades-del-este/eve-tower-apartamentos-pozo-playa-brava/ ¿Preferís ver planta de 1 dormitorio o 2 dormitorios esquina?' }
+    ]
+  },
+  'golden-rise-roosevelt-parada-18-financiacion': {
+    date: 'Mar 3 Nov · Turno #3 (11:00 hs)',
+    seo_kw: 'apartamentos financiados punta del este / golden rise roosevelt',
+    cold_personas: [
+      { role: 'Inversor Apalancado (Hasta 70 Cuotas sin Banco)', msg: 'Hola [Nombre], ¿cómo estás? Soy Ariana de ZAGUÁN Propiedades. En Av. Roosevelt Parada 18 estamos trabajando Golden Rise, que permite estructurar el pago en hasta 70 cuotas directas (10% reserva + 20% compromiso + 50% en 40 cuotas de obra + 20% en 30 cuotas post-ocupación). ¿Querés que te arme una simulación sobre monoambiente, 1 o 2 dormitorios?' },
+      { role: 'Familia / Amenities y Parque 6.000 m²', msg: 'Hola [Nombre], te comparto el desglose del esquema de financiación y amenities de Golden Rise en Parada 18 de Roosevelt (6.000 m² de parque privado y más de 20 amenities): https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/' }
+    ]
+  },
+  'comprar-en-pozo-maldonado-playa-brava-roosevelt-2028': {
+    date: 'Jue 5 Nov · Turno #4 · Nota Madre SEO Comparativa',
+    seo_kw: 'comprar en pozo punta del este 2026 2028 comparativa',
+    cold_personas: [
+      { role: 'Inversor Indeciso (Comparando Zonas y Tickets)', msg: 'Hola [Nombre], ¿cómo estás? Armamos en ZAGUÁN una comparativa técnica entre los 3 ejes de pozo hoy en Maldonado y Punta del Este (Centro/Urbano desde USD 79.800, Playa Brava Pda. 7 desde USD 156.970 y Roosevelt Pda. 18 hasta en 70 cuotas): https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/ ¿Cuál de los tres esquemas se acerca más a lo que estás evaluando?' }
+    ]
+  },
+  'betania-iv-avances-obra-octubre-2026': {
+    date: 'Sáb 7 Nov · Turno #5 · Prueba Real de Obra',
+    seo_kw: 'avance de obra betania iv maldonado',
+    cold_personas: [
+      { role: 'Seguimiento a Leads en Conversación (Follow-up con Obra)', msg: 'Hola [Nombre], ¿cómo estás? Te comparto el registro actualizado del avance de estructura y hormigonado en Betania IV (Maldonado, entrega octubre 2027): https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/ Seguimos con unidades desde USD 79.800 en hasta 24 cuotas.' }
+    ]
+  },
+  'eve-tower-avance-obra-estructura-roosevelt': {
+    date: 'Mar 10 Nov · Turno #6 · Prueba Real de Obra',
+    seo_kw: 'avance de obra eve tower punta del este',
+    cold_personas: [
+      { role: 'Seguimiento a Interesados en Playa Brava', msg: 'Hola [Nombre], ¿cómo estás? Te envío el avance de obra actualizado de EVE Tower en Parada 7 (Av. Roosevelt y Naciones Unidas, a 150 m de Playa Brava): https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/' }
+    ]
+  },
+  'golden-rise-amenities-parque-privado-parada-18': {
+    date: 'Jue 12 Nov · Turno #7 · Diferencial Producto',
+    seo_kw: 'golden rise amenities parque privado roosevelt',
+    cold_personas: [
+      { role: 'Inversor Renta Anual / Temporaria con Amenities', msg: 'Hola [Nombre], te comparto el detalle del parque privado de 6.000 m² y los más de 20 amenities de Golden Rise en Parada 18 de Roosevelt (con financiación hasta en 70 cuotas): https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/' }
+    ]
+  },
+  'etapas-compra-en-pozo-respaldo-escribania-maldonado': {
+    date: 'Sáb 14 Nov · Turno #8 · Nota Autoridad Jurídica',
+    seo_kw: 'como comprar en pozo en uruguay escribania reserva compromiso',
+    cold_personas: [
+      { role: 'Inversor Extranjero (Argentina / Brasil / Región)', msg: 'Hola [Nombre], ¿cómo estás? Muchos inversores del exterior nos consultan cómo se instrumenta jurídicamente una compra en pozo en Uruguay (reserva, compromiso de compraventa con escribanía y cronograma de cuotas de obra). Armamos esta guía clara paso a paso: https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/' }
+    ]
+  },
+  'betania-iv-comparativa-tipologias-1-2-3-dormitorios': {
+    date: 'Mar 17 Nov · Turno #9 · Foco Tipologías y Planos',
+    seo_kw: 'planos betania iv 1 2 3 dormitorios maldonado',
+    cold_personas: [
+      { role: 'Comprador Analizando Metros y Distribución', msg: 'Hola [Nombre], te comparto la comparativa de plantas de 1, 2 y 3 dormitorios de Betania IV en Maldonado (con medidas y distribución por tipología): https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/' }
+    ]
+  },
+  'eve-tower-tipologias-1-y-2-dormitorios-playa-brava': {
+    date: 'Jue 19 Nov · Turno #10 · Foco Tipologías y Planos',
+    seo_kw: 'planos eve tower 1 y 2 dormitorios playa brava',
+    cold_personas: [
+      { role: 'Inversor Comparando 1 Dorm vs 1.5 Dorm vs 2 Dorm Esquina', msg: 'Hola [Nombre], te comparto las plantas comparadas de EVE Tower en Parada 7 de Playa Brava (1 dormitorio desde 54,5 m², 1 dormitorio y medio y 2 dormitorios en esquina): https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/' }
+    ]
+  },
+  'golden-rise-esquema-cuotas-obra-post-ocupacion': {
+    date: 'Sáb 21 Nov · Turno #11 · Foco Ingeniería Financiera',
+    seo_kw: 'financiacion pozo 40 cuotas obra 30 post ocupacion punta del este',
+    cold_personas: [
+      { role: 'Inversor Financiero', msg: 'Hola [Nombre], mirá cómo funciona el tramo post-ocupación de Golden Rise en Parada 18: abonás el 50% durante las 40 cuotas de obra y el 20% final recién en 30 cuotas después de recibir la unidad (calzando la cuota con la renta del alquiler): https://zaguanpropiedades.com/novedades-del-este/financiacion-en-pozo-punta-del-este-24-a-70-cuotas/' }
+    ]
+  }
+};
 
 const INTERCALATED_ORDER = [
   'betania-iv-apartamentos-en-pozo-maldonado',
@@ -1115,7 +1409,7 @@ function renderCurrentPost() {
 
     <div class="post-meta">
       <div>
-        <span style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;">PIEZA ${idx + 1} DE ${pending.length} · PROYECTO: ${pack.project}</span>
+        <span style="font-size:12px;font-weight:700;color:var(--gold);text-transform:uppercase;">PIEZA ${idx + 1} DE ${pending.length} · PROYECTO: ${pack.project} &nbsp;·&nbsp; 📅 CALENDARIO: ${(SCHEDULE_META[pack.slug] && SCHEDULE_META[pack.slug].date) || "En cola"}</span>
         <div class="post-title">${pack.title}</div>
       </div>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
@@ -1164,7 +1458,7 @@ function renderCurrentPost() {
 
     <div class="copy-columns">
       <div class="copy-box">
-        <h4>1. 📸 Instagram y Facebook Page</h4>
+        <h4>1. 📸 Instagram (Sin URL en copy · deriva a Bio) + Facebook (El servidor agrega el link clicable solo en FB)</h4>
         <textarea id="current-ig-copy"></textarea>
         <button type="button" class="btn btn--secondary" style="width:100%" onclick="copyValue('current-ig-copy', this)">📋 Copiar para IG / Facebook</button>
       </div>
@@ -1206,6 +1500,34 @@ function renderCurrentPost() {
         <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
       </div>
       <div id="api-publish-result" style="font-size:12.5px;margin-top:8px;display:none;"></div>
+    </div>
+
+    
+    <!-- CIRCUITO 360° DE ESTA PIEZA: SEO + PROSPECCIÓN EN FRÍO + PAUTA ADS -->
+    <div style="background:#FAF8F4;border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px;">
+      <div style="font-size:13px;font-weight:800;color:var(--dark);margin-bottom:8px;">
+        🔄 Circuito 360° de esta publicación (SEO Indexado ↔ Prospección en Frío Hoy ↔ Pauta Ads)
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 2fr;gap:12px;font-size:12.5px;">
+        <div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;">
+          <strong>1. 🔍 SEO & Tráfico a la Web:</strong><br>
+          • <strong>Nota Madre indexada:</strong> <a href="${pack.public_url}" target="_blank" style="color:var(--green);text-decoration:underline;">Abrir nota SEO en vivo ↗</a><br>
+          • <strong>Keyword objetivo:</strong> <code>${(SCHEDULE_META[pack.slug] && SCHEDULE_META[pack.slug].seo_kw) || pack.project}</code><br>
+          • <strong>Pauta Ads:</strong> Si este Reel/Carrusel supera el promedio de guardados en 48 hs, usá su ID en el Bloque 3 (Meta Ads) como <em>"Usar publicación existente"</em>.
+        </div>
+        <div style="background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px;">
+          <strong>2. 🎯 Prospección en Frío 1 a 1 con esta nota hoy (LinkedIn DM / WhatsApp / Mail):</strong>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:6px;">
+            ${((SCHEDULE_META[pack.slug] && SCHEDULE_META[pack.slug].cold_personas) || []).map((cp, cpi) => `
+              <div style="background:#F4F7F5;padding:8px;border-radius:6px;">
+                <strong style="display:block;font-size:11.5px;margin-bottom:4px;color:var(--dark);">${cp.role}</strong>
+                <div id="cold-msg-${cpi}" style="font-size:11.5px;color:var(--text);margin-bottom:6px;line-height:1.35;">${cp.msg}</div>
+                <button type="button" class="btn btn--gold" style="width:100%;padding:5px 8px;font-size:11.5px;" onclick="copyElem('cold-msg-${cpi}', this)">📋 Copiar Mensaje en Frío</button>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="decision-bar">
@@ -1255,6 +1577,24 @@ async function loadApiStatus() {
   } catch (e) {
     line.innerHTML = '⚠️ Servidor API local verificando...';
   }
+}
+
+
+async function connectTikTokOAuth() {
+  const k = document.getElementById('inp-tk-key').value.trim();
+  const s = document.getElementById('inp-tk-secret').value.trim();
+  const logEl = document.getElementById('api-connect-log');
+  if (k === '' || s === '') {
+    logEl.innerHTML = '⚠️ Pegá primero el Client Key (renglón 1) y el Client Secret (renglón 2) de TikTok.';
+    return;
+  }
+  logEl.innerHTML = '⏳ Guardando llaves de TikTok y abriendo pantalla de autorización...';
+  await fetch('/api/connect', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ tiktok_client_key: k, tiktok_client_secret: s })
+  });
+  window.location.href = '/api/tiktok/login?client_key=' + encodeURIComponent(k) + '&client_secret=' + encodeURIComponent(s);
 }
 
 async function saveApiTokens() {
