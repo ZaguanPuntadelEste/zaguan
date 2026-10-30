@@ -548,9 +548,10 @@
               1) Para <strong>YouTube Shorts</strong>: abrí <a href="https://developers.google.com/oauthplayground/?scope=https://www.googleapis.com/auth/youtube.upload" target="_blank" style="color:#E6B85C;text-decoration:underline;">Google OAuth Playground (YouTube Upload) ↗</a>, autorizá el canal de Zaguán, tocá <em>Exchange authorization code for tokens</em> y pegá el <code>Access token</code> acá:<br>
             </p>
             <input id="inp-yt-token" type="password" placeholder="1) Access Token de YouTube (ya29...)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
-            <input id="inp-gmb-token" type="password" placeholder="2) Google Maps Token (⏳ En espera hasta que Google verifique)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:11.5px;margin-bottom:5px;">
+            <input id="inp-tk-token" type="password" placeholder="2) Access Token de TikTok (act....)" style="width:100%;padding:6px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:5px;">
+            <input id="inp-gmb-token" type="hidden" value="">
             <input id="inp-gmb-loc" type="hidden" value="">
-            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar Canal YouTube Shorts</button>
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Conectar YouTube Shorts / TikTok</button>
           </div>
         </div>
         <div id="api-connect-log" style="margin-top:10px;font-size:12.5px;color:#7AE582;"></div>
@@ -1177,7 +1178,8 @@ function renderCurrentPost() {
         <textarea id="current-gmb-copy"></textarea>
         <div style="display:flex;gap:6px;">
           <button type="button" class="btn btn--gold" style="flex:1;padding:8px;font-size:12px;" onclick="copyValue('current-gmb-copy', this)">📋 Copiar Título + Descripción Short</button>
-          <a class="btn btn--secondary" style="padding:8px 10px;font-size:12px;" href="https://studio.youtube.com/" target="_blank">▶️ YouTube Studio ↗</a>
+          <a class="btn btn--secondary" style="padding:8px 10px;font-size:12px;" href="https://studio.youtube.com/" target="_blank">▶️ YT Studio ↗</a>
+          <a class="btn btn--secondary" style="padding:8px 10px;font-size:12px;" href="https://www.tiktok.com/tiktokstudio/upload" target="_blank">🎵 TikTok Studio ↗</a>
         </div>
       </div>
       <div class="copy-box">
@@ -1196,8 +1198,9 @@ function renderCurrentPost() {
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-ig-reel" checked> 🎬 IG Reel con tu Música (MP4 15s)</label>
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-fb-reel" checked> 🎬 FB Reel con tu Música (MP4 15s)</label>
           <label><input type="checkbox" id="chk-fb-page" checked> 👍 FB Post (3 placas)</label>
-          <label title="El permiso actual publica en tu muro personal Ariana Wajntraub, no en la página de empresa"><input type="checkbox" id="chk-linkedin"> 💼 LinkedIn (⚠️ Perfil personal Ariana Wajntraub)</label>
-          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-youtube"> ▶️ YouTube Shorts (MP4 15s)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-linkedin" checked> 💼 LinkedIn Empresa (ZAGUÁN Propiedades)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-youtube" checked> ▶️ YouTube Shorts (MP4 15s)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-tiktok"> 🎵 TikTok (MP4 15s)</label>
           <label style="opacity:0.65;" title="En espera de verificación de Google My Business"><input type="checkbox" id="chk-gmb" disabled> 📍 Google Maps (⏳ En espera alta)</label>
         </div>
         <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
@@ -1244,8 +1247,9 @@ async function loadApiStatus() {
       parts.push(`🔴 Meta pendiente`);
       document.getElementById('api-config-box').style.display = 'block';
     }
-    parts.push(st.linkedin_connected ? `🟢 LinkedIn (${st.linkedin_name})` : `⚪ LinkedIn opcional`);
-    parts.push(st.youtube_connected ? `🟢 YouTube Shorts conectado` : `⚪ YouTube Shorts listo para conectar`);
+    parts.push(st.linkedin_connected ? (st.linkedin_name.includes("Personal") ? `🟡 LinkedIn: Token personal bloqueado (${st.linkedin_name})` : `🟢 LinkedIn Empresa ACTIVO (${st.linkedin_name})`) : `⚪ LinkedIn opcional`);
+    parts.push(st.youtube_connected ? `🟢 YouTube Shorts ACTIVO` : `⚪ YouTube Shorts pendiente`);
+    parts.push(st.tiktok_connected ? `🟢 TikTok ACTIVO` : `⚪ TikTok opcional`);
     parts.push(`⏳ Google Maps (en espera de verificación de Google)`);
     line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
   } catch (e) {
@@ -1261,6 +1265,7 @@ async function saveApiTokens() {
     meta_app_secret: document.getElementById('inp-meta-secret') ? document.getElementById('inp-meta-secret').value : '',
     linkedin_token: document.getElementById('inp-li-token').value,
     youtube_token: document.getElementById('inp-yt-token') ? document.getElementById('inp-yt-token').value : '',
+    tiktok_token: document.getElementById('inp-tk-token') ? document.getElementById('inp-tk-token').value : '',
     gmb_token: document.getElementById('inp-gmb-token').value,
     gmb_location_name: document.getElementById('inp-gmb-loc').value
   };
@@ -1328,6 +1333,7 @@ async function publishPackViaApi(slug, publicUrl, title, reelFile, btnEl) {
   if (document.getElementById('chk-fb-page') && document.getElementById('chk-fb-page').checked) channels.push('fb_page');
   if (document.getElementById('chk-linkedin').checked) channels.push('linkedin');
   if (document.getElementById('chk-youtube') && document.getElementById('chk-youtube').checked) channels.push('youtube_short');
+  if (document.getElementById('chk-tiktok') && document.getElementById('chk-tiktok').checked) channels.push('tiktok');
   if (document.getElementById('chk-gmb') && document.getElementById('chk-gmb').checked) channels.push('gmb');
 
   const resBox = document.getElementById('api-publish-result');
