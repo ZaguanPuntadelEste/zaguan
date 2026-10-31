@@ -726,13 +726,13 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
         <button type="button" class="btn btn--secondary" style="font-size:12px;padding:7px 12px;" onclick="toggleApiBox()">⚙️ Abrir / Cerrar Llaves de API</button>
       </div>
 
-      <div id="api-config-box" style="display:none;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:12px;">
+      <div id="api-config-box" style="display:block;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:12px;">
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:12.5px;">
           <!-- 1. META API (IG + FB + STORIES) -->
           <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
             <strong style="color:#fff;display:block;margin-bottom:4px;">1. Meta API <span id="badge-api-meta" style="color:#7AE582;">(🟢 Permanente Activo)</span></strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              FB <strong>Zaguan Propiedades (<code>1278518115351100</code>)</strong> + IG <strong><code>@zaguanpropiedades</code></strong> conectados con <strong>Page Token Permanente (<code>expires_at: 0</code>, nunca vence)</strong>. No necesitás agregar a nadie más para publicar.
+              FB <strong>Zaguan Propiedades (<code>1278518115351100</code>)</strong> + IG <strong><code>@zaguanpropiedades</code></strong> conectados con <strong>Page Token Permanente (<code>expires_at: 0</code>, nunca vence)</strong>.
             </p>
             <input id="inp-meta-token" type="password" placeholder="Ya conectado permanente en bóveda" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
             <input id="inp-meta-secret" type="password" placeholder="App Secret ya guardado en bóveda" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
@@ -750,26 +750,25 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
           </div>
 
           <!-- 3. YOUTUBE SHORTS API -->
-          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
-            <strong style="color:#fff;display:block;margin-bottom:4px;">3. YouTube Shorts <span id="badge-api-yt" style="color:#E6B85C;">(🟠 Falta 1// Permanente)</span></strong>
-            <p style="color:#B8C2C8;margin-bottom:6px;line-height:1.35;">
-              Para que <strong>quede fijo para siempre y nunca venza a la hora</strong>: tocá el botón 1, dale a <em>Authorize APIs → Exchange authorization code</em> y pegá acá el renglón <strong><code>Refresh token</code> (empieza con <code>1//</code>)</strong>:
+          <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
+            <strong style="color:#fff;display:block;margin-bottom:4px;">3. YouTube Shorts <span id="badge-api-yt" style="color:#7AE582;">(🟢 Permanente Activo)</span></strong>
+            <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
+              Canal de YouTube ZAGUÁN conectado con <strong>Refresh Token Permanente (<code>1//04b9...</code>)</strong> que se auto-renueva solo para siempre.
             </p>
-            <a href="https://developers.google.com/oauthplayground/#step1&apisSelect=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube.upload%2Chttps%3A%2F%2Fwww.googleapis.com%2Fauth%2Fyoutube&url=https%3A%2F%2F&content_type=application%2Fjson&http_method=GET&useDefaultOauthCred=unchecked&oauthEndpointSelect=Google&oauthAuthEndpointValue=https%3A%2F%2Faccounts.google.com%2Fo%2Foauth2%2Fv2%2Fauth&oauthTokenEndpointValue=https%3A%2F%2Foauth2.googleapis.com%2Ftoken&includeCredentials=unchecked&accessTokenType=bearer&autoRefreshToken=checked&accessType=offline&prompt=consent&response_type=code" target="_blank" style="display:block;background:#1A2B34;color:#E6B85C;padding:6px 8px;border-radius:6px;font-size:11.5px;font-weight:700;text-align:center;margin-bottom:6px;text-decoration:underline;">🔑 1) Abrir Playground Pre-Configurado (1 clic) ↗</a>
-            <input id="inp-yt-token" type="text" placeholder="2) Pegá acá el Refresh token (1//...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <input id="inp-yt-token" type="password" placeholder="Ya conectado permanente en bóveda (1//04b9...)" style="width:100%;padding:8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
             <input id="inp-gmb-token" type="hidden" value="">
             <input id="inp-gmb-loc" type="hidden" value="">
-            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 3) Dejar YouTube Fijo para Siempre</button>
+            <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Actualizar YouTube</button>
           </div>
 
           <!-- 4. TIKTOK API -->
-          <div style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:12px;">
-            <strong style="color:#fff;display:block;margin-bottom:4px;">4. TikTok API <span id="badge-api-tk" style="color:#E6B85C;">(⚪ Conectar por 365 días)</span></strong>
+          <div style="background:rgba(230,184,92,0.12);border:2px solid #E6B85C;border-radius:10px;padding:12px;">
+            <strong style="color:#fff;display:block;margin-bottom:4px;">4. TikTok API <span id="badge-api-tk" style="color:#E6B85C;">(⚪ Falta tildar Scopes)</span></strong>
             <p style="color:#B8C2C8;margin-bottom:6px;line-height:1.35;">
-              Tus llaves (<code>sbawrh1mu948sma084</code>) ya están guardadas. Para no subir a mano: tocá el botón 1, aceptá en TikTok y pegá acá la URL de vuelta (<code>https://zaguanpropiedades.com/links/?code=...</code>):
+              En TikTok Sandbox, justo debajo de <code>Products</code> hay una caja <strong><code>Scopes</code></strong>: tocá <strong><code>+ Add scope</code></strong> → tildá <code>user.info.basic</code>, <code>video.publish</code>, <code>video.upload</code> → tocá <strong><code>Save changes</code></strong> abajo a la derecha, y recién ahí tocá este botón:
             </p>
-            <a href="/api/tiktok/login?client_key=sbawrh1mu948sma084" target="_blank" style="display:block;background:#1A2B34;color:#E6B85C;padding:6px 8px;border-radius:6px;font-size:11.5px;font-weight:700;text-align:center;margin-bottom:6px;text-decoration:underline;">🎵 1) Autorizar Usuario TikTok (1 clic) ↗</a>
-            <input id="inp-tk-token" type="text" placeholder="2) Pegá acá la URL con ?code=... que te devuelve" style="width:100%;padding:7px 8px;border-radius:6px;border:1px solid #445;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
+            <a href="/api/tiktok/login?client_key=sbawrh1mu948sma084&scope=user.info.basic,video.publish,video.upload" target="_blank" style="display:block;background:#E6B85C;color:#0F171A;padding:7px 8px;border-radius:6px;font-size:12px;font-weight:800;text-align:center;margin-bottom:6px;">🎵 1) Autorizar TikTok (Después de Save changes) ↗</a>
+            <input id="inp-tk-token" type="text" placeholder="2) Pegá acá la URL con ?code=... que te devuelve" style="width:100%;padding:7px 8px;border-radius:6px;border:1px solid #E6B85C;background:#081014;color:#fff;font-size:12px;margin-bottom:6px;">
             <input id="inp-tk-key" type="hidden" value="sbawrh1mu948sma084">
             <input id="inp-tk-secret" type="hidden" value="">
             <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12px;" onclick="saveApiTokens()">🔌 3) Guardar Token TikTok (Dura 365 días)</button>
