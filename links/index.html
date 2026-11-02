@@ -247,8 +247,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ tiktok_code: code })
-    }).then(function(){
-      window.location.href = 'http://127.0.0.1:8080/prospecting/index.html?v=9';
+    }).then(function(r){ return r.json(); }).then(function(d){
+      if (d && d.status && d.status.tiktok_connected) {
+        window.location.href = 'http://127.0.0.1:8080/prospecting/index.html?v=21';
+      } else {
+        window.location.href = 'http://127.0.0.1:8080/api/tiktok/login?client_key=sbawrh1mu948sma084&scope=user.info.basic,video.upload&retry=1';
+      }
     }).catch(function(){
       document.body.innerHTML = '<div style="font-family:sans-serif;background:#0F171A;color:#fff;padding:40px;text-align:center;min-height:100vh;"><h2>✅ Código de TikTok generado</h2><p>Copiá este código y pegalo en el chat o en el panel:</p><code style="display:block;padding:12px;background:#123B4A;color:#E6B85C;font-size:16px;margin:16px auto;max-width:600px;word-break:break-all;">' + code + '</code></div>';
     });
