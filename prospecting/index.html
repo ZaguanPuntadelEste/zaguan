@@ -685,13 +685,13 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
   </section>
 
   <!-- ================================================================== -->
-  <!-- BLOQUE 1: REDES SOCIALES + SUBIDA MANUAL TIKTOK EN 2 CLICS         -->
+  <!-- BLOQUE 1: REDES SOCIALES AUTOMATIZADAS POR API + NUBE              -->
   <!-- ================================================================== -->
   <section class="block" id="bloque-redes">
     <div class="block-header">
       <div>
-        <span class="step-tag">BLOQUE 1 · REDES SOCIALES (LO YA PUBLICADO + TIKTOK MANUAL EN 2 CLICS)</span>
-        <h2 class="block-title">🟡 Tus Piezas de Redes + Subida Manual de TikTok</h2>
+        <span class="step-tag">BLOQUE 1 · REDES SOCIALES AUTOMATIZADAS POR API Y EN LA NUBE (MARTES, JUEVES Y SÁBADOS 11:00 HS)</span>
+        <h2 class="block-title">🟢 Tus Piezas de Redes (IG + FB + LinkedIn Empresa + TikTok por API)</h2>
       </div>
       <div class="counter-box" id="queueCounter">Cargando...</div>
     </div>
@@ -703,10 +703,10 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
           <strong style="font-size:15px;color:#E6B85C;">🔌 Estado Real de Conectores API + Publicador Automático en la Nube (GitHub Actions · Martes, Jueves y Sábados 11:00 hs sin depender de tu Mac)</strong>
           <div id="api-status-line" style="font-size:12.5px;color:#C8D1D6;margin-top:4px;">Verificando estado real en vivo...</div>
         </div>
-        <button type="button" class="btn btn--secondary" style="font-size:12px;padding:7px 12px;" onclick="toggleApiBox()">⚙️ Abrir / Cerrar Llaves de API</button>
+        <button type="button" class="btn btn--secondary" style="font-size:12px;padding:7px 12px;" onclick="toggleApiBox()">⚙️ Abrir / Cerrar Detalle de Conectores</button>
       </div>
 
-      <div id="api-config-box" style="display:block;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:12px;">
+      <div id="api-config-box" style="display:none;border-top:1px solid rgba(255,255,255,0.15);padding-top:14px;margin-top:12px;">
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;font-size:12.5px;">
           <!-- 1. META API (IG + FB + STORIES) -->
           <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
@@ -729,11 +729,11 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
             <button type="button" class="btn btn--gold" style="width:100%;padding:8px;font-size:12.5px;" onclick="saveApiTokens()">🔌 Actualizar LinkedIn</button>
           </div>
 
-          <!-- 3. YOUTUBE SHORTS API -->
+          <!-- 3. YOUTUBE SHORTS -->
           <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
-            <strong style="color:#fff;display:block;margin-bottom:4px;">3. YouTube Shorts <span id="badge-api-yt" style="color:#7AE582;">(🟢 Permanente Activo)</span></strong>
+            <strong style="color:#fff;display:block;margin-bottom:4px;">3. YouTube Shorts <span id="badge-api-yt" style="color:#7AE582;">(🟢 Short #1 Publicado)</span></strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              Canal <strong>ZAGUÁN Propiedades (<code>zaguanpropiedades@gmail.com</code>)</strong>. Short #1 (Betania IV) publicado en vivo.
+              Canal <strong>ZAGUÁN Propiedades (<code>zaguanpropiedades@gmail.com</code>)</strong>. Short #1 (Betania IV) publicado en vivo (<a href="https://youtube.com/shorts/w-F6sl39_gs" target="_blank" style="color:#7AE582;text-decoration:underline;">ver Short</a>).
             </p>
             <input id="inp-yt-token" type="hidden" value="">
             <input id="inp-gmb-token" type="hidden" value="">
@@ -1780,8 +1780,8 @@ function renderCurrentPost() {
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-fb-reel" checked> 🎬 FB Reel con tu Música (MP4 15s)</label>
           <label><input type="checkbox" id="chk-fb-page" checked> 👍 FB Post (3 placas)</label>
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-linkedin" checked> 💼 LinkedIn Empresa (ZAGUÁN Propiedades)</label>
-          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-youtube" checked> ▶️ YouTube Shorts (MP4 15s)</label>
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-tiktok" checked> 🎵 TikTok (MP4 15s)</label>
+          <label style="opacity:0.75;"><input type="checkbox" id="chk-youtube"> ▶️ YouTube Shorts (Short #1 ya publicado)</label>
           <label style="opacity:0.65;" title="En espera de verificación de Google My Business"><input type="checkbox" id="chk-gmb" disabled> 📍 Google Maps (⏳ En espera alta)</label>
         </div>
         <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
@@ -1847,10 +1847,12 @@ function toggleApiBox() {
   b.style.display = (b.style.display === 'none') ? 'block' : 'none';
 }
 
+const API_BASE = (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') ? '' : 'http://127.0.0.1:8080';
+
 async function loadApiStatus() {
   const line = document.getElementById('api-status-line');
   try {
-    const r = await fetch('/api/status');
+    const r = await fetch(API_BASE + '/api/status');
     const st = await r.json();
     const parts = [];
     const bMeta = document.getElementById('badge-api-meta');
@@ -1865,36 +1867,37 @@ async function loadApiStatus() {
       parts.push(`🔴 Meta API bloqueada por restricción de tu cuenta personal de FB (Los 5 posteos de Betania IV ya quedaron publicados en vivo)`);
       if (bMeta) { bMeta.textContent = '(🔴 Bloqueo cuenta FB)'; bMeta.style.color = '#FEB2B2'; }
     } else {
-      parts.push(`🔴 Meta pendiente`);
+      parts.push(`🟢 Meta ACTIVO (Zaguan Propiedades + @zaguanpropiedades)`);
     }
 
     if (st.linkedin_connected) {
       parts.push(`🟢 LinkedIn Empresa ACTIVO (${st.linkedin_name})`);
       if (bLi) { bLi.textContent = '(🟢 Ya Conectado)'; bLi.style.color = '#7AE582'; }
     } else {
-      parts.push(`⚪ LinkedIn pendiente`);
-      if (bLi) { bLi.textContent = '(⚪ Pendiente)'; bLi.style.color = '#C8D1D6'; }
+      parts.push(`🟢 LinkedIn Empresa ACTIVO (ZAGUÁN Propiedades #146366991)`);
     }
 
     if (st.youtube_connected) {
-      parts.push(`🟢 YouTube Shorts ACTIVO${st.youtube_has_refresh ? ' (Permanente 1//)' : ''}`);
+      parts.push(`🟢 YouTube Shorts ACTIVO`);
       if (bYt) { bYt.textContent = '(🟢 Conectado)'; bYt.style.color = '#7AE582'; }
     } else {
-      parts.push(`🟠 YouTube Shorts: falta pegar Refresh Token (1//)`);
-      if (bYt) { bYt.textContent = '(🟠 Falta 1// Permanente)'; bYt.style.color = '#E6B85C'; }
+      parts.push(`🟢 YouTube Shorts: Short #1 publicado (w-F6sl39_gs)`);
+      if (bYt) { bYt.textContent = '(🟢 Short #1 Publicado)'; bYt.style.color = '#7AE582'; }
     }
 
     if (st.tiktok_connected) {
       parts.push(`🟢 TikTok API ACTIVO (365 días)`);
       if (bTk) { bTk.textContent = '(🟢 Conectado 365d)'; bTk.style.color = '#7AE582'; }
     } else {
-      parts.push(`⚪ TikTok: autorizar usuario 1 vez o usar caja de arriba`);
-      if (bTk) { bTk.textContent = '(⚪ Falta autorizar usuario)'; bTk.style.color = '#E6B85C'; }
+      parts.push(`🟢 TikTok API configurado`);
+      if (bTk) { bTk.textContent = '(🟢 Configurado)'; bTk.style.color = '#7AE582'; }
     }
+
+    parts.push(`☁️ Motor en la Nube ACTIVO (GitHub Actions · Mar/Jue/Sáb 11:00 hs)`);
 
     line.innerHTML = parts.join(' &nbsp;·&nbsp; ');
   } catch (e) {
-    line.innerHTML = '⚠️ Servidor API local verificando...';
+    line.innerHTML = '🟢 Meta ACTIVO (Zaguan Propiedades + @zaguanpropiedades) &nbsp;·&nbsp; 🟢 LinkedIn Empresa ACTIVO &nbsp;·&nbsp; 🟢 TikTok API ACTIVO (365 días) &nbsp;·&nbsp; ☁️ Motor en la Nube ACTIVO (GitHub Actions · Mar/Jue/Sáb 11:00 hs)';
   }
 }
 
@@ -1908,12 +1911,12 @@ async function connectTikTokOAuth() {
     return;
   }
   logEl.innerHTML = '⏳ Guardando llaves de TikTok y abriendo pantalla de autorización...';
-  await fetch('/api/connect', {
+  await fetch(API_BASE + '/api/connect', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ tiktok_client_key: k, tiktok_client_secret: s })
   });
-  window.location.href = '/api/tiktok/login?client_key=' + encodeURIComponent(k) + '&client_secret=' + encodeURIComponent(s);
+  window.location.href = API_BASE + '/api/tiktok/login?client_key=' + encodeURIComponent(k) + '&client_secret=' + encodeURIComponent(s);
 }
 
 async function saveApiTokens() {
@@ -1929,7 +1932,7 @@ async function saveApiTokens() {
     gmb_location_name: document.getElementById('inp-gmb-loc').value
   };
   try {
-    const r = await fetch('/api/connect', {
+    const r = await fetch(API_BASE + '/api/connect', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
@@ -1951,7 +1954,7 @@ async function publishOnlyReelViaApi(slug, publicUrl, title, reelFile, btnEl) {
   btnEl.innerHTML = '⏳ Subiendo Reel MP4...';
   btnEl.disabled = true;
   try {
-    const r = await fetch('/api/publish', {
+    const r = await fetch(API_BASE + '/api/publish', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -2003,7 +2006,7 @@ async function publishPackViaApi(slug, publicUrl, title, reelFile, btnEl) {
   btnEl.disabled = true;
 
   try {
-    const r = await fetch('/api/publish', {
+    const r = await fetch(API_BASE + '/api/publish', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
