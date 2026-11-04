@@ -696,31 +696,11 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
       <div class="counter-box" id="queueCounter">Cargando...</div>
     </div>
 
-    <!-- CAJA DIRECTA PARA SUBIR TIKTOK MANUAL EN 2 CLICS (RESPUESTA A TU PREGUNTA) -->
-    <div style="background:#FFF8EB;border:2px solid #D9822B;border-radius:12px;padding:16px 18px;margin-bottom:16px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-        <div style="max-width:740px;">
-          <strong style="font-size:15px;color:var(--dark);display:block;margin-bottom:4px;">
-            🎵 TikTok (Subida Manual en 2 Clics — Porque la API de TikTok rechazó el token ayer y NO subió nada ni en privado):
-          </strong>
-          <div style="font-size:13px;color:var(--text);line-height:1.45;">
-            1) El video con música ya está suelto en tu Escritorio con el nombre <strong><code>TIKTOK_HOY_BETANIA_IV.mp4</code></strong>.<br>
-            2) Tocá el botón <strong>📋 1) Copiar Copy para TikTok</strong> de acá al lado y después <strong>🎵 2) Abrir TikTok Studio</strong>, arrastrá el archivo del Escritorio y pegá con <code>Cmd+V</code>:
-          </div>
-          <code id="tiktok-manual-copy" style="display:block;background:#fff;border:1px solid var(--line);padding:8px 10px;border-radius:6px;font-size:12px;margin-top:8px;">Betania IV en Maldonado: apartamentos en pozo de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas. Entrega estimada: octubre de 2028. Planos y WhatsApp directo en el link de nuestra bio (@zaguanpropiedades). #PuntaDelEste #Maldonado #InversionInmobiliaria #PozoUruguay</code>
-        </div>
-        <div style="display:flex;flex-direction:column;gap:8px;min-width:250px;">
-          <button type="button" class="btn btn--gold" onclick="copyElem('tiktok-manual-copy', this)">📋 1) Copiar Copy para TikTok</button>
-          <a class="btn btn--approve" href="https://www.tiktok.com/tiktokstudio/upload" target="_blank" style="text-align:center;">🎵 2) Abrir TikTok Studio y Subir Video ↗</a>
-        </div>
-      </div>
-    </div>
-
     <!-- CAJA DE ESTADO REAL DE APIs -->
     <div style="background:#0F171A;color:#fff;border-radius:12px;padding:16px 20px;margin-bottom:18px;">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
         <div>
-          <strong style="font-size:15px;color:#E6B85C;">🔌 Estado Real de Conectores API (Meta y LinkedIn ya están conectados permanentes)</strong>
+          <strong style="font-size:15px;color:#E6B85C;">🔌 Estado Real de Conectores API + Publicador Automático en la Nube (GitHub Actions · Martes, Jueves y Sábados 11:00 hs sin depender de tu Mac)</strong>
           <div id="api-status-line" style="font-size:12.5px;color:#C8D1D6;margin-top:4px;">Verificando estado real en vivo...</div>
         </div>
         <button type="button" class="btn btn--secondary" style="font-size:12px;padding:7px 12px;" onclick="toggleApiBox()">⚙️ Abrir / Cerrar Llaves de API</button>
@@ -753,7 +733,7 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
           <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
             <strong style="color:#fff;display:block;margin-bottom:4px;">3. YouTube Shorts <span id="badge-api-yt" style="color:#7AE582;">(🟢 Permanente Activo)</span></strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              Canal <strong>ZAGUÁN Propiedades (<code>zaguanpropiedades@gmail.com</code>)</strong> conectado y activo con <strong>Refresh Token (<code>1//...</code>)</strong>. Short #1 ya publicado en vivo.
+              Canal <strong>ZAGUÁN Propiedades (<code>zaguanpropiedades@gmail.com</code>)</strong>. Short #1 (Betania IV) publicado en vivo.
             </p>
             <input id="inp-yt-token" type="hidden" value="">
             <input id="inp-gmb-token" type="hidden" value="">
@@ -764,8 +744,9 @@ Comercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).</pre>
           <div style="background:rgba(122,229,130,0.08);border:1px solid #7AE582;border-radius:10px;padding:12px;">
             <strong style="color:#fff;display:block;margin-bottom:4px;">4. TikTok API <span id="badge-api-tk" style="color:#7AE582;">(🟢 Conectado 365 días)</span></strong>
             <p style="color:#B8C2C8;margin-bottom:8px;line-height:1.4;">
-              Cuenta oficial <strong>ZAGUÁN Propiedades</strong> verificada y conectada con <strong>Refresh Token automático por 365 días (<code>rft.WXC9...</code>)</strong>.
+              Cuenta oficial <strong>ZAGUÁN Propiedades</strong> conectada con <strong>Refresh Token automático 365 días</strong>.
             </p>
+            <a class="btn btn--approve" href="http://127.0.0.1:8080/api/tiktok/login?scope=user.info.basic,video.upload,video.publish" style="display:block;text-align:center;width:100%;padding:8px;font-size:12px;text-decoration:none;">🔄 Autorizar Direct Post + Copy (1 Clic)</a>
             <input id="inp-tk-token" type="hidden" value="">
             <input id="inp-tk-key" type="hidden" value="sbawrh1mu948sma084">
             <input id="inp-tk-secret" type="hidden" value="">
@@ -1800,7 +1781,7 @@ function renderCurrentPost() {
           <label><input type="checkbox" id="chk-fb-page" checked> 👍 FB Post (3 placas)</label>
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-linkedin" checked> 💼 LinkedIn Empresa (ZAGUÁN Propiedades)</label>
           <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-youtube" checked> ▶️ YouTube Shorts (MP4 15s)</label>
-          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-tiktok"> 🎵 TikTok (MP4 15s)</label>
+          <label style="background:#FFF8EB;padding:3px 8px;border-radius:6px;border:1px solid #D9822B;"><input type="checkbox" id="chk-tiktok" checked> 🎵 TikTok (MP4 15s)</label>
           <label style="opacity:0.65;" title="En espera de verificación de Google My Business"><input type="checkbox" id="chk-gmb" disabled> 📍 Google Maps (⏳ En espera alta)</label>
         </div>
         <button type="button" class="btn btn--approve" onclick="publishPackViaApi('${pack.slug}', '${pack.public_url}', '${pack.title.replace(/'/g, "\\'")}', '${reelFile}', this)">🚀 PUBLICAR AHORA POR API EN LAS REDES MARCADAS</button>
