@@ -1,0 +1,74 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZAGUAN Propiedades//Calendario Editorial Automatizado//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:ZAGUÁN · Novedades del Este (Automático)
+X-WR-TIMEZONE:America/Montevideo
+BEGIN:VEVENT
+UID:zaguan-q1-20261101@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20261101
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] EVE Tower: Avance de excavación y estructura sobre Roosevelt
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/eve-tower-avance-obra-estructura-roosevelt/ vía GitHub Actions. Revisar si hay fotos nuevas de obra para sumar.
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-q2-20261115@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20261115
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] Golden Rise: Plan de 30 cuotas en obra y 120 de saldo
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/golden-rise-esquema-cuotas-obra-post-ocupacion/
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-q3-20261201@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20261201
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] Betania IV: Cómo elegir entre 1, 2 y 3 dormitorios en Maldonado
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/betania-iv-comparativa-tipologias-1-2-3-dormitorios/
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-q4-20261215@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20261215
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] EVE Tower: Distribución y terrazas en monoambientes y 1 y 2 dormitorios
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/eve-tower-tipologias-1-y-2-dormitorios-playa-brava/
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-q5-20270101@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20270101
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] Golden Rise: Parque privado, spa y servicios todo el año en Roosevelt
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/golden-rise-amenities-parque-privado-parada-18/
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:zaguan-q6-20270115@zaguanpropiedades.com
+DTSTART;VALUE=DATE:20270115
+SUMMARY:📰 [Auto-Publicación ZAGUÁN] Guía de compra en pozo: Reserva, compromiso y respaldo notarial
+DESCRIPTION:Se publica automáticamente en https://zaguanpropiedades.com/novedades-del-este/etapas-compra-en-pozo-respaldo-escribania-maldonado/
+BEGIN:VALARM
+TRIGGER:-PT9H
+ACTION:DISPLAY
+DESCRIPTION:Publicación quincenal Novedades del Este
+END:VALARM
+END:VEVENT
+END:VCALENDAR

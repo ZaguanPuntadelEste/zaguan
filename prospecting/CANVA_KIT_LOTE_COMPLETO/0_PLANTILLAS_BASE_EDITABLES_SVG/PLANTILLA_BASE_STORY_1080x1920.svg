@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1920" width="1080" height="1920">
+  <!-- FONDO / FOTO VERTICAL (Arrastrar fondo limpio de carpeta 2_FONDOS_LIMPIOS_STORY) -->
+  <rect id="Fondo_Foto_Story" x="0" y="0" width="1080" height="1280" fill="#18222C"/>
+  <text x="540" y="640" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#8C6D46" text-anchor="middle">[Arrastrar acá el Fondo Limpio Vertical 1080x1920]</text>
+
+  <!-- ZÓCALO EDITORIAL STORY / ESTADO WHATSAPP (Respeta zona segura 9:16) -->
+  <rect id="Zocalo_Editorial_Story" x="0" y="1240" width="1080" height="680" fill="#0B1926"/>
+  <rect id="Linea_Dorada_Story" x="90" y="1240" width="900" height="4" fill="#8C6D46"/>
+
+  <!-- ETIQUETA SUPERIOR (Conectar a columna: Etiqueta_Superior) -->
+  <text id="Etiqueta_Superior" x="90" y="1320" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C9A66B" letter-spacing="2">{{Etiqueta_Superior}}</text>
+
+  <!-- TÍTULO PRINCIPAL (Conectar a columna: Titulo_Placa) -->
+  <text id="Titulo_Placa" x="90" y="1400" font-family="Helvetica, Arial, sans-serif" font-size="46" font-weight="bold" fill="#F5F2EB">{{Titulo_Placa}}</text>
+
+  <!-- BAJADA DE DATOS TÉCNICOS (Conectar a columna: Bajada_Datos) -->
+  <text id="Bajada_Datos" x="90" y="1520" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#D5CFC2">{{Bajada_Datos}}</text>
+
+  <!-- PIE DE MARCA Y CTA (Conectar a columna: Pie_CTA) -->
+  <text id="Pie_CTA" x="90" y="1660" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#C9A66B">{{Pie_CTA}}</text>
+</svg>

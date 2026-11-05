@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350">
+  <!-- FONDO / FOTO (Reemplazar o arrastrar fondo limpio acá en Canva) -->
+  <rect id="Fondo_Foto" x="0" y="0" width="1080" height="920" fill="#18222C"/>
+  <text x="540" y="450" font-family="Helvetica, Arial, sans-serif" font-size="28" fill="#8C6D46" text-anchor="middle">[Arrastrar acá el Fondo Limpio de la carpeta 1_FONDOS_LIMPIOS]</text>
+
+  <!-- ZÓCALO EDITORIAL ZAGUÁN (Editable en color y tamaño dentro de Canva) -->
+  <rect id="Zocalo_Editorial" x="0" y="880" width="1080" height="470" fill="#0B1926"/>
+  <rect id="Linea_Dorada" x="72" y="880" width="936" height="4" fill="#8C6D46"/>
+
+  <!-- ETIQUETA SUPERIOR (Conectar a columna: Etiqueta_Superior) -->
+  <text id="Etiqueta_Superior" x="72" y="948" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#C9A66B" letter-spacing="2">{{Etiqueta_Superior}}</text>
+
+  <!-- TÍTULO PRINCIPAL (Conectar a columna: Titulo_Placa) -->
+  <text id="Titulo_Placa" x="72" y="1015" font-family="Helvetica, Arial, sans-serif" font-size="42" font-weight="bold" fill="#F5F2EB">{{Titulo_Placa}}</text>
+
+  <!-- BAJADA DE DATOS TÉCNICOS (Conectar a columna: Bajada_Datos) -->
+  <text id="Bajada_Datos" x="72" y="1115" font-family="Helvetica, Arial, sans-serif" font-size="26" fill="#D5CFC2">{{Bajada_Datos}}</text>
+
+  <!-- PIE DE MARCA Y CTA (Conectar a columna: Pie_CTA) -->
+  <text id="Pie_CTA" x="72" y="1275" font-family="Helvetica, Arial, sans-serif" font-size="22" font-weight="bold" fill="#C9A66B">{{Pie_CTA}}</text>
+  <text id="Marca_Zaguan" x="1008" y="1275" font-family="Helvetica, Arial, sans-serif" font-size="26" font-weight="bold" fill="#F5F2EB" text-anchor="end">ZAGUÁN</text>
+</svg>

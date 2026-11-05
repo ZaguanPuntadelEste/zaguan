@@ -210,19 +210,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </a>
 
         <a class="action" href="/proyectos/">
-          Desarrollos en Pozo · Punta del Este y Maldonado
+          Desarrollos en Pozo · Punta del Este · Maldonado
         </a>
 
         <a class="action secondary" href="/proyectos/betania-iv/">
           Betania IV · Maldonado · Desde USD 79.800
         </a>
 
+        <a class="action secondary" href="/proyectos/nostrum-roosevelt/">
+          Nostrum Roosevelt · Parada 19 · Desde USD 107.419 (Ley 18.795)
+        </a>
+
+        <a class="action secondary" href="/proyectos/more-atlantico/">
+          More Atlántico Torre 3 · Parada 22 · Desde USD 139.121 (Ley 18.795)
+        </a>
+
         <a class="action secondary" href="/proyectos/eve-tower/">
-          EVE Tower · Playa Brava Pda. 7 · Desde USD 156.970
+          EVE Tower · Playa Brava Pda. 8 · Desde USD 150.000
         </a>
 
         <a class="action secondary" href="/proyectos/golden-rise/">
-          Golden Rise · Roosevelt Pda. 18 · Hasta 70 cuotas
+          Golden Rise · Roosevelt Pda. 18 · Consultar precio (30 + 120 cuotas)
         </a>
 
         <a class="action secondary" href="/novedades-del-este/">
@@ -251,7 +259,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       if (d && d.status && d.status.tiktok_connected) {
         window.location.href = 'http://127.0.0.1:8080/prospecting/index.html?v=24';
       } else {
-        window.location.href = 'http://127.0.0.1:8080/api/tiktok/login?client_key=sbawrh1mu948sma084&scope=user.info.basic,video.upload,video.publish&retry=1';
+        window.location.href = 'http://127.0.0.1:8080/api/tiktok/login?client_key=sbawrh1mu948sma084&scope=user.info.basic,video.upload&retry=1';
       }
     }).catch(function(){
       document.body.innerHTML = '<div style="font-family:sans-serif;background:#0F171A;color:#fff;padding:40px;text-align:center;min-height:100vh;"><h2>✅ Código de TikTok generado</h2><p>Copiá este código y pegalo en el chat o en el panel:</p><code style="display:block;padding:12px;background:#123B4A;color:#E6B85C;font-size:16px;margin:16px auto;max-width:600px;word-break:break-all;">' + code + '</code></div>';
