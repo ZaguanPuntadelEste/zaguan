@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ZAGUÁN · Departamento Comercial & CRM Nativo Aislado (cuenta_id="zaguan")</title>
+<style>
+  :root {
+    --bg: #F4F1EA;
+    --card: #FFFFFF;
+    --dark: #081521;
+    --dark-2: #102632;
+    --green: #14533C;
+    --green-light: #E8F3EE;
+    --gold: #C89D54;
+    --gold-bg: #FFF9EE;
+    --text: #1A242B;
+    --muted: #5A6770;
+    --line: #DCD6CA;
+    --danger: #9B2C2C;
+    --danger-bg: #FFF5F5;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.45;
+    padding-bottom: 60px;
+  }
+  .topbar {
+    background: var(--dark);
+    color: #fff;
+    padding: 16px 24px;
+    border-bottom: 3px solid var(--gold);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .topbar-inner {
+    max-width: 1380px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .brand-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .lock-pill {
+    background: rgba(122,229,130,0.16);
+    border: 1px solid #7AE582;
+    color: #7AE582;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 999px;
+  }
+  .wrap {
+    max-width: 1380px;
+    margin: 20px auto;
+    padding: 0 18px;
+  }
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+  }
+  .kpi-card small {
+    display: block;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+  .kpi-card strong {
+    font-size: 22px;
+    color: var(--dark);
+  }
+  .tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+    border-bottom: 2px solid var(--line);
+    padding-bottom: 10px;
+  }
+  .tab-btn {
+    padding: 10px 16px;
+    border-radius: 9px;
+    border: 1px solid var(--line);
+    background: #fff;
+    color: var(--dark);
+    font-weight: 700;
+    font-size: 13.5px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tab-btn.active {
+    background: var(--dark);
+    color: #fff;
+    border-color: var(--dark);
+  }
+  .panel-sec { display: none; }
+  .panel-sec.active { display: block; }
+  .box {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+  }
+  .box-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 13px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 12.5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    text-decoration: none;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.92; }
+  .btn--si { background: var(--green); color: #fff; }
+  .btn--no { background: var(--danger-bg); color: var(--danger); border-color: #FEB2B2; }
+  .btn--wa { background: #128C7E; color: #fff; }
+  .btn--mail { background: var(--dark); color: #fff; }
+  .btn--gold { background: var(--gold); color: #081521; }
+  .btn--ghost { background: #F4F7F5; color: var(--dark); border-color: var(--line); }
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .pill {
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    border: 1px solid var(--line);
+    background: #fff;
+    cursor: pointer;
+  }
+  .pill.active {
+    background: var(--green);
+    color: #fff;
+    border-color: var(--green);
+  }
+  .b2b-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .b2b-row {
+    background: #FAF9F6;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: grid;
+    grid-template-columns: 1.2fr 1.6fr 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+  .b2b-row.status-si {
+    background: #F2F9F5;
+    border-color: #68D391;
+  }
+  .b2b-row.status-contactado {
+    background: #EBF8FF;
+    border-color: #63B3ED;
+  }
+  .b2b-row.status-no {
+    opacity: 0.55;
+    background: #FFF5F5;
+  }
+  @media (max-width: 980px) {
+    .b2b-row { grid-template-columns: 1fr; }
+  }
+  input, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 7px;
+    border: 1px solid var(--line);
+    font-family: inherit;
+    font-size: 12.5px;
+    background: #fff;
+    color: var(--text);
+  }
+  textarea { resize: vertical; min-height: 82px; }
+  .badge {
+    display: inline-block;
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .badge--pend { background: var(--gold-bg); color: #8C5E14; border: 1px solid #E6B85C; }
+  .badge--si { background: var(--green-light); color: var(--green); border: 1px solid #68D391; }
+  .badge--sent { background: #EBF8FF; color: #2B6CB0; border: 1px solid #90CDF4; }
+  .badge--no { background: var(--danger-bg); color: var(--danger); border: 1px solid #FEB2B2; }
+  .toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--dark);
+    color: #fff;
+    border: 2px solid var(--gold);
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    display: none;
+    z-index: 999;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  }
+  .sim-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 16px;
+  }
+  @media (max-width: 900px) {
+    .sim-grid { grid-template-columns: 1fr; }
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+  th, td { padding: 9px 10px; border-bottom: 1px solid var(--line); text-align: left; }
+  th { background: #EAE5DC; font-weight: 700; color: var(--dark); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand-badge">
+      <strong style="font-size:17px;letter-spacing:0.04em;">ZAGUÁN PROPIEDADES · DEPTO. COMERCIAL & CRM NATIVO</strong>
+      <span class="lock-pill">🔒 Aislado: cuenta_id="zaguan" (Cero Zoho · Cloudflare D1)</span>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <a class="btn btn--gold" href="https://aprobala-app.943ari.workers.dev/p/w8frJy8xjWXG4SGGbkPstV1FveXelKQX" target="_blank" rel="noopener">☁️ Abrir Aprobalo Cloud (Redes ZAGUÁN) ↗</a>
+      <a class="btn btn--ghost" href="/proyectos/" target="_blank">🏢 Ver Web Pública (5 Proyectos) ↗</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <!-- FILA DE KPIs EN VIVO -->
+  <div class="kpi-row">
+    <div class="kpi-card">
+      <small>Inventario Activo en Web</small>
+      <strong>5 Desarrollos</strong>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px;">Betania IV · EVE · Golden · Nostrum · More</div>
+    </div>
+    <div class="kpi-card">
+      <small>Prospección B2B (Cola SÍ/NO)</small>
+      <strong id="kpi-b2b-pend">14 en cola</strong>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px;" id="kpi-b2b-sub">0 aprobados · 0 contactados</div>
+    </div>
+    <div class="kpi-card">
+      <small>Pipeline B2C (Inversores)</small>
+      <strong id="kpi-b2c-total">0 activos</strong>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px;">Con bloqueo de prioridad 60 días</div>
+    </div>
+    <div class="kpi-card">
+      <small>Puente Cloudflare D1 + Email API</small>
+      <strong id="kpi-d1-status" style="color:var(--green);font-size:16px;">🟢 Conectado (zaguan)</strong>
+      <div style="font-size:11.5px;color:var(--muted);margin-top:2px;">Firma obligatoria: Mar · +598 98 712 064</div>
+    </div>
+  </div>
+
+  <!-- NAVEGACIÓN DE PESTAÑAS -->
+  <div class="tabs">
+    <button type="button" class="tab-btn active" onclick="openTab('tab-b2b', this)">1. 🤝 Prospección B2B (Cola SÍ / NO + Disparo 1-Clic)</button>
+    <button type="button" class="tab-btn" onclick="openTab('tab-b2c', this)">2. 👥 Seguimiento B2C + Simulador de Cuotas y Planos</button>
+    <button type="button" class="tab-btn" onclick="openTab('tab-inventario', this)">3. 🏢 Los 5 Desarrollos + Fichas Portales UY</button>
+    <button type="button" class="tab-btn" onclick="openTab('tab-d1', this)">4. ⚙️ Puente Cloudflare D1 & API de Correo (Resend / Webhook)</button>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- PESTAÑA 1: PROSPECCIÓN B2B (MODO DIRECTORIO SÍ / NO)                  -->
+  <!-- ===================================================================== -->
+  <section id="tab-b2b" class="panel-sec active">
+    <div class="box">
+      <div class="box-head">
+        <div>
+          <span style="font-size:11.5px;font-weight:800;color:var(--green);text-transform:uppercase;">MOTOR OUTBOUND B2B · ACUERDOS DE CO-CORRETAJE 50/50 Y DERIVACIÓN</span>
+          <h2 style="font-size:19px;color:var(--dark);margin-top:2px;">Vos solo decís SÍ o NO: al tocar SÍ se habilita el disparo en 1 clic por WhatsApp y Email API (Firma: Mar)</h2>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="btn btn--si" onclick="approveAllVisibleB2B()">✅ Aprobar (SÍ) todos los visibles</button>
+          <button type="button" class="btn btn--ghost" onclick="toggleNewB2BForm()">➕ Sumar Aliado B2B</button>
+        </div>
+      </div>
+
+      <!-- FORMULARIO RÁPIDO PARA SUMAR ALIADO B2B -->
+      <div id="new-b2b-form" style="display:none;background:#F4F7F5;border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:14px;">
+        <strong style="display:block;margin-bottom:8px;font-size:13px;">➕ Agregar nueva inmobiliaria o estudio al puente aislado (cuenta_id="zaguan")</strong>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px;margin-bottom:8px;">
+          <input id="nb-empresa" placeholder="Empresa / Inmobiliaria">
+          <select id="nb-anillo">
+            <option value="UY_MVD">🇺🇾 Inmobiliaria Montevideo</option>
+            <option value="AR_CABA">🇦🇷 Inmobiliaria CABA / Zona Norte</option>
+            <option value="UY_LEGAL">⚖️ Estudio Tributario / Relocation</option>
+          </select>
+          <input id="nb-ciudad" placeholder="Ciudad (ej. Montevideo / CABA)">
+          <input id="nb-wa" placeholder="WhatsApp solo números (ej. 59899123456)">
+          <input id="nb-email" placeholder="Email corporativo">
+          <select id="nb-gancho">
+            <option value="all-5">Carpeta 5 Desarrollos (50/50)</option>
+            <option value="nostrum-roosevelt">Nostrum Roosevelt (Ley 18.795 · USD 107.419)</option>
+            <option value="more-atlantico">More Atlántico T3 (LEED · USD 139.121)</option>
+            <option value="betania-iv">Betania IV (Maldonado · USD 79.800)</option>
+            <option value="eve-tower">EVE Tower (Playa Brava · USD 156.970)</option>
+            <option value="golden-rise">Golden Rise (70 Cuotas sin banco)</option>
+          </select>
+        </div>
+        <button type="button" class="btn btn--si" onclick="addB2BProspect()">💾 Guardar Aliado en Cola SÍ/NO</button>
+      </div>
+
+      <!-- FILTROS POR ANILLO Y ESTADO -->
+      <div class="filter-bar">
+        <button type="button" class="pill active" onclick="setB2BFilter('ALL', this)">Todos los Anillos (14)</button>
+        <button type="button" class="pill" onclick="setB2BFilter('UY_MVD', this)">🇺🇾 Inmobiliarias Montevideo (Ley 18.795)</button>
+        <button type="button" class="pill" onclick="setB2BFilter('AR_CABA', this)">🇦🇷 Inmobiliarias CABA / Zona Norte</button>
+        <button type="button" class="pill" onclick="setB2BFilter('UY_LEGAL', this)">⚖️ Estudios Legales & Relocation</button>
+        <span style="margin-left:auto;display:flex;gap:6px;">
+          <button type="button" class="pill" onclick="setB2BStatusFilter('ALL', this)">Estado: Todos</button>
+          <button type="button" class="pill" onclick="setB2BStatusFilter('pendiente', this)">🟡 Pendientes SÍ/NO</button>
+          <button type="button" class="pill" onclick="setB2BStatusFilter('si', this)">🟢 Aprobados (SÍ)</button>
+          <button type="button" class="pill" onclick="setB2BStatusFilter('contactado', this)">📬 Contactados</button>
+        </span>
+      </div>
+
+      <div id="b2b-list" class="b2b-grid"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PESTAÑA 2: SEGUIMIENTO B2C + SIMULADOR DE CUOTAS Y BLOQUEO COMISIÓN   -->
+  <!-- ===================================================================== -->
+  <section id="tab-b2c" class="panel-sec">
+    <div class="box">
+      <div class="box-head">
+        <div>
+          <span style="font-size:11.5px;font-weight:800;color:var(--green);text-transform:uppercase;">PIPELINE B2C + SIMULADOR DE CUOTAS + PROTECCIÓN DE COMISIÓN (60 DÍAS)</span>
+          <h2 style="font-size:19px;color:var(--dark);margin-top:2px;">Cargá o simulá la consulta del inversor y dispará Planos + Plan de Pagos en 1 clic (WhatsApp + Email API)</h2>
+        </div>
+      </div>
+
+      <div class="sim-grid">
+        <!-- COLUMNA IZQUIERDA: DATOS DEL INVERSOR + PROYECTO -->
+        <div style="background:#FAF9F6;border:1px solid var(--line);border-radius:12px;padding:16px;">
+          <strong style="display:block;font-size:14px;color:var(--dark);margin-bottom:10px;">1. Datos del Cliente (Nombre + Celular + Mail obligatorios para bloquear comisión)</strong>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Nombre y Apellido *</label>
+              <input id="b2c-nombre" placeholder="Ej. Martín Echeverría" oninput="updateB2CSimulator()">
+            </div>
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">WhatsApp / Celular *</label>
+              <input id="b2c-wa" placeholder="Ej. 5491155554444" oninput="updateB2CSimulator()">
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Email verificador *</label>
+              <input id="b2c-email" placeholder="cliente@correo.com" oninput="updateB2CSimulator()">
+            </div>
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Origen / Inmobiliaria Aliada</label>
+              <input id="b2c-origen" placeholder="Directo Web / Co-corretaje" oninput="updateB2CSimulator()">
+            </div>
+          </div>
+
+          <strong style="display:block;font-size:14px;color:var(--dark);margin:12px 0 8px;">2. Selección de Emprendimiento y Tipología</strong>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:8px;">
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Emprendimiento</label>
+              <select id="b2c-proj" onchange="onB2CProjectChange()"></select>
+            </div>
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Tipología y Precio de Lista</label>
+              <select id="b2c-typo" onchange="updateB2CSimulator()"></select>
+            </div>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Entrega Inicial (%)</label>
+              <input id="b2c-anticipo" type="number" value="30" min="10" max="90" oninput="updateB2CSimulator()">
+            </div>
+            <div>
+              <label style="font-size:11.5px;font-weight:700;">Cantidad de Cuotas</label>
+              <input id="b2c-cuotas" type="number" value="24" min="1" max="120" oninput="updateB2CSimulator()">
+            </div>
+          </div>
+
+          <div id="b2c-calc-summary" style="background:var(--gold-bg);border:1px solid var(--gold);border-radius:8px;padding:10px 12px;font-size:12px;margin-bottom:10px;"></div>
+        </div>
+
+        <!-- COLUMNA DERECHA: PROPUESTA GENERADA POR MAR + DISPARO EN 1 CLIC -->
+        <div style="background:#FAF9F6;border:1px solid var(--line);border-radius:12px;padding:16px;">
+          <strong style="display:block;font-size:14px;color:var(--dark);margin-bottom:6px;">3. Propuesta Lista con Plano + Simulación (Firma: Mar, de ZAGUÁN Propiedades)</strong>
+          <textarea id="b2c-msg-preview" style="min-height:175px;margin-bottom:10px;"></textarea>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn--si" onclick="saveAndSendB2C('wa')">💾 Guardar en CRM + 📲 Disparar WhatsApp (1 Clic)</button>
+            <button type="button" class="btn btn--mail" onclick="saveAndSendB2C('email')">💾 Guardar + ✉️ Enviar por Email API (1 Clic)</button>
+            <button type="button" class="btn btn--ghost" onclick="saveAndSendB2C('only_save')">💾 Solo Guardar en Pipeline</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLA DE SEGUIMIENTO B2C -->
+    <div class="box">
+      <div class="box-head">
+        <div>
+          <strong style="font-size:16px;color:var(--dark);">📋 Tratos B2C Activos en Seguimiento (Aislado: cuenta_id="zaguan")</strong>
+          <p style="font-size:12px;color:var(--muted);">Recordatorio de Política Comercial: registrar siempre Nombre + Apellido + Celular + Email antes de coordinar visita a showroom y acompañar al comprador.</p>
+        </div>
+      </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <thead>
+            <tr>
+              <th>Cliente</th>
+              <th>Contacto</th>
+              <th>Emprendimiento / Unidad</th>
+              <th>Simulación</th>
+              <th>Etapa del Trato</th>
+              <th>Vencimiento Prioridad (60d)</th>
+              <th>Acciones 1-Clic</th>
+            </tr>
+          </thead>
+          <tbody id="b2c-table-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PESTAÑA 3: INVENTARIO DE LOS 5 DESARROLLOS + FICHAS PORTALES UY       -->
+  <!-- ===================================================================== -->
+  <section id="tab-inventario" class="panel-sec">
+    <div class="box">
+      <div class="box-head">
+        <div>
+          <span style="font-size:11.5px;font-weight:800;color:var(--green);text-transform:uppercase;">CATÁLOGO COMPLETO VERIFICADO · 5 DESARROLLOS EN POZO</span>
+          <h2 style="font-size:19px;color:var(--dark);margin-top:2px;">Tus 5 Emprendimientos con Links Públicos en Vivo + Copiado 1-Clic para Mercado Libre UY / InfoCasas</h2>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <a class="btn btn--gold" href="https://www.mercadolibre.com.uy/publicar" target="_blank" rel="noopener">🟡 Abrir Publicador Mercado Libre UY ↗</a>
+          <a class="btn btn--ghost" href="https://www.infocasas.com.uy/publicar" target="_blank" rel="noopener">🟠 Abrir Publicador InfoCasas UY ↗</a>
+        </div>
+      </div>
+      <div id="inv-cards" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- PESTAÑA 4: PUENTE CLOUDFLARE D1 & API DE CORREO                       -->
+  <!-- ===================================================================== -->
+  <section id="tab-d1" class="panel-sec">
+    <div class="box">
+      <div class="box-head">
+        <div>
+          <span style="font-size:11.5px;font-weight:800;color:var(--green);text-transform:uppercase;">ARQUITECTURA ZERO-TRUST · CUENTA_ID="ZAGUAN" (0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb)</span>
+          <h2 style="font-size:19px;color:var(--dark);margin-top:2px;">Puente Nativo Cloudflare D1 + Configuración de Disparo por API de Correo</h2>
+        </div>
+      </div>
+
+      <div class="sim-grid">
+        <div style="background:#FAF9F6;border:1px solid var(--line);border-radius:12px;padding:16px;">
+          <strong style="display:block;font-size:14px;margin-bottom:8px;">✉️ Configuración de API de Correo para Disparo Directo (Resend / Perfit / Webhook)</strong>
+          <p style="font-size:12px;color:var(--muted);margin-bottom:10px;">
+            Si cargás tu API Key de Resend o endpoint Webhook propio, el botón <strong>"✉️ Disparar Email API"</strong> envía el correo en segundo plano sin abrir tu cliente de mail. Si lo dejás vacío, abre automáticamente tu correo con el destinatario, asunto y cuerpo institucional de <strong>Mar</strong> ya redactados.
+          </p>
+          <div style="margin-bottom:8px;">
+            <label style="font-size:11.5px;font-weight:700;">Proveedor de Envío</label>
+            <select id="cfg-mail-provider">
+              <option value="mailto">Cliente de Correo Directo en 1 Clic (Sin API Key)</option>
+              <option value="resend">Resend API (https://api.resend.com/emails)</option>
+              <option value="webhook">Webhook Propio / Cloudflare Worker</option>
+            </select>
+          </div>
+          <div style="margin-bottom:8px;">
+            <label style="font-size:11.5px;font-weight:700;">Remitente Oficial (Firma de Mar)</label>
+            <input id="cfg-mail-from" value="Mar · ZAGUÁN Propiedades <mar@zaguanpropiedades.com>">
+          </div>
+          <div style="margin-bottom:10px;">
+            <label style="font-size:11.5px;font-weight:700;">API Key / URL de Webhook (aislado en Zaguán)</label>
+            <input id="cfg-mail-key" type="password" placeholder="re_... o https://...">
+          </div>
+          <button type="button" class="btn btn--si" onclick="saveEmailConfig()">💾 Guardar Configuración de Correo</button>
+        </div>
+
+        <div style="background:#FAF9F6;border:1px solid var(--line);border-radius:12px;padding:16px;">
+          <strong style="display:block;font-size:14px;margin-bottom:8px;">☁️ Estado del Puente Cloudflare D1 (`cuenta_id="zaguan"`)</strong>
+          <div id="d1-live-box" style="font-size:12.5px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px;margin-bottom:10px;">
+            Sincronizado con base nativa <code>/admin/crm_zaguan_d1.json</code> · Cuenta Aprobalo Cloud: <code>0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb</code>.
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <button type="button" class="btn btn--gold" onclick="exportCrmJson()">⬇️ Descargar Backup JSON (Zaguán CRM)</button>
+            <button type="button" class="btn btn--ghost" onclick="resetToDefaultSeed()">🔄 Restaurar Lote Base Verificado</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+const STORAGE_KEY = 'zaguan_native_crm_d1_v1';
+const EMAIL_CFG_KEY = 'zaguan_email_api_cfg_v1';
+
+let crmData = null;
+let b2bAnilloFilter = 'ALL';
+let b2bStatusFilter = 'ALL';
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => { t.style.display = 'none'; }, 3000);
+}
+
+function openTab(id, btn) {
+  document.querySelectorAll('.panel-sec').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+}
+
+async function initCRM() {
+  try {
+    const r = await fetch('/admin/crm_zaguan_d1.json?v=' + Date.now());
+    const seed = await r.json();
+    const savedRaw = localStorage.getItem(STORAGE_KEY);
+    if (savedRaw) {
+      const saved = JSON.parse(savedRaw);
+      if (saved && saved.cuenta_id === 'zaguan') {
+        crmData = saved;
+        // Asegurar que estén los 5 desarrollos actualizados
+        crmData.inventario_desarrollos = seed.inventario_desarrollos;
+      } else {
+        crmData = seed;
+      }
+    } else {
+      crmData = seed;
+    }
+  } catch (e) {
+    console.error(e);
+  }
+  loadEmailConfig();
+  saveCRM();
+  renderAll();
+}
+
+function saveCRM() {
+  if (!crmData) return;
+  crmData.cuenta_id = 'zaguan';
+  crmData.actualizado = new Date().toISOString();
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(crmData));
+  updateKPIs();
+}
+
+function updateKPIs() {
+  if (!crmData) return;
+  const list = crmData.prospectos_b2b || [];
+  const pend = list.filter(x => x.decision === 'pendiente').length;
+  const si = list.filter(x => x.decision === 'si').length;
+  const sent = list.filter(x => x.decision === 'contactado').length;
+  document.getElementById('kpi-b2b-pend').textContent = pend + ' pendientes SÍ/NO';
+  document.getElementById('kpi-b2b-sub').textContent = `${si} aprobados (SÍ) · ${sent} contactados`;
+  document.getElementById('kpi-b2c-total').textContent = (crmData.leads_b2c || []).length + ' en seguimiento';
+}
+
+function buildB2BMessage(p, ganchoId) {
+  const g = ganchoId || p.gancho_sugerido || 'all-5';
+  if (p.anillo === 'UY_LEGAL') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades en Punta del Este · Maldonado. Cuando un cliente de su estudio necesita estructurar la pata inmobiliaria en Maldonado o Punta del Este (unidades de pozo desde USD 79.800, proyectos con exoneración de Ley 18.795 Vivienda Promovida como Nostrum Roosevelt desde USD 107.419 y More Atlántico desde USD 139.121, o primera línea en Playa Brava), trabajamos con acuerdo de derivación profesional y resolvemos toda la gestión en zona. Acá pueden ver el catálogo oficial: https://zaguanpropiedades.com/proyectos/ ¿Con quién del equipo podemos coordinar 10 minutos esta semana?`;
+  }
+  if (g === 'nostrum-roosevelt') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Estamos abriendo acuerdos de co-corretaje 50/50 con inmobiliarias colegas para comercializar Nostrum Roosevelt (Parada 19 de Av. Roosevelt) amparado por Ley 18.795 de Vivienda Promovida (exoneración de ITP 2%, IRPF/IRAE por 10 años e Impuesto al Patrimonio), con 1D desde USD 107.419 y 2D desde USD 149.960. Nosotros cubrimos las visitas acompañadas en Maldonado respetando el 50/50. Ficha y planos: https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/ ¿Con quién de su equipo de ventas puedo coordinar?`;
+  }
+  if (g === 'more-atlantico') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Les escribo para proponerles acuerdo de co-corretaje 50/50 en More Atlántico Torre 3 (Parada 22 de Roosevelt, pegado a Atlántico Shopping), con certificación LEED y beneficios de Ley 18.795 desde USD 139.121. Nosotros recibimos y acompañamos a sus clientes en obra en Punta del Este respetando el 50/50. Ficha técnica: https://zaguanpropiedades.com/proyectos/more-atlantico/ ¿Lo ven ustedes o me indican con quién coordinar?`;
+  }
+  if (g === 'betania-iv') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Estamos trabajando en co-corretaje 50/50 con colegas para clientes que buscan ticket de entrada en pozo en Maldonado: Betania IV (entrega oct 2028, hasta 24 cuotas, 1D desde USD 79.800 y 2D desde USD 149.000 con parrillero propio). Ficha y planos: https://zaguanpropiedades.com/proyectos/betania-iv/ ¿Les interesa sumar la carpeta para su cartera de inversores?`;
+  }
+  if (g === 'eve-tower') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Les escribo para poner a disposición en co-corretaje 50/50 EVE Tower en Parada 7 de Playa Brava (a 100 m del mar, 26 niveles con piscina interior climatizada, gym, cowork y pádel, desde USD 156.970). Nosotros atendemos las visitas en obra allá respetando el 50/50. Ficha: https://zaguanpropiedades.com/proyectos/eve-tower/ ¿Con quién de su equipo coordinamos?`;
+  }
+  if (g === 'golden-rise') {
+    return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Estamos compartiendo en co-corretaje 50/50 Golden Rise en Parada 18 de Roosevelt (parque privado de 6.000 m² y financiación directa hasta en 70 cuotas sin banco: 40 en obra + 30 post-ocupación que se calzan con la renta). Ficha: https://zaguanpropiedades.com/proyectos/golden-rise/ ¿Con quién de su equipo podemos conversar?`;
+  }
+  return `Hola equipo de ${p.empresa}, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado). Estamos abriendo acuerdos de co-corretaje 50/50 con inmobiliarias colegas para cuando sus clientes buscan inversión o pozo en Punta del Este / Maldonado: Betania IV (desde USD 79.800), Nostrum Roosevelt Ley 18.795 (desde USD 107.419), More Atlántico LEED (desde USD 139.121), EVE Tower en Playa Brava (desde USD 156.970) y Golden Rise (en 70 cuotas). Nosotros cubrimos las visitas y seguimiento en obra allá respetando el 50/50. Catálogo completo: https://zaguanpropiedades.com/proyectos/ ¿Con quién de su equipo podemos coordinar?`;
+}
+
+function setB2BFilter(anillo, btn) {
+  b2bAnilloFilter = anillo;
+  btn.parentElement.querySelectorAll('.pill').forEach(p => {
+    if (p.getAttribute('onclick')?.includes('setB2BFilter')) p.classList.remove('active');
+  });
+  btn.classList.add('active');
+  renderB2BList();
+}
+
+function setB2BStatusFilter(st, btn) {
+  b2bStatusFilter = st;
+  btn.parentElement.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  renderB2BList();
+}
+
+function setDecisionB2B(id, dec) {
+  const item = crmData.prospectos_b2b.find(x => x.id === id);
+  if (!item) return;
+  item.decision = dec;
+  item.estado_seguimiento = dec === 'si' ? 'Aprobado por Ariana · Listo para disparar' : (dec === 'no' ? 'Descartado' : 'En cola SÍ/NO');
+  saveCRM();
+  renderB2BList();
+  showToast(dec === 'si' ? `✅ ${item.empresa} aprobado. Ya podés disparar WhatsApp o Email en 1 clic.` : `🛑 ${item.empresa} descartado.`);
+}
+
+function approveAllVisibleB2B() {
+  let count = 0;
+  crmData.prospectos_b2b.forEach(p => {
+    if ((b2bAnilloFilter === 'ALL' || p.anillo === b2bAnilloFilter) && p.decision === 'pendiente') {
+      p.decision = 'si';
+      p.estado_seguimiento = 'Aprobado por Ariana · Listo para disparar';
+      count++;
+    }
+  });
+  saveCRM();
+  renderB2BList();
+  showToast(`✅ ${count} aliados B2B aprobados (SÍ).`);
+}
+
+function onChangeGanchoB2B(id, newGancho) {
+  const item = crmData.prospectos_b2b.find(x => x.id === id);
+  if (!item) return;
+  item.gancho_sugerido = newGancho;
+  const ta = document.getElementById('msg-b2b-' + id);
+  if (ta) ta.value = buildB2BMessage(item, newGancho);
+  saveCRM();
+}
+
+function dispatchB2BWhatsApp(id) {
+  const item = crmData.prospectos_b2b.find(x => x.id === id);
+  if (!item) return;
+  const msg = document.getElementById('msg-b2b-' + id)?.value || buildB2BMessage(item);
+  const phone = (item.whatsapp || item.telefono || '').replace(/[^0-9]/g, '');
+  if (!phone) {
+    showToast('⚠️ Este aliado solo publica Email oficial en su web. Usá el botón "✉️ Disparar Email API".');
+    return;
+  }
+  item.decision = 'contactado';
+  item.estado_seguimiento = '🟢 Contactado por WhatsApp (' + new Date().toLocaleDateString('es-UY') + ')';
+  item.ultimo_contacto = new Date().toISOString();
+  saveCRM();
+  renderB2BList();
+  window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+}
+
+async function dispatchB2BEmail(id) {
+  const item = crmData.prospectos_b2b.find(x => x.id === id);
+  if (!item) return;
+  const msg = document.getElementById('msg-b2b-' + id)?.value || buildB2BMessage(item);
+  const toEmail = (item.email || '').trim();
+  if (!toEmail) {
+    showToast('⚠️ Este aliado tiene WhatsApp directo verificado. Usá "📲 Disparar WhatsApp (1 Clic)".');
+    return;
+  }
+  const subject = `Acuerdo de Co-Corretaje 50/50 en Punta del Este / Maldonado — ZAGUÁN Propiedades (${item.empresa})`;
+  await sendEmailNative(toEmail, subject, msg);
+  item.decision = 'contactado';
+  item.estado_seguimiento = '🟢 Contactado por Email (' + new Date().toLocaleDateString('es-UY') + ')';
+  item.ultimo_contacto = new Date().toISOString();
+  saveCRM();
+  renderB2BList();
+}
+
+async function sendEmailNative(to, subject, bodyText) {
+  const cfgRaw = localStorage.getItem(EMAIL_CFG_KEY);
+  const cfg = cfgRaw ? JSON.parse(cfgRaw) : { provider: 'mailto', from: 'Mar · ZAGUÁN Propiedades <mar@zaguanpropiedades.com>', key: '' };
+  if (cfg.provider === 'resend' && cfg.key) {
+    try {
+      const r = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer ' + cfg.key,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          from: cfg.from,
+          to: [to],
+          subject: subject,
+          text: bodyText
+        })
+      });
+      if (r.ok) {
+        showToast('✅ Email enviado por Resend API a ' + to);
+        return;
+      }
+    } catch (e) {
+      console.warn('Fallback a mailto:', e);
+    }
+  } else if (cfg.provider === 'webhook' && cfg.key) {
+    try {
+      const r = await fetch(cfg.key, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ cuenta_id: 'zaguan', to, subject, text: bodyText, from: cfg.from })
+      });
+      if (r.ok) {
+        showToast('✅ Email disparado por Webhook Cloud a ' + to);
+        return;
+      }
+    } catch (e) {
+      console.warn('Fallback a mailto:', e);
+    }
+  }
+  window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyText)}`;
+  showToast('✉️ Abriendo correo pre-armado para ' + to);
+}
+
+function copyB2BText(id) {
+  const ta = document.getElementById('msg-b2b-' + id);
+  if (!ta) return;
+  navigator.clipboard.writeText(ta.value);
+  showToast('📋 Guion de Mar copiado.');
+}
+
+function renderB2BList() {
+  const container = document.getElementById('b2b-list');
+  if (!crmData || !container) return;
+  const filtered = (crmData.prospectos_b2b || []).filter(p => {
+    const okAnillo = (b2bAnilloFilter === 'ALL' || p.anillo === b2bAnilloFilter);
+    const okSt = (b2bStatusFilter === 'ALL' || p.decision === b2bStatusFilter);
+    return okAnillo && okSt;
+  });
+
+  container.innerHTML = filtered.map(p => {
+    const rowClass = p.decision === 'si' ? 'b2b-row status-si' : (p.decision === 'contactado' ? 'b2b-row status-contactado' : (p.decision === 'no' ? 'b2b-row status-no' : 'b2b-row'));
+    const badgeHtml = p.decision === 'si'
+      ? '<span class="badge badge--si">🟢 APROBADO (SÍ)</span>'
+      : (p.decision === 'contactado' ? `<span class="badge badge--sent">${p.estado_seguimiento}</span>` : (p.decision === 'no' ? '<span class="badge badge--no">🛑 DESCARTADO (NO)</span>' : '<span class="badge badge--pend">🟡 PENDIENTE SÍ / NO</span>'));
+
+    const msg = buildB2BMessage(p, p.gancho_sugerido);
+    return `
+      <div class="${rowClass}">
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:4px;">
+            <span style="font-size:11px;font-weight:800;color:var(--green);">${p.anillo_label}</span>
+            ${badgeHtml}
+          </div>
+          <strong style="font-size:16px;color:var(--dark);display:block;">${p.empresa}</strong>
+          <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">📍 ${p.ciudad} · <a href="${p.web_oficial}" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Abrir web oficial ↗</a></div>
+          <div style="font-size:11.5px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 8px;margin-bottom:6px;">
+            ${p.whatsapp ? `<div>📲 <strong>WhatsApp HTML:</strong> <code>+${p.whatsapp}</code></div>` : ''}
+            ${p.email ? `<div>✉️ <strong>Email HTML:</strong> <code>${p.email}</code></div>` : ''}
+            ${p.telefono ? `<div>📞 <strong>Tel:</strong> ${p.telefono}</div>` : ''}
+            <div style="color:var(--muted);font-size:10.5px;margin-top:2px;">✓ Verificado: ${p.fuente_verificacion}</div>
+          </div>
+          <div style="font-size:11.5px;color:var(--text);">💡 ${p.notas || ''}</div>
+        </div>
+
+        <div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+            <label style="font-size:11.5px;font-weight:700;">Gancho Comercial (Firma: Mar, de ZAGUÁN):</label>
+            <select style="width:auto;padding:4px 8px;font-size:11.5px;" onchange="onChangeGanchoB2B('${p.id}', this.value)">
+              <option value="all-5" ${p.gancho_sugerido === 'all-5' ? 'selected' : ''}>Carpeta 5 Desarrollos (50/50)</option>
+              <option value="nostrum-roosevelt" ${p.gancho_sugerido === 'nostrum-roosevelt' ? 'selected' : ''}>Nostrum Roosevelt (Ley 18.795 · USD 107.419)</option>
+              <option value="more-atlantico" ${p.gancho_sugerido === 'more-atlantico' ? 'selected' : ''}>More Atlántico T3 (LEED · USD 139.121)</option>
+              <option value="betania-iv" ${p.gancho_sugerido === 'betania-iv' ? 'selected' : ''}>Betania IV (Maldonado · USD 79.800)</option>
+              <option value="eve-tower" ${p.gancho_sugerido === 'eve-tower' ? 'selected' : ''}>EVE Tower (Playa Brava · USD 156.970)</option>
+              <option value="golden-rise" ${p.gancho_sugerido === 'golden-rise' ? 'selected' : ''}>Golden Rise (70 Cuotas sin banco)</option>
+            </select>
+          </div>
+          <textarea id="msg-b2b-${p.id}">${msg}</textarea>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+            <button type="button" class="btn btn--si" onclick="setDecisionB2B('${p.id}', 'si')">✅ SÍ (Aprobar)</button>
+            <button type="button" class="btn btn--no" onclick="setDecisionB2B('${p.id}', 'no')">🛑 NO</button>
+          </div>
+          ${p.whatsapp ? `<button type="button" class="btn btn--wa" onclick="dispatchB2BWhatsApp('${p.id}')">📲 Disparar WhatsApp (1 Clic)</button>` : ''}
+          ${p.email ? `<button type="button" class="btn btn--mail" onclick="dispatchB2BEmail('${p.id}')">✉️ Disparar Email API (1 Clic)</button>` : ''}
+          <button type="button" class="btn btn--ghost" onclick="copyB2BText('${p.id}')">📋 Copiar Guion de Mar</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function toggleNewB2BForm() {
+  const el = document.getElementById('new-b2b-form');
+  el.style.display = el.style.display === 'none' ? 'block' : 'none';
+}
+
+function addB2BProspect() {
+  const emp = document.getElementById('nb-empresa').value.trim();
+  if (!emp) { showToast('⚠️ Ingresá el nombre de la inmobiliaria o estudio.'); return; }
+  const anillo = document.getElementById('nb-anillo').value;
+  const labels = {
+    'UY_MVD': '🇺🇾 Inmobiliaria Montevideo',
+    'AR_CABA': '🇦🇷 Inmobiliaria CABA / Zona Norte',
+    'UY_LEGAL': '⚖️ Estudio Tributario / Relocation'
+  };
+  crmData.prospectos_b2b.unshift({
+    id: 'b2b-' + Date.now(),
+    cuenta_id: 'zaguan',
+    anillo,
+    anillo_label: labels[anillo],
+    empresa: emp,
+    ciudad: document.getElementById('nb-ciudad').value.trim() || 'Uruguay / Argentina',
+    web_oficial: 'https://zaguanpropiedades.com',
+    whatsapp: document.getElementById('nb-wa').value.replace(/[^0-9]/g, ''),
+    telefono: document.getElementById('nb-wa').value.trim(),
+    email: document.getElementById('nb-email').value.trim(),
+    fuente_verificacion: 'Cargado en Cabina Comercial ZAGUÁN',
+    gancho_sugerido: document.getElementById('nb-gancho').value,
+    decision: 'si',
+    estado_seguimiento: 'Aprobado por Ariana · Listo para disparar',
+    ultimo_contacto: null,
+    notas: 'Nuevo aliado cargado manualmente.'
+  });
+  saveCRM();
+  renderB2BList();
+  toggleNewB2BForm();
+  showToast('✅ Aliado agregado y aprobado.');
+}
+
+// ---------------- MÓDULO 2: SIMULADOR Y PIPELINE B2C ----------------
+function initB2CSimulator() {
+  const projSel = document.getElementById('b2c-proj');
+  if (!crmData || !projSel) return;
+  projSel.innerHTML = (crmData.inventario_desarrollos || []).map(p =>
+    `<option value="${p.id}">${p.nombre} (Desde USD ${p.precio_desde_usd.toLocaleString('es-UY')})</option>`
+  ).join('');
+  onB2CProjectChange();
+}
+
+function onB2CProjectChange() {
+  const projId = document.getElementById('b2c-proj').value;
+  const proj = (crmData.inventario_desarrollos || []).find(p => p.id === projId);
+  if (!proj) return;
+  document.getElementById('b2c-anticipo').value = proj.anticipo_pct || 30;
+  document.getElementById('b2c-cuotas').value = proj.cuotas_max || 24;
+  const typoSel = document.getElementById('b2c-typo');
+  typoSel.innerHTML = (proj.tipologias || []).map((t, idx) =>
+    `<option value="${idx}">${t.label} — USD ${t.precio_usd.toLocaleString('es-UY')}</option>`
+  ).join('');
+  updateB2CSimulator();
+}
+
+function updateB2CSimulator() {
+  const projId = document.getElementById('b2c-proj').value;
+  const proj = (crmData.inventario_desarrollos || []).find(p => p.id === projId);
+  if (!proj) return;
+  const typoIdx = Number(document.getElementById('b2c-typo').value || 0);
+  const typo = proj.tipologias[typoIdx] || proj.tipologias[0];
+  const nombre = document.getElementById('b2c-nombre').value.trim() || '[Nombre]';
+  const antPct = Math.max(10, Math.min(90, Number(document.getElementById('b2c-anticipo').value || 30)));
+  const cuotas = Math.max(1, Number(document.getElementById('b2c-cuotas').value || 24));
+
+  const precio = typo.precio_usd;
+  const anticipoUsd = Math.round(precio * (antPct / 100));
+  const saldoUsd = precio - anticipoUsd;
+  const valorCuota = Math.round(saldoUsd / cuotas);
+
+  document.getElementById('b2c-calc-summary').innerHTML = `
+    <strong>📊 Resumen Financiero (${proj.nombre} · ${typo.label}):</strong><br>
+    • <strong>Precio de lista:</strong> USD ${precio.toLocaleString('es-UY')}<br>
+    • <strong>Ingreso (${antPct}% reserva + compromiso):</strong> USD ${anticipoUsd.toLocaleString('es-UY')}<br>
+    • <strong>Saldo financiado (${100 - antPct}%):</strong> ${cuotas} cuotas de <strong>USD ${valorCuota.toLocaleString('es-UY')}</strong><br>
+    • <strong>Gastos de ocupación (${proj.gastos_ocupacion_pct}%):</strong> USD ${Math.round(precio * proj.gastos_ocupacion_pct / 100).toLocaleString('es-UY')} · <strong>Entrega:</strong> ${proj.entrega}
+    ${proj.ley_vivienda_promovida ? '<br>• 🏛️ <strong>Beneficio Ley 18.795:</strong> Exoneración de ITP (2%), IRPF/IRAE por 10 años e Impuesto al Patrimonio.' : ''}
+  `;
+
+  const leyTxt = proj.ley_vivienda_promovida
+    ? `\n• Beneficio Fiscal Ley 18.795 (Vivienda Promovida): Exoneración de ITP (2%), Impuesto a la Renta de alquileres (IRPF/IRAE) por 10 años e Impuesto al Patrimonio.`
+    : '';
+
+  document.getElementById('b2c-msg-preview').value =
+`Hola ${nombre}, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (Punta del Este · Maldonado).
+
+Te paso la simulación y el plano de ${proj.nombre} (${proj.zona}):
+• Unidad seleccionada: ${typo.label}
+• Valor de lista: USD ${precio.toLocaleString('es-UY')}
+• Ingreso (${antPct}% entre reserva y compromiso): USD ${anticipoUsd.toLocaleString('es-UY')}
+• Financiación directa (${100 - antPct}%): ${cuotas} cuotas de USD ${valorCuota.toLocaleString('es-UY')}
+• Entrega estimada: ${proj.entrega}${leyTxt}
+
+📐 Ver ficha técnica y planos acá: ${typo.url_plano}
+
+¿Querés que coordinemos una videollamada de 10 minutos o dejemos agendada la visita acompañada en obra?`;
+}
+
+async function saveAndSendB2C(mode) {
+  const nombre = document.getElementById('b2c-nombre').value.trim();
+  const wa = document.getElementById('b2c-wa').value.replace(/[^0-9]/g, '');
+  const email = document.getElementById('b2c-email').value.trim();
+  if (!nombre || (!wa && !email)) {
+    showToast('⚠️ Completá Nombre y al menos WhatsApp o Email para bloquear la prioridad del cliente.');
+    return;
+  }
+  const projId = document.getElementById('b2c-proj').value;
+  const proj = (crmData.inventario_desarrollos || []).find(p => p.id === projId);
+  const typoIdx = Number(document.getElementById('b2c-typo').value || 0);
+  const typo = proj.tipologias[typoIdx] || proj.tipologias[0];
+  const antPct = Number(document.getElementById('b2c-anticipo').value || 30);
+  const cuotas = Number(document.getElementById('b2c-cuotas').value || 24);
+  const msg = document.getElementById('b2c-msg-preview').value;
+
+  const vence = new Date(Date.now() + 60 * 86400000).toISOString().slice(0, 10);
+  const lead = {
+    id: 'b2c-' + Date.now(),
+    cuenta_id: 'zaguan',
+    nombre,
+    whatsapp: wa,
+    email,
+    origen: document.getElementById('b2c-origen').value.trim() || 'Directo ZAGUÁN',
+    proyecto: proj.nombre,
+    tipologia: typo.label,
+    precio_usd: typo.precio_usd,
+    plan_pagos: `${antPct}% anticipo + ${cuotas} cuotas`,
+    etapa: 'Planos y Simulación Enviados',
+    vence_prioridad: vence,
+    mensaje_enviado: msg,
+    creado: new Date().toISOString()
+  };
+  crmData.leads_b2c = crmData.leads_b2c || [];
+  crmData.leads_b2c.unshift(lead);
+  saveCRM();
+  renderB2CTable();
+
+  if (mode === 'wa' && wa) {
+    window.open('https://wa.me/' + wa + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  } else if (mode === 'email' && email) {
+    await sendEmailNative(email, `Propuesta y Planos ${proj.nombre} — ZAGUÁN Propiedades`, msg);
+  } else {
+    showToast('✅ Cliente guardado en el Pipeline B2C con prioridad por 60 días.');
+  }
+}
+
+function updateB2CStage(id, newStage) {
+  const item = (crmData.leads_b2c || []).find(x => x.id === id);
+  if (!item) return;
+  item.etapa = newStage;
+  saveCRM();
+  showToast('✅ Etapa actualizada a: ' + newStage);
+}
+
+function renderB2CTable() {
+  const tbody = document.getElementById('b2c-table-body');
+  if (!tbody || !crmData) return;
+  const list = crmData.leads_b2c || [];
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:var(--muted);padding:18px;">Cero leads falsos de muestra. Usá el simulador de arriba para cargar y responder consultas reales de inversores.</td></tr>';
+    return;
+  }
+  const stages = [
+    '1. Consulta Recibida',
+    'Planos y Simulación Enviados',
+    '3. Visita Acompañada / Zoom con Mar',
+    '4. Reserva / Boleto en Escribanía',
+    '5. Venta Cerrada'
+  ];
+  tbody.innerHTML = list.map(l => `
+    <tr>
+      <td><strong>${l.nombre}</strong><br><small style="color:var(--muted);">${l.origen}</small></td>
+      <td>${l.whatsapp ? `📲 +${l.whatsapp}<br>` : ''}${l.email ? `✉️ ${l.email}` : ''}</td>
+      <td><strong>${l.proyecto}</strong><br><small>${l.tipologia} (USD ${Number(l.precio_usd).toLocaleString('es-UY')})</small></td>
+      <td>${l.plan_pagos}</td>
+      <td>
+        <select onchange="updateB2CStage('${l.id}', this.value)" style="font-size:11.5px;padding:4px 6px;">
+          ${stages.map(s => `<option value="${s}" ${l.etapa === s ? 'selected' : ''}>${s}</option>`).join('')}
+        </select>
+      </td>
+      <td><span class="badge badge--si">🔒 Hasta ${l.vence_prioridad}</span></td>
+      <td>
+        <div style="display:flex;gap:5px;flex-wrap:wrap;">
+          ${l.whatsapp ? `<a class="btn btn--wa" style="padding:5px 8px;font-size:11px;" href="https://wa.me/${l.whatsapp}?text=${encodeURIComponent(l.mensaje_enviado || '')}" target="_blank" rel="noopener">📲 WhatsApp</a>` : ''}
+          ${l.email ? `<button type="button" class="btn btn--mail" style="padding:5px 8px;font-size:11px;" onclick="sendEmailNative('${l.email}', 'Seguimiento ${l.proyecto} — ZAGUÁN Propiedades', ${JSON.stringify(l.mensaje_enviado || '')})">✉️ Email</button>` : ''}
+        </div>
+      </td>
+    </tr>
+  `).join('');
+}
+
+// ---------------- MÓDULO 3: INVENTARIO DE LOS 5 DESARROLLOS ----------------
+function renderInventario() {
+  const box = document.getElementById('inv-cards');
+  if (!box || !crmData) return;
+  box.innerHTML = (crmData.inventario_desarrollos || []).map(p => {
+    const portalTxt = `TÍTULO: Apartamento en Pozo ${p.nombre} ${p.zona}\nPRECIO DESDE: USD ${p.precio_desde_usd.toLocaleString('es-UY')}\nENTREGA: ${p.entrega}\nFINANCIACIÓN: ${p.financiacion_resumen}\nFICHA OFICIAL: ${p.url_ficha}\nComercializa ZAGUÁN Propiedades (Mar · +598 98 712 064).`;
+    const pid = 'portal-' + p.id;
+    return `
+      <div style="background:#FAF9F6;border:1px solid var(--line);border-radius:10px;padding:14px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+          <strong style="font-size:15px;color:var(--dark);">${p.nombre}</strong>
+          ${p.ley_vivienda_promovida ? '<span class="badge badge--si">Ley 18.795</span>' : '<span class="badge badge--pend">Pozo PDE</span>'}
+        </div>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">📍 ${p.zona}</div>
+        <div style="font-size:15px;font-weight:800;color:var(--green);margin-bottom:6px;">Desde USD ${p.precio_desde_usd.toLocaleString('es-UY')}</div>
+        <div style="font-size:11.5px;margin-bottom:8px;">${p.financiacion_resumen}</div>
+        <pre id="${pid}" style="background:#fff;border:1px solid var(--line);border-radius:6px;padding:8px;font-size:11px;white-space:pre-wrap;font-family:inherit;margin-bottom:8px;">${portalTxt}</pre>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <a class="btn btn--mail" style="flex:1;font-size:11.5px;" href="${p.url_ficha}" target="_blank">🌐 Abrir Ficha Web ↗</a>
+          <button type="button" class="btn btn--gold" style="flex:1;font-size:11.5px;" onclick="navigator.clipboard.writeText(document.getElementById('${pid}').textContent);showToast('📋 Ficha copiada para Portal UY');">📋 Copiar Portal</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+// ---------------- MÓDULO 4: EMAIL CONFIG & EXPORT ----------------
+function loadEmailConfig() {
+  const raw = localStorage.getItem(EMAIL_CFG_KEY);
+  if (!raw) return;
+  try {
+    const cfg = JSON.parse(raw);
+    if (cfg.provider) document.getElementById('cfg-mail-provider').value = cfg.provider;
+    if (cfg.from) document.getElementById('cfg-mail-from').value = cfg.from;
+    if (cfg.key) document.getElementById('cfg-mail-key').value = cfg.key;
+  } catch (e) {}
+}
+
+function saveEmailConfig() {
+  const cfg = {
+    cuenta_id: 'zaguan',
+    provider: document.getElementById('cfg-mail-provider').value,
+    from: document.getElementById('cfg-mail-from').value.trim(),
+    key: document.getElementById('cfg-mail-key').value.trim()
+  };
+  localStorage.setItem(EMAIL_CFG_KEY, JSON.stringify(cfg));
+  showToast('✅ Configuración de API de Correo guardada para cuenta_id="zaguan".');
+}
+
+function exportCrmJson() {
+  const blob = new Blob([JSON.stringify(crmData, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'crm_zaguan_d1_backup.json';
+  a.click();
+}
+
+async function resetToDefaultSeed() {
+  localStorage.removeItem(STORAGE_KEY);
+  await initCRM();
+  showToast('🔄 Lote base verificado restaurado.');
+}
+
+function renderAll() {
+  renderB2BList();
+  initB2CSimulator();
+  renderB2CTable();
+  renderInventario();
+  updateKPIs();
+}
+
+initCRM();
+</script>
+</body>
+</html>
