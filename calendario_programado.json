@@ -104,7 +104,7 @@
     "caption_li": "Analizamos en Novedades del Este la propuesta de Golden Rise en Parada 18 de Avenida Roosevelt, Punta del Este: tipologías de 41 a 86 m², parque privado y esquema de financiación con 40 cuotas en obra y 30 cuotas post-ocupación.\n\nNota completa: https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
     "caption_gmb": "📍 Golden Rise en Parada 18: viviendas y financiación hasta en 70 cuotas\n\nGolden Rise en Parada 18 de Avenida Roosevelt y Salt Lake, Punta del Este: 19 pisos con monoambientes (41 m²), 1 dormitorio (57 m²) y 2 dormitorios (86 m²).\nSu propuesta comercial estructura el pago en cuatro tramos: 10% de reserva, 20% al compromiso de compraventa, 50% en hasta 40 cuotas durante la obra y 20% post-ocupación en hasta 30 cuotas (estimada para diciembre de 2028).\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/golden-rise-roosevelt-parada-18-financiacion/",
     "scheduled_at": "2026-11-05T11:00:00",
-    "status": "scheduled",
+    "status": "published",
     "channels": [
       "ig_feed",
       "ig_story",
@@ -114,7 +114,47 @@
       "linkedin",
       "youtube_short",
       "tiktok"
-    ]
+    ],
+    "published_at": "2026-11-05T17:56:46",
+    "results": {
+      "ig_feed": {
+        "ok": true,
+        "id": "17895562242435184"
+      },
+      "ig_story": {
+        "ok": true,
+        "id": "17915049054555673"
+      },
+      "ig_reel": {
+        "ok": true,
+        "id": "18078059849755637",
+        "detail": {
+          "id": "18078059849755637"
+        }
+      },
+      "fb_page": {
+        "ok": true,
+        "id": "1278518115351100_122128005321464663",
+        "detail": {
+          "id": "122128005297464663",
+          "post_id": "1278518115351100_122128005321464663"
+        }
+      },
+      "fb_reel": {
+        "ok": true,
+        "id": "2267544403823434",
+        "detail": {
+          "id": "2267544403823434"
+        }
+      },
+      "linkedin": {
+        "ok": true,
+        "id": "urn:li:share:7524213671774969856",
+        "detail": {
+          "id": "urn:li:share:7524213671774969856"
+        }
+      }
+    }
   },
   "04": {
     "id": "04",
