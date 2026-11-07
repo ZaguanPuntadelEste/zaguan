@@ -166,7 +166,7 @@
     "caption_li": "Guía comparativa para compradores en pozo hacia 2028 en Punta del Este y Maldonado: cómo evaluar ticket de ingreso, ubicación y plazo de financiación entre Betania IV (Maldonado), EVE Tower (Playa Brava) y Golden Rise (Av. Roosevelt).\n\nLeé el análisis en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
     "caption_gmb": "📍 Comprar en pozo con entrega 2028: Maldonado, Playa Brava y Roosevelt\n\n¿Qué cambia al comprar en pozo con entrega en 2028 entre Maldonado, Playa Brava y el eje Roosevelt?\nEn nuestra nueva nota de Novedades del Este comparamos tres propuestas concretas:\n1. Betania IV (Fraccionamiento 4H, Maldonado): 1, 2 y 3 dormitorios desde USD 79.800 y hasta 24 cuotas.\n2. EVE Tower (Parada 8, Playa Brava): a 100 m del mar, desde USD 150.000 con obra iniciada.\n3. Golden Rise (Parada 18, Av. Roosevelt): 30 cuotas en obra y saldo hasta en 70 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/comprar-en-pozo-maldonado-playa-brava-roosevelt-2028/",
     "scheduled_at": "2026-11-07T11:00:00",
-    "status": "scheduled",
+    "status": "published",
     "channels": [
       "ig_feed",
       "ig_story",
@@ -176,7 +176,47 @@
       "linkedin",
       "youtube_short",
       "tiktok"
-    ]
+    ],
+    "published_at": "2026-11-07T15:29:19",
+    "results": {
+      "ig_feed": {
+        "ok": true,
+        "id": "18114941612142325"
+      },
+      "ig_story": {
+        "ok": true,
+        "id": "17888133708622762"
+      },
+      "ig_reel": {
+        "ok": true,
+        "id": "18156456289506422",
+        "detail": {
+          "id": "18156456289506422"
+        }
+      },
+      "fb_page": {
+        "ok": true,
+        "id": "1278518115351100_122128495587464663",
+        "detail": {
+          "id": "122128495563464663",
+          "post_id": "1278518115351100_122128495587464663"
+        }
+      },
+      "fb_reel": {
+        "ok": true,
+        "id": "1606578347303699",
+        "detail": {
+          "id": "1606578347303699"
+        }
+      },
+      "linkedin": {
+        "ok": true,
+        "id": "urn:li:share:7524901273872293888",
+        "detail": {
+          "id": "urn:li:share:7524901273872293888"
+        }
+      }
+    }
   },
   "05": {
     "id": "05",
