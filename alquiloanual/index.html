@@ -1,22 +1,599 @@
 <!doctype html>
 <html lang="es-UY">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.getElementById(s),dl=l!='dataLayer'?'&l='+l:'';j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KTKLTW5T');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Alquiler anual en Punta del Este · Maldonado con ZAGUÁN Propiedades. Publicá tu propiedad sin ataduras y con filtro de garantía aseguradora o iniciá tu búsqueda anual.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#081521">
+  <title>Alquiler anual en Punta del Este · Maldonado | ZAGUÁN Propiedades</title>
+  <link rel="canonical" href="https://zaguanpropiedades.com/alquiloanual/">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_UY">
+  <meta property="og:site_name" content="ZAGUÁN Propiedades">
+  <meta property="og:title" content="Alquiler anual en Punta del Este · Maldonado | ZAGUÁN Propiedades">
+  <meta property="og:description" content="Publicá tu propiedad para alquiler anual con filtro de garantía aseguradora o iniciá tu búsqueda anual en Punta del Este · Maldonado.">
+  <meta property="og:url" content="https://zaguanpropiedades.com/alquiloanual/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --estuario: #123B4A;
+      --bigua: #081521;
+      --black-atl: #05090D;
+      --bone: #F3F0E8;
+      --limestone: #E8E4DA;
+      --mist: #D9DDDA;
+      --feather: #66717A;
+      --umbral: #1B5463;
+      --reflection: #315C57;
+      --alert: #A95E2D;
+      --max: 1216px;
+      --ease: 180ms ease;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bone);
+      color: var(--bigua);
+      font-family: 'Inter', Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    h1, h2, h3 { font-family: 'Archivo', Arial, sans-serif; letter-spacing: -0.035em; line-height: 1.04; }
+    .container { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
 
-  <title>Alquiler anual | ZAGUÁN Propiedades</title>
+    /* Header */
+    .site-header {
+      background: var(--bigua);
+      color: var(--bone);
+      border-bottom: 1px solid rgba(243,240,232,0.16);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 20px;
+    }
+    .brand-logo { height: 32px; width: auto; }
+    .main-nav { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+    .main-nav a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(243,240,232,0.82);
+    }
+    .main-nav a:hover { color: var(--bone); }
 
-  <meta http-equiv="refresh" content="0; url=https://forms.gle/NgzaMtgd1N7PU5wKA">
+    /* Barra de Anclas */
+    .anchor-bar {
+      background: var(--estuario);
+      color: var(--bone);
+      border-bottom: 1px solid rgba(243,240,232,0.18);
+      padding: 10px 0;
+      font-size: 12px;
+    }
+    .anchor-list {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      white-space: nowrap;
+      align-items: center;
+    }
+    .anchor-list a {
+      color: var(--bone);
+      font-weight: 500;
+      padding: 4px 10px;
+      border: 1px solid rgba(243,240,232,0.22);
+    }
+    .anchor-list a:hover { background: var(--umbral); }
 
-  <script>
-    window.location.replace("https://forms.gle/NgzaMtgd1N7PU5wKA");
+    /* Hero + Triaje Above the Fold */
+    .hero {
+      background: var(--bigua);
+      color: var(--bone);
+      padding: 48px 0 56px;
+      border-bottom: 1px solid var(--mist);
+    }
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(243,240,232,0.72);
+      margin-bottom: 14px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 5vw, 62px);
+      font-weight: 700;
+      max-width: 780px;
+      margin-bottom: 16px;
+    }
+    .hero-sub {
+      max-width: 640px;
+      color: rgba(243,240,232,0.82);
+      font-size: 16px;
+      margin-bottom: 32px;
+    }
+
+    .triage-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .triage-card {
+      background: var(--bone);
+      color: var(--bigua);
+      padding: 26px 24px;
+      border: 1px solid var(--mist);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 18px;
+    }
+    .triage-card--primary {
+      background: var(--estuario);
+      color: var(--bone);
+      border-color: rgba(243,240,232,0.35);
+    }
+    .triage-step {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.75;
+    }
+    .triage-card h2 {
+      font-size: 24px;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .triage-card p {
+      font-size: 14px;
+      line-height: 1.55;
+      opacity: 0.9;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      min-height: 48px;
+      padding: 12px 18px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid currentColor;
+      cursor: pointer;
+      transition: background var(--ease), color var(--ease);
+    }
+    .btn--light { background: var(--bone); color: var(--bigua); border-color: var(--bone); }
+    .btn--light:hover { background: #FFFFFF; }
+    .btn--dark { background: var(--bigua); color: var(--bone); border-color: var(--bigua); }
+    .btn--dark:hover { background: var(--umbral); border-color: var(--umbral); }
+
+    /* Secciones */
+    .section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--mist);
+    }
+    .section--alt { background: var(--limestone); }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: start;
+    }
+    .pill-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .pill-item {
+      background: var(--bone);
+      border: 1px solid var(--mist);
+      padding: 18px 20px;
+    }
+    .pill-item h3 { font-size: 19px; margin-bottom: 6px; }
+    .pill-item p { font-size: 14px; color: var(--bigua); }
+
+    /* Form */
+    .form-box {
+      background: var(--bigua);
+      color: var(--bone);
+      padding: 36px 32px;
+    }
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .field { display: grid; gap: 6px; }
+    .field--full { grid-column: 1 / -1; }
+    .field label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(243,240,232,0.8);
+    }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      background: transparent;
+      border: 0;
+      border-bottom: 1px solid rgba(243,240,232,0.45);
+      color: var(--bone);
+      padding: 10px 0;
+      font-size: 15px;
+      font-family: inherit;
+    }
+    .field select option { background: var(--bone); color: var(--bigua); }
+
+    /* Pozos cross-link */
+    .pozos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .pozo-card {
+      background: var(--bone);
+      border: 1px solid var(--mist);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .pozo-card:hover { border-color: var(--estuario); }
+    .pozo-meta { font-size: 12px; color: var(--feather); }
+
+    .site-footer {
+      background: var(--bigua);
+      color: rgba(243,240,232,0.75);
+      padding: 32px 0;
+      font-size: 12px;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .triage-grid, .grid-2 { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .container { width: calc(100% - 32px); }
+      .header-inner { min-height: 64px; }
+      .main-nav { gap: 14px; }
+      .hero { padding: 32px 0 40px; }
+      .field-grid { grid-template-columns: 1fr; }
+      .form-box { padding: 24px 18px; }
+    }
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "ZAGUÁN Propiedades", "item": "https://zaguanpropiedades.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Alquiler anual en Punta del Este · Maldonado", "item": "https://zaguanpropiedades.com/alquiloanual/"}
+        ]
+      },
+      {
+        "@type": "Service",
+        "name": "Comercialización y Búsqueda de Alquiler Anual en Punta del Este · Maldonado",
+        "provider": {
+          "@type": "RealEstateAgent",
+          "name": "ZAGUÁN Propiedades",
+          "url": "https://zaguanpropiedades.com/"
+        },
+        "areaServed": ["Punta del Este", "Maldonado"]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué garantías se solicitan para alquiler anual en Punta del Este · Maldonado?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En ZAGUÁN Propiedades pre-filtramos cada búsqueda anual verificando solvencia y garantía aseguradora aprobada (Porto Seguro, Sura, Mapfre o Anda) antes de coordinar visitas a la propiedad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo funciona la publicación de mi propiedad para alquiler anual en ZAGUÁN?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En ZAGUÁN Propiedades sumamos tu propiedad mediante autorización simple sin ataduras de exclusividad: ordenamos la ficha en nuestra web, defendemos el valor acordado y te presentamos postulantes pre-filtrados con garantía aseguradora. Solo cobramos honorarios si se concreta el contrato."
+            }
+          }
+        ]
+      }
+    ]
+  }
   </script>
 </head>
-
 <body>
-  <p>
-    Redirigiendo al formulario de alquiler anual de ZAGUÁN Propiedades.
-    <a href="https://forms.gle/NgzaMtgd1N7PU5wKA">Abrir formulario</a>
-  </p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" aria-label="ZAGUÁN Propiedades, inicio">
+        <img class="brand-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/proyectos/">Propiedades en pozo</a>
+        <a href="/alquiloanual/" aria-current="page">Alquiler anual</a>
+        <a href="/busqueda-personalizada/">Búsqueda personalizada</a>
+        <a href="/publicar/">Publicar propiedad</a>
+      </nav>
+    </div>
+  </header>
+
+  <nav class="anchor-bar" aria-label="Secciones de esta página">
+    <div class="container anchor-list">
+      <a href="#triaje">1. Triaje rápido (1 toque)</a>
+      <a href="#propietarios-exclusiva">2. Tengo una propiedad para alquilar</a>
+      <a href="#inquilinos-garantia">3. Busco alquiler anual con garantía</a>
+      <a href="#comparar-pozo">4. Comparar alquiler vs. pozo en cuotas</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="triaje">
+      <div class="container">
+        <p class="eyebrow">Punta del Este · Maldonado</p>
+        <h1>Alquiler anual con criterio y garantías claras.</h1>
+        <p class="hero-sub">Elegí tu situación actual para iniciar una conversación directa con Mar, de ZAGUÁN Propiedades, con los detalles que importan.</p>
+
+        <div class="triage-grid">
+          <article class="triage-card triage-card--primary">
+            <div>
+              <span class="triage-step">Entrada 01 · Propietarios</span>
+              <h2>¿Tenés una propiedad?</h2>
+              <p style="margin-top:10px;">Sumá tu casa o apartamento en Punta del Este · Maldonado sin ataduras de exclusividad: armamos la ficha, filtramos postulantes con garantía aseguradora (Porto, Sura, Mapfre o Anda) y solo cobramos si concretás.</p>
+            </div>
+            <a class="btn btn--light" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20tengo%20una%20propiedad%20en%20Punta%20del%20Este%20%C2%B7%20Maldonado%20para%20alquiler%20anual%20y%20quiero%20sumarla%20a%20ZAGU%C3%81N." target="_blank" rel="noopener noreferrer">
+              <span>Vendé y alquilá en ZAGUÁN</span>
+              <span>→</span>
+            </a>
+          </article>
+
+          <article class="triage-card">
+            <div>
+              <span class="triage-step">Entrada 02 · Inquilinos anuales</span>
+              <h2>¿Buscás alquilar todo el año?</h2>
+              <p style="margin-top:10px;">Si contás con garantía aseguradora aprobada (Porto Seguro, Sura, Mapfre o Anda) y buscás vivienda anual en Maldonado o Punta del Este, envianos zona, dormitorios y fecha de ingreso.</p>
+            </div>
+            <a class="btn btn--dark" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20busco%20alquiler%20anual%20en%20Punta%20del%20Este%20%C2%B7%20Maldonado%20y%20cuento%20con%20garant%C3%ADa%20aseguradora.%20Mis%20detalles%20son%3A" target="_blank" rel="noopener noreferrer">
+              <span>Iniciá tu búsqueda personalizada</span>
+              <span>→</span>
+            </a>
+          </article>
+
+          <article class="triage-card">
+            <div>
+              <span class="triage-step">Entrada 03 · Inversión y Pozo</span>
+              <h2>¿Comprar en cuotas o alquilar?</h2>
+              <p style="margin-top:10px;">Conocé nuestros 5 desarrollos en pozo en Maldonado y Punta del Este desde USD 79.800 con financiación en obra, hasta 120 cuotas o beneficios de Vivienda Promovida Ley 18.795.</p>
+            </div>
+            <a class="btn btn--dark" href="#comparar-pozo">
+              <span>Ver los 5 desarrollos activos</span>
+              <span>→</span>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="propietarios-exclusiva">
+      <div class="container grid-2">
+        <div>
+          <p class="eyebrow" style="color:var(--feather);">¿Tenés una propiedad? · Vendé y alquilá en ZAGUÁN</p>
+          <h2 style="font-size:clamp(28px, 3.6vw, 44px);">Publicación cuidada, sin ataduras y con filtro real de garantías.</h2>
+          <p style="margin-top:16px;color:var(--bigua);">Sabemos que como propietario querés alquilar o vender con tranquilidad sin quedar atado a contratos cerrados. En ZAGUÁN recibimos los datos y fotos de tu propiedad, armamos su presentación y filtramos a cada interesado antes de coordinar una visita.</p>
+
+          <div class="pill-list">
+            <div class="pill-item">
+              <h3>1. Autorización simple sin exclusividad forzada</h3>
+              <p>Sumás tu propiedad sin costo de ingreso ni bloqueos: trabajamos por resultado y solo cobramos honorarios si alquilás o vendés con el interesado presentado por ZAGUÁN.</p>
+            </div>
+            <div class="pill-item">
+              <h3>2. Filtro previo de garantía aseguradora</h3>
+              <p>Antes de coordinar una visita presencial verificamos ingresos y pre-aprobación de póliza en Porto Seguro, Sura, Mapfre o Anda.</p>
+            </div>
+            <div class="pill-item">
+              <h3>3. Búsqueda activa cruzada y seguimiento claro</h3>
+              <p>Cruzamos tu inmueble con los pedidos concretos que recibimos en nuestra búsqueda personalizada y te mantenemos al tanto por WhatsApp con devoluciones reales.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-box" id="inquilinos-garantia">
+          <p class="eyebrow">Registro directo en el Pipeline de ZAGUÁN</p>
+          <h3 style="font-size:26px;">Dejanos los detalles de tu propiedad o de tu búsqueda anual.</h3>
+          <form id="alquiler-unified-form">
+            <div class="field-grid">
+              <div class="field field--full">
+                <label for="rol-select">Mi situación</label>
+                <select id="rol-select" required>
+                  <option value="propietario_alquiler">Tengo una propiedad para alquilar / vender (Autorización simple)</option>
+                  <option value="inquilino_anual">Busco alquilar todo el año (tengo garantía aseguradora)</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="alq-nombre">Nombre y Apellido</label>
+                <input id="alq-nombre" type="text" placeholder="Tu nombre completo" required>
+              </div>
+              <div class="field">
+                <label for="alq-wa">WhatsApp</label>
+                <input id="alq-wa" type="tel" placeholder="+598 ..." required>
+              </div>
+              <div class="field">
+                <label for="alq-zona">Zona en Punta del Este · Maldonado</label>
+                <input id="alq-zona" type="text" placeholder="Ej.: Maldonado Centro, Roosevelt, Pinares" required>
+              </div>
+              <div class="field">
+                <label for="alq-garantia">Garantía / Modalidad</label>
+                <select id="alq-garantia">
+                  <option value="Porto Seguro">Porto Seguro</option>
+                  <option value="Sura">Sura</option>
+                  <option value="Mapfre">Mapfre</option>
+                  <option value="Anda / Contaduría">Anda / Contaduría</option>
+                  <option value="Depósito BHU / A definir">Depósito BHU / A definir</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="alq-dorm">Dormitorios / Tipología</label>
+                <input id="alq-dorm" type="text" placeholder="Ej.: 2 dormitorios con cochera" required>
+              </div>
+              <div class="field">
+                <label for="alq-valor">Valor mensual estimado (USD / UYU)</label>
+                <input id="alq-valor" type="text" placeholder="Ej.: USD 1.100 / mes">
+              </div>
+              <div class="field field--full">
+                <label for="alq-notas">Detalles que importan (estado, fecha de ingreso, mascotas, mobiliario)</label>
+                <textarea id="alq-notas" rows="3" placeholder="Escribí acá los detalles relevantes"></textarea>
+              </div>
+            </div>
+            <div style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap;">
+              <button type="submit" class="btn btn--light" style="width:100%;">Enviar a Mar por WhatsApp y registrar en ZAGUÁN →</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="comparar-pozo">
+      <div class="container">
+        <p class="eyebrow" style="color:var(--feather);">Desarrollos activos en Punta del Este · Maldonado</p>
+        <h2 style="font-size:clamp(26px, 3.2vw, 40px);">5 proyectos en pozo para vivir o generar renta anual en dólares.</h2>
+        <p style="margin-top:10px;max-width:720px;">Cada desarrollo cuenta con ficha técnica verificada y planos por tipología.</p>
+
+        <div class="pozos-grid">
+          <a class="pozo-card" href="/proyectos/betania-iv/">
+            <div>
+              <div class="pozo-meta">Maldonado · Entrega Oct 2028</div>
+              <h3 style="font-size:20px;margin-top:4px;">Betania IV</h3>
+              <p style="font-size:14px;margin-top:6px;">Desde USD 79.800 · Hasta 24 cuotas en obra · 1, 2 y 3 dormitorios.</p>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:var(--estuario);">Ver ficha y planos →</span>
+          </a>
+
+          <a class="pozo-card" href="/proyectos/nostrum-roosevelt/">
+            <div>
+              <div class="pozo-meta">Av. Roosevelt Pda. 19 · Ley 18.795</div>
+              <h3 style="font-size:20px;margin-top:4px;">Nostrum Roosevelt</h3>
+              <p style="font-size:14px;margin-top:6px;">Desde USD 107.419 · Exoneración de ITP e IRPF/IRAE por 10 años.</p>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:var(--estuario);">Ver ficha y planos →</span>
+          </a>
+
+          <a class="pozo-card" href="/proyectos/more-atlantico/">
+            <div>
+              <div class="pozo-meta">Av. Roosevelt Pda. 22 · LEED + Ley 18.795</div>
+              <h3 style="font-size:20px;margin-top:4px;">More Atlántico Torre 3</h3>
+              <p style="font-size:14px;margin-top:6px;">Desde USD 139.121 · Junto a Atlántico Shopping · Amenities todo el año.</p>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:var(--estuario);">Ver ficha y planos →</span>
+          </a>
+
+          <a class="pozo-card" href="/proyectos/eve-tower/">
+            <div>
+              <div class="pozo-meta">Playa Brava Pda. 8 · A 100 m del mar</div>
+              <h3 style="font-size:20px;margin-top:4px;">EVE Tower</h3>
+              <p style="font-size:14px;margin-top:6px;">Desde USD 150.000 · Obra iniciada · Monoambientes, 1 y 2 dormitorios.</p>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:var(--estuario);">Ver ficha y planos →</span>
+          </a>
+
+          <a class="pozo-card" href="/proyectos/golden-rise/">
+            <div>
+              <div class="pozo-meta">Av. Roosevelt Pda. 18 · Salt Lake</div>
+              <h3 style="font-size:20px;margin-top:4px;">Golden Rise</h3>
+              <p style="font-size:14px;margin-top:6px;">Consultar precio · 10% reserva + 20% compromiso + 30 cuotas obra + 120 saldo.</p>
+            </div>
+            <span style="font-size:12px;font-weight:600;color:var(--estuario);">Ver ficha y planos →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="/assets/brand/zaguan-white.png" alt="ZAGUÁN" style="height:26px;width:auto;">
+      <div>
+        <span>Punta del Este · Maldonado · </span>
+        <a href="/privacidad/" style="text-decoration:underline;">Privacidad</a> ·
+        <a href="/aviso-legal/" style="text-decoration:underline;">Aviso legal</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('alquiler-unified-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const rol = document.getElementById('rol-select').value;
+      const nombre = document.getElementById('alq-nombre').value.trim();
+      const wa = document.getElementById('alq-wa').value.trim();
+      const zona = document.getElementById('alq-zona').value.trim();
+      const garantia = document.getElementById('alq-garantia').value;
+      const dorm = document.getElementById('alq-dorm').value.trim();
+      const valor = document.getElementById('alq-valor').value.trim();
+      const notas = document.getElementById('alq-notas').value.trim();
+
+      try {
+        const key = 'zaguan_crm_d1_v2_clean';
+        const state = JSON.parse(localStorage.getItem(key) || '{}');
+        state.alquileres_pipeline = state.alquileres_pipeline || [];
+        state.alquileres_pipeline.unshift({
+          id: 'ALQ-' + Date.now(),
+          fecha: new Date().toISOString().slice(0, 10),
+          rol: rol,
+          nombre: nombre,
+          telefono: wa,
+          zona: zona,
+          garantia: garantia,
+          tipologia: dorm,
+          valor: valor,
+          notas: notas,
+          estado: rol === 'propietario_alquiler' ? 'Autorización simple por activar' : 'Inquilino calificado activo',
+          vence_60d: new Date(Date.now() + 60 * 86400000).toISOString().slice(0, 10)
+        });
+        localStorage.setItem(key, JSON.stringify(state));
+      } catch (err) {}
+
+      const msg = rol === 'propietario_alquiler'
+        ? `Hola Mar, soy ${nombre} (${wa}). Tengo una propiedad en ${zona} (${dorm}) por un valor estimado de ${valor}. Quiero sumarla a ZAGUÁN con filtro de garantía ${garantia}. Detalles: ${notas}`
+        : `Hola Mar, soy ${nombre} (${wa}). Busco alquiler anual en ${zona} (${dorm}), presupuesto ${valor}, y cuento con garantía ${garantia}. Detalles: ${notas}`;
+
+      window.open('https://wa.me/59898712064?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
   "whatsapp_oficial": "59898712064",
   "email_oficial": "zaguanpropiedades@gmail.com",
   "dominio_oficial": "https://zaguanpropiedades.com",
-  "ultima_sincronizacion": "2026-11-05T12:48:00-03:00",
+  "ultima_sincronizacion": "2026-11-08T08:33:00-03:00",
   "desarrollos_activos": [
     {
       "id": "betania-iv",
@@ -23,11 +23,36 @@
       "financiacion_resumen": "Hasta 24 cuotas (Cochera opcional, con precio aparte)",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/betania-iv/",
       "tipologias": [
-        { "codigo": "1D-40", "label": "1 dormitorio · 40 m² (42,85 m² totales)", "precio_display": "Desde USD 79.800", "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/" },
-        { "codigo": "2D-62", "label": "2 dormitorios · 62 m² (66,0 m² totales)", "precio_display": "Desde USD 79.800 (base proyecto)", "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-62m2/" },
-        { "codigo": "2D-68", "label": "2 dormitorios · 68 m² (73,15 m² totales)", "precio_display": "Desde USD 79.800 (base proyecto)", "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2/" },
-        { "codigo": "2D-ACC", "label": "2 dormitorios · 68 m² accesible (73,35 m² totales)", "precio_display": "Desde USD 79.800 (base proyecto)", "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2-accesible/" },
-        { "codigo": "3D-83", "label": "3 dormitorios · 83 m² (87,1 m² totales)", "precio_display": "Desde USD 79.800 (base proyecto)", "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/3d-83m2/" }
+        {
+          "codigo": "1D-40",
+          "label": "1 dormitorio · 40 m² (42,85 m² totales)",
+          "precio_display": "Desde USD 79.800",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/"
+        },
+        {
+          "codigo": "2D-62",
+          "label": "2 dormitorios · 62 m² (66,0 m² totales)",
+          "precio_display": "Desde USD 79.800 (base proyecto)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-62m2/"
+        },
+        {
+          "codigo": "2D-68",
+          "label": "2 dormitorios · 68 m² (73,15 m² totales)",
+          "precio_display": "Desde USD 79.800 (base proyecto)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2/"
+        },
+        {
+          "codigo": "2D-ACC",
+          "label": "2 dormitorios · 68 m² accesible (73,35 m² totales)",
+          "precio_display": "Desde USD 79.800 (base proyecto)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2-accesible/"
+        },
+        {
+          "codigo": "3D-83",
+          "label": "3 dormitorios · 83 m² (87,1 m² totales)",
+          "precio_display": "Desde USD 79.800 (base proyecto)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/betania-iv/3d-83m2/"
+        }
       ]
     },
     {
@@ -46,9 +71,24 @@
       "financiacion_resumen": "Vivienda Promovida Ley 18.795 (Exoneración ITP 2%, IRPF/IRAE 10 años y Patrimonio 10 años) · Gastos de ocupación 4%",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/",
       "tipologias": [
-        { "codigo": "1D", "label": "1 dormitorio · 45,0 m²", "precio_display": "Desde USD 107.419", "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/" },
-        { "codigo": "2D", "label": "2 dormitorios · 65,0 m²", "precio_display": "Desde USD 149.960", "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/" },
-        { "codigo": "3D", "label": "3 dormitorios · 86,0 m²", "precio_display": "Desde USD 211.978", "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/" }
+        {
+          "codigo": "1D",
+          "label": "1 dormitorio · 45,0 m²",
+          "precio_display": "Desde USD 107.419",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/"
+        },
+        {
+          "codigo": "2D",
+          "label": "2 dormitorios · 65,0 m²",
+          "precio_display": "Desde USD 149.960",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/"
+        },
+        {
+          "codigo": "3D",
+          "label": "3 dormitorios · 86,0 m²",
+          "precio_display": "Desde USD 211.978",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/"
+        }
       ]
     },
     {
@@ -67,9 +107,24 @@
       "financiacion_resumen": "Certificación LEED + Vivienda Promovida Ley 18.795 · Gastos de ocupación 5%",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/more-atlantico/",
       "tipologias": [
-        { "codigo": "1D", "label": "1 dormitorio · 47,6 m²", "precio_display": "Desde USD 139.121", "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/" },
-        { "codigo": "2D", "label": "2 dormitorios · 75,0 m²", "precio_display": "Desde USD 207.653", "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/" },
-        { "codigo": "3D", "label": "3 dormitorios · 101,0 m²", "precio_display": "Desde USD 261.573", "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/" }
+        {
+          "codigo": "1D",
+          "label": "1 dormitorio · 47,6 m²",
+          "precio_display": "Desde USD 139.121",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/"
+        },
+        {
+          "codigo": "2D",
+          "label": "2 dormitorios · 75,0 m²",
+          "precio_display": "Desde USD 207.653",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/"
+        },
+        {
+          "codigo": "3D",
+          "label": "3 dormitorios · 101,0 m²",
+          "precio_display": "Desde USD 261.573",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/more-atlantico/"
+        }
       ]
     },
     {
@@ -88,9 +143,24 @@
       "financiacion_resumen": "Hay financiación. Consultá las condiciones. (Cochera opcional, con precio aparte)",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/eve-tower/",
       "tipologias": [
-        { "codigo": "MONO", "label": "Monoambiente · 39,26 m² totales", "precio_display": "Desde USD 150.000", "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/monoambiente/" },
-        { "codigo": "1D", "label": "1 dormitorio · 49,58 m² totales", "precio_display": "Desde USD 150.000", "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/1-dormitorio/" },
-        { "codigo": "2D", "label": "2 dormitorios · 81,49 m² totales", "precio_display": "Desde USD 150.000", "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/2-dormitorios/" }
+        {
+          "codigo": "MONO",
+          "label": "Monoambiente · 39,26 m² totales",
+          "precio_display": "Desde USD 150.000",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/monoambiente/"
+        },
+        {
+          "codigo": "1D",
+          "label": "1 dormitorio · 49,58 m² totales",
+          "precio_display": "Desde USD 150.000",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/1-dormitorio/"
+        },
+        {
+          "codigo": "2D",
+          "label": "2 dormitorios · 81,49 m² totales",
+          "precio_display": "Desde USD 150.000",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/eve-tower/2-dormitorios/"
+        }
       ]
     },
     {
@@ -109,119 +179,184 @@
       "financiacion_resumen": "10% de reserva, 20% al compromiso de compraventa, 30 cuotas durante la obra y saldo en hasta 120 cuotas (Cochera opcional, con precio aparte)",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/golden-rise/",
       "tipologias": [
-        { "codigo": "MONO", "label": "Monoambiente · 41,0 m² totales", "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)", "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/monoambiente/" },
-        { "codigo": "1D", "label": "1 dormitorio · 57,0 m² totales", "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)", "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/1-dormitorio/" },
-        { "codigo": "2D", "label": "2 dormitorios · 86,0 m² totales", "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)", "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/2-dormitorios/" }
+        {
+          "codigo": "MONO",
+          "label": "Monoambiente · 41,0 m² totales",
+          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/monoambiente/"
+        },
+        {
+          "codigo": "1D",
+          "label": "1 dormitorio · 57,0 m² totales",
+          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/1-dormitorio/"
+        },
+        {
+          "codigo": "2D",
+          "label": "2 dormitorios · 86,0 m² totales",
+          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/2-dormitorios/"
+        }
       ]
     }
   ],
   "desarrolladoras_prospeccion": [
     {
-      "id": "DEV-008",
-      "desarrollo": "Ocean Drive Country II",
-      "desarrolladora": "WMW",
-      "zona": "Av. Roosevelt, Parada 16 · Punta del Este",
+      "id": "T2-01",
+      "tanda": "Destrabe Tibio Prioridad #1 (Canal ya abierto por EVE Tower)",
+      "desarrollo": "Ocean Drive Country II (+ Venetian / One)",
+      "desarrolladora": "WMW (Weiss Mora Weiss)",
+      "zona": "Av. Roosevelt Parada 16 / Parada 11, Punta del Este",
       "contacto_nombre": "Rosario Silvera Lima / Cristina Mondillo",
       "whatsapp": "59895405520",
       "email": "rsilveralima@wmw.uy",
       "email_alt": "cmondillo@wmw.uy",
+      "web_oficial": "https://wmw.uy/ocean-drive-country/",
       "estado_aprobacion": "pendiente",
-      "etapa": "Segundo toque (Contacto alternativo WMW)",
-      "alerta_operativa": "WMW ya aprobó EVE Tower. Usar el contacto alternativo Rosario Silvera Lima (+598 95 405 520 / rsilveralima@wmw.uy) o correo a Cristina Mondillo (cmondillo@wmw.uy) para sumar también Ocean Drive Country II.",
-      "mensaje_wa": "Hola Rosario, ¿cómo estás? Vi Ocean Drive Country II en Av. Roosevelt, parada 16. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona y estamos ampliando los desarrollos que ofrecemos. ¿Ustedes trabajan con comercialización compartida / agentes externos? Si es así, me gustaría coordinar 10 minutos para conocer condiciones, stock y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — Ocean Drive Country II, Av. Roosevelt, parada 16",
-      "cuerpo_email": "Hola Cristina / Rosario,\n\nVi Ocean Drive Country II en Av. Roosevelt, parada 16 y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque Expansión Cuenta Activa (Día 1)",
+      "alerta_operativa": "Ya tenemos aprobado y publicado EVE Tower con WMW. Pedir carpeta, planos y lista cero de Ocean Drive Country II.",
+      "mensaje_wa": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Ya tenemos en vivo y traccionando consultas nuestra ficha completa de EVE Tower con sus tres tipologías (https://zaguanpropiedades.com/proyectos/eve-tower/). Estamos recibiendo búsquedas de compradores que priorizan amenities de escala y entorno arbolado en la zona de Roosevelt, ideales para Ocean Drive Country II. ¿Me compartís la carpeta comercial actualizada, lista de disponibilidad y planos de Ocean Drive Country II para armar las fichas por tipología hoy mismo y empezar a pre-registrarles interesados? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Ampliación de catálogo canal ZAGUÁN Propiedades — Ocean Drive Country II (WMW)",
+      "cuerpo_email": "Hola Rosario / Cristina,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com).\n\nYa tenemos en producción la ficha completa de EVE Tower y estamos recibiendo consultas por tipologías con parque y amenities todo el año en el eje Roosevelt, ideales para Ocean Drive Country II.\n\n¿Me compartís el link al drive con disponibilidad vigente y planos de Ocean Drive Country II para sumarlo esta semana a nuestras campañas de búsqueda?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-001",
-      "desarrollo": "ERRE16",
-      "desarrolladora": "ERRE16",
-      "zona": "Av. Roosevelt, Parada 16, Cantegril",
-      "contacto_nombre": "Equipo ERRE16",
-      "whatsapp": "59894500599",
-      "email": "info@erre16.uy",
+      "id": "T2-02",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "Torres Cardinal (Etapa 2) & Cardinal Pinares",
+      "desarrolladora": "Liderus S.A.",
+      "zona": "Maldonado Centro / Pinares (José Dodera 515 esq. 3 de Febrero)",
+      "contacto_nombre": "Departamento Comercial Liderus S.A.",
+      "whatsapp": "59893351269",
+      "email": "info@liderus.com.uy",
+      "web_oficial": "https://www.liderus.uy",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "WhatsApp inicial ya enviado (+598 94 500 599). Según regla del CSV: usar correo info@erre16.uy al no haber respuesta por WhatsApp.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi ERRE16 en Av. Roosevelt, parada 16, Cantegril. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — ERRE16, Av. Roosevelt, parada 16, Cantegril",
-      "cuerpo_email": "Hola equipo de ERRE16,\n\nVi ERRE16 en Av. Roosevelt, parada 16, Cantegril y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Ley 18.795 Vivienda Promovida en Maldonado y Pinares. Complemento directo de Betania IV y Nostrum Roosevelt.",
+      "mensaje_wa": "Hola equipo de Liderus, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de obra nueva y pozo en Maldonado y Punta del Este con campañas propias de búsqueda en Google y compradores calificados tanto locales como argentinos. Estamos derivando consultas activas por Vivienda Promovida Ley 18.795 en Maldonado y Pinares y queremos darnos de alta como canal externo oficial de Liderus para presentarles compradores pre-filtrados para Torres Cardinal y Cardinal Pinares. ¿Con quién de tu equipo coordino el alta de broker y el acceso a la carpeta comercial vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Torres Cardinal (Liderus)",
+      "cuerpo_email": "Hola equipo de Liderus,\n\nTe escribí por WhatsApp para sumar a ZAGUÁN Propiedades como canal externo oficial de Liderus S.A. para Torres Cardinal y Cardinal Pinares.\n\nEn nuestra plataforma armamos fichas técnicas individuales por proyecto y por tipología, con planos descargables y campañas propias de captación en Google Search. Trabajamos con pre-registro formal de cada interesado (nombre completo, teléfono y correo) antes de cada visita.\n\n¿Me compartís los requisitos de alta y el link al drive comercial vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-002",
-      "desarrollo": "Manglar Albor & Manglar Umbra",
-      "desarrolladora": "Grupo Fonte",
-      "zona": "Parada 5 de Playa Brava (Rosa de los Vientos 18 / Calle Pampas)",
-      "contacto_nombre": "Equipo Grupo Fonte",
-      "whatsapp": "59897343108",
-      "email": "contacto@manglar.com.uy",
+      "id": "T2-03",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "Roosevelt Home (2 Torres · 122 aptos Ley 18.795)",
+      "desarrolladora": "Cimiento Desarrollos Inmobiliarios",
+      "zona": "Av. Franklin D. Roosevelt Parada 20 esq. M. Sánchez Moscoso, Maldonado",
+      "contacto_nombre": "Comercial Cimiento Desarrollos",
+      "whatsapp": "59891689948",
+      "email": "info@cimiento.com.uy",
+      "web_oficial": "https://www.cimiento.com.uy/roosevelt-home",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "Mismo contacto para Manglar Albor y Manglar Umbra. Usar seguimiento por Email a contacto@manglar.com.uy sin duplicar envíos el mismo día.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi Manglar Albor en Rosa de los Vientos 18, parada 5 de Playa Brava. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — Manglar Albor y Manglar Umbra, Parada 5 de Playa Brava",
-      "cuerpo_email": "Hola equipo de Manglar (Grupo Fonte),\n\nVi Manglar Albor y Manglar Umbra en parada 5 de Playa Brava y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿Los proyectos admiten comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Ubicado en Parada 20 de Roosevelt, exactamente entre Nostrum Roosevelt (Pda. 19) y More Atlántico (Pda. 22). Ley 18.795.",
+      "mensaje_wa": "Hola equipo de Cimiento Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de proyectos amparados en la Ley 18.795 sobre el eje de Av. Roosevelt (Paradas 18 a 22) con campañas propias de búsqueda en Google. Queremos darnos de alta como canal externo oficial para comercializar Roosevelt Home (Parada 20) bajo su protocolo de pre-registro de interesados. ¿Con quién coordino el acceso a la carpeta comercial y lista de precios vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Roosevelt Home (Parada 20)",
+      "cuerpo_email": "Hola equipo de Cimiento Desarrollos,\n\nLes escribo desde ZAGUÁN Propiedades (zaguanpropiedades.com) para darnos de alta como canal externo oficial en Roosevelt Home (Av. Roosevelt Parada 20).\n\nContamos con tráfico activo de inversores buscando Vivienda Promovida Ley 18.795 en el corredor Roosevelt. ¿Me comparten los requisitos de alta y el acceso a planos y lista de precios?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-010",
-      "desarrollo": "SEE Bosque",
-      "desarrolladora": "SEE Bosque",
-      "zona": "Av. del Cabildo esq. Av. Roosevelt · Maldonado",
-      "contacto_nombre": "Equipo SEE Bosque",
-      "whatsapp": "59895880892",
-      "email": "info@seebosque.com",
+      "id": "T2-04",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "Altos de San Rafael (Baja Densidad · Playa Brava)",
+      "desarrolladora": "Justany Desarrollos Inmobiliarios",
+      "zona": "Parada 12 de Playa Brava (Necochea e Ipanema), San Rafael, Punta del Este",
+      "contacto_nombre": "Comercial Justany Desarrollos",
+      "whatsapp": "59892354725",
+      "email": "info@justany.com.uy",
+      "web_oficial": "https://www.altosdesanrafael.com",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "Secuencia estándar del CSV: tras el primer contacto por WhatsApp, enviar correo a info@seebosque.com.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi SEE Bosque en Av. del Cabildo esquina Av. Roosevelt, Maldonado. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — SEE Bosque, Av. del Cabildo esquina Av. Roosevelt, Maldonado",
-      "cuerpo_email": "Hola equipo de SEE Bosque,\n\nVi SEE Bosque en Av. del Cabildo esquina Av. Roosevelt, Maldonado y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Obra boutique de 2 bloques de 4 plantas en San Rafael (Pda. 12 Brava). Cubre al comprador que busca baja densidad.",
+      "mensaje_wa": "Hola equipo de Justany Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos obra nueva en Playa Brava y San Rafael con campañas propias de búsqueda en Google. Recibimos consultas de compradores que buscan baja densidad en San Rafael y queremos darnos de alta como canal externo oficial para Altos de San Rafael. ¿Con quién coordino el acceso a la carpeta comercial, lista de precios y protocolo de registro de clientes? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Altos de San Rafael (Parada 12 Brava)",
+      "cuerpo_email": "Hola equipo de Justany Desarrollos,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos sumar Altos de San Rafael a nuestra plataforma con ficha técnica dedicada por tipología y pre-registro formal de compradores.\n\n¿Me compartís el link al drive comercial con disponibilidad vigente y condiciones para canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-011",
-      "desarrollo": "Aurora II",
-      "desarrolladora": "Grupo Alonzo",
-      "zona": "Parada 33 de Playa Mansa",
-      "contacto_nombre": "Equipo Grupo Alonzo",
-      "whatsapp": "59891039455",
-      "email": "contacto@grupoalonzo.com.uy",
+      "id": "T2-05",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "Wave Brava & Wave Roosevelt (Parada 18)",
+      "desarrolladora": "Tikto Arquitectura / OAP Estudio",
+      "zona": "Playa Brava y Av. Roosevelt Parada 18 (esq. Patria Vieja), Punta del Este",
+      "contacto_nombre": "Equipo Comercial Wave Desarrollos",
+      "whatsapp": "59894973965",
+      "email": "hola@wavebrava.uy",
+      "web_oficial": "https://wavebrava.uy",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "Secuencia estándar del CSV: enviar seguimiento por correo a contacto@grupoalonzo.com.uy.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi Aurora II en parada 33 de Playa Mansa. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — Aurora II, parada 33 de Playa Mansa",
-      "cuerpo_email": "Hola equipo de Grupo Alonzo,\n\nVi Aurora II en parada 33 de Playa Mansa y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Misma micro-zona que Golden Rise (Parada 18 Roosevelt) + bloque en Playa Brava.",
+      "mensaje_wa": "Hola equipo de Wave Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos desarrollos en pozo sobre el eje de Av. Roosevelt y Playa Brava directo con las desarrolladoras. Queremos darnos de alta como canal externo oficial para Wave Roosevelt y Wave Brava bajo su protocolo de pre-registro de interesados. ¿Me compartís el acceso a la carpeta comercial y lista de disponibilidad vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Wave Roosevelt y Wave Brava",
+      "cuerpo_email": "Hola equipo de Wave Desarrollos,\n\nLes escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos incorporar Wave Roosevelt y Wave Brava a nuestro catálogo de obra nueva con fichas técnicas dedicadas y pauta de búsqueda en Google.\n\n¿Me comparten el link al material comercial y las condiciones de trabajo con canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-012",
-      "desarrollo": "Solerios Península",
-      "desarrolladora": "Zulamián",
-      "zona": "Las Focas y Av. Gorlero · Península",
-      "contacto_nombre": "Equipo de Ventas Zulamián",
-      "whatsapp": "59894810000",
-      "email": "ventas@zulamian.com",
+      "id": "T2-06",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas)",
+      "desarrolladora": "Estudio Fischer & Xukah Desarrollos",
+      "zona": "Parada 18 Mansa / Parada 27 Mansa / Parada 32 Brava, Punta del Este",
+      "contacto_nombre": "Dirección Comercial Estudio Fischer / Xukah",
+      "whatsapp": "59898732306",
+      "email": "info@estudiofischer.com",
+      "email_alt": "info@xukah.com",
+      "web_oficial": "https://www.estudiofischer.com",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "Oficina en Roosevelt y Pedragosa Sierra, Torres Place Lafayette, local 01. Seguimiento por correo a ventas@zulamian.com.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi Solerios Península en Las Focas y Av. Gorlero, Península. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — Solerios Península, Las Focas y Av. Gorlero, Península",
-      "cuerpo_email": "Hola equipo de Zulamián,\n\nVi Solerios Península en Las Focas y Av. Gorlero, Península y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Multicatálogo en 1 solo acuerdo: obras en Mansa y Brava con financiación directa hasta en 40 cuotas.",
+      "mensaje_wa": "Hola, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos proyectos en pozo con financiación durante la obra en Punta del Este · Maldonado trabajando directo con el desarrollador. Queremos darnos de alta como canal externo oficial para presentar a nuestros compradores sus desarrollos con plan de 40 cuotas (Mansa Tower, Amansa y Mood 32). ¿Con quién coordino el acceso a la carpeta comercial y condiciones de pre-registro? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Desarrollos Estudio Fischer / Xukah (Mansa Tower, Amansa, Mood 32)",
+      "cuerpo_email": "Hola equipo de Estudio Fischer / Xukah,\n\nLes escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos darnos de alta como canal externo oficial para comercializar Mansa Tower, Amansa y Mood 32 con fichas dedicadas y pre-registro formal de interesados.\n\n¿Me comparten el acceso al drive comercial con listas de precios y disponibilidad?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
-      "id": "DEV-013",
-      "desarrollo": "Le Parc Punta del Este — Torre IV",
-      "desarrolladora": "Le Parc Punta del Este",
-      "zona": "Rambla Lorenzo Batlle, Parada 10 de Playa Brava",
-      "contacto_nombre": "Oficina Comercial Le Parc (+598 4248 1111)",
-      "whatsapp": "59898558604",
-      "email": "info@leparcpuntadeleste.com",
+      "id": "T2-07",
+      "tanda": "Tanda 2 Nueva · Verificada en HTML Vivo",
+      "desarrollo": "The Corner La Barra",
+      "desarrolladora": "The Corner Desarrollos",
+      "zona": "Ruta 10 y calle Los Destinos, La Barra, Maldonado",
+      "contacto_nombre": "Ventas The Corner La Barra",
+      "whatsapp": "59897978642",
+      "email": "ventas@thecorner.uy",
+      "web_oficial": "https://www.thecorner.uy",
       "estado_aprobacion": "pendiente",
-      "etapa": "Seguimiento por Email (Paso 2 del CSV)",
-      "alerta_operativa": "Seguimiento por correo a info@leparcpuntadeleste.com.",
-      "mensaje_wa": "Hola, ¿cómo estás? Vi Le Parc Punta del Este Torre IV en Rambla Lorenzo Batlle, parada 10 de Playa Brava. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado. Tenemos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles. ¿El proyecto admite comercialización compartida / agentes externos? Si es así, te propongo una llamada corta de 10 minutos para conocer stock, condiciones y material disponible.",
-      "asunto_email": "Consulta comercialización compartida — Le Parc Punta del Este Torre IV, Rambla Lorenzo Batlle, parada 10 de Playa Brava",
-      "cuerpo_email": "Hola equipo de Le Parc Punta del Este,\n\nVi Le Parc Punta del Este Torre IV en Rambla Lorenzo Batlle, parada 10 de Playa Brava y quería consultarles directamente. Soy Mar, de ZAGUÁN Propiedades — Punta del Este · Maldonado.\n\nRecibimos consultas de compradores locales y extranjeros interesados en la zona, y estamos sumando desarrollos para ofrecerles opciones concretas. ¿El proyecto admite comercialización compartida o agentes externos?\n\nSi es así, me gustaría coordinar una reunión breve —presencial o virtual— para conocer stock disponible, condiciones de colaboración y material comercial actualizado.\n\nQuedo atenta,\nMar — ZAGUÁN Propiedades\nPunta del Este · Maldonado — zaguanpropiedades.com"
+      "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
+      "alerta_operativa": "Preventa en pozo boutique en La Barra (5 módulos, 20 unidades). Abre inventario directo en La Barra.",
+      "mensaje_wa": "Hola equipo de The Corner, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos directo con desarrolladoras de obra nueva en Punta del Este · Maldonado. Vimos su preventa en Ruta 10 y Los Destinos y queremos darnos de alta como canal externo oficial para presentarles compradores pre-filtrados para La Barra. ¿Me compartís el acceso a la carpeta comercial y condiciones de registro? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — The Corner La Barra",
+      "cuerpo_email": "Hola equipo de The Corner,\n\nLes escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos sumar The Corner La Barra a nuestra plataforma con ficha técnica dedicada y pre-registro formal de clientes.\n\n¿Me comparten el link al drive con disponibilidad, precios y esquema de comisión para canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+    },
+    {
+      "id": "T2-08",
+      "tanda": "Destrabe Tibio Prioridad #2 (Canal ya abierto en Grupo Caybo)",
+      "desarrollo": "Diamond Residences (Av. Roosevelt próx. Punta Shopping)",
+      "desarrolladora": "Grupo Caybo",
+      "zona": "Av. Roosevelt próx. a Punta Shopping, Punta del Este",
+      "contacto_nombre": "Equipo Comercial Grupo Caybo",
+      "whatsapp": "59894161888",
+      "email": "https://grupocaybo.com",
+      "web_oficial": "https://grupocaybo.com",
+      "estado_aprobacion": "pendiente",
+      "etapa": "Toque Expansión Cuenta Activa (Día 1)",
+      "alerta_operativa": "Ya tenemos aprobado y publicado Golden Rise con Grupo Caybo. Pedir carpeta de Diamond Residences.",
+      "mensaje_wa": "Hola equipo de Grupo Caybo, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades. Además de impulsar Golden Rise en nuestro catálogo (https://zaguanpropiedades.com/proyectos/golden-rise/), queremos consultarles si tienen unidades disponibles para comercializar en Diamond Residences bajo nuestro mismo acuerdo de canal externo. ¿Me comparten carpeta y disponibilidad vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "asunto_email": "Ampliación de catálogo ZAGUÁN Propiedades — Diamond Residences (Grupo Caybo)",
+      "cuerpo_email": "Hola equipo de Grupo Caybo,\n\nLes escribe Mar, de ZAGUÁN Propiedades. Queremos sumar las unidades disponibles de Diamond Residences junto a nuestra ficha activa de Golden Rise.\n\n¿Me comparten planos y disponibilidad vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades"
     }
   ],
-  "compradores_b2c": []
+  "compradores_b2c": [],
+  "version_motor_comercial": "v10.0-post-10-iteraciones-bigua-atlantico",
+  "tanda_1_csv_inicial_estado": "CERRADO_Y_AUDITADO (5 activos + destrabes tibios WMW/Altius/Caybo)",
+  "alquileres_pipeline": [
+    {
+      "id": "ALQ-MODELO-01",
+      "fecha": "2026-11-08",
+      "rol": "propietario_exclusiva",
+      "nombre": "Meta Operativa Mes 1: Captación #1 (Maldonado Centro / Roosevelt)",
+      "telefono": "59898712064",
+      "zona": "Av. Roosevelt / Maldonado Centro",
+      "garantia": "Porto Seguro / Sura / Mapfre / Anda",
+      "tipologia": "1 o 2 dormitorios con cochera",
+      "valor": "USD 850 - 1.150 / mes",
+      "notas": "1 cierre de alquiler anual (2 puntas = USD 1.260 a 1.932 netos) financia 4 a 6 meses completos de la pauta de Zaguán.",
+      "estado": "Campaña de Captación 60d Lista",
+      "vence_60d": "2027-01-07"
+    }
+  ]
 }
