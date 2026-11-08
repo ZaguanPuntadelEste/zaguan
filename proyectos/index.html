@@ -33,7 +33,7 @@
         <select id="bot-objetivo" style="width:100%;padding:10px;background:#081521;color:#F3F0E8;border:1px solid rgba(243,240,232,0.35);">
           <option value="ticket_bajo">Menor ticket de entrada (Betania IV · Desde USD 79.800)</option>
           <option value="ley_18795">Exoneración 10 años IRPF + Patrimonio (Nostrum USD 107.419 / More T3 USD 139.121)</option>
-          <option value="cuotas_150">Financiación larga sin banco (Golden Rise · 30 cuotas obra + 120 post-entrega)</option>
+          <option value="cuotas_150">Financiación larga sin banco (Golden Rise · Desde USD 139.900 · 30 + 120 cuotas)</option>
           <option value="playa_brava">Primera línea Playa Brava Parada 8 (EVE Tower · Desde USD 150.000)</option>
           <option value="off_market">Catálogo Privado Off-Market (Brava/Mansa y Manantiales Golf · Mano a Mano)</option>
         </select>
@@ -70,7 +70,7 @@ document.getElementById('bot-calcular-btn').addEventListener('click', function()
     projText = '<strong>Match recomendado (Ley 18.795 Vivienda Promovida):</strong> 1) <b>Nostrum Roosevelt (Pda. 19)</b> desde USD 107.419 (gastos de ocupación 4%) y 2) <b>More Atlántico Torre 3 (Pda. 22)</b> en 1, 2 y 3 dormitorios desde USD 139.121 (gastos de ocupación 5%, certificación LEED). Exoneran 2% de ITP al comprar y 100% de IRPF/IRAE y Patrimonio por 10 años.';
     waMsg = isEn ? 'Hello Mar, I used the ZAGUÁN advisor (English) and want to compare Nostrum Roosevelt and More Atlántico Torre 3 (Tax Law 18.795) for foreign buyers.' : 'Hola Mar, usé el asistente de ZAGUÁN y quiero comparar Nostrum Roosevelt y More Atlántico Torre 3 con exoneración impositiva Ley 18.795.';
   } else if (obj === 'cuotas_150') {
-    projText = '<strong>Match recomendado: Golden Rise (Roosevelt Pda. 18):</strong> Entrás con 10% en la reserva + 20% al compromiso notarial + 30 cuotas durante la obra (entrega dic. 2028) + saldo financiado directo hasta en 120 cuotas (10 años post-ocupación) sin banco. Gastos de ocupación: 5%.';
+    projText = '<strong>Match recomendado: Golden Rise (Roosevelt Pda. 18) — Desde USD 139.900:</strong> Entrás con 10% en la reserva + 20% al compromiso notarial + 30 cuotas durante la obra (entrega dic. 2028) + saldo financiado directo hasta en 120 cuotas (10 años post-ocupación) sin banco. Gastos de ocupación: 5%.';
     waMsg = isEn ? 'Hello Mar, I used the ZAGUÁN advisor (English) and want the 150-installment payment simulation for Golden Rise.' : 'Hola Mar, usé el asistente de ZAGUÁN y quiero la simulación de las 30 cuotas de obra + 120 cuotas de saldo en Golden Rise.';
   } else if (obj === 'off_market') {
     projText = '<strong>Cartera Privada Off-Market (Comercialización Reservada Mano a Mano · Sin Exposición en Portales):</strong> Contamos con mandato de ofrecimiento privado en: 1) <b>Torre de Categoría en Eje Playa Brava / Mansa</b> y 2) <b>Unidades y Entorno de Golf en Manantiales</b>. Por acuerdo de confidencialidad no se publican fotos ni nombres en abierto; Mar envía dossier y planos en privado 1 a 1.';
@@ -149,7 +149,7 @@ document.getElementById('bot-calcular-btn').addEventListener('click', function()
     </div>
   </a>
   <div class="project-info">
-    <p class="price">Consultar precio</p>
+    <p class="price">Desde USD 139.900</p>
     <p class="price-note">Cochera opcional, con precio aparte.</p>
     <p class="desc">Golden Rise en Av. Franklin D. Roosevelt y Salt Lake, Punta del Este. Entrega estimada: diciembre de 2028.</p>
     <dl class="meta">
@@ -185,9 +185,9 @@ document.getElementById('bot-calcular-btn').addEventListener('click', function()
       <div><dt>Entrega estimada</dt><dd>Enero de 2030</dd></div>
     </dl>
     <ul class="typologies" aria-label="Tipologías">
-<li><b>1 dormitorio</b><span>45.0 m² · USD 107.419</span></li>
-<li><b>2 dormitorios</b><span>65.0 m² · USD 149.960</span></li>
-<li><b>3 dormitorios</b><span>86.0 m² · USD 211.978</span></li>
+<li><b>1 dormitorio</b><span>45.0 m²</span></li>
+<li><b>2 dormitorios</b><span>65.0 m²</span></li>
+<li><b>3 dormitorios</b><span>86.0 m²</span></li>
 </ul>
     <a class="button button--dark" href="/proyectos/nostrum-roosevelt/">Ver Nostrum Roosevelt</a>
     <a class="zg-option-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20Nostrum%20Roosevelt%20en%20el%20listado%20de%20proyectos%20de%20ZAGU%C3%81N.%20Quiero%20conocer%20unidades%20y%20beneficios%20de%20Ley%2018.795." target="_blank" rel="noopener noreferrer">Consultá Nostrum Roosevelt por WhatsApp</a>
@@ -211,9 +211,9 @@ document.getElementById('bot-calcular-btn').addEventListener('click', function()
       <div><dt>Entrega estimada</dt><dd>Diciembre de 2029 (T3)</dd></div>
     </dl>
     <ul class="typologies" aria-label="Tipologías">
-<li><b>1 dormitorio</b><span>47.6 m² · USD 139.121</span></li>
-<li><b>2 dormitorios</b><span>75.0 m² · USD 207.653</span></li>
-<li><b>3 dormitorios</b><span>101.0 m² · USD 261.573</span></li>
+<li><b>1 dormitorio</b><span>47.6 m²</span></li>
+<li><b>2 dormitorios</b><span>75.0 m²</span></li>
+<li><b>3 dormitorios</b><span>101.0 m²</span></li>
 </ul>
     <a class="button button--dark" href="/proyectos/more-atlantico/">Ver More Atlántico</a>
     <a class="zg-option-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20More%20Atl%C3%A1ntico%20Torre%203%20en%20el%20listado%20de%20proyectos%20de%20ZAGU%C3%81N.%20Quiero%20conocer%20unidades%20y%20condiciones%20de%20compra." target="_blank" rel="noopener noreferrer">Consultá More Atlántico por WhatsApp</a>
