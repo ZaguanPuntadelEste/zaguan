@@ -173,7 +173,7 @@
       "entrega": "Diciembre de 2028",
       "precio_modo": "inquire_only",
       "precio_desde_usd": null,
-      "precio_display": "Consultar precio",
+      "precio_display": "Desde USD 139.900",
       "gastos_ocupacion_pct": 5,
       "ley_18795": false,
       "financiacion_resumen": "10% de reserva, 20% al compromiso de compraventa, 30 cuotas durante la obra y saldo en hasta 120 cuotas (Cochera opcional, con precio aparte)",
@@ -182,19 +182,19 @@
         {
           "codigo": "MONO",
           "label": "Monoambiente · 41,0 m² totales",
-          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "precio_display": "Desde USD 139.900 (30 cuotas obra + 120 saldo)",
           "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/monoambiente/"
         },
         {
           "codigo": "1D",
           "label": "1 dormitorio · 57,0 m² totales",
-          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "precio_display": "Desde USD 139.900 (30 cuotas obra + 120 saldo)",
           "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/1-dormitorio/"
         },
         {
           "codigo": "2D",
           "label": "2 dormitorios · 86,0 m² totales",
-          "precio_display": "Consultar precio (30 cuotas obra + 120 saldo)",
+          "precio_display": "Desde USD 139.900 (30 cuotas obra + 120 saldo)",
           "url_plano": "https://zaguanpropiedades.com/proyectos/golden-rise/2-dormitorios/"
         }
       ]

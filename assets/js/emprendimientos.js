@@ -61,7 +61,7 @@
         "url": "/proyectos/golden-rise/",
         "zone": "Av. Roosevelt y Salt Lake · Parada 18",
         "desc": "Monoambientes, 1 y 2 dormitorios: 10% reserva + 20% compromiso + 30 cuotas obra + 120 cuotas saldo.",
-        "price": "Consultar precio (Hasta 150 cuotas)",
+        "price": "Desde USD 139.900 (Hasta 150 cuotas)",
         "tags": [
             "Financiación 10 años",
             "En pozo",
