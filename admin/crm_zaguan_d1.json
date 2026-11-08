@@ -343,20 +343,5 @@
   "compradores_b2c": [],
   "version_motor_comercial": "v10.0-post-10-iteraciones-bigua-atlantico",
   "tanda_1_csv_inicial_estado": "CERRADO_Y_AUDITADO (5 activos + destrabes tibios WMW/Altius/Caybo)",
-  "alquileres_pipeline": [
-    {
-      "id": "ALQ-MODELO-01",
-      "fecha": "2026-11-08",
-      "rol": "propietario_exclusiva",
-      "nombre": "Meta Operativa Mes 1: Captación #1 (Maldonado Centro / Roosevelt)",
-      "telefono": "59898712064",
-      "zona": "Av. Roosevelt / Maldonado Centro",
-      "garantia": "Porto Seguro / Sura / Mapfre / Anda",
-      "tipologia": "1 o 2 dormitorios con cochera",
-      "valor": "USD 850 - 1.150 / mes",
-      "notas": "1 cierre de alquiler anual (2 puntas = USD 1.260 a 1.932 netos) financia 4 a 6 meses completos de la pauta de Zaguán.",
-      "estado": "Campaña de Captación 60d Lista",
-      "vence_60d": "2027-01-07"
-    }
-  ]
+  "alquileres_pipeline": []
 }
