@@ -1,45 +1,79 @@
 # ZAGUÁN Propiedades · zaguanpropiedades.com
-# Última actualización: 2026-10-26
+# Última actualización: 2026-11-09
 
 User-agent: *
 Allow: /
+Disallow: /admin/
 Disallow: /prospecting/
 Disallow: /test/
 Disallow: /whatsapp/
 Disallow: /generadorqr/
 Disallow: /tarjetaAW/
 Disallow: /tarjetaEXTENDIDAAW/
+Disallow: /landingselector/
 
-# Motores de búsqueda y asistentes de IA — acceso e indexación permitidos explícitamente
+# Motores de búsqueda y asistentes de IA — acceso e indexación de páginas públicas
 User-agent: GPTBot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 User-agent: Googlebot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
+Disallow: /test/
+Disallow: /whatsapp/
+Disallow: /generadorqr/
+Disallow: /tarjetaAW/
+Disallow: /tarjetaEXTENDIDAAW/
+Disallow: /landingselector/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
+Disallow: /test/
+Disallow: /whatsapp/
+Disallow: /generadorqr/
+Disallow: /tarjetaAW/
+Disallow: /tarjetaEXTENDIDAAW/
+Disallow: /landingselector/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /admin/
+Disallow: /prospecting/
 
 # Mapa del sitio y guía estructurada para modelos de lenguaje (LLMs)
 Sitemap: https://zaguanpropiedades.com/sitemap.xml
