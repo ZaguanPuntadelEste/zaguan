@@ -1,9 +1,15 @@
 # 🔒 REGLA LOCAL DE HIERRO — PROYECTO: 1 - ZAGUÁN (`zaguanpropiedades.com`)
 **ID DE PROYECTO:** `ZAGUAN_PROYECTO`
 **ARCHIVO CANDADO:** `BRAND_AND_CONNECTORS.lock.json`
-**ÚLTIMA SINCRONIZACIÓN DE CEREBRO:** `8 de noviembre de 2026`
+**ÚLTIMA SINCRONIZACIÓN DE CEREBRO:** `10 de noviembre de 2026`
 
-## 1. AISLAMIENTO TOTAL DE CUENTAS Y CONECTORES (PROHIBICIÓN DE CRUCE)
+## 1. AISLAMIENTO TOTAL DE CUENTAS Y CONECTORES + REGLAS DE REALIDAD COMERCIAL (CERO HUMO)
+- **Reglas Duras de Realidad Comercial (Mandato Directo de Ariana 10/11/2026):**
+  1. **Prohibido tocar los 13 contactos viejos de propietarios del WhatsApp histórico:** Fue por otro tema hace meses; quedan 100% descartados.
+  2. **Cero mentir que "ya tenemos inquilinos o compradores esperando":** Hoy Zaguán arranca de `0` consultas entrantes; jamás prometer *"cero meses vacíos en invierno"* ni inventar demanda inexistente.
+  3. **Dónde están los dueños e inquilinos reales sin intermediario:** Nadie particular paga para publicar en portales pagos (InfoCasas/ZonaProp son 99% inmobiliarias). El trato directo gratis pasa en **Facebook Marketplace, grupos locales de Maldonado/PDE y complejos/apart-posadas/comercios directos**.
+  4. **Cero falsas exclusividades en pozo y cero co-corretaje en frío:** Todas las inmobiliarias tienen la misma lista oficial de las desarrolladoras; a otra inmobiliaria colega solo se la contacta cuando Zaguán tiene un pedido real en mano.
+  5. **Mobile `375px` sin scroll:** En `zaguanpropiedades.com/oportunidades/`, `/proyectos/` y `/alquiloanual/`, la primera pantalla de celular debe mostrar siempre fotos/renders reales, precio `"Desde USD ..."` y botones de 1 toque a `Mar` (`+598 98 712 064`).
 - Este proyecto opera **EXCLUSIVAMENTE** sobre las carpetas, cuentas, Search Console, GA4 y activos de **ZAGUÁN**:
   - **Drive Oficial (Única Fuente de Verdad):** `/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan`
   - **Repositorio Git Productivo (`zaguanpropiedades.com`):** `/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main`

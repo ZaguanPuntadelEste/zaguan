@@ -18,9 +18,9 @@
       "precio_modo": "fixed_starting_price",
       "precio_desde_usd": 79800,
       "precio_display": "Desde USD 79.800",
-      "gastos_ocupacion_pct": 4,
+      "gastos_ocupacion_pct": 1.5,
       "ley_18795": false,
-      "financiacion_resumen": "Hasta 24 cuotas (Cochera opcional, con precio aparte)",
+      "financiacion_resumen": "50% anticipo y hasta 24 cuotas · 1 estacionamiento en planta baja incluido · Gastos de ocupación 1,5% a la entrega",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/betania-iv/",
       "tipologias": [
         {
@@ -171,10 +171,10 @@
       "contacto_desarrolladora_wa": "59894161888",
       "contacto_desarrolladora_email": "https://goldenrisepuntadeleste.uy/contacto/",
       "entrega": "Diciembre de 2028",
-      "precio_modo": "inquire_only",
-      "precio_desde_usd": null,
+      "precio_modo": "fixed_starting_price",
+      "precio_desde_usd": 139900,
       "precio_display": "Desde USD 139.900",
-      "gastos_ocupacion_pct": 5,
+      "gastos_ocupacion_pct": 4,
       "ley_18795": false,
       "financiacion_resumen": "10% de reserva, 20% al compromiso de compraventa, 30 cuotas durante la obra y saldo en hasta 120 cuotas (Cochera opcional, con precio aparte)",
       "url_ficha": "https://zaguanpropiedades.com/proyectos/golden-rise/",
@@ -215,9 +215,9 @@
       "estado_aprobacion": "pendiente",
       "etapa": "Toque Expansión Cuenta Activa (Día 1)",
       "alerta_operativa": "Ya tenemos aprobado y publicado EVE Tower con WMW. Pedir carpeta, planos y lista cero de Ocean Drive Country II.",
-      "mensaje_wa": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Ya tenemos en vivo y traccionando consultas nuestra ficha completa de EVE Tower con sus tres tipologías (https://zaguanpropiedades.com/proyectos/eve-tower/). Estamos recibiendo búsquedas de compradores que priorizan amenities de escala y entorno arbolado en la zona de Roosevelt, ideales para Ocean Drive Country II. ¿Me compartís la carpeta comercial actualizada, lista de disponibilidad y planos de Ocean Drive Country II para armar las fichas por tipología hoy mismo y empezar a pre-registrarles interesados? Gracias, Mar, de ZAGUÁN Propiedades",
+      "mensaje_wa": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Ya tenemos publicada y activa nuestra ficha completa de EVE Tower con sus tres tipologías (https://zaguanpropiedades.com/proyectos/eve-tower/). Queremos sumar también Ocean Drive Country II a nuestro catálogo para comercializar tipologías con parque y amenities todo el año sobre el eje Roosevelt. ¿Me compartís la carpeta comercial actualizada, disponibilidad y planos de Ocean Drive Country II para armar sus fichas hoy mismo? Gracias, Mar, de ZAGUÁN Propiedades",
       "asunto_email": "Ampliación de catálogo canal ZAGUÁN Propiedades — Ocean Drive Country II (WMW)",
-      "cuerpo_email": "Hola Rosario / Cristina,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com).\n\nYa tenemos en producción la ficha completa de EVE Tower y estamos recibiendo consultas por tipologías con parque y amenities todo el año en el eje Roosevelt, ideales para Ocean Drive Country II.\n\n¿Me compartís el link al drive con disponibilidad vigente y planos de Ocean Drive Country II para sumarlo esta semana a nuestras campañas de búsqueda?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+      "cuerpo_email": "Hola Rosario / Cristina,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com).\n\nYa tenemos en vivo la ficha completa de EVE Tower y queremos sumar Ocean Drive Country II a nuestro catálogo de Av. Roosevelt con sus fichas por tipología.\n\n¿Me compartís el link al drive con disponibilidad vigente y planos de Ocean Drive Country II?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
       "id": "T2-02",
@@ -232,9 +232,9 @@
       "estado_aprobacion": "pendiente",
       "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
       "alerta_operativa": "Ley 18.795 Vivienda Promovida en Maldonado y Pinares. Complemento directo de Betania IV y Nostrum Roosevelt.",
-      "mensaje_wa": "Hola equipo de Liderus, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de obra nueva y pozo en Maldonado y Punta del Este con campañas propias de búsqueda en Google y compradores calificados tanto locales como argentinos. Estamos derivando consultas activas por Vivienda Promovida Ley 18.795 en Maldonado y Pinares y queremos darnos de alta como canal externo oficial de Liderus para presentarles compradores pre-filtrados para Torres Cardinal y Cardinal Pinares. ¿Con quién de tu equipo coordino el alta de broker y el acceso a la carpeta comercial vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "mensaje_wa": "Hola equipo de Liderus, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos obra nueva y pozo en Maldonado y Punta del Este con fichas técnicas verificadas por tipología y respaldo de escribanía local. Queremos darnos de alta como canal externo oficial de Liderus para publicar y ofrecer Torres Cardinal y Cardinal Pinares bajo su protocolo de pre-registro de interesados. ¿Con quién de tu equipo coordino el alta y el acceso a la carpeta comercial vigente? Gracias, Mar, de ZAGUÁN Propiedades",
       "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Torres Cardinal (Liderus)",
-      "cuerpo_email": "Hola equipo de Liderus,\n\nTe escribí por WhatsApp para sumar a ZAGUÁN Propiedades como canal externo oficial de Liderus S.A. para Torres Cardinal y Cardinal Pinares.\n\nEn nuestra plataforma armamos fichas técnicas individuales por proyecto y por tipología, con planos descargables y campañas propias de captación en Google Search. Trabajamos con pre-registro formal de cada interesado (nombre completo, teléfono y correo) antes de cada visita.\n\n¿Me compartís los requisitos de alta y el link al drive comercial vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+      "cuerpo_email": "Hola equipo de Liderus,\n\nTe escribí por WhatsApp para sumar a ZAGUÁN Propiedades como canal externo oficial de Liderus S.A. para Torres Cardinal y Cardinal Pinares.\n\nEn nuestra web (https://zaguanpropiedades.com/oportunidades/) armamos fichas técnicas individuales por proyecto y tipología, trabajando con pre-registro formal de cada interesado antes de cada visita.\n\n¿Me compartís los requisitos de alta y el link al drive comercial vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
       "id": "T2-03",
@@ -249,9 +249,9 @@
       "estado_aprobacion": "pendiente",
       "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
       "alerta_operativa": "Ubicado en Parada 20 de Roosevelt, exactamente entre Nostrum Roosevelt (Pda. 19) y More Atlántico (Pda. 22). Ley 18.795.",
-      "mensaje_wa": "Hola equipo de Cimiento Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de proyectos amparados en la Ley 18.795 sobre el eje de Av. Roosevelt (Paradas 18 a 22) con campañas propias de búsqueda en Google. Queremos darnos de alta como canal externo oficial para comercializar Roosevelt Home (Parada 20) bajo su protocolo de pre-registro de interesados. ¿Con quién coordino el acceso a la carpeta comercial y lista de precios vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+      "mensaje_wa": "Hola equipo de Cimiento Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos proyectos amparados en la Ley 18.795 sobre el eje de Av. Roosevelt (Paradas 18 a 22). Queremos darnos de alta como canal externo oficial para publicar y ofrecer Roosevelt Home (Parada 20) bajo su protocolo de pre-registro de interesados. ¿Con quién coordino el acceso a la carpeta comercial y lista de precios vigente? Gracias, Mar, de ZAGUÁN Propiedades",
       "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Roosevelt Home (Parada 20)",
-      "cuerpo_email": "Hola equipo de Cimiento Desarrollos,\n\nLes escribo desde ZAGUÁN Propiedades (zaguanpropiedades.com) para darnos de alta como canal externo oficial en Roosevelt Home (Av. Roosevelt Parada 20).\n\nContamos con tráfico activo de inversores buscando Vivienda Promovida Ley 18.795 en el corredor Roosevelt. ¿Me comparten los requisitos de alta y el acceso a planos y lista de precios?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+      "cuerpo_email": "Hola equipo de Cimiento Desarrollos,\n\nLes escribo desde ZAGUÁN Propiedades (zaguanpropiedades.com) para darnos de alta como canal externo oficial en Roosevelt Home (Av. Roosevelt Parada 20).\n\nArmamos fichas verificadas por proyecto sobre el corredor Roosevelt (https://zaguanpropiedades.com/oportunidades/) con pre-registro formal. ¿Me comparten los requisitos de alta y el acceso a planos y lista de precios?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
       "id": "T2-04",
@@ -266,7 +266,7 @@
       "estado_aprobacion": "pendiente",
       "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
       "alerta_operativa": "Obra boutique de 2 bloques de 4 plantas en San Rafael (Pda. 12 Brava). Cubre al comprador que busca baja densidad.",
-      "mensaje_wa": "Hola equipo de Justany Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos obra nueva en Playa Brava y San Rafael con campañas propias de búsqueda en Google. Recibimos consultas de compradores que buscan baja densidad en San Rafael y queremos darnos de alta como canal externo oficial para Altos de San Rafael. ¿Con quién coordino el acceso a la carpeta comercial, lista de precios y protocolo de registro de clientes? Gracias, Mar, de ZAGUÁN Propiedades",
+      "mensaje_wa": "Hola equipo de Justany Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos obra nueva en Playa Brava y San Rafael con fichas dedicadas por tipología. Queremos darnos de alta como canal externo oficial para sumar Altos de San Rafael a nuestro catálogo bajo su protocolo de registro de clientes. ¿Con quién coordino el acceso a la carpeta comercial y disponibilidad vigente? Gracias, Mar, de ZAGUÁN Propiedades",
       "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Altos de San Rafael (Parada 12 Brava)",
       "cuerpo_email": "Hola equipo de Justany Desarrollos,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos sumar Altos de San Rafael a nuestra plataforma con ficha técnica dedicada por tipología y pre-registro formal de compradores.\n\n¿Me compartís el link al drive comercial con disponibilidad vigente y condiciones para canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },

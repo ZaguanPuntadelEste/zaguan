@@ -143,6 +143,9 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
     }
     .card.aprobado { border-color: rgba(16, 185, 129, 0.55); background: linear-gradient(180deg, rgba(16,185,129,0.06) 0%, var(--surface) 100%); }
     .card.descartado { opacity: 0.48; border-color: rgba(239, 68, 68, 0.35); }
@@ -290,7 +293,8 @@
   </div>
 
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
-    <button class="tab-btn active" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp a Compradores B2C & Pre-Registro 60 Días</button>
+    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Radar Vivo 4 Zonas (20 Directos + 15 Colegas) & Mail Corto</button>
+    <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp a Compradores B2C & Pre-Registro 60 Días</button>
     <button class="tab-btn" onclick="switchTab('tab-devs', this)">2. Captación de Desarrolladoras de Pozo (PDE · Maldonado)</button>
     <button class="tab-btn" onclick="switchTab('tab-portales', this)">3. Fichas para Portales UY (ML / Gallito / InfoCasas) & Google Ads</button>
     <button class="tab-btn" onclick="switchTab('tab-d1', this)">4. Puente Cloudflare D1 (cuenta_id="zaguan") & Correo</button>
@@ -298,9 +302,49 @@
   </nav>
 
   <!-- ===================================================================== -->
+  <!-- TAB 0: RADAR VIVO 4 ZONAS (20 PROSPECTOS DIRECTOS + 15 INMOBILIARIAS) -->
+  <!-- ===================================================================== -->
+  <section id="tab-radar4z" class="tab-panel active">
+    <div class="section-box" style="border-color:rgba(56,189,248,0.45);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
+        <div>
+          <span class="tag tag-ley">PASO 2 + PASO 3 · 35 SITIOS VERIFICADOS EN HTML VIVO (HTTP 200) · CERO CONTACTOS VIEJOS</span>
+          <h2 style="font-size:20px;margin-top:6px;">Radar Territorial 4 Zonas (20 Prospectos Directos + 15 Inmobiliarias Colegas)</h2>
+          <p style="font-size:13px;color:var(--muted);">Cada contacto apunta a la nueva vitrina móvil en 1 pantalla (<code>/oportunidades/?b2b_ref=...</code>) firmada por <strong>Mar, de ZAGUÁN Propiedades</strong>, cero texto largo, cero promesas falsas de demanda y cero co-corretaje en frío (a colegas solo se les escribe con pedido concreto en mano).</p>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-email btn-sm" href="/oportunidades/?b2b_ref=Complejo+Pinares" target="_blank">📱 Abrir Vitrina Móvil /oportunidades/ ↗</a>
+        </div>
+      </div>
+
+      <div class="form-grid" style="grid-template-columns:1fr 1fr;">
+        <div class="field">
+          <label>Filtrar por Zona</label>
+          <select id="r4z-zona" onchange="renderRadar4Z()">
+            <option value="TODAS">Todas las zonas (Maldonado/Pinares · Roosevelt · Península · La Barra)</option>
+            <option value="Maldonado Centro / Pinares">1. Maldonado Centro / Pinares</option>
+            <option value="Roosevelt / Aidy Grill">2. Roosevelt / Aidy Grill</option>
+            <option value="Península">3. Península</option>
+            <option value="La Barra / Manantiales">4. La Barra / Manantiales</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Filtrar por Tipo de Frente</label>
+          <select id="r4z-tipo" onchange="renderRadar4Z()">
+            <option value="DIRECTOS">20 Prospectos Directos (Complejos Apart / Desarrolladoras / Empresas)</option>
+            <option value="INMOBILIARIAS">15 Inmobiliarias Colegas por Zona (Solo activar con búsqueda real en mano)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card-grid" id="radar4z-grid" style="margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
   <!-- TAB 1: ATENCIÓN A COMPRADORES FINALES (B2C) + BOTONERA WHATSAPP 5 EDIFICIOS + CANDADO 60 DÍAS -->
   <!-- ===================================================================== -->
-  <section id="tab-b2c" class="tab-panel active">
+  <section id="tab-b2c" class="tab-panel">
     <div class="section-box" style="border-color:rgba(230,184,92,0.45);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px;">
         <div>
@@ -629,10 +673,10 @@ const DEFAULT_DATA = {
       contacto_email: "ezmaconstruccionessas@gmail.com",
       entrega: "Octubre de 2028",
       precio_display: "Desde USD 79.800",
-      financiacion: "Hasta 24 cuotas · Cochera opcional, con precio aparte",
+      financiacion: "50% anticipo y hasta 24 cuotas · 1 estacionamiento en planta baja incluido · Gastos de ocupación 1,5%",
       url_ficha: "https://zaguanpropiedades.com/proyectos/betania-iv/",
       ml_titulo: "Apartamento En Pozo En Maldonado 1, 2 Y 3 Dormitorios Hasta 24 Cuotas",
-      ml_cuerpo: "Betania IV en Fraccionamiento 4H, Maldonado (Leandro Gómez casi Tauro).\n\n• Precio: Desde USD 79.800 (Cochera opcional, con precio aparte).\n• Financiación: Hasta 24 cuotas.\n• Entrega estimada: Octubre de 2028.\n• Tipologías disponibles:\n  - 1 dormitorio · 40 m² (42,85 m² totales)\n  - 2 dormitorios · 62 m² (66,0 m² totales)\n  - 2 dormitorios · 68 m² (73,15 m² totales, opción accesible)\n  - 3 dormitorios · 83 m² (87,1 m² totales)\n• Amenities: Salón de usos múltiples con parrillero, 8 parrilleros abiertos con pérgolas y solárium en nivel 4.\n\nComercializa ZAGUÁN Propiedades (Punta del Este · Maldonado).\nFicha y planos: https://zaguanpropiedades.com/proyectos/betania-iv/\nWhatsApp directo: +598 98 712 064"
+      ml_cuerpo: "Betania IV en Fraccionamiento 4H, Maldonado (Leandro Gómez casi Tauro).\n\n• Precio: Desde USD 79.800 (1 estacionamiento en planta baja incluido · Gastos de ocupación: 1,5%).\n• Financiación: Contado o 50% de anticipo y hasta 24 cuotas.\n• Entrega estimada: Octubre de 2028.\n• Tipologías disponibles:\n  - 1 dormitorio · 40 m² (42,85 m² totales)\n  - 2 dormitorios · 62 m² (66,0 m² totales)\n  - 2 dormitorios · 68 m² (73,15 m² totales, opción accesible)\n  - 3 dormitorios · 83 m² (87,1 m² totales)\n• Amenities: Salón de usos múltiples con parrillero, 8 parrilleros abiertos con pérgolas y solárium en nivel 4.\n\nComercializa ZAGUÁN Propiedades (Punta del Este · Maldonado).\nFicha y planos: https://zaguanpropiedades.com/proyectos/betania-iv/\nWhatsApp directo: +598 98 712 064"
     },
     {
       id: "nostrum-roosevelt",
@@ -706,9 +750,9 @@ const DEFAULT_DATA = {
         "estado_aprobacion": "pendiente",
         "etapa": "Toque Expansión Cuenta Activa (Día 1)",
         "alerta_operativa": "Ya tenemos aprobado y publicado EVE Tower con WMW. Pedir carpeta, planos y lista cero de Ocean Drive Country II.",
-        "mensaje_wa": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Ya tenemos en vivo y traccionando consultas nuestra ficha completa de EVE Tower con sus tres tipologías (https://zaguanpropiedades.com/proyectos/eve-tower/). Estamos recibiendo búsquedas de compradores que priorizan amenities de escala y entorno arbolado en la zona de Roosevelt, ideales para Ocean Drive Country II. ¿Me compartís la carpeta comercial actualizada, lista de disponibilidad y planos de Ocean Drive Country II para armar las fichas por tipología hoy mismo y empezar a pre-registrarles interesados? Gracias, Mar, de ZAGUÁN Propiedades",
+        "mensaje_wa": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Ya tenemos publicada nuestra ficha completa de EVE Tower con sus tres tipologías (https://zaguanpropiedades.com/proyectos/eve-tower/). Queremos sumar también Ocean Drive Country II a nuestro catálogo de Av. Roosevelt bajo el mismo protocolo de pre-registro de clientes. ¿Me compartís la carpeta comercial actualizada, lista de disponibilidad y planos de Ocean Drive Country II para armar las fichas por tipología? Gracias, Mar, de ZAGUÁN Propiedades",
         "asunto_email": "Ampliación de catálogo canal ZAGUÁN Propiedades — Ocean Drive Country II (WMW)",
-        "cuerpo_email": "Hola Rosario / Cristina,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com).\n\nYa tenemos en producción la ficha completa de EVE Tower y estamos recibiendo consultas por tipologías con parque y amenities todo el año en el eje Roosevelt, ideales para Ocean Drive Country II.\n\n¿Me compartís el link al drive con disponibilidad vigente y planos de Ocean Drive Country II para sumarlo esta semana a nuestras campañas de búsqueda?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+        "cuerpo_email": "Hola Rosario / Cristina,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com).\n\nYa tenemos en producción la ficha completa de EVE Tower y queremos sumar Ocean Drive Country II a nuestro catálogo sobre el eje Roosevelt con fichas dedicadas por tipología.\n\n¿Me compartís el link al drive con disponibilidad vigente y planos de Ocean Drive Country II?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
         "id": "T2-02",
@@ -723,9 +767,9 @@ const DEFAULT_DATA = {
         "estado_aprobacion": "pendiente",
         "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
         "alerta_operativa": "Ley 18.795 Vivienda Promovida en Maldonado y Pinares. Complemento directo de Betania IV y Nostrum Roosevelt.",
-        "mensaje_wa": "Hola equipo de Liderus, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de obra nueva y pozo en Maldonado y Punta del Este con campañas propias de búsqueda en Google y compradores calificados tanto locales como argentinos. Estamos derivando consultas activas por Vivienda Promovida Ley 18.795 en Maldonado y Pinares y queremos darnos de alta como canal externo oficial de Liderus para presentarles compradores pre-filtrados para Torres Cardinal y Cardinal Pinares. ¿Con quién de tu equipo coordino el alta de broker y el acceso a la carpeta comercial vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+        "mensaje_wa": "Hola equipo de Liderus, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/). Comercializamos obra nueva y Vivienda Promovida Ley 18.795 en Maldonado y Punta del Este con fichas dedicadas por tipología, atención bilingüe (ES/EN) y pre-registro formal de interesados. Queremos darnos de alta como canal externo oficial de Liderus para Torres Cardinal y Cardinal Pinares. ¿Con quién de tu equipo coordino el alta de broker y el acceso a la carpeta comercial vigente? Gracias, Mar, de ZAGUÁN Propiedades",
         "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Torres Cardinal (Liderus)",
-        "cuerpo_email": "Hola equipo de Liderus,\n\nTe escribí por WhatsApp para sumar a ZAGUÁN Propiedades como canal externo oficial de Liderus S.A. para Torres Cardinal y Cardinal Pinares.\n\nEn nuestra plataforma armamos fichas técnicas individuales por proyecto y por tipología, con planos descargables y campañas propias de captación en Google Search. Trabajamos con pre-registro formal de cada interesado (nombre completo, teléfono y correo) antes de cada visita.\n\n¿Me compartís los requisitos de alta y el link al drive comercial vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+        "cuerpo_email": "Hola equipo de Liderus,\n\nTe escribo para sumar a ZAGUÁN Propiedades como canal externo oficial de Liderus S.A. para Torres Cardinal y Cardinal Pinares.\n\nEn nuestra plataforma armamos fichas técnicas individuales por proyecto y por tipología, con desglose de costos reales de cierre y pre-registro formal de cada interesado (nombre completo, teléfono y correo) antes de cada visita.\n\n¿Me compartís los requisitos de alta y el link al drive comercial vigente?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
         "id": "T2-03",
@@ -740,9 +784,9 @@ const DEFAULT_DATA = {
         "estado_aprobacion": "pendiente",
         "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
         "alerta_operativa": "Ubicado en Parada 20 de Roosevelt, exactamente entre Nostrum Roosevelt (Pda. 19) y More Atlántico (Pda. 22). Ley 18.795.",
-        "mensaje_wa": "Hola equipo de Cimiento Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos la comercialización de proyectos amparados en la Ley 18.795 sobre el eje de Av. Roosevelt (Paradas 18 a 22) con campañas propias de búsqueda en Google. Queremos darnos de alta como canal externo oficial para comercializar Roosevelt Home (Parada 20) bajo su protocolo de pre-registro de interesados. ¿Con quién coordino el acceso a la carpeta comercial y lista de precios vigente? Gracias, Mar, de ZAGUÁN Propiedades",
+        "mensaje_wa": "Hola equipo de Cimiento Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/). Comercializamos proyectos amparados en la Ley 18.795 sobre el eje de Av. Roosevelt (Paradas 18 a 22) con fichas técnicas por tipología y atención bilingüe (ES/EN). Queremos darnos de alta como canal externo oficial para comercializar Roosevelt Home (Parada 20) bajo su protocolo de pre-registro de interesados. ¿Con quién coordino el acceso a la carpeta comercial y lista de precios vigente? Gracias, Mar, de ZAGUÁN Propiedades",
         "asunto_email": "Alta canal comercial ZAGUÁN Propiedades + Ficha dedicada para Roosevelt Home (Parada 20)",
-        "cuerpo_email": "Hola equipo de Cimiento Desarrollos,\n\nLes escribo desde ZAGUÁN Propiedades (zaguanpropiedades.com) para darnos de alta como canal externo oficial en Roosevelt Home (Av. Roosevelt Parada 20).\n\nContamos con tráfico activo de inversores buscando Vivienda Promovida Ley 18.795 en el corredor Roosevelt. ¿Me comparten los requisitos de alta y el acceso a planos y lista de precios?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+        "cuerpo_email": "Hola equipo de Cimiento Desarrollos,\n\nLes escribo desde ZAGUÁN Propiedades (zaguanpropiedades.com) para darnos de alta como canal externo oficial en Roosevelt Home (Av. Roosevelt Parada 20).\n\nArmamos fichas dedicadas con desglose fiscal Ley 18.795 y pre-registro formal antes de cada visita. ¿Me comparten los requisitos de alta y el acceso a planos y lista de precios?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
         "id": "T2-04",
@@ -757,7 +801,7 @@ const DEFAULT_DATA = {
         "estado_aprobacion": "pendiente",
         "etapa": "Toque 1: WhatsApp Directo a Desarrolladora (Día 1)",
         "alerta_operativa": "Obra boutique de 2 bloques de 4 plantas en San Rafael (Pda. 12 Brava). Cubre al comprador que busca baja densidad.",
-        "mensaje_wa": "Hola equipo de Justany Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos obra nueva en Playa Brava y San Rafael con campañas propias de búsqueda en Google. Recibimos consultas de compradores que buscan baja densidad en San Rafael y queremos darnos de alta como canal externo oficial para Altos de San Rafael. ¿Con quién coordino el acceso a la carpeta comercial, lista de precios y protocolo de registro de clientes? Gracias, Mar, de ZAGUÁN Propiedades",
+        "mensaje_wa": "Hola equipo de Justany Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/). Comercializamos obra nueva en Playa Brava y San Rafael con fichas dedicadas por tipología y asesoramiento notarial bilingüe (ES/EN). Queremos darnos de alta como canal externo oficial para Altos de San Rafael. ¿Con quién coordino el acceso a la carpeta comercial, lista de precios y protocolo de registro de clientes? Gracias, Mar, de ZAGUÁN Propiedades",
         "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Altos de San Rafael (Parada 12 Brava)",
         "cuerpo_email": "Hola equipo de Justany Desarrollos,\n\nTe escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos sumar Altos de San Rafael a nuestra plataforma con ficha técnica dedicada por tipología y pre-registro formal de compradores.\n\n¿Me compartís el link al drive comercial con disponibilidad vigente y condiciones para canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
@@ -776,7 +820,7 @@ const DEFAULT_DATA = {
         "alerta_operativa": "Misma micro-zona que Golden Rise (Parada 18 Roosevelt) + bloque en Playa Brava.",
         "mensaje_wa": "Hola equipo de Wave Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Comercializamos desarrollos en pozo sobre el eje de Av. Roosevelt y Playa Brava directo con las desarrolladoras. Queremos darnos de alta como canal externo oficial para Wave Roosevelt y Wave Brava bajo su protocolo de pre-registro de interesados. ¿Me compartís el acceso a la carpeta comercial y lista de disponibilidad vigente? Gracias, Mar, de ZAGUÁN Propiedades",
         "asunto_email": "Alta canal comercial ZAGUÁN Propiedades — Wave Roosevelt y Wave Brava",
-        "cuerpo_email": "Hola equipo de Wave Desarrollos,\n\nLes escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos incorporar Wave Roosevelt y Wave Brava a nuestro catálogo de obra nueva con fichas técnicas dedicadas y pauta de búsqueda en Google.\n\n¿Me comparten el link al material comercial y las condiciones de trabajo con canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
+        "cuerpo_email": "Hola equipo de Wave Desarrollos,\n\nLes escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Queremos incorporar Wave Roosevelt y Wave Brava a nuestro catálogo de obra nueva con fichas técnicas dedicadas y pre-registro formal.\n\n¿Me comparten el link al material comercial y las condiciones de trabajo con canales externos?\n\nSaludos cordiales,\nMar, de ZAGUÁN Propiedades\nPunta del Este · Maldonado — https://zaguanpropiedades.com"
     },
     {
         "id": "T2-06",
@@ -878,10 +922,10 @@ function renderQuickWaResponse() {
   const scripts = {
     'betania-iv': {
       rompehielo: `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nTe paso en limpio los datos verificados de Betania IV: está en Leandro Gómez casi Tauro (Fraccionamiento 4H, Maldonado), con entrega en 2028. Arranca desde USD 79.800 (con 1 lugar de estacionamiento en planta baja incluido en cada unidad), pago contado o 50% de anticipo y saldo en 24 cuotas, y gastos de ocupación de solo el 1,5% a la entrega.\n\nFicha general: https://zaguanpropiedades.com/proyectos/betania-iv/\n\nPara pasarte el plano exacto: ¿estás buscando de 1, 2 o 3 dormitorios?`,
-      mono: `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn Betania IV las unidades arrancan en 1 dormitorio de 40 m² interiores (42,85 m² totales) desde USD 79.800 y hasta 24 cuotas (cochera opcional, con precio aparte).\n\nAcá podés ver el plano y distribución de 1 dormitorio:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/\n\n¿Querés que te confirme qué unidades están disponibles hoy?`,
-      '1d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn Betania IV la tipología de 1 dormitorio tiene 40 m² interiores + terraza (42,85 m² totales), desde USD 79.800 con financiación hasta en 24 cuotas (cochera opcional, con precio aparte).\n\nAcá podés ver el plano:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/\n\n¿Lo evaluás para vivienda o para renta en Maldonado?`,
-      '2d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn 2 dormitorios en Betania IV tenés opciones de 66,0 m² totales (62 m² interiores) y de 73,15 m² totales (68 m² interiores, más versión accesible), con precio base del proyecto desde USD 79.800 y hasta 24 cuotas (cochera opcional, con precio aparte).\n\nPlanos de 2 dormitorios:\n• 62 m²: https://zaguanpropiedades.com/proyectos/betania-iv/2d-62m2/\n• 68 m²: https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2/\n\n¿Cuál de las dos plantas se ajusta mejor a lo que buscás?`,
-      '3d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nLa tipología de 3 dormitorios en Betania IV tiene 83 m² interiores y 87,1 m² totales, con entrega estimada en octubre de 2028 y financiación hasta en 24 cuotas (cochera opcional, con precio aparte).\n\nAcá podés ver el plano:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/3d-78m2/\n\n¿Querés que consultemos disponibilidad y precio exacto de esta planta?`
+      mono: `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn Betania IV las unidades arrancan en 1 dormitorio de 40 m² interiores (42,85 m² totales) desde USD 79.800 y hasta 24 cuotas (1 estacionamiento en planta baja incluido · gastos de ocupación 1,5%).\n\nAcá podés ver el plano y distribución de 1 dormitorio:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/\n\n¿Querés que te confirme qué unidades están disponibles hoy?`,
+      '1d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn Betania IV la tipología de 1 dormitorio tiene 40 m² interiores + terraza (42,85 m² totales), desde USD 79.800 con 50% de anticipo y hasta 24 cuotas (1 estacionamiento en planta baja incluido · gastos de ocupación 1,5%).\n\nAcá podés ver el plano:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/1d-40m2/\n\n¿Lo evaluás para vivienda o para renta en Maldonado?`,
+      '2d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEn 2 dormitorios en Betania IV tenés opciones de 66,0 m² totales (62 m² interiores, desde USD 122.400) y de 73,15 m² totales (68 m² interiores, desde USD 133.200), con 1 estacionamiento en planta baja incluido, hasta 24 cuotas y gastos de ocupación de 1,5%.\n\nPlanos de 2 dormitorios:\n• 62 m²: https://zaguanpropiedades.com/proyectos/betania-iv/2d-62m2/\n• 68 m²: https://zaguanpropiedades.com/proyectos/betania-iv/2d-68m2/\n\n¿Cuál de las dos plantas se ajusta mejor a lo que buscás?`,
+      '3d': `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nLa tipología de 3 dormitorios en Betania IV tiene 83 m² interiores y 87,1 m² totales (desde USD 156.600), con 1 estacionamiento en planta baja incluido, entrega estimada en octubre de 2028, hasta 24 cuotas y gastos de ocupación de 1,5%.\n\nAcá podés ver el plano:\nhttps://zaguanpropiedades.com/proyectos/betania-iv/3d-78m2/\n\n¿Querés que consultemos disponibilidad y precio exacto de esta planta?`
     },
     'eve-tower': {
       rompehielo: `${saludo} Soy Mar, de ZAGUÁN Propiedades.\n\nEVE Tower está con obra iniciada en Parada 8 de Playa Brava (Avenida Roosevelt y Guanabara, a 100 metros del mar), Punta del Este. Es una torre de 26 pisos con piscina interior climatizada, piscina exterior, gimnasio, sauna, cowork y canchas de pádel y pickleball, desde USD 150.000 (cochera opcional, con precio aparte · entrega estimada diciembre de 2028).\n\nFicha general: https://zaguanpropiedades.com/proyectos/eve-tower/\n\nPara enviarte el plano que mejor te calce: ¿buscás monoambiente, 1 dormitorio o 2 dormitorios?`,
@@ -1179,6 +1223,95 @@ function renderOffMarketVault() {
   `).join('');
 }
 
+let radar4ZData = { mapa_inmobiliarias_maldonado_pde: [], prospectos_directos_4zonas: [] };
+
+async function loadRadar4Z() {
+  try {
+    const res = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
+    if (res.ok) {
+      radar4ZData = await res.json();
+      renderRadar4Z();
+    }
+  } catch (e) {
+    console.warn('No se pudo cargar JSON 4 zonas:', e);
+  }
+}
+
+function extractPhoneForWa(str) {
+  if (!str) return '';
+  const m = str.match(/598\s*0?\s*9[0-9\s]{7,10}/);
+  if (m) return m[0].replace(/[^0-9]/g, '').replace(/^59809/, '5989');
+  return '';
+}
+
+function renderRadar4Z() {
+  const grid = document.getElementById('radar4z-grid');
+  if (!grid) return;
+  const zonaSel = document.getElementById('r4z-zona').value;
+  const tipoSel = document.getElementById('r4z-tipo').value;
+
+  if (tipoSel === 'INMOBILIARIAS') {
+    const list = (radar4ZData.mapa_inmobiliarias_maldonado_pde || []).filter(it => zonaSel === 'TODAS' || it.zona_foco === zonaSel);
+    grid.innerHTML = list.map((it) => {
+      const waNum = extractPhoneForWa(it.telefono_o_wa_verificado);
+      const msgColega = `Hola colegas de ${it.nombre}, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Tenemos un interesado puntual pre-calificado buscando en ${it.zona_foco} y quería consultarles si trabajan operación compartida sobre una unidad específica de su cartera.`;
+      const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgColega)}` : `https://wa.me/?text=${encodeURIComponent(msgColega)}`;
+      return `<div class="card">
+        <div class="card-top">
+          <div>
+            <span class="tag tag-ley">COLEGA · ${it.zona_foco}</span>
+            <h3 style="font-size:17px;margin-top:6px;">${it.nombre}</h3>
+            <p style="font-size:12px;color:var(--muted);"><a href="${it.url_oficial}" target="_blank" style="text-decoration:underline;">${it.url_oficial} ↗</a> · HTTP ${it.http_status}</p>
+          </div>
+        </div>
+        <div style="font-size:12.5px;color:#D5E0EA;background:rgba(8,21,33,0.6);padding:10px;border-radius:8px;border:1px solid var(--border);display:grid;gap:4px;">
+          <div><strong>Cartera real:</strong> ${it.foco_cartera}</div>
+          <div><strong>Cómo captan dueños:</strong> ${it.como_captan_propietarios}</div>
+          <div><strong>Contacto vivo:</strong> ${it.email_verificado} · ${it.telefono_o_wa_verificado}</div>
+          <div style="color:#FBBF24;"><strong>Regla Zaguán:</strong> ${it.oportunidad_para_zaguan}</div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-wa btn-sm" href="${waHref}" target="_blank">📲 Consultar solo con pedido real</a>
+          <a class="btn btn-outline btn-sm" href="${it.url_oficial}" target="_blank">Abrir Web ↗</a>
+        </div>
+      </div>`;
+    }).join('');
+    return;
+  }
+
+  const list = (radar4ZData.prospectos_directos_4zonas || []).filter(it => zonaSel === 'TODAS' || it.zona === zonaSel);
+  grid.innerHTML = list.map((it, idx) => {
+    const waNum = extractPhoneForWa(it.whatsapp_o_tel_verificado);
+    const shortName = it.nombre.split('(')[0].trim();
+    const modoUrl = it.segmento.includes('Desarrolladora') ? '' : '&modo=alquiler';
+    const vitrineUrl = `https://zaguanpropiedades.com/oportunidades/?b2b_ref=${encodeURIComponent(shortName)}${modoUrl}`;
+    const msgCorto = `${it.angulo_real_sin_humo}\n\nCarpeta rápida en 1 pantalla para ${shortName}:\n${vitrineUrl}`;
+    const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual / media estadía sin exclusividad'}`;
+    const mailHref = `mailto:${it.email_verificado}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
+    const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgCorto)}` : `https://wa.me/?text=${encodeURIComponent(msgCorto)}`;
+
+    return `<div class="card aprobado">
+      <div class="card-top">
+        <div>
+          <span class="tag tag-active">${it.zona} · ${it.segmento}</span>
+          <h3 style="font-size:17px;margin-top:6px;">${it.nombre}</h3>
+          <p style="font-size:12px;color:var(--muted);"><a href="${it.url_verificada}" target="_blank" style="text-decoration:underline;">${it.url_verificada} ↗</a> · ${it.email_verificado}</p>
+        </div>
+      </div>
+      <div style="font-size:11.5px;color:var(--muted);background:rgba(8,21,33,0.55);padding:8px 10px;border-radius:6px;border:1px solid var(--border);">
+        <strong>Link personalizado rastreable:</strong> <a href="${vitrineUrl}" target="_blank" style="text-decoration:underline;color:#38BDF8;">${vitrineUrl}</a>
+      </div>
+      <textarea class="msg-preview" id="r4z-msg-${idx}">${msgCorto}</textarea>
+      <div class="btn-row">
+        ${waNum ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank">📲 WhatsApp 1 a 1</a>` : ''}
+        <a class="btn btn-email btn-sm" href="${mailHref}" target="_blank">✉️ Mail Corto (${it.email_verificado})</a>
+        <button class="btn btn-outline btn-sm" onclick="copyTextById('r4z-msg-${idx}')">📋 Copiar</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+loadRadar4Z();
 renderQuickWaResponse();
 renderOffMarketVault();
 renderB2CTable();
