@@ -310,7 +310,7 @@
         <div>
           <span class="tag tag-ley">PASO 2 + PASO 3 · 35 SITIOS VERIFICADOS EN HTML VIVO (HTTP 200) · CERO CONTACTOS VIEJOS</span>
           <h2 style="font-size:20px;margin-top:6px;">Radar Territorial 4 Zonas (20 Prospectos Directos + 15 Inmobiliarias Colegas)</h2>
-          <p style="font-size:13px;color:var(--muted);">Cada contacto apunta a la nueva vitrina móvil en 1 pantalla (<code>/oportunidades/?b2b_ref=...</code>) firmada por <strong>Mar, de ZAGUÁN Propiedades</strong>, cero texto largo, cero promesas falsas de demanda y cero co-corretaje en frío (a colegas solo se les escribe con pedido concreto en mano).</p>
+          <p style="font-size:13px;color:var(--muted);">Prioridad #1 en Uruguay: <strong>WhatsApp Directo 1 a 1</strong> (botón verde) + respaldo en <strong>Gmail Web Online</strong> saliendo como <code>puntadeleste@zaguanpropiedades.com</code> vía <code>zaguanpropiedades@gmail.com</code> (cero app Mail de escritorio). Apunta a <code>/oportunidades/?b2b_ref=...</code> firmado por <strong>Mar, de ZAGUÁN Propiedades</strong>.</p>
         </div>
         <div class="btn-row">
           <a class="btn btn-email btn-sm" href="/oportunidades/?b2b_ref=Complejo+Pinares" target="_blank">📱 Abrir Vitrina Móvil /oportunidades/ ↗</a>
@@ -600,8 +600,8 @@
           <input type="text" value="0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb" readonly>
         </div>
         <div class="field">
-          <label>Remitente Comercial Oficial</label>
-          <input type="text" value="Mar — ZAGUÁN Propiedades (zaguanpropiedades@gmail.com)" readonly>
+          <label>Casilla Saliente Web (Gmail Online · Cero App de Escritorio)</label>
+          <input type="text" value="puntadeleste@zaguanpropiedades.com (vía Gmail Web zaguanpropiedades@gmail.com)" readonly>
         </div>
         <div class="field">
           <label>Webhook / Endpoint Correo Aislado (Opcional para disparo API sin abrir cliente de correo)</label>
@@ -1085,7 +1085,7 @@ function renderProspectDevs() {
   grid.innerHTML = state.desarrolladoras_prospeccion.map((p, idx) => {
     const isApproved = p.estado_aprobacion === 'aprobado';
     const isRejected = p.estado_aprobacion === 'descartado';
-    const mailtoUrl = `mailto:${p.email}?subject=${encodeURIComponent(p.asunto_email)}&body=${encodeURIComponent(p.cuerpo_email)}`;
+    const gmailWebUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&authuser=zaguanpropiedades%40gmail.com&to=${encodeURIComponent(p.email)}&su=${encodeURIComponent(p.asunto_email)}&body=${encodeURIComponent(p.cuerpo_email)}`;
     const waUrl = `https://wa.me/${p.whatsapp}?text=${encodeURIComponent(p.mensaje_wa)}`;
 
     return `<div class="card ${isApproved ? 'aprobado' : ''} ${isRejected ? 'descartado' : ''}">
@@ -1104,8 +1104,8 @@ function renderProspectDevs() {
         <button class="btn btn-yes btn-sm" onclick="setDevStatus(${idx}, 'aprobado')">✅ SÍ, APROBAR</button>
         <button class="btn btn-no btn-sm" onclick="setDevStatus(${idx}, 'descartado')">❌ NO</button>
         ${isApproved ? `
-          <a class="btn btn-email btn-sm" href="${mailtoUrl}" target="_blank">✉️ Enviar Email (${p.email})</a>
-          <a class="btn btn-wa btn-sm" href="${waUrl}" target="_blank">📲 WhatsApp (${p.contacto_nombre})</a>
+          <a class="btn btn-wa btn-sm" href="${waUrl}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp (${p.contacto_nombre})</a>
+          <a class="btn btn-email btn-sm" href="${gmailWebUrl}" target="_blank" rel="noopener noreferrer">🌐 Gmail Web (${p.email})</a>
         ` : ''}
       </div>
     </div>`;
@@ -1286,8 +1286,8 @@ function renderRadar4Z() {
     const modoUrl = it.segmento.includes('Desarrolladora') ? '' : '&modo=alquiler';
     const vitrineUrl = `https://zaguanpropiedades.com/oportunidades/?b2b_ref=${encodeURIComponent(shortName)}${modoUrl}`;
     const msgCorto = `${it.angulo_real_sin_humo}\n\nCarpeta rápida en 1 pantalla para ${shortName}:\n${vitrineUrl}`;
-    const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual / media estadía sin exclusividad'}`;
-    const mailHref = `mailto:${it.email_verificado}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
+    const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual y venta sin exclusividad'}`;
+    const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&authuser=zaguanpropiedades%40gmail.com&to=${encodeURIComponent(it.email_verificado)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
     const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgCorto)}` : `https://wa.me/?text=${encodeURIComponent(msgCorto)}`;
 
     return `<div class="card aprobado">
@@ -1303,8 +1303,8 @@ function renderRadar4Z() {
       </div>
       <textarea class="msg-preview" id="r4z-msg-${idx}">${msgCorto}</textarea>
       <div class="btn-row">
-        ${waNum ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank">📲 WhatsApp 1 a 1</a>` : ''}
-        <a class="btn btn-email btn-sm" href="${mailHref}" target="_blank">✉️ Mail Corto (${it.email_verificado})</a>
+        ${waNum ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo UY</a>` : ''}
+        <a class="btn btn-email btn-sm" href="${gmailHref}" target="_blank" rel="noopener noreferrer">🌐 Gmail Web (puntadeleste@zaguan...)</a>
         <button class="btn btn-outline btn-sm" onclick="copyTextById('r4z-msg-${idx}')">📋 Copiar</button>
       </div>
     </div>`;
