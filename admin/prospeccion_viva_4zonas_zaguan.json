@@ -459,5 +459,107 @@
       "evidencia_html": "<a href=\"mailto:sur@galeriasur.uy\"> | <a href=\"https://api.whatsapp.com/send?phone=59899684099\"> | <a href=\"tel:+59842772014\">",
       "angulo_real_sin_humo": "Hola equipo de Galería Sur, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/busqueda-personalizada/). Operamos en La Barra y Punta del Este acompañando búsquedas a medida de espacios de exhibición, depósitos climatizados y alquiler anual con garantía aseguradora para equipos todo el año. Les dejo mi contacto directo por si evalúan sumar espacio anexo en el este o articular con compradores de residencias en la zona."
     }
+  ],
+  "marketplace_duenos_directos": [
+    {
+      "id": "MP-01",
+      "operacion": "Alquiler anual (Dueño Directo)",
+      "titulo": "Apto 1 dormitorio en Barrio San Agustín (Patio + Estacionamiento)",
+      "precio": "$U 17.000 / mes",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Juan Rodriguez",
+      "url": "https://www.facebook.com/marketplace/item/885956994542648/",
+      "mensaje_mar": "Hola Juan, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio en Barrio San Agustín ($U 17.000). Trabajamos alquiler anual con filtro previo de garantía aseguradora (Porto Seguro, Sura, Mapfre o Anda), cero gasto fijo y sin pedirte exclusividad (seguís alquilando por tu cuenta libremente y solo cobramos si cerramos con inquilino nuestro). ¿Seguís teniéndolo disponible para sumarlo sin compromiso?"
+    },
+    {
+      "id": "MP-02",
+      "operacion": "Alquiler anual (Dueño Directo)",
+      "titulo": "Monoambiente persona sola en Maldonado Nuevo (Luz y agua inc.)",
+      "precio": "$U 14.000 / mes",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Lujan Gutierrez",
+      "url": "https://www.facebook.com/marketplace/item/4598219770433647/",
+      "mensaje_mar": "Hola Luján, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu monoambiente publicado en Maldonado Nuevo ($U 14.000). Si te sirve sumar difusión sin ninguna exclusividad ni costo fijo, podemos ofrecerlo filtrando antes solvencia y recibos/garantía para ahorrarte visitas en vano. ¿Sigue disponible?"
+    },
+    {
+      "id": "MP-03",
+      "operacion": "Alquiler anual (Dueño Directo)",
+      "titulo": "Apto 1 dormitorio a estrenar con patio privado y AA (zona Batlle y Ordóñez)",
+      "precio": "$U 21.000 / mes",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Maria Franchi",
+      "url": "https://www.facebook.com/marketplace/item/1801589477876890/",
+      "mensaje_mar": "Hola María, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio a estrenar con patio ($U 21.000). Sumamos propiedades en alquiler anual con autorización simple sin exclusividad, presentando únicamente postulantes con garantía aseguradora aprobada (Porto, Sura, Mapfre o Anda). ¿Lo tenés disponible aún?"
+    },
+    {
+      "id": "MP-04",
+      "operacion": "Alquiler anual (Dueño Directo)",
+      "titulo": "Apto a estrenar al frente en complejo familiar de 3 unidades (Patio + Cochera)",
+      "precio": "$U 19.000 / mes",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Damian Gonzalez",
+      "url": "https://www.facebook.com/marketplace/item/3043842002457585/",
+      "mensaje_mar": "Hola Damián, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi la unidad al frente en tu complejo de 3 unidades ($U 19.000). Trabajamos alquiler anual sin ataduras de exclusividad y pre-filtrando garantía aseguradora antes de coordinar cualquier visita. ¿Sigue libre esa unidad?"
+    },
+    {
+      "id": "MP-05",
+      "operacion": "Alquiler anual (Dueño Directo)",
+      "titulo": "Apartamento 1 dormitorio en Barrio San Gabriel",
+      "precio": "$U 18.000 / mes",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Berterreche Berterreche",
+      "url": "https://www.facebook.com/marketplace/item/1837909334201236/",
+      "mensaje_mar": "Hola, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio en San Gabriel ($U 18.000). Si aún no cerraste inquilino, podemos sumarlo sin exclusividad y presentarte interesados ya filtrados con garantía aseguradora. ¿Sigue disponible?"
+    },
+    {
+      "id": "MP-06",
+      "operacion": "Venta sin exclusividad (Dueño Directo)",
+      "titulo": "Casa 2 dormitorios amoblada en Barrio La Fortuna",
+      "precio": "USD 140.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Fernando Sergi",
+      "url": "https://www.facebook.com/marketplace/item/2593084717783774/",
+      "mensaje_mar": "Hola Fernando, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios en La Fortuna (USD 140.000, dueño directo). Trabajamos venta con autorización simple sin exclusividad, atención bilingüe (ES/EN) para compradores locales y argentinos, y escribanía aliada en Maldonado. ¿Te interesa que la armemos en nuestra vidriera sin costo fijo?"
+    },
+    {
+      "id": "MP-07",
+      "operacion": "Venta vivienda + local comercial (Dueño Directo)",
+      "titulo": "Casa 3 dormitorios + Local Comercial en PB + Garaje y Galpón (San Carlos)",
+      "precio": "USD 180.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Mario Viroga",
+      "url": "https://www.facebook.com/marketplace/item/1146084214616381/",
+      "mensaje_mar": "Hola Mario, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu propiedad con casa de 3 dormitorios, local comercial y galpón (USD 180.000). Comercializamos vivienda y locales sin exclusividad forzada, revisando documentación previa con escribanía local para agilizar cierres. ¿Aceptás que la sumemos a nuestra cartera sin exclusividad?"
+    },
+    {
+      "id": "MP-08",
+      "operacion": "Venta sin exclusividad (Dueño Directo)",
+      "titulo": "Casa 2 dormitorios con barbacoa cerrada en Barrio Biarritz",
+      "precio": "USD 100.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Cecilia Beatriz Fernandez Chavez Inchausti",
+      "url": "https://www.facebook.com/marketplace/item/3130388197165366/",
+      "mensaje_mar": "Hola Cecilia, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios con barbacoa en Barrio Biarritz (USD 100.000). Trabajamos sin pedir exclusividad y solo cobramos comisión si traemos al comprador real. ¿Seguís vendiéndola para sumarla a nuestra cartera?"
+    },
+    {
+      "id": "MP-09",
+      "operacion": "Venta con renta activa (Dueño Directo)",
+      "titulo": "Casa + Apartamento juntos en mismo padrón con renta (Cerros Azules)",
+      "precio": "USD 85.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Alvaro Bentancur",
+      "url": "https://www.facebook.com/marketplace/item/945652418004713/",
+      "mensaje_mar": "Hola Álvaro, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu padrón con casa + apartamento alquilado en USD 85.000. Es un ticket muy buscado por inversores de renta; trabajamos sin exclusividad y con respaldo notarial local. ¿Te sirve que lo sumemos a nuestra vidriera?"
+    },
+    {
+      "id": "MP-10",
+      "operacion": "Venta sin exclusividad (Dueño Directo)",
+      "titulo": "Casa residencial amplia cerca del centro de Maldonado",
+      "precio": "USD 65.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Edu Gomez",
+      "url": "https://www.facebook.com/marketplace/item/1638483061065937/",
+      "mensaje_mar": "Hola Edu, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa publicada en USD 65.000 en Maldonado. Si querés sumar un canal más de venta sin ninguna exclusividad ni gasto fijo, contá con nosotros. ¿Sigue disponible?"
+    }
   ]
 }

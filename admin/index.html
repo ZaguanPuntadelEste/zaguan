@@ -331,7 +331,8 @@
         <div class="field">
           <label>Filtrar por Tipo de Frente</label>
           <select id="r4z-tipo" onchange="renderRadar4Z()">
-            <option value="DIRECTOS">20 Prospectos Directos (Complejos Apart / Desarrolladoras / Empresas)</option>
+            <option value="MARKETPLACE">🔥 10 Dueños Directos Reales en Facebook Marketplace (Alquiler Anual y Venta)</option>
+            <option value="DIRECTOS">20 Prospectos Directos 4 Zonas (Complejos Apart / Desarrolladoras / Empresas)</option>
             <option value="INMOBILIARIAS">15 Inmobiliarias Colegas por Zona (Solo activar con búsqueda real en mano)</option>
           </select>
         </div>
@@ -1249,6 +1250,28 @@ function renderRadar4Z() {
   if (!grid) return;
   const zonaSel = document.getElementById('r4z-zona').value;
   const tipoSel = document.getElementById('r4z-tipo').value;
+
+  if (tipoSel === 'MARKETPLACE') {
+    const list = (radar4ZData.marketplace_duenos_directos || []).filter(it => zonaSel === 'TODAS' || it.zona === zonaSel);
+    grid.innerHTML = list.map((it, idx) => `
+      <div class="card aprobado">
+        <div class="card-top">
+          <div>
+            <span class="tag tag-active">${it.operacion}</span>
+            <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
+            <p style="font-size:12px;color:var(--muted);">👤 Publica: <strong>${it.vendedor}</strong> · 📍 ${it.zona}</p>
+          </div>
+          <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
+        </div>
+        <textarea class="msg-preview" id="mp-msg-${idx}">${it.mensaje_mar}</textarea>
+        <div class="btn-row">
+          <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 1° Copiar Mensaje de Mar</button>
+          <a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 2° Abrir Aviso en Marketplace ↗</a>
+        </div>
+      </div>
+    `).join('');
+    return;
+  }
 
   if (tipoSel === 'INMOBILIARIAS') {
     const list = (radar4ZData.mapa_inmobiliarias_maldonado_pde || []).filter(it => zonaSel === 'TODAS' || it.zona_foco === zonaSel);
