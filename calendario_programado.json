@@ -228,7 +228,7 @@
     "caption_li": "Actualización de obra de Betania IV en Maldonado: estado del encofrado de losas, trabajos en planta baja y cronograma hacia octubre de 2028.\n\nRegistro completo en Novedades del Este: https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
     "caption_gmb": "📍 Betania IV: avances de obra en losas y estacionamiento\n\nAvance de obra en Betania IV, Maldonado: continúa el encofrado de losas y la colocación de pavimento intertrabado en el sector de estacionamiento.\nEl objetivo informado para esta etapa es completar las losas hacia fin de 2026, con entrega general estimada en octubre de 2028. Unidades de 1, 2 y 3 dormitorios desde USD 79.800 y financiación hasta en 24 cuotas.\n\nConsultá planos y disponibilidad en ZAGUÁN Propiedades (Parada 7½, Playa Brava · +598 98 712 064).\nLink para el botón 'Más información': https://zaguanpropiedades.com/novedades-del-este/betania-iv-avances-obra-octubre-2026/",
     "scheduled_at": "2026-11-10T11:00:00",
-    "status": "scheduled",
+    "status": "published",
     "channels": [
       "ig_feed",
       "ig_story",
@@ -238,7 +238,47 @@
       "linkedin",
       "youtube_short",
       "tiktok"
-    ]
+    ],
+    "published_at": "2026-11-10T17:42:48",
+    "results": {
+      "ig_feed": {
+        "ok": true,
+        "id": "18122017525964771"
+      },
+      "ig_story": {
+        "ok": true,
+        "id": "18108453023567098"
+      },
+      "ig_reel": {
+        "ok": true,
+        "id": "18126961193514674",
+        "detail": {
+          "id": "18126961193514674"
+        }
+      },
+      "fb_page": {
+        "ok": true,
+        "id": "1278518115351100_122129253237464663",
+        "detail": {
+          "id": "122129253201464663",
+          "post_id": "1278518115351100_122129253237464663"
+        }
+      },
+      "fb_reel": {
+        "ok": true,
+        "id": "1034435776332282",
+        "detail": {
+          "id": "1034435776332282"
+        }
+      },
+      "linkedin": {
+        "ok": true,
+        "id": "urn:li:share:7526022124306825216",
+        "detail": {
+          "id": "urn:li:share:7526022124306825216"
+        }
+      }
+    }
   },
   "06": {
     "id": "06",
