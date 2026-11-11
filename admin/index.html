@@ -1322,7 +1322,7 @@ function renderRadar4Z() {
           <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
         </details>
         <div class="btn-row">
-          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
+          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer" onclick="if(!state.seguimiento_radar['${it.id}']) setCronometroEstado('${it.id}','enviado_1')">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
           <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>
           <a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>
         </div>
