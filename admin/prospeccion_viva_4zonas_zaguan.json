@@ -459,9 +459,10 @@
       "nota_auditoria": "Aviso literal 'Dueño alquila anual, 2 dormitorios... Wps 093697157' · Perfil particular sin otros inmuebles.",
       "mensaje_mar": "Hola Gladys, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu publicación de dueño alquila anual de 2 dormitorios con lugar para auto en Maldonado. Trabajamos alquiler todo el año sin pedir exclusividad y filtrando garantía aseguradora aprobada antes de coordinar visitas. ¿Sigue disponible y en qué valor mensual la estás ofreciendo?",
       "seguimiento_72h": "Hola Gladys, ¿cómo estás? Te escribo breve por mi consulta anterior sobre tu propiedad de 2 dormitorios en alquiler anual. Avisame si sigue libre y querés conversar cómo sumarla sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "ts_envio_1": 1794405253776,
-      "fecha_envio_1": "11/11 10:44"
+      "fecha_envio_1": "11/11 11:58 · No está disponible ya",
+      "respuesta_recibida": "11/11 11:58: no está disponible ya"
     },
     {
       "id": "MP-07",
@@ -492,9 +493,10 @@
       "nota_auditoria": "1 sola publicación activa en Marketplace + celular directo 098 756 099 en el aviso + papeles al día.",
       "mensaje_mar": "Hola Danilo, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu terreno con papeles al día en Maldonado publicado como dueño directo. Incorporamos padrones y viviendas a la venta sin pedir exclusividad y con escribanía aliada en la zona. ¿Seguís teniéndolo en venta para conversar cómo sumarlo?",
       "seguimiento_72h": "Hola Danilo, ¿cómo estás? Te escribo breve por mi mensaje anterior sobre tu terreno en Maldonado. Avisame si sigue en venta y te sirve sumarlo sin exclusividad, o si ya resolviste así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "ts_envio_1": 1794405253776,
-      "fecha_envio_1": "11/11 10:44"
+      "fecha_envio_1": "11/11 11:58 · No tiene ningún terreno en ningún lado",
+      "respuesta_recibida": "11/11 11:58: NO TENGO NINGUN TERRENO EN NINGUN LADO"
     },
     {
       "id": "MP-09",
