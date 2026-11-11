@@ -1253,8 +1253,15 @@ function renderRadar4Z() {
 
   if (!state.seguimiento_radar) state.seguimiento_radar = {};
 
-  function getCronometroBadge(id) {
-    const rec = state.seguimiento_radar[id];
+  function getCronometroBadge(id, itemFallback) {
+    let rec = state.seguimiento_radar[id];
+    if (!rec && itemFallback && itemFallback.estado_envio) {
+      rec = {
+        estado: itemFallback.estado_envio,
+        ts: itemFallback.ts_envio_1 || Date.now(),
+        fecha: itemFallback.fecha_envio_1 || ''
+      };
+    }
     if (!rec || rec.estado === 'pendiente') {
       return `<span class="tag tag-pending">⏳ Pendiente de 1° envío</span>`;
     }
@@ -1296,7 +1303,7 @@ function renderRadar4Z() {
         <div class="card-top">
           <div>
             <span class="tag tag-active">${it.operacion}</span>
-            <div style="margin-top:6px;">${getCronometroBadge(it.id)}</div>
+            <div style="margin-top:6px;">${getCronometroBadge(it.id, it)}</div>
             <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
             <p style="font-size:12px;color:var(--muted);">👤 Publica: <strong>${it.vendedor}</strong> · 📍 ${it.zona}</p>
           </div>
@@ -1375,7 +1382,7 @@ function renderRadar4Z() {
       <div class="card-top">
         <div>
           <span class="tag tag-active">${it.zona} · ${it.segmento}</span>
-          <div style="margin-top:6px;">${getCronometroBadge(it.id)}</div>
+          <div style="margin-top:6px;">${getCronometroBadge(it.id, it)}</div>
           <h3 style="font-size:17px;margin-top:6px;">${it.nombre}</h3>
           <p style="font-size:12px;color:var(--muted);"><a href="${it.url_verificada}" target="_blank" style="text-decoration:underline;">${it.url_verificada} ↗</a> · ${it.email_verificado}</p>
         </div>
