@@ -1346,8 +1346,14 @@ function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto)
   const first = (nombrePersona || '').split(' ')[0] || 'hola';
   const low = (respuestaTexto || '').toLowerCase();
   const esVenta = (tipoOperacion || '').toLowerCase().includes('venta') || (tipoOperacion || '').toLowerCase().includes('desarrolladora');
-  if (low.includes('no tengo') || low.includes('no está disponible') || low.includes('no esta disponible') || low.includes('ya se alquil') || low.includes('ya alquil') || low.includes('ya vend') || low.includes('encargamos')) {
-    return `¡Muchas gracias por avisarme, ${first}! Ya dejo cerrado el registro para no molestarte. Cualquier otra propiedad que tengas más adelante en Maldonado o Punta del Este, contá con nosotros. ¡Saludos! Mar, de ZAGUÁN Propiedades.`;
+  if (low.includes('no tengo') || low.includes('ningun lado') || low.includes('ningún lado') || low.includes('equivoc')) {
+    return `Perdón la molestia, ${first}, figuraba este número en un aviso publicado en Facebook. Ya lo doy de baja de nuestra lista para no volver a escribirte. ¡Que tengas buen día! Mar.`;
+  }
+  if (low.includes('no está disponible') || low.includes('no esta disponible') || low.includes('ya se alquil') || low.includes('ya alquil') || low.includes('ya vend')) {
+    return `¡Muchas gracias por avisarme, ${first}! Ya tomo nota de que no está disponible. Si más adelante se desocupa o tenés otra propiedad en alquiler anual o venta en Maldonado, contá con nosotros. ¡Que tengas muy buen día! Mar, de ZAGUÁN Propiedades.`;
+  }
+  if (low.includes('encargamos') || low.includes('no me interesa') || low.includes('por nuestra cuenta') || low.includes('sin inmobiliaria')) {
+    return `¡Perfecto, ${first}! Muchas gracias por responderme y muchos éxitos con el alquiler. Cualquier cosa que necesites más adelante quedamos a las órdenes. ¡Saludos! Mar, de ZAGUÁN Propiedades.`;
   }
   if (low.includes('comisi') || low.includes('honorario') || low.includes('cuanto cobran') || low.includes('cuánto cobran') || low.includes('porcentaje') || low.includes('condicion') || low.includes('como trabajan') || low.includes('cómo trabajan')) {
     if (esVenta) {
