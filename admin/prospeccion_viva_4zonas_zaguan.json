@@ -6,17 +6,13 @@
   "fecha_verificacion_html_vivo": "2026-11-10T18:16:43-03:00",
   "metodologia_auditoria": "100% extraído desde cero vía curl -sL --max-time 12 sobre sitios web oficiales vivos (HTTP 200), inspeccionando etiquetas reales href='mailto:', href='tel:', wa.me/, api.whatsapp.com/send y bloques de contacto en HTML. Cero uso de los 13 contactos descartados del WhatsApp/CSV anterior y cero cruce con otras cuentas.",
   "resumen_verificacion": {
-    "total_registros_verificados": 35,
+    "total_registros_verificados": 36,
+    "duenos_directos_marketplace_auditados_1_inmueble": 10,
+    "prospectos_directos_http_200": 11,
     "inmobiliarias_http_200": 15,
-    "prospectos_directos_http_200": 20,
-    "distribucion_prospectos_por_zona": {
-      "Maldonado Centro / Pinares": 5,
-      "Roosevelt / Aidy Grill": 5,
-      "Península": 5,
-      "La Barra / Manantiales": 5
-    },
+    "posadas_descartadas_purgadas": 9,
+    "inmobiliarias_encubiertas_marketplace_purgadas": 5,
     "distribucion_prospectos_por_segmento": {
-      "Complejo / Apart-Posada (Oferta Anual/Venta)": 9,
       "Desarrolladora Local Obra Nueva": 6,
       "Empresa / Local en Expansión": 5
     }
@@ -222,42 +218,6 @@
     {
       "id": "PD-01",
       "zona": "Maldonado Centro / Pinares",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "BDA Hotel & Spa (Baie des Anges Apart Hotel)",
-      "url_verificada": "https://bdahotelyspa.com/",
-      "http_status": 200,
-      "email_verificado": "reservas@apartbda.com",
-      "whatsapp_o_tel_verificado": "https://wa.me/59894514416 | tel:+59842241045",
-      "evidencia_html": "<a href=\"mailto:reservas@apartbda.com\" class=\"topbar-icon\"> | <a href=\"https://wa.me/59894514416\" class=\"topbar-icon\"> | <a href=\"tel:+59842241045\">",
-      "angulo_real_sin_humo": "Hola equipo de BDA, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Trabajamos alquileres de marzo a diciembre y contratos anuales con filtro de garantía aseguradora (Porto, Sura o Mapfre) en Pinares y Playa Mansa, sin pedir exclusividad. Quería consultarles si fuera de alta temporada destinan algunas unidades equipadas a estadía larga o renta anual para sumarlas a nuestro radar cuando entren búsquedas compatibles."
-    },
-    {
-      "id": "PD-02",
-      "zona": "Maldonado Centro / Pinares",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Hotel & Apart Los Pinos Pinares",
-      "url_verificada": "https://lospinospunta.com.uy/",
-      "http_status": 200,
-      "email_verificado": "hotelyapartlospinos@gmail.com",
-      "whatsapp_o_tel_verificado": "WhatsApp: +598 98 187 726 | Tel: (+598) 4222 5953",
-      "evidencia_html": "<a href=\"mailto:hotelyapartlospinos@gmail.com\" title=\"Hotel Los Pinos Mail Page\"> | <a class=\"qlwapp-toggle\" data-phone=\"59898187726\"> | <span class=\"type--fine-print\">Por consultas: (+598) 4222 5953 | 4224 3138",
-      "angulo_real_sin_humo": "Hola equipo de Los Pinos, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Estamos relevando complejos de aparts en Pinares que evalúen alquilar unidades seleccionadas en formato anual o de marzo a diciembre con respaldo de póliza aseguradora y sin ataduras de exclusividad. Si manejan ese esquema para una parte del complejo, ¿con quién puedo conversar 5 minutos para dejar registradas las condiciones?"
-    },
-    {
-      "id": "PD-03",
-      "zona": "Maldonado Centro / Pinares",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Apart Hotel Punta Sol (Parada 22 Mansa / Pinares)",
-      "url_verificada": "https://aparthotelpuntasol.com/es/contacto.html",
-      "http_status": 200,
-      "email_verificado": "aparthotelpuntasol@gmail.com",
-      "whatsapp_o_tel_verificado": "Celular: +598 94 572 401 | Tel: +598 4224 1326",
-      "evidencia_html": "<a href=\"mailto:aparthotelpuntasol@gmail.com\" target=\"_blank\"> | <p>Celular de reservas 00598 94572401 desde el exterior<br />Desde Uruguay 094572401<br />Teléfono fijo 00598 42241326</p>",
-      "angulo_real_sin_humo": "Hola equipo de Punta Sol, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). En Pinares y Parada 22 trabajamos alquileres anuales y contratos de 10 meses con filtro previo de garantía aseguradora o propiedad, además de venta de unidades individuales sin exclusividad. ¿Evalúan destinar algún departamento a renta anual o venta este año para tener las condiciones claras en carpeta?"
-    },
-    {
-      "id": "PD-04",
-      "zona": "Maldonado Centro / Pinares",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "Pinares del Bosque Desarrollos",
       "url_verificada": "https://pinaresdelbosque.com/",
@@ -268,7 +228,7 @@
       "angulo_real_sin_humo": "Hola equipo de Pinares del Bosque, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Comercializamos obra nueva en Maldonado y Pinares con atención bilingüe (ES/EN), desglose transparente de costos totales de cierre y pre-registro formal de interesados. ¿Suman canales externos sin exclusividad para comercializar unidades disponibles de su desarrollo en Pinares?"
     },
     {
-      "id": "PD-05",
+      "id": "PD-02",
       "zona": "Maldonado Centro / Pinares",
       "segmento": "Empresa / Local en Expansión",
       "nombre": "Clínica San Fernando Maldonado (Policlínica y Especialidades, Maldonado Centro)",
@@ -280,19 +240,7 @@
       "angulo_real_sin_humo": "Hola equipo de Clínica San Fernando, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Acompañamos a centros médicos y empresas en Maldonado Centro en búsqueda a pedido de nuevos consultorios, anexos comerciales o alquiler anual con garantía aseguradora para especialistas que se radican en la zona. Quería dejarles mi línea directa por si este año evalúan ampliar sede o reubicar profesionales."
     },
     {
-      "id": "PD-06",
-      "zona": "Roosevelt / Aidy Grill",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "AWA Boutique + Design Hotel (Eje Pedragosa Sierra / Roosevelt)",
-      "url_verificada": "https://www.awahotel.com/",
-      "http_status": 200,
-      "email_verificado": "reservas@awahotel.com",
-      "whatsapp_o_tel_verificado": "https://wa.me/59891999999 | tel:+59842499999",
-      "evidencia_html": "<a class=\"color-white\" href=\"mailto:reservas@awahotel.com\">reservas@awahotel.com</a> | <a href=\"https://wa.me/59891999999\" target=\"_blank\"> | <a href=\"tel:+59842499999\">",
-      "angulo_real_sin_humo": "Hola equipo de AWA, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos con ejecutivos y residentes extranjeros (ES/EN) que consultan por estadías corporativas largas de marzo a noviembre o compra de activos hoteleros/residenciales en el eje Pedragosa Sierra y Roosevelt. ¿Con quién de gerencia comercial puedo dejar abierto el canal directo para consultar tarifas de larga estadía cuando ingrese un perfil corporativo?"
-    },
-    {
-      "id": "PD-07",
+      "id": "PD-03",
       "zona": "Roosevelt / Aidy Grill",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "Kaplan Desarrollos Inmobiliarios",
@@ -304,7 +252,7 @@
       "angulo_real_sin_humo": "Hola equipo de Kaplan Desarrollos, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Comercializamos desarrollos en obra y a estrenar en Punta del Este y Maldonado con fichas dedicadas por tipología, atención bilingüe (ES/EN) y desglose completo de gastos de cierre. ¿Trabajan con alta de brokers externos bajo pre-registro de clientes para sus emprendimientos activos en la zona?"
     },
     {
-      "id": "PD-08",
+      "id": "PD-04",
       "zona": "Roosevelt / Aidy Grill",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "Invergroup Desarrollos (Av. Roosevelt Parada 17)",
@@ -316,7 +264,7 @@
       "angulo_real_sin_humo": "Hola equipo de Invergroup, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Trabajamos con compradores argentinos y extranjeros que buscan obra nueva y unidades de categoría en Punta del Este con acompañamiento notarial local y costos claros desde el inicio. ¿Admiten comercialización compartida con canales externos registrados para sus desarrollos activos?"
     },
     {
-      "id": "PD-09",
+      "id": "PD-05",
       "zona": "Roosevelt / Aidy Grill",
       "segmento": "Empresa / Local en Expansión",
       "nombre": "Ambienti Mobiliario & Diseño (Av. Roosevelt Parada 8)",
@@ -328,7 +276,7 @@
       "angulo_real_sin_humo": "Hola equipo de Ambienti, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Asesoramos sobre el eje de Av. Roosevelt a compradores de departamentos a estrenar que luego equipan su unidad, y también buscamos depósitos o locales comerciales a medida en Maldonado. Me gustaría conectar con dirección comercial para coordinar derivación cruzada de propietarios que reciben llaves y quedar a disposición si evalúan ampliar depósito o salón."
     },
     {
-      "id": "PD-10",
+      "id": "PD-06",
       "zona": "Roosevelt / Aidy Grill",
       "segmento": "Empresa / Local en Expansión",
       "nombre": "Veterinaria La Pastora (Av. Italia esq. Rimas, Aidy Grill)",
@@ -340,43 +288,7 @@
       "angulo_real_sin_humo": "Hola equipo de Veterinaria La Pastora, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Trabajamos búsqueda personalizada de locales comerciales y alquiler anual con garantía aseguradora para profesionales en Aidy Grill, Av. Italia y Maldonado. Les dejo mi línea directa por si en algún momento proyectan sumar anexo clínico, depósito o vivienda anual para veterinarios del equipo."
     },
     {
-      "id": "PD-11",
-      "zona": "Península",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Hotel Alhambra Punta del Este (Calle 28 entre Gorlero y 24)",
-      "url_verificada": "https://hotelalhambra.com.uy/contacto/",
-      "http_status": 200,
-      "email_verificado": "info@hotelalhambra.com.uy",
-      "whatsapp_o_tel_verificado": "https://wa.me/59893925999 | +598 4244 0094",
-      "evidencia_html": "<a href=\"mailto:info@hotelalhambra.com.uy\" target=\"_blank\" rel=\"noopener\"> | <a href=\"https://wa.me/59893925999\" class=\"elementor-button-link button\">",
-      "angulo_real_sin_humo": "Hola equipo de Hotel Alhambra, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). En Península recibimos consultas por estadías corporativas de invierno/año completo e inversores que evalúan activos hoteleros o bloques en marcha. Quería consultarles si durante mayo–noviembre manejan acuerdos mensuales corporativos o si tienen unidades independientes en alquiler anual o venta sin exclusividad."
-    },
-    {
-      "id": "PD-12",
-      "zona": "Península",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Hotel Castilla Punta del Este (Bauprés 933, Península)",
-      "url_verificada": "https://hotelcastilla.com.uy/",
-      "http_status": 200,
-      "email_verificado": "reservas@hotelcastilla.com.uy",
-      "whatsapp_o_tel_verificado": "https://wa.me/59898235270 | tel:+59842449296",
-      "evidencia_html": "<a href=\"mailto:reservas@hotelcastilla.com.uy\"> | <a href=\"https://wa.me/59898235270\" target=\"_blank\" rel=\"noopener\"> | <a href=\"tel:+59842449296\">",
-      "angulo_real_sin_humo": "Hola equipo de Hotel Castilla, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Estamos mapeando alojamientos y propietarios en la Península que trabajen estadías mensuales de marzo a noviembre para profesionales desplazados o que tengan unidades residenciales anexas para alquiler anual con garantía aseguradora. ¿Con quién de administración puedo validar si ofrecen modalidad mensual fuera de verano?"
-    },
-    {
-      "id": "PD-13",
-      "zona": "Península",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Hotel Romimar Península (Calle 28 esq. Av. Gorlero)",
-      "url_verificada": "https://www.hotelromimar.com.uy/",
-      "http_status": 200,
-      "email_verificado": "hotelromimar@gmail.com",
-      "whatsapp_o_tel_verificado": "tel:4244 7116 | +598 97 684 234",
-      "evidencia_html": "<a href=\"mailto:hotelromimar@gmail.com\" aria-label=\"email\"> | <a href=\"tel:4244 7116\" description=\"00598 4244-7116\"> | teléfono móvil en HTML: +59897684234",
-      "angulo_real_sin_humo": "Hola equipo de Hotel Romimar, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos alquileres de media y larga estadía y operaciones de compraventa en el eje Gorlero y Península con filtrado previo de solvencia y sin exclusividad. Quería consultarles si evalúan acuerdos mensuales de otoño-primavera para empresas o si administran departamentos anexos en alquiler anual."
-    },
-    {
-      "id": "PD-14",
+      "id": "PD-07",
       "zona": "Península",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "CSA Constructora (Obras en Península y Punta del Este)",
@@ -388,7 +300,7 @@
       "angulo_real_sin_humo": "Hola equipo de CSA, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Comercializamos obra nueva en Punta del Este y Maldonado con fichas técnicas por tipología, atención bilingüe (ES/EN) y desglose completo de costos de cierre e impuestos. ¿Cuentan hoy con unidades propias en comercialización en Península o Maldonado que admitan canales inmobiliarios externos bajo pre-registro?"
     },
     {
-      "id": "PD-15",
+      "id": "PD-08",
       "zona": "Península",
       "segmento": "Empresa / Local en Expansión",
       "nombre": "Wonder Works / Modo Punta Hub (El Estrecho 17, Península)",
@@ -400,31 +312,7 @@
       "angulo_real_sin_humo": "Hola equipo de Modo Punta y Wonder Works, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Muchos profesionales y fundadores que se instalan a trabajar todo el año en la Península necesitan resolver alquiler anual con garantía aseguradora o compra con escribanía local e información clara en español e inglés. ¿Con quién podemos conversar para articular beneficios o guía de relocalización para miembros de su comunidad?"
     },
     {
-      "id": "PD-16",
-      "zona": "La Barra / Manantiales",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Casa Flor Hotel Boutique (Montoya / La Barra)",
-      "url_verificada": "https://casaflor.com.uy/",
-      "http_status": 200,
-      "email_verificado": "info@casaflor.com.uy",
-      "whatsapp_o_tel_verificado": "https://api.whatsapp.com/send?phone=59891847945",
-      "evidencia_html": "<a target=\"_blank\" href=\"mailto:info@casaflor.com.uy?\"> | <a href=\"https://api.whatsapp.com/send?phone=59891847945\" target=\"_blank\" aria-label=\"WhatsApp\">",
-      "angulo_real_sin_humo": "Hola equipo de Casa Flor, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). En La Barra y Montoya trabajamos estadías de marzo a diciembre, alquileres anuales con garantía aseguradora y venta confidencial de propiedades boutique sin exclusividad. Quería consultarles si fuera de verano alquilan módulos/suites por temporada larga o si los propietarios manejan alguna casa independiente en la zona."
-    },
-    {
-      "id": "PD-17",
-      "zona": "La Barra / Manantiales",
-      "segmento": "Complejo / Apart-Posada (Oferta Anual/Venta)",
-      "nombre": "Hotel Las Olas (Parada 50, La Barra / Manantiales)",
-      "url_verificada": "https://lasolas.com.uy/contacto.php",
-      "http_status": 200,
-      "email_verificado": "info@lasolas.com.uy",
-      "whatsapp_o_tel_verificado": "WhatsApp: +598 99 033 234 | tel:0059842770466",
-      "evidencia_html": "<a href=\"tel:0059842770466\"> | <div>WhatsApp: +598 99 033 234 </div><div>info@lasolas.com.uy</div>",
-      "angulo_real_sin_humo": "Hola equipo de Hotel Las Olas, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Estamos relevando posadas y complejos en La Barra y Manantiales que evalúen contratos de marzo a noviembre con respaldo asegurador o venta de activos en bloque/unidades sin ataduras de exclusividad. Si contemplan alguna de esas dos vías fuera del pico de enero-febrero, quedo a disposición para conocer sus condiciones."
-    },
-    {
-      "id": "PD-18",
+      "id": "PD-09",
       "zona": "La Barra / Manantiales",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "Alma de Manantiales Developers",
@@ -436,7 +324,7 @@
       "angulo_real_sin_humo": "Hola equipo de Alma de Manantiales, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Trabajamos obra nueva y residencias en el corredor La Barra–Manantiales con atención bilingüe (ES/EN), asesoramiento notarial integral para extranjeros y pre-registro formal de cada comprador. ¿Suman canales externos sin exclusividad para comercializar sus proyectos activos en Manantiales?"
     },
     {
-      "id": "PD-19",
+      "id": "PD-10",
       "zona": "La Barra / Manantiales",
       "segmento": "Desarrolladora Local Obra Nueva",
       "nombre": "Sebastián Mengot Arquitectura Residencial",
@@ -448,7 +336,7 @@
       "angulo_real_sin_humo": "Hola Sebastián y equipo, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos con compradores locales y del exterior en La Barra y Manantiales que buscan lotes con proyecto llave en mano o casas nuevas desarrolladas por estudios de la zona. ¿Tienen hoy alguna obra propia en venta o les interesa coordinar canal de derivación cuando un comprador de terreno busque estudio de arquitectura en el este?"
     },
     {
-      "id": "PD-20",
+      "id": "PD-11",
       "zona": "La Barra / Manantiales",
       "segmento": "Empresa / Local en Expansión",
       "nombre": "Galería Sur La Barra (Ruta 10, Parada 46, La Barra)",
@@ -463,103 +351,133 @@
   "marketplace_duenos_directos": [
     {
       "id": "MP-01",
-      "operacion": "Alquiler anual (Dueño Directo)",
-      "titulo": "Apto 1 dormitorio en Barrio San Agustín (Patio + Estacionamiento)",
-      "precio": "$U 17.000 / mes",
+      "operacion": "Alquiler anual · Dueña Directa Verificada (1 inmueble)",
+      "titulo": "Monoambiente persona sola en Barrio Tassano (Luz y agua inc.)",
+      "precio": "$U 14.000 / mes",
       "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Juan Rodriguez",
-      "url": "https://www.facebook.com/marketplace/item/885956994542648/",
-      "mensaje_mar": "Hola Juan, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio en Barrio San Agustín ($U 17.000). Trabajamos alquiler anual con filtro previo de garantía aseguradora (Porto Seguro, Sura, Mapfre o Anda), cero gasto fijo y sin pedirte exclusividad (seguís alquilando por tu cuenta libremente y solo cobramos si cerramos con inquilino nuestro). ¿Seguís teniéndolo disponible para sumarlo sin compromiso?"
+      "vendedor": "Luján Gutiérrez",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/4598219770433647/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble publicado, trato directo con dueña.",
+      "mensaje_mar": "Hola Luján, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu monoambiente publicado en Barrio Tassano ($U 14.000) como trato directo. Sumamos alquileres anuales sin exclusividad (seguís alquilando por tu cuenta sin ataduras) filtrando antes recibos y garantía aseguradora aprobada para ahorrarte visitas en vano. Si sigue disponible, ¿te sirve que conversemos cómo lo trabajamos?",
+      "seguimiento_72h": "Hola Luján, ¿cómo estás? Te escribo cortito por mi mensaje anterior sobre tu monoambiente en Barrio Tassano. Quedo a disposición si sigue libre y querés sumarlo sin exclusividad; si ya alquilaste, avisame con confianza así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-02",
-      "operacion": "Alquiler anual (Dueño Directo)",
-      "titulo": "Monoambiente persona sola en Maldonado Nuevo (Luz y agua inc.)",
-      "precio": "$U 14.000 / mes",
-      "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Lujan Gutierrez",
-      "url": "https://www.facebook.com/marketplace/item/4598219770433647/",
-      "mensaje_mar": "Hola Luján, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu monoambiente publicado en Maldonado Nuevo ($U 14.000). Si te sirve sumar difusión sin ninguna exclusividad ni costo fijo, podemos ofrecerlo filtrando antes solvencia y recibos/garantía para ahorrarte visitas en vano. ¿Sigue disponible?"
+      "operacion": "Venta · Dueña Directa Verificada (1 inmueble)",
+      "titulo": "Monoambiente amplio 38 m² vista al mar + garage en Península (Apto banco)",
+      "precio": "USD 135.000",
+      "zona": "Península",
+      "vendedor": "Andy Domínguez",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/1826337428553216/",
+      "nota_auditoria": "Perfil verificado: 1 única publicación activa en todo Marketplace, apto banco, baño y cocina hechos a nuevo.",
+      "mensaje_mar": "Hola Andy, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu monoambiente de 38 m² con vista al mar y garage en la Península (USD 135.000) publicado como dueña directa. Incorporamos propiedades a la venta con autorización abierta sin exclusividad, armando ficha bilingüe (ES/EN) para compradores locales y argentinos con respaldo de escribanía en Maldonado. Si sigue en venta, ¿te interesa que charlemos cómo sumarlo sin compromiso?",
+      "seguimiento_72h": "Hola Andy, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu departamento con garage en la Península. Quedo atenta por acá si todavía lo tenés en venta y te interesa sumarlo sin exclusividad; si preferís dejarlo pasar por ahora, avisame y cierro la nota. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-03",
-      "operacion": "Alquiler anual (Dueño Directo)",
-      "titulo": "Apto 1 dormitorio a estrenar con patio privado y AA (zona Batlle y Ordóñez)",
-      "precio": "$U 21.000 / mes",
-      "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Maria Franchi",
-      "url": "https://www.facebook.com/marketplace/item/1801589477876890/",
-      "mensaje_mar": "Hola María, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio a estrenar con patio ($U 21.000). Sumamos propiedades en alquiler anual con autorización simple sin exclusividad, presentando únicamente postulantes con garantía aseguradora aprobada (Porto, Sura, Mapfre o Anda). ¿Lo tenés disponible aún?"
-    },
-    {
-      "id": "MP-04",
-      "operacion": "Alquiler anual (Dueño Directo)",
-      "titulo": "Apto a estrenar al frente en complejo familiar de 3 unidades (Patio + Cochera)",
-      "precio": "$U 19.000 / mes",
-      "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Damian Gonzalez",
-      "url": "https://www.facebook.com/marketplace/item/3043842002457585/",
-      "mensaje_mar": "Hola Damián, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi la unidad al frente en tu complejo de 3 unidades ($U 19.000). Trabajamos alquiler anual sin ataduras de exclusividad y pre-filtrando garantía aseguradora antes de coordinar cualquier visita. ¿Sigue libre esa unidad?"
-    },
-    {
-      "id": "MP-05",
-      "operacion": "Alquiler anual (Dueño Directo)",
-      "titulo": "Apartamento 1 dormitorio en Barrio San Gabriel",
-      "precio": "$U 18.000 / mes",
-      "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Berterreche Berterreche",
-      "url": "https://www.facebook.com/marketplace/item/1837909334201236/",
-      "mensaje_mar": "Hola, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apto de 1 dormitorio en San Gabriel ($U 18.000). Si aún no cerraste inquilino, podemos sumarlo sin exclusividad y presentarte interesados ya filtrados con garantía aseguradora. ¿Sigue disponible?"
-    },
-    {
-      "id": "MP-06",
-      "operacion": "Venta sin exclusividad (Dueño Directo)",
-      "titulo": "Casa 2 dormitorios amoblada en Barrio La Fortuna",
+      "operacion": "Venta · Dueño Directo Verificado (1 inmueble)",
+      "titulo": "Casa 2 dormitorios a estrenar amoblada en Barrio La Fortuna",
       "precio": "USD 140.000",
       "zona": "Maldonado Centro / Pinares",
       "vendedor": "Fernando Sergi",
+      "telefono_directo": "",
       "url": "https://www.facebook.com/marketplace/item/2593084717783774/",
-      "mensaje_mar": "Hola Fernando, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios en La Fortuna (USD 140.000, dueño directo). Trabajamos venta con autorización simple sin exclusividad, atención bilingüe (ES/EN) para compradores locales y argentinos, y escribanía aliada en Maldonado. ¿Te interesa que la armemos en nuestra vidriera sin costo fijo?"
+      "nota_auditoria": "Perfil verificado: 1 único inmueble activo publicado, trato directo con propietario.",
+      "mensaje_mar": "Hola Fernando, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios en Barrio La Fortuna (USD 140.000) publicada como dueño directo. Trabajamos venta con autorización simple sin exclusividad, atención en español e inglés para compradores locales y del exterior, y escribanía aliada en Maldonado. Si sigue disponible, ¿te sirve que conversemos cómo sumarla a nuestra vidriera?",
+      "seguimiento_72h": "Hola Fernando, ¿cómo estás? Te escribo cortito por mi mensaje anterior sobre tu casa en La Fortuna. Si sigue en venta y querés evaluar sumarla sin exclusividad, quedo a disposición; si ya resolviste, avisame así no vuelvo a molestarte. Saludos, Mar — ZAGUÁN Propiedades."
+    },
+    {
+      "id": "MP-04",
+      "operacion": "Venta · Dueño Directo Verificado (1 inmueble · Apta Banco)",
+      "titulo": "Casa 2 plantas (2 dormitorios, 2 baños, terreno 300 m²) en Balneario Buenos Aires",
+      "precio": "USD 135.000",
+      "zona": "La Barra / Manantiales",
+      "vendedor": "Homero Galup",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/1281979450562785/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble activo, apta para préstamo bancario.",
+      "mensaje_mar": "Hola Homero, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 plantas apta para banco en Balneario Buenos Aires (USD 135.000) como dueño directo. Que sea apta crédito bancario ayuda mucho al cierre; trabajamos con autorización abierta sin exclusividad y acompañamiento notarial local. ¿Todavía la tenés en venta para conversar cómo sumarla?",
+      "seguimiento_72h": "Hola Homero, ¿cómo estás? Te escribo breve sobre mi mensaje anterior por tu casa apta banco en Balneario Buenos Aires. Avisame si sigue disponible y querés conocer cómo trabajamos sin exclusividad, o si preferís que cierre el recordatorio. Saludos, Mar — ZAGUÁN Propiedades."
+    },
+    {
+      "id": "MP-05",
+      "operacion": "Venta · Dueño Directo Verificado (1 inmueble)",
+      "titulo": "Apartamento en centro de Maldonado (zona 18 de Julio)",
+      "precio": "USD 63.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Álvaro Ruiz",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/998396455960267/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble activo publicado, trato directo con dueño.",
+      "mensaje_mar": "Hola Álvaro, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu apartamento a cuadras del centro de Maldonado (USD 63.000) publicado como trato directo. Sumamos propiedades a la venta con autorización abierta sin exclusividad (seguís vendiendo por tu cuenta sin bloqueos) y revisión documental con escribanía aliada. ¿Sigue disponible para charlar cómo trabajarlo?",
+      "seguimiento_72h": "Hola Álvaro, ¿cómo estás? Te escribo cortito por mi consulta anterior sobre tu apartamento en Maldonado centro. Quedo a disposición si sigue en venta y te sirve sumarlo sin exclusividad; de lo contrario avisame y cierro la nota. Saludos, Mar — ZAGUÁN Propiedades."
+    },
+    {
+      "id": "MP-06",
+      "operacion": "Venta Terreno · Dueño Directo con WhatsApp (1 inmueble)",
+      "titulo": "Terreno 300 m² nivelado con papeles al día en Barrio Los Eucaliptus",
+      "precio": "USD 35.000",
+      "zona": "Maldonado Centro / Pinares",
+      "vendedor": "Danilo Rodríguez",
+      "telefono_directo": "59898756099",
+      "url": "https://www.facebook.com/marketplace/item/1277742261051961/",
+      "nota_auditoria": "Perfil verificado: 1 sola publicación activa en todo Facebook + WhatsApp directo en el aviso (098 756 099) + papeles listos para transferir.",
+      "mensaje_mar": "Hola Danilo, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu terreno de 300 m² con papeles al día en Los Eucaliptus (USD 35.000) como dueño directo. Incorporamos padrones y viviendas sin pedir exclusividad y con escribanía aliada en Maldonado. ¿Seguís teniéndolo a la venta para conversar cómo sumarlo?",
+      "seguimiento_72h": "Hola Danilo, ¿cómo estás? Te escribo breve por mi mensaje anterior sobre tu terreno en Los Eucaliptus. Avisame si sigue en venta y te sirve sumarlo sin exclusividad, o si ya resolviste así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-07",
-      "operacion": "Venta vivienda + local comercial (Dueño Directo)",
-      "titulo": "Casa 3 dormitorios + Local Comercial en PB + Garaje y Galpón (San Carlos)",
-      "precio": "USD 180.000",
+      "operacion": "Venta · Dueña Directa Verificada (1 inmueble)",
+      "titulo": "Propiedad / Padrón en Barrio La Sonrisa · Biarritz, Maldonado",
+      "precio": "USD 100.000",
       "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Mario Viroga",
-      "url": "https://www.facebook.com/marketplace/item/1146084214616381/",
-      "mensaje_mar": "Hola Mario, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu propiedad con casa de 3 dormitorios, local comercial y galpón (USD 180.000). Comercializamos vivienda y locales sin exclusividad forzada, revisando documentación previa con escribanía local para agilizar cierres. ¿Aceptás que la sumemos a nuestra cartera sin exclusividad?"
+      "vendedor": "Cecilia Beatriz Fernández Chávez Inchausti",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/3130388197165366/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble activo publicado, dueña directa.",
+      "mensaje_mar": "Hola Cecilia, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu publicación en Maldonado (USD 100.000) como dueña directa. Trabajamos venta con autorización abierta sin exclusividad (seguís ofreciendo por tu cuenta sin ataduras) y acompañamiento notarial en la zona. ¿Todavía la tenés disponible para conversar cómo sumarla?",
+      "seguimiento_72h": "Hola Cecilia, ¿cómo estás? Te escribo cortito sobre mi consulta anterior por tu propiedad en Maldonado. Quedo a disposición si sigue en venta y querés sumarla sin exclusividad; si preferís dejarlo pasar, avisame con confianza. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-08",
-      "operacion": "Venta sin exclusividad (Dueño Directo)",
-      "titulo": "Casa 2 dormitorios con barbacoa cerrada en Barrio Biarritz",
-      "precio": "USD 100.000",
+      "operacion": "Venta con Renta · Dueño Directo Verificado (1 inmueble)",
+      "titulo": "Casa + Apartamento en mismo padrón con renta activa (Lavalleja / San Carlos)",
+      "precio": "USD 85.000",
       "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Cecilia Beatriz Fernandez Chavez Inchausti",
-      "url": "https://www.facebook.com/marketplace/item/3130388197165366/",
-      "mensaje_mar": "Hola Cecilia, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios con barbacoa en Barrio Biarritz (USD 100.000). Trabajamos sin pedir exclusividad y solo cobramos comisión si traemos al comprador real. ¿Seguís vendiéndola para sumarla a nuestra cartera?"
+      "vendedor": "Álvaro Bentancur",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/945652418004713/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble activo publicado.",
+      "mensaje_mar": "Hola Álvaro, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu padrón con casa y apartamento con renta activa (USD 85.000) publicado como dueño directo. Incorporamos inmuebles de renta y vivienda sin pedir exclusividad y con respaldo notarial local. ¿Sigue disponible para conversar cómo sumarlo a nuestra vidriera?",
+      "seguimiento_72h": "Hola Álvaro, ¿cómo estás? Te escribo breve por mi mensaje anterior sobre tu padrón con casa y apartamento en USD 85.000. Avisame si sigue a la venta y te interesa sumarlo sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-09",
-      "operacion": "Venta con renta activa (Dueño Directo)",
-      "titulo": "Casa + Apartamento juntos en mismo padrón con renta (Cerros Azules)",
-      "precio": "USD 85.000",
+      "operacion": "Venta · Dueño Directo Verificado (1 inmueble)",
+      "titulo": "Casa quinta residencial amplia en eje Maldonado / San Carlos",
+      "precio": "USD 65.000",
       "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Alvaro Bentancur",
-      "url": "https://www.facebook.com/marketplace/item/945652418004713/",
-      "mensaje_mar": "Hola Álvaro, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu padrón con casa + apartamento alquilado en USD 85.000. Es un ticket muy buscado por inversores de renta; trabajamos sin exclusividad y con respaldo notarial local. ¿Te sirve que lo sumemos a nuestra vidriera?"
+      "vendedor": "Edu Gómez",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/1638483061065937/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble publicado (el resto de sus avisos son artesanías propias).",
+      "mensaje_mar": "Hola Edu, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa publicada en USD 65.000 como trato directo. Si todavía la tenés en venta y querés sumar difusión en nuestra vidriera con autorización simple sin exclusividad, ¿te parece que conversemos los detalles?",
+      "seguimiento_72h": "Hola Edu, ¿cómo estás? Te escribo cortito por mi consulta anterior sobre tu casa en USD 65.000. Quedo atenta si sigue disponible y te sirve sumarla sin exclusividad; si ya resolviste, avisame y cierro la nota. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-10",
-      "operacion": "Venta sin exclusividad (Dueño Directo)",
-      "titulo": "Casa residencial amplia cerca del centro de Maldonado",
-      "precio": "USD 65.000",
+      "operacion": "Venta · Dueño Directo Verificado (1 inmueble · Revisar Cesión)",
+      "titulo": "Casa 2 dormitorios amoblada frente a Laguna del Sauce (La Capuera)",
+      "precio": "USD 63.000",
       "zona": "Maldonado Centro / Pinares",
-      "vendedor": "Edu Gomez",
-      "url": "https://www.facebook.com/marketplace/item/1638483061065937/",
-      "mensaje_mar": "Hola Edu, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa publicada en USD 65.000 en Maldonado. Si querés sumar un canal más de venta sin ninguna exclusividad ni gasto fijo, contá con nosotros. ¿Sigue disponible?"
+      "vendedor": "Rafael Gutiérrez",
+      "telefono_directo": "",
+      "url": "https://www.facebook.com/marketplace/item/29412105755146466/",
+      "nota_auditoria": "Perfil verificado: 1 único inmueble (sus otros 3 avisos son llantas usadas). OJO: menciona cesión privada de derechos posesorios — validar con escribanía antes de publicar.",
+      "mensaje_mar": "Hola Rafael, ¿cómo estás? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/oportunidades/?modo=alquiler). Vi tu casa de 2 dormitorios frente a Laguna del Sauce (USD 63.000) como trato directo. Trabajamos sin exclusividad y junto a escribanía aliada en Maldonado para revisar antecedentes y cesiones antes de ofrecer cada propiedad. ¿Sigue disponible para conversar cómo vienen los papeles?",
+      "seguimiento_72h": "Hola Rafael, ¿cómo estás? Te escribo breve sobre mi mensaje anterior por tu casa frente a Laguna del Sauce. Quedo a disposición si sigue en venta; si preferís dejarlo pasar, avisame y cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades."
     }
   ]
 }

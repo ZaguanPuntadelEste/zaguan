@@ -293,7 +293,7 @@
   </div>
 
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
-    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Radar Vivo 4 Zonas (20 Directos + 15 Colegas) & Mail Corto</button>
+    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Radar Auditado (10 Dueños Reales + 11 Directos B2B + Cronómetro 72h)</button>
     <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp a Compradores B2C & Pre-Registro 60 Días</button>
     <button class="tab-btn" onclick="switchTab('tab-devs', this)">2. Captación de Desarrolladoras de Pozo (PDE · Maldonado)</button>
     <button class="tab-btn" onclick="switchTab('tab-portales', this)">3. Fichas para Portales UY (ML / Gallito / InfoCasas) & Google Ads</button>
@@ -308,8 +308,8 @@
     <div class="section-box" style="border-color:rgba(56,189,248,0.45);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
         <div>
-          <span class="tag tag-ley">PASO 2 + PASO 3 · 35 SITIOS VERIFICADOS EN HTML VIVO (HTTP 200) · CERO CONTACTOS VIEJOS</span>
-          <h2 style="font-size:20px;margin-top:6px;">Radar Territorial 4 Zonas (20 Prospectos Directos + 15 Inmobiliarias Colegas)</h2>
+          <span class="tag tag-ley">AUDITORÍA ANTI-INMOBILIARIA ENCUBIERTA + CRONÓMETRO DE SEGUIMIENTO 72 HS (CERO POSADAS · CERO COMISIÓN EN 1° TOQUE)</span>
+          <h2 style="font-size:20px;margin-top:6px;">Radar Limpio y Seguimiento Cronometrado (10 Dueños 1-Inmueble + 11 Desarrolladoras/Empresas + 15 Colegas)</h2>
           <p style="font-size:13px;color:var(--muted);">Prioridad #1 en Uruguay: <strong>WhatsApp Directo 1 a 1</strong> (botón verde) + respaldo en <strong>Gmail Web Online</strong> saliendo como <code>puntadeleste@zaguanpropiedades.com</code> vía <code>zaguanpropiedades@gmail.com</code> (cero app Mail de escritorio). Apunta a <code>/oportunidades/?b2b_ref=...</code> firmado por <strong>Mar, de ZAGUÁN Propiedades</strong>.</p>
         </div>
         <div class="btn-row">
@@ -331,8 +331,8 @@
         <div class="field">
           <label>Filtrar por Tipo de Frente</label>
           <select id="r4z-tipo" onchange="renderRadar4Z()">
-            <option value="MARKETPLACE">🔥 10 Dueños Directos Reales en Facebook Marketplace (Alquiler Anual y Venta)</option>
-            <option value="DIRECTOS">20 Prospectos Directos 4 Zonas (Complejos Apart / Desarrolladoras / Empresas)</option>
+            <option value="MARKETPLACE">🔥 10 Dueños Particulares Verificados (1 solo inmueble en perfil · Cero inmobiliarias encubiertas)</option>
+            <option value="DIRECTOS">11 Prospectos Directos 4 Zonas (6 Desarrolladoras Locales + 5 Empresas en Expansión · Cero Posadas)</option>
             <option value="INMOBILIARIAS">15 Inmobiliarias Colegas por Zona (Solo activar con búsqueda real en mano)</option>
           </select>
         </div>
@@ -1251,25 +1251,82 @@ function renderRadar4Z() {
   const zonaSel = document.getElementById('r4z-zona').value;
   const tipoSel = document.getElementById('r4z-tipo').value;
 
+  if (!state.seguimiento_radar) state.seguimiento_radar = {};
+
+  function getCronometroBadge(id) {
+    const rec = state.seguimiento_radar[id];
+    if (!rec || rec.estado === 'pendiente') {
+      return `<span class="tag tag-pending">⏳ Pendiente de 1° envío</span>`;
+    }
+    if (rec.estado === 'enviado_1') {
+      const due = new Date(rec.ts + 72 * 3600 * 1000);
+      const vencido = Date.now() >= due.getTime();
+      const fechaDue = due.toLocaleString('es-UY', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
+      return vencido
+        ? `<span class="tag" style="background:var(--red-bg);color:#FCA5A5;border:1px solid rgba(239,68,68,0.45);">🔔 TOCA SEGUIMIENTO 72H (venció ${fechaDue})</span>`
+        : `<span class="tag tag-ley">⏱️ 1° Enviado (${rec.fecha}) · Seguimiento: ${fechaDue}</span>`;
+    }
+    if (rec.estado === 'seguimiento_enviado') {
+      return `<span class="tag tag-ley">📨 Único seguimiento 72h enviado (${rec.fecha})</span>`;
+    }
+    if (rec.estado === 'respondio') {
+      return `<span class="tag tag-active">✅ Respondió / Conversación activa (${rec.fecha})</span>`;
+    }
+    return `<span class="tag" style="opacity:0.7;">🗄️ Cerrado sin insistir (${rec.fecha})</span>`;
+  }
+
+  window.setCronometroEstado = function(id, nuevoEstado) {
+    if (!state.seguimiento_radar) state.seguimiento_radar = {};
+    state.seguimiento_radar[id] = {
+      estado: nuevoEstado,
+      ts: Date.now(),
+      fecha: new Date().toLocaleString('es-UY', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' })
+    };
+    saveState();
+    renderRadar4Z();
+    showToast('⏱️ Estado cronometrado guardado');
+  };
+
   if (tipoSel === 'MARKETPLACE') {
     const list = (radar4ZData.marketplace_duenos_directos || []).filter(it => zonaSel === 'TODAS' || it.zona === zonaSel);
-    grid.innerHTML = list.map((it, idx) => `
+    grid.innerHTML = list.map((it, idx) => {
+      const waDirect = it.telefono_directo ? `https://wa.me/${it.telefono_directo}?text=${encodeURIComponent(it.mensaje_mar)}` : '';
+      return `
       <div class="card aprobado">
         <div class="card-top">
           <div>
             <span class="tag tag-active">${it.operacion}</span>
+            <div style="margin-top:6px;">${getCronometroBadge(it.id)}</div>
             <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
             <p style="font-size:12px;color:var(--muted);">👤 Publica: <strong>${it.vendedor}</strong> · 📍 ${it.zona}</p>
           </div>
           <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
         </div>
-        <textarea class="msg-preview" id="mp-msg-${idx}">${it.mensaje_mar}</textarea>
-        <div class="btn-row">
-          <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 1° Copiar Mensaje de Mar</button>
-          <a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 2° Abrir Aviso en Marketplace ↗</a>
+        <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);">
+          🛡️ ${it.nota_auditoria}
         </div>
-      </div>
-    `).join('');
+        <div class="field">
+          <label>1° Mensaje (Cero mención de porcentajes/comisión hasta que pregunten)</label>
+          <textarea class="msg-preview" id="mp-msg-${idx}">${it.mensaje_mar}</textarea>
+        </div>
+        <details style="font-size:12px;color:var(--muted);">
+          <summary style="cursor:pointer;color:var(--gold);font-weight:600;">Ver texto único de seguimiento a las 72 hs</summary>
+          <textarea class="msg-preview" id="mp-seg-${idx}" style="margin-top:6px;min-height:74px;">${it.seguimiento_72h || ''}</textarea>
+          <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
+        </details>
+        <div class="btn-row">
+          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
+          <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>
+          <a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>
+        </div>
+        <div class="btn-row" style="border-top:1px solid var(--border);padding-top:8px;">
+          <button class="btn btn-outline btn-sm" onclick="setCronometroEstado('${it.id}','enviado_1')">📤 Marcar 1° Enviado (+72h)</button>
+          <button class="btn btn-outline btn-sm" onclick="setCronometroEstado('${it.id}','seguimiento_enviado')">📨 Seguimiento 72h OK</button>
+          <button class="btn btn-yes btn-sm" onclick="setCronometroEstado('${it.id}','respondio')">✅ Respondió</button>
+          <button class="btn btn-no btn-sm" onclick="setCronometroEstado('${it.id}','cerrado')">🗄️ Archivar</button>
+        </div>
+      </div>`;
+    }).join('');
     return;
   }
 
@@ -1313,10 +1370,12 @@ function renderRadar4Z() {
     const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&authuser=zaguanpropiedades%40gmail.com&to=${encodeURIComponent(it.email_verificado)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
     const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgCorto)}` : `https://wa.me/?text=${encodeURIComponent(msgCorto)}`;
 
+    const segCorto = `Hola equipo de ${shortName}, ¿cómo están? Les escribo cortito por mi mensaje anterior de ZAGUÁN Propiedades. Quedo a disposición por acá si les interesa conversar 5 minutos este trimestre; de lo contrario avísenme con confianza así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.`;
     return `<div class="card aprobado">
       <div class="card-top">
         <div>
           <span class="tag tag-active">${it.zona} · ${it.segmento}</span>
+          <div style="margin-top:6px;">${getCronometroBadge(it.id)}</div>
           <h3 style="font-size:17px;margin-top:6px;">${it.nombre}</h3>
           <p style="font-size:12px;color:var(--muted);"><a href="${it.url_verificada}" target="_blank" style="text-decoration:underline;">${it.url_verificada} ↗</a> · ${it.email_verificado}</p>
         </div>
@@ -1325,10 +1384,21 @@ function renderRadar4Z() {
         <strong>Link personalizado rastreable:</strong> <a href="${vitrineUrl}" target="_blank" style="text-decoration:underline;color:#38BDF8;">${vitrineUrl}</a>
       </div>
       <textarea class="msg-preview" id="r4z-msg-${idx}">${msgCorto}</textarea>
+      <details style="font-size:12px;color:var(--muted);">
+        <summary style="cursor:pointer;color:var(--gold);font-weight:600;">Ver texto único de seguimiento a las 72 hs</summary>
+        <textarea class="msg-preview" id="r4z-seg-${idx}" style="margin-top:6px;min-height:70px;">${segCorto}</textarea>
+        <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('r4z-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
+      </details>
       <div class="btn-row">
         ${waNum ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo UY</a>` : ''}
         <a class="btn btn-email btn-sm" href="${gmailHref}" target="_blank" rel="noopener noreferrer">🌐 Gmail Web (puntadeleste@zaguan...)</a>
         <button class="btn btn-outline btn-sm" onclick="copyTextById('r4z-msg-${idx}')">📋 Copiar</button>
+      </div>
+      <div class="btn-row" style="border-top:1px solid var(--border);padding-top:8px;">
+        <button class="btn btn-outline btn-sm" onclick="setCronometroEstado('${it.id}','enviado_1')">📤 Marcar 1° Enviado (+72h)</button>
+        <button class="btn btn-outline btn-sm" onclick="setCronometroEstado('${it.id}','seguimiento_enviado')">📨 Seguimiento 72h OK</button>
+        <button class="btn btn-yes btn-sm" onclick="setCronometroEstado('${it.id}','respondio')">✅ Respondió</button>
+        <button class="btn btn-no btn-sm" onclick="setCronometroEstado('${it.id}','cerrado')">🗄️ Archivar</button>
       </div>
     </div>`;
   }).join('');
