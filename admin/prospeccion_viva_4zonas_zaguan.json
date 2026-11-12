@@ -231,21 +231,6 @@
       "fecha_envio_1": "11/11 10:20"
     },
     {
-      "id": "PD-02",
-      "zona": "Maldonado Centro / Pinares",
-      "segmento": "Empresa / Local en Expansión",
-      "nombre": "Clínica San Fernando Maldonado (Policlínica y Especialidades, Maldonado Centro)",
-      "url_verificada": "https://clinicasanfernando.com.uy/",
-      "http_status": 200,
-      "email_verificado": "info@clinicasanfernando.com.uy",
-      "whatsapp_o_tel_verificado": "https://wa.me/59891529921 | tel:+59842229921",
-      "evidencia_html": "<a class=\"csf-wa-fab\" href=\"https://wa.me/59891529921\" target=\"_blank\" aria-label=\"Escribinos por WhatsApp\"> | <a href=\"tel:+59842229921\">+598 4222 9921</a> | email en HTML vivo: info@clinicasanfernando.com.uy",
-      "angulo_real_sin_humo": "Hola equipo de Clínica San Fernando, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Acompañamos a centros médicos y empresas en Maldonado Centro en búsqueda a pedido de nuevos consultorios, anexos comerciales o alquiler anual con garantía aseguradora para especialistas que se radican en la zona. Quería dejarles mi línea directa por si este año evalúan ampliar sede o reubicar profesionales.",
-      "estado_envio": "enviado_1",
-      "ts_envio_1": 1794403258964,
-      "fecha_envio_1": "11/11 10:20"
-    },
-    {
       "id": "PD-03",
       "zona": "Roosevelt / Aidy Grill",
       "segmento": "Desarrolladora Local Obra Nueva",
@@ -276,36 +261,6 @@
       "fecha_envio_1": "11/11 10:21"
     },
     {
-      "id": "PD-05",
-      "zona": "Roosevelt / Aidy Grill",
-      "segmento": "Empresa / Local en Expansión",
-      "nombre": "Ambienti Mobiliario & Diseño (Av. Roosevelt Parada 8)",
-      "url_verificada": "https://ambienti.com.uy/",
-      "http_status": 200,
-      "email_verificado": "ambienti@ambienti.com.uy",
-      "whatsapp_o_tel_verificado": "https://wa.me/59894430629 | tel:42497234",
-      "evidencia_html": "<a href=\"mailto:ambienti@ambienti.com.uy\"> | <a href=\"https://wa.me/59894430629\"> | <a href=\"tel:42497234\">",
-      "angulo_real_sin_humo": "Hola equipo de Ambienti, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Asesoramos sobre el eje de Av. Roosevelt a compradores de departamentos a estrenar que luego equipan su unidad, y también buscamos depósitos o locales comerciales a medida en Maldonado. Me gustaría conectar con dirección comercial para coordinar derivación cruzada de propietarios que reciben llaves y quedar a disposición si evalúan ampliar depósito o salón.",
-      "estado_envio": "enviado_1",
-      "ts_envio_1": 1794403297925,
-      "fecha_envio_1": "11/11 10:21"
-    },
-    {
-      "id": "PD-06",
-      "zona": "Roosevelt / Aidy Grill",
-      "segmento": "Empresa / Local en Expansión",
-      "nombre": "Veterinaria La Pastora (Av. Italia esq. Rimas, Aidy Grill)",
-      "url_verificada": "https://veterinarialapastora.com.uy/contactanos/",
-      "http_status": 200,
-      "email_verificado": "info@veterinarialapastora.com.uy",
-      "whatsapp_o_tel_verificado": "https://api.whatsapp.com/send?phone=59899815111 | https://api.whatsapp.com/send?phone=59898924066",
-      "evidencia_html": "<a style=\"color: #333333;\" href=\"mailto:info@veterinarialapastora.com.uy\"> | <a href=\"https://api.whatsapp.com/send?phone=59899815111&text=Mensaje%20desde%20la%20Web%20-%20Veterinaria%20la%20Pastora\"> | <a href=\"https://api.whatsapp.com/send?phone=59898924066&text=MensajedesdelaWeb\">",
-      "angulo_real_sin_humo": "Hola equipo de Veterinaria La Pastora, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Trabajamos búsqueda personalizada de locales comerciales y alquiler anual con garantía aseguradora para profesionales en Aidy Grill, Av. Italia y Maldonado. Les dejo mi línea directa por si en algún momento proyectan sumar anexo clínico, depósito o vivienda anual para veterinarios del equipo.",
-      "estado_envio": "enviado_1",
-      "ts_envio_1": 1794403311328,
-      "fecha_envio_1": "11/11 10:21"
-    },
-    {
       "id": "PD-07",
       "zona": "Península",
       "segmento": "Desarrolladora Local Obra Nueva",
@@ -318,21 +273,6 @@
       "angulo_real_sin_humo": "Hola equipo de CSA, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/proyectos/). Comercializamos obra nueva en Punta del Este y Maldonado con fichas técnicas por tipología, atención bilingüe (ES/EN) y desglose completo de costos de cierre e impuestos. ¿Cuentan hoy con unidades propias en comercialización en Península o Maldonado que admitan canales inmobiliarios externos bajo pre-registro?",
       "estado_envio": "enviado_1",
       "ts_envio_1": 1794422192257,
-      "fecha_envio_1": "11/11 15:36"
-    },
-    {
-      "id": "PD-08",
-      "zona": "Península",
-      "segmento": "Empresa / Local en Expansión",
-      "nombre": "Wonder Works / Modo Punta Hub (El Estrecho 17, Península)",
-      "url_verificada": "https://modopunta.com/contacto/",
-      "http_status": 200,
-      "email_verificado": "info@modopunta.com",
-      "whatsapp_o_tel_verificado": "https://wa.me/59892234494 | tel:+59892234494",
-      "evidencia_html": "<a class=\"mp-contact__link\" href=\"mailto:info@modopunta.com\"> | <a class=\"mp-contact__link\" href=\"https://wa.me/59892234494\" target=\"_blank\"> | <a href=\"tel:+59892234494\">",
-      "angulo_real_sin_humo": "Hola equipo de Modo Punta y Wonder Works, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Muchos profesionales y fundadores que se instalan a trabajar todo el año en la Península necesitan resolver alquiler anual con garantía aseguradora o compra con escribanía local e información clara en español e inglés. ¿Con quién podemos conversar para articular beneficios o guía de relocalización para miembros de su comunidad?",
-      "estado_envio": "enviado_1",
-      "ts_envio_1": 1794422205742,
       "fecha_envio_1": "11/11 15:36"
     },
     {
@@ -363,21 +303,6 @@
       "angulo_real_sin_humo": "Hola Sebastián y equipo, ¿cómo están? Soy Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Trabajamos con compradores locales y del exterior en La Barra y Manantiales que buscan lotes con proyecto llave en mano o casas nuevas desarrolladas por estudios de la zona. ¿Tienen hoy alguna obra propia en venta o les interesa coordinar canal de derivación cuando un comprador de terreno busque estudio de arquitectura en el este?",
       "estado_envio": "enviado_1",
       "ts_envio_1": 1794422231813,
-      "fecha_envio_1": "11/11 15:37"
-    },
-    {
-      "id": "PD-11",
-      "zona": "La Barra / Manantiales",
-      "segmento": "Empresa / Local en Expansión",
-      "nombre": "Galería Sur La Barra (Ruta 10, Parada 46, La Barra)",
-      "url_verificada": "https://www.galeriasur.uy/contacto/",
-      "http_status": 200,
-      "email_verificado": "sur@galeriasur.uy",
-      "whatsapp_o_tel_verificado": "https://api.whatsapp.com/send?phone=59899684099 | tel:+59842772014",
-      "evidencia_html": "<a href=\"mailto:sur@galeriasur.uy\"> | <a href=\"https://api.whatsapp.com/send?phone=59899684099\"> | <a href=\"tel:+59842772014\">",
-      "angulo_real_sin_humo": "Hola equipo de Galería Sur, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/busqueda-personalizada/). Operamos en La Barra y Punta del Este acompañando búsquedas a medida de espacios de exhibición, depósitos climatizados y alquiler anual con garantía aseguradora para equipos todo el año. Les dejo mi contacto directo por si evalúan sumar espacio anexo en el este o articular con compradores de residencias en la zona.",
-      "estado_envio": "enviado_1",
-      "ts_envio_1": 1794422244694,
       "fecha_envio_1": "11/11 15:37"
     }
   ],
