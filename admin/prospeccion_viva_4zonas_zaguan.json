@@ -501,7 +501,15 @@
       "vendedor_real": "Jorge (papá de Valentina / dueño directo)",
       "fecha_envio_1": "17/11 13:00 · Primer contacto WhatsApp",
       "respuesta_recibida": "Buen día, soy Jorge el papá de Valentina y el dueño del apto. El apto por ahora esta libre. Si tenes gente y lo quieres mostrar coordinamos hora.",
-      "fecha_respuesta": "17/11 13:07"
+      "fecha_respuesta": "17/11 13:07",
+      "condiciones_reales": {
+        "precio_mensual": " 30.000",
+        "incluye": "Gastos comunes e Internet incluido",
+        "no_incluye": "Luz y agua aparte",
+        "garantias_aceptadas": "Cualquier aseguradora (Porto, Sura, Mapfre). NO ACEPTA ANDA.",
+        "honorarios_pactados": "1 mes de alquiler sin IVA"
+      },
+      "respuesta_jorge_2": "Si el valor es 30000 por mes, gastos comunes e Internet incluido. Los gastos de luz y aguas aparte. La garantía cualquier compañía de seguros menos anda. La comisión para ustedes sería 1 mes sin iva."
     },
     {
       "id": "MP-13",
