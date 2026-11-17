@@ -1,34 +1,22 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es-UY">
 <head>
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.getElementById(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KTKLTW5T');</script>
-  <!-- End Google Tag Manager -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#081521">
   <title>Alquileres anuales en Punta del Este y Maldonado | ZAGUÁN Propiedades</title>
-  <meta name="description" content="Cartera de propiedades seleccionadas para alquiler anual en Punta del Este y Maldonado. Unidades a estrenar, frente al mar y residenciales. Trato directo con Mar.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="description" content="Cartera seleccionada de apartamentos y casas en alquiler anual en Punta del Este y Maldonado. Unidades a estrenar, primera línea frente al mar y opciones residenciales para vivir todo el año.">
   <link rel="canonical" href="https://zaguanpropiedades.com/alquileres/">
-  <link rel="llms-txt" href="/llms.txt">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" href="/assets/brand/favicon.png">
 
-  <!-- Open Graph / GEO -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_UY">
-  <meta property="og:site_name" content="ZAGUÁN Propiedades">
   <meta property="og:title" content="Alquileres anuales en Punta del Este y Maldonado | ZAGUÁN Propiedades">
-  <meta property="og:description" content="Propiedades seleccionadas para alquiler anual en Maldonado y Punta del Este. Unidades a estrenar, primera línea y residenciales.">
+  <meta property="og:description" content="Apartamentos y casas en alquiler anual en Punta del Este y Maldonado. Vivir todo el año con respaldo y coordinación directa con Mar.">
   <meta property="og:url" content="https://zaguanpropiedades.com/alquileres/">
   <meta property="og:image" content="https://zaguanpropiedades.com/assets/images/eve-tower/2-dormitorios-1.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://zaguanpropiedades.com/assets/images/eve-tower/2-dormitorios-1.jpg">
 
-  <!-- Estilos del sistema ZAGUÁN -->
+  <!-- CSS del Sistema ZAGUÁN -->
   <link rel="stylesheet" href="/assets/css/portadas.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,106 +26,141 @@
     body {
       background: #081521;
       color: #F5F7FA;
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      padding-bottom: 90px;
-    }
-    
-    .rentals-hero {
-      padding: 140px 0 36px;
-      border-bottom: 1px solid rgba(243, 240, 232, 0.14);
-    }
-    .rentals-hero h1 {
-      font-size: clamp(34px, 4.6vw, 58px);
-      color: #F3F0E8;
-      margin-bottom: 12px;
-      font-weight: 700;
-    }
-    .rentals-hero-sub {
-      font-size: 16px;
-      color: #A3B3C2;
-      max-width: 680px;
-      line-height: 1.6;
-      margin-bottom: 28px;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
     }
 
-    /* Buscador y filtro interactivo */
-    .search-filter-box {
-      background: #123B4A;
-      border: 1px solid rgba(243, 240, 232, 0.2);
-      border-radius: 14px;
-      padding: 20px 22px;
-      margin-bottom: 36px;
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
     }
-    .search-input-wrapper {
+
+    /* Hero de Catálogo */
+    .rentals-hero {
+      padding: 130px 0 32px;
+      background: linear-gradient(180deg, rgba(8, 21, 33, 0.95) 0%, rgba(18, 59, 74, 0.3) 100%);
+      border-bottom: 1px solid rgba(243, 240, 232, 0.1);
+    }
+    .rentals-hero h1 {
+      font-family: 'Archivo', sans-serif;
+      font-size: clamp(32px, 5vw, 48px);
+      font-weight: 800;
+      color: #F3F0E8;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    .rentals-hero-sub {
+      font-size: clamp(15px, 2vw, 17px);
+      line-height: 1.55;
+      color: #A3B3C2;
+      max-width: 720px;
+      margin: 0 0 28px;
+    }
+
+    /* Buscador IA-First & Filtro Natural */
+    .search-filter-box {
+      background: rgba(18, 59, 74, 0.45);
+      border: 1px solid rgba(243, 240, 232, 0.18);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .search-bar-ai {
       position: relative;
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      width: 100%;
     }
-    .search-input-wrapper input {
-      flex: 1;
-      min-width: 260px;
+    .search-icon-ai {
+      position: absolute;
+      left: 16px;
+      color: #A3B3C2;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+    }
+    .search-bar-ai input {
+      width: 100%;
       background: rgba(8, 21, 33, 0.85);
       border: 1px solid rgba(243, 240, 232, 0.22);
       color: #F3F0E8;
-      padding: 14px 18px;
-      font-size: 14px;
-      border-radius: 8px;
+      padding: 14px 44px 14px 46px;
+      font-size: 15px;
+      font-family: 'Inter', sans-serif;
+      border-radius: 10px;
       outline: none;
-      transition: border-color 180ms ease, background 180ms ease;
+      transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+      box-sizing: border-box;
     }
-    .search-input-wrapper input:focus {
+    .search-bar-ai input:focus {
       border-color: #F3F0E8;
       background: #081521;
+      box-shadow: 0 0 0 3px rgba(243, 240, 232, 0.12);
     }
-    .search-input-wrapper input::placeholder {
+    .search-bar-ai input::placeholder {
       color: rgba(243, 240, 232, 0.45);
     }
-    .search-wa-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #F3F0E8;
-      color: #081521;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      padding: 14px 18px;
-      border-radius: 8px;
-      border: 1px solid #F3F0E8;
+    .search-clear-btn {
+      position: absolute;
+      right: 12px;
+      background: rgba(243, 240, 232, 0.15);
+      border: none;
+      color: #F3F0E8;
+      font-size: 18px;
+      line-height: 1;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
       cursor: pointer;
-      white-space: nowrap;
-      transition: background 180ms ease, transform 180ms ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 160ms ease;
     }
-    .search-wa-btn:hover {
-      background: #FFFFFF;
-      transform: translateY(-1px);
+    .search-clear-btn:hover {
+      background: rgba(243, 240, 232, 0.3);
     }
 
-    /* Chips de filtro rápido */
+    /* Chips de filtro rápido scrollable */
+    .filter-chips-wrapper {
+      margin-top: 14px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .filter-chips-wrapper::-webkit-scrollbar {
+      display: none;
+    }
     .filter-chips {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      margin-top: 14px;
+      white-space: nowrap;
+      min-width: max-content;
+      padding-bottom: 2px;
     }
     .chip {
-      background: rgba(8, 21, 33, 0.6);
-      border: 1px solid rgba(243, 240, 232, 0.18);
+      background: rgba(8, 21, 33, 0.65);
+      border: 1px solid rgba(243, 240, 232, 0.2);
       color: #A3B3C2;
-      font-size: 11.5px;
+      font-size: 12px;
       font-weight: 600;
-      padding: 6px 12px;
+      padding: 7px 14px;
       border-radius: 20px;
       cursor: pointer;
       user-select: none;
-      transition: all 180ms ease;
+      transition: all 160ms ease;
     }
     .chip:hover {
       color: #F3F0E8;
-      border-color: rgba(243, 240, 232, 0.4);
+      border-color: rgba(243, 240, 232, 0.45);
     }
     .chip.is-active {
       background: #F3F0E8;
@@ -146,13 +169,27 @@
       font-weight: 700;
     }
 
+    /* Barra de contador y retroalimentación IA */
     .results-count-bar {
       display: flex;
+      flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
+      gap: 8px;
       font-size: 13px;
       color: #A3B3C2;
-      margin-bottom: 24px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(243, 240, 232, 0.08);
+    }
+    .results-count-text {
+      font-weight: 600;
+      color: #F3F0E8;
+    }
+    .search-feedback-text {
+      font-size: 12px;
+      color: #C5A059;
+      font-weight: 500;
     }
 
     /* Grilla de propiedades */
@@ -200,11 +237,11 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      background: #F3F0E8;
-      color: #081521;
+      background: rgba(8, 21, 33, 0.88);
+      color: #F3F0E8;
       font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 6px;
@@ -215,10 +252,12 @@
       position: absolute;
       top: 14px;
       right: 14px;
-      background: #10B981;
-      color: #081521;
+      background: rgba(18, 59, 74, 0.95);
+      color: #C5A059;
+      border: 1px solid rgba(197, 160, 89, 0.4);
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       padding: 4px 10px;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -238,12 +277,12 @@
       position: absolute;
       top: 14px;
       right: 14px;
-      background: rgba(8, 21, 33, 0.9);
+      background: rgba(8, 21, 33, 0.94);
       color: #F3F0E8;
       border: 1px solid rgba(243, 240, 232, 0.3);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
       padding: 5px 11px;
       border-radius: 6px;
@@ -252,7 +291,7 @@
     }
 
     .rental-card-body {
-      padding: 26px;
+      padding: 24px;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -261,12 +300,15 @@
     .rental-price {
       font-family: 'Archivo', sans-serif;
       font-size: 30px;
-      font-weight: 700;
+      font-weight: 800;
       color: #F3F0E8;
       margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
     }
     .rental-price small {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 500;
       color: #A3B3C2;
       font-family: 'Inter', sans-serif;
@@ -289,50 +331,45 @@
     }
     .rental-desc {
       font-size: 14px;
-      color: #A3B3C2;
+      line-height: 1.5;
+      color: #C0CCD6;
       margin-bottom: 18px;
-      line-height: 1.55;
     }
     .specs-list {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 14px 0;
-      border-top: 1px solid rgba(243, 240, 232, 0.14);
-      border-bottom: 1px solid rgba(243, 240, 232, 0.14);
-      margin-bottom: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 14px;
       font-size: 13px;
-    }
-    .spec-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: #F5F7FA;
+      color: #A3B3C2;
+      margin-bottom: 22px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(243, 240, 232, 0.08);
+      border-bottom: 1px solid rgba(243, 240, 232, 0.08);
     }
     .spec-item strong {
       color: #F3F0E8;
     }
+
     .rental-actions {
       display: flex;
       gap: 10px;
-      flex-wrap: wrap;
+      align-items: center;
     }
     .btn-action {
+      flex: 1;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      min-height: 48px;
-      padding: 12px 18px;
+      text-align: center;
+      padding: 12px 16px;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
       border-radius: 8px;
-      transition: background 180ms ease, color 180ms ease, border-color 180ms ease;
-      flex: 1;
-      white-space: nowrap;
       text-decoration: none;
+      transition: all 180ms ease;
+      cursor: pointer;
     }
     .btn-action--primary {
       background: #F3F0E8;
@@ -341,24 +378,24 @@
     }
     .btn-action--primary:hover {
       background: #FFFFFF;
+      transform: translateY(-1px);
     }
-    .btn-action--secondary {
+    .btn-action--outline {
       background: transparent;
       color: #F3F0E8;
-      border: 1px solid rgba(243, 240, 232, 0.3);
+      border: 1px solid rgba(243, 240, 232, 0.28);
     }
-    .btn-action--secondary:hover {
+    .btn-action--outline:hover {
+      background: rgba(243, 240, 232, 0.08);
       border-color: #F3F0E8;
-      background: rgba(243, 240, 232, 0.06);
     }
     .btn-action--rented {
-      background: rgba(243, 240, 232, 0.08);
-      color: #F3F0E8;
-      border: 1px solid rgba(243, 240, 232, 0.22);
-      width: 100%;
+      background: rgba(8, 21, 33, 0.7);
+      color: #A3B3C2;
+      border: 1px solid rgba(243, 240, 232, 0.15);
     }
     .btn-action--rented:hover {
-      background: rgba(243, 240, 232, 0.16);
+      color: #F3F0E8;
       border-color: #F3F0E8;
     }
 
@@ -366,50 +403,52 @@
     .not-found-box {
       display: none;
       background: #123B4A;
-      border: 1px solid rgba(243, 240, 232, 0.2);
+      border: 1px solid rgba(243, 240, 232, 0.18);
       border-radius: 16px;
-      padding: 44px 32px;
+      padding: 36px 24px;
       text-align: center;
-      margin: 30px 0;
+      margin: 20px 0;
+    }
+    .not-found-icon {
+      font-size: 32px;
+      margin-bottom: 12px;
     }
     .not-found-box h3 {
-      font-size: 24px;
+      font-size: 20px;
       color: #F3F0E8;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
     }
     .not-found-box p {
-      font-size: 15px;
       color: #A3B3C2;
+      font-size: 14px;
+      line-height: 1.5;
       max-width: 580px;
-      margin: 0 auto 24px;
-      line-height: 1.6;
+      margin: 0 auto 20px;
     }
 
-    /* Banner propietarios */
+    /* Banner para propietarios */
     .owners-banner {
-      background: #123B4A;
-      border: 1px solid rgba(243, 240, 232, 0.14);
+      margin-top: 50px;
+      background: linear-gradient(135deg, rgba(18, 59, 74, 0.8) 0%, rgba(8, 21, 33, 0.95) 100%);
+      border: 1px solid rgba(197, 160, 89, 0.35);
       border-radius: 16px;
-      padding: 36px 32px;
-      margin-top: 60px;
+      padding: 32px;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 28px;
-      flex-wrap: wrap;
-    }
-    .owners-banner-text {
-      max-width: 680px;
+      gap: 20px;
     }
     .owners-banner-text h3 {
-      font-size: 24px;
+      font-size: 20px;
       color: #F3F0E8;
-      margin-bottom: 8px;
+      margin: 0 0 6px;
     }
     .owners-banner-text p {
-      font-size: 14.5px;
       color: #A3B3C2;
-      line-height: 1.55;
+      font-size: 14px;
+      margin: 0;
+      max-width: 620px;
     }
 
     /* Barra fija móvil */
@@ -419,13 +458,15 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(8, 21, 33, 0.98);
-      border-top: 1px solid rgba(243, 240, 232, 0.18);
-      padding: 12px 16px;
+      background: rgba(8, 21, 33, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(243, 240, 232, 0.16);
+      padding: 12px 18px;
       z-index: 99;
-      backdrop-filter: blur(10px);
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
       .rentals-grid { grid-template-columns: 1fr; }
       .rentals-hero { padding: 110px 0 28px; }
@@ -436,15 +477,13 @@
       .rental-title { font-size: 18px; }
       .specs-list { grid-template-columns: 1fr; }
       .rental-actions { flex-direction: column; }
-      .btn-action { width: 100%; min-height: 50px; }
+      .btn-action { width: 100%; min-height: 48px; }
       .mobile-sticky-bar { display: block; }
-      .owners-banner { padding: 24px 18px; }
-      .search-input-wrapper { flex-direction: column; align-items: stretch; }
-      .search-wa-btn { width: 100%; justify-content: center; }
+      .owners-banner { padding: 22px 16px; }
     }
   </style>
 
-  <!-- Schema.org JSON-LD (Capa SEO + GEO para motores de búsqueda e IAs) -->
+  <!-- Schema.org JSON-LD (Capa SEO + GEO) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -568,42 +607,51 @@
       <div class="container">
         <p class="eyebrow" style="color:#A3B3C2; margin-bottom:10px;">Punta del Este · Maldonado</p>
         <h1>Alquileres anuales.</h1>
-        <p class="rentals-hero-sub">Cartera residencial para vivir todo el año en Punta del Este y Maldonado. Opciones a estrenar, frente al mar y residenciales con coordinación directa con Mar.</p>
+        <p class="rentals-hero-sub">Cartera residencial para vivir todo el año en Punta del Este y Maldonado. Opciones a estrenar, frente al mar y residenciales.</p>
 
-        <!-- Buscador Inteligente y Filtro de Preferencia en Vivo -->
-        <div class="search-filter-box" aria-label="Filtro interactivo de propiedades">
-          <div class="search-input-wrapper">
-            <input type="text" id="rental-search" placeholder="Escribí tu preferencia (ej: 2 dormitorios, La Brava, suite, pesos, cochera...)" aria-label="Buscar propiedades por zona, dormitorios o tipo">
-            <button class="search-wa-btn" id="search-wa-btn" type="button">
-              Pedir a Mar por WhatsApp →
-            </button>
+        <!-- Buscador IA-First & Filtro Inteligente de Preferencia -->
+        <div class="search-filter-box" aria-label="Filtro inteligente de propiedades">
+          <div class="search-bar-ai">
+            <div class="search-icon-ai" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <input type="text" id="rental-search" placeholder="Buscar por zona, dormitorios o presupuesto (ej: 2 dormitorios en La Mansa, frente al mar, en pesos...)" aria-label="Buscar propiedades por zona, dormitorios o tipo" autocomplete="off">
+            <button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="Limpiar búsqueda" style="display:none;">×</button>
           </div>
-          <div class="filter-chips" role="tablist" aria-label="Filtros rápidos">
-            <button class="chip is-active" data-filter="all" type="button">Todos (10)</button>
-            <button class="chip" data-filter="disponible" type="button">Disponibles (6)</button>
-            <button class="chip" data-filter="alquilado" type="button">Alquilados con Zaguán (4)</button>
-            <button class="chip" data-filter="usd" type="button">En USD</button>
-            <button class="chip" data-filter="pesos" type="button">En $U</button>
-            <button class="chip" data-filter="3d" type="button">3 dormitorios</button>
-            <button class="chip" data-filter="2d" type="button">2 dormitorios</button>
+
+          <!-- Chips de filtrado rápido con scroll horizontal limpio en mobile -->
+          <div class="filter-chips-wrapper">
+            <div class="filter-chips" role="tablist" aria-label="Filtros rápidos">
+              <button class="chip is-active" data-filter="all" type="button">Todas (10)</button>
+              <button class="chip" data-filter="disponible" type="button">Disponibles (6)</button>
+              <button class="chip" data-filter="alquilado" type="button">Alquiladas recientemente (4)</button>
+              <button class="chip" data-filter="usd" type="button">En USD</button>
+              <button class="chip" data-filter="pesos" type="button">En $U</button>
+              <button class="chip" data-filter="mar" type="button">Frente al mar</button>
+              <button class="chip" data-filter="3d" type="button">3 dormitorios</button>
+              <button class="chip" data-filter="2d" type="button">2 dormitorios</button>
+              <button class="chip" data-filter="1d" type="button">1 dormitorio</button>
+            </div>
+          </div>
+
+          <!-- Barra de estado y retroalimentación IA -->
+          <div class="results-count-bar">
+            <div id="results-count" class="results-count-text">Mostrando 10 propiedades</div>
+            <div id="search-feedback" class="search-feedback-text"></div>
           </div>
         </div>
 
-        <div class="results-count-bar">
-          <span id="results-count">Mostrando 10 propiedades</span>
-          <span style="font-size:12px; color:#A3B3C2;">Filtrado en tiempo real</span>
-        </div>
       </div>
     </section>
 
     <!-- Listado Dinámico de Propiedades -->
-    <section class="rentals-section" style="padding: 20px 0 80px;">
+    <section class="rentals-section" style="padding: 24px 0 80px;">
       <div class="container">
         
         <div class="rentals-grid" id="rentals-grid">
           
           <!-- 1. La Brava · USD 1.700 (Disponible) -->
-          <article class="rental-card" data-status="disponible" data-currency="usd" data-bedrooms="3d" data-keywords="la brava parada 8 mar frente al mar 3 dormitorios 2 baños 2 cocheras amenities piscina gym usd 1700">
+          <article class="rental-card" data-status="disponible" data-currency="usd" data-bedrooms="3d" data-zone="brava" data-features="mar vista cochera balcon amenities piscina gym" data-keywords="la brava parada 8 mar frente al mar 3 dormitorios 2 baños 2 cocheras amenities piscina gym usd 1700 disponible">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para apartamento en La Brava">
               <img src="/assets/images/eve-tower/2-dormitorios-1.jpg" alt="Living y balcón con vista al mar en La Brava" loading="lazy">
               <span class="rental-badge">Parada 8 · Playa Brava</span>
@@ -615,55 +663,51 @@
                 <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." target="_blank" rel="noopener noreferrer">
                   <h3 class="rental-title">Apartamento de 3 dormitorios con balcón al mar y 2 cocheras</h3>
                 </a>
-                <p class="rental-desc">Torre de categoría a pasos del mar. Gran living comedor con ventanales de piso a techo, cocina definida, suite principal con vestidor, 2 cocheras fijas techadas. Amenities completos (piscina climatizada in/out, microcine, gimnasio). Gastos comunes incluidos en el valor.</p>
+                <p class="rental-desc">Torre de categoría a pasos del mar. Gran living comedor con ventanales de piso a techo, cocina definida, suite principal con vestidor, 2 cocheras fijas techadas. Amenities completos (piscina climatizada, gimnasio y servicio de conserjería todo el año).</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>3</strong></div>
-                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
-                  <div class="spec-item">Cocheras: <strong>2 fijas techadas</strong></div>
-                  <div class="spec-item">Gastos comunes: <strong>Incluidos ($0)</strong></div>
-                  <div class="spec-item">Vista: <strong>Balcón al mar</strong></div>
-                  <div class="spec-item">Amenities: <strong>Piscina y gym</strong></div>
+                  <div class="spec-item">Baños: <strong>2</strong></div>
+                  <div class="spec-item">Cocheras: <strong>2 techadas</strong></div>
+                  <div class="spec-item">Gastos comunes: <strong>Incluidos</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita →</a>
               </div>
             </div>
           </article>
 
-          <!-- 2. Roosevelt / Cantegril · $U 70.000 (Disponible) -->
-          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="roosevelt cantegril a estrenar 2 dormitorios suite parrillero balcon cochera piscina climatizada barbacoa 70000 pesos">
-            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para apartamento en Roosevelt">
-              <img src="/assets/images/golden-rise/2-dormitorios-1.jpg" alt="Piso alto a estrenar en Roosevelt y Salt Lake" loading="lazy">
+          <!-- 2. Roosevelt y Cantegril · $U 70.000 (Disponible) -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="roosevelt" data-features="suite parrillero cochera piscina estrenar" data-keywords="roosevelt cantegril salt lake parada 18 2 dormitorios suite parrillero cochera subsuelo piscina estrenar 70000 pesos disponible">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para apartamento en Roosevelt">
+              <img src="/assets/images/eve-tower/2-dormitorios-2.jpg" alt="Living luminoso de piso alto en Roosevelt y Cantegril" loading="lazy">
               <span class="rental-badge">Av. Roosevelt · Cantegril</span>
               <span class="rental-badge--green">A estrenar</span>
             </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 70.000 <small>/ mes</small></div>
-                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
                   <h3 class="rental-title">Piso alto a estrenar de 2 dormitorios con suite y parrillero</h3>
                 </a>
-                <p class="rental-desc">Av. Roosevelt y Salt Lake. Torre de diseño con terminaciones premium, amplio balcón aterrazado con parrillero propio, cocina equipada con anafe y horno empotrado, cochera fija en subsuelo. Barbacoas panorámicas y piscina climatizada.</p>
+                <p class="rental-desc">Unidad orientada al sol con terraza privada y parrillero individual. Suite con vestidor, segundo dormitorio con placard, aberturas doble vidrio hermético (DVH), cocina equipada y cochera fija en subsuelo.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2 (1 en suite)</strong></div>
-                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
-                  <div class="spec-item">Cochera: <strong>Fija en subsuelo</strong></div>
-                  <div class="spec-item">Parrillero: <strong>Individual en balcón</strong></div>
-                  <div class="spec-item">Estado: <strong>A estrenar</strong></div>
-                  <div class="spec-item">Piso: <strong>Alto despejado</strong></div>
+                  <div class="spec-item">Baños: <strong>2</strong></div>
+                  <div class="spec-item">Cochera: <strong>1 subsuelo</strong></div>
+                  <div class="spec-item">Parrillero: <strong>Propio</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20Roosevelt%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20Roosevelt%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita →</a>
               </div>
             </div>
           </article>
 
           <!-- 3. La Mansa · $U 70.000 (Disponible) -->
-          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 24hs 70000 pesos">
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="mansa" data-features="mar vista terraza cochera seguridad" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 24hs 70000 pesos disponible">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para semipiso en La Mansa">
-              <img src="/assets/images/golden-rise/2-dormitorios-2.jpg" alt="Interior de semipiso de 2 dormitorios a pasos de La Mansa" loading="lazy">
+              <img src="/assets/images/more-atlantico/proyecto-4.jpg" alt="Terraza con vista despejada a pasos de La Mansa" loading="lazy">
               <span class="rental-badge">Parada 16 · Playa Mansa</span>
               <span class="rental-badge--green">A pasos del mar</span>
             </a>
@@ -673,26 +717,24 @@
                 <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
                   <h3 class="rental-title">Semipiso de 2 dormitorios con terraza y cochera</h3>
                 </a>
-                <p class="rental-desc">Excelente orientación solar a 150 metros del mar. Dos dormitorios con placares empotrados, living apaisado muy luminoso, cocina moderna con isla integrada, cochera individual techada. Edificio residencial de baja densidad con seguridad 24 hs.</p>
+                <p class="rental-desc">Ubicación privilegiada a 150 metros del mar sobre Parada 16. Living comedor apaisado con salida a terraza, cocina con desayunador, calefacción individual y portería 24 hs.</p>
                 <div class="specs-list">
-                  <div class="spec-item">Dormitorios: <strong>2 amplios</strong></div>
+                  <div class="spec-item">Dormitorios: <strong>2</strong></div>
                   <div class="spec-item">Baños: <strong>2</strong></div>
-                  <div class="spec-item">Cochera: <strong>Techada fija</strong></div>
-                  <div class="spec-item">Distancia al mar: <strong>150 m</strong></div>
-                  <div class="spec-item">Seguridad: <strong>24 hs presencial</strong></div>
-                  <div class="spec-item">Edificio: <strong>Baja densidad</strong></div>
+                  <div class="spec-item">Cochera: <strong>Techada</strong></div>
+                  <div class="spec-item">Distancia al mar: <strong>150 metros</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita →</a>
               </div>
             </div>
           </article>
 
-          <!-- 4. Maldonado Centro Residencial · $U 70.000 (Disponible) - Foto interior de cocina y living -->
-          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="3d" data-keywords="maldonado centro residencial 3 dormitorios piso exclusivo losa radiante dvh doble cochera a estrenar 70000 pesos">
+          <!-- 4. Maldonado Centro residencial · $U 70.000 (Disponible) -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="3d" data-zone="maldonado" data-features="cochera losa radiante estrenar" data-keywords="maldonado centro residencial 3 dormitorios 2 baños doble cochera losa radiante a estrenar 70000 pesos disponible">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para piso en Maldonado">
-              <img src="/assets/images/golden-rise/2-dormitorios-3.jpg" alt="Interior moderno de piso de 3 dormitorios a estrenar en Maldonado" loading="lazy">
+              <img src="/assets/images/propiedades/la-fortuna-jorge/foto_07.jpg" alt="Living comedor y cocina moderna a estrenar en Maldonado" loading="lazy">
               <span class="rental-badge">Zona residencial · Maldonado</span>
               <span class="rental-badge--green">A estrenar</span>
             </a>
@@ -702,24 +744,22 @@
                 <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
                   <h3 class="rental-title">Piso exclusivo de 3 dormitorios a estrenar con doble cochera</h3>
                 </a>
-                <p class="rental-desc">Unidad independiente en edificio de categoría. Tres dormitorios con excelentes dimensiones, estar comedor principal, losa radiante individual, aberturas de doble vidrio hermético (DVH), balcón terraza y 2 lugares de estacionamiento.</p>
+                <p class="rental-desc">Planta moderna y espaciosa en edificio residencial de baja densidad. 3 dormitorios amplios, suite principal, cocina con isla y lavadero independiente, losa radiante eléctrica y 2 cocheras en planta baja.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>3</strong></div>
-                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
-                  <div class="spec-item">Cocheras: <strong>2 lugares incluidos</strong></div>
-                  <div class="spec-item">Climatización: <strong>Losa radiante</strong></div>
-                  <div class="spec-item">Aislación: <strong>DVH térmico</strong></div>
-                  <div class="spec-item">Estado: <strong>A estrenar</strong></div>
+                  <div class="spec-item">Baños: <strong>2</strong></div>
+                  <div class="spec-item">Cocheras: <strong>2 fijas</strong></div>
+                  <div class="spec-item">Calefacción: <strong>Losa radiante</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita →</a>
               </div>
             </div>
           </article>
 
-          <!-- 5. La Fortuna · $U 30.000 (Ficha real) -->
-          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="la fortuna maldonado av agata san pablo 2 dormitorios a estrenar balcon cochera fija gastos comunes incluidos internet wifi 30000 pesos">
+          <!-- 5. La Fortuna · $U 30.000 (Disponible) -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="maldonado" data-features="cochera estrenar wifi" data-keywords="la fortuna agata maldonado 2 dormitorios cochera wifi gastos comunes incluidos 30000 pesos disponible">
             <a class="rental-card-media-link" href="/alquileres/la-fortuna-agata/" aria-label="Ver ficha completa de apartamento en La Fortuna">
               <img src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Apartamento 2 dormitorios a estrenar en La Fortuna" loading="lazy">
               <span class="rental-badge">La Fortuna · Maldonado</span>
@@ -729,98 +769,69 @@
               <div>
                 <div class="rental-price">$U 30.000 <small>/ mes</small></div>
                 <a class="rental-title-link" href="/alquileres/la-fortuna-agata/">
-                  <h3 class="rental-title">Apartamento de 2 dormitorios con cochera fija</h3>
+                  <h3 class="rental-title">Apartamento de 2 dormitorios a estrenar con cochera fija</h3>
                 </a>
-                <p class="rental-desc">Sobre Av. Ágata a 300 m de San Pablo. Balcón al frente, cocina con placares y campana, cochera numerada propia. Incluye gastos comunes e internet wifi de alta velocidad.</p>
+                <p class="rental-desc">Unidad a estrenar en calle Ágata. Living comedor con cocina integrada, 2 dormitorios iluminados, baño completo y cochera fija. Gastos comunes y conexión a internet wifi de alta velocidad incluidos en el alquiler.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2</strong></div>
-                  <div class="spec-item">Baños: <strong>1 completo</strong></div>
-                  <div class="spec-item">Cochera: <strong>Fija incluida</strong></div>
-                  <div class="spec-item">Gastos comunes: <strong>Incluidos ($0)</strong></div>
-                  <div class="spec-item">Internet: <strong>Incluido ($0)</strong></div>
-                  <div class="spec-item">Zona: <strong>Residencial tranquila</strong></div>
+                  <div class="spec-item">Baño: <strong>1 completo</strong></div>
+                  <div class="spec-item">Cochera: <strong>Fija propia</strong></div>
+                  <div class="spec-item">Wifi + GG.CC.: <strong>Incluidos</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="/alquileres/la-fortuna-agata/" class="btn-action btn-action--secondary">Ver ficha completa →</a>
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20La%20Fortuna%20(%24U%2030.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="/alquileres/la-fortuna-agata/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20La%20Fortuna%20(%24U%2030.000)." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
               </div>
             </div>
           </article>
 
-          <!-- 6. El Tesoro · $U 28.000 (Ficha real) -->
-          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="el tesoro la barra juana de america puente la barra 2 personas deck techado jardin parrillero sin expensas 28000 pesos">
-            <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro">
+          <!-- 6. El Tesoro · $U 28.000 (Disponible) -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="1d" data-zone="barra" data-features="deck jardin estacionamiento" data-keywords="el tesoro juana de america la barra 1 dormitorio deck techado jardin 28000 pesos disponible">
+            <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro, La Barra">
               <img src="/assets/images/propiedades/el-tesoro-rosario/foto_01.jpg" alt="Apartamento con deck techado en El Tesoro, La Barra" loading="lazy">
               <span class="rental-badge">El Tesoro · La Barra</span>
-              <span class="rental-badge--green">Sin expensas</span>
+              <span class="rental-badge--green">Sin gastos comunes</span>
             </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 28.000 <small>/ mes</small></div>
                 <a class="rental-title-link" href="/alquileres/el-tesoro-juana-de-america/">
-                  <h3 class="rental-title">Apartamento para 2 personas con deck y jardín</h3>
+                  <h3 class="rental-title">Apartamento para 2 personas con deck techado y jardín</h3>
                 </a>
-                <p class="rental-desc">Calle Juana de América, a 300 m del Puente de La Barra. Cocina equipada, deck exterior techado, parrillero individual y jardín cercado. Cero gastos comunes.</p>
+                <p class="rental-desc">A 300 metros del Puente de La Barra sobre calle Juana de América. 1 dormitorio, living comedor con cocina integrada, deck techado al frente, jardín y entrada para vehículo. Sin gastos comunes.</p>
                 <div class="specs-list">
-                  <div class="spec-item">Capacidad: <strong>Hasta 2 personas</strong></div>
-                  <div class="spec-item">Baños: <strong>1 completo</strong></div>
-                  <div class="spec-item">Exterior: <strong>Deck y jardín</strong></div>
-                  <div class="spec-item">Gastos comunes: <strong>Sin expensas ($0)</strong></div>
-                  <div class="spec-item">Parrillero: <strong>Propio techado</strong></div>
-                  <div class="spec-item">Entorno: <strong>A 300 m del puente</strong></div>
+                  <div class="spec-item">Capacidad: <strong>2 personas</strong></div>
+                  <div class="spec-item">Exterior: <strong>Deck + jardín</strong></div>
+                  <div class="spec-item">Gastos comunes: <strong>$0</strong></div>
+                  <div class="spec-item">Entorno: <strong>Residencial verde</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="/alquileres/el-tesoro-juana-de-america/" class="btn-action btn-action--secondary">Ver ficha completa →</a>
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20El%20Tesoro%20(%24U%2028.000)." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer">Coordinar visita</a>
+                <a href="/alquileres/el-tesoro-juana-de-america/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20en%20El%20Tesoro%20(%24U%2028.000)." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
               </div>
             </div>
           </article>
 
-          <!-- 7. La Brava · USD 2.000 (Alquilado con Zaguán) -->
-          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="3d" data-keywords="la brava parada 4 penthouse 3 dormitorios suite terraza al mar parrillero servicio de playa usd 2000 alquilado">
-            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar%20por%20entrar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar al penthouse en La Brava">
-              <img src="/assets/images/eve-tower/2-dormitorios-2.jpg" alt="Penthouse de 3 dormitorios en La Brava" loading="lazy">
-              <span class="rental-badge">Parada 4 · Playa Brava</span>
-              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
-            </a>
-            <div class="rental-card-body">
-              <div>
-                <div class="rental-price" style="opacity:0.85;">USD 2.000 <small>/ mes</small></div>
-                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar%20por%20entrar." target="_blank" rel="noopener noreferrer">
-                  <h3 class="rental-title">Penthouse de 3 dormitorios con terraza privada al mar</h3>
-                </a>
-                <p class="rental-desc">3 dormitorios en suite, toilette, terraza de 45 m² con parrillero, 2 cocheras. Edificio con servicio de playa y amenities completos.</p>
-                <div class="specs-list">
-                  <div class="spec-item">Dormitorios: <strong>3 en suite</strong></div>
-                  <div class="spec-item">Cocheras: <strong>2 techadas</strong></div>
-                  <div class="spec-item">Terraza: <strong>45 m² con parrillero</strong></div>
-                  <div class="spec-item">Estado: <strong>Alquilado anual</strong></div>
-                </div>
-              </div>
-              <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar%20por%20entrar." class="btn-action btn-action--rented" target="_blank" rel="noopener noreferrer">Consultar similar por entrar →</a>
-            </div>
-          </article>
-
-          <!-- 8. La Brava · USD 2.000 (Alquilado con Zaguán) -->
-          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="2d" data-keywords="rambla brava parada 10 frente al oceano 2 dormitorios suite cocina isla cochera doble usd 2000 alquilado">
-            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento frente al mar">
-              <img src="/assets/images/eve-tower/2-dormitorios-3.jpg" alt="Apartamento de 2 dormitorios en suite frente al mar" loading="lazy">
-              <span class="rental-badge">Rambla Brava · Parada 10</span>
+          <!-- 7. Rambla Brava · USD 2.000 (Alquilado recientemente con Zaguán) -->
+          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="3d" data-zone="brava" data-features="mar vista suite cochera piscina amenities" data-keywords="rambla brava parada 4 mar frente al mar 3 dormitorios penthouse 2 cocheras amenities usd 2000 alquilado">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a penthouse en Rambla Brava">
+              <img src="/assets/images/eve-tower/2-dormitorios-3.jpg" alt="Suite con balcón al océano en Rambla Brava" loading="lazy">
+              <span class="rental-badge">Parada 4 · Rambla Brava</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
             </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price" style="opacity:0.85;">USD 2.000 <small>/ mes</small></div>
                 <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer">
-                  <h3 class="rental-title">Apartamento de 2 dormitorios en suite frente al mar</h3>
+                  <h3 class="rental-title">Penthouse de 3 dormitorios con vista panorámica y 2 cocheras</h3>
                 </a>
-                <p class="rental-desc">Living apaisado frente al océano, cocina de chef con isla, 2 suites, cochera doble. Amenities de primera línea.</p>
+                <p class="rental-desc">Frente al mar en Parada 4. Planta alta con terraza privada, suite principal, 2 baños, cocina moderna y doble garage. Servicio de mucama y piscina climatizada.</p>
                 <div class="specs-list">
-                  <div class="spec-item">Dormitorios: <strong>2 en suite</strong></div>
-                  <div class="spec-item">Cocheras: <strong>Doble</strong></div>
-                  <div class="spec-item">Vista: <strong>Océano directa</strong></div>
+                  <div class="spec-item">Dormitorios: <strong>3</strong></div>
+                  <div class="spec-item">Baños: <strong>2</strong></div>
+                  <div class="spec-item">Cocheras: <strong>2 cerradas</strong></div>
                   <div class="spec-item">Estado: <strong>Alquilado anual</strong></div>
                 </div>
               </div>
@@ -828,10 +839,35 @@
             </div>
           </article>
 
-          <!-- 9. La Mansa · USD 900 (Alquilado con Zaguán) -->
-          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-keywords="la mansa parada 12 1 dormitorio suite balcon cocina americana cochera techada piscina usd 900 alquilado">
+          <!-- 8. Playa Brava Parada 10 · USD 2.000 (Alquilado recientemente con Zaguán) -->
+          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="2d" data-zone="brava" data-features="mar suite cochera amenities" data-keywords="playa brava parada 10 2 dormitorios suite cochera doble amenities usd 2000 alquilado">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Playa%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en Playa Brava">
+              <img src="/assets/images/golden-rise/proyecto-2.jpg" alt="Vista aérea de categoría en Playa Brava" loading="lazy">
+              <span class="rental-badge">Parada 10 · Playa Brava</span>
+              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
+            </a>
+            <div class="rental-card-body">
+              <div>
+                <div class="rental-price" style="opacity:0.85;">USD 2.000 <small>/ mes</small></div>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Playa%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Apartamento de 2 dormitorios en suite frente al mar</h3>
+                </a>
+                <p class="rental-desc">Living apaisado frente al océano, cocina de chef con isla, 2 suites, cochera doble. Amenities de primera línea.</p>
+                <div class="specs-list">
+                  <div class="spec-item">Dormitorios: <strong>2 en suite</strong></div>
+                  <div class="spec-item">Baños: <strong>2</strong></div>
+                  <div class="spec-item">Cochera: <strong>Doble</strong></div>
+                  <div class="spec-item">Estado: <strong>Alquilado anual</strong></div>
+                </div>
+              </div>
+              <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Playa%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." class="btn-action btn-action--rented" target="_blank" rel="noopener noreferrer">Consultar similar por entrar →</a>
+            </div>
+          </article>
+
+          <!-- 9. La Mansa · USD 900 (Alquilado recientemente con Zaguán) -->
+          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-zone="mansa" data-features="balcon cochera piscina" data-keywords="la mansa parada 12 1 dormitorio suite balcon cocina americana cochera techada piscina usd 900 alquilado">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Mansa%20(USD%20900)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en La Mansa">
-              <img src="/assets/images/golden-rise/1-dormitorio-1.jpg" alt="Apartamento de 1 dormitorio en La Mansa" loading="lazy">
+              <img src="/assets/images/propiedades/el-tesoro-rosario/foto_02.jpg" alt="Living y cocina integrada en La Mansa" loading="lazy">
               <span class="rental-badge">Parada 12 · Playa Mansa</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
             </a>
@@ -844,8 +880,8 @@
                 <p class="rental-desc">1 dormitorio en suite, living comedor luminoso, cocina americana, cochera techada. Edificio con piscina y vigilancia.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>1 en suite</strong></div>
+                  <div class="spec-item">Baños: <strong>1</strong></div>
                   <div class="spec-item">Cochera: <strong>Techada</strong></div>
-                  <div class="spec-item">Distancia al mar: <strong>100 m</strong></div>
                   <div class="spec-item">Estado: <strong>Alquilado anual</strong></div>
                 </div>
               </div>
@@ -853,10 +889,10 @@
             </div>
           </article>
 
-          <!-- 10. Maldonado residencial · USD 550 (Alquilado con Zaguán) - Foto interior de dormitorio -->
-          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-keywords="maldonado zona residencial 1 dormitorio a estrenar balcon parrillero cochera fija usd 550 alquilado">
+          <!-- 10. Maldonado residencial · USD 550 (Alquilado recientemente con Zaguán) -->
+          <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-zone="maldonado" data-features="balcon parrillero cochera" data-keywords="maldonado zona residencial 1 dormitorio a estrenar balcon parrillero cochera fija usd 550 alquilado">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Maldonado%20(USD%20550)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en Maldonado">
-              <img src="/assets/images/golden-rise/1-dormitorio-3.jpg" alt="Interior de apartamento de 1 dormitorio en Maldonado residencial" loading="lazy">
+              <img src="/assets/images/propiedades/la-fortuna-jorge/foto_04.jpg" alt="Dormitorio con luz natural en Maldonado residencial" loading="lazy">
               <span class="rental-badge">Zona residencial · Maldonado</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
             </a>
@@ -880,11 +916,14 @@
 
         </div>
 
-        <!-- Caja cuando no hay coincidencias directas -->
+        <!-- Caja sin resultados con reset directo -->
         <div class="not-found-box" id="not-found-box">
-          <h3>¿Buscás una propiedad con características específicas?</h3>
-          <p>En Punta del Este y Maldonado muchas propiedades se reservan de forma privada antes de publicarse en la web. Contale a Mar qué estás buscando y te enviamos las opciones que ingresan a cartera.</p>
-          <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20estuve%20buscando%20en%20la%20web%20de%20ZAGU%C3%81N%20y%20quiero%20consultarte%20por%20una%20b%C3%BAsqueda%20puntual%3A" class="btn-action btn-action--primary" id="not-found-wa" style="display:inline-flex; width:auto; padding:14px 28px;" target="_blank" rel="noopener noreferrer">Consultar cartera privada con Mar →</a>
+          <div class="not-found-icon" aria-hidden="true">🔍</div>
+          <h3>No se encontraron propiedades con ese criterio</h3>
+          <p id="not-found-msg">Probá ajustar la zona, la cantidad de dormitorios o el presupuesto para ampliar las opciones disponibles.</p>
+          <button type="button" class="btn-action btn-action--primary" id="btn-reset-filters" style="display:inline-flex; width:auto; padding:12px 24px;">
+            Ver todas las propiedades disponibles →
+          </button>
         </div>
 
         <!-- Banner para propietarios -->
@@ -903,100 +942,200 @@
   <!-- Barra fija móvil para celular -->
   <aside class="mobile-sticky-bar" aria-label="Contacto rápido móvil">
     <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20desde%20ZAGU%C3%81N%20por%20la%20cartera%20de%20alquileres%20anuales." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer" style="width:100%;">
-      Consultar a Mar por WhatsApp →
+      Consultar cartera con Mar por WhatsApp →
     </a>
   </aside>
 
   <!-- Script oficial de Header (Scroll dinámico con cambio de color y logos blanco/negro) -->
   <script src="/assets/js/novedades-header.js" defer></script>
 
-  <!-- Script interactivo de Búsqueda y Filtrado en Tiempo Real -->
+  <!-- Script IA-First de Búsqueda y Filtrado en Lenguaje Natural -->
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('rental-search');
-    const searchWaBtn = document.getElementById('search-wa-btn');
+    const clearBtn = document.getElementById('search-clear-btn');
     const chips = document.querySelectorAll('.chip');
     const cards = document.querySelectorAll('.rental-card');
     const resultsCount = document.getElementById('results-count');
+    const searchFeedback = document.getElementById('search-feedback');
     const notFoundBox = document.getElementById('not-found-box');
-    const notFoundWa = document.getElementById('not-found-wa');
+    const resetBtn = document.getElementById('btn-reset-filters');
 
-    let currentFilter = 'all';
+    let currentChip = 'all';
 
+    // Normalizador de texto sin tildes ni caracteres especiales
+    function cleanText(str) {
+      return (str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+    }
+
+    // Parser semántico en lenguaje natural (IA-First)
+    function parseNaturalQuery(query) {
+      const q = cleanText(query);
+      const parsed = {
+        tokens: q.split(/\s+/).filter(Boolean),
+        zone: null,
+        bedrooms: null,
+        currency: null,
+        feature: null,
+        status: null,
+        labels: []
+      };
+
+      if (!q) return parsed;
+
+      // Zonas
+      if (q.includes('brava')) { parsed.zone = 'brava'; parsed.labels.push('La Brava'); }
+      else if (q.includes('mansa')) { parsed.zone = 'mansa'; parsed.labels.push('La Mansa'); }
+      else if (q.includes('roosevelt') || q.includes('cantegril')) { parsed.zone = 'roosevelt'; parsed.labels.push('Roosevelt'); }
+      else if (q.includes('maldonado') || q.includes('fortuna')) { parsed.zone = 'maldonado'; parsed.labels.push('Maldonado'); }
+      else if (q.includes('barra') || q.includes('tesoro')) { parsed.zone = 'barra'; parsed.labels.push('La Barra / El Tesoro'); }
+
+      // Dormitorios
+      if (q.includes('3 dorm') || q.includes('3d') || q.includes('tres dorm') || q.includes('3 hab')) {
+        parsed.bedrooms = '3d'; parsed.labels.push('3 dormitorios');
+      } else if (q.includes('2 dorm') || q.includes('2d') || q.includes('dos dorm') || q.includes('2 hab')) {
+        parsed.bedrooms = '2d'; parsed.labels.push('2 dormitorios');
+      } else if (q.includes('1 dorm') || q.includes('1d') || q.includes('un dorm') || q.includes('monoambiente') || q.includes('1 hab')) {
+        parsed.bedrooms = '1d'; parsed.labels.push('1 dormitorio');
+      }
+
+      // Moneda
+      if (q.includes('usd') || q.includes('dolar') || q.includes('dolares')) {
+        parsed.currency = 'usd'; parsed.labels.push('En USD');
+      } else if (q.includes('pesos') || q.includes('$u') || q.includes('uyu')) {
+        parsed.currency = 'pesos'; parsed.labels.push('En $U');
+      }
+
+      // Atributos y características
+      if (q.includes('mar') || q.includes('costa') || q.includes('playa')) {
+        parsed.feature = 'mar'; parsed.labels.push('Frente al mar');
+      } else if (q.includes('cochera') || q.includes('garage') || q.includes('estacionamiento')) {
+        parsed.feature = 'cochera'; parsed.labels.push('Con cochera');
+      } else if (q.includes('parrillero') || q.includes('barbacoa')) {
+        parsed.feature = 'parrillero'; parsed.labels.push('Con parrillero');
+      } else if (q.includes('estrenar') || q.includes('nueva') || q.includes('nuevo')) {
+        parsed.feature = 'estrenar'; parsed.labels.push('A estrenar');
+      }
+
+      // Estado
+      if (q.includes('disponible') || q.includes('libre')) {
+        parsed.status = 'disponible';
+      } else if (q.includes('alquilado') || q.includes('cerrado')) {
+        parsed.status = 'alquilado';
+      }
+
+      return parsed;
+    }
+
+    // Motor de filtrado
     function filterProperties() {
-      const query = searchInput.value.toLowerCase().trim();
-      let visible = 0;
+      const rawQuery = searchInput.value;
+      const parsed = parseNaturalQuery(rawQuery);
+      let visibleCount = 0;
+
+      // Mostrar/ocultar botón clear
+      clearBtn.style.display = rawQuery.trim().length > 0 ? 'flex' : 'none';
 
       cards.forEach(card => {
-        const status = card.dataset.status;
-        const currency = card.dataset.currency;
-        const bedrooms = card.dataset.bedrooms;
-        const keywords = card.dataset.keywords.toLowerCase();
+        const cStatus = card.dataset.status;
+        const cCurrency = card.dataset.currency;
+        const cBedrooms = card.dataset.bedrooms;
+        const cZone = card.dataset.zone;
+        const cFeatures = card.dataset.features || '';
+        const cKeywords = cleanText(card.dataset.keywords);
 
-        // 1. Filtro de chips
-        let matchesChip = false;
-        if (currentFilter === 'all') matchesChip = true;
-        else if (currentFilter === 'disponible' && status === 'disponible') matchesChip = true;
-        else if (currentFilter === 'alquilado' && status === 'alquilado') matchesChip = true;
-        else if (currentFilter === 'usd' && currency === 'usd') matchesChip = true;
-        else if (currentFilter === 'pesos' && currency === 'pesos') matchesChip = true;
-        else if (currentFilter === '3d' && bedrooms === '3d') matchesChip = true;
-        else if (currentFilter === '2d' && bedrooms === '2d') matchesChip = true;
+        // 1. Filtro del Chip seleccionado
+        let matchChip = false;
+        if (currentChip === 'all') matchChip = true;
+        else if (currentChip === 'disponible' && cStatus === 'disponible') matchChip = true;
+        else if (currentChip === 'alquilado' && cStatus === 'alquilado') matchChip = true;
+        else if (currentChip === 'usd' && cCurrency === 'usd') matchChip = true;
+        else if (currentChip === 'pesos' && cCurrency === 'pesos') matchChip = true;
+        else if (currentChip === 'mar' && cFeatures.includes('mar')) matchChip = true;
+        else if (currentChip === '3d' && cBedrooms === '3d') matchChip = true;
+        else if (currentChip === '2d' && cBedrooms === '2d') matchChip = true;
+        else if (currentChip === '1d' && cBedrooms === '1d') matchChip = true;
 
-        // 2. Filtro de búsqueda por texto
-        let matchesQuery = true;
-        if (query.length > 0) {
-          const terms = query.split(/\s+/);
-          matchesQuery = terms.every(term => keywords.includes(term));
+        // 2. Filtro de la consulta en lenguaje natural
+        let matchQuery = true;
+        if (parsed.tokens.length > 0) {
+          if (parsed.zone && cZone !== parsed.zone) matchQuery = false;
+          if (parsed.bedrooms && cBedrooms !== parsed.bedrooms) matchQuery = false;
+          if (parsed.currency && cCurrency !== parsed.currency) matchQuery = false;
+          if (parsed.feature && !cFeatures.includes(parsed.feature) && !cKeywords.includes(parsed.feature)) matchQuery = false;
+          if (parsed.status && cStatus !== parsed.status) matchQuery = false;
+
+          // Si no se detectó una entidad estructurada, filtrar por coincidencia de términos
+          if (!parsed.zone && !parsed.bedrooms && !parsed.currency && !parsed.feature && !parsed.status) {
+            matchQuery = parsed.tokens.every(token => cKeywords.includes(token));
+          }
         }
 
-        if (matchesChip && matchesQuery) {
+        if (matchChip && matchQuery) {
           card.style.display = 'flex';
-          visible++;
+          visibleCount++;
         } else {
           card.style.display = 'none';
         }
       });
 
-      // Actualizar contador y estado de vacío
-      resultsCount.textContent = 'Mostrando ' + visible + ' de ' + cards.length + ' propiedades';
-      if (visible === 0) {
+      // Actualizar texto de conteo
+      resultsCount.textContent = 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
+
+      // Mostrar retroalimentación de criterio detectado
+      if (parsed.labels.length > 0) {
+        searchFeedback.textContent = '⚡ Criterio activo: ' + parsed.labels.join(' · ');
+      } else {
+        searchFeedback.textContent = '';
+      }
+
+      // Estado sin resultados
+      if (visibleCount === 0) {
         notFoundBox.style.display = 'block';
-        if (query.length > 0) {
-          notFoundWa.href = 'https://wa.me/59898712064?text=' + encodeURIComponent('Hola Mar, busqué en la web de ZAGUÁN: "' + query + '" y no encontré disponibilidad. ¿Tienen algo por entrar en esa línea?');
-        }
       } else {
         notFoundBox.style.display = 'none';
       }
-
-      // Actualizar enlace del botón de WhatsApp en la barra de búsqueda
-      if (query.length > 0) {
-        searchWaBtn.onclick = function() {
-          const url = 'https://wa.me/59898712064?text=' + encodeURIComponent('Hola Mar, busco alquiler anual en Punta del Este / Maldonado con este criterio: ' + query);
-          window.open(url, '_blank');
-        };
-      } else {
-        searchWaBtn.onclick = function() {
-          const filterName = currentFilter === 'all' ? 'la cartera de alquiler anual' : 'las opciones de ' + currentFilter;
-          const url = 'https://wa.me/59898712064?text=' + encodeURIComponent('Hola Mar, consulto desde ZAGUÁN por ' + filterName + '.');
-          window.open(url, '_blank');
-        };
-      }
     }
 
-    // Eventos de chips
+    // Evento de escritura
+    searchInput.addEventListener('input', filterProperties);
+
+    // Limpiar búsqueda
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchInput.focus();
+      filterProperties();
+    });
+
+    // Resetear filtros desde el estado vacío
+    resetBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      chips.forEach(c => c.classList.remove('is-active'));
+      const chipAll = document.querySelector('.chip[data-filter="disponible"]');
+      if (chipAll) {
+        chipAll.classList.add('is-active');
+        currentChip = 'disponible';
+      } else {
+        currentChip = 'all';
+      }
+      filterProperties();
+    });
+
+    // Eventos en chips
     chips.forEach(chip => {
       chip.addEventListener('click', function() {
         chips.forEach(c => c.classList.remove('is-active'));
         this.classList.add('is-active');
-        currentFilter = this.dataset.filter;
+        currentChip = this.dataset.filter;
         filterProperties();
       });
     });
-
-    // Evento de tipear en el buscador
-    searchInput.addEventListener('input', filterProperties);
   });
   </script>
+
 </body>
 </html>
