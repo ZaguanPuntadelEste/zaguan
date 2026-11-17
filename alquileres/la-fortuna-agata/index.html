@@ -59,28 +59,136 @@
     a { color: inherit; text-decoration: none; }
     .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
-    /* Header (Diferenciado y compacto en mobile para evitar wrap) */
-    .site-header {
-      background: #0D2230;
-      border-bottom: 1px solid rgba(243, 240, 232, 0.18);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-      position: sticky;
-      top: 0;
+        /* Header Oficial ZAGUÁN (Con PNG de marca y transición de color al scrollear) */
+    #site-header {
+      position: fixed;
       z-index: 100;
-      backdrop-filter: blur(12px);
-      padding: 14px 0;
+      inset: 0 0 auto;
+      background: rgba(8, 21, 33, 0.98);
+      color: #f3f0e8;
+      border-bottom: 1px solid rgba(243, 240, 232, 0.18);
+      transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
-    .header-inner { display: flex; align-items: center; justify-content: space-between; }
-    .logo-text { font-family: 'Archivo', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.08em; color: var(--bone); }
-    .header-nav { display: flex; gap: 18px; align-items: center; }
-    .nav-link { font-size: 14px; font-weight: 500; color: var(--muted); transition: color 0.2s; white-space: nowrap; }
-    .nav-link:hover { color: var(--bone); }
-    @media (max-width: 640px) {
-      .site-header { padding: 10px 0; }
-      .logo-text { font-size: 18px; letter-spacing: 0.05em; }
-      .header-nav { gap: 10px; }
-      .nav-link { font-size: 12px; }
+    #site-header .header-inner {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+      padding: 0;
+      transition: min-height 180ms ease;
     }
+    #site-header .brand {
+      display: inline-flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    #site-header .brand-logo {
+      width: auto;
+      height: 32px;
+      object-fit: contain;
+      display: block;
+    }
+    #site-header .brand-logo--white { display: block; }
+    #site-header .brand-logo--black { display: none; }
+    #site-header .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    #site-header .main-nav a {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.09em;
+      text-decoration: none;
+      text-transform: uppercase;
+      color: rgba(243, 240, 232, 0.85);
+      position: relative;
+      padding: 8px 0;
+      white-space: nowrap;
+      transition: color 180ms ease;
+    }
+    #site-header .main-nav a:hover { color: #f3f0e8; }
+    #site-header .menu-toggle {
+      display: none;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+    #site-header .menu-toggle span {
+      display: block;
+      width: 23px;
+      height: 1px;
+      margin: 6px auto;
+      background: currentColor;
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+    #site-header .mobile-menu { display: none; }
+
+    /* Estado Scrolleado Oficial de ZAGUÁN (Fondo Hueso #F3F0E8 + Logo PNG Negro) */
+    #site-header.is-scrolled {
+      background: rgba(243, 240, 232, 0.96);
+      color: #081521;
+      box-shadow: 0 4px 22px rgba(8, 21, 33, 0.08);
+      border-color: #cdd0c9;
+      backdrop-filter: blur(14px);
+    }
+    #site-header.is-scrolled .header-inner { min-height: 70px; }
+    #site-header.is-scrolled .brand-logo--white { display: none; }
+    #site-header.is-scrolled .brand-logo--black { display: block; }
+    #site-header.is-scrolled .main-nav a { color: #081521; }
+    #site-header.is-scrolled .main-nav a:hover { opacity: 0.75; }
+
+    @media (max-width: 900px) {
+      #site-header .header-inner { min-height: 74px; }
+      #site-header .main-nav { display: none; }
+      #site-header .menu-toggle { display: block; }
+      #site-header.menu-open {
+        background: #f3f0e8;
+        color: #081521;
+        box-shadow: 0 4px 22px rgba(8, 21, 33, 0.08);
+        border-color: #cdd0c9;
+      }
+      #site-header.menu-open .brand-logo--white { display: none; }
+      #site-header.menu-open .brand-logo--black { display: block; }
+      #site-header.menu-open .menu-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #site-header.menu-open .menu-toggle span:nth-child(2) { opacity: 0; }
+      #site-header.menu-open .menu-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      #site-header.menu-open .mobile-menu {
+        display: block;
+        max-height: calc(100dvh - 74px);
+        overflow-y: auto;
+        background: #f3f0e8;
+        border-bottom: 1px solid #cdd0c9;
+      }
+      #site-header .mobile-menu-inner { padding: 22px 20px 28px; }
+      #site-header .mobile-menu a {
+        display: block;
+        padding: 13px 0;
+        font-family: 'Archivo', sans-serif;
+        font-size: 19px;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        text-decoration: none;
+        color: #081521;
+        border-bottom: 1px solid rgba(8, 21, 33, 0.08);
+      }
+    }
+
+    main.container {
+      padding-top: 96px;
+    }
+    @media (max-width: 900px) {
+      main.container {
+        padding-top: 84px;
+      }
+    }
+
 
     /* Breadcrumbs */
     .breadcrumbs {
@@ -492,16 +600,31 @@
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTKLTW5T" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-  <!-- Header -->
-  <header class="site-header">
+    <!-- Header Oficial ZAGUÁN (Con PNG de marca y cambio de fondo al scrollear) -->
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="/" class="logo-text">ZAGUÁN</a>
-      <nav class="header-nav">
-        <a href="/proyectos/" class="nav-link">Pozo & Proyectos</a>
-        <a href="/alquiloanual/" class="nav-link">Alquiler Anual</a>
-        <a href="/novedades-del-este/" class="nav-link">Guías del Este</a>
+      <a class="brand" href="/" aria-label="ZAGUÁN, inicio">
+        <img class="brand-logo brand-logo--white" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
+        <img class="brand-logo brand-logo--black" src="/assets/brand/zaguan-black.png" alt="ZAGUÁN">
+      </a>
+      <nav class="main-nav" aria-label="Navegación principal">
+        <a href="/proyectos/">Proyectos</a>
+        <a href="/alquiloanual/">Alquiler Anual</a>
+        <a href="/novedades-del-este/">Novedades del Este</a>
+        <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20el%20apartamento%20en%20La%20Fortuna%20(%24U%2030.000)%20y%20quiero%20consultar." target="_blank" rel="noopener noreferrer">Contactanos por WhatsApp</a>
       </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+      <div class="container mobile-menu-inner">
+        <a href="/proyectos/">Proyectos</a>
+        <a href="/alquiloanual/">Alquiler Anual</a>
+        <a href="/novedades-del-este/">Novedades del Este</a>
+        <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20el%20apartamento%20en%20La%20Fortuna%20(%24U%2030.000)%20y%20quiero%20consultar." target="_blank" rel="noopener noreferrer">Contactanos por WhatsApp</a>
+      </div>
+    </nav>
   </header>
 
   <main class="container">
@@ -824,5 +947,6 @@
       }
     }
   </script>
+  <script src="/assets/js/novedades-header.js" defer></script>
 </body>
 </html>
