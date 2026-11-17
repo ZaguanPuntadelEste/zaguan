@@ -605,10 +605,18 @@
       "url": "https://www.facebook.com/marketplace/item/2047419319302658/",
       "nota_auditoria": "Perfil particular en El Tesoro; descripción indica 'contrato anual tratar 099838963'.",
       "mensaje_mar": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apartamento en alquiler anual en El Tesoro, La Barra ($U 28.000). Trabajamos con autorización abierta sin exclusividad (seguís ofreciéndolo libremente) y filtrando inquilinos con garantía aseguradora aprobada. ¿Sigue disponible para tenerlo en cartera?",
-      "estado_envio": "enviado_1",
+      "estado_envio": "respondio",
       "seguimiento_72h": "Hola Rosario, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en El Tesoro (a 300m del Puente), La Barra, Maldonado. Avisame si sigue disponible y querés sumarla a la cartera sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "ts_envio_1": 1794932182680,
-      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp"
+      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
+      "respuesta_recibida": "SI SIGUE EN ALQILER ESTAMOS TERMINANDO DETALLES DE JARDIN.",
+      "fecha_respuesta": "17/11 16:47",
+      "datos_aviso_verificados": {
+        "calle": "Juana de América a 300 m del Puente de La Barra, El Tesoro",
+        "capacidad": "Para 2 personas (sin muebles)",
+        "precio_aviso": " 28.000 / mes",
+        "condicion_aviso": "Lugar tranquilo y cerrado, 2 meses adelantado"
+      }
     },
     {
       "id": "MP-19",
