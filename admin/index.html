@@ -1575,6 +1575,7 @@ function renderGlobalSearch() {
         ${renderReplyLoaderBox(c.id, c.nombre, c.operacion, c.telefono, c.rawItem, 'global')}
         <div class="btn-row" style="margin-top:6px;">
           ${waHref ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank" rel="noopener noreferrer">📲 Abrir su chat en WhatsApp (+${c.telefono})</a>` : ''}
+          ${c.rawItem && c.rawItem.url ? `<a class="btn btn-email btn-sm" href="${c.rawItem.url}" target="_blank" rel="noopener noreferrer">📘 Ver Publicación Original en Marketplace ↗</a>` : ''}
         </div>
       </div>
     `;
