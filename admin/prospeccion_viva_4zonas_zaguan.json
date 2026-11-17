@@ -637,10 +637,12 @@
       "url": "https://www.facebook.com/marketplace/item/1544044820864840/",
       "nota_auditoria": "Perfil auditado con 1 sola publicación; título explícito DUEÑO ALQUILA – GALPÓN y celular 099 041 618 en descripción.",
       "mensaje_mar": "Hola Nacho, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu galpón en alquiler directo sobre Ruta 39 ($U 45.000). Comercializamos inmuebles y locales con autorización abierta sin exclusividad (cero costo para vos salvo que traigamos al inquilino calificado). Si sigue disponible, ¿te sirve que lo incorporemos a la cartera de empresas que nos consultan?",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Nacho, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Cerca de Ruta 39, Maldonado. Avisame si sigue disponible y querés sumarla a la cartera sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "ts_envio_1": 1794932182680,
-      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp"
+      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
+      "respuesta_recibida": "YA SE ALQUILÓ, GRACIAS",
+      "fecha_respuesta": "17/11 13:20 · Ya se alquiló"
     }
   ]
 }
