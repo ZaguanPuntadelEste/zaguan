@@ -1,0 +1,54 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//ZAGUAN//Calendario Operativo Comercial//ES
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Zaguán - Agenda Comercial
+X-WR-TIMEZONE:America/Montevideo
+
+BEGIN:VEVENT
+UID:zaguan-cron-auditoria-72h@zaguanpropiedades.com
+DTSTAMP:20261117T120000Z
+DTSTART;TZID=America/Montevideo:20261120T090000
+RRULE:FREQ=WEEKLY;BYDAY=MO,TH
+SUMMARY:🏢 Zaguán: Auditoría Comercial 72 hs (IMAP + WhatsApp)
+DESCRIPTION:Revisar respuestas de desarrolladoras en IMAP (puntadeleste@zaguanpropiedades.com) y dueños en WhatsApp. Frenar recordatorios de quienes respondieron y evaluar seguimiento único a pendientes.
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio Auditoría Zaguán
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:zaguan-cron-seo-geo-semanal@zaguanpropiedades.com
+DTSTAMP:20261117T120000Z
+DTSTART;TZID=America/Montevideo:20261120T110000
+RRULE:FREQ=WEEKLY;BYDAY=TH
+SUMMARY:🚀 Zaguán: Publicación Semanal SEO/GEO (Novedades del Este)
+DESCRIPTION:Revisar guía publicada en zaguanpropiedades.com/novedades-del-este/, chequear sitemap.xml, llms.txt y piezas derivadas en Aprobalo Cloud.
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio SEO Zaguán
+END:VALARM
+END:VEVENT
+
+BEGIN:VEVENT
+UID:zaguan-cron-prospeccion-duenos@zaguanpropiedades.com
+DTSTAMP:20261117T120000Z
+DTSTART;TZID=America/Montevideo:20261119T100000
+RRULE:FREQ=WEEKLY;BYDAY=TU,TH
+SUMMARY:📱 Zaguán: Tanda de Prospección Dueños Directos
+DESCRIPTION:Abrir https://zaguanpropiedades.com/admin/ y enviar nueva tanda de mensajes de WhatsApp a dueños directos verificados en alquiler anual o venta.
+STATUS:CONFIRMED
+BEGIN:VALARM
+TRIGGER:-PT15M
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio Prospección Zaguán
+END:VALARM
+END:VEVENT
+
+END:VCALENDAR
