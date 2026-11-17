@@ -35,7 +35,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* Ajustes específicos para el catálogo de alquileres sobre portadas.css */
     body {
       background: #081521;
       color: #F5F7FA;
@@ -176,21 +175,27 @@
       border-color: rgba(243, 240, 232, 0.35);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
     }
-    .rental-card-media {
+    
+    /* Enlace contenedor de imagen */
+    .rental-card-media-link {
+      display: block;
       position: relative;
       aspect-ratio: 16 / 10;
       overflow: hidden;
       background: #05090D;
+      text-decoration: none;
+      cursor: pointer;
     }
-    .rental-card-media img {
+    .rental-card-media-link img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.35s ease;
     }
-    .rental-card:hover .rental-card-media img {
+    .rental-card:hover .rental-card-media-link img {
       transform: scale(1.03);
     }
+    
     .rental-badge {
       position: absolute;
       top: 14px;
@@ -204,6 +209,7 @@
       padding: 4px 10px;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 2;
     }
     .rental-badge--green {
       position: absolute;
@@ -216,6 +222,7 @@
       padding: 4px 10px;
       border-radius: 6px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 2;
     }
 
     /* Recién alquiladas */
@@ -224,7 +231,7 @@
       border-color: rgba(243, 240, 232, 0.08);
       background: rgba(18, 59, 74, 0.55);
     }
-    .rental-card--rented .rental-card-media img {
+    .rental-card--rented .rental-card-media-link img {
       filter: brightness(0.68) saturate(0.8);
     }
     .rental-badge--rented {
@@ -241,6 +248,7 @@
       padding: 5px 11px;
       border-radius: 6px;
       backdrop-filter: blur(8px);
+      z-index: 2;
     }
 
     .rental-card-body {
@@ -263,11 +271,21 @@
       color: #A3B3C2;
       font-family: 'Inter', sans-serif;
     }
+    .rental-title-link {
+      text-decoration: none;
+      color: #F3F0E8;
+    }
+    .rental-title-link:hover h3 {
+      color: #FFFFFF;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
     .rental-title {
       font-size: 20px;
       font-weight: 700;
       color: #F3F0E8;
       margin-bottom: 10px;
+      line-height: 1.25;
     }
     .rental-desc {
       font-size: 14px;
@@ -344,7 +362,7 @@
       border-color: #F3F0E8;
     }
 
-    /* Caja cuando no encuentra resultados */
+    /* Caja sin resultados */
     .not-found-box {
       display: none;
       background: #123B4A;
@@ -586,15 +604,17 @@
           
           <!-- 1. La Brava · USD 1.700 (Disponible) -->
           <article class="rental-card" data-status="disponible" data-currency="usd" data-bedrooms="3d" data-keywords="la brava parada 8 mar frente al mar 3 dormitorios 2 baños 2 cocheras amenities piscina gym usd 1700">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para apartamento en La Brava">
               <img src="/assets/images/eve-tower/2-dormitorios-1.jpg" alt="Living y balcón con vista al mar en La Brava" loading="lazy">
               <span class="rental-badge">Parada 8 · Playa Brava</span>
               <span class="rental-badge--green">Frente al mar</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">USD 1.700 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento de 3 dormitorios con balcón al mar y 2 cocheras</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%203D%20en%20La%20Brava%20(USD%201.700)." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Apartamento de 3 dormitorios con balcón al mar y 2 cocheras</h3>
+                </a>
                 <p class="rental-desc">Torre de categoría a pasos del mar. Gran living comedor con ventanales de piso a techo, cocina definida, suite principal con vestidor, 2 cocheras fijas techadas. Amenities completos (piscina climatizada in/out, microcine, gimnasio). Gastos comunes incluidos en el valor.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>3</strong></div>
@@ -613,15 +633,17 @@
 
           <!-- 2. Roosevelt / Cantegril · $U 70.000 (Disponible) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="roosevelt cantegril a estrenar 2 dormitorios suite parrillero balcon cochera piscina climatizada barbacoa 70000 pesos">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para apartamento en Roosevelt">
               <img src="/assets/images/golden-rise/2-dormitorios-1.jpg" alt="Piso alto a estrenar en Roosevelt y Salt Lake" loading="lazy">
               <span class="rental-badge">Av. Roosevelt · Cantegril</span>
               <span class="rental-badge--green">A estrenar</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 70.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Piso alto a estrenar de 2 dormitorios con suite y parrillero</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20apartamento%20de%202D%20en%20Roosevelt%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Piso alto a estrenar de 2 dormitorios con suite y parrillero</h3>
+                </a>
                 <p class="rental-desc">Av. Roosevelt y Salt Lake. Torre de diseño con terminaciones premium, amplio balcón aterrazado con parrillero propio, cocina equipada con anafe y horno empotrado, cochera fija en subsuelo. Barbacoas panorámicas y piscina climatizada.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2 (1 en suite)</strong></div>
@@ -640,15 +662,17 @@
 
           <!-- 3. La Mansa · $U 70.000 (Disponible) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 24hs 70000 pesos">
-            <div class="rental-card-media">
-              <img src="/assets/images/more-atlantico/proyecto-2.jpg" alt="Apartamento de 2 dormitorios a pasos de La Mansa" loading="lazy">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para semipiso en La Mansa">
+              <img src="/assets/images/golden-rise/2-dormitorios-2.jpg" alt="Interior de semipiso de 2 dormitorios a pasos de La Mansa" loading="lazy">
               <span class="rental-badge">Parada 16 · Playa Mansa</span>
               <span class="rental-badge--green">A pasos del mar</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 70.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Semipiso de 2 dormitorios con terraza y cochera</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20semipiso%20en%20La%20Mansa%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Semipiso de 2 dormitorios con terraza y cochera</h3>
+                </a>
                 <p class="rental-desc">Excelente orientación solar a 150 metros del mar. Dos dormitorios con placares empotrados, living apaisado muy luminoso, cocina moderna con isla integrada, cochera individual techada. Edificio residencial de baja densidad con seguridad 24 hs.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2 amplios</strong></div>
@@ -665,17 +689,19 @@
             </div>
           </article>
 
-          <!-- 4. Maldonado Centro Residencial · $U 70.000 (Disponible) -->
+          <!-- 4. Maldonado Centro Residencial · $U 70.000 (Disponible) - Foto interior de cocina y living -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="3d" data-keywords="maldonado centro residencial 3 dormitorios piso exclusivo losa radiante dvh doble cochera a estrenar 70000 pesos">
-            <div class="rental-card-media">
-              <img src="/assets/images/nostrum-roosevelt/proyecto-2.jpg" alt="Piso exclusivo en Maldonado centro residencial" loading="lazy">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer" aria-label="Ver y coordinar visita para piso en Maldonado">
+              <img src="/assets/images/golden-rise/2-dormitorios-3.jpg" alt="Interior moderno de piso de 3 dormitorios a estrenar en Maldonado" loading="lazy">
               <span class="rental-badge">Zona residencial · Maldonado</span>
               <span class="rental-badge--green">A estrenar</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 70.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Piso exclusivo de 3 dormitorios a estrenar con doble cochera</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20coordinar%20visita%20para%20el%20piso%20de%203D%20en%20Maldonado%20(%24U%2070.000)." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Piso exclusivo de 3 dormitorios a estrenar con doble cochera</h3>
+                </a>
                 <p class="rental-desc">Unidad independiente en edificio de categoría. Tres dormitorios con excelentes dimensiones, estar comedor principal, losa radiante individual, aberturas de doble vidrio hermético (DVH), balcón terraza y 2 lugares de estacionamiento.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>3</strong></div>
@@ -692,17 +718,19 @@
             </div>
           </article>
 
-          <!-- 5. La Fortuna · $U 30.000 (Disponible) -->
+          <!-- 5. La Fortuna · $U 30.000 (Ficha real) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="la fortuna maldonado av agata san pablo 2 dormitorios a estrenar balcon cochera fija gastos comunes incluidos internet wifi 30000 pesos">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="/alquileres/la-fortuna-agata/" aria-label="Ver ficha completa de apartamento en La Fortuna">
               <img src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Apartamento 2 dormitorios a estrenar en La Fortuna" loading="lazy">
               <span class="rental-badge">La Fortuna · Maldonado</span>
               <span class="rental-badge--green">A estrenar</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 30.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento de 2 dormitorios con cochera fija</h3>
+                <a class="rental-title-link" href="/alquileres/la-fortuna-agata/">
+                  <h3 class="rental-title">Apartamento de 2 dormitorios con cochera fija</h3>
+                </a>
                 <p class="rental-desc">Sobre Av. Ágata a 300 m de San Pablo. Balcón al frente, cocina con placares y campana, cochera numerada propia. Incluye gastos comunes e internet wifi de alta velocidad.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2</strong></div>
@@ -720,17 +748,19 @@
             </div>
           </article>
 
-          <!-- 6. El Tesoro · $U 28.000 (Disponible) -->
+          <!-- 6. El Tesoro · $U 28.000 (Ficha real) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-keywords="el tesoro la barra juana de america puente la barra 2 personas deck techado jardin parrillero sin expensas 28000 pesos">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro">
               <img src="/assets/images/propiedades/el-tesoro-rosario/foto_01.jpg" alt="Apartamento con deck techado en El Tesoro, La Barra" loading="lazy">
               <span class="rental-badge">El Tesoro · La Barra</span>
               <span class="rental-badge--green">Sin expensas</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price">$U 28.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento para 2 personas con deck y jardín</h3>
+                <a class="rental-title-link" href="/alquileres/el-tesoro-juana-de-america/">
+                  <h3 class="rental-title">Apartamento para 2 personas con deck y jardín</h3>
+                </a>
                 <p class="rental-desc">Calle Juana de América, a 300 m del Puente de La Barra. Cocina equipada, deck exterior techado, parrillero individual y jardín cercado. Cero gastos comunes.</p>
                 <div class="specs-list">
                   <div class="spec-item">Capacidad: <strong>Hasta 2 personas</strong></div>
@@ -750,15 +780,17 @@
 
           <!-- 7. La Brava · USD 2.000 (Alquilado con Zaguán) -->
           <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="3d" data-keywords="la brava parada 4 penthouse 3 dormitorios suite terraza al mar parrillero servicio de playa usd 2000 alquilado">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar%20por%20entrar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar al penthouse en La Brava">
               <img src="/assets/images/eve-tower/2-dormitorios-2.jpg" alt="Penthouse de 3 dormitorios en La Brava" loading="lazy">
               <span class="rental-badge">Parada 4 · Playa Brava</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price" style="opacity:0.85;">USD 2.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Penthouse de 3 dormitorios con terraza privada al mar</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar%20por%20entrar." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Penthouse de 3 dormitorios con terraza privada al mar</h3>
+                </a>
                 <p class="rental-desc">3 dormitorios en suite, toilette, terraza de 45 m² con parrillero, 2 cocheras. Edificio con servicio de playa y amenities completos.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>3 en suite</strong></div>
@@ -773,15 +805,17 @@
 
           <!-- 8. La Brava · USD 2.000 (Alquilado con Zaguán) -->
           <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="2d" data-keywords="rambla brava parada 10 frente al oceano 2 dormitorios suite cocina isla cochera doble usd 2000 alquilado">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento frente al mar">
               <img src="/assets/images/eve-tower/2-dormitorios-3.jpg" alt="Apartamento de 2 dormitorios en suite frente al mar" loading="lazy">
               <span class="rental-badge">Rambla Brava · Parada 10</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price" style="opacity:0.85;">USD 2.000 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento de 2 dormitorios en suite frente al mar</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Apartamento de 2 dormitorios en suite frente al mar</h3>
+                </a>
                 <p class="rental-desc">Living apaisado frente al océano, cocina de chef con isla, 2 suites, cochera doble. Amenities de primera línea.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2 en suite</strong></div>
@@ -796,15 +830,17 @@
 
           <!-- 9. La Mansa · USD 900 (Alquilado con Zaguán) -->
           <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-keywords="la mansa parada 12 1 dormitorio suite balcon cocina americana cochera techada piscina usd 900 alquilado">
-            <div class="rental-card-media">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Mansa%20(USD%20900)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en La Mansa">
               <img src="/assets/images/golden-rise/1-dormitorio-1.jpg" alt="Apartamento de 1 dormitorio en La Mansa" loading="lazy">
               <span class="rental-badge">Parada 12 · Playa Mansa</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price" style="opacity:0.85;">USD 900 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento de 1 dormitorio con balcón y vista lateral</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Mansa%20(USD%20900)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Apartamento de 1 dormitorio con balcón y vista lateral</h3>
+                </a>
                 <p class="rental-desc">1 dormitorio en suite, living comedor luminoso, cocina americana, cochera techada. Edificio con piscina y vigilancia.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>1 en suite</strong></div>
@@ -817,17 +853,19 @@
             </div>
           </article>
 
-          <!-- 10. Maldonado residencial · USD 550 (Alquilado con Zaguán) -->
+          <!-- 10. Maldonado residencial · USD 550 (Alquilado con Zaguán) - Foto interior de dormitorio -->
           <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="1d" data-keywords="maldonado zona residencial 1 dormitorio a estrenar balcon parrillero cochera fija usd 550 alquilado">
-            <div class="rental-card-media">
-              <img src="/assets/images/nostrum-roosevelt/proyecto-1.jpg" alt="Apartamento de 1 dormitorio en Maldonado residencial" loading="lazy">
+            <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Maldonado%20(USD%20550)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en Maldonado">
+              <img src="/assets/images/golden-rise/1-dormitorio-3.jpg" alt="Interior de apartamento de 1 dormitorio en Maldonado residencial" loading="lazy">
               <span class="rental-badge">Zona residencial · Maldonado</span>
               <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
-            </div>
+            </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-price" style="opacity:0.85;">USD 550 <small>/ mes</small></div>
-                <h3 class="rental-title">Apartamento de 1 dormitorio a estrenar con cochera</h3>
+                <a class="rental-title-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Maldonado%20(USD%20550)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer">
+                  <h3 class="rental-title">Apartamento de 1 dormitorio a estrenar con cochera</h3>
+                </a>
                 <p class="rental-desc">1 dormitorio, baño completo, balcón con parrillero individual, cochera fija. Bajos gastos comunes en edificio residencial.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>1</strong></div>
