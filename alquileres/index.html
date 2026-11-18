@@ -2,7 +2,7 @@
 <html lang="es-UY">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <title>Alquileres anuales en Punta del Este y Maldonado | ZAGUÁN Propiedades</title>
   <meta name="description" content="Cartera seleccionada de apartamentos y casas en alquiler anual en Punta del Este y Maldonado. Unidades a estrenar, primera línea frente al mar y opciones residenciales para vivir todo el año.">
   <link rel="canonical" href="https://zaguanpropiedades.com/alquileres/">
@@ -23,20 +23,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden !important;
+      margin: 0;
+      padding: 0;
       background: #081521;
       color: #F5F7FA;
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      margin: 0;
-      padding: 0;
       -webkit-font-smoothing: antialiased;
+    }
+
+    /* Header Mobile Alignment */
+    #site-header {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+    #site-header .container.header-inner {
+      padding: 0 20px !important;
+      width: 100%;
+      max-width: 1200px;
+      box-sizing: border-box;
     }
 
     .container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 20px;
       box-sizing: border-box;
     }
 
@@ -45,10 +65,13 @@
       padding: 130px 0 32px;
       background: linear-gradient(180deg, rgba(8, 21, 33, 0.95) 0%, rgba(18, 59, 74, 0.3) 100%);
       border-bottom: 1px solid rgba(243, 240, 232, 0.1);
+      width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
     }
     .rentals-hero h1 {
       font-family: 'Archivo', sans-serif;
-      font-size: clamp(32px, 5vw, 48px);
+      font-size: clamp(30px, 5vw, 48px);
       font-weight: 800;
       color: #F3F0E8;
       margin: 0 0 12px;
@@ -56,32 +79,37 @@
       line-height: 1.15;
     }
     .rentals-hero-sub {
-      font-size: clamp(15px, 2vw, 17px);
+      font-size: clamp(14px, 2vw, 17px);
       line-height: 1.55;
       color: #A3B3C2;
       max-width: 720px;
-      margin: 0 0 28px;
+      margin: 0 0 24px;
     }
 
     /* Buscador IA-First & Filtro Natural */
     .search-filter-box {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
       background: rgba(18, 59, 74, 0.45);
       border: 1px solid rgba(243, 240, 232, 0.18);
       border-radius: 16px;
       padding: 16px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
+      overflow: hidden;
     }
     .search-bar-ai {
       position: relative;
       display: flex;
       align-items: center;
       width: 100%;
+      box-sizing: border-box;
     }
     .search-icon-ai {
       position: absolute;
-      left: 16px;
+      left: 14px;
       color: #A3B3C2;
       display: flex;
       align-items: center;
@@ -92,8 +120,8 @@
       background: rgba(8, 21, 33, 0.85);
       border: 1px solid rgba(243, 240, 232, 0.22);
       color: #F3F0E8;
-      padding: 14px 44px 14px 46px;
-      font-size: 15px;
+      padding: 13px 40px 13px 42px;
+      font-size: 14px;
       font-family: 'Inter', sans-serif;
       border-radius: 10px;
       outline: none;
@@ -110,7 +138,7 @@
     }
     .search-clear-btn {
       position: absolute;
-      right: 12px;
+      right: 10px;
       background: rgba(243, 240, 232, 0.15);
       border: none;
       color: #F3F0E8;
@@ -129,30 +157,34 @@
       background: rgba(243, 240, 232, 0.3);
     }
 
-    /* Chips de filtro rápido scrollable */
+    /* Chips de filtro rápido con scroll horizontal encapsulado */
     .filter-chips-wrapper {
-      margin-top: 14px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      margin-top: 12px;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
+      padding-bottom: 4px;
     }
     .filter-chips-wrapper::-webkit-scrollbar {
       display: none;
     }
     .filter-chips {
-      display: flex;
+      display: inline-flex;
       gap: 8px;
       white-space: nowrap;
-      min-width: max-content;
-      padding-bottom: 2px;
+      min-width: min-content;
+      box-sizing: border-box;
     }
     .chip {
       background: rgba(8, 21, 33, 0.65);
       border: 1px solid rgba(243, 240, 232, 0.2);
       color: #A3B3C2;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 600;
-      padding: 7px 14px;
+      padding: 6px 12px;
       border-radius: 20px;
       cursor: pointer;
       user-select: none;
@@ -175,12 +207,13 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      font-size: 13px;
+      gap: 6px;
+      font-size: 12.5px;
       color: #A3B3C2;
-      margin-top: 16px;
-      padding-top: 14px;
+      margin-top: 14px;
+      padding-top: 12px;
       border-top: 1px solid rgba(243, 240, 232, 0.08);
+      box-sizing: border-box;
     }
     .results-count-text {
       font-weight: 600;
@@ -193,10 +226,19 @@
     }
 
     /* Grilla de propiedades */
+    .rentals-section {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding: 24px 0 80px;
+    }
     .rentals-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 28px;
+      gap: 24px;
+      width: 100%;
+      box-sizing: border-box;
     }
     .rental-card {
       background: #123B4A;
@@ -206,6 +248,7 @@
       display: flex;
       flex-direction: column;
       transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      box-sizing: border-box;
     }
     .rental-card:hover {
       transform: translateY(-4px);
@@ -222,12 +265,14 @@
       background: #05090D;
       text-decoration: none;
       cursor: pointer;
+      box-sizing: border-box;
     }
     .rental-card-media-link img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 0.35s ease;
+      display: block;
     }
     .rental-card:hover .rental-card-media-link img {
       transform: scale(1.03);
@@ -235,13 +280,13 @@
     
     .rental-badge {
       position: absolute;
-      top: 14px;
-      left: 14px;
-      background: rgba(8, 21, 33, 0.88);
+      top: 12px;
+      left: 12px;
+      background: rgba(8, 21, 33, 0.9);
       color: #F3F0E8;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 6px;
@@ -250,8 +295,8 @@
     }
     .rental-badge--green {
       position: absolute;
-      top: 14px;
-      right: 14px;
+      top: 12px;
+      right: 12px;
       background: rgba(18, 59, 74, 0.95);
       color: #C5A059;
       border: 1px solid rgba(197, 160, 89, 0.4);
@@ -264,42 +309,46 @@
       z-index: 2;
     }
 
-    /* Recién alquiladas */
+    /* Rediseño sobrio de propiedades alquiladas (cero choque visual) */
     .rental-card--rented {
-      opacity: 0.88;
-      border-color: rgba(243, 240, 232, 0.08);
-      background: rgba(18, 59, 74, 0.55);
+      opacity: 0.92;
+      border-color: rgba(243, 240, 232, 0.1);
+      background: rgba(18, 59, 74, 0.6);
     }
     .rental-card--rented .rental-card-media-link img {
-      filter: brightness(0.68) saturate(0.8);
+      filter: grayscale(0.55) brightness(0.72);
     }
-    .rental-badge--rented {
+    .rental-rented-ribbon {
       position: absolute;
-      top: 14px;
-      right: 14px;
+      bottom: 0;
+      left: 0;
+      right: 0;
       background: rgba(8, 21, 33, 0.94);
       color: #F3F0E8;
-      border: 1px solid rgba(243, 240, 232, 0.3);
+      border-top: 1px solid rgba(243, 240, 232, 0.18);
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 5px 11px;
-      border-radius: 6px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
       backdrop-filter: blur(8px);
       z-index: 2;
     }
 
     .rental-card-body {
-      padding: 24px;
+      padding: 22px;
       display: flex;
       flex-direction: column;
       flex: 1;
       justify-content: space-between;
+      box-sizing: border-box;
     }
     .rental-price {
       font-family: 'Archivo', sans-serif;
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 800;
       color: #F3F0E8;
       margin-bottom: 6px;
@@ -323,26 +372,26 @@
       text-underline-offset: 4px;
     }
     .rental-title {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       color: #F3F0E8;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       line-height: 1.25;
     }
     .rental-desc {
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.5;
       color: #C0CCD6;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .specs-list {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 8px 14px;
-      font-size: 13px;
+      gap: 8px 12px;
+      font-size: 12.5px;
       color: #A3B3C2;
-      margin-bottom: 22px;
-      padding: 12px 0;
+      margin-bottom: 20px;
+      padding: 10px 0;
       border-top: 1px solid rgba(243, 240, 232, 0.08);
       border-bottom: 1px solid rgba(243, 240, 232, 0.08);
     }
@@ -361,7 +410,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 12px 16px;
+      padding: 12px 14px;
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.05em;
@@ -370,6 +419,7 @@
       text-decoration: none;
       transition: all 180ms ease;
       cursor: pointer;
+      box-sizing: border-box;
     }
     .btn-action--primary {
       background: #F3F0E8;
@@ -405,81 +455,69 @@
       background: #123B4A;
       border: 1px solid rgba(243, 240, 232, 0.18);
       border-radius: 16px;
-      padding: 36px 24px;
+      padding: 32px 20px;
       text-align: center;
       margin: 20px 0;
+      box-sizing: border-box;
     }
     .not-found-icon {
-      font-size: 32px;
-      margin-bottom: 12px;
+      font-size: 30px;
+      margin-bottom: 10px;
     }
     .not-found-box h3 {
-      font-size: 20px;
+      font-size: 19px;
       color: #F3F0E8;
-      margin: 0 0 10px;
+      margin: 0 0 8px;
     }
     .not-found-box p {
       color: #A3B3C2;
-      font-size: 14px;
+      font-size: 13.5px;
       line-height: 1.5;
-      max-width: 580px;
-      margin: 0 auto 20px;
+      max-width: 540px;
+      margin: 0 auto 18px;
     }
 
     /* Banner para propietarios */
     .owners-banner {
-      margin-top: 50px;
+      margin-top: 48px;
       background: linear-gradient(135deg, rgba(18, 59, 74, 0.8) 0%, rgba(8, 21, 33, 0.95) 100%);
       border: 1px solid rgba(197, 160, 89, 0.35);
       border-radius: 16px;
-      padding: 32px;
+      padding: 28px 20px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
+      box-sizing: border-box;
     }
     .owners-banner-text h3 {
-      font-size: 20px;
+      font-size: 19px;
       color: #F3F0E8;
       margin: 0 0 6px;
     }
     .owners-banner-text p {
       color: #A3B3C2;
-      font-size: 14px;
+      font-size: 13.5px;
       margin: 0;
-      max-width: 620px;
-    }
-
-    /* Barra fija móvil */
-    .mobile-sticky-bar {
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(8, 21, 33, 0.97);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid rgba(243, 240, 232, 0.16);
-      padding: 12px 18px;
-      z-index: 99;
+      max-width: 600px;
     }
 
     /* Responsive */
     @media (max-width: 900px) {
       .rentals-grid { grid-template-columns: 1fr; }
-      .rentals-hero { padding: 110px 0 28px; }
+      .rentals-hero { padding: 110px 0 24px; }
     }
     @media (max-width: 600px) {
-      .rental-card-body { padding: 18px; }
-      .rental-price { font-size: 26px; }
-      .rental-title { font-size: 18px; }
+      .container { padding: 0 16px; }
+      #site-header .container.header-inner { padding: 0 16px !important; }
+      .rental-card-body { padding: 16px; }
+      .rental-price { font-size: 24px; }
+      .rental-title { font-size: 17px; }
       .specs-list { grid-template-columns: 1fr; }
       .rental-actions { flex-direction: column; }
-      .btn-action { width: 100%; min-height: 48px; }
-      .mobile-sticky-bar { display: block; }
-      .owners-banner { padding: 22px 16px; }
+      .btn-action { width: 100%; min-height: 46px; }
+      .owners-banner { padding: 20px 16px; }
     }
   </style>
 
@@ -515,7 +553,7 @@
           {
             "@type": "ListItem",
             "position": 1,
-            "url": "https://zaguanpropiedades.com/alquileres/",
+            "url": "https://zaguanpropiedades.com/alquileres/la-brava-parada-8-3d/",
             "name": "Apartamento de 3 dormitorios con balcón al mar y 2 cocheras en La Brava",
             "description": "Alquiler anual USD 1.700/mes con gastos comunes incluidos, amenities y 2 cocheras en Parada 8 de Playa Brava."
           },
@@ -619,7 +657,7 @@
             <button type="button" id="search-clear-btn" class="search-clear-btn" aria-label="Limpiar búsqueda" style="display:none;">×</button>
           </div>
 
-          <!-- Chips de filtrado rápido con scroll horizontal limpio en mobile -->
+          <!-- Chips de filtrado rápido con scroll horizontal encapsulado -->
           <div class="filter-chips-wrapper">
             <div class="filter-chips" role="tablist" aria-label="Filtros rápidos">
               <button class="chip is-active" data-filter="all" type="button">Todas (10)</button>
@@ -645,7 +683,7 @@
     </section>
 
     <!-- Listado Dinámico de Propiedades -->
-    <section class="rentals-section" style="padding: 24px 0 80px;">
+    <section class="rentals-section">
       <div class="container">
         
         <div class="rentals-grid" id="rentals-grid">
@@ -819,7 +857,7 @@
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Rambla%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a penthouse en Rambla Brava">
               <img src="/assets/images/eve-tower/2-dormitorios-3.jpg" alt="Suite con balcón al océano en Rambla Brava" loading="lazy">
               <span class="rental-badge">Parada 4 · Rambla Brava</span>
-              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
+              <div class="rental-rented-ribbon"><span>✓</span> Alquilado con ZAGUÁN</div>
             </a>
             <div class="rental-card-body">
               <div>
@@ -842,9 +880,9 @@
           <!-- 8. Playa Brava Parada 10 · USD 2.000 (Alquilado recientemente con Zaguán) -->
           <article class="rental-card rental-card--rented" data-status="alquilado" data-currency="usd" data-bedrooms="2d" data-zone="brava" data-features="mar suite cochera amenities" data-keywords="playa brava parada 10 2 dormitorios suite cochera doble amenities usd 2000 alquilado">
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Playa%20Brava%20(USD%202.000)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en Playa Brava">
-              <img src="/assets/images/golden-rise/proyecto-2.jpg" alt="Vista aérea de categoría en Playa Brava" loading="lazy">
+              <img src="/assets/images/eve-tower/1-dormitorio-3.jpg" alt="Interior moderno de apartamento en Playa Brava" loading="lazy">
               <span class="rental-badge">Parada 10 · Playa Brava</span>
-              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
+              <div class="rental-rented-ribbon"><span>✓</span> Alquilado con ZAGUÁN</div>
             </a>
             <div class="rental-card-body">
               <div>
@@ -869,7 +907,7 @@
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20La%20Mansa%20(USD%20900)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en La Mansa">
               <img src="/assets/images/propiedades/el-tesoro-rosario/foto_02.jpg" alt="Living y cocina integrada en La Mansa" loading="lazy">
               <span class="rental-badge">Parada 12 · Playa Mansa</span>
-              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
+              <div class="rental-rented-ribbon"><span>✓</span> Alquilado con ZAGUÁN</div>
             </a>
             <div class="rental-card-body">
               <div>
@@ -894,7 +932,7 @@
             <a class="rental-card-media-link" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20la%20unidad%20alquilada%20en%20Maldonado%20(USD%20550)%20y%20quiero%20saber%20si%20tienen%20algo%20similar." target="_blank" rel="noopener noreferrer" aria-label="Consultar por similar a apartamento en Maldonado">
               <img src="/assets/images/propiedades/la-fortuna-jorge/foto_04.jpg" alt="Dormitorio con luz natural en Maldonado residencial" loading="lazy">
               <span class="rental-badge">Zona residencial · Maldonado</span>
-              <span class="rental-badge--rented">✓ Alquilado con ZAGUÁN</span>
+              <div class="rental-rented-ribbon"><span>✓</span> Alquilado con ZAGUÁN</div>
             </a>
             <div class="rental-card-body">
               <div>
@@ -939,13 +977,6 @@
     </section>
   </main>
 
-  <!-- Barra fija móvil para celular -->
-  <aside class="mobile-sticky-bar" aria-label="Contacto rápido móvil">
-    <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20desde%20ZAGU%C3%81N%20por%20la%20cartera%20de%20alquileres%20anuales." class="btn-action btn-action--primary" target="_blank" rel="noopener noreferrer" style="width:100%;">
-      Consultar cartera con Mar por WhatsApp →
-    </a>
-  </aside>
-
   <!-- Script oficial de Header (Scroll dinámico con cambio de color y logos blanco/negro) -->
   <script src="/assets/js/novedades-header.js" defer></script>
 
@@ -960,6 +991,7 @@
     const searchFeedback = document.getElementById('search-feedback');
     const notFoundBox = document.getElementById('not-found-box');
     const resetBtn = document.getElementById('btn-reset-filters');
+    const grid = document.getElementById('rentals-grid');
 
     let currentChip = 'all';
 
@@ -1103,6 +1135,16 @@
 
     // Evento de escritura
     searchInput.addEventListener('input', filterProperties);
+
+    // En mobile, al presionar Enter cerrar teclado y scrollear a resultados
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        searchInput.blur();
+        if (grid) {
+          grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
 
     // Limpiar búsqueda
     clearBtn.addEventListener('click', function() {
