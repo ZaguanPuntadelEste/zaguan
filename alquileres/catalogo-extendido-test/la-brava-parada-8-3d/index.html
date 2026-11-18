@@ -274,13 +274,13 @@
     }
     .gallery-thumbs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 10px;
       margin-bottom: 30px;
     }
     @media (max-width: 640px) {
       .gallery-lead { height: 300px; }
-      .gallery-thumbs { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .gallery-thumbs { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .gallery-lead-hint { font-size: 11px; padding: 5px 10px; bottom: 10px; right: 10px; }
     }
     .thumb {
@@ -560,8 +560,8 @@
         "description": "Apartamento en alquiler anual frente al mar en Playa Brava, Punta del Este. 3 dormitorios, 2 baños, balcón terraza al mar, 2 cocheras techadas, gastos comunes incluidos y amenities de lujo.",
         "url": "https://zaguanpropiedades.com/alquileres/catalogo-extendido-test/la-brava-parada-8-3d/",
         "numberOfRooms": 3,
-        "numberOfBedrooms": 2,
-        "numberOfBathroomsTotal": 1,
+        "numberOfBedrooms": 3,
+        "numberOfBathroomsTotal": 2,
         "petsAllowed": true,
         "address": {
           "@type": "PostalAddress",
@@ -573,13 +573,13 @@
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": -34.886485,
-          "longitude": -54.984687
+          "latitude": -34.9465,
+          "longitude": -54.9255
         },
         "offers": {
           "@type": "Offer",
-          "price": "30000",
-          "priceCurrency": "UYU",
+          "price": "1700",
+          "priceCurrency": "USD",
           "availability": "https://schema.org/InStock",
           "businessFunction": "https://schema.org/LeaseOut",
           "validFrom": "2026-11-17"
@@ -589,7 +589,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://zaguanpropiedades.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Alquiler Anual", "item": "https://zaguanpropiedades.com/alquiloanual/"},
+          {"@type": "ListItem", "position": 2, "name": "Alquiler anual", "item": "https://zaguanpropiedades.com/alquileres/catalogo-extendido-test/"},
           {"@type": "ListItem", "position": 3, "name": "La Brava · Parada 8", "item": "https://zaguanpropiedades.com/alquileres/catalogo-extendido-test/la-brava-parada-8-3d/"}
         ]
       }
@@ -609,7 +609,7 @@
       </a>
       <nav class="main-nav" aria-label="Navegación principal">
         <a href="/proyectos/">Proyectos</a>
-        <a href="/alquileres/catalogo-extendido-test/">Alquiler anual</a>
+        <a href="/alquiloanual/">Alquiler anual</a>
         <a href="/novedades-del-este/">Novedades del Este</a>
         <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20el%20apartamento%20de%203%20dormitorios%20en%20La%20Brava%20(USD%201.700)%20y%20quiero%20consultar." target="_blank" rel="noopener noreferrer">Contactanos por WhatsApp</a>
       </nav>
@@ -620,7 +620,7 @@
     <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
       <div class="container mobile-menu-inner">
         <a href="/proyectos/">Proyectos</a>
-        <a href="/alquileres/catalogo-extendido-test/">Alquiler anual</a>
+        <a href="/alquiloanual/">Alquiler anual</a>
         <a href="/novedades-del-este/">Novedades del Este</a>
         <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20el%20apartamento%20de%203%20dormitorios%20en%20La%20Brava%20(USD%201.700)%20y%20quiero%20consultar." target="_blank" rel="noopener noreferrer">Contactanos por WhatsApp</a>
       </div>
