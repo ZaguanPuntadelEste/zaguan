@@ -345,7 +345,7 @@
   "tanda_1_csv_inicial_estado": "CERRADO_Y_AUDITADO (5 activos + destrabes tibios WMW/Altius/Caybo)",
   "alquileres_pipeline": [
     {
-      "id": "ALQ-REAL-01",
+      "id": "ZAG-ALQ-05",
       "tipo_inventario": "REAL_DISPONIBLE",
       "propietario": "Jorge",
       "zona": "La Fortuna · Calle Ágata, Maldonado",
@@ -353,10 +353,11 @@
       "precio_mensual": "$U 30.000",
       "gastos_comunes": "Incluidos + Wifi",
       "url_publica": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
-      "indicacion_mar": "PROPIEDAD REAL CON FOTOS PROPIAS. Coordinar visita directa con Jorge. Garantías: Porto, Sura, Mapfre o Santander (sin ANDA/CGN)."
+      "indicacion_mar": "PROPIEDAD REAL CON FOTOS PROPIAS. Coordinar visita directa con Jorge. Garantías: Porto, Sura, Mapfre o Santander (sin ANDA/CGN).",
+      "referencia": "ZAG-ALQ-05"
     },
     {
-      "id": "ALQ-REAL-02",
+      "id": "ZAG-ALQ-06",
       "tipo_inventario": "REAL_DISPONIBLE",
       "propietario": "Rosario",
       "zona": "El Tesoro · Juana de América, La Barra",
@@ -364,47 +365,52 @@
       "precio_mensual": "$U 28.000",
       "gastos_comunes": "$0 (Sin gastos comunes)",
       "url_publica": "https://zaguanpropiedades.com/alquileres/el-tesoro-juana-de-america/",
-      "indicacion_mar": "PROPIEDAD REAL CON FOTOS PROPIAS. A 300 m del Puente de La Barra. Coordinar visita directa con Rosario."
+      "indicacion_mar": "PROPIEDAD REAL CON FOTOS PROPIAS. A 300 m del Puente de La Barra. Coordinar visita directa con Rosario.",
+      "referencia": "ZAG-ALQ-06"
     },
     {
-      "id": "ALQ-ANCLA-01",
+      "id": "ZAG-ALQ-01",
       "tipo_inventario": "ANCLA_CATEGORIA_INTERNA",
       "zona": "Parada 8 · Playa Brava, Punta del Este",
       "tipologia": "3 dormitorios frente al mar, 2 baños, 2 cocheras y amenities",
       "precio_mensual": "USD 1.700",
       "gastos_comunes": "Incluidos",
       "url_publica": "https://zaguanpropiedades.com/alquileres/la-brava-parada-8-3d/",
-      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder: \"Esta unidad está en revisión de reserva. Si buscás 3D frente al mar en La Brava en este rango (USD 1.700), te paso opciones activas hoy mismo y coordinamos visita\". Derivar a búsqueda a medida o captación."
+      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder: \"Esta unidad está en revisión de reserva. Si buscás 3D frente al mar en La Brava en este rango (USD 1.700), te paso opciones activas hoy mismo y coordinamos visita\". Derivar a búsqueda a medida o captación.",
+      "referencia": "ZAG-ALQ-01"
     },
     {
-      "id": "ALQ-ANCLA-02",
+      "id": "ZAG-ALQ-02",
       "tipo_inventario": "ANCLA_CATEGORIA_INTERNA",
       "zona": "Av. Roosevelt y Cantegril · Punta del Este",
       "tipologia": "Piso alto a estrenar 2 dormitorios con suite y parrillero",
       "precio_mensual": "$U 70.000",
       "gastos_comunes": "Según edificio",
       "url_publica": "https://zaguanpropiedades.com/alquileres/roosevelt-cantegril-2d/",
-      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato de 2D con parrillero en Roosevelt / Cantegril."
+      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato de 2D con parrillero en Roosevelt / Cantegril.",
+      "referencia": "ZAG-ALQ-02"
     },
     {
-      "id": "ALQ-ANCLA-03",
+      "id": "ZAG-ALQ-03",
       "tipo_inventario": "ANCLA_CATEGORIA_INTERNA",
       "zona": "Parada 16 · Playa Mansa, Punta del Este",
       "tipologia": "Semipiso 2 dormitorios con terraza y cochera a 150 m del mar",
       "precio_mensual": "$U 62.000",
       "gastos_comunes": "Según edificio",
       "url_publica": "https://zaguanpropiedades.com/alquileres/la-mansa-parada-16-2d/",
-      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato en Playa Mansa en el rango de $U 60.000."
+      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato en Playa Mansa en el rango de $U 60.000.",
+      "referencia": "ZAG-ALQ-03"
     },
     {
-      "id": "ALQ-ANCLA-04",
+      "id": "ZAG-ALQ-04",
       "tipo_inventario": "ANCLA_CATEGORIA_INTERNA",
       "zona": "Zona residencial · Maldonado",
       "tipologia": "2 dormitorios a estrenar con losa radiante y cochera fija",
       "precio_mensual": "$U 52.000",
       "gastos_comunes": "Aprox. $U 14.000/mes",
       "url_publica": "https://zaguanpropiedades.com/alquileres/maldonado-residencial-2d/",
-      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer opciones activas en Maldonado ($U 30.000 de Jorge en La Fortuna o similares)."
+      "indicacion_mar": "FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer opciones activas en Maldonado ($U 30.000 de Jorge en La Fortuna o similares).",
+      "referencia": "ZAG-ALQ-04"
     }
   ],
   "alquileres_agenda_pendiente": {
