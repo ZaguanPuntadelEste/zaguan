@@ -530,7 +530,7 @@
         "@type": "BreadcrumbList",
         "itemListElement": [
           {"@type": "ListItem", "position": 1, "name": "ZAGUÁN Propiedades", "item": "https://zaguanpropiedades.com/"},
-          {"@type": "ListItem", "position": 2, "name": "Alquileres anuales", "item": "https://zaguanpropiedades.com/alquileres/"}
+          {"@type": "ListItem", "position": 2, "name": "Alquiler anual", "item": "https://zaguanpropiedades.com/alquileres/"}
         ]
       },
       {
@@ -548,18 +548,46 @@
       {
         "@type": "ItemList",
         "name": "Propiedades en alquiler anual en Punta del Este y Maldonado",
-        "numberOfItems": 2,
+        "numberOfItems": 6,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
+            "url": "https://zaguanpropiedades.com/alquileres/la-brava-parada-8-3d/",
+            "name": "Apartamento de 3 dormitorios con balcón al mar y 2 cocheras en La Brava",
+            "description": "Alquiler anual USD 1.700/mes con gastos comunes incluidos, 2 cocheras techadas y amenities de lujo en Parada 8 de Playa Brava."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "url": "https://zaguanpropiedades.com/alquileres/roosevelt-cantegril-2d/",
+            "name": "Piso alto a estrenar de 2 dormitorios con suite y parrillero en Roosevelt",
+            "description": "Alquiler anual $U 70.000/mes en Av. Roosevelt y Cantegril con suite, vestidor, parrillero propio y cochera en subsuelo."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "url": "https://zaguanpropiedades.com/alquileres/la-mansa-parada-16-2d/",
+            "name": "Semipiso de 2 dormitorios con terraza y cochera en Playa Mansa",
+            "description": "Alquiler anual $U 62.000/mes a 150 m del mar en Parada 16 de Playa Mansa con cocina definida y portería 24 hs."
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "url": "https://zaguanpropiedades.com/alquileres/maldonado-residencial-2d/",
+            "name": "Apartamento de 2 dormitorios a estrenar con cochera en Maldonado",
+            "description": "Alquiler anual $U 52.000/mes más gastos comunes aprox. $U 14.000/mes con losa radiante y cochera fija en Maldonado."
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
             "url": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
             "name": "Apartamento de 2 dormitorios a estrenar con cochera fija en La Fortuna, Maldonado",
             "description": "Alquiler anual $U 30.000/mes con gastos comunes e internet wifi de alta velocidad incluidos en calle Ágata, La Fortuna."
           },
           {
             "@type": "ListItem",
-            "position": 2,
+            "position": 6,
             "url": "https://zaguanpropiedades.com/alquileres/el-tesoro-juana-de-america/",
             "name": "Apartamento para 2 personas con deck techado y jardín en El Tesoro, La Barra",
             "description": "Alquiler anual $U 28.000/mes a 300 m del Puente de La Barra sobre calle Juana de América, sin gastos comunes."
@@ -632,9 +660,10 @@
           <!-- Chips de filtrado rápido con scroll horizontal encapsulado -->
           <div class="filter-chips-wrapper">
             <div class="filter-chips" role="tablist" aria-label="Filtros rápidos">
-              <button class="chip is-active" data-filter="all" type="button">Todas las disponibles (2)</button>
-              <button class="chip" data-filter="maldonado" type="button">Maldonado · La Fortuna ( 30.000)</button>
-              <button class="chip" data-filter="barra" type="button">La Barra · El Tesoro ( 28.000)</button>
+              <button class="chip is-active" data-filter="all" type="button">Todas las disponibles (6)</button>
+              <button class="chip" data-filter="usd" type="button">En USD (1)</button>
+              <button class="chip" data-filter="pesos" type="button">En $U (5)</button>
+              <button class="chip" data-filter="3d" type="button">3 dormitorios</button>
               <button class="chip" data-filter="2d" type="button">2 dormitorios</button>
               <button class="chip" data-filter="1d" type="button">1 dormitorio</button>
             </div>
@@ -642,7 +671,7 @@
 
           <!-- Barra de estado y retroalimentación IA -->
           <div class="results-count-bar">
-            <div id="results-count" class="results-count-text">Mostrando 2 propiedades disponibles</div>
+            <div id="results-count" class="results-count-text">Mostrando 6 propiedades disponibles</div>
             <div id="search-feedback" class="search-feedback-text"></div>
           </div>
         </div>
@@ -656,7 +685,119 @@
         
         <div class="rentals-grid" id="rentals-grid">
           
-          <!-- 1. La Fortuna · $U 30.000 (Disponible) -->
+          <!-- 1. La Brava · USD 1.700 -->
+          <article class="rental-card" data-status="disponible" data-currency="usd" data-bedrooms="3d" data-zone="brava" data-features="mar vista cochera balcon amenities piscina gym" data-keywords="la brava parada 8 mar frente al mar 3 dormitorios 2 baños 2 cocheras amenities piscina gym usd 1700">
+            <a class="rental-card-media-link" href="/alquileres/la-brava-parada-8-3d/" aria-label="Ver ficha completa de apartamento en La Brava">
+              <img src="/assets/images/alquileres-test/la-brava-parada-8-3d/interior-living.jpg" alt="Living comedor con ventanales frente al mar en La Brava" loading="lazy">
+              <span class="rental-badge">Parada 8 · Playa Brava</span>
+              <span class="rental-badge--green">Frente al mar</span>
+            </a>
+            <div class="rental-card-body">
+              <div>
+                <div class="rental-price">USD 1.700 <small>/ mes</small></div>
+                <a class="rental-title-link" href="/alquileres/la-brava-parada-8-3d/">
+                  <h3 class="rental-title">Apartamento de 3 dormitorios con balcón al mar y 2 cocheras</h3>
+                </a>
+                <p class="rental-desc">Piso alto frente al mar con living comedor amplio, balcón terraza panorámico, 3 dormitorios, 2 baños completos, 2 cocheras fijas techadas y amenities de lujo con gastos comunes incluidos.</p>
+                <div class="specs-list">
+                  <div class="spec-item">Dormitorios: <strong>3 (1 en suite)</strong></div>
+                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
+                  <div class="spec-item">Cocheras: <strong>2 techadas</strong></div>
+                  <div class="spec-item">Gastos comunes: <strong>Incluidos</strong></div>
+                </div>
+              </div>
+              <div class="rental-actions">
+                <a href="/alquileres/la-brava-parada-8-3d/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20apartamento%20de%203%20dormitorios%20en%20La%20Brava%20(USD%201.700)%20y%20quiero%20consultar%20por%20disponibilidad%20y%20visita." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Roosevelt y Cantegril · $U 70.000 -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="roosevelt" data-features="suite parrillero cochera piscina estrenar" data-keywords="roosevelt cantegril 2 dormitorios suite parrillero cochera subsuelo piscina estrenar 70000 pesos">
+            <a class="rental-card-media-link" href="/alquileres/roosevelt-cantegril-2d/" aria-label="Ver ficha completa de piso alto en Roosevelt">
+              <img src="/assets/images/alquileres-test/roosevelt-cantegril-2d/living.jpg" alt="Living comedor luminoso con vista arbolada en Av. Roosevelt" loading="lazy">
+              <span class="rental-badge">Av. Roosevelt · Cantegril</span>
+              <span class="rental-badge--green">A estrenar</span>
+            </a>
+            <div class="rental-card-body">
+              <div>
+                <div class="rental-price">$U 70.000 <small>/ mes</small></div>
+                <a class="rental-title-link" href="/alquileres/roosevelt-cantegril-2d/">
+                  <h3 class="rental-title">Piso alto a estrenar de 2 dormitorios con suite y parrillero</h3>
+                </a>
+                <p class="rental-desc">Unidad orientada al sol con terraza privada y parrillero individual. Suite con vestidor, segundo dormitorio con placard, aberturas DVH, cocina equipada y cochera fija en subsuelo.</p>
+                <div class="specs-list">
+                  <div class="spec-item">Dormitorios: <strong>2 (1 en suite)</strong></div>
+                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
+                  <div class="spec-item">Terraza: <strong>Parrillero propio</strong></div>
+                  <div class="spec-item">Cochera: <strong>Subsuelo</strong></div>
+                </div>
+              </div>
+              <div class="rental-actions">
+                <a href="/alquileres/roosevelt-cantegril-2d/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20apartamento%20a%20estrenar%20en%20Roosevelt%20(%24U%2070.000)%20y%20quiero%20consultar%20por%20disponibilidad%20y%20visita." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Playa Mansa Parada 16 · $U 62.000 -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="mansa" data-features="mar terraza cochera seguridad" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 62000 pesos">
+            <a class="rental-card-media-link" href="/alquileres/la-mansa-parada-16-2d/" aria-label="Ver ficha completa de semipiso en Playa Mansa">
+              <img src="/assets/images/alquileres-test/la-mansa-parada-16-2d/living.jpg" alt="Living comedor apaisado con salida a terraza en Playa Mansa" loading="lazy">
+              <span class="rental-badge">Parada 16 · Playa Mansa</span>
+              <span class="rental-badge--green">A 150 m del mar</span>
+            </a>
+            <div class="rental-card-body">
+              <div>
+                <div class="rental-price">$U 62.000 <small>/ mes</small></div>
+                <a class="rental-title-link" href="/alquileres/la-mansa-parada-16-2d/">
+                  <h3 class="rental-title">Semipiso de 2 dormitorios con terraza y cochera en Playa Mansa</h3>
+                </a>
+                <p class="rental-desc">A 150 metros del mar sobre Parada 16. Living comedor apaisado con salida a terraza hacia pinos, cocina definida con desayunador en cuarzo, 2 baños y portería 24 hs.</p>
+                <div class="specs-list">
+                  <div class="spec-item">Dormitorios: <strong>2 amplios</strong></div>
+                  <div class="spec-item">Baños: <strong>2 completos</strong></div>
+                  <div class="spec-item">Cochera: <strong>Techada</strong></div>
+                  <div class="spec-item">Distancia al mar: <strong>150 metros</strong></div>
+                </div>
+              </div>
+              <div class="rental-actions">
+                <a href="/alquileres/la-mansa-parada-16-2d/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20semipiso%20en%20Playa%20Mansa%20(%24U%2062.000)%20y%20quiero%20consultar%20por%20disponibilidad%20y%20visita." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Maldonado residencial · $U 52.000 + GG.CC. -->
+          <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="maldonado" data-features="cochera losa radiante estrenar" data-keywords="maldonado residencial 2 dormitorios losa radiante cochera fija estrenar 52000 pesos">
+            <a class="rental-card-media-link" href="/alquileres/maldonado-residencial-2d/" aria-label="Ver ficha completa de apartamento a estrenar en Maldonado">
+              <img src="/assets/images/alquileres-test/maldonado-residencial-2d/living.jpg" alt="Living comedor a estrenar en zona residencial de Maldonado" loading="lazy">
+              <span class="rental-badge">Zona residencial · Maldonado</span>
+              <span class="rental-badge--green">A estrenar</span>
+            </a>
+            <div class="rental-card-body">
+              <div>
+                <div class="rental-price">$U 52.000 <small>/ mes</small></div>
+                <a class="rental-title-link" href="/alquileres/maldonado-residencial-2d/">
+                  <h3 class="rental-title">Apartamento de 2 dormitorios a estrenar con cochera en Maldonado</h3>
+                </a>
+                <p class="rental-desc">Unidad a estrenar con losa radiante, cocina integrada con anafe y horno empotrado, baño con mampara de vidrio, cortinas roller instaladas y cochera fija. GG.CC. aprox. $U 14.000/mes.</p>
+                <div class="specs-list">
+                  <div class="spec-item">Dormitorios: <strong>2 luminosos</strong></div>
+                  <div class="spec-item">Calefacción: <strong>Losa radiante</strong></div>
+                  <div class="spec-item">Cochera: <strong>Fija</strong></div>
+                  <div class="spec-item">GG.CC.: <strong>Aprox. $U 14.000</strong></div>
+                </div>
+              </div>
+              <div class="rental-actions">
+                <a href="/alquileres/maldonado-residencial-2d/" class="btn-action btn-action--primary">Ver ficha completa →</a>
+                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20apartamento%20a%20estrenar%20en%20Maldonado%20(%24U%2052.000)%20y%20quiero%20consultar%20por%20disponibilidad%20y%20visita." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+              </div>
+            </div>
+          </article>
+
+<!-- 5. La Fortuna · $U 30.000 (Disponible) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="maldonado" data-features="cochera estrenar wifi" data-keywords="la fortuna agata maldonado 2 dormitorios cochera wifi gastos comunes incluidos 30000 pesos disponible">
             <a class="rental-card-media-link" href="/alquileres/la-fortuna-agata/" aria-label="Ver ficha completa de apartamento en La Fortuna">
               <img src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Apartamento 2 dormitorios a estrenar en La Fortuna" loading="lazy">
@@ -684,7 +825,7 @@
             </div>
           </article>
 
-          <!-- 2. El Tesoro · $U 28.000 (Disponible) -->
+<!-- 6. El Tesoro · $U 28.000 (Disponible) -->
           <article class="rental-card" data-status="disponible" data-currency="pesos" data-bedrooms="1d" data-zone="barra" data-features="deck jardin estacionamiento" data-keywords="el tesoro juana de america la barra 1 dormitorio deck techado jardin 28000 pesos disponible">
             <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro, La Barra">
               <img src="/assets/images/propiedades/el-tesoro-rosario/foto_01.jpg" alt="Apartamento con deck techado en El Tesoro, La Barra" loading="lazy">
@@ -719,7 +860,7 @@
           <div style="max-width: 720px;">
             <span style="display: inline-block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.12em; color: #D4AF37; font-weight: 700; margin-bottom: 8px;">Búsqueda a medida</span>
             <h3 style="font-family: 'Archivo', sans-serif; font-size: 20px; font-weight: 700; color: #FFFFFF; margin: 0 0 10px;">¿Buscás en La Brava, La Mansa, Roosevelt o Cantegril?</h3>
-            <p style="font-size: 14px; line-height: 1.6; color: #A0AEC0; margin: 0;">Relevamos el mercado entre propietarios y colegas para presentarte opciones reales acordes a tu presupuesto y garantías (Porto, ANDA, Sura, Mapfre o Fideciu), sin costo para el inquilino.</p>
+            <p style="font-size: 14px; line-height: 1.6; color: #A0AEC0; margin: 0;">Relevamos el mercado entre propietarios y colegas para presentarte opciones reales acordes a tu presupuesto sin costo para el inquilino.</p>
           </div>
           <div>
             <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20estoy%20buscando%20un%20alquiler%20anual%20en%20Punta%20del%20Este%20%2F%20Maldonado.%20Mis%20preferencias%20son%3A" class="btn-action btn-action--primary" style="display: inline-flex; width: auto; padding: 14px 28px; white-space: nowrap;" target="_blank" rel="noopener noreferrer">Consultar disponibilidad y búsqueda con Mar →</a>
@@ -855,8 +996,9 @@
         // 1. Filtro del Chip seleccionado
         let matchChip = false;
         if (currentChip === 'all') matchChip = true;
-        else if (currentChip === 'maldonado' && cZone === 'maldonado') matchChip = true;
-        else if (currentChip === 'barra' && cZone === 'barra') matchChip = true;
+        else if (currentChip === 'usd' && cCurrency === 'usd') matchChip = true;
+        else if (currentChip === 'pesos' && cCurrency === 'pesos') matchChip = true;
+        else if (currentChip === '3d' && cBedrooms === '3d') matchChip = true;
         else if (currentChip === '2d' && cBedrooms === '2d') matchChip = true;
         else if (currentChip === '1d' && cBedrooms === '1d') matchChip = true;
 
