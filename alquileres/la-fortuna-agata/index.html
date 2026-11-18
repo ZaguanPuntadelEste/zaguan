@@ -24,9 +24,9 @@
   <meta property="og:title" content="Apartamento 2 Dormitorios a Estrenar con Cochera en La Fortuna, Maldonado | $U 30.000">
   <meta property="og:description" content="Alquiler anual todo el año: 2 dormitorios, balcón, cochera fija, gastos comunes e internet incluidos en La Fortuna. Garantías aseguradoras.">
   <meta property="og:url" content="https://zaguanpropiedades.com/alquileres/la-fortuna-agata/">
-  <meta property="og:image" content="https://zaguanpropiedades.com/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg">
+  <meta property="og:image" content="https://zaguanpropiedades.com/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://zaguanpropiedades.com/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg">
+  <meta name="twitter:image" content="https://zaguanpropiedades.com/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -249,7 +249,8 @@
     .gallery-lead img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
+      background: #081521;
       object-position: center;
       display: block;
       transition: transform 0.3s;
@@ -656,47 +657,46 @@
 
         <!-- Galería Principal (Living como portada + Apertura táctil en pantalla completa) -->
         <div class="gallery-lead" onclick="openLightbox(0)">
-          <img id="main-img" src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Living y balcón apartamento a estrenar en La Fortuna, Maldonado">
+          <img id="main-img" src="/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg" alt="Living y balcón apartamento a estrenar en La Fortuna, Maldonado">
           <span class="gallery-lead-hint">🔍 Tocar para ampliar (11 fotos)</span>
         </div>
 
         <div class="gallery-thumbs">
-          <div class="thumb active" onclick="openLightbox(0)" title="Living y comedor al frente">
+          <div class="thumb active" onclick="openLightbox(0)" title="Cocina integrada luminosa con salida al balcón">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg" alt="Cocina integrada luminosa con salida al balcón">
+          </div>
+          <div class="thumb" onclick="openLightbox(1)" title="Living y comedor al frente">
             <img src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Living y comedor al frente">
           </div>
-          <div class="thumb" onclick="openLightbox(1)" title="Cocina integrada y mesadas">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_03.jpg" alt="Cocina integrada y mesadas">
+          <div class="thumb" onclick="openLightbox(2)" title="Acceso con puerta blindada">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_03.jpg" alt="Acceso con puerta blindada">
           </div>
-          <div class="thumb" onclick="openLightbox(2)" title="Dormitorio principal luminoso">
+          <div class="thumb" onclick="openLightbox(3)" title="Dormitorio principal luminoso">
             <img src="/assets/images/propiedades/la-fortuna-jorge/foto_04.jpg" alt="Dormitorio principal luminoso">
           </div>
-          <div class="thumb" onclick="openLightbox(3)" title="Baño completo a estrenar">
+          <div class="thumb" onclick="openLightbox(4)" title="Baño completo a estrenar">
             <img src="/assets/images/propiedades/la-fortuna-jorge/foto_05.jpg" alt="Baño completo a estrenar">
           </div>
-          <div class="thumb" onclick="openLightbox(4)" title="Balcón y vistas exteriores">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_06.jpg" alt="Balcón y vistas exteriores">
+          <div class="thumb" onclick="openLightbox(5)" title="Escaleras y acceso exterior">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_06.jpg" alt="Escaleras y acceso exterior">
           </div>
-          <div class="thumb" onclick="openLightbox(5)" title="Segundo dormitorio">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_07.jpg" alt="Segundo dormitorio">
-          </div>
-          <div class="thumb" onclick="openLightbox(6)" title="Detalle terminaciones">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_08.jpg" alt="Detalle terminaciones">
+          <div class="thumb" onclick="openLightbox(6)" title="Frente con portón y reja">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_07.jpg" alt="Frente con portón y reja">
           </div>
           <div class="thumb" onclick="openLightbox(7)" title="Cochera fija en predio">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_09.jpg" alt="Cochera fija en predio">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_08.jpg" alt="Cochera fija en predio">
           </div>
-          <div class="thumb" onclick="openLightbox(8)" title="Fachada del edificio">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_10.jpg" alt="Fachada del edificio">
+          <div class="thumb" onclick="openLightbox(8)" title="Segundo dormitorio luminoso">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_09.jpg" alt="Segundo dormitorio luminoso">
           </div>
-          <div class="thumb" onclick="openLightbox(9)" title="Entorno residencial">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_11.jpg" alt="Entorno residencial">
+          <div class="thumb" onclick="openLightbox(9)" title="Entorno y esquina residencial">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_10.jpg" alt="Entorno y esquina residencial">
           </div>
-          <div class="thumb" onclick="openLightbox(10)" title="Ubicación sobre Av. Ágata">
-            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg" alt="Ubicación sobre Av. Ágata">
+          <div class="thumb" onclick="openLightbox(10)" title="Fachada iluminada del edificio">
+            <img src="/assets/images/propiedades/la-fortuna-jorge/foto_11.jpg" alt="Fachada iluminada del edificio">
           </div>
         </div>
-
-        <!-- Cuadrícula de Especificaciones Clave -->
+<!-- Cuadrícula de Especificaciones Clave -->
         <div class="features-grid">
           <div class="feat-card">
             <div class="feat-icon">🛏️</div>
@@ -847,17 +847,17 @@
 
   <script>
     var gallery = [
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg', title: 'Living-comedor luminoso con salida al balcón' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_03.jpg', title: 'Cocina integrada funcional con muebles bajo mesada' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg', title: 'Cocina integrada luminosa con salida al balcón' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg', title: 'Living-comedor luminoso con ventanal al frente' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_03.jpg', title: 'Acceso principal con puerta de seguridad' },
       { src: '/assets/images/propiedades/la-fortuna-jorge/foto_04.jpg', title: 'Dormitorio principal con luz natural y aberturas a estrenar' },
       { src: '/assets/images/propiedades/la-fortuna-jorge/foto_05.jpg', title: 'Baño completo con revestimientos modernos' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_06.jpg', title: 'Balcón exterior con vista abierta y despejada' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_07.jpg', title: 'Segundo dormitorio con ventilación natural' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_08.jpg', title: 'Detalle de terminaciones y mesadas' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_09.jpg', title: 'Lugar de estacionamiento fijo asignado en predio' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_10.jpg', title: 'Fachada exterior de construcción sólida a estrenar' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_11.jpg', title: 'Entorno residencial y accesos sobre La Fortuna' },
-      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg', title: 'Ubicación sobre Av. Ágata, Barrio La Fortuna' }
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_06.jpg', title: 'Escaleras y circulación exterior' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_07.jpg', title: 'Frente del complejo con rejas perimetrales' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_08.jpg', title: 'Lugar de estacionamiento fijo asignado en predio' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_09.jpg', title: 'Segundo dormitorio con ventilación natural' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_10.jpg', title: 'Entorno residencial y accesos sobre La Fortuna' },
+      { src: '/assets/images/propiedades/la-fortuna-jorge/foto_11.jpg', title: 'Fachada iluminada del edificio sobre Av. Ágata' }
     ];
 
     var currentIndex = 0;
