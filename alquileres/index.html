@@ -548,49 +548,21 @@
       {
         "@type": "ItemList",
         "name": "Propiedades en alquiler anual en Punta del Este y Maldonado",
-        "numberOfItems": 10,
+        "numberOfItems": 2,
         "itemListElement": [
           {
             "@type": "ListItem",
             "position": 1,
-            "url": "https://zaguanpropiedades.com/alquileres/la-brava-parada-8-3d/",
-            "name": "Apartamento de 3 dormitorios con balcón al mar y 2 cocheras en La Brava",
-            "description": "Alquiler anual USD 1.700/mes con gastos comunes incluidos, amenities y 2 cocheras en Parada 8 de Playa Brava."
+            "url": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
+            "name": "Apartamento de 2 dormitorios a estrenar con cochera fija en La Fortuna, Maldonado",
+            "description": "Alquiler anual $U 30.000/mes con gastos comunes e internet wifi de alta velocidad incluidos en calle Ágata, La Fortuna."
           },
           {
             "@type": "ListItem",
             "position": 2,
-            "url": "https://zaguanpropiedades.com/alquileres/",
-            "name": "Piso alto a estrenar de 2 dormitorios con suite y parrillero en Roosevelt y Cantegril",
-            "description": "Alquiler anual $U 70.000/mes en torre de categoría sobre Av. Roosevelt con piscina y cochera en subsuelo."
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "url": "https://zaguanpropiedades.com/alquileres/",
-            "name": "Semipiso de 2 dormitorios a pasos del mar con cochera en Playa Mansa",
-            "description": "Alquiler anual $U 70.000/mes a 150 m del mar en Parada 16 de La Mansa."
-          },
-          {
-            "@type": "ListItem",
-            "position": 4,
-            "url": "https://zaguanpropiedades.com/alquileres/",
-            "name": "Piso exclusivo de 3 dormitorios a estrenar con doble cochera en Maldonado Centro residencial",
-            "description": "Alquiler anual $U 70.000/mes con losa radiante, DVH y 2 cocheras en zona residencial de Maldonado."
-          },
-          {
-            "@type": "ListItem",
-            "position": 5,
-            "url": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
-            "name": "Apartamento de 2 dormitorios a estrenar con cochera fija en La Fortuna, Maldonado",
-            "description": "Alquiler anual $U 30.000/mes con gastos comunes e internet wifi de alta velocidad incluidos."
-          },
-          {
-            "@type": "ListItem",
-            "position": 6,
             "url": "https://zaguanpropiedades.com/alquileres/el-tesoro-juana-de-america/",
             "name": "Apartamento para 2 personas con deck techado y jardín en El Tesoro, La Barra",
-            "description": "Alquiler anual $U 28.000/mes a 300 m del Puente de La Barra sin gastos comunes."
+            "description": "Alquiler anual $U 28.000/mes a 300 m del Puente de La Barra sobre calle Juana de América, sin gastos comunes."
           }
         ]
       }
@@ -912,7 +884,7 @@
       });
 
       // Actualizar texto de conteo
-      resultsCount.textContent = 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
+      resultsCount.textContent = visibleCount === cards.length ? 'Mostrando ' + visibleCount + ' propiedades disponibles' : 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
 
       // Mostrar retroalimentación de criterio detectado
       if (parsed.labels.length > 0) {
