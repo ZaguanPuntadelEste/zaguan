@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="es-UY">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E3DVX8NWPR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-E3DVX8NWPR');
+</script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.getElementById(s),dl=l!='dataLayer'?'&l='+l:'';j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-KTKLTW5T');</script>
   <!-- End Google Tag Manager -->
@@ -307,7 +317,17 @@
       .field-grid { grid-template-columns: 1fr; }
       .form-box { padding: 24px 18px; }
     }
-  </style>
+  
+    .triage-grid-alquileres {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: 768px) {
+      .triage-grid-alquileres {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+</style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -361,7 +381,7 @@
         <img class="brand-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
       </a>
       <nav class="main-nav" aria-label="Navegación principal">
-        <a href="/oportunidades/">Vitrine rápida</a>
+        <a href="/oportunidades/">Vitrina rápida</a>
         <a href="/proyectos/">Propiedades en pozo</a>
         <a href="/alquiloanual/" aria-current="page">Alquiler anual</a>
         <a href="/busqueda-personalizada/">Búsqueda personalizada</a>
@@ -442,7 +462,7 @@
           <a href="/alquileres/" class="btn btn--dark" style="flex:none;">Ver galería completa (2) →</a>
         </div>
 
-        <div class="triage-grid" style="grid-template-columns: repeat(2, minmax(0, 1fr));">
+        <div class="triage-grid triage-grid-alquileres">
           <!-- Propiedad 1: La Fortuna -->
           <article style="background:var(--estuario); color:var(--bone); border:1px solid rgba(243,240,232,0.25); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; justify-content:space-between;">
             <div style="aspect-ratio:16/10; overflow:hidden; position:relative;">
@@ -671,6 +691,10 @@
       const dorm = document.getElementById('alq-dorm').value.trim();
       const valor = document.getElementById('alq-valor').value.trim();
       const notas = document.getElementById('alq-notas').value.trim();
+
+      // Redireccion directa a WhatsApp para evitar bloqueo de popups en in-app browsers
+      const textMsg = "Hola Mar, completé el formulario de ZAGUÁN: Me llamo " + nombre + ", WhatsApp " + wa + ". Busco en " + zona + ", garantía " + garantia + ", " + dorm + ". Presupuesto: " + (valor || "A convenir") + (notas ? ". Detalle: " + notas : "");
+      const waUrl = 'https://wa.me/59898712064?text=' + encodeURIComponent(textMsg);
 
       try {
         const key = 'zaguan_crm_d1_v2_clean';
