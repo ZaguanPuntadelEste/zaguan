@@ -170,7 +170,6 @@ def audit_ficha_html(html_path: str, boveda_path: str | None = None) -> list[str
     for tc_pat in (
         r"\ben Construcci[oó]n\b",
         r"\bHormig[oó]n Armado\b",
-        r"\bFrente a la Laguna\b",
         r"\bTerreno Propio\b",
         r"\bSuperficie Edificada\b",
         r"\bRecorrela en Video\b",

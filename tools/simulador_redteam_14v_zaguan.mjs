@@ -240,8 +240,8 @@ export const ESCENARIOS_60 = [
   {
     id: 'SIM-22', bloque: 'Dueño O1..O5 · Turno 2', turno: 'T2 · Pregunta cuánto cobran', contexto: 'dueno',
     input: 'Cómo trabajan ustedes y cuánto cobran de comisión si venden mi propiedad?',
-    mustMatch: /sin exclusividad|honorarios|3%|mes/i,
-    mustNotInclude: ['zaguanpropiedades.com/propiedades/', 'garantía aseguradora', 'franja gris'],
+    mustMatch: /sin exclusividad|a resultado|por escrito/i,
+    mustNotInclude: ['%', '3%', 'zaguanpropiedades.com/propiedades/', 'garantía aseguradora', 'franja gris'],
     expectAndon: true,
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
   },
@@ -386,8 +386,8 @@ export const ESCENARIOS_60 = [
       return errs;
     },
   }),
-  makeHtmlAuditScenario('SIM-43', 'QA Web · Santa Mónica Bóveda Privada', 'propiedades/santa-monica-casa-hormigon/index.html', {
-    mustInclude: ['USD 160.000', '348', '201'],
+  makeHtmlAuditScenario('SIM-43', 'QA Web · Santa Mónica Bóveda Privada + Laguna', 'propiedades/santa-monica-casa-hormigon/index.html', {
+    mustInclude: ['USD 160.000', '348', '201', 'Frente a la Laguna'],
     mustNotInclude: ['Padrón 704', 'Manzana 26', 'Carpeta 8', 'María Cristina', 'deuda', 'Casa en construcción'],
   }),
   makeHtmlAuditScenario('SIM-44', 'QA Web · Otros 4 Pozos (Precios & Golden Rise Lock)', 'proyectos/nostrum-roosevelt/index.html', {
@@ -428,10 +428,11 @@ export const ESCENARIOS_60 = [
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL', 'DUENO_TURNO_2_HONORARIOS'],
   },
   {
-    id: 'SIM-48', bloque: 'Doble Punta · Consulta Comprador', turno: 'T1 · Comisión Venta', contexto: 'santa_monica',
+    id: 'SIM-48', bloque: 'Doble Punta · Consulta Compra (Sin % en Bot)', turno: 'T1 · Deriva a Andon', contexto: 'santa_monica',
     input: 'Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?',
-    mustInclude: ['3% + IVA'],
-    mustNotInclude: ['sin IVA', 'bóveda privada'],
+    mustMatch: /condiciones comerciales|por escrito|no enviamos porcentajes/i,
+    mustNotInclude: ['%', '3%', 'sin IVA', 'bóveda privada'],
+    expectAndon: true,
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL', 'DUENO_TURNO_2_HONORARIOS'],
   },
   {

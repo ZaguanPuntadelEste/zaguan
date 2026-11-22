@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-22T16:55:18.967Z",
+  "fecha": "2026-11-22T17:36:30.220Z",
   "total": 60,
   "pasaron": 60,
   "fallaron_count": 0,
@@ -108,7 +108,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_REQUISITOS_INGRESO",
       "alerta_andon": false,
-      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de honorarios inmobiliarios sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
+      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
     },
     {
       "id": "SIM-09",
@@ -121,7 +121,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_BOTON_1",
       "alerta_andon": true,
-      "replyText": "Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la laguna, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral: lo evaluás para vivienda propia o para inversión?"
+      "replyText": "Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la Laguna, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral: lo evaluás para vivienda propia o para inversión?"
     },
     {
       "id": "SIM-10",
@@ -186,7 +186,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "LATENTE_LOTE_PROYECTO",
       "alerta_andon": true,
-      "replyText": "Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nEvaluás arrancar de cero en lote libre o te interesa que te pasemos el video completo de esta estructura base?"
+      "replyText": "Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la Laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nEvaluás arrancar de cero en lote libre o te interesa que te pasemos el video completo de esta estructura base?"
     },
     {
       "id": "SIM-15",
@@ -290,7 +290,7 @@
       "vertical_detectada": "O1",
       "subtipo_detectado": "DUENO_TURNO_2_HONORARIOS",
       "alerta_andon": true,
-      "replyText": "Trabajamos con autorización abierta sin exclusividad: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos a resultado al concretar con un interesado de ZAGUÁN: en alquiler anual los honorarios son 1 mes más IVA al firmar contrato, y en venta 3% más IVA al cierre.\nTu propiedad es para venta o alquiler anual y en qué barrio está?"
+      "replyText": "Trabajamos con autorización abierta sin exclusividad: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\nTu propiedad es para venta o alquiler anual y en qué barrio está?"
     },
     {
       "id": "SIM-23",
@@ -554,7 +554,7 @@
     },
     {
       "id": "SIM-43",
-      "bloque": "QA Web · Santa Mónica Bóveda Privada",
+      "bloque": "QA Web · Santa Mónica Bóveda Privada + Laguna",
       "turno": "HTML vs. Motor",
       "contexto": "web_html",
       "input": "Auditoría en disco: propiedades/santa-monica-casa-hormigon/index.html",
@@ -563,7 +563,7 @@
       "vertical_detectada": "QA_HTML",
       "subtipo_detectado": "CONSISTENCIA_WEB_OK",
       "alerta_andon": false,
-      "replyText": "VERIFICADO EN DISCO (propiedades/santa-monica-casa-hormigon/index.html): sin contradicciones, 3 invariantes cumplidas."
+      "replyText": "VERIFICADO EN DISCO (propiedades/santa-monica-casa-hormigon/index.html): sin contradicciones, 4 invariantes cumplidas."
     },
     {
       "id": "SIM-44",
@@ -615,20 +615,20 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_REQUISITOS_INGRESO",
       "alerta_andon": false,
-      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de honorarios inmobiliarios sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
+      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
     },
     {
       "id": "SIM-48",
-      "bloque": "Doble Punta · Consulta Comprador",
-      "turno": "T1 · Comisión Venta",
+      "bloque": "Doble Punta · Consulta Compra (Sin % en Bot)",
+      "turno": "T1 · Deriva a Andon",
       "contexto": "santa_monica",
       "input": "Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?",
       "pass": true,
       "errores": [],
       "vertical_detectada": "D7",
       "subtipo_detectado": "DEMANDA_HONORARIOS_COMPRA",
-      "alerta_andon": false,
-      "replyText": "En operaciones de compraventa los honorarios inmobiliarios oficiales al comprador son 3% + IVA al cierre sobre el valor de escritura, aparte de los gastos notariales e impuestos habituales.\nEvaluás avanzar sobre una unidad puntual de pozo o sobre el proyecto de Santa Mónica para pasarte la simulación completa?"
+      "alerta_andon": true,
+      "replyText": "Trabajamos con condiciones comerciales y notariales claras de cierre según el tipo de operación e inmueble, por lo que no enviamos porcentajes genéricos por respuesta automática.\nConfirmame sobre qué propiedad o proyecto puntual evaluás avanzar así nuestro equipo te pasa el detalle por escrito?"
     },
     {
       "id": "SIM-49",
@@ -693,7 +693,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_CONTRAOFERTA",
       "alerta_andon": true,
-      "replyText": "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\nCualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\nTe paso el video completo de 2m31s y la agenda de visita esta semana?"
+      "replyText": "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la Laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\nCualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\nTe paso el video completo de 2m31s y la agenda de visita esta semana?"
     },
     {
       "id": "SIM-54",

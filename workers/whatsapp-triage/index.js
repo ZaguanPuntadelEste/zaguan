@@ -38,7 +38,7 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "En T2 activar el cruce latente D7 <-> O4/O1 (terreno libre vs. obra base ahorrando 12 meses de construcción)."
     ],
     tiempos: {
-      T0_INMEDIATO: `Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la laguna, USD 160.000): ${SANTA_MONICA_URL}\nPara pasarte el video completo de 2m31s y la cédula catastral: lo evaluás para vivienda propia o para inversión?`,
+      T0_INMEDIATO: `Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la Laguna, USD 160.000): ${SANTA_MONICA_URL}\nPara pasarte el video completo de 2m31s y la cédula catastral: lo evaluás para vivienda propia o para inversión?`,
       T1_AMARILLO_30_MIN: "Viste el adelanto en la ficha de Santa Mónica? Si contás con fondos en USD para evaluar compra directa, avisame y te paso el video de 2m31s y el croquis por acá.",
       T2_NARANJA_24_HS: "Te consulto corto: te interesa que te envíe el video completo y el croquis de Santa Mónica (USD 160.000), o estás buscando terreno libre / casa terminada?",
       TURNO_2_CALIFICADO: "La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?",
@@ -94,7 +94,7 @@ export const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "SM-PLAN", area: "Santa Mónica · Turno 2", titulo: "Planos aprobados, DJCU 2027 y banco", contexto: "santa_monica", ejemploInput: "Tiene planos aprobados o acepta préstamo de banco?" },
   { id: "SM-VID", area: "Santa Mónica · Turno 2", titulo: "Calificado pide video 2m31s y cédula", contexto: "santa_monica", ejemploInput: "Lo evalúo para vivienda propia, cuento con los USD y quiero ver el video completo" },
   { id: "SM-OFE", area: "Santa Mónica · Objeción", titulo: "Contraoferta USD 135.000 / Permuta", contexto: "santa_monica", ejemploInput: "Tengo USD 135.000 cash hoy por la casa de Santa Mónica, aceptan?" },
-  { id: "VTA-HON", area: "Compra · Objeción", titulo: "Honorarios comprador en venta (3% + IVA)", contexto: "santa_monica", ejemploInput: "Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?" },
+  { id: "VTA-HON", area: "Compra · Deriva a Andon", titulo: "Consulta de comisión (deriva sin % fijo en bot)", contexto: "santa_monica", ejemploInput: "Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?" },
   { id: "POZO-BET", area: "Google Search · Pozo", titulo: "Presupuesto desde USD 79.800 (Betania IV)", contexto: "pozo", ejemploInput: "Busco apartamento en pozo en Maldonado desde USD 80.000 con cuotas" },
   { id: "POZO-BET-TIP", area: "Google Search · Pozo", titulo: "Betania IV tipologías (1D/2D/3D + cochera inc.)", contexto: "pozo", ejemploInput: "Qué precios y cocheras tienen 1, 2 y 3 dormitorios en Betania IV?" },
   { id: "POZO-LEY", area: "Google Search · Pozo", titulo: "Ley 18.795 (Nostrum y More Atlántico)", contexto: "pozo", ejemploInput: "Qué opciones tenés con exoneración de impuestos Ley 18.795 en Roosevelt?" },
@@ -132,7 +132,7 @@ const VERTICAL_SPECS = {
   },
   O5: {
     intent: "OFERTA_PROYECTO_CONSTRUCCION",
-    capa1: ["Ubicación / entorno frente a la laguna / costa", "Avance real de obra y qué incluye", "Precio en USD y forma de pago", "Metraje de terreno y construcción base"],
+    capa1: ["Ubicación / entorno frente a la Laguna / costa", "Avance real de obra y qué incluye", "Precio en USD y forma de pago", "Metraje de terreno y construcción base"],
     capa2: ["Memoria estructural (cálculo vientos oceánicos)", "Croquis base", "Antigüedad por audio", "Permisos / papeles en PDF", "Video completo de recorrido"],
     cruces: ["D7", "D3"],
   },
@@ -459,8 +459,8 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, e
   if (/\bencajar\b/i.test(out)) {
     violaciones.push("PALABRA_PROHIBIDA_ENCAJAR");
   }
-  if (/\bla Laguna\b/.test(out)) {
-    out = out.replace(/\bla Laguna\b/g, "la laguna");
+  if (/(\b\d+\s*%\s*(?:\+\s*iva|m[aá]s\s+iva)?\s*(?:de\s+)?(?:honorarios|comisi[oó]n)|(?:honorarios|comisi[oó]n)[^\n.]{0,35}\b\d+\s*%)/i.test(out)) {
+    violaciones.push("PORCENTAJE_COMISION_EN_BOT");
   }
 
   const qCount = (out.match(/\?/g) || []).length;
@@ -556,7 +556,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Contás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar día y horario?";
   } else if (subtipo === "LA_FORTUNA_REQUISITOS_INGRESO") {
     replyText =
-      "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de honorarios inmobiliarios sobre contrato de 1 a 2 años.\n" +
+      "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\n" +
       "Si todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\n" +
       "Ya contás con aseguradora aprobada o querés que veamos el trámite de ingreso?";
   } else if (subtipo === "LA_FORTUNA_SUMA_INGRESOS_PAREJA") {
@@ -596,7 +596,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Te sirve evaluar compra al contado en USD 160.000 para pasarte el video completo y la documentación técnica por acá?";
   } else if (subtipo === "SANTA_MONICA_CONTRAOFERTA") {
     replyText =
-      "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\n" +
+      "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la Laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\n" +
       "Cualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\n" +
       "Te paso el video completo de 2m31s y la agenda de visita esta semana?";
     alertaAndon = true;
@@ -610,8 +610,10 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = "ANDON SANTA MÓNICA: Consulta de permuta; verificar liquidez en USD antes de consultar.";
   } else if (subtipo === "DEMANDA_HONORARIOS_COMPRA") {
     replyText =
-      "En operaciones de compraventa los honorarios inmobiliarios oficiales al comprador son 3% + IVA al cierre sobre el valor de escritura, aparte de los gastos notariales e impuestos habituales.\n" +
-      "Evaluás avanzar sobre una unidad puntual de pozo o sobre el proyecto de Santa Mónica para pasarte la simulación completa?";
+      "Trabajamos con condiciones comerciales y notariales claras de cierre según el tipo de operación e inmueble, por lo que no enviamos porcentajes genéricos por respuesta automática.\n" +
+      "Confirmame sobre qué propiedad o proyecto puntual evaluás avanzar así nuestro equipo te pasa el detalle por escrito?";
+    alertaAndon = true;
+    motivoAndon = "ANDON COMISIÓN VENTA: Cliente preguntó comisión; deriva sin % fijo para ajustar 1 a 1.";
   } else if (subtipo === "BETANIA_TIPOLOGIAS_PRECIOS") {
     replyText =
       `En Betania IV (Fraccionamiento 4H, Maldonado · entrega estimada oct. 2028) las tipologías parten de USD 79.800 (1D 40 m²), USD 122.400 (2D 62 m²), USD 133.200 (2D 68 m² y accesible) y USD 156.600 (3D 87 m² totales), con 50% de anticipo + hasta 24 cuotas, 1,5% de gastos de ocupación y 1 estacionamiento en planta baja incluido en cada unidad: ${PROYECTOS_URL}betania-iv/\n` +
@@ -671,17 +673,17 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = "Lead D6 Comercial (Google Search): pasar a Mar para relevamiento de salón/oficina.";
   } else if (vertical === "D7" || (["D3", "D5"].includes(vertical) && /terreno|lote|santa m[oó]nica|laguna|jos[eé] ignacio|la barra|construir/i.test(rawText || ""))) {
     replyText =
-      `Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): ${SANTA_MONICA_URL}\n` +
+      `Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la Laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): ${SANTA_MONICA_URL}\n` +
       "Evaluás arrancar de cero en lote libre o te interesa que te pasemos el video completo de esta estructura base?";
     alertaAndon = true;
     motivoAndon = "Cruce latente D7 -> O5 Santa Mónica activado.";
   } else if (subtipo === "DUENO_TURNO_2_HONORARIOS") {
     replyText =
       "Trabajamos con autorización abierta sin exclusividad: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\n" +
-      "Operamos a resultado al concretar con un interesado de ZAGUÁN: en alquiler anual los honorarios son 1 mes más IVA al firmar contrato, y en venta 3% más IVA al cierre.\n" +
+      "Operamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\n" +
       "Tu propiedad es para venta o alquiler anual y en qué barrio está?";
     alertaAndon = true;
-    motivoAndon = "Dueño en Turno 2 preguntó modalidad y honorarios; preparar alta en carpeta.";
+    motivoAndon = "Dueño en Turno 2 preguntó modalidad y condiciones; derivar sin % fijo para cerrar 1 a 1.";
   } else if (subtipo === "DUENO_TURNO_2_CAPA2") {
     replyText =
       "Para armar la carpeta interna y evitar visitas de curiosos, podés enviarnos por acá fotos o video completo de recorrido, ubicación aproximada, y si tenés PDF de cédula catastral, DJCU o títulos.\n" +
