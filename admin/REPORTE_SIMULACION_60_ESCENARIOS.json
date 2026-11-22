@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-22T17:36:30.220Z",
+  "fecha": "2026-11-22T18:05:15.870Z",
   "total": 60,
   "pasaron": 60,
   "fallaron_count": 0,
@@ -515,7 +515,7 @@
     },
     {
       "id": "SIM-40",
-      "bloque": "QA Web · La Fortuna Doble Punta (+ IVA)",
+      "bloque": "QA Web · La Fortuna Doble Punta (+ IVA) + Form GA4",
       "turno": "HTML vs. Motor",
       "contexto": "web_html",
       "input": "Auditoría en disco: alquileres/la-fortuna-agata/index.html",
@@ -524,7 +524,7 @@
       "vertical_detectada": "QA_HTML",
       "subtipo_detectado": "CONSISTENCIA_WEB_OK",
       "alerta_andon": false,
-      "replyText": "VERIFICADO EN DISCO (alquileres/la-fortuna-agata/index.html): sin contradicciones, 2 invariantes cumplidas."
+      "replyText": "VERIFICADO EN DISCO (alquileres/la-fortuna-agata/index.html): sin contradicciones, 5 invariantes cumplidas."
     },
     {
       "id": "SIM-41",
@@ -671,8 +671,8 @@
     },
     {
       "id": "SIM-52",
-      "bloque": "La Fortuna · Rescate Lunes Invita Martes",
-      "turno": "T2 · SLA 24hs Lunes 10 AM",
+      "bloque": "La Fortuna · Rescate Invita Horarios Martes",
+      "turno": "T2 · SLA 24hs",
       "contexto": "la_fortuna",
       "input": "Quiero recibir la ficha completa y ubicación exacta de La Fortuna",
       "pass": true,
@@ -680,7 +680,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_FICHA",
       "alerta_andon": true,
-      "replyText": "Hola, buen lunes. Mañana martes mostramos el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes y Wi-Fi incluidos). Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para sumarte mañana, o buscás con otra garantía / en otra zona?"
+      "replyText": "Hola, buenas tardes. Te consulto corto por el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?"
     },
     {
       "id": "SIM-53",

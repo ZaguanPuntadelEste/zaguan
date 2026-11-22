@@ -357,8 +357,8 @@ export const ESCENARIOS_60 = [
     mustInclude: ['1 plaza de estacionamiento en planta baja dentro del precio'],
     mustNotInclude: ['La cochera y sus condiciones se consultan', 'cotizada por separado'],
   }),
-  makeHtmlAuditScenario('SIM-40', 'QA Web · La Fortuna Doble Punta (+ IVA)', 'alquileres/la-fortuna-agata/index.html', {
-    mustInclude: ['1 mes de alquiler + IVA', '$U 30.000'],
+  makeHtmlAuditScenario('SIM-40', 'QA Web · La Fortuna Doble Punta (+ IVA) + Form GA4', 'alquileres/la-fortuna-agata/index.html', {
+    mustInclude: ['1 mes de alquiler + IVA', '$U 30.000', 'lf-garantia', 'lf-turno', 'generate_lead'],
     mustNotInclude: ['1 mes de alquiler al momento', 'sin IVA', 'papá de Valentina', '099 925 848'],
   }),
   makeHtmlAuditScenario('SIM-41', 'QA Web · El Tesoro Doble Punta (+ IVA)', 'alquileres/el-tesoro-juana-de-america/index.html', {
@@ -457,10 +457,10 @@ export const ESCENARIOS_60 = [
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
   },
   {
-    id: 'SIM-52', bloque: 'La Fortuna · Rescate Lunes Invita Martes', turno: 'T2 · SLA 24hs Lunes 10 AM', contexto: 'la_fortuna',
+    id: 'SIM-52', bloque: 'La Fortuna · Rescate Invita Horarios Martes', turno: 'T2 · SLA 24hs', contexto: 'la_fortuna',
     etapa: 'T2_NARANJA_24_HS',
     input: 'Quiero recibir la ficha completa y ubicación exacta de La Fortuna',
-    mustInclude: ['buen lunes', 'mañana martes', '30.000'],
+    mustInclude: ['buenas tardes', 'a estrenar', 'este martes', '30.000'],
     mustMatch: /aseguradora|otra garant[ií]a/i,
     expectAndon: true,
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],

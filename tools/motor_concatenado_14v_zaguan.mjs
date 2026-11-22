@@ -226,21 +226,21 @@ function construirConcatenado(row) {
       ],
     };
   } else if (row.id_registro === 'MP-65' || row.id_registro === 'MP-66') {
-    const saludoLunes = nombre ? `Hola ${nombre}, buen lunes.` : 'Hola, buen lunes.';
-    guionWa = `${saludoLunes} Mañana martes vamos a estar mostrando el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes y Wi-Fi incluidos). Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para sumarte mañana, o buscás con otra garantía / en otra zona?`;
-    anguloRedes = 'Botones V2 auto-calificadores en Meta Ads La Fortuna: filtrar aseguradora o ingresos ANTES de dar link; 0 pin GPS crudo; personas y día en Turno 2.';
+    const saludoCorto = nombre ? `Hola ${nombre}, buenas tardes.` : 'Hola, buenas tardes.';
+    guionWa = `${saludoCorto} Te consulto corto por el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?`;
+    anguloRedes = 'Botones V2 auto-calificadores + ángulo Mudate Ya / A Estrenar en La Fortuna: filtrar aseguradora o ingresos antes de dar ubicación exacta.';
     anguloAds = {
       publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',
-      gancho: 'Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 3 botones auto-calificadores <= 80 car.',
+      gancho: 'Mudate ya · Apartamento 2D a estrenar en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 3 botones auto-calificadores <= 80 car.',
       botones_wa: [
         'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar',
         'Tengo ingresos para tramitar aseguradora y quiero ver la ficha',
         'Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar',
       ],
     };
-    cruceLatente = 'Rescate T2 mañana lunes 23/11 (10:00–11:30 hs) — HOY domingo no insistir para no quemar el lead.';
+    cruceLatente = 'Rescate T2 único (hoy domingo 18:30 hs o mañana lunes 10:00 hs) con horarios de visita este martes. Si no responde, cortar sin insistir.';
     alertaAndon = true;
-    motivoAndon = `Lead real (${row.id_registro} · ${row.nombre_persona}): HOY domingo no escribir (ya recibió T0 + cierre). Mandar rescate T2 lunes 23/11 10:00–11:30 hs.`;
+    motivoAndon = `Lead real (${row.id_registro} · ${row.nombre_persona}): 1 solo rescate corto invitando a los horarios del martes (si no responde, cortar sin insistir).`;
   } else if (vCode === 'D2') {
     guionWa = `${saludo} Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en ${zona} (${precio}), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?`;
     anguloRedes = `Placa informativa de demanda alquiler anual en ${zona}: claridad de requisitos y garantías aceptadas.`;
