@@ -280,14 +280,14 @@
   <div class="section-box" style="border:2px solid var(--gold);background:linear-gradient(180deg,rgba(230,184,92,0.12) 0%,rgba(13,31,48,0.96) 100%);margin-bottom:18px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
       <div>
-        <span class="tag tag-ley">BUSCADOR DIRECTO POR NOMBRE, TELÉFONO O EMPRESA · CARGA DE RESPUESTA Y FRENO DE 72 HS</span>
-        <h2 style="font-size:19px;margin-top:6px;">¿Alguien te contestó por WhatsApp o Correo? Buscalo acá por nombre y cargá qué dijo en 1 clic</h2>
+        <span class="tag tag-ley">BASE VIVA CLOUDFLARE D1 · SINCRONIZADA CON TELEGRAM @zaguan_crm_bot · FRENO 72 HS</span>
+        <h2 style="font-size:19px;margin-top:6px;">¿Alguien te contestó por WhatsApp o Correo? Buscalo acá por nombre y cargá el hilo en 1 clic</h2>
       </div>
       <div class="btn-row">
         <button class="btn btn-outline btn-sm" onclick="setGlobalSearchFilter('TODOS')">Ver Todos</button>
-        <button class="btn btn-yes btn-sm" onclick="setGlobalSearchFilter('ACTIVOS')">💬 Respondieron interesados</button>
-        <button class="btn btn-outline btn-sm" onclick="setGlobalSearchFilter('ESPERANDO')">⏳ Esperando respuesta (7 dueños + 6 desarrolladoras)</button>
-        <button class="btn btn-no btn-sm" onclick="setGlobalSearchFilter('CERRADOS')">🛑 Cerrados / No disponibles (Anabela, Gladys, Danilo)</button>
+        <button class="btn btn-yes btn-sm" onclick="setGlobalSearchFilter('ACTIVOS')">💬 En conversación / Ficha activa</button>
+        <button class="btn btn-outline btn-sm" onclick="setGlobalSearchFilter('ESPERANDO')">⏳ Esperando respuesta (72h)</button>
+        <button class="btn btn-no btn-sm" onclick="setGlobalSearchFilter('CERRADOS')">🛑 Cerrados / Radar 10-12m</button>
       </div>
     </div>
     <div class="form-grid" style="grid-template-columns: 2fr 1fr; align-items: end;">
@@ -333,31 +333,46 @@
   </div>
 
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
-    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Radar Auditado (10 Dueños Reales + 6 Desarrolladoras + Cronómetro 72h)</button>
-    <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp a Compradores B2C & Pre-Registro 60 Días</button>
+    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Propietarios · 5 Sub-Carriles (39 Dueños + 6 Dev + 15 Colegas)</button>
+    <button class="tab-btn" onclick="switchTab('tab-crm4c', this)">1B. B2C Matchmaker · Visitas · Cierres · Cola Mac</button>
+    <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp Pozo & Pre-Registro 60 Días</button>
     <button class="tab-btn" onclick="switchTab('tab-devs', this)">2. Captación de Desarrolladoras de Pozo (PDE · Maldonado)</button>
     <button class="tab-btn" onclick="switchTab('tab-portales', this)">3. Fichas para Portales UY (ML / Gallito / InfoCasas) & Google Ads</button>
-    <button class="tab-btn" onclick="switchTab('tab-d1', this)">4. Puente Cloudflare D1 (cuenta_id="zaguan") & Correo</button>
+    <button class="tab-btn" onclick="switchTab('tab-d1', this)">4. Base Viva D1 & Bot @zaguan_crm_bot</button>
     <button class="tab-btn" onclick="switchTab('tab-warroom', this)">5. War Room Growth Manager (10 Iteraciones · Alquileres 60d · Cronómetro)</button>
   </nav>
 
   <!-- ===================================================================== -->
-  <!-- TAB 0: RADAR VIVO 4 ZONAS (20 PROSPECTOS DIRECTOS + 15 INMOBILIARIAS) -->
+  <!-- TAB 0: RADAR VIVO 4 ZONAS + 5 SUB-CARRILES D1                         -->
   <!-- ===================================================================== -->
   <section id="tab-radar4z" class="tab-panel active">
     <div class="section-box" style="border-color:rgba(56,189,248,0.45);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
         <div>
-          <span class="tag tag-ley">AUDITORÍA ANTI-INMOBILIARIA ENCUBIERTA + CRONÓMETRO DE SEGUIMIENTO 72 HS (SOLO DUEÑOS Y DESARROLLADORAS REALES)</span>
-          <h2 style="font-size:20px;margin-top:6px;">Radar Limpio y Seguimiento Cronometrado (10 Dueños 1-Inmueble + 6 Desarrolladoras de Obra Nueva + 15 Colegas)</h2>
-          <p style="font-size:13px;color:var(--muted);">Prioridad #1 en Uruguay: <strong>WhatsApp Directo 1 a 1</strong> (botón verde) + respaldo en <strong>Gmail Web Online</strong> saliendo como <code>puntadeleste@zaguanpropiedades.com</code> vía <code>zaguanpropiedades@gmail.com</code> (cero app Mail de escritorio). Apunta a <code>/oportunidades/?b2b_ref=...</code> firmado por <strong>Mar, de ZAGUÁN Propiedades</strong>.</p>
+          <span class="tag tag-ley">BASE VIVA CLOUDFLARE D1 + 5 SUB-CARRILES DE PROPIETARIOS + LINTER DE MAR</span>
+          <h2 style="font-size:20px;margin-top:6px;">Embudo de Propietarios en Vivo (39 Dueños Directos + 6 Desarrolladoras + 15 Colegas)</h2>
+          <p style="font-size:13px;color:var(--muted);">Cada cambio guardado acá impacta en el acto en Cloudflare D1 y se refleja en <strong>@zaguan_crm_bot</strong> (y viceversa). Apunta a <code>/oportunidades/?b2b_ref=...</code> firmado por <strong>Mar, de ZAGUÁN Propiedades</strong>.</p>
         </div>
         <div class="btn-row">
+          <button class="btn btn-yes btn-sm" onclick="loadRadar4Z()">🔄 Refrescar D1 en vivo</button>
           <a class="btn btn-email btn-sm" href="/oportunidades/?b2b_ref=Complejo+Pinares" target="_blank">📱 Abrir Vitrina Móvil /oportunidades/ ↗</a>
         </div>
       </div>
 
-      <div class="form-grid" style="grid-template-columns:1fr 1fr;">
+      <div id="carriles-summary-bar" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;"></div>
+
+      <div class="form-grid" style="grid-template-columns:1fr 1fr 1fr;">
+        <div class="field">
+          <label>Filtrar por Sub-Carril D1 (Propietarios)</label>
+          <select id="r4z-carril" onchange="renderRadar4Z()">
+            <option value="TODOS">Todos los sub-carriles</option>
+            <option value="1_por_contactar">1 · Por contactar (sin envío todavía)</option>
+            <option value="2_esperando_respuesta_72h">2 · Esperando respuesta (reloj 72h)</option>
+            <option value="3_en_conversacion">3 · En conversación activa</option>
+            <option value="4_ficha_activa">4 · Ficha activa en cartera (reloj 7d / 15d)</option>
+            <option value="5_cerrado_radar">5 · Cerrado / Sello Prestigio & Radar 10-12m</option>
+          </select>
+        </div>
         <div class="field">
           <label>Filtrar por Zona</label>
           <select id="r4z-zona" onchange="renderRadar4Z()">
@@ -371,14 +386,71 @@
         <div class="field">
           <label>Filtrar por Tipo de Frente</label>
           <select id="r4z-tipo" onchange="renderRadar4Z()">
-            <option value="MARKETPLACE">🔥 10 Dueños Directos de Facebook CON WHATSAPP UY (7 Alquiler Anual + 3 Venta · Cero Messenger personal)</option>
-            <option value="DIRECTOS">6 Desarrolladoras Locales de Obra Nueva (Pinares, Kaplan, Invergroup, CSA, Alma de Manantiales, Mengot)</option>
-            <option value="INMOBILIARIAS">15 Inmobiliarias Colegas por Zona (Solo activar con búsqueda real en mano)</option>
+            <option value="MARKETPLACE">🔥 Dueños Directos Marketplace UY (39 cargados)</option>
+            <option value="DIRECTOS">🏗️ Desarrolladoras Locales de Obra Nueva (6 activas)</option>
+            <option value="INMOBILIARIAS">🤝 Inmobiliarias Colegas por Zona (15 referencias)</option>
           </select>
         </div>
       </div>
 
       <div class="card-grid" id="radar4z-grid" style="margin-top:16px;"></div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- TAB 1B: INTERESADOS B2C + MATCHMAKER + VISITAS + CIERRES + COLA MAC   -->
+  <!-- ===================================================================== -->
+  <section id="tab-crm4c" class="tab-panel">
+    <div class="section-box" style="border-color:rgba(16,185,129,0.45);">
+      <span class="tag tag-active">CARRIL 2 · INTERESADOS B2C Y MATCHMAKER (OFERTA × DEMANDA EN VIVO)</span>
+      <h2 style="font-size:19px;margin-top:6px;">Cargar Interesado B2C (Inquilino / Comprador) y Cruzar contra Cartera D1</h2>
+      <div class="form-grid" style="margin-top:12px;">
+        <div class="field"><label>Nombre *</label><input type="text" id="mm-nombre" placeholder="Ej: Lucía Méndez"></div>
+        <div class="field"><label>Teléfono WhatsApp</label><input type="text" id="mm-tel" placeholder="5989..."></div>
+        <div class="field"><label>Operación</label>
+          <select id="mm-op"><option value="Alquiler Anual">Alquiler Anual</option><option value="Compra / Pozo">Compra / Pozo</option></select>
+        </div>
+        <div class="field"><label>Zona preferida</label><input type="text" id="mm-zona" placeholder="Maldonado, La Fortuna, Roosevelt..."></div>
+        <div class="field"><label>Dormitorios mín.</label><input type="number" id="mm-dorms" min="0" placeholder="2"></div>
+        <div class="field"><label>Presupuesto máx.</label><input type="number" id="mm-presu" placeholder="32000"></div>
+        <div class="field"><label>Moneda</label><select id="mm-moneda"><option value="UYU">UYU ($U)</option><option value="USD">USD</option></select></div>
+        <div class="field"><label>Garantía disponible</label><input type="text" id="mm-gar" placeholder="Porto, Sura, Mapfre, ANDA..."></div>
+        <div class="field"><label>Mascota</label>
+          <select id="mm-mascota"><option value="">Sin especificar</option><option value="no">No tiene</option><option value="si_pequena">Sí (chica)</option><option value="si">Sí</option></select>
+        </div>
+      </div>
+      <div class="field" style="margin-top:10px;"><label>Notas del pedido</label><input type="text" id="mm-notas" placeholder="Detalle adicional de búsqueda..."></div>
+      <div class="btn-row" style="margin-top:12px;">
+        <button class="btn btn-yes" onclick="guardarInteresadoD1()">🎯 Guardar en D1 y Correr Matchmaker</button>
+      </div>
+      <div id="mm-live-matches" style="margin-top:14px;"></div>
+      <div id="b2c-d1-list" class="card-grid" style="margin-top:14px;"></div>
+    </div>
+
+    <div class="section-box" style="border-color:rgba(56,189,248,0.45);">
+      <span class="tag tag-ley">CARRIL 3 · VISITAS COORDINADAS</span>
+      <h2 style="font-size:19px;margin-top:6px;">Agenda de Visitas</h2>
+      <div class="form-grid" style="margin-top:10px;">
+        <div class="field"><label>Propiedad / ID Propietario (ej. MP-12)</label><input type="text" id="vis-cid" placeholder="MP-12"></div>
+        <div class="field"><label>Título / Dirección</label><input type="text" id="vis-prop" placeholder="La Fortuna 2D · Jorge"></div>
+        <div class="field"><label>Fecha y hora</label><input type="text" id="vis-fecha" placeholder="2026-11-24 15:00"></div>
+        <div class="field"><label>Notas / Interesado</label><input type="text" id="vis-notas" placeholder="Garantía Porto aprobada"></div>
+      </div>
+      <div class="btn-row" style="margin-top:10px;"><button class="btn btn-email btn-sm" onclick="guardarVisitaD1()">📅 Registrar Visita en D1</button></div>
+      <div id="visitas-d1-list" class="card-grid" style="margin-top:14px;"></div>
+    </div>
+
+    <div class="section-box" style="border-color:rgba(239,68,68,0.45);">
+      <span class="tag" style="background:var(--red-bg);color:#FCA5A5;">CARRIL 4 · CIERRES, SELLOS DE PRESTIGIO Y RADAR 10-12 MESES</span>
+      <h2 style="font-size:19px;margin-top:6px;">Operaciones Cerradas, Escribanía y Alertas de Pauta</h2>
+      <div id="cierres-d1-list" class="card-grid" style="margin-top:12px;"></div>
+    </div>
+
+    <div class="section-box" style="border-color:rgba(230,184,92,0.5);">
+      <span class="tag tag-ley">PUENTE TELEGRAM ↔ MAC (cola_ag)</span>
+      <h2 style="font-size:19px;margin-top:6px;">Cola de Tareas para Antigravity (Mac)</h2>
+      <p style="font-size:12.5px;color:var(--muted);margin-bottom:10px;">Todo lo que pedís desde Telegram que requiere editar archivos, HTML, Reels o scraping en Marketplace queda encolado acá con estado real.</p>
+      <div id="cola-ag-list" class="card-grid"></div>
     </div>
   </section>
 
@@ -630,28 +702,34 @@
   <!-- ===================================================================== -->
   <section id="tab-d1" class="tab-panel">
     <div class="section-box">
-      <span class="tag tag-active">AISLAMIENTO ZERO-TRUST VERIFICADO</span>
-      <h2 style="font-size:19px;margin-top:6px;">Puente Nativo Cloudflare D1 (<code>cuenta_id="zaguan"</code>) & Configuración de Correo</h2>
+      <span class="tag tag-active">BASE VIVA CLOUDFLARE D1 + TELEGRAM BOT 24/7 CONECTADOS</span>
+      <h2 style="font-size:19px;margin-top:6px;">Puente Nativo Cloudflare D1 (<code>zaguan-crm-db</code>) &amp; Bot Telegram <code>@zaguan_crm_bot</code></h2>
       <p style="font-size:13px;color:var(--muted);margin-bottom:14px;">
-        Sincronizado con la cuenta oficial de Zaguán en Aprobalo Cloud (<code>0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb</code>) sin compartir sesión ni base de datos con ninguna otra marca.
+        Conectado en vivo a <code id="d1-worker-url">https://zaguan-crm-bot.943ari.workers.dev</code> (aislado 100% para <strong>ZAGUÁN Propiedades</strong>, <code>cuenta_id = 0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb</code>).
       </p>
       <div class="form-grid">
         <div class="field">
-          <label>Cuenta ID Aprobalo Cloud (D1)</label>
+          <label>Cuenta ID Aprobalo Cloud</label>
           <input type="text" value="0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb" readonly>
+        </div>
+        <div class="field">
+          <label>Estado Worker + D1 + Telegram</label>
+          <input type="text" id="d1-live-status" value="Conectando a Cloudflare D1..." readonly>
         </div>
         <div class="field">
           <label>Casilla Saliente Web (Gmail Online · Cero App de Escritorio)</label>
           <input type="text" value="puntadeleste@zaguanpropiedades.com (vía Gmail Web zaguanpropiedades@gmail.com)" readonly>
         </div>
         <div class="field">
-          <label>Webhook / Endpoint Correo Aislado (Opcional para disparo API sin abrir cliente de correo)</label>
-          <input type="text" id="cfg-email-webhook" placeholder="https://... (dejar vacío para usar Gmail / Mailto directo)">
+          <label>Webhook / Endpoint Correo Aislado (Opcional)</label>
+          <input type="text" id="cfg-email-webhook" placeholder="https://...">
         </div>
       </div>
       <div class="btn-row" style="margin-top:14px;">
-        <button class="btn btn-yes" onclick="guardarConfigCorreo()">💾 Guardar Configuración</button>
-        <button class="btn btn-outline" onclick="exportarRespaldoJSON()">⬇️ Descargar Respaldo D1 JSON (crm_zaguan_d1.json)</button>
+        <a class="btn btn-wa" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ Abrir Bot Telegram @zaguan_crm_bot ↗</a>
+        <button class="btn btn-yes" onclick="loadRadar4Z()">🔄 Sincronizar ahora desde D1</button>
+        <button class="btn btn-outline" onclick="guardarConfigCorreo()">💾 Guardar Configuración</button>
+        <button class="btn btn-outline" onclick="exportarRespaldoJSON()">⬇️ Descargar Respaldo D1 JSON</button>
       </div>
     </div>
   </section>
@@ -1264,43 +1342,119 @@ function renderOffMarketVault() {
   `).join('');
 }
 
+const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+const CARRIL_INFO = {
+  '1_por_contactar': { label: '1 · Por contactar', color: '#94A3B8' },
+  '2_esperando_respuesta_72h': { label: '2 · Esperando respuesta (72h)', color: '#38BDF8' },
+  '3_en_conversacion': { label: '3 · En conversación', color: '#FBBF24' },
+  '4_ficha_activa': { label: '4 · Ficha activa en cartera', color: '#10B981' },
+  '5_cerrado_radar': { label: '5 · Cerrado / Radar 10-12m', color: '#FCA5A5' }
+};
+let crmCloudState = { ok: false, propietarios: [], interesados_b2c: [], visitas: [], cierres_escribania: [], cola_ag: [], telegram_bloqueado: false };
 let radar4ZData = { mapa_inmobiliarias_maldonado_pde: [], prospectos_directos_4zonas: [], marketplace_duenos_directos: [] };
-let globalSearchFilterMode = 'CERRADOS';
+let globalSearchFilterMode = 'ACTIVOS';
+
+function lintMarLocal(text) {
+  let s = String(text || '').replace(/[¿¡]/g, '');
+  s = s
+    .replace(/\blibremente\s+por\s+tu\s+cuenta\b/gi, 'por tu cuenta')
+    .replace(/\blibremente\b/gi, 'por tu cuenta')
+    .replace(/\bdirectamente\b/gi, 'en forma directa')
+    .replace(/\búnicamente\b/gi, 'solo')
+    .replace(/\bpuntualmente\b/gi, 'en forma puntual')
+    .replace(/\bactualmente\b/gi, 'hoy')
+    .replace(/\bgeneralmente\b/gi, 'por lo general')
+    .replace(/\bsolamente\b/gi, 'solo')
+    .replace(/\bencajar\b/gi, 'calzar');
+  return s;
+}
+
+function hydrateRadarFromCloud(crm) {
+  crmCloudState = crm;
+  const mp = [];
+  const pd = [];
+  const inm = [];
+  if (!state.seguimiento_radar) state.seguimiento_radar = {};
+
+  (crm.propietarios || []).forEach(p => {
+    let raw = {};
+    try { raw = p.raw_json ? JSON.parse(p.raw_json) : {}; } catch (e) {}
+    const merged = {
+      ...raw,
+      ...p,
+      vendedor: raw.vendedor || p.nombre,
+      titulo: p.publicacion_titulo || raw.titulo || '',
+      precio: p.precio_texto || raw.precio || '',
+      zona: p.empresa_o_zona || raw.zona || '',
+      telefono_directo: p.telefono || raw.telefono_directo || '',
+      url: p.url_aviso || raw.url || '',
+      operacion: p.tipo_operacion || raw.operacion || '',
+      nota_auditoria: p.notas_internas || raw.nota_auditoria || ''
+    };
+    state.seguimiento_radar[p.id] = {
+      estado: p.estado_envio || 'pendiente',
+      carril: p.carril || '1_por_contactar',
+      ts: p.ts_envio_1 || Date.now(),
+      fecha: p.fecha_envio_1 || '',
+      respuesta: p.respuesta_recibida || ''
+    };
+    if (p.tipo_contacto === 'marketplace_dueno') mp.push(merged);
+    else if (p.tipo_contacto === 'desarrolladora') {
+      pd.push({ ...merged, zona: p.empresa_o_zona, segmento: p.tipo_operacion, url_verificada: p.url_aviso, email_verificado: p.email, whatsapp_o_tel_verificado: p.telefono, angulo_real_sin_humo: p.mensaje_mar || raw.angulo_real_sin_humo || '' });
+    } else {
+      inm.push({ ...merged, zona_foco: p.empresa_o_zona, url_oficial: p.url_aviso, email_verificado: p.email, telefono_o_wa_verificado: p.telefono, http_status: 200 });
+    }
+  });
+  radar4ZData = {
+    marketplace_duenos_directos: mp,
+    prospectos_directos_4zonas: pd,
+    mapa_inmobiliarias_maldonado_pde: inm
+  };
+  saveState();
+}
 
 async function loadRadar4Z() {
+  const statusEl = document.getElementById('d1-live-status');
   try {
-    const res = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
+    const res = await fetch(`${CRM_API_URL}/api/crm?v=${Date.now()}`);
     if (res.ok) {
-      radar4ZData = await res.json();
-      if (!state.seguimiento_radar) state.seguimiento_radar = {};
-      const allServerItems = [
-        ...(radar4ZData.marketplace_duenos_directos || []),
-        ...(radar4ZData.prospectos_directos_4zonas || [])
-      ];
-      allServerItems.forEach(it => {
-        if (it.estado_envio === 'cerrado' || it.respuesta_recibida) {
-          state.seguimiento_radar[it.id] = {
-            estado: it.estado_envio || 'cerrado',
-            ts: it.ts_envio_1 || Date.now(),
-            fecha: it.fecha_envio_1 || '11/11',
-            respuesta: it.respuesta_recibida || (state.seguimiento_radar[it.id] && state.seguimiento_radar[it.id].respuesta) || ''
-          };
-        } else if (!state.seguimiento_radar[it.id] && it.estado_envio) {
-          state.seguimiento_radar[it.id] = {
-            estado: it.estado_envio,
-            ts: it.ts_envio_1 || Date.now(),
-            fecha: it.fecha_envio_1 || '11/11',
-            respuesta: ''
-          };
+      const crm = await res.json();
+      if (crm && crm.ok) {
+        hydrateRadarFromCloud(crm);
+        if (statusEl) {
+          statusEl.value = `CONECTADO (${crm.propietarios.length} propietarios · Telegram ${crm.telegram_bloqueado ? 'vinculado a tu chat' : 'listo para tu /start'})`;
         }
-      });
-      saveState();
+        renderCarrilesSummaryBar();
+        renderRadar4Z();
+        renderGlobalSearch();
+        renderFourLanesTab();
+        return;
+      }
+    }
+  } catch (e) {
+    console.warn('No se pudo conectar a Worker D1, cargando respaldo JSON:', e);
+  }
+  try {
+    const resFallback = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
+    if (resFallback.ok) {
+      radar4ZData = await resFallback.json();
+      if (statusEl) statusEl.value = 'MODO RESPALDO LOCAL (Sin conexión a D1)';
       renderRadar4Z();
       renderGlobalSearch();
     }
-  } catch (e) {
-    console.warn('No se pudo cargar JSON 4 zonas:', e);
-  }
+  } catch (e2) {}
+}
+
+function renderCarrilesSummaryBar() {
+  const bar = document.getElementById('carriles-summary-bar');
+  if (!bar) return;
+  const props = (crmCloudState.propietarios || []).filter(p => p.tipo_contacto !== 'inmobiliaria_colega');
+  const keys = Object.keys(CARRIL_INFO);
+  bar.innerHTML = keys.map(k => {
+    const count = props.filter(p => p.carril === k).length;
+    const info = CARRIL_INFO[k];
+    return `<button class="btn btn-outline btn-sm" style="border-color:${info.color};color:${info.color};" onclick="document.getElementById('r4z-carril').value='${k}';document.getElementById('r4z-tipo').value='MARKETPLACE';renderRadar4Z();">${info.label}: <strong>${count}</strong></button>`;
+  }).join('') + `<button class="btn btn-outline btn-sm" onclick="document.getElementById('r4z-carril').value='TODOS';renderRadar4Z();">Ver todos (${props.length})</button>`;
 }
 
 function extractPhoneForWa(str) {
@@ -1313,99 +1467,122 @@ function extractPhoneForWa(str) {
 function getContactRecord(id, itemFallback) {
   if (!state.seguimiento_radar) state.seguimiento_radar = {};
   let rec = state.seguimiento_radar[id];
-  if (itemFallback && (itemFallback.estado_envio === 'cerrado' || itemFallback.respuesta_recibida)) {
+  if (itemFallback && itemFallback.carril) {
     rec = {
-      estado: itemFallback.estado_envio || (rec && rec.estado) || 'cerrado',
-      ts: (rec && rec.ts) || itemFallback.ts_envio_1 || Date.now(),
-      fecha: (rec && rec.fecha) || itemFallback.fecha_envio_1 || '11/11',
-      respuesta: (rec && rec.respuesta) || itemFallback.respuesta_recibida || ''
+      estado: itemFallback.estado_envio || (rec && rec.estado) || 'pendiente',
+      carril: itemFallback.carril,
+      ts: itemFallback.ts_envio_1 || (rec && rec.ts) || Date.now(),
+      fecha: itemFallback.fecha_envio_1 || (rec && rec.fecha) || '',
+      respuesta: itemFallback.respuesta_recibida || (rec && rec.respuesta) || ''
     };
   } else if (!rec && itemFallback && itemFallback.estado_envio) {
     rec = {
       estado: itemFallback.estado_envio,
+      carril: '1_por_contactar',
       ts: itemFallback.ts_envio_1 || Date.now(),
       fecha: itemFallback.fecha_envio_1 || '',
       respuesta: itemFallback.respuesta_recibida || ''
     };
   }
-  return rec || { estado: 'pendiente', ts: 0, fecha: '', respuesta: '' };
+  return rec || { estado: 'pendiente', carril: '1_por_contactar', ts: 0, fecha: '', respuesta: '' };
 }
 
 function getCronometroBadge(id, itemFallback) {
   const rec = getContactRecord(id, itemFallback);
+  const carrilTag = rec.carril && CARRIL_INFO[rec.carril] ? `<span class="tag" style="border:1px solid ${CARRIL_INFO[rec.carril].color};color:${CARRIL_INFO[rec.carril].color};margin-right:4px;">${CARRIL_INFO[rec.carril].label}</span>` : '';
+  const selloTag = itemFallback && itemFallback.sello_cierre ? `<span class="tag" style="background:rgba(239,68,68,0.22);color:#FCA5A5;border:1px solid #FCA5A5;margin-right:4px;">🏷️ ${itemFallback.sello_cierre}</span>` : '';
+  const fichaTag = itemFallback && itemFallback.url_ficha ? `<a class="tag tag-active" href="${itemFallback.url_ficha}" target="_blank" style="text-decoration:underline;margin-right:4px;">🌐 ${itemFallback.ref_ficha || 'Ficha web'} ↗</a>` : '';
+  const toqueTag = itemFallback && itemFallback.proximo_toque_fecha ? `<span class="tag tag-ley">🗓️ ${itemFallback.proximo_toque_tipo || 'Toque'}: ${itemFallback.proximo_toque_fecha}</span>` : '';
+
   if (!rec || rec.estado === 'pendiente') {
-    return `<span class="tag tag-pending">⏳ Todavía no se le escribió</span>`;
+    return `${carrilTag}${fichaTag}<span class="tag tag-pending">⏳ Todavía no se le escribió</span>`;
   }
   if (rec.estado === 'enviado_1') {
-    const due = new Date(rec.ts + 72 * 3600 * 1000);
+    const due = new Date((rec.ts || Date.now()) + 72 * 3600 * 1000);
     const vencido = Date.now() >= due.getTime();
     const fechaDue = due.toLocaleString('es-UY', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
-    return vencido
+    return `${carrilTag}${toqueTag}` + (vencido
       ? `<span class="tag" style="background:var(--red-bg);color:#FCA5A5;border:1px solid rgba(239,68,68,0.45);">🔔 PASARON 3 DÍAS SIN RESPUESTA (toca único recordatorio)</span>`
-      : `<span class="tag tag-ley">⏱️ Ya le escribiste (${rec.fecha}) · Si no contesta, recordatorio el ${fechaDue}</span>`;
+      : `<span class="tag tag-ley">⏱️ Enviado (${rec.fecha}) · Recordatorio ${fechaDue}</span>`);
   }
-  if (rec.estado === 'seguimiento_enviado') {
-    return `<span class="tag tag-ley">📨 Ya se mandó el único recordatorio de 3 días (${rec.fecha})</span>`;
+  if (rec.estado === 'propiedad_en_cartera' || rec.carril === '4_ficha_activa') {
+    return `${carrilTag}${fichaTag}${toqueTag}`;
   }
-  if (rec.estado === 'respondio') {
-    return `<span class="tag tag-active">💬 Te respondió interesado (${rec.fecha}) · Frenado el recordatorio de 72 hs</span>`;
+  if (rec.estado === 'respondio' || rec.carril === '3_en_conversacion') {
+    return `${carrilTag}${fichaTag}<span class="tag tag-active">💬 En conversación (${itemFallback.fecha_respuesta || rec.fecha}) · 72h frenado</span>`;
   }
-  return `<span class="tag" style="background:var(--red-bg);color:#FCA5A5;border:1px solid rgba(239,68,68,0.45);">🛑 CERRADO (${rec.fecha}) · Recordatorio de 72 hs anulado</span>`;
+  return `${carrilTag}${selloTag}${toqueTag}<span class="tag" style="background:var(--red-bg);color:#FCA5A5;border:1px solid rgba(239,68,68,0.45);">🛑 Cerrado</span>`;
 }
 
-function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto) {
-  const first = (nombrePersona || '').split(' ')[0] || 'hola';
+function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto, itemFallback) {
+  if (itemFallback && itemFallback.sugerencia_mar) {
+    return lintMarLocal(itemFallback.sugerencia_mar);
+  }
+  const first = (nombrePersona || '').split(' ')[0] || '';
+  const saludoNombre = first && !first.includes('(') ? first : '';
+  const comaNombre = saludoNombre ? `, ${saludoNombre}` : '';
   const low = (respuestaTexto || '').toLowerCase();
   const esVenta = (tipoOperacion || '').toLowerCase().includes('venta') || (tipoOperacion || '').toLowerCase().includes('desarrolladora');
+  let msg = '';
   if (low.includes('no tengo') || low.includes('ningun lado') || low.includes('ningún lado') || low.includes('equivoc')) {
-    return `Perdón la molestia, ${first}, figuraba este número en un aviso publicado en Facebook. Ya lo doy de baja de nuestra lista para no volver a escribirte. ¡Que tengas buen día! Mar.`;
+    msg = `Perdón la molestia${comaNombre}, figuraba este número en un aviso publicado en Facebook. Ya lo doy de baja de nuestra lista para no volver a escribirte. Buen día, Mar.`;
+  } else if (low.includes('no está disponible') || low.includes('no esta disponible') || low.includes('ya se alquil') || low.includes('ya alquil') || low.includes('ya vend')) {
+    msg = `Muchas gracias por avisarme${comaNombre}. Ya tomo nota de que no está disponible. Si más adelante se desocupa o tenés otra propiedad en la zona, contá con nosotros. Buen día, Mar — ZAGUÁN Propiedades.`;
+  } else if (low.includes('encargamos') || low.includes('no me interesa') || low.includes('por nuestra cuenta') || low.includes('sin inmobiliaria')) {
+    msg = `Perfecto${comaNombre}, gracias por responder con claridad y muchos éxitos. Quedamos a las órdenes si más adelante necesitás interesados con garantía aseguradora aprobada. Saludos, Mar — ZAGUÁN Propiedades.`;
+  } else if (low.includes('comisi') || low.includes('honorario') || low.includes('cuanto cobran') || low.includes('cuánto cobran') || low.includes('porcentaje')) {
+    msg = esVenta
+      ? `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder. Trabajamos con autorización abierta sin exclusividad (seguís ofreciendo por tu cuenta y solo devenga honorarios de plaza del 3% + IVA si concretamos nosotros la venta con comprador propio y escribanía aliada). Me pasás ubicación exacta, m² y si tenés fotos actuales por acá?`
+      : `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder. Trabajamos alquiler anual con autorización abierta sin exclusividad (seguís ofreciéndola por tu cuenta y solo cobramos 1 mes de alquiler + IVA si cerramos contrato nosotros con inquilino filtrado con garantía aseguradora aprobada). Qué garantías aceptás y si tenés fotos y condiciones para armar la ficha?`;
+  } else if (esVenta) {
+    msg = `Genial${comaNombre}, muchas gracias por responder. Trabajamos sin exclusividad mientras presentamos la propiedad a compradores calificados con escribanía aliada. Me compartís precio en dólares, ubicación exacta, m² aproximados y fotos por acá? Saludos, Mar.`;
+  } else {
+    msg = `Genial${comaNombre}, muchas gracias por responder. Trabajamos alquiler anual sin exclusividad filtrando inquilinos con garantía aseguradora aprobada (Porto, Sura, Mapfre o ANDA). Me confirmás precio mensual, gastos comunes, si acepta mascota y fotos por acá para armar la ficha? Saludos, Mar.`;
   }
-  if (low.includes('no está disponible') || low.includes('no esta disponible') || low.includes('ya se alquil') || low.includes('ya alquil') || low.includes('ya vend')) {
-    return `¡Muchas gracias por avisarme, ${first}! Ya tomo nota de que no está disponible. Si más adelante se desocupa o tenés otra propiedad en alquiler anual o venta en Maldonado, contá con nosotros. ¡Que tengas muy buen día! Mar, de ZAGUÁN Propiedades.`;
-  }
-  if (low.includes('encargamos') || low.includes('no me interesa') || low.includes('por nuestra cuenta') || low.includes('sin inmobiliaria')) {
-    return `¡Perfecto, ${first}! Muchas gracias por responderme y muchos éxitos con el alquiler. Cualquier cosa que necesites más adelante quedamos a las órdenes. ¡Saludos! Mar, de ZAGUÁN Propiedades.`;
-  }
-  if (low.includes('comisi') || low.includes('honorario') || low.includes('cuanto cobran') || low.includes('cuánto cobran') || low.includes('porcentaje') || low.includes('condicion') || low.includes('como trabajan') || low.includes('cómo trabajan')) {
-    if (esVenta) {
-      return `Hola ${first}, ¡gracias por responder! Trabajamos con autorización abierta sin exclusividad (vos seguís ofreciendo por tu cuenta sin ningún bloqueo y solo devenga honorarios de plaza del 3% + IVA si concretamos nosotros la venta con comprador propio y escribanía aliada). ¿Querés que coordinemos 10 minutos para ver la propiedad o me pasás fotos y ubicación exacta por acá?`;
-    }
-    return `Hola ${first}, ¡gracias por responder! Trabajamos alquiler anual con autorización abierta sin exclusividad (seguís ofreciéndola por tu cuenta sin ataduras y solo cobramos el equivalente a 1 mes de alquiler + IVA si cerramos contrato nosotros con inquilino filtrado con garantía aseguradora aprobada). ¿En qué horario te queda cómodo que pasemos a conocerla o me compartís fotos y condiciones por acá?`;
-  }
-  if (esVenta) {
-    return `¡Buenísimo, ${first}! Como trabajamos sin exclusividad, podés seguir ofreciéndola por tu cuenta con total libertad mientras nosotros la presentamos a nuestra base de compradores con escribanía aliada. ¿Me compartís por acá ubicación aproximada, metraje y si querés que pasemos a verla esta semana?`;
-  }
-  return `¡Buenísimo, ${first}! Como trabajamos alquiler anual sin exclusividad, seguís ofreciéndola libremente por tu cuenta mientras nosotros filtramos interesados con recibo de sueldo y garantía aseguradora aprobada (Porto, Sura, Mapfre o Anda) antes de llevarte a nadie. ¿Me confirmás qué garantías aceptás y si podemos coordinar para verla o recibir fotos por acá?`;
+  return lintMarLocal(msg);
 }
 
 function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, itemFallback, prefixId) {
   const rec = getContactRecord(id, itemFallback);
   const respActual = rec.respuesta || '';
-  const sugerencia = respActual ? buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respActual) : '';
+  const hist = (itemFallback && Array.isArray(itemFallback.conversaciones)) ? itemFallback.conversaciones : [];
+  const sugerencia = buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respActual, itemFallback);
   const cleanPhone = (telefonoWa || '').replace(/[^0-9]/g, '');
   const waReplyHref = cleanPhone && sugerencia ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(sugerencia)}` : '';
 
+  const timelineHtml = hist.length
+    ? `<div style="margin-bottom:8px;max-height:160px;overflow-y:auto;display:grid;gap:5px;">
+        ${hist.slice(-6).map(h => {
+          const isOwner = h.rol === 'propietario_respondio' || h.rol === 'nota_audio';
+          const bg = isOwner ? 'rgba(16,185,129,0.14)' : h.rol === 'sistema' ? 'rgba(239,68,68,0.14)' : 'rgba(56,189,248,0.12)';
+          const label = isOwner ? '👤 Dueño' : h.rol === 'mar_enviado' ? '✉️ Mar' : h.rol === 'mar_borrador' ? '📝 Borrador' : '⚙️ Sistema';
+          return `<div style="padding:6px 8px;border-radius:6px;background:${bg};font-size:12px;">
+            <strong style="color:var(--gold);">${label}</strong> <span style="color:var(--muted);font-size:10.5px;">${(h.ts_creado || '').slice(0,16).replace('T',' ')}</span>
+            <div style="color:#E2E8F0;white-space:pre-wrap;margin-top:2px;">${String(h.contenido || '').replace(/</g,'&lt;')}</div>
+          </div>`;
+        }).join('')}
+      </div>`
+    : (respActual ? `<div style="margin-bottom:8px;padding:8px 10px;border-radius:6px;background:rgba(16,185,129,0.14);font-size:12px;color:#fff;">"${respActual}"</div>` : '');
+
   return `
     <div style="background:rgba(8,21,33,0.85);border:1px solid rgba(230,184,92,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
-      ${respActual ? `
-        <div style="margin-bottom:8px;padding:8px 10px;border-radius:6px;background:${rec.estado === 'cerrado' ? 'rgba(239,68,68,0.16)' : 'rgba(16,185,129,0.16)'};border:1px solid ${rec.estado === 'cerrado' ? 'rgba(239,68,68,0.4)' : 'rgba(16,185,129,0.4)'};font-size:12.5px;">
-          <strong style="color:${rec.estado === 'cerrado' ? '#FCA5A5' : '#6EE7B7'};">${rec.estado === 'cerrado' ? '🛑 Respuesta registrada (Cerrado · 72h anulado):' : '💬 Respuesta registrada (Activo · 72h frenado):'}</strong>
-          <div style="margin-top:3px;color:#fff;font-weight:600;">"${respActual}"</div>
-        </div>
-      ` : ''}
-      <label style="display:block;font-size:11.5px;color:var(--gold);font-weight:700;margin-bottom:4px;">✍️ Cargar o actualizar lo que respondió ${nombrePersona}:</label>
+      ${timelineHtml}
+      <label style="display:block;font-size:11.5px;color:var(--gold);font-weight:700;margin-bottom:4px;">✍️ Sumar nueva respuesta de ${nombrePersona} al hilo continuo (no pisa mensajes anteriores):</label>
       <div style="display:flex;gap:6px;flex-wrap:wrap;">
-        <input type="text" id="reply-input-${prefixId}-${id}" value="${respActual.replace(/"/g, '&quot;')}" placeholder="Pegá acá qué contestó (ej.: sigue disponible / cuánto cobran / ya se alquiló)..." style="flex:1;min-width:210px;background:#040d16;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:6px;font-size:12.5px;">
-        <button class="btn btn-yes btn-sm" onclick="guardarRespuestaContacto('${id}', 'respondio', 'reply-input-${prefixId}-${id}')">💬 Guardá como INTERESADO (+ armar respuesta)</button>
-        <button class="btn btn-no btn-sm" onclick="guardarRespuestaContacto('${id}', 'cerrado', 'reply-input-${prefixId}-${id}')">🛑 Guardá como NO DISPONIBLE / CERRAR</button>
+        <input type="text" id="reply-input-${prefixId}-${id}" placeholder="Escribí acá lo que respondió recién (audio transcripto, precio, garantía, si alquiló)..." style="flex:1;min-width:210px;background:#040d16;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:6px;font-size:12.5px;">
+        <button class="btn btn-yes btn-sm" onclick="guardarRespuestaContacto('${id}', 'respondio', 'reply-input-${prefixId}-${id}')">💬 Guardar respuesta al hilo</button>
+        <button class="btn btn-outline btn-sm" style="border-color:#10B981;color:#6EE7B7;" onclick="moverCarrilD1('${id}', '4_ficha_activa')">📋 Pasar a Ficha Activa</button>
+        <button class="btn btn-no btn-sm" onclick="aplicarSelloPrestigio('${id}', 'ALQUILADO')">🏷️ Alquilado (otro)</button>
+        <button class="btn btn-no btn-sm" style="background:rgba(230,184,92,0.2);color:#FCD34D;border-color:#FCD34D;" onclick="aplicarSelloPrestigio('${id}', 'ALQUILADO POR ZAGUÁN')">🏆 Alquilado por Zaguán</button>
       </div>
       ${sugerencia ? `
         <div style="margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;">
-          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Contestación sugerida para Mar según lo que te respondió:</label>
-          <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:64px;font-size:12px;">${sugerencia}</textarea>
+          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Próximo mensaje sugerido de Mar (Linter SÍ/NO verificado · adaptado al hilo):</label>
+          <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:68px;font-size:12px;">${sugerencia}</textarea>
           <div class="btn-row" style="margin-top:6px;">
-            <button class="btn btn-yes btn-sm" onclick="copyTextById('sug-reply-${prefixId}-${id}')">📋 Copiar contestación de Mar</button>
-            ${waReplyHref ? `<a class="btn btn-wa btn-sm" href="${waReplyHref}" target="_blank" rel="noopener noreferrer">📲 Mandar esta contestación por WhatsApp</a>` : ''}
+            <button class="btn btn-yes btn-sm" onclick="copyTextById('sug-reply-${prefixId}-${id}')">📋 Copiar copy de Mar</button>
+            ${waReplyHref ? `<a class="btn btn-wa btn-sm" href="${waReplyHref}" target="_blank" rel="noopener noreferrer">📲 Abrir WhatsApp con este copy</a>` : ''}
+            <button class="btn btn-outline btn-sm" onclick="confirmarEnvioMar('${id}', 'sug-reply-${prefixId}-${id}')">✅ Ya lo mandé (registrar en hilo D1)</button>
           </div>
         </div>
       ` : ''}
@@ -1413,45 +1590,185 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
   `;
 }
 
-window.guardarRespuestaContacto = function(id, nuevoEstado, inputId) {
-  if (!state.seguimiento_radar) state.seguimiento_radar = {};
+window.guardarRespuestaContacto = async function(id, nuevoEstado, inputId) {
   const el = document.getElementById(inputId);
   const textoResp = el ? el.value.trim() : '';
-  const ahora = new Date().toLocaleString('es-UY', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' });
-  state.seguimiento_radar[id] = {
-    estado: nuevoEstado,
-    ts: Date.now(),
-    fecha: ahora + (textoResp ? ' · ' + textoResp.slice(0, 38) : ''),
-    respuesta: textoResp || (nuevoEstado === 'cerrado' ? 'Cerrado / No disponible' : 'Respondió interesado')
-  };
-  // Actualizar también en memoria de radar4ZData para sincronía inmediata
-  [...(radar4ZData.marketplace_duenos_directos || []), ...(radar4ZData.prospectos_directos_4zonas || [])].forEach(it => {
-    if (it.id === id) {
-      it.estado_envio = nuevoEstado;
-      it.fecha_envio_1 = state.seguimiento_radar[id].fecha;
-      it.respuesta_recibida = state.seguimiento_radar[id].respuesta;
+  if (!textoResp) {
+    showToast('⚠️ Escribí primero qué respondió el dueño para agregarlo al hilo');
+    return;
+  }
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/conversaciones`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contacto_id: id,
+        rol: 'propietario_respondio',
+        contenido: textoResp,
+        accion_estado: nuevoEstado
+      })
+    });
+    const out = await res.json();
+    if (out.ok) {
+      if (el) el.value = '';
+      await loadRadar4Z();
+      showToast('💬 Respuesta sumada al hilo continuo en Cloudflare D1');
+      return;
     }
-  });
-  saveState();
-  renderRadar4Z();
-  renderGlobalSearch();
-  showToast(nuevoEstado === 'cerrado' ? '🛑 Contacto cerrado y seguimiento de 72 hs anulado' : '💬 Respuesta guardada y contestación de Mar lista');
+  } catch (e) {
+    console.error(e);
+  }
+  showToast('⚠️ Error guardando en D1');
 };
 
-window.setCronometroEstado = function(id, nuevoEstado) {
-  if (!state.seguimiento_radar) state.seguimiento_radar = {};
-  const prev = state.seguimiento_radar[id] || {};
-  state.seguimiento_radar[id] = {
-    estado: nuevoEstado,
-    ts: Date.now(),
-    fecha: new Date().toLocaleString('es-UY', { day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit' }),
-    respuesta: prev.respuesta || ''
-  };
-  saveState();
-  renderRadar4Z();
-  renderGlobalSearch();
-  showToast('⏱️ Estado cronometrado guardado');
+window.confirmarEnvioMar = async function(id, textareaId) {
+  const el = document.getElementById(textareaId);
+  const copyTxt = el ? el.value.trim() : '';
+  if (!copyTxt) return;
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/conversaciones`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contacto_id: id,
+        rol: 'mar_enviado',
+        contenido: lintMarLocal(copyTxt),
+        confirmar_envio: true
+      })
+    });
+    const out = await res.json();
+    if (out.ok) {
+      await loadRadar4Z();
+      showToast('✅ Envío de Mar confirmado y guardado en Cloudflare D1');
+    }
+  } catch (e) {
+    showToast('⚠️ Error confirmando envío en D1');
+  }
 };
+
+window.moverCarrilD1 = async function(id, carril) {
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/propietarios/estado`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, carril })
+    });
+    const out = await res.json();
+    if (out.ok) {
+      await loadRadar4Z();
+      showToast(`✅ Movido a ${CARRIL_INFO[carril]?.label || carril}`);
+    }
+  } catch (e) {
+    showToast('⚠️ Error moviendo carril en D1');
+  }
+};
+
+window.aplicarSelloPrestigio = async function(id, sello) {
+  const motivo = prompt(`Confirmás aplicar el sello "${sello}" a ${id}? Detallá motivo breve (opcional):`, sello === 'ALQUILADO POR ZAGUÁN' ? 'Cerrado por Zaguán' : 'Cerrado por dueño');
+  if (motivo === null) return;
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/propietarios/estado`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, sello_cierre: sello, motivo_cierre: motivo })
+    });
+    const out = await res.json();
+    if (out.ok) {
+      await loadRadar4Z();
+      showToast(`🏷️ Sello "${sello}" aplicado + Radar 10-12m + Cola Mac generada`);
+    }
+  } catch (e) {
+    showToast('⚠️ Error aplicando sello en D1');
+  }
+};
+
+window.setCronometroEstado = async function(id, nuevoEstado) {
+  await window.moverCarrilD1(id, nuevoEstado === 'enviado_1' ? '2_esperando_respuesta_72h' : nuevoEstado === 'cerrado' ? '5_cerrado_radar' : '3_en_conversacion');
+};
+
+window.guardarInteresadoD1 = async function() {
+  const payload = {
+    nombre: document.getElementById('mm-nombre').value.trim(),
+    telefono: document.getElementById('mm-tel').value.trim(),
+    tipo_operacion: document.getElementById('mm-op').value,
+    zona_preferida: document.getElementById('mm-zona').value.trim(),
+    dormitorios_min: document.getElementById('mm-dorms').value,
+    presupuesto_max: document.getElementById('mm-presu').value,
+    moneda: document.getElementById('mm-moneda').value,
+    garantia_disponible: document.getElementById('mm-gar').value.trim(),
+    tiene_mascota: document.getElementById('mm-mascota').value,
+    notas: document.getElementById('mm-notas').value.trim()
+  };
+  if (!payload.nombre) { showToast('⚠️ Poné al menos el nombre del interesado'); return; }
+  const res = await fetch(`${CRM_API_URL}/api/interesados`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+  });
+  const out = await res.json();
+  if (out.ok) {
+    const box = document.getElementById('mm-live-matches');
+    if (box) {
+      box.innerHTML = out.matches && out.matches.length
+        ? `<div class="section-box" style="margin:0;border-color:#10B981;"><strong style="color:#6EE7B7;">🎯 ${out.matches.length} coincidencias encontradas para ${payload.nombre}:</strong><br>` +
+          out.matches.map(m => `<div style="margin-top:6px;font-size:13px;">• <strong>${m.id} — ${m.nombre}</strong> (${m.carril}) · ${m.titulo} (${m.precio_texto || ''}) · <em>${(m.razones || []).join(' · ')}</em> ${m.url_ficha ? `<a href="${m.url_ficha}" target="_blank" style="text-decoration:underline;color:#38BDF8;">Abrir ficha ↗</a>` : ''}</div>`).join('') +
+          `</div>`
+        : `<div class="section-box" style="margin:0;">Sin coincidencias exactas en D1 por ahora. Podés pedirle a Telegram o a la Mac una nueva tanda en Marketplace.</div>`;
+    }
+    await loadRadar4Z();
+    showToast('🎯 Interesado guardado en D1 y Matchmaker ejecutado');
+  }
+};
+
+window.guardarVisitaD1 = async function() {
+  const payload = {
+    contacto_id: document.getElementById('vis-cid').value.trim().toUpperCase(),
+    propiedad_titulo: document.getElementById('vis-prop').value.trim(),
+    fecha_hora: document.getElementById('vis-fecha').value.trim(),
+    notas: document.getElementById('vis-notas').value.trim()
+  };
+  if (!payload.fecha_hora) { showToast('⚠️ Poné fecha y hora de la visita'); return; }
+  const res = await fetch(`${CRM_API_URL}/api/visitas`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+  });
+  const out = await res.json();
+  if (out.ok) {
+    await loadRadar4Z();
+    showToast('📅 Visita guardada en D1');
+  }
+};
+
+window.marcarColaAg = async function(id, estado) {
+  const res = await fetch(`${CRM_API_URL}/api/cola-ag`, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id, estado })
+  });
+  if (res.ok) { await loadRadar4Z(); showToast(`🤖 Cola Mac ${id} -> ${estado}`); }
+};
+
+function renderFourLanesTab() {
+  const b2cBox = document.getElementById('b2c-d1-list');
+  if (b2cBox) {
+    const items = crmCloudState.interesados_b2c || [];
+    b2cBox.innerHTML = items.length ? items.map(it => {
+      let ms = []; try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch(e) {}
+      return `<div class="card approved"><div class="card-top"><div><span class="tag tag-active">${it.id} · ${it.estado}</span><h3 style="margin-top:6px;">${it.nombre}</h3><p style="font-size:12.5px;color:var(--muted);">${it.tipo_operacion} · ${it.zona_preferida || 'Cualquier zona'} · ${it.dormitorios_min ?? '?'}D · Hasta ${it.moneda} ${it.presupuesto_max || 's/d'}</p></div></div>
+      <div style="font-size:12px;color:#D5E0EA;">Garantía: ${it.garantia_disponible || 's/d'} · Mascota: ${it.tiene_mascota || 's/d'}<br>Matches: ${ms.map(m => `${m.id} (${m.nombre})`).join(', ') || 'Sin matches aún'}</div></div>`;
+    }).join('') : '<p style="color:var(--muted);font-size:13px;">Todavía no cargaste interesados B2C en D1.</p>';
+  }
+  const visBox = document.getElementById('visitas-d1-list');
+  if (visBox) {
+    const vis = crmCloudState.visitas || [];
+    visBox.innerHTML = vis.length ? vis.map(v => `<div class="card"><span class="tag tag-ley">${v.id} · ${v.estado}</span><h3 style="margin-top:6px;">${v.propiedad_titulo || v.contacto_id}</h3><p style="font-size:12.5px;color:var(--muted);">🗓️ ${v.fecha_hora} · ${v.notas || ''}</p></div>`).join('') : '<p style="color:var(--muted);font-size:13px;">Sin visitas agendadas todavía.</p>';
+  }
+  const cieBox = document.getElementById('cierres-d1-list');
+  if (cieBox) {
+    const cie = crmCloudState.cierres_escribania || [];
+    cieBox.innerHTML = cie.length ? cie.map(c => `<div class="card descartado"><span class="tag" style="background:var(--red-bg);color:#FCA5A5;">${c.sello_cierre}</span><h3 style="margin-top:6px;">${c.contacto_id} · ${c.tipo_operacion || ''}</h3><p style="font-size:12.5px;color:#FCA5A5;">Radar retargeting: <strong>${c.fecha_radar_retargeting || 'N/A'}</strong> · Etapa: ${c.etapa_legal}</p><p style="font-size:12px;color:var(--muted);">${c.notas || ''}</p></div>`).join('') : '<p style="color:var(--muted);font-size:13px;">Sin cierres registrados.</p>';
+  }
+  const colaBox = document.getElementById('cola-ag-list');
+  if (colaBox) {
+    const cola = crmCloudState.cola_ag || [];
+    colaBox.innerHTML = cola.length ? cola.map(q => `<div class="card"><span class="tag ${q.estado === 'PENDIENTE_AG' ? 'tag-pending' : 'tag-active'}">${q.id} · ${q.estado}</span><h3 style="margin-top:6px;">${q.titulo}</h3><p style="font-size:12px;color:var(--muted);white-space:pre-wrap;">${q.detalle}</p>${q.estado !== 'HECHO_AG' ? `<div class="btn-row"><button class="btn btn-yes btn-sm" onclick="marcarColaAg('${q.id}', 'HECHO_AG')">✅ Marcar HECHO_AG</button></div>` : ''}</div>`).join('') : '<p style="color:var(--muted);font-size:13px;">Cola Mac vacía (0 tareas pendientes).</p>';
+  }
+}
 
 window.setGlobalSearchFilter = function(mode) {
   globalSearchFilterMode = mode;
@@ -1535,33 +1852,30 @@ function renderGlobalSearch() {
   const q = (document.getElementById('crm-global-search').value || '').trim().toLowerCase();
   const all = getAllUnifiedContacts();
 
-  const cerradosCount = all.filter(c => c.estado === 'cerrado').length;
-  const activosCount = all.filter(c => c.estado === 'respondio').length;
+  const cerradosCount = all.filter(c => c.estado === 'cerrado' || (c.rawItem && c.rawItem.carril === '5_cerrado_radar')).length;
+  const activosCount = all.filter(c => c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril))).length;
   const esperandoCount = all.filter(c => c.estado === 'enviado_1' || c.estado === 'seguimiento_enviado').length;
 
   if (summaryEl) {
-    summaryEl.innerHTML = `<strong>${esperandoCount}</strong> esperando respuesta (reloj 72h activo) · <strong style="color:#6EE7B7;">${activosCount}</strong> interesados · <strong style="color:#FCA5A5;">${cerradosCount}</strong> cerrados/no disponibles (Anabela, Gladys, Danilo)`;
+    summaryEl.innerHTML = `<strong>${esperandoCount}</strong> esperando respuesta (reloj 72h activo) · <strong style="color:#6EE7B7;">${activosCount}</strong> en conversación / ficha activa · <strong style="color:#FCA5A5;">${cerradosCount}</strong> cerrados / radar`;
   }
 
   let filtered = all;
   if (q.length > 0) {
-    filtered = all.filter(c =>
-      c.nombre.toLowerCase().includes(q) ||
-      c.subtitulo.toLowerCase().includes(q) ||
-      c.id.toLowerCase().includes(q) ||
-      c.telefono.toLowerCase().includes(q) ||
-      c.email.toLowerCase().includes(q) ||
-      c.zona.toLowerCase().includes(q)
-    );
+    const qNorm = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    filtered = all.filter(c => {
+      const hay = `${c.nombre} ${c.subtitulo} ${c.id} ${c.telefono} ${c.email} ${c.zona}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return hay.includes(qNorm);
+    });
   } else {
     if (globalSearchFilterMode === 'CERRADOS') {
-      filtered = all.filter(c => c.estado === 'cerrado' || c.estado === 'respondio');
+      filtered = all.filter(c => c.estado === 'cerrado');
     } else if (globalSearchFilterMode === 'ACTIVOS') {
-      filtered = all.filter(c => c.estado === 'respondio');
+      filtered = all.filter(c => c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril)));
     } else if (globalSearchFilterMode === 'ESPERANDO') {
       filtered = all.filter(c => c.estado === 'enviado_1' || c.estado === 'seguimiento_enviado');
     } else {
-      filtered = all.slice(0, 12);
+      filtered = all.slice(0, 15);
     }
   }
 
@@ -1598,13 +1912,20 @@ function renderRadar4Z() {
   if (!grid) return;
   const zonaSel = document.getElementById('r4z-zona').value;
   const tipoSel = document.getElementById('r4z-tipo').value;
+  const carrilSel = document.getElementById('r4z-carril') ? document.getElementById('r4z-carril').value : 'TODOS';
 
   if (!state.seguimiento_radar) state.seguimiento_radar = {};
 
   if (tipoSel === 'MARKETPLACE') {
-    const list = (radar4ZData.marketplace_duenos_directos || []).filter(it => zonaSel === 'TODAS' || it.zona === zonaSel);
+    const list = (radar4ZData.marketplace_duenos_directos || []).filter(it => {
+      const okZona = zonaSel === 'TODAS' || (it.zona || '').includes(zonaSel.split('/')[0].trim()) || it.zona === zonaSel;
+      const okCarril = carrilSel === 'TODOS' || (it.carril || '1_por_contactar') === carrilSel;
+      return okZona && okCarril;
+    });
     grid.innerHTML = list.map((it, idx) => {
-      const waDirect = it.telefono_directo ? `https://wa.me/${it.telefono_directo}?text=${encodeURIComponent(it.mensaje_mar)}` : '';
+      const msg1 = lintMarLocal(it.mensaje_mar || '');
+      const seg1 = lintMarLocal(it.seguimiento_72h || '');
+      const waDirect = it.telefono_directo ? `https://wa.me/${it.telefono_directo}?text=${encodeURIComponent(msg1)}` : '';
       const rec = getContactRecord(it.id, it);
       return `
       <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}">
@@ -1613,7 +1934,7 @@ function renderRadar4Z() {
             <span class="tag tag-active">${it.id} · ${it.operacion}</span>
             <div style="margin-top:6px;">${getCronometroBadge(it.id, it)}</div>
             <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
-            <p style="font-size:13px;color:#fff;margin-top:2px;">👤 Publica: <strong style="color:var(--gold);">${it.vendedor}</strong> · 📱 +${it.telefono_directo} · 📍 ${it.zona}</p>
+            <p style="font-size:13px;color:#fff;margin-top:2px;">👤 Dueño: <strong style="color:var(--gold);">${it.vendedor}</strong> · 📱 +${it.telefono_directo} · 📍 ${it.zona}</p>
           </div>
           <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
         </div>
@@ -1622,21 +1943,22 @@ function renderRadar4Z() {
           🛡️ ${it.nota_auditoria}
         </div>
         <div class="field">
-          <label>1° Mensaje enviado (Cero mención de porcentajes/comisión hasta que pregunten)</label>
-          <textarea class="msg-preview" id="mp-msg-${idx}">${it.mensaje_mar}</textarea>
+          <label>1° Mensaje (Linter SÍ/NO verificado · Cero mención de porcentajes/comisión)</label>
+          <textarea class="msg-preview" id="mp-msg-${idx}">${msg1}</textarea>
         </div>
         <details style="font-size:12px;color:var(--muted);">
           <summary style="cursor:pointer;color:var(--gold);font-weight:600;">Ver texto único de seguimiento a las 72 hs</summary>
-          <textarea class="msg-preview" id="mp-seg-${idx}" style="margin-top:6px;min-height:74px;">${it.seguimiento_72h || ''}</textarea>
+          <textarea class="msg-preview" id="mp-seg-${idx}" style="margin-top:6px;min-height:74px;">${seg1}</textarea>
           <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
         </details>
         <div class="btn-row">
-          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer" onclick="if(!state.seguimiento_radar['${it.id}']) setCronometroEstado('${it.id}','enviado_1')">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
+          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
+          ${rec.estado === 'pendiente' ? `<button class="btn btn-outline btn-sm" onclick="confirmarEnvioMar('${it.id}', 'mp-msg-${idx}')">✅ Ya lo mandé</button>` : ''}
           <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>
-          <a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>
+          ${it.url ? `<a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>` : ''}
         </div>
       </div>`;
-    }).join('');
+    }).join('') || '<div style="padding:14px;color:var(--muted);">No hay dueños en este filtro.</div>';
     return;
   }
 
@@ -1644,7 +1966,7 @@ function renderRadar4Z() {
     const list = (radar4ZData.mapa_inmobiliarias_maldonado_pde || []).filter(it => zonaSel === 'TODAS' || it.zona_foco === zonaSel);
     grid.innerHTML = list.map((it) => {
       const waNum = extractPhoneForWa(it.telefono_o_wa_verificado);
-      const msgColega = `Hola colegas de ${it.nombre}, ¿cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Tenemos un interesado puntual pre-calificado buscando en ${it.zona_foco} y quería consultarles si trabajan operación compartida sobre una unidad específica de su cartera.`;
+      const msgColega = `Hola colegas de ${it.nombre}, cómo están? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com). Tenemos un interesado puntual pre-calificado buscando en ${it.zona_foco} y quería consultarles si trabajan operación compartida sobre una unidad específica de su cartera.`;
       const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgColega)}` : `https://wa.me/?text=${encodeURIComponent(msgColega)}`;
       return `<div class="card">
         <div class="card-top">
@@ -1669,18 +1991,18 @@ function renderRadar4Z() {
     return;
   }
 
-  const list = (radar4ZData.prospectos_directos_4zonas || []).filter(it => zonaSel === 'TODAS' || it.zona === zonaSel);
+  const list = (radar4ZData.prospectos_directos_4zonas || []).filter(it => (zonaSel === 'TODAS' || it.zona === zonaSel) && (carrilSel === 'TODOS' || (it.carril || '1_por_contactar') === carrilSel));
   grid.innerHTML = list.map((it, idx) => {
     const waNum = extractPhoneForWa(it.whatsapp_o_tel_verificado);
     const shortName = it.nombre.split('(')[0].trim();
     const modoUrl = it.segmento.includes('Desarrolladora') ? '' : '&modo=alquiler';
     const vitrineUrl = `https://zaguanpropiedades.com/oportunidades/?b2b_ref=${encodeURIComponent(shortName)}${modoUrl}`;
-    const msgCorto = `${it.angulo_real_sin_humo}\n\nCarpeta rápida en 1 pantalla para ${shortName}:\n${vitrineUrl}`;
+    const msgCorto = lintMarLocal(`${it.angulo_real_sin_humo}\n\nCarpeta rápida en 1 pantalla para ${shortName}:\n${vitrineUrl}`);
     const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual y venta sin exclusividad'}`;
     const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&authuser=zaguanpropiedades%40gmail.com&to=${encodeURIComponent(it.email_verificado)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
     const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgCorto)}` : `https://wa.me/?text=${encodeURIComponent(msgCorto)}`;
 
-    const segCorto = `Hola equipo de ${shortName}, ¿cómo están? Les escribo cortito por mi mensaje anterior de ZAGUÁN Propiedades. Quedo a disposición por acá si les interesa conversar 5 minutos este trimestre; de lo contrario avísenme con confianza así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.`;
+    const segCorto = `Hola equipo de ${shortName}, cómo están? Les escribo cortito por mi mensaje anterior de ZAGUÁN Propiedades. Quedo a disposición por acá si les interesa conversar 5 minutos este trimestre; de lo contrario avisen con confianza así cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.`;
     const rec = getContactRecord(it.id, it);
     return `<div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}">
       <div class="card-top">
