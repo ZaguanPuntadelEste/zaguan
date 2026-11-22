@@ -482,10 +482,16 @@
       "url": "https://www.facebook.com/marketplace/item/1690939439105087/",
       "nota_auditoria": "Perfil auditado con 1 sola publicación; celular 099 151 475 visible en descripción. Trato directo en Barrio Rivera.",
       "mensaje_mar": "Hola Alberto, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu casa en alquiler anual en Barrio Rivera ($U 30.000). Trabajamos alquiler todo el año con autorización simple sin exclusividad (seguís ofreciéndola por tu cuenta) y filtrando inquilinos con garantía aseguradora aprobada antes de coordinar cualquier visita. ¿Sigue disponible para tenerla en cartera?",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Alberto, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Barrio Rivera, Maldonado. Avisame si sigue disponible y querés sumarla a la cartera sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "ts_envio_1": 1794932182680,
-      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp"
+      "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
+      "sello_cierre": "ALQUILADO",
+      "respuesta_recibida": "21/11: SE ALQUILÓ LA CASA, GRACIAS",
+      "fecha_respuesta": "21/11",
+      "motivo_cierre": "Alquiló la casa por su cuenta (21/11/2026)",
+      "radar_10_meses": "2027-09-22",
+      "contestacion_mar": "Hola Alberto, gracias por avisar. Ya damos de baja el registro de nuestro lado para no mover consultas en vano. Cuando vuelva a quedar libre o tengas otra propiedad en la zona, avisame por acá y la movemos. Saludos, Mar — ZAGUÁN Propiedades."
     },
     {
       "id": "MP-12",

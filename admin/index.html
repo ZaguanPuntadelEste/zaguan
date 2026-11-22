@@ -276,6 +276,23 @@
 </header>
 
 <main class="container">
+  <!-- SEMÁFORO ANTI-APAGÓN DE 4 LUCES EN VIVO -->
+  <div class="section-box" id="semaforo-box" style="border:1.5px solid rgba(16,185,129,0.55);background:rgba(8,21,33,0.94);margin-bottom:14px;padding:12px 16px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span class="tag tag-active">🚦 SEMÁFORO DE SERVICIOS 24/7</span>
+        <div id="semaforo-luces" style="display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:#E2E8F0;">
+          <span>⏳ Verificando nube, bot, web y calendario...</span>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-outline btn-sm" onclick="loadSemaforoLive()">🔄 Chequear ahora</button>
+        <a class="btn btn-email btn-sm" href="https://zaguan-crm-bot.943ari.workers.dev/api/calendario.ics" target="_blank" rel="noopener noreferrer">📅 Suscribir Calendario Vivo (.ics)</a>
+        <a class="btn btn-wa btn-sm" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ Abrir @zaguan_crm_bot ↗</a>
+      </div>
+    </div>
+  </div>
+
   <!-- BUSCADOR GLOBAL INSTANTÁNEO + CARGA DE RESPUESTA EN 1 CLIC (ARRIBA DEL TODO) -->
   <div class="section-box" style="border:2px solid var(--gold);background:linear-gradient(180deg,rgba(230,184,92,0.12) 0%,rgba(13,31,48,0.96) 100%);margin-bottom:18px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
@@ -1428,12 +1445,14 @@ async function loadRadar4Z() {
         renderRadar4Z();
         renderGlobalSearch();
         renderFourLanesTab();
+        loadSemaforoLive();
         return;
       }
     }
   } catch (e) {
     console.warn('No se pudo conectar a Worker D1, cargando respaldo JSON:', e);
   }
+  loadSemaforoLive();
   try {
     const resFallback = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
     if (resFallback.ok) {
@@ -1443,6 +1462,36 @@ async function loadRadar4Z() {
       renderGlobalSearch();
     }
   } catch (e2) {}
+}
+
+window.loadSemaforoLive = async function() {
+  const box = document.getElementById('semaforo-box');
+  const lightsEl = document.getElementById('semaforo-luces');
+  if (!lightsEl) return;
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/semaforo?v=${Date.now()}`);
+    const data = await res.json();
+    if (box) {
+      box.style.borderColor = data.ok ? 'rgba(16,185,129,0.6)' : 'rgba(239,68,68,0.8)';
+    }
+    lightsEl.innerHTML = (data.luces || []).map(l =>
+      `<span title="${String(l.detalle || '').replace(/"/g, '&quot;')}" style="padding:4px 9px;border-radius:999px;background:rgba(15,23,42,0.85);border:1px solid ${l.estado === 'verde' ? 'rgba(16,185,129,0.5)' : l.estado === 'amarillo' ? 'rgba(245,158,11,0.5)' : 'rgba(239,68,68,0.7)'};">${l.icono} <strong>${l.nombre}:</strong> ${l.detalle}</span>`
+    ).join('');
+  } catch (e) {
+    if (box) box.style.borderColor = 'rgba(239,68,68,0.85)';
+    lightsEl.innerHTML = `<span style="color:#FCA5A5;">🔴 Sin respuesta del servidor en la nube (${CRM_API_URL}/api/semaforo)</span>`;
+  }
+};
+
+function buildGCalUrlAdmin(item, copyTxt) {
+  const fecha = (item && item.proximo_toque_fecha) ? item.proximo_toque_fecha : new Date().toISOString().slice(0, 10);
+  const ymd = fecha.replace(/-/g, '');
+  const datesParam = `${ymd}T130000Z/${ymd}T133000Z`;
+  const title = `🏡 ZAGUÁN [RADAR] · ${item?.nombre || item?.vendedor || item?.id} (${item?.zona || item?.empresa_o_zona || 'Maldonado'})`;
+  const cleanDigits = String(item?.telefono || item?.telefono_directo || '').replace(/\D/g, '');
+  const wa = cleanDigits ? `https://wa.me/${cleanDigits}?text=${encodeURIComponent(copyTxt || '')}` : '';
+  const details = `QUÉ HACER: Recontactar a ${item?.nombre || item?.vendedor || ''} (${item?.id || ''})\nPROPIEDAD: ${item?.titulo || item?.publicacion_titulo || ''}\nCELULAR: +${cleanDigits}\n\nWHATSAPP DIRECTO:\n${wa}\n\nCABINA:\nhttps://zaguanpropiedades.com/admin/`;
+  return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${datesParam}&details=${encodeURIComponent(details)}`;
 }
 
 function renderCarrilesSummaryBar() {
@@ -1563,6 +1612,30 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
         }).join('')}
       </div>`
     : (respActual ? `<div style="margin-bottom:8px;padding:8px 10px;border-radius:6px;background:rgba(16,185,129,0.14);font-size:12px;color:#fff;">"${respActual}"</div>` : '');
+
+  if (rec.carril === '5_cerrado_radar') {
+    const fechaRadar = (itemFallback && itemFallback.proximo_toque_fecha) || 'sin fecha';
+    const first = (nombrePersona || '').split(' ')[0] || '';
+    const saludo = first && !first.includes('(') ? `Hola ${first}` : 'Buen día';
+    const zona = (itemFallback && (itemFallback.empresa_o_zona || itemFallback.zona)) || 'Maldonado';
+    const futureCopy = lintMarLocal(`${saludo}, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Quedé agendada para escribirte por esta fecha sobre tu propiedad en ${zona}: se acerca el año desde la operación anterior y quería saber si vuelve a quedar disponible para moverla sin exclusividad.`);
+    const waFuture = cleanPhone ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(futureCopy)}` : '';
+    const gcalLink = buildGCalUrlAdmin(itemFallback || { id, nombre: nombrePersona, telefono: cleanPhone }, futureCopy);
+    return `
+      <div style="background:rgba(127,29,29,0.22);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
+        ${timelineHtml}
+        <div style="font-size:12.5px;color:#FCA5A5;font-weight:700;margin-bottom:6px;">🛑 PROPIEDAD CERRADA (${(itemFallback && itemFallback.sello_cierre) || 'CERRADO'}) — HOY NO HAY QUE ESCRIBIRLE</div>
+        <div style="font-size:12px;color:#E2E8F0;margin-bottom:6px;">Próximo recontacto agendado (${(itemFallback && itemFallback.proximo_toque_tipo) || 'radar'}): <strong>${fechaRadar}</strong></div>
+        <label style="display:block;font-size:11px;color:#FCD34D;font-weight:700;margin-bottom:4px;">📅 Mensaje de reactivación preparado recién para esa fecha (${fechaRadar}):</label>
+        <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:62px;font-size:12px;">${futureCopy}</textarea>
+        <div class="btn-row" style="margin-top:6px;">
+          <a class="btn btn-email btn-sm" href="${gcalLink}" target="_blank" rel="noopener noreferrer">📅 Agendar / Ver en Google Calendar</a>
+          ${waFuture ? `<a class="btn btn-wa btn-sm" href="${waFuture}" target="_blank" rel="noopener noreferrer">📲 WhatsApp (${fechaRadar})</a>` : ''}
+          <button class="btn btn-outline btn-sm" onclick="moverCarrilD1('${id}', '3_en_conversacion')">🔄 Volvió a estar libre (Reactivar)</button>
+        </div>
+      </div>
+    `;
+  }
 
   return `
     <div style="background:rgba(8,21,33,0.85);border:1px solid rgba(230,184,92,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
