@@ -710,7 +710,7 @@
           <!-- Barra de estado y retroalimentación IA -->
           <div class="results-count-bar" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
             <div>
-              <div id="results-count" class="results-count-text">Mostrando 6 propiedades disponibles</div>
+              <div id="results-count" class="results-count-text">Mostrando 5 disponibles y 1 alquilada</div>
               <div id="search-feedback" class="search-feedback-text"></div>
             </div>
             <select id="price-sort" class="sort-select" aria-label="Ordenar por precio">
@@ -758,30 +758,30 @@
               </div>
             </div>
           </article>
-<article class="rental-card" data-price-uyu="28000" data-status="disponible" data-currency="pesos" data-bedrooms="1d" data-zone="barra" data-features="deck jardin estacionamiento" data-keywords="el tesoro juana de america la barra 1 dormitorio deck techado jardin 28000 pesos disponible">
-            <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro, La Barra">
-              <img src="/assets/images/propiedades/el-tesoro-rosario/foto_01.jpg" alt="Apartamento con deck techado en El Tesoro, La Barra" loading="lazy">
+<article class="rental-card rental-card--rented" data-price-uyu="28000" data-status="alquilado" data-currency="pesos" data-bedrooms="1d" data-zone="barra" data-features="deck jardin estacionamiento" data-keywords="el tesoro juana de america la barra 1 dormitorio deck techado jardin 28000 pesos alquilado cerrado">
+            <a class="rental-card-media-link" href="/alquileres/el-tesoro-juana-de-america/" aria-label="Ver ficha completa de apartamento en El Tesoro, La Barra (Alquilado)">
+              <img src="/assets/images/propiedades/el-tesoro-rosario/foto_01.jpg" alt="Apartamento con deck techado en El Tesoro, La Barra (Alquilado)" loading="lazy">
               <span class="rental-badge">El Tesoro · La Barra</span>
-              <span class="rental-badge--green">Sin gastos comunes</span>
+              <div class="rental-rented-ribbon">🔒 ALQUILADO · Propiedad cerrada</div>
             </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-ref">REF. ZAG-ALQ-06</div>
-                <div class="rental-price">$U 28.000 <small>/ mes</small></div>
+                <div class="rental-price" style="opacity:0.72;"><span style="text-decoration:line-through;">$U 28.000</span> <small style="color:#D4AF37; font-weight:700;">· ALQUILADO</small></div>
                 <a class="rental-title-link" href="/alquileres/el-tesoro-juana-de-america/">
                   <h3 class="rental-title">Apartamento para 2 personas con deck techado y jardín</h3>
                 </a>
-                <p class="rental-desc">A 300 metros del Puente de La Barra sobre calle Juana de América. 1 dormitorio, living comedor con cocina integrada, deck techado al frente, jardín y entrada para vehículo. Sin gastos comunes.</p>
+                <p class="rental-desc">A 300 metros del Puente de La Barra sobre calle Juana de América. Esta unidad ya concretó su alquiler. Consultanos por opciones similares en La Barra y El Tesoro.</p>
                 <div class="specs-list">
                   <div class="spec-item">Capacidad: <strong>2 personas</strong></div>
                   <div class="spec-item">Exterior: <strong>Deck + jardín</strong></div>
                   <div class="spec-item">Gastos comunes: <strong>$0</strong></div>
-                  <div class="spec-item">Entorno: <strong>Residencial verde</strong></div>
+                  <div class="spec-item">Estado: <strong style="color:#D4AF37;">Alquilada</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="/alquileres/el-tesoro-juana-de-america/" class="btn-action btn-action--primary">Ver ficha completa →</a>
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20por%20el%20alquiler%20anual%20Ref.%20ZAG-ALQ-06%20%28Apartamento%20con%20deck%20en%20El%20Tesoro%2C%20La%20Barra%20%C2%B7%20%24U%2028.000%2Fmes%29.%20Ficha%3A%20https%3A%2F%2Fzaguanpropiedades.com%2Falquileres%2Fel-tesoro-juana-de-america%2F" class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+                <a href="/alquileres/el-tesoro-juana-de-america/" class="btn-action btn-action--rented">Ver ficha (Alquilado · Similares) ↗</a>
+                <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20que%20el%20apartamento%20de%20El%20Tesoro%20(%24U%2028.000)%20ya%20se%20alquil%C3%B3%20y%20quiero%20consultar%20por%20opciones%20similares%20de%20alquiler%20anual." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar similares</a>
               </div>
             </div>
           </article>
@@ -1070,7 +1070,19 @@
       });
 
       // Actualizar texto de conteo
-      resultsCount.textContent = visibleCount === cards.length ? 'Mostrando ' + visibleCount + ' propiedades disponibles' : 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
+      let availVisible = 0;
+      let rentedVisible = 0;
+      cards.forEach(c => {
+        if (c.style.display !== 'none') {
+          if (c.dataset.status === 'alquilado') rentedVisible++;
+          else availVisible++;
+        }
+      });
+      if (visibleCount === cards.length) {
+        resultsCount.textContent = 'Mostrando ' + availVisible + ' disponibles' + (rentedVisible ? ' y ' + rentedVisible + ' alquilada' : '');
+      } else {
+        resultsCount.textContent = 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
+      }
 
       // Mostrar retroalimentación de criterio detectado
       if (parsed.labels.length > 0) {

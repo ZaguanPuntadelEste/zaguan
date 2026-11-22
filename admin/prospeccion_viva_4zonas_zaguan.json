@@ -498,21 +498,25 @@
       "url": "https://www.facebook.com/marketplace/item/1456453363347314/",
       "nota_auditoria": "Perfil auditado (artículos personales); aclara sin inmobiliaria trato con dueño directo y celular 099 925 848 en descripción.",
       "mensaje_mar": "Hola Vale, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apartamento a estrenar en La Fortuna ($U 30.000) en alquiler anual. Trabajamos sin exclusividad (cero costo y total libertad para seguir ofreciéndolo) presentando únicamente interesados con garantía aseguradora aprobada para cuidarte el tiempo. ¿Sigue libre para sumarlo?",
-      "estado_envio": "respondio",
+      "estado_envio": "propiedad_en_cartera",
       "seguimiento_72h": "Hola Vale, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en La Fortuna, Maldonado. Avisame si sigue disponible y querés sumarla a la cartera sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vendedor_real": "Jorge (papá de Valentina / dueño directo)",
       "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
       "respuesta_recibida": "Buen día, soy Jorge el papá de Valentina y el dueño del apto. El apto por ahora esta libre. Si tenes gente y lo quieres mostrar coordinamos hora.",
       "fecha_respuesta": "17/11 13:07",
       "condiciones_reales": {
-        "precio_mensual": " 30.000",
+        "precio_mensual": "$U 30.000",
         "incluye": "Gastos comunes e Internet incluido",
         "no_incluye": "Luz y agua aparte",
         "garantias_aceptadas": "Cualquier aseguradora (Porto, Sura, Mapfre). NO ACEPTA ANDA.",
         "honorarios_pactados": "1 mes de alquiler sin IVA"
       },
       "respuesta_jorge_2": "Si el valor es 30000 por mes, gastos comunes e Internet incluido. Los gastos de luz y aguas aparte. La garantía cualquier compañía de seguros menos anda. La comisión para ustedes sería 1 mes sin iva.",
-      "ts_envio_1": 1794932182680
+      "ts_envio_1": 1794932182680,
+      "ref_ficha": "ZAG-ALQ-05",
+      "url_ficha": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
+      "proximo_toque_vigencia_7d": "2026-11-24",
+      "guion_toque_vigencia": "Buen día Jorge, cómo estás? Esta semana estuvimos moviendo la ficha de La Fortuna con consultas que estamos filtrando por garantía aseguradora. Te chequeo corto: sigue disponible igual, verdad?"
     },
     {
       "id": "MP-13",
@@ -563,7 +567,8 @@
       "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
       "respuesta_recibida": "La alquiló por su cuenta y se la queda (retirada de venta).",
       "fecha_respuesta": "17/11 18:48",
-      "contestacion_mar": "¡Qué buena noticia, Emilia! Me alegro mucho de que la hayas resuelto y le estés sacando renta. La saco de la lista de venta entonces. Si más adelante en algún momento decidís venderla o cuando termine el contrato necesitás inquilinos con garantía aseguradora, quedamos en contacto por acá. ¡Muchos éxitos!"
+      "contestacion_mar": "¡Qué buena noticia, Emilia! Me alegro mucho de que la hayas resuelto y le estés sacando renta. La saco de la lista de venta entonces. Si más adelante en algún momento decidís venderla o cuando termine el contrato necesitás inquilinos con garantía aseguradora, quedamos en contacto por acá. ¡Muchos éxitos!",
+      "radar_12_meses": "2027-11-17"
     },
     {
       "id": "MP-16",
@@ -608,28 +613,31 @@
       "url": "https://www.facebook.com/marketplace/item/2047419319302658/",
       "nota_auditoria": "Perfil particular en El Tesoro; descripción indica 'contrato anual tratar 099838963'.",
       "mensaje_mar": "Hola Rosario, ¿cómo estás? Te escribe Mar, de ZAGUÁN Propiedades (zaguanpropiedades.com/alquiloanual/). Vi tu apartamento en alquiler anual en El Tesoro, La Barra ($U 28.000). Trabajamos con autorización abierta sin exclusividad (seguís ofreciéndolo libremente) y filtrando inquilinos con garantía aseguradora aprobada. ¿Sigue disponible para tenerlo en cartera?",
-      "estado_envio": "propiedad_en_cartera",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Rosario, ¿cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en El Tesoro (a 300m del Puente), La Barra, Maldonado. Avisame si sigue disponible y querés sumarla a la cartera sin exclusividad, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "ts_envio_1": 1794932182680,
       "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
-      "respuesta_recibida": "1)  28.000 en pesos con ajuste anual. Garantía aseguradora o ANDA (la que más convenga). 2) Sin gastos comunes, solo luz y agua. 3) Ya terminando detalles de jardín. Mandó fotos por Drive.",
-      "fecha_respuesta": "17/11 18:48",
+      "respuesta_recibida": "21/11: perdón pero ya se alquilaron las 2",
+      "fecha_respuesta": "21/11 10:17",
       "datos_aviso_verificados": {
         "calle": "Juana de América a 300 m del Puente de La Barra, El Tesoro",
         "capacidad": "Para 2 personas (sin muebles)",
-        "precio_aviso": " 28.000 / mes",
+        "precio_aviso": "$U 28.000 / mes",
         "condicion_aviso": "Lugar tranquilo y cerrado, 2 meses adelantado"
       },
       "condiciones_cerradas": {
-        "canon_mensual": " 28.000",
-        "gastos_comunes": "/bin/zsh (sin gastos comunes)",
+        "canon_mensual": "$U 28.000",
+        "gastos_comunes": "$0 (sin gastos comunes)",
         "consumos": "Luz (UTE) y Agua (OSE) aparte",
         "garantias": "Aseguradoras (Porto, Sura, Mapfre) o ANDA",
         "ajuste": "Anual en pesos",
         "ubicacion": "Calle Juana de América a 300m del Puente de La Barra, El Tesoro",
         "disponibilidad": "Terminando jardín / Inmediata"
       },
-      "contestacion_mar": "¡Impecable, Rosario! Recibidas las fotos y clarísimas las condiciones:  28.000 sin gastos comunes, luz y agua aparte, ajuste anual en pesos y abiertas las garantías (aseguradora o Anda) para facilitar la llegada de un buen perfil. Ya te dejamos armada la ficha en Zaguán para empezar a moverla con interesados filtrados con garantía aprobada antes de coordinar visita. Apenas tengamos a alguien firme con el perfil aprobado para verla te escribo por acá. ¡Muchas gracias y éxitos con los últimos detalles del jardín!"
+      "contestacion_mar": "Qué buena noticia, Rosario! Me alegro mucho de que ya las hayas alquilado. Ya doy de baja la publicación de nuestro lado entonces. Te pido por favor que la próxima nos avises apenas se alquile, así no seguimos moviendo consultas ni publicándola en vano. Cuando se vuelva a desocupar alguna o tengas otra propiedad disponible, me avisás por acá y la movemos. Muchos éxitos!",
+      "sello_cierre": "ALQUILADO",
+      "motivo_cierre": "Alquiló ambas unidades por su cuenta (21/11/2026)",
+      "radar_10_meses": "2027-09-21"
     },
     {
       "id": "MP-19",
