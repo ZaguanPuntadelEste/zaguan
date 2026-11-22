@@ -133,8 +133,14 @@ function validarPokaYokeTexto(texto, vertical) {
   if (!['O6', 'D2'].includes(vertical) && /\b(porto\s+seguro|sura|mapfre|anda|cgn|garant[ií]a\s+aseguradora)\b/i.test(texto)) {
     violaciones.push('GARANTIA_EN_VERTICAL_VENTA');
   }
-  if (/^O[1-6]$/.test(vertical) && /https?:\/\/zaguanpropiedades\.com\/(?:alquileres|ventas|proyectos)\/[a-z0-9-]+/i.test(texto)) {
+  if (/^O[1-6]$/.test(vertical) && /https?:\/\/zaguanpropiedades\.com\/(?:alquileres|ventas|proyectos|propiedades)\/[a-z0-9-]+/i.test(texto)) {
     violaciones.push('CANDADO_FRANJA_GRIS_URL_FICHA');
+  }
+  if (/^D[1-7]$/.test(vertical)) {
+    if (/(maps\.google\.com|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(texto)) violaciones.push('PIN_GPS_CRUDO_EN_T0');
+    if (/con el due[nñ]o/i.test(texto)) violaciones.push('MENCION_DUENO_EN_DEMANDA');
+    const urls = texto.match(/https?:\/\/[^\s]+/gi) || [];
+    if (urls.length > 1) violaciones.push('MAS_DE_UN_LINK_EN_T0');
   }
   return { pass: violaciones.length === 0, violaciones };
 }
@@ -219,8 +225,19 @@ function construirConcatenado(row) {
         'Quiero asesoramiento notarial para comprar desde el exterior',
       ],
     };
+  } else if (row.id_registro === 'MP-65' || row.id_registro === 'MP-66') {
+    guionWa = `${saludo} Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.`;
+    anguloRedes = 'Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.';
+    anguloAds = {
+      publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',
+      gancho: 'Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.',
+      botones_wa: ['Tengo garantía aseguradora y quiero coordinar visita', 'Quiero recibir la ficha completa de La Fortuna', 'Busco en otra zona o con otra garantía'],
+    };
+    cruceLatente = 'Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto.';
+    alertaAndon = true;
+    motivoAndon = `Lead real de hoy (${row.id_registro} · ${row.nombre_persona}) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.`;
   } else if (vCode === 'D2') {
-    guionWa = `${saludo} Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en ${zona} (${precio}), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.`;
+    guionWa = `${saludo} Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en ${zona} (${precio}), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?`;
     anguloRedes = `Placa informativa de demanda alquiler anual en ${zona}: claridad de requisitos y garantías aceptadas.`;
     anguloAds = {
       publico: `${zona} (+17 km), 24 a 45 años`,

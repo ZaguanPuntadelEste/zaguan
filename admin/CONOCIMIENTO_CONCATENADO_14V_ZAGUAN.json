@@ -1,13 +1,13 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-22T14:46:06.972Z",
-  "total_registros": 64,
-  "pokayoke_aprobados": 64,
+  "actualizado": "2026-11-22T15:21:08.609Z",
+  "total_registros": 66,
+  "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
   "resumen_por_vertical": {
     "O7": 20,
     "O4": 3,
-    "D2": 4,
+    "D2": 6,
     "O6": 22,
     "O1": 12,
     "O3": 1,
@@ -348,8 +348,8 @@
       ],
       "condiciones_actuales": "GC: Incluidos | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder: \"Esta unidad está en revisión de reserva. Si buscás 3D frente al mar en La Brava en este rango (USD 1.700), te paso opciones activas hoy mismo y coordinamos visita\". Derivar a búsqueda a medida o captación.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Parada 8 · Playa Brava, Punta del Este (USD 1.700), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
-        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Parada%208%20%C2%B7%20Playa%20Brava%2C%20Punta%20del%20Este%20(USD%201.700)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en Parada 8 · Playa Brava, Punta del Este (USD 1.700), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Para%20pasarte%20opciones%20activas%20en%20Parada%208%20%C2%B7%20Playa%20Brava%2C%20Punta%20del%20Este%20(USD%201.700)%2C%20cont%C3%A1s%20con%20garant%C3%ADa%20de%20aseguradora%20aprobada%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%3F",
         "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Parada 8 · Playa Brava, Punta del Este: claridad de requisitos y garantías aceptadas.",
         "3_angulo_pauta_ads": {
           "publico": "Parada 8 · Playa Brava, Punta del Este (+17 km), 24 a 45 años",
@@ -392,8 +392,8 @@
       ],
       "condiciones_actuales": "GC: Según edificio | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato de 2D con parrillero en Roosevelt / Cantegril.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Av. Roosevelt y Cantegril · Punta del Este ($U 70.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
-        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Av.%20Roosevelt%20y%20Cantegril%20%C2%B7%20Punta%20del%20Este%20(%24U%2070.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en Av. Roosevelt y Cantegril · Punta del Este ($U 70.000), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Para%20pasarte%20opciones%20activas%20en%20Av.%20Roosevelt%20y%20Cantegril%20%C2%B7%20Punta%20del%20Este%20(%24U%2070.000)%2C%20cont%C3%A1s%20con%20garant%C3%ADa%20de%20aseguradora%20aprobada%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%3F",
         "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Av. Roosevelt y Cantegril · Punta del Este: claridad de requisitos y garantías aceptadas.",
         "3_angulo_pauta_ads": {
           "publico": "Av. Roosevelt y Cantegril · Punta del Este (+17 km), 24 a 45 años",
@@ -436,8 +436,8 @@
       ],
       "condiciones_actuales": "GC: Según edificio | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato en Playa Mansa en el rango de $U 60.000.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Parada 16 · Playa Mansa, Punta del Este ($U 62.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
-        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Parada%2016%20%C2%B7%20Playa%20Mansa%2C%20Punta%20del%20Este%20(%24U%2062.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en Parada 16 · Playa Mansa, Punta del Este ($U 62.000), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Para%20pasarte%20opciones%20activas%20en%20Parada%2016%20%C2%B7%20Playa%20Mansa%2C%20Punta%20del%20Este%20(%24U%2062.000)%2C%20cont%C3%A1s%20con%20garant%C3%ADa%20de%20aseguradora%20aprobada%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%3F",
         "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Parada 16 · Playa Mansa, Punta del Este: claridad de requisitos y garantías aceptadas.",
         "3_angulo_pauta_ads": {
           "publico": "Parada 16 · Playa Mansa, Punta del Este (+17 km), 24 a 45 años",
@@ -480,8 +480,8 @@
       ],
       "condiciones_actuales": "GC: Aprox. $U 14.000/mes | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer opciones activas en Maldonado ($U 30.000 de Jorge en La Fortuna o similares).",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Zona residencial · Maldonado ($U 52.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
-        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Zona%20residencial%20%C2%B7%20Maldonado%20(%24U%2052.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en Zona residencial · Maldonado ($U 52.000), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Para%20pasarte%20opciones%20activas%20en%20Zona%20residencial%20%C2%B7%20Maldonado%20(%24U%2052.000)%2C%20cont%C3%A1s%20con%20garant%C3%ADa%20de%20aseguradora%20aprobada%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%3F",
         "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Zona residencial · Maldonado: claridad de requisitos y garantías aceptadas.",
         "3_angulo_pauta_ads": {
           "publico": "Zona residencial · Maldonado (+17 km), 24 a 45 años",
@@ -2855,6 +2855,94 @@
       },
       "alerta_andon": false,
       "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-65",
+      "vertical_code": "D2",
+      "vertical_14": "D2 · Interesada en Alquilar (Meta Ads IG La Fortuna 09:31)",
+      "nombre_persona": "Jime",
+      "telefono_wa": "59898723753",
+      "zona_barrio": "La Fortuna, Maldonado",
+      "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
+      "precio_publicado": "$U 30.000 / mes",
+      "estado_crm": "sin_respuesta_post_t0",
+      "ok_bienvenida": "rescate_t1_t2_la_fortuna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "Botón 2 tocado 09:31 · En T0 recibió 2 links + pin GPS + 'visita con el dueño' + 3 preguntas juntas + cierre pasivo 10:03 · Clavó visto · Aplicar rescate T1/T2 1 pregunta garantía vs. alternativa.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Jime, cómo estás? Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
+        "link_wa_me_1clic": "https://wa.me/59898723753?text=Hola%20Jime%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Pudiste%20ver%20las%20fotos%20de%20La%20Fortuna%3F%20Decime%20si%20te%20sirve%20la%20condici%C3%B3n%20de%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20agendarte%20visita%20esta%20semana%2C%20o%20si%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%20de%20Maldonado%20as%C3%AD%20te%20paso%20alternativas.",
+        "2_angulo_redes_aprobalo": "Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y quiero coordinar visita",
+            "Quiero recibir la ficha completa de La Fortuna",
+            "Busco en otra zona o con otra garantía"
+          ]
+        },
+        "4_cruce_latente_x_y": "Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto."
+      },
+      "alerta_andon": true,
+      "motivo_andon": "Lead real de hoy (MP-65 · Jime) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-66",
+      "vertical_code": "D2",
+      "vertical_14": "D2 · Interesado en Alquilar (Meta Ads FB La Fortuna 10:27)",
+      "nombre_persona": "Eduardo Etchelet",
+      "telefono_wa": "59898618020",
+      "zona_barrio": "La Fortuna, Maldonado",
+      "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
+      "precio_publicado": "$U 30.000 / mes",
+      "estado_crm": "sin_respuesta_post_t0",
+      "ok_bienvenida": "rescate_t1_t2_la_fortuna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "Botón 2 tocado 10:27 · En T0 recibió 2 links + pin GPS + 'visita con el dueño' + 3 preguntas juntas + cierre pasivo 10:33 · Clavó visto · Aplicar rescate T1/T2 1 pregunta garantía vs. alternativa.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Eduardo, cómo estás? Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
+        "link_wa_me_1clic": "https://wa.me/59898618020?text=Hola%20Eduardo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Pudiste%20ver%20las%20fotos%20de%20La%20Fortuna%3F%20Decime%20si%20te%20sirve%20la%20condici%C3%B3n%20de%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20agendarte%20visita%20esta%20semana%2C%20o%20si%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%20de%20Maldonado%20as%C3%AD%20te%20paso%20alternativas.",
+        "2_angulo_redes_aprobalo": "Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y quiero coordinar visita",
+            "Quiero recibir la ficha completa de La Fortuna",
+            "Busco en otra zona o con otra garantía"
+          ]
+        },
+        "4_cruce_latente_x_y": "Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto."
+      },
+      "alerta_andon": true,
+      "motivo_andon": "Lead real de hoy (MP-66 · Eduardo Etchelet) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     }

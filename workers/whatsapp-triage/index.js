@@ -6,8 +6,76 @@
 
 const LINKS_URL = "https://zaguanpropiedades.com/links/";
 const LA_FORTUNA_URL = "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/";
+const SANTA_MONICA_URL = "https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/";
 const ALQUILERES_URL = "https://zaguanpropiedades.com/alquileres/";
 const PROYECTOS_URL = "https://zaguanpropiedades.com/proyectos/";
+
+export const ARBOL_ESTRATEGICO_SEMAFORO = {
+  FAMILIA_A_ALQUILER_ANUAL: {
+    codigo: "D2",
+    tipo_ficha: "TIPO_2_FRANJA_GRIS_DOBLE_FICHA",
+    ejemplo: "La Fortuna · Av. Ágata ($U 30.000/mes)",
+    reglas_freno: [
+      "1 solo link oficial de la ficha (prohibido enviar 2 links ni pin GPS de Google Maps).",
+      "Prohibido decir 'coordinar la visita con el dueño' (coordina Zaguán).",
+      "Cero choclo repitiendo todo el texto abajo del link.",
+      "T0 hace 1 sola pregunta filtro (garantía aseguradora). Cantidad de personas y día van recién en Turno 2."
+    ],
+    tiempos: {
+      T0_INMEDIATO: `Acá tenés la ficha completa con fotos y condiciones de La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos): ${LA_FORTUNA_URL}\nPara este alquiler se pide garantía de aseguradora (Porto, Sura, Mapfre o Santander; no acepta ANDA ni CGN). Contás con alguna de esas aseguradoras o estás tramitando una?`,
+      T1_AMARILLO_20_MIN: "Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
+      T2_NARANJA_24_HS: "Seguimos coordinando visitas en La Fortuna para estos días. Si buscás otro rango de precio o zona en Maldonado, avisame en una línea y actualizo tu búsqueda.",
+      TURNO_2_CALIFICADO: "Impecable. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
+    },
+  },
+  FAMILIA_B_COMPRA_LOTE_PROYECTO: {
+    codigo: "D3..D7 / O5",
+    tipo_ficha: "TIPO_2_FRANJA_GRIS_DOBLE_FICHA_CON_BOVEDA_PRIVADA",
+    ejemplo: "Santa Mónica · Proyecto en construcción (USD 160.000)",
+    reglas_freno: [
+      "1 solo link a la ficha pública (nunca exponer Padrón, Manzana ni pin GPS exacto en T0).",
+      "Usar el video completo (2m31s) y los datos catastrales de la Bóveda Privada como anzuelo para que el lead responda.",
+      "En T2 activar el cruce latente D7 <-> O4/O1 (terreno libre vs. obra base ahorrando 12 meses de construcción)."
+    ],
+    tiempos: {
+      T0_INMEDIATO: `Te comparto la ficha completa de Santa Mónica: ${SANTA_MONICA_URL}\nBuscás para proyecto propio o inversión? Si te interesa evaluar la estructura, avisame y te paso por acá el video del recorrido completo de 2 minutos y medio y los datos catastrales.`,
+      T1_AMARILLO_30_MIN: "Viste el adelanto en la ficha de Santa Mónica? Si querés ver la escala real de las dos plantas frente a la Laguna, decime y te mando el video completo sin cortes por acá.",
+      T2_NARANJA_24_HS: "Te consulto corto: te interesa que te envíe el video completo y el croquis de Santa Mónica, o estás buscando terreno libre / casa ya terminada en esa zona?",
+      TURNO_2_CALIFICADO: "Los datos catastrales (según Bóveda Privada D1/PDF verificado) corresponden a terreno propio de 348 m² en régimen común, con 201 m² construidos en hormigón armado y DJCU vigente. Acá tenés el croquis base y el video completo del recorrido. Querés coordinar visita esta semana?",
+    },
+  },
+  FAMILIA_C_POZO_DESARROLLADORA: {
+    codigo: "D1 / O7",
+    tipo_ficha: "TIPO_1_ABIERTA_FICHA_UNICA",
+    ejemplo: "Betania IV / Nostrum Roosevelt / More Atlántico / Golden Rise / EVE Tower",
+    reglas_freno: [
+      "Ficha única 100% abierta (el desarrollador protege al cliente por protocolo de pre-registro).",
+      "1 link a /proyectos/ + pregunta de tipología y necesidad de cuotas en obra."
+    ],
+    tiempos: {
+      T0_INMEDIATO: `Podés ver los 5 desarrollos en pozo activos hoy (desde USD 79.800 en Maldonado y Punta del Este) en ${PROYECTOS_URL}\nQué tipología buscás (1, 2 o 3 dormitorios) y necesitás financiar en cuotas durante la obra?`,
+      T1_AMARILLO_30_MIN: "Querés que te arme la comparativa directa de 2 unidades en obra con gastos de ocupación incluidos según tu tope de anticipo?",
+      T2_NARANJA_24_HS: "Seguimos con listas vigentes en Punta del Este y Maldonado desde USD 79.800. Si me pasás tu rango de anticipo, te mando las 2 opciones con mejor retorno neto.",
+      TURNO_2_CALIFICADO: "Excelente. Comprás como residente o desde el exterior (para pasarte los costos totales de cierre y dejar hecho el pre-registro formal)? Qué día te queda cómodo para verlo?",
+    },
+  },
+  FAMILIA_D_DUENO_DIRECTO_CAPTACION: {
+    codigo: "O1..O6",
+    tipo_ficha: "CAPTACION_FRANJA_GRIS_SIN_EXCLUSIVIDAD",
+    ejemplo: "Propietarios de Marketplace, Gallito e InfoCasas",
+    reglas_freno: [
+      "Prohibido mencionar %, honorarios o comisión en el 1° contacto.",
+      "Prohibido enviar URL de ficha pública individual al dueño ni antes ni después.",
+      "Garantías aseguradoras solo si es alquiler (O6), nunca en ventas (O1..O5)."
+    ],
+    tiempos: {
+      T0_INMEDIATO: "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta sin exclusividad y filtro previo de interesados antes de cada visita. Tu propiedad sigue disponible para confirmarnos barrio y valor pretendido?",
+      T1_AMARILLO_2_HS: "Si te queda más cómodo, podés mandarme un audio corto contándome metros, estado y condiciones principales de tu propiedad para cruzarlo con búsquedas activas hoy.",
+      T2_NARANJA_24_HS: "Seguimos recibiendo consultas en la zona. Cuando puedas pasame esos datos mínimos y la sumamos a nuestra carpeta abierta sin exclusividad.",
+      TURNO_2_CALIFICADO: "Recibido. Para armar nuestra carpeta interna (cuidando los datos sensibles antes de publicar), podés enviarnos por acá el PDF catastral / DJCU si lo tenés a mano, video de recorrido y confirmarnos qué horarios sirven para visitas?",
+    },
+  },
+};
 
 const VERTICAL_SPECS = {
   O1: {
@@ -183,7 +251,7 @@ export function detectarFaltantes(vertical, rawText) {
   };
 }
 
-export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false) {
+export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla = "T0_INMEDIATO") {
   let out = String(texto || "").trim();
   const violaciones = [];
 
@@ -195,19 +263,33 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false) {
   // 2. Candado de Franja Gris: si el destinatario es dueño (O1..O6), bloquear links públicos de fichas individuales
   const esDueno = /^O[1-6]$/.test(vertical);
   if (esDueno) {
-    const fichaUrlRe = /https?:\/\/zaguanpropiedades\.com\/(?:alquileres|ventas|proyectos)\/[a-z0-9-]+\/?/gi;
+    const fichaUrlRe = /https?:\/\/zaguanpropiedades\.com\/(?:alquileres|ventas|proyectos|propiedades)\/[a-z0-9-]+\/?/gi;
     if (fichaUrlRe.test(out)) {
       violaciones.push("CANDADO_FRANJA_GRIS_URL_PUBLICA_A_DUENO");
       out = out.replace(fichaUrlRe, LINKS_URL);
     }
   }
 
-  // 3. Prohibido preguntar garantías en ventas (O1..O5, O7, D1, D3..D7)
+  // 3. Candado de Demanda (D*): prohibido enviar pin GPS crudo, mencionar "con el dueño" o mandar 2+ links en T0
+  if (/^D[1-7]$/.test(vertical)) {
+    if (/(maps\.google\.com|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(out)) {
+      violaciones.push("PIN_GPS_CRUDO_PROHIBIDO_EN_T0");
+    }
+    if (/con el due[nñ]o/i.test(out)) {
+      violaciones.push("MENCION_DUENO_PROHIBIDA_EN_DEMANDA");
+    }
+    const urls = out.match(/https?:\/\/[^\s]+/gi) || [];
+    if (etapaSla === "T0_INMEDIATO" && urls.length > 1) {
+      violaciones.push("DOS_O_MAS_LINKS_EN_T0");
+    }
+  }
+
+  // 4. Prohibido preguntar garantías en ventas (O1..O5, O7, D1, D3..D7)
   if (!["O6", "D2"].includes(vertical) && /\b(porto|sura|mapfre|anda|cgn|garant[ií]a aseguradora)\b/i.test(out)) {
     violaciones.push("GARANTIA_EN_VERTICAL_NO_ALQUILER");
   }
 
-  // 4. Linter SÍ/NO: cero adverbios en -mente y cero "encajar"
+  // 5. Linter SÍ/NO: cero adverbios en -mente y cero "encajar"
   if (/\b[a-záéíóúüñ]+mente\b/i.test(out)) {
     violaciones.push("ADVERBIO_MENTE");
   }
@@ -215,9 +297,12 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false) {
     violaciones.push("PALABRA_PROHIBIDA_ENCAJAR");
   }
 
-  // 5. Prohibido prometer respuesta inmediata o saludo genérico en bienvenida pasiva
+  // 6. Prohibido prometer respuesta inmediata, saludo genérico o cierre pasivo en seguimiento
   if (esRespuestaPasiva && /\b(mientras te respondo|c[oó]mo podemos ayudarte|contame qu[eé] est[aá]s buscando,\s*as[ií] te paso)\b/i.test(out)) {
     violaciones.push("PROMESA_FALSA_ATENCION_INMEDIATA");
+  }
+  if (/quedo a las [oó]rdenes si decid[ií]s avanzar/i.test(out)) {
+    violaciones.push("SEGUIMIENTO_PASIVO_PROHIBIDO");
   }
 
   return {
@@ -227,85 +312,88 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false) {
   };
 }
 
-export function clasificarYResponder(rawText) {
+function seleccionarFamiliaArbol(vertical, subtipo) {
+  if (subtipo === "TRIAJE_DUAL_OPCION_3") return "TRIAJE_DUAL";
+  if (vertical === "D2") return "FAMILIA_A_ALQUILER_ANUAL";
+  if (["D3", "D4", "D5", "D6", "D7"].includes(vertical)) return "FAMILIA_B_COMPRA_LOTE_PROYECTO";
+  if (vertical === "D1") return "FAMILIA_C_POZO_DESARROLLADORA";
+  if (/^O[1-6]$/.test(vertical)) return "FAMILIA_D_DUENO_DIRECTO_CAPTACION";
+  return "FAMILIA_A_ALQUILER_ANUAL";
+}
+
+export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO") {
   const { vertical, subtipo } = clasificarVertical14(rawText);
   const spec = VERTICAL_SPECS[vertical] || VERTICAL_SPECS.D2;
   const analisis = detectarFaltantes(vertical, rawText);
+  const familia = seleccionarFamiliaArbol(vertical, subtipo);
+  const arbol = ARBOL_ESTRATEGICO_SEMAFORO[familia] || null;
   let replyText = "";
   let alertaAndon = false;
   let motivoAndon = "";
   let esPasiva = false;
 
   if (subtipo === "LA_FORTUNA_VISITA_FILTRADA") {
-    replyText =
-      "Excelente. Te confirmo los datos reales del apartamento de 2 dormitorios a estrenar en La Fortuna (Av. Ágata, Maldonado):\n" +
-      "• Valor mensual: $U 30.000 (gastos comunes y Wi-Fi de alta velocidad incluidos; luz y agua aparte).\n" +
-      "• Comodidades: living-comedor con balcón al frente, cochera fija dentro del predio y admite mascota pequeña.\n" +
-      "• Garantía: aseguradora (Porto Seguro, Sura, Mapfre o Santander; el propietario no trabaja con ANDA).\n\n" +
-      `Ficha y fotos: ${LA_FORTUNA_URL}\n` +
-      "Indicanos qué aseguradora tenés aprobada y qué día y franja horaria te sirve para coordinar la visita.";
+    replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.TURNO_2_CALIFICADO;
     alertaAndon = true;
-    motivoAndon = "Lead de Meta Ads La Fortuna con garantía aseguradora listo para coordinar visita con Jorge (MP-12).";
+    motivoAndon = "Lead de Meta Ads La Fortuna con garantía aseguradora listo para coordinar visita (MP-12).";
   } else if (subtipo === "LA_FORTUNA_FICHA") {
     replyText =
-      "Te comparto la ficha completa del apartamento de 2 dormitorios a estrenar en Barrio La Fortuna (Av. Ágata, Maldonado):\n" +
-      "• Precio: $U 30.000 / mes con gastos comunes y Wi-Fi incluidos (UTE y OSE aparte).\n" +
-      "• Detalles: balcón al frente, baño en porcelanato, cochera fija y acepta mascota pequeña.\n" +
-      "• Condiciones: contrato anual con garantía aseguradora (Porto, Sura, Mapfre o Santander; no ANDA).\n\n" +
-      `Ver ficha y fotos: ${LA_FORTUNA_URL}\n` +
-      "Si contás con garantía aseguradora y te sirve el rango, dejanos qué día buscás visitarlo.";
+      ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos[etapaSla]
+      || ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T0_INMEDIATO;
+    if (etapaSla !== "T0_INMEDIATO") {
+      alertaAndon = true;
+      motivoAndon = `Lead La Fortuna en seguimiento ${etapaSla} (activar rescate 1 pregunta sin repetir 2 links).`;
+    }
   } else if (subtipo === "TRIAJE_DUAL_OPCION_3") {
     replyText =
-      "Para avanzar sin esperas, elegí tu camino directo:\n\n" +
-      `• Si buscás alquilar o comprar en otra zona: entrá a nuestros accesos con precios y fichas disponibles hoy en ${LINKS_URL} y dejanos zona, tipología y presupuesto.\n` +
-      "• Si tenés una propiedad para vender o alquilar: contanos zona, tipo de propiedad y valor pretendido (trabajamos sin exclusividad).";
+      `Podés ver las opciones disponibles con precios hoy en ${LINKS_URL}\n` +
+      "Buscás alquilar/comprar en otra zona, o tenés una propiedad para publicar sin exclusividad?";
     alertaAndon = true;
-    motivoAndon = "Lead tocó Opción 3 (otra zona o captación de propiedad); requiere revisión tras respuesta.";
-  } else if (vertical === "D7") {
+    motivoAndon = "Lead tocó Opción 3 (otra zona o captación de propiedad); requiere clasificación al responder.";
+  } else if (vertical === "D7" || (["D3", "D4", "D5"].includes(vertical) && /santa m[oó]nica|laguna|jos[eé] ignacio/i.test(rawText || ""))) {
     replyText =
-      "Además de lotes libres, tenemos una opción de construcción base en hormigón lista para proyectar arriba frente a la laguna en Santa Mónica (llegando a José Ignacio), a USD 160.000:\n" +
-      "• Estructura calculada para vientos oceánicos y croquis base para completar tu proyecto sin arrancar de cero.\n" +
-      "• Contamos con video completo de recorrido para ver la obra real y el entorno frente a la laguna.\n\n" +
-      `Si buscás comparar también otras opciones en el territorio, mirá ${LINKS_URL} y decinos si querés que te enviemos el video completo.`;
+      ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_B_COMPRA_LOTE_PROYECTO.tiempos[etapaSla]
+      || ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_B_COMPRA_LOTE_PROYECTO.tiempos.T0_INMEDIATO;
     alertaAndon = true;
-    motivoAndon = "Cruce latente D7 -> O5 activado (lote/proyecto -> construcción base Santa Mónica con video).";
-  } else if (vertical === "O5") {
-    replyText =
-      "Recibido. Para ordenar la ficha interna de tu proyecto de construcción (trabajamos sin exclusividad y cuidamos la difusión antes de publicar), necesitamos relevar estos puntos:\n" +
-      `1. ${analisis.faltantes_capa_1.join("\n2. ")}\n` +
-      "Además, si tenés video completo de recorrido, memoria constructiva (ej. estructura para vientos), antigüedad/avance o papeles del terreno en PDF, podés mandarlos por acá.";
-    alertaAndon = true;
-    motivoAndon = "Alta inbound de proyecto de construcción (O5): activar detector Capa 2 y Bienvenida de OKs (bajo Candado Franja Gris).";
+    motivoAndon = "Familia B (Compra / Lote / Proyecto O5) · cruce latente con video 2m31s y Bóveda Privada.";
   } else if (/^O[1-6]$/.test(vertical)) {
-    replyText =
-      "Recibido. Trabajamos con publicación abierta sin exclusividad, filtrando interesados antes de coordinar visitas.\n" +
-      `Para evaluar y ordenar el material de tu propiedad, envianos:\n• ${analisis.faltantes_capa_1.slice(0, 4).join("\n• ")}`;
+    const tiemposD = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_D_DUENO_DIRECTO_CAPTACION.tiempos;
+    replyText = tiemposD[etapaSla] || tiemposD.T0_INMEDIATO;
     alertaAndon = true;
-    motivoAndon = `Alta inbound de propietario (${vertical}): pasar a Planilla Master y Bienvenida de OKs.`;
+    motivoAndon = `Familia D · Alta inbound de propietario (${vertical}): pasar a Master CSV y Bienvenida de OKs bajo Candado Franja Gris.`;
   } else if (vertical === "D1") {
-    replyText =
-      `Podés ver los 5 desarrollos en pozo activos hoy (desde USD 79.800 en Maldonado y eje Roosevelt / Playa Brava) en ${PROYECTOS_URL}.\n` +
-      "Dejanos tipología (1, 2 o 3 dormitorios), objetivo (renta o vivienda) y si necesitás cuotas durante la obra para enviarte planos y costos totales de cierre.";
+    const tiemposC = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_C_POZO_DESARROLLADORA.tiempos;
+    replyText = tiemposC[etapaSla] || tiemposC.T0_INMEDIATO;
   } else if (vertical === "D2" && subtipo === "DEMANDA_ALQUILER_GENERAL") {
-    replyText =
-      `Podés ver las fichas de alquiler anual activas hoy en ${ALQUILERES_URL} (incluyendo 2 dormitorios a estrenar en La Fortuna a $U 30.000 con GC y Wi-Fi incluidos).\n` +
-      "Si buscás otra zona o rango, dejanos barrio, dormitorios, presupuesto y garantía aprobada (Porto, Sura, Mapfre, Santander o ANDA).";
+    if (etapaSla !== "T0_INMEDIATO") {
+      replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos[etapaSla];
+    } else {
+      replyText =
+        `Podés ver las fichas de alquiler anual activas hoy en ${ALQUILERES_URL}\n` +
+        "Contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía en Maldonado?";
+    }
+  } else if (arbol) {
+    replyText = arbol.tiempos[etapaSla] || arbol.tiempos.T0_INMEDIATO;
   } else {
     esPasiva = true;
     replyText =
       "Hola, gracias por comunicarte con ZAGUÁN Propiedades (Punta del Este y Maldonado).\n" +
-      `En nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}\n` +
-      "Si ya tenés una consulta puntual o una propiedad para publicar, dejá los detalles por acá.";
+      `En nuestros accesos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}\n` +
+      "Si tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá.";
   }
 
-  const pk = aplicarPokaYokeMar(replyText, vertical, esPasiva);
+  const pk = aplicarPokaYokeMar(replyText, vertical, esPasiva, etapaSla);
 
   return {
     ok: true,
     vertical_14: vertical,
     subtipo,
+    familia_cliente: familia,
+    tipo_ficha: arbol?.tipo_ficha || "AUTOSERVICIO_GENERAL",
+    etapa_sla: etapaSla,
     intent: spec.intent,
     replyText: pk.texto,
+    reglas_freno: arbol?.reglas_freno || [],
     faltantes_capa_1: analisis.faltantes_capa_1,
     faltantes_capa_2: analisis.faltantes_capa_2,
     cruces_sugeridos: analisis.cruces_sugeridos,
@@ -347,7 +435,8 @@ export default {
           });
         }
 
-        const resultado = clasificarYResponder(text);
+        const etapaSla = body?.etapa_sla || "T0_INMEDIATO";
+        const resultado = clasificarYResponder(text, etapaSla);
 
         // Envío por WhatsApp Cloud API / Coexistence si el token está montado y no es simulación
         let metaSent = false;
