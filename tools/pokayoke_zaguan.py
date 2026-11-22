@@ -20,7 +20,7 @@ ZAGUAN_ALLOWED_HEX = [
     "#F3EFE6", "#F3F0E8", "#B7D6E0", "#162A3E", "#123B4A",
     "#081521", "#0A1E28", "#1B5463", "#0F2738", "#16374D",
     "#52606D", "#A3B3C2", "#9FB3C8", "#D4CCBD", "#F5F7FA",
-    "#FFFFFF", "#000000", "#10B981", "#D97706", "#1C1917",
+    "#FFFFFF", "#000000", "#1C1917",
 ]
 ZAGUAN_ALLOWED_RGB = [
     (int(h[1:3], 16), int(h[3:5], 16), int(h[5:7], 16))
@@ -188,6 +188,15 @@ def audit_ficha_html(html_path: str, boveda_path: str | None = None) -> list[str
         ]
         if faltan_seo:
             errs.append(f"Racimo SEO/GEO incompleto para proyecto O5: faltan {', '.join(faltan_seo)}.")
+
+    for bad_c in (
+        "#10b981", "#2ecc71", "#25d366", "#20ba5a", "#16a34a", "#22c55e",
+        "#e74c3c", "#ef4444", "#dc2626", "rgba(16, 185, 129", "rgba(16,185,129",
+    ):
+        if bad_c in low:
+            errs.append(
+                f"Color verde o rojo prohibido detectado ({bad_c}). Usar solo paleta oficial Zaguán (el rojo se reserva únicamente al pin 📍)."
+            )
 
     # Protocolo Pre-Pauta obligatorio: GA4/GTM presente en toda ficha pública y operación + generate_lead si hay formulario
     if "g-e3dvx8nwpr" not in low and "gtm-ktkltw5t" not in low:

@@ -4316,6 +4316,44 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       `;
     }
 
+    const ROTACION_VIDRIERA_AGENDA = [
+      { fecha: 'Mar 24/11 · 09:00', accion: 'ALTA CON NOVEDAD', ref: 'ZAG-ALQ-07', prop: 'Pinares Parada 36 · Casa 3D + jardín (USD 1.500/mes)', regla: 'Entra etiqueta NOVEDAD (se quita el 01/12)' },
+      { fecha: 'Mié 25/11 · 09:00', accion: 'PASAR A ALQUILADO', ref: 'ZAG-ALQ-01', prop: 'Playa Brava Parada 8 · 3D frente al mar (USD 1.700/mes)', regla: '🔒 ALQUILADO en web + OutOfStock + Pieza Aprobalo' },
+      { fecha: 'Mar 01/12 · 09:00', accion: 'ROTACIÓN +7 DÍAS', ref: 'ZAG-ALQ-08', prop: 'Sale NOVEDAD de ZAG-ALQ-07 · Entra Parada 5 Brava 2D ($U 58.000/mes)', regla: 'Nueva etiqueta NOVEDAD por 7 días' },
+      { fecha: 'Jue 03/12 · 09:00', accion: 'PASAR A ALQUILADO', ref: 'ZAG-ALQ-02', prop: 'Roosevelt y Cantegril · 2D a estrenar ($U 70.000/mes)', regla: '🔒 ALQUILADO +2 días tras rotación' },
+      { fecha: 'Mar 08/12 · 09:00', accion: 'ROTACIÓN +7 DÍAS', ref: 'ZAG-ALQ-09', prop: 'Sale NOVEDAD de ZAG-ALQ-08 · Entra Centro Maldonado 2D ($U 32.000/mes)', regla: 'Nueva etiqueta NOVEDAD por 7 días' },
+      { fecha: 'Jue 10/12 · 09:00', accion: 'PASAR A ALQUILADO', ref: 'ZAG-ALQ-04', prop: 'Maldonado Residencial · 2D losa radiante ($U 52.000/mes)', regla: '🔒 ALQUILADO +2 días tras rotación' }
+    ];
+
+    function renderCalendarioRotacionVidriera() {
+      return `
+        <section class="panel">
+          <div class="panel-head">
+            <h2>📅 Agenda Programada de Rotación de Vidriera (NOVEDAD → Activa → ALQUILADO)</h2>
+            <span class="badge" style="color:var(--sky);border-color:rgba(183,214,224,0.35);">Ciclo perpetuo Mar/Mié/Jue</span>
+          </div>
+          <div style="font-size:12px;color:var(--sky);margin-bottom:10px;">
+            Martes entra propiedad siguiente con etiqueta <strong>NOVEDAD</strong> (se quita automáticamente a los 7 días). Miércoles/Jueves pasa la ancla previa a <strong>🔒 ALQUILADO</strong> con su pieza en Aprobalo y anexo SEO indexado en Google.
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Fecha / Hora</th><th>Movimiento</th><th>Propiedad</th><th>Regla ejecutada</th></tr></thead>
+              <tbody>
+                ${ROTACION_VIDRIERA_AGENDA.map(r => `
+                  <tr>
+                    <td><strong>${esc(r.fecha)}</strong></td>
+                    <td><span class="badge">${esc(r.accion)}</span></td>
+                    <td><strong>${esc(r.ref)}</strong> · ${esc(r.prop)}</td>
+                    <td style="font-size:12px;color:var(--sky);">${esc(r.regla)}</td>
+                  </tr>
+                `).join('')}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      `;
+    }
+
     function renderSwitcher() {
       document.getElementById('projectSwitcher').innerHTML = PROJECTS.map(p =>
         `<button class="proj-btn ${p.id === activeProject ? 'active' : ''}" onclick="setProject('${p.id}')">${esc(p.label)}</button>`
@@ -4374,6 +4412,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
 
         ${renderSimuladorYBanco()}
         ${renderArbolSemaforo()}
+        ${renderCalendarioRotacionVidriera()}
         ${renderSim32Audit()}
 
         <div class="channels-grid">

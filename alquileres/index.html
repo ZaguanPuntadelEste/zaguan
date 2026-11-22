@@ -1079,7 +1079,7 @@
         }
       });
       if (visibleCount === cards.length) {
-        resultsCount.textContent = 'Mostrando ' + availVisible + ' disponibles' + (rentedVisible ? ' y ' + rentedVisible + ' alquilada' : '');
+        resultsCount.textContent = 'Mostrando ' + availVisible + ' disponibles' + (rentedVisible ? ' y ' + rentedVisible + (rentedVisible === 1 ? ' alquilada' : ' alquiladas') : '');
       } else {
         resultsCount.textContent = 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
       }

@@ -1,0 +1,94 @@
+{
+  "proyecto": "1 - ZAGUÁN",
+  "regla_rotacion_perpetua": {
+    "martes_09hs": "Alta de propiedad siguiente en /alquileres/ con etiqueta visible 'NOVEDAD'",
+    "miercoles_o_jueves_09hs": "Pase de propiedad ancla a '🔒 ALQUILADO' en catálogo + ficha + llms.txt + creación de pieza ¡ALQUILADO! en Aprobalo",
+    "martes_siguiente_09hs": "Quitar etiqueta 'NOVEDAD' (+7 días exactos desde su alta) mientras ingresa la nueva propiedad de la semana con 'NOVEDAD'",
+    "dos_dias_despues": "Cierre simulado o real a 'ALQUILADO' de la propiedad siguiente para mantener rotación viva constante"
+  },
+  "eventos": [
+    {
+      "id": "ROT-2026-11-24-ALTA",
+      "fecha": "2026-11-24",
+      "dia": "Martes",
+      "hora": "09:00",
+      "accion": "ALTA_CON_NOVEDAD",
+      "ref_publica": "ZAG-ALQ-07",
+      "titulo": "Casa 3 dormitorios en Pinares Parada 36 con jardín y parrillero",
+      "precio": "USD 1.500/mes",
+      "etiqueta": "NOVEDAD",
+      "quitar_novedad_el": "2026-12-01",
+      "estado": "programado",
+      "incluye_anexo_seo": true
+    },
+    {
+      "id": "ROT-2026-11-25-ALQ",
+      "fecha": "2026-11-25",
+      "dia": "Miércoles",
+      "hora": "09:00",
+      "accion": "PASAR_A_ALQUILADO",
+      "ref_publica": "ZAG-ALQ-01",
+      "titulo": "Playa Brava Parada 8 · 3 dormitorios frente al mar",
+      "precio": "USD 1.700/mes",
+      "etiqueta": "🔒 ALQUILADO",
+      "estado": "programado",
+      "dispara_pieza_aprobalo": true
+    },
+    {
+      "id": "ROT-2026-12-01-ROT",
+      "fecha": "2026-12-01",
+      "dia": "Martes",
+      "hora": "09:00",
+      "accion": "QUITAR_NOVEDAD_Y_ALTA_NUEVA",
+      "sale_novedad_ref": "ZAG-ALQ-07",
+      "ref_publica": "ZAG-ALQ-08",
+      "titulo": "Parada 5 Brava / Aidy Grill · 2 dormitorios",
+      "precio": "$U 58.000/mes",
+      "etiqueta": "NOVEDAD",
+      "quitar_novedad_el": "2026-12-08",
+      "estado": "programado",
+      "incluye_anexo_seo": true
+    },
+    {
+      "id": "ROT-2026-12-03-ALQ",
+      "fecha": "2026-12-03",
+      "dia": "Jueves",
+      "hora": "09:00",
+      "accion": "PASAR_A_ALQUILADO",
+      "ref_publica": "ZAG-ALQ-02",
+      "titulo": "Av. Roosevelt y Cantegril · 2 dormitorios a estrenar",
+      "precio": "$U 70.000/mes",
+      "etiqueta": "🔒 ALQUILADO",
+      "estado": "programado",
+      "dispara_pieza_aprobalo": true
+    },
+    {
+      "id": "ROT-2026-12-08-ROT",
+      "fecha": "2026-12-08",
+      "dia": "Martes",
+      "hora": "09:00",
+      "accion": "QUITAR_NOVEDAD_Y_ALTA_NUEVA",
+      "sale_novedad_ref": "ZAG-ALQ-08",
+      "ref_publica": "ZAG-ALQ-09",
+      "titulo": "Centro de Maldonado · 2 dormitorios",
+      "precio": "$U 32.000/mes",
+      "etiqueta": "NOVEDAD",
+      "quitar_novedad_el": "2026-12-15",
+      "estado": "programado",
+      "incluye_anexo_seo": true
+    },
+    {
+      "id": "ROT-2026-12-10-ALQ",
+      "fecha": "2026-12-10",
+      "dia": "Jueves",
+      "hora": "09:00",
+      "accion": "PASAR_A_ALQUILADO",
+      "ref_publica": "ZAG-ALQ-04",
+      "titulo": "Maldonado Residencial · 2 dormitorios con losa radiante",
+      "precio": "$U 52.000/mes",
+      "etiqueta": "🔒 ALQUILADO",
+      "estado": "programado",
+      "dispara_pieza_aprobalo": true
+    }
+  ]
+}

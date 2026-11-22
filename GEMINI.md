@@ -70,3 +70,12 @@ Guardada en `04_OFF_MARKET_AGUSTINA_VALLS_NO_PUBLICAR` y en `/admin/`. **Prohibi
 - **Redes Sociales 100% en Aprobalo Cloud:**
   - **Cuenta ID en Aprobalo:** `0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb` (`Zaguán`)
   - **Cabina de Aprobación / Edición:** `https://aprobala-app.943ari.workers.dev/p/w8frJy8xjWXG4SGGbkPstV1FveXelKQX`
+
+---
+
+## 5. REGLAS OPERATIVAS DE VIDRIERA, MARCA PROPIA, PALETA E INDEXACIÓN (22 DE NOVIEMBRE DE 2026)
+1. **Marca propia (`NO VA A CLIENTE`):** En Zaguán aprueba Ariana sola y las piezas pasan directo a estado aprobado / publicación escalonada en Aprobalo (jamás mostrar aviso a cliente externo ni juntar múltiples publicaciones al mismo minuto).
+2. **Paleta estricta sin verde ni rojo en vidriera pública:** En textos, badges y botones públicos usar únicamente la paleta oficial de Zaguán (`#081521`, `#0F2738`, `#123B4A`, `#B7D6E0`, `#F3EFE6`, `#D4CCBD`); el color rojo queda reservado exclusivamente para el pin de ubicación `📍`.
+3. **Cruce en `ALQUILADO` (cero cruce de segmentos distintos):** Toda ficha o pieza de una propiedad marcada `ALQUILADO` se concentra en esa operación cerrada y deriva al catálogo general (`/alquileres/`). Prohibido cruzar una unidad alquilada con otra ficha puntual de precio distinto (como `$U 62.000` o `$U 28.000` con `$U 30.000`) o meter fechas de visita de otra propiedad dentro del video de `ALQUILADO`.
+4. **Contenido anexo de ficha (distinto del blog) e indexación inmediata:** Las guías de respaldo sobre una propiedad puntual se generan al dar de alta cada ficha como **contenido anexo de ficha**, no como nota editorial de blog. Todo cambio o alta en páginas de `zaguanpropiedades.com` dispara solicitud inmediata de indexación (`IndexNow` + `sitemap.xml` / Google Search Console).
+5. **Calendario de rotación de vidriera (`admin/CALENDARIO_ROTACION_VIDRIERA.json`):** Martes `09:00 hs` entra la siguiente propiedad con etiqueta `NOVEDAD` (se quita a los 7 días); miércoles o jueves `09:00 hs` pasa una unidad ancla previa a `🔒 ALQUILADO` con su pieza en Aprobalo y solicitud de indexación.

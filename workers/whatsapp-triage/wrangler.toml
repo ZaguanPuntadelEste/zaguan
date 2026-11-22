@@ -1,0 +1,10 @@
+name = "zaguan-whatsapp-triage"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+[vars]
+META_VERIFY_TOKEN = "zaguan_wh_triage_2026"
+# Configurar en Cloudflare Dashboard o via secret:
+# META_WHATSAPP_TOKEN = "..."
+# META_PHONE_NUMBER_ID = "..."
+# NOTIFICATION_WEBHOOK = "..."
