@@ -22,9 +22,10 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "T0 hace 1 sola pregunta filtro (aseguradora o día). Cantidad de personas y datos van en Turno 2."
     ],
     tiempos: {
-      T0_INMEDIATO: `Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}\nQué día y horario te sirve visitar esta semana?`,
-      T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ver qué documentación pide Porto, Sura, Mapfre o Santander, avisame y te paso el requisito en 2 líneas.",
-      T2_NARANJA_24_HS: "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
+      T0_INMEDIATO: `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}?utm_source=whatsapp&utm_medium=mar\nQué día y horario te sirve visitar esta semana?`,
+      T1_DESTRABE_5_MIN: "Pudiste revisar las fotos de la ficha, o preferís que evaluemos opciones similares en otro rango o zona?",
+      T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ayuda con nuestra gestión ZAGUÁN, avisame qué ingresos manejás y lo vemos en 2 líneas.",
+      T2_NARANJA_24_HS: "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/?utm_source=whatsapp&utm_medium=mar · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
       TURNO_2_CALIFICADO: "Excelente. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
     },
   },
@@ -61,27 +62,32 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
   },
   FAMILIA_D_DUENO_DIRECTO_CAPTACION: {
     codigo: "O1..O6",
-    tipo_ficha: "CAPTACION_FRANJA_GRIS_SIN_EXCLUSIVIDAD",
+    tipo_ficha: "CAPTACION_FRANJA_GRIS_ABIERTA",
     ejemplo: "Propietarios de Marketplace, Gallito e InfoCasas",
     reglas_freno: [
       "Prohibido mencionar %, honorarios o comisión en el 1° contacto en frío.",
+      "Prohibido usar la frase 'sin exclusividad'.",
       "Prohibido enviar URL de ficha pública individual al dueño ni antes ni después.",
-      "Garantías aseguradoras solo si es alquiler (O6), nunca en ventas (O1..O5)."
+      "Garantías aseguradoras solo si es alquiler (O6), nunca en ventas (O1..O5).",
+      "Relevar siempre si acepta niños y mascotas (Capa 1/2)."
     ],
     tiempos: {
-      T0_INMEDIATO: "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta sin exclusividad y filtro previo de interesados antes de cada visita. Tu propiedad sigue disponible para confirmarnos barrio y valor pretendido?",
+      T0_INMEDIATO: "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados antes de cada visita. Tu propiedad sigue disponible para confirmarnos barrio y valor pretendido?",
       T1_AMARILLO_2_HS: "Si te queda más cómodo, podés mandarme un audio corto contándome metros, estado y condiciones principales de tu propiedad para cruzarlo con búsquedas activas hoy.",
-      T2_NARANJA_24_HS: "Seguimos recibiendo consultas en la zona. Cuando puedas pasame esos datos mínimos y la sumamos a nuestra carpeta abierta sin exclusividad.",
+      T2_NARANJA_24_HS: "Seguimos recibiendo consultas en la zona. Cuando puedas pasame esos datos mínimos y la sumamos a nuestra carpeta abierta.",
       TURNO_2_CALIFICADO: "Recibido. Para armar nuestra carpeta interna (cuidando los datos sensibles antes de publicar), podés enviarnos por acá el PDF catastral / DJCU si lo tenés a mano, video de recorrido y confirmarnos qué horarios sirven para visitas?",
     },
   },
 };
 
 export const BANCO_RESPUESTAS_ESTANDAR = [
+  { id: "LF-HOLA", area: "La Fortuna · Meta Ads", titulo: "Escribe solo 'Hola' desde el aviso", contexto: "la_fortuna", ejemploInput: "Hola" },
   { id: "LF-B1", area: "La Fortuna · Meta Ads", titulo: "Botón 1 · Ya tiene póliza aseguradora", contexto: "la_fortuna", ejemploInput: "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar" },
   { id: "LF-B2", area: "La Fortuna · Meta Ads", titulo: "Botón 2 · Ingresos para tramitar aseguradora", contexto: "la_fortuna", ejemploInput: "Tengo ingresos para tramitar aseguradora y quiero ver la ficha" },
-  { id: "LF-B3", area: "La Fortuna · Meta Ads", titulo: "Botón 3 · ANDA/CGN u otra zona", contexto: "la_fortuna", ejemploInput: "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar" },
-  { id: "LF-CITA", area: "La Fortuna · Turno 2", titulo: "Propone día y hora de visita", contexto: "la_fortuna", ejemploInput: "Puedo ir el martes a las 16 hs" },
+  { id: "LF-B3", area: "La Fortuna · Meta Ads", titulo: "Botón 3 · ANDA/CGN u otra zona / Dueño", contexto: "la_fortuna", ejemploInput: "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar" },
+  { id: "LF-NINOS", area: "La Fortuna · Caso Lianet T1", titulo: "Objeción niños (ya lo visitó antes)", contexto: "la_fortuna", ejemploInput: "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños" },
+  { id: "LF-COMP", area: "La Fortuna · Caso Lianet T2", titulo: "Espera otro apto / cita mañana 11 hs", contexto: "la_fortuna", ejemploInput: "Estoy en espera de otro apto, mañana a las 11 tengo la cita" },
+  { id: "LF-CITA", area: "La Fortuna · Turno 2", titulo: "Propone día y hora de visita", contexto: "la_fortuna", ejemploInput: "Puedo ir el martes a las 11 hs" },
   { id: "LF-GC", area: "La Fortuna · Objeción", titulo: "Cuánto son los gastos comunes / qué incluye", contexto: "la_fortuna", ejemploInput: "Cuánto son los gastos comunes aparte del alquiler?" },
   { id: "LF-MASC", area: "La Fortuna · Objeción", titulo: "Mascota mediana o grande", contexto: "la_fortuna", ejemploInput: "Tengo un perro mediano, aceptan mascotas?" },
   { id: "LF-DIR", area: "La Fortuna · Objeción", titulo: "Pide dirección exacta y número de puerta", contexto: "la_fortuna", ejemploInput: "Me pasás la dirección exacta y el número de puerta para pasar a verlo?" },
@@ -101,6 +107,7 @@ export const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "POZO-GO", area: "Google Search · Pozo", titulo: "Gastos de ocupación y conexión", contexto: "pozo", ejemploInput: "Cuánto son los gastos de ocupación y conexión aparte del precio de lista?" },
   { id: "POZO-EXT", area: "Google Search · Pozo", titulo: "Comprador argentino / exterior", contexto: "pozo", ejemploInput: "Soy argentino y quiero saber si puedo comprar y firmar desde Buenos Aires" },
   { id: "COM-LOC", area: "Google Search · Comercial", titulo: "Busca local comercial u oficina (D6)", contexto: "general", ejemploInput: "Necesito alquilar un local comercial u oficina en Maldonado o Punta del Este" },
+  { id: "DUE-PUB", area: "Dueños · Captación", titulo: "Dueño puro: tiene propiedad para publicar", contexto: "general", ejemploInput: "Tengo una casa en Maldonado para publicar" },
   { id: "DUE-HON", area: "Dueños · Turno 2", titulo: "Dueño pregunta cómo trabajan y cuánto cobran", contexto: "dueno", ejemploInput: "Cómo trabajan ustedes y cuánto cobran de comisión si venden mi propiedad?" },
   { id: "DUE-VTA", area: "Dueños · Venta Casa", titulo: "Dueño pasa metros/USD y pregunta qué fotos enviar", contexto: "dueno", ejemploInput: "Tengo mi casa en venta en Maldonado, son 120 metros, pido USD 140.000, qué fotos necesitan?" },
 ];
@@ -138,7 +145,7 @@ const VERTICAL_SPECS = {
   },
   O6: {
     intent: "OFERTA_ALQUILER",
-    capa1: ["Canon mensual en $U o USD", "Qué incluye (gastos comunes, Wi-Fi, consumos)", "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)", "Mascotas y plazo"],
+    capa1: ["Canon mensual en $U o USD", "Qué incluye (gastos comunes, Wi-Fi, consumos)", "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)", "Niños y mascotas admitidos (condición verificada con propietario para ficha pública/privada)", "Plazo contractual"],
     capa2: ["Llaves y horarios de visita", "Condiciones especiales", "Video de recorrido"],
     cruces: ["D2", "D3", "D4"],
   },
@@ -209,6 +216,22 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
   if (matchesAny(t, ["ya señé", "ya señe", "ya alquilé", "ya alquile", "ya conseguí", "ya consegui", "ya compré", "ya compre", "ya vendí", "ya vendi", "no me interesa"])) {
     const v = ctx === "dueno" ? "O6" : (ctx === "santa_monica" ? "D3" : "D2");
     return { vertical: v, subtipo: "CIERRE_NEGATIVO_EDUCADO" };
+  }
+
+  // 0b. Cierre caliente por competencia / cita en otro apto (Caso Lianet T2)
+  if (matchesAny(t, ["espera de otro", "veo otro", "otra cita", "tengo cita a las", "no me dan respuesta", "no nos gusta vamos", "otro apto"])) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA" };
+  }
+
+  // 0c. Objeción niños / familias (Caso Lianet T1)
+  if ((ctx === "la_fortuna" || matchesAny(t, ["la fortuna", "ágata", "agata", "la fui a ver", "ya la vi"])) && matchesAny(t, ["niños", "ninos", "niño", "nino", "hijos", "chicos", "bebé", "bebe", "familia con"])) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_NINOS" };
+  }
+
+  // 0d. Saludo corto que entra respondiendo a un aviso concreto (no derivar a autoservicio ciego)
+  if (/^(?:hola+|buenas?(?:\s+(?:tardes?|noches?|d[ií]as?))?|buen\s+d[ií]a|qu[eé]\s+tal|info|informaci[oó]n|disponible\??|sigue\s+disponible\??|me\s+interesa)[!.,\s]*$/i.test(t)) {
+    if (ctx === "la_fortuna") return { vertical: "D2", subtipo: "LA_FORTUNA_HOLA_DESDE_AVISO" };
+    if (ctx === "santa_monica") return { vertical: "D7", subtipo: "SANTA_MONICA_BOTON_1" };
   }
 
   // 1. Botones exactos Meta Ads La Fortuna (ZAG-ALQ-05)
@@ -440,13 +463,20 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, e
     if (/(maps\.google\.com|maps\.app\.goo\.gl|goo\.gl\/maps)/i.test(out)) {
       violaciones.push("PIN_GPS_CRUDO_PROHIBIDO_EN_T0");
     }
-    if (/(con el due[nñ]o|con el propietario)/i.test(out)) {
+    if (/\b(due[nñ]o|propietario)\b/i.test(out)) {
       violaciones.push("MENCION_DUENO_PROHIBIDA_EN_DEMANDA");
     }
     const urls = out.match(/https?:\/\/[^\s]+/gi) || [];
     if (etapaSla === "T0_INMEDIATO" && urls.length > 1) {
       violaciones.push("DOS_O_MAS_LINKS_EN_T0");
     }
+  }
+
+  if (/sin exclusividad/i.test(out)) {
+    violaciones.push("PROHIBIDO_SIN_EXCLUSIVIDAD");
+  }
+  if (/(?:nuestro\s+escribano|escribano\s+(?:que\s+)?hace\s+(?:la\s+|las\s+)?p[oó]liza)/i.test(out)) {
+    violaciones.push("PROHIBIDO_ESCRIBANO_HACE_POLIZA");
   }
 
   if (!["O6", "D2"].includes(vertical) && /\b(porto|sura|mapfre|anda|cgn|garant[ií]a aseguradora)\b/i.test(out)) {
@@ -463,7 +493,8 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, e
     violaciones.push("PORCENTAJE_COMISION_EN_BOT");
   }
 
-  const qCount = (out.match(/\?/g) || []).length;
+  const outSinUrls = out.replace(/https?:\/\/[^\s]+/gi, "");
+  const qCount = (outSinUrls.match(/\?/g) || []).length;
   if (qCount > 1) {
     violaciones.push("DOS_O_MAS_PREGUNTAS_ENCADENADAS");
   }
@@ -493,12 +524,13 @@ function seleccionarFamiliaArbol(vertical, subtipo) {
   return "AUTOSERVICIO_GENERAL";
 }
 
-export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropiedad = "general") {
+export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropiedad = "general", canal = "whatsapp") {
   const { vertical, subtipo } = clasificarVertical14(rawText, contextoPropiedad);
   const spec = VERTICAL_SPECS[vertical] || VERTICAL_SPECS.D2;
   const analisis = detectarFaltantes(vertical, rawText);
   const familia = seleccionarFamiliaArbol(vertical, subtipo);
   const arbol = ARBOL_ESTRATEGICO_SEMAFORO[familia] || null;
+  const utm = `?utm_source=${canal === "instagram" ? "instagram" : "whatsapp"}&utm_medium=mar`;
   let replyText = "";
   let alertaAndon = false;
   let motivoAndon = "";
@@ -510,25 +542,68 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Si en el futuro retomás la búsqueda o necesitás publicar un inmueble, nos escribís por acá.";
     alertaAndon = true;
     motivoAndon = "Cierre negativo educado: pasar a baja/radar sin insistir.";
+  } else if (subtipo === "LA_FORTUNA_HOLA_DESDE_AVISO") {
+    if (etapaSla === "T1_DESTRABE_5_MIN") {
+      replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T1_DESTRABE_5_MIN;
+    } else {
+      replyText =
+        `Hola, te habla Mar de ZAGUÁN. Por el anuncio del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos), acá tenés las fotos y detalles completos en un enlace: ${LA_FORTUNA_URL}${utm}\n` +
+        "Cuando lo revises, ya tenés garantía aseguradora o necesitás que te ayudemos a tramitarla con nuestra gestión ZAGUÁN?";
+    }
+    alertaAndon = true;
+    motivoAndon = "Saludo desde aviso La Fortuna: entrega ficha trackeada sin perder conversación.";
+  } else if (subtipo === "LA_FORTUNA_OBJECION_NINOS") {
+    replyText =
+      "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\n" +
+      "Como ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\n" +
+      "Ya tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?";
+    alertaAndon = true;
+    motivoAndon = "ANDON NIÑOS LA FORTUNA (Caso Lianet): confirmada aceptación de niños y ofrecida gestión ZAGUÁN.";
+  } else if (subtipo === "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA") {
+    const mHora = String(rawText || "").match(/\b(?:a\s+las\s+)?(\d{1,2}(?::\d{2})?)\s*(?:hs|h)?\b/i);
+    const hora = mHora ? mHora[1] : "";
+    replyText = hora
+      ? `Esta propiedad tiene agenda activa de visitas y la reserva se confirma por orden de cierre.\nAnotada tu cita de las ${hora}: mantenemos tu prioridad mientras siga disponible y reconectamos al mediodía.\nQuedamos en hablar a las 12 hs para confirmarte si sigue libre?`
+      : "Esta propiedad tiene agenda activa de visitas y la reserva se confirma por orden de cierre.\nSi me adelantás a qué hora tenés la otra cita mañana, mantenemos tu prioridad mientras siga disponible y reconectamos al mediodía.\nA qué hora es tu cita mañana para agendar nuestro recontacto?";
+    alertaAndon = true;
+    motivoAndon = "ANDON CIERRE CALIENTE (Competencia): esperar resolución y recontacto al mediodía.";
   } else if (subtipo === "LA_FORTUNA_VISITA_FILTRADA") {
-    replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T0_INMEDIATO;
+    replyText = `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}${utm}\nQué día y horario te sirve visitar esta semana?`;
     alertaAndon = true;
     motivoAndon = "Lead La Fortuna ya declaró póliza aseguradora (Botón 1): listo para agenda.";
   } else if (subtipo === "LA_FORTUNA_INGRESOS_TRAMITE") {
-    replyText =
-      `Acá ves fotos y ficha de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera): ${LA_FORTUNA_URL}\n` +
-      "Porto, Sura, Mapfre y Santander aprueban en 24/48 hs con recibo o ingresos. Querés que te indique cómo pre-aprobarla y visitar?";
+    if (etapaSla === "T1_DESTRABE_5_MIN") {
+      replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T1_DESTRABE_5_MIN;
+    } else {
+      replyText =
+        `Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): ${LA_FORTUNA_URL}${utm}\n` +
+        "Desde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\n" +
+        "Cuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?";
+    }
     alertaAndon = true;
-    motivoAndon = "Lead La Fortuna calificable con ingresos (Botón 2): acompañar pre-aprobación.";
-  } else if (subtipo === "LA_FORTUNA_OTRA_GARANTIA") {
-    replyText =
-      "En La Fortuna se trabaja con póliza de aseguradora, aunque relevamos opciones en otras zonas y garantías de Maldonado además de publicar propiedades con difusión abierta.\n" +
-      "Buscás alquilar en otro barrio o rango (indicanos zona, garantía y tope), o tenés una propiedad para publicar?";
+    motivoAndon = "Lead La Fortuna calificable con ingresos (Botón 2): enganche visual + gestión ZAGUÁN.";
+  } else if (subtipo === "LA_FORTUNA_OTRA_GARANTIA" || subtipo === "TRIAJE_DUAL_OPCION_3") {
+    if ((rawText || "").toLowerCase().includes("propiedad")) {
+      replyText =
+        "Si tenés una propiedad para vender o alquilar anual en Maldonado o Punta del Este, contame en qué barrio está y nos ocupamos directo con vos.\n" +
+        "Si buscás alquilar en otro barrio o con otra garantía (en La Fortuna se pide aseguradora), pasame zona, dormitorios y presupuesto para avisarte apenas ingrese una opción acorde.\n" +
+        "Cuál de los dos casos es el tuyo para empezar ahora?";
+    } else {
+      replyText =
+        "En La Fortuna se trabaja con garantía aseguradora, aunque relevamos opciones en otras zonas de Maldonado con ANDA o CGN.\n" +
+        "Qué zona, cantidad de dormitorios y presupuesto mensual manejás para avisarte apenas ingrese una opción acorde?";
+    }
     alertaAndon = true;
-    motivoAndon = "Lead Botón 3 (ANDA/CGN o captación): derivar a D2 sin quemar La Fortuna.";
+    motivoAndon = "Lead Botón 3 (ANDA/CGN o captación): separa dueño vs. alquiler sin quemar fichas.";
   } else if (subtipo === "LA_FORTUNA_FICHA") {
-    replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos[etapaSla]
-      || ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T0_INMEDIATO;
+    if (etapaSla === "T0_INMEDIATO") {
+      replyText =
+        `Acá podés ver las fotos y distribución del apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): ${LA_FORTUNA_URL}${utm}\n` +
+        "Mirá la ficha primero y contame: ya contás con garantía aseguradora o preferís que te ayudemos a tramitarla con nuestra gestión ZAGUÁN?";
+    } else {
+      replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos[etapaSla]
+        || ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T0_INMEDIATO;
+    }
     alertaAndon = true;
     motivoAndon = `Seguimiento La Fortuna (${etapaSla}).`;
   } else if (subtipo === "TURNO_2_VISITA_LA_FORTUNA") {
@@ -679,7 +754,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = "Cruce latente D7 -> O5 Santa Mónica activado.";
   } else if (subtipo === "DUENO_TURNO_2_HONORARIOS") {
     replyText =
-      "Trabajamos con autorización abierta sin exclusividad: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\n" +
+      "Trabajamos con autorización abierta: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\n" +
       "Operamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\n" +
       "Tu propiedad es para venta o alquiler anual y en qué barrio está?";
     alertaAndon = true;
@@ -708,38 +783,36 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       replyText = tiempoD;
     } else if (vertical === "O6") {
       replyText =
-        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta sin exclusividad, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n" +
-        "Me confirmás qué garantías aceptás y si ese valor incluye gastos comunes?";
+        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n" +
+        "Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?";
     } else if (vertical === "O3") {
       replyText =
-        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta sin exclusividad, filtrando cada interesado por rubro y solvencia.\n" +
+        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta, filtrando cada interesado por rubro y solvencia.\n" +
         "Me confirmás metros del salón, si cuenta con trifásica/habilitación y valor pretendido?";
     } else if (vertical === "O4") {
       replyText =
-        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta sin exclusividad, pre-calificando compradores antes de coordinar visitas.\n" +
+        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta, pre-calificando compradores antes de coordinar visitas.\n" +
         "Me confirmás número de padrón o frente/fondo, servicios en puerta y valor en USD?";
+    } else if (!/vend[oe]|venta/i.test(rawText || "")) {
+      replyText =
+        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados.\n" +
+        "La propiedad es para venta o alquiler anual, y qué valor pretendido manejás?";
     } else {
       replyText =
-        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta sin exclusividad y filtro previo de compradores.\n" +
+        "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de compradores.\n" +
         `Para evaluar tu propiedad en cartera, envianos:\n• ${analisis.faltantes_capa_1.slice(0, 3).join("\n• ")}`;
     }
     alertaAndon = true;
     motivoAndon = `Alta inbound de propietario (${vertical}): pasar a Master CSV y Bienvenida de OKs.`;
   } else if (vertical === "D2" && subtipo === "DEMANDA_ALQUILER_GENERAL") {
     replyText =
-      `Podés ver las fichas de alquiler anual activas hoy en ${ALQUILERES_URL} (incluyendo La Fortuna 2 dormitorios a $U 30.000 con gastos comunes y Wi-Fi incluidos).\n` +
+      `Podés ver las fichas de alquiler anual activas hoy en ${ALQUILERES_URL}${utm} (incluyendo La Fortuna 2 dormitorios a $U 30.000 con gastos comunes y Wi-Fi incluidos).\n` +
       "Contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía en Maldonado?";
-  } else if (subtipo === "TRIAJE_DUAL_OPCION_3") {
-    replyText =
-      `Podés ver las opciones disponibles con precios hoy en ${LINKS_URL}\n` +
-      "Buscás alquilar o comprar en otra zona, o tenés una propiedad para publicar con difusión abierta?";
-    alertaAndon = true;
-    motivoAndon = "Lead tocó Opción 3 (otra zona o captación): clasificar respuesta.";
   } else if (subtipo === "AUTOSERVICIO_GENERAL") {
     esPasiva = true;
     replyText =
       "Hola, gracias por comunicarte con ZAGUÁN Propiedades (Punta del Este y Maldonado).\n" +
-      `En nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}\n` +
+      `En nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}${utm}\n` +
       "Si tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá.";
   } else if (arbol) {
     replyText = arbol.tiempos[etapaSla] || arbol.tiempos.T0_INMEDIATO;
@@ -747,7 +820,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     esPasiva = true;
     replyText =
       "Hola, gracias por comunicarte con ZAGUÁN Propiedades (Punta del Este y Maldonado).\n" +
-      `En nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}\n` +
+      `En nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: ${LINKS_URL}${utm}\n` +
       "Si tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá.";
   }
 
@@ -803,8 +876,13 @@ export default {
         }
 
         const etapaSla = body?.etapa_sla || "T0_INMEDIATO";
-        const contextoPropiedad = body?.contexto_propiedad || "general";
-        const resultado = clasificarYResponder(text, etapaSla, contextoPropiedad);
+        const refBlob = `${message?.referral?.headline || ""} ${message?.referral?.body || ""} ${message?.referral?.source_url || ""}`.toLowerCase();
+        const inferredCtx = refBlob.includes("fortuna") || refBlob.includes("agata")
+          ? "la_fortuna"
+          : (refBlob.includes("santa m") || refBlob.includes("hormigon") ? "santa_monica" : "general");
+        const contextoPropiedad = body?.contexto_propiedad || inferredCtx;
+        const canal = body?.canal || "whatsapp";
+        const resultado = clasificarYResponder(text, etapaSla, contextoPropiedad, canal);
 
         let metaSent = false;
         if (message && env?.META_WHATSAPP_TOKEN && env?.META_PHONE_NUMBER_ID) {

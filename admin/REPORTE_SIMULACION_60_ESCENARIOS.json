@@ -1,7 +1,7 @@
 {
-  "fecha": "2026-11-22T21:01:20.562Z",
-  "total": 60,
-  "pasaron": 60,
+  "fecha": "2026-11-22T23:03:28.274Z",
+  "total": 64,
+  "pasaron": 64,
   "fallaron_count": 0,
   "tasa_exito": "100%",
   "fallos_resumen": [],
@@ -17,7 +17,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_VISITA_FILTRADA",
       "alerta_andon": true,
-      "replyText": "Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/\nQué día y horario te sirve visitar esta semana?"
+      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nQué día y horario te sirve visitar esta semana?"
     },
     {
       "id": "SIM-02",
@@ -30,7 +30,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_INGRESOS_TRAMITE",
       "alerta_andon": true,
-      "replyText": "Acá ves fotos y ficha de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/\nPorto, Sura, Mapfre y Santander aprueban en 24/48 hs con recibo o ingresos. Querés que te indique cómo pre-aprobarla y visitar?"
+      "replyText": "Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nDesde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\nCuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?"
     },
     {
       "id": "SIM-03",
@@ -43,7 +43,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OTRA_GARANTIA",
       "alerta_andon": true,
-      "replyText": "En La Fortuna se trabaja con póliza de aseguradora, aunque relevamos opciones en otras zonas y garantías de Maldonado además de publicar propiedades con difusión abierta.\nBuscás alquilar en otro barrio o rango (indicanos zona, garantía y tope), o tenés una propiedad para publicar?"
+      "replyText": "Si tenés una propiedad para vender o alquilar anual en Maldonado o Punta del Este, contame en qué barrio está y nos ocupamos directo con vos.\nSi buscás alquilar en otro barrio o con otra garantía (en La Fortuna se pide aseguradora), pasame zona, dormitorios y presupuesto para avisarte apenas ingrese una opción acorde.\nCuál de los dos casos es el tuyo para empezar ahora?"
     },
     {
       "id": "SIM-04",
@@ -277,7 +277,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta sin exclusividad, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás y si ese valor incluye gastos comunes?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?"
     },
     {
       "id": "SIM-22",
@@ -290,7 +290,7 @@
       "vertical_detectada": "O1",
       "subtipo_detectado": "DUENO_TURNO_2_HONORARIOS",
       "alerta_andon": true,
-      "replyText": "Trabajamos con autorización abierta sin exclusividad: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\nTu propiedad es para venta o alquiler anual y en qué barrio está?"
+      "replyText": "Trabajamos con autorización abierta: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\nTu propiedad es para venta o alquiler anual y en qué barrio está?"
     },
     {
       "id": "SIM-23",
@@ -316,7 +316,7 @@
       "vertical_detectada": "O3",
       "subtipo_detectado": "INBOUND_COMERCIAL",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta sin exclusividad, filtrando cada interesado por rubro y solvencia.\nMe confirmás metros del salón, si cuenta con trifásica/habilitación y valor pretendido?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta, filtrando cada interesado por rubro y solvencia.\nMe confirmás metros del salón, si cuenta con trifásica/habilitación y valor pretendido?"
     },
     {
       "id": "SIM-25",
@@ -329,7 +329,7 @@
       "vertical_detectada": "O4",
       "subtipo_detectado": "INBOUND_LOTE",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta sin exclusividad, pre-calificando compradores antes de coordinar visitas.\nMe confirmás número de padrón o frente/fondo, servicios en puerta y valor en USD?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta, pre-calificando compradores antes de coordinar visitas.\nMe confirmás número de padrón o frente/fondo, servicios en puerta y valor en USD?"
     },
     {
       "id": "SIM-26",
@@ -355,7 +355,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "AUTOSERVICIO_GENERAL",
       "alerta_andon": false,
-      "replyText": "Hola, gracias por comunicarte con ZAGUÁN Propiedades (Punta del Este y Maldonado).\nEn nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: https://zaguanpropiedades.com/links/\nSi tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá."
+      "replyText": "Hola, gracias por comunicarte con ZAGUÁN Propiedades (Punta del Este y Maldonado).\nEn nuestros accesos directos podés ver propiedades disponibles, precios y condiciones sin esperar respuesta: https://zaguanpropiedades.com/links/?utm_source=whatsapp&utm_medium=mar\nSi tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá."
     },
     {
       "id": "SIM-28",
@@ -680,7 +680,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_FICHA",
       "alerta_andon": true,
-      "replyText": "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?"
+      "replyText": "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/?utm_source=whatsapp&utm_medium=mar · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?"
     },
     {
       "id": "SIM-53",
@@ -771,7 +771,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta sin exclusividad, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás y si ese valor incluye gastos comunes?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?"
     },
     {
       "id": "SIM-60",
@@ -785,6 +785,58 @@
       "subtipo_detectado": "SANTA_MONICA_TURNO_2_BOVEDA_VIDEO",
       "alerta_andon": true,
       "replyText": "La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?"
+    },
+    {
+      "id": "SIM-61",
+      "bloque": "La Fortuna · Hola desde Aviso",
+      "turno": "T0 · Saludo directo desde anuncio",
+      "contexto": "la_fortuna",
+      "input": "Hola",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "D2",
+      "subtipo_detectado": "LA_FORTUNA_HOLA_DESDE_AVISO",
+      "alerta_andon": true,
+      "replyText": "Hola, te habla Mar de ZAGUÁN. Por el anuncio del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos), acá tenés las fotos y detalles completos en un enlace: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nCuando lo revises, ya tenés garantía aseguradora o necesitás que te ayudemos a tramitarla con nuestra gestión ZAGUÁN?"
+    },
+    {
+      "id": "SIM-62",
+      "bloque": "La Fortuna · Caso Lianet T1",
+      "turno": "T1 · Objeción niños y visita previa",
+      "contexto": "la_fortuna",
+      "input": "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "D2",
+      "subtipo_detectado": "LA_FORTUNA_OBJECION_NINOS",
+      "alerta_andon": true,
+      "replyText": "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\nComo ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\nYa tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?"
+    },
+    {
+      "id": "SIM-63",
+      "bloque": "La Fortuna · Caso Lianet T2",
+      "turno": "T2 · Competencia cita mañana 11 hs",
+      "contexto": "la_fortuna",
+      "input": "Estoy en espera de otro apto, mañana a las 11 tengo la cita",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "D2",
+      "subtipo_detectado": "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA",
+      "alerta_andon": true,
+      "replyText": "Esta propiedad tiene agenda activa de visitas y la reserva se confirma por orden de cierre.\nAnotada tu cita de las 11: mantenemos tu prioridad mientras siga disponible y reconectamos al mediodía.\nQuedamos en hablar a las 12 hs para confirmarte si sigue libre?"
+    },
+    {
+      "id": "SIM-64",
+      "bloque": "Dueños · Captación Pura",
+      "turno": "T0 · Tengo una casa para publicar",
+      "contexto": "general",
+      "input": "Tengo una casa en Maldonado para publicar",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "O1",
+      "subtipo_detectado": "INBOUND_CASA",
+      "alerta_andon": true,
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados.\nLa propiedad es para venta o alquiler anual, y qué valor pretendido manejás?"
     }
   ]
 }

@@ -107,7 +107,7 @@ const MATRIZ_14V = {
   },
   O6: {
     dolor: 'Evitar impagos, destrozos y visitas en vano sin respaldo.',
-    capa1: ['Canon mensual en $U o USD', 'Qué incluye (GC, Wi-Fi, consumos)', 'Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)', 'Mascotas y plazo'],
+    capa1: ['Canon mensual en $U o USD', 'Qué incluye (GC, Wi-Fi, consumos)', 'Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)', 'Niños y mascotas admitidos', 'Plazo'],
     capa2: ['Quién tiene llaves y horarios', 'Condiciones de ajuste y video de recorrido'],
     cruce: 'D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)',
   },
@@ -130,6 +130,7 @@ function validarPokaYokeTexto(texto, vertical) {
   if (/[¿¡]/.test(texto)) violaciones.push('SIGNOS_APERTURA');
   if (/\b[a-záéíóúüñ]{3,}mente\b/i.test(texto)) violaciones.push('ADVERBIO_MENTE');
   if (/\bencajar\b/i.test(texto)) violaciones.push('PALABRA_ENCAJAR');
+  if (/sin exclusividad/i.test(texto)) violaciones.push('PROHIBIDO_SIN_EXCLUSIVIDAD');
   if (!['O6', 'D2'].includes(vertical) && /\b(porto\s+seguro|sura|mapfre|anda|cgn|garant[ií]a\s+aseguradora)\b/i.test(texto)) {
     violaciones.push('GARANTIA_EN_VERTICAL_VENTA');
   }
@@ -202,7 +203,7 @@ function construirConcatenado(row) {
     alertaAndon = true;
     motivoAndon = 'Caso escuela Capa 2 multimodal (Bóveda Privada PDF B-GH-704.pdf + decreto dic 2027 + video 2m31s a pedido).';
   } else if (vCode === 'O6') {
-    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en ${zona} (${precio}). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?`;
+    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?`;
     anguloRedes = `Ficha / Story 9:16 Alquiler Anual en ${zona}: precio transparente ${precio} + filtro de garantía claro.`;
     anguloAds = {
       publico: `${zona} y alrededores (+17 km), 24 a 48 años`,
@@ -210,7 +211,7 @@ function construirConcatenado(row) {
       botones_wa: [
         `Tengo garantía aseguradora y consulto por ${zona}`,
         'Busco alquiler anual en otra zona de Maldonado',
-        'Tengo propiedad para alquilar sin exclusividad',
+        'Tengo propiedad para publicar en difusión abierta',
       ],
     };
   } else if (vCode === 'O7') {
@@ -250,7 +251,7 @@ function construirConcatenado(row) {
       botones_wa: ['Tengo garantía aseguradora y busco visita', 'Busco en otra zona', 'Tengo propiedad para publicar'],
     };
   } else {
-    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en ${zona} (${precio}). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?`;
+    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en ${zona} (${precio}). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?`;
     anguloRedes = `Carrusel territorial ${zona}: destacar potencial constructivo, metros y ubicación real (${precio}).`;
     anguloAds = {
       publico: `Compradores en ${zona}, Punta del Este y Montevideo (28 a 60 años)`,
@@ -258,7 +259,7 @@ function construirConcatenado(row) {
       botones_wa: [
         `Quiero más detalles de ${zona}`,
         'Busco casa, terreno o proyecto en la zona',
-        'Tengo propiedad para publicar sin exclusividad',
+        'Tengo propiedad para publicar con difusión abierta',
       ],
     };
   }
@@ -324,12 +325,12 @@ function armarPrimerContactoPortal(ficha) {
   const zona = ficha.zona || 'Maldonado';
   const precio = ficha.precio || 'valor publicado';
   if (vCode === 'O6') {
-    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en ${zona} (${precio}). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?`;
+    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?`;
   }
   if (vCode === 'O3') {
-    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en ${zona} (${precio}). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?`;
+    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en ${zona} (${precio}). Trabajamos con publicación abierta acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?`;
   }
-  return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en ${zona} (${precio}). Trabajamos sin exclusividad y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?`;
+  return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en ${zona} (${precio}). Trabajamos con publicación abierta y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?`;
 }
 
 async function fetchTextSafe(url) {

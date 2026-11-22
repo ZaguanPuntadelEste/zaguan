@@ -1,7 +1,7 @@
 # 🔒 REGLA LOCAL DE HIERRO — PROYECTO: 1 - ZAGUÁN (`zaguanpropiedades.com`)
 **ID DE PROYECTO:** `ZAGUAN_PROYECTO`
 **ARCHIVO CANDADO:** `BRAND_AND_CONNECTORS.lock.json`
-**ÚLTIMA SINCRONIZACIÓN DE CEREBRO:** `10 de noviembre de 2026`
+**ÚLTIMA SINCRONIZACIÓN DE CEREBRO:** `22 de noviembre de 2026`
 
 ## 1. AISLAMIENTO TOTAL DE CUENTAS Y CONECTORES + REGLAS DE REALIDAD COMERCIAL (CERO HUMO)
 - **Reglas Duras de Realidad Comercial (Mandato Directo de Ariana 10/11/2026):**
@@ -79,3 +79,13 @@ Guardada en `04_OFF_MARKET_AGUSTINA_VALLS_NO_PUBLICAR` y en `/admin/`. **Prohibi
 3. **Cruce en `ALQUILADO` (cero cruce de segmentos distintos):** Toda ficha o pieza de una propiedad marcada `ALQUILADO` se concentra en esa operación cerrada y deriva al catálogo general (`/alquileres/`). Prohibido cruzar una unidad alquilada con otra ficha puntual de precio distinto (como `$U 62.000` o `$U 28.000` con `$U 30.000`) o meter fechas de visita de otra propiedad dentro del video de `ALQUILADO`.
 4. **Contenido anexo de ficha (distinto del blog) e indexación inmediata:** Las guías de respaldo sobre una propiedad puntual se generan al dar de alta cada ficha como **contenido anexo de ficha**, no como nota editorial de blog. Todo cambio o alta en páginas de `zaguanpropiedades.com` dispara solicitud inmediata de indexación (`IndexNow` + `sitemap.xml` / Google Search Console).
 5. **Calendario de rotación de vidriera (`admin/CALENDARIO_ROTACION_VIDRIERA.json`):** Martes `09:00 hs` entra la siguiente propiedad con etiqueta `NOVEDAD` (se quita a los 7 días); miércoles o jueves `09:00 hs` pasa una unidad ancla previa a `🔒 ALQUILADO` con su pieza en Aprobalo y solicitud de indexación.
+
+---
+
+## 6. REGLAS COMERCIALES DE BOT DE MAR Y APRENDIZAJE CASO LIANET (22 DE NOVIEMBRE DE 2026)
+1. **Prohibición absoluta de `"sin exclusividad"`:** Jamás usar la frase `"sin exclusividad"` en guiones de Mar, fichas, copys ni botones; hablar siempre de **"publicación abierta"** o **"autorización abierta"** con filtro previo de solvencia.
+2. **Trámite de pólizas con gestión propia:** Prohibido decir `"nuestro escribano hace pólizas"`. Usar siempre **"te ayudamos a tramitar la garantía aseguradora con nuestra gestión ZAGUÁN"** (servicio gestionado a través de nuestra escribanía aliada).
+3. **No empujar visita antes de ver la ficha (Turno 0) + Retención con UTM:** Cuando el lead pide ver la ficha o escribe por ingresos, entregar enlace trackeado (`?utm_source=whatsapp|instagram&utm_medium=mar`), confirmar distribución/formato (`apartamento de 2 dormitorios` en La Fortuna) y preguntar por sus ingresos o garantía sin exigir cita previa en el primer mensaje. Si clava el visto 5 minutos, activar destrabe corto preguntando si pudo ver las fotos o si evalúa opciones similares.
+4. **"Hola" que responde a un aviso concreto:** Cuando entra un saludo corto con contexto/encabezado de anuncio (Meta `referral` de La Fortuna o Santa Mónica), responder directo sobre esa propiedad sin derivar a catálogo ciego.
+5. **Separación estricta de Botón 3 y Captación:** El propietario que quiere publicar una propiedad (`O1..O6`) jamás recibe links de catálogo de alquileres; se le pide barrio y si busca venta o alquiler anual.
+6. **Relevamiento obligatorio de niños/mascotas y Cierre Caliente por Competencia (Caso Lianet):** En `O6` relevar siempre si admite niños y mascotas antes de publicar o afirmar nada; en La Fortuna está confirmado que la unidad admite familias con niños (`LA_FORTUNA_OBJECION_NINOS`). Si un interesado caliente tiene visita en otra propiedad al día siguiente, preguntar hora de esa cita y ofrecer prioridad condicional hasta el mediodía (`LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA`). Simulador multi-turno activo en `https://zaguanpropiedades.com/admin/simulador-mar.html` (WA + IG DM, `64/64 PASS`).
