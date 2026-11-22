@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-22T18:05:15.870Z",
+  "fecha": "2026-11-22T18:57:01.056Z",
   "total": 60,
   "pasaron": 60,
   "fallaron_count": 0,
@@ -680,7 +680,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_FICHA",
       "alerta_andon": true,
-      "replyText": "Hola, buenas tardes. Te consulto corto por el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?"
+      "replyText": "Hola, buenas tardes. Te consulto corto por el alquiler anual del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?"
     },
     {
       "id": "SIM-53",

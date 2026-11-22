@@ -189,6 +189,15 @@ def audit_ficha_html(html_path: str, boveda_path: str | None = None) -> list[str
         if faltan_seo:
             errs.append(f"Racimo SEO/GEO incompleto para proyecto O5: faltan {', '.join(faltan_seo)}.")
 
+    # Protocolo Pre-Pauta obligatorio: GA4/GTM presente en toda ficha pública y operación + generate_lead si hay formulario
+    if "g-e3dvx8nwpr" not in low and "gtm-ktkltw5t" not in low:
+        errs.append("Falta etiqueta de analítica (G-E3DVX8NWPR o GTM-KTKLTW5T) en ficha pública antes de pautar.")
+    if "lf-triage-form" in low:
+        if "generate_lead" not in low:
+            errs.append("Formulario de pre-calificación sin evento de conversión generate_lead para Google Analytics.")
+        if not re.search(r"\b(alquiler\s+anual|venta|pozo)\b", low):
+            errs.append("Falta palabra de operación explícita (alquiler anual, venta o pozo) junto al grupo conceptual.")
+
     # Verificar que exista respaldo en Bóveda Privada para la ficha (Drive admin/ o Desktop ZAGUAN CLAUDE/)
     candidates = [
         boveda_path,
