@@ -190,13 +190,16 @@ def audit_ficha_html(html_path: str, boveda_path: str | None = None) -> list[str
         if faltan_seo:
             errs.append(f"Racimo SEO/GEO incompleto para proyecto O5: faltan {', '.join(faltan_seo)}.")
 
-    # Verificar que exista respaldo en Bóveda Privada para la ficha
-    default_boveda = os.path.abspath(
-        os.path.join(os.path.dirname(os.path.dirname(html_path)), "..", "admin", "FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json")
-    )
-    bpath = boveda_path or default_boveda
-    if not os.path.isfile(bpath):
-        errs.append(f"Falta archivo de Bóveda Privada: {bpath}")
+    # Verificar que exista respaldo en Bóveda Privada para la ficha (Drive admin/ o Desktop ZAGUAN CLAUDE/)
+    candidates = [
+        boveda_path,
+        os.path.abspath(os.path.join(os.path.dirname(os.path.dirname(html_path)), "..", "admin", "FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json")),
+        "/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json",
+        "/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json",
+    ]
+    bpath = next((p for p in candidates if p and os.path.isfile(p)), "")
+    if not bpath:
+        errs.append("Falta archivo de Bóveda Privada FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json en Drive/admin o Desktop/ZAGUAN CLAUDE.")
     else:
         import json
         with open(bpath, "r", encoding="utf-8") as bf:
