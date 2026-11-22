@@ -227,7 +227,7 @@ function construirConcatenado(row) {
     };
   } else if (row.id_registro === 'MP-65' || row.id_registro === 'MP-66') {
     const saludoLunes = nombre ? `Hola ${nombre}, buen lunes.` : 'Hola, buen lunes.';
-    guionWa = `${saludoLunes} Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?`;
+    guionWa = `${saludoLunes} Mañana martes vamos a estar mostrando el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes y Wi-Fi incluidos). Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para sumarte mañana, o buscás con otra garantía / en otra zona?`;
     anguloRedes = 'Botones V2 auto-calificadores en Meta Ads La Fortuna: filtrar aseguradora o ingresos ANTES de dar link; 0 pin GPS crudo; personas y día en Turno 2.';
     anguloAds = {
       publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',

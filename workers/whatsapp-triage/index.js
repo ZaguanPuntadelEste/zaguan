@@ -24,7 +24,7 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
     tiempos: {
       T0_INMEDIATO: `Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}\nQué día y horario te sirve visitar esta semana?`,
       T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ver qué documentación pide Porto, Sura, Mapfre o Santander, avisame y te paso el requisito en 2 líneas.",
-      T2_NARANJA_24_HS: "Hola, buen lunes. Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?",
+      T2_NARANJA_24_HS: "Hola, buen lunes. Mañana martes mostramos el apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes y Wi-Fi incluidos). Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para sumarte mañana, o buscás con otra garantía / en otra zona?",
       TURNO_2_CALIFICADO: "Impecable. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
     },
   },
@@ -85,14 +85,18 @@ export const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "LF-GC", area: "La Fortuna · Objeción", titulo: "Cuánto son los gastos comunes / qué incluye", contexto: "la_fortuna", ejemploInput: "Cuánto son los gastos comunes aparte del alquiler?" },
   { id: "LF-MASC", area: "La Fortuna · Objeción", titulo: "Mascota mediana o grande", contexto: "la_fortuna", ejemploInput: "Tengo un perro mediano, aceptan mascotas?" },
   { id: "LF-DIR", area: "La Fortuna · Objeción", titulo: "Pide dirección exacta y número de puerta", contexto: "la_fortuna", ejemploInput: "Me pasás la dirección exacta y el número de puerta para pasar a verlo?" },
-  { id: "LF-REQ", area: "La Fortuna · Objeción", titulo: "Requisitos y costos de ingreso", contexto: "la_fortuna", ejemploInput: "Cuánto piden de depósito o comisión para entrar y qué requisitos piden?" },
+  { id: "LF-REQ", area: "La Fortuna · Objeción", titulo: "Requisitos y costos de ingreso (+ IVA)", contexto: "la_fortuna", ejemploInput: "Cuánto piden de depósito o comisión para entrar y qué requisitos piden?" },
+  { id: "LF-PAR", area: "La Fortuna · Turno 2", titulo: "Suma ingresos de pareja para aseguradora", contexto: "la_fortuna", ejemploInput: "Con mi pareja sumamos $U 95.000 en recibos, llegamos para Porto o Sura?" },
   { id: "LF-TEMP", area: "Alquiler · Borde", titulo: "Pregunta por verano / quincena", contexto: "general", ejemploInput: "Lo alquilan solo por enero o quincena de verano?" },
   { id: "SM-B1", area: "Santa Mónica · Meta Ads", titulo: "Botón 1 · Compra contado USD 160.000", contexto: "santa_monica", ejemploInput: "Evalúo compra contado USD 160.000: quiero video 2m31s y padrón" },
   { id: "SM-B2", area: "Santa Mónica · Meta Ads", titulo: "Botón 2 · Compara lote vs obra", contexto: "santa_monica", ejemploInput: "Comparo lote vs. obra (USD 160.000): pido video 2m31s y croquis" },
   { id: "SM-OBRA", area: "Santa Mónica · Turno 2", titulo: "Qué le falta terminar a la obra", contexto: "santa_monica", ejemploInput: "Qué le falta terminar exactamente a la obra de Santa Mónica?" },
   { id: "SM-PLAN", area: "Santa Mónica · Turno 2", titulo: "Planos aprobados, DJCU 2027 y banco", contexto: "santa_monica", ejemploInput: "Tiene planos aprobados o acepta préstamo de banco?" },
   { id: "SM-VID", area: "Santa Mónica · Turno 2", titulo: "Calificado pide video 2m31s y cédula", contexto: "santa_monica", ejemploInput: "Lo evalúo para vivienda propia, cuento con los USD y quiero ver el video completo" },
+  { id: "SM-OFE", area: "Santa Mónica · Objeción", titulo: "Contraoferta USD 135.000 / Permuta", contexto: "santa_monica", ejemploInput: "Tengo USD 135.000 cash hoy por la casa de Santa Mónica, aceptan?" },
+  { id: "VTA-HON", area: "Compra · Objeción", titulo: "Honorarios comprador en venta (3% + IVA)", contexto: "santa_monica", ejemploInput: "Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?" },
   { id: "POZO-BET", area: "Google Search · Pozo", titulo: "Presupuesto desde USD 79.800 (Betania IV)", contexto: "pozo", ejemploInput: "Busco apartamento en pozo en Maldonado desde USD 80.000 con cuotas" },
+  { id: "POZO-BET-TIP", area: "Google Search · Pozo", titulo: "Betania IV tipologías (1D/2D/3D + cochera inc.)", contexto: "pozo", ejemploInput: "Qué precios y cocheras tienen 1, 2 y 3 dormitorios en Betania IV?" },
   { id: "POZO-LEY", area: "Google Search · Pozo", titulo: "Ley 18.795 (Nostrum y More Atlántico)", contexto: "pozo", ejemploInput: "Qué opciones tenés con exoneración de impuestos Ley 18.795 en Roosevelt?" },
   { id: "POZO-GO", area: "Google Search · Pozo", titulo: "Gastos de ocupación y conexión", contexto: "pozo", ejemploInput: "Cuánto son los gastos de ocupación y conexión aparte del precio de lista?" },
   { id: "POZO-EXT", area: "Google Search · Pozo", titulo: "Comprador argentino / exterior", contexto: "pozo", ejemploInput: "Soy argentino y quiero saber si puedo comprar y firmar desde Buenos Aires" },
@@ -234,18 +238,26 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
   }
 
   // 3. Ingreso de Propietarios / Desarrolladoras (O1..O7) — ANTES de objeciones de demanda
+  // Distinguir explícitamente dueño vendedor/arrendador vs comprador/inquilino que pregunta comisión!
+  const pareceCompradorOInquilino = matchesAny(t, ["si compro", "para comprar", "si alquilo", "para alquilar", "en la fortuna", "santa mónica", "santa monica", "un pozo"]);
   const esOfertaExplicita = matchesAny(t, [
     "tengo propiedad", "tengo una propiedad", "tengo un depto", "tengo un apto",
     "tengo una casa", "tengo mi casa", "tengo un terreno", "tengo un lote",
     "tengo un local", "soy dueño", "soy dueno", "soy dueña", "soy duena",
     "alquilo mi", "vendo mi", "en venta mi", "para publicar", "quiero publicar",
-    "habilito", "para darte", "ofrezco", "nos da pozo", "somos desarrolladora",
-    "queremos sumarnos", "cómo trabajan ustedes", "como trabajan ustedes",
-    "cuánto cobran de comisión", "cuanto cobran de comision", "venden mi propiedad",
-  ]);
-  const esTurno2Dueno = ctx === "dueno" && matchesAny(t, ["cómo trabajan", "como trabajan", "cuánto cobran", "cuanto cobran", "honorarios", "comisión", "comision", "qué fotos", "que fotos"]);
+    "habilito", "para darte", "ofrezco mi", "nos da pozo", "somos desarrolladora",
+    "queremos sumarnos", "protección de punta", "proteccion de punta", "sin registro",
+    "puedo darte la grilla", "te paso la grilla",
+  ]) || (!pareceCompradorOInquilino && matchesAny(t, [
+    "cómo trabajan ustedes", "como trabajan ustedes",
+    "venden mi propiedad", "alquilan mi propiedad",
+  ]));
+  const esTurno2Dueno = ctx === "dueno" && matchesAny(t, ["cómo trabajan", "como trabajan", "cuánto cobran", "cuanto cobran", "honorarios", "comisión", "comision", "qué fotos", "que fotos", "protección", "proteccion", "pre-registro", "grilla"]);
 
   if (esOfertaExplicita || esTurno2Dueno) {
+    if (matchesAny(t, ["protección de punta", "proteccion de punta", "sin protección", "sin proteccion", "pre-registro", "grilla"]) && !matchesAny(t, ["somos desarrolladora", "queremos sumarnos"])) {
+      return { vertical: "O7", subtipo: "O7_OBJECION_PREREGISTRO" };
+    }
     if (matchesAny(t, ["desarrolladora", "edificio en pozo", "torre en pozo", "edificio nuevo en pozo"])) {
       return { vertical: "O7", subtipo: "INBOUND_DESARROLLADORA" };
     }
@@ -280,11 +292,28 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
   if (matchesAny(t, ["planos aprobados", "préstamo de banco", "prestamo de banco", "crédito hipotecario", "credito hipotecario", "regularizar", "djcu"]) && (ctx === "santa_monica" || matchesAny(t, ["santa m", "obra", "planos", "banco"]))) {
     return { vertical: "D7", subtipo: "SANTA_MONICA_PLANOS_DECRETO" };
   }
+  if ((ctx === "santa_monica" || matchesAny(t, ["santa m", "laguna", "obra"])) && matchesAny(t, ["permuta", "parte de pago", "apto en montevideo", "propiedad en parte"])) {
+    return { vertical: "D7", subtipo: "SANTA_MONICA_PERMUTA" };
+  }
+  if ((ctx === "santa_monica" || matchesAny(t, ["santa m"])) && matchesAny(t, ["te doy usd", "ofrezco usd", "bajan el precio", "contraoferta", "135.000", "140.000", "cash hoy"])) {
+    return { vertical: "D7", subtipo: "SANTA_MONICA_CONTRAOFERTA" };
+  }
   if ((ctx === "santa_monica" || matchesAny(t, ["santa m", "video completo", "video 2m31s"])) && matchesAny(t, ["vivienda propia", "para vivir", "para inversión", "para inversion", "cuento con los usd", "fondos en usd", "quiero ver el video completo"])) {
     return { vertical: "D7", subtipo: "SANTA_MONICA_TURNO_2_BOVEDA_VIDEO" };
   }
 
+  // 4b. Consultas explícitas de honorarios / comisión al comprador o inquilino (Regla de Doble Punta + IVA)
+  if (matchesAny(t, ["comisión inmobiliaria", "comision inmobiliaria", "honorarios inmobiliarios", "cuánto cobran de comisión", "cuanto cobran de comision", "cuánto es la comisión", "cuanto es la comision", "cuánto cobran por"]) && ctx !== "dueno") {
+    if (ctx === "la_fortuna" || matchesAny(t, ["la fortuna", "alquilar", "alquiler"])) {
+      return { vertical: "D2", subtipo: "LA_FORTUNA_REQUISITOS_INGRESO" };
+    }
+    return { vertical: ctx === "santa_monica" ? "D7" : "D1", subtipo: "DEMANDA_HONORARIOS_COMPRA" };
+  }
+
   // 5. Google Search / Pozo D1 y objeciones financieras (ANTES de citas genéricas)
+  if (matchesAny(t, ["betania"]) && matchesAny(t, ["2 dormitorios", "3 dormitorios", "62", "68", "78", "cochera", "estacionamiento", "tipologías", "tipologias", "listado", "qué precios", "que precios"])) {
+    return { vertical: "D1", subtipo: "BETANIA_TIPOLOGIAS_PRECIOS" };
+  }
   if (matchesAny(t, ["gastos de ocupación", "gastos de ocupacion", "gastos de conexión", "gastos de conexion"])) {
     return { vertical: "D1", subtipo: "POZO_GASTOS_OCUPACION" };
   }
@@ -304,6 +333,9 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
   // 6. Objeciones específicas de Alquiler / La Fortuna (D2)
   if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"])) {
     return { vertical: "D2", subtipo: "OBJECION_TEMPORADA_VS_ANUAL" };
+  }
+  if (matchesAny(t, ["con mi pareja", "sumamos", "entre los dos", "sueldos conjuntos", "recibos de sueldo"]) && matchesAny(t, ["porto", "sura", "mapfre", "santander", "llegamos", "alcanza", "calific"])) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_SUMA_INGRESOS_PAREJA" };
   }
   if (matchesAny(t, ["mascota", "perro", "gato"])) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_MASCOTA" };
@@ -501,10 +533,10 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = `Seguimiento La Fortuna (${etapaSla}).`;
   } else if (subtipo === "TURNO_2_VISITA_LA_FORTUNA") {
     const franja = extraerFranjaVisita(rawText);
-    replyText =
-      `Anotado ${franja} como preferencia para visitar el 2 dormitorios en La Fortuna.\n` +
-      "En ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\n" +
-      "Me pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?";
+    const yaDeclaroPoliza = /\b(porto|sura|mapfre|santander)\b/i.test(rawText || "");
+    replyText = yaDeclaroPoliza
+      ? `Anotado ${franja} con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\nMe confirmás tu apellido y cuántas personas vivirían en el apartamento?`
+      : `Anotado ${franja} como preferencia para visitar el 2 dormitorios en La Fortuna.\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\nMe pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?`;
     alertaAndon = true;
     motivoAndon = "ANDON VISITA: Lead propuso día/hora en La Fortuna; confirmar agenda.";
   } else if (subtipo === "LA_FORTUNA_OBJECION_GC_INCLUYE") {
@@ -524,9 +556,14 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Contás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar día y horario?";
   } else if (subtipo === "LA_FORTUNA_REQUISITOS_INGRESO") {
     replyText =
-      "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de honorarios inmobiliarios sobre contrato de 1 a 2 años.\n" +
+      "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de honorarios inmobiliarios sobre contrato de 1 a 2 años.\n" +
       "Si todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\n" +
       "Ya contás con aseguradora aprobada o querés que veamos el trámite de ingreso?";
+  } else if (subtipo === "LA_FORTUNA_SUMA_INGRESOS_PAREJA") {
+    replyText =
+      "Sí, Porto, Sura, Mapfre y Santander permiten sumar los recibos de sueldo de la pareja o núcleo familiar para cubrir el criterio habitual (aprox. 3 veces el canon de $U 30.000/mes), así que con $U 95.000 líquidos califican en 24/48 hs.\n" +
+      `Acá ves fotos y ficha de La Fortuna: ${LA_FORTUNA_URL}\n` +
+      "Qué día y franja horaria les sirve visitar esta semana?";
   } else if (subtipo === "OBJECION_TEMPORADA_VS_ANUAL") {
     replyText =
       "En esta línea operamos alquileres anuales con contrato estable de 1 a 2 años en Maldonado y Punta del Este.\n" +
@@ -557,6 +594,28 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Al ser una obra en curso sin final de obra, no aplica préstamo hipotecario bancario (la operación se plantea al contado en USD).\n" +
       "En documentación cuenta con Cédula Catastral y DJCU vigente (válida por 5 años), lista para presentar planos bajo el decreto vigente de la Intendencia de Maldonado para regularizar sin multas ni recargos y con arquitecto de oficio hasta diciembre de 2027.\n" +
       "Te sirve evaluar compra al contado en USD 160.000 para pasarte el video completo y la documentación técnica por acá?";
+  } else if (subtipo === "SANTA_MONICA_CONTRAOFERTA") {
+    replyText =
+      "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\n" +
+      "Cualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\n" +
+      "Te paso el video completo de 2m31s y la agenda de visita esta semana?";
+    alertaAndon = true;
+    motivoAndon = "ANDON SANTA MÓNICA: Contraoferta recibida; invitar a visita técnica antes de formalizar.";
+  } else if (subtipo === "SANTA_MONICA_PERMUTA") {
+    replyText =
+      "La operación de Santa Mónica (USD 160.000) está planteada al contado en USD, sin financiación bancaria directa.\n" +
+      "Si contás con una diferencia sólida en efectivo USD o querés analizar una entrega parcial, relevamos los datos antes de consultar viabilidad.\n" +
+      "Qué monto líquido en USD tenés disponible además de la propiedad?";
+    alertaAndon = true;
+    motivoAndon = "ANDON SANTA MÓNICA: Consulta de permuta; verificar liquidez en USD antes de consultar.";
+  } else if (subtipo === "DEMANDA_HONORARIOS_COMPRA") {
+    replyText =
+      "En operaciones de compraventa los honorarios inmobiliarios oficiales al comprador son 3% + IVA al cierre sobre el valor de escritura, aparte de los gastos notariales e impuestos habituales.\n" +
+      "Evaluás avanzar sobre una unidad puntual de pozo o sobre el proyecto de Santa Mónica para pasarte la simulación completa?";
+  } else if (subtipo === "BETANIA_TIPOLOGIAS_PRECIOS") {
+    replyText =
+      `En Betania IV (Fraccionamiento 4H, Maldonado · entrega estimada oct. 2028) las tipologías parten de USD 79.800 (1D 40 m²), USD 122.400 (2D 62 m²), USD 133.200 (2D 68 m² y accesible) y USD 156.600 (3D 87 m² totales), con 50% de anticipo + hasta 24 cuotas, 1,5% de gastos de ocupación y 1 estacionamiento en planta baja incluido en cada unidad: ${PROYECTOS_URL}betania-iv/\n` +
+      "Buscás 1, 2 o 3 dormitorios para enviarte el plano de esa planta?";
   } else if (subtipo === "SANTA_MONICA_TURNO_2_BOVEDA_VIDEO") {
     replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_B_COMPRA_LOTE_PROYECTO.tiempos.TURNO_2_CALIFICADO;
     alertaAndon = true;
@@ -629,6 +688,12 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Qué días y horarios tenés disponibilidad para mostrarla cuando filtremos un comprador real?";
     alertaAndon = true;
     motivoAndon = "Dueño mandó datos base de venta O1: activar Capa 2 (PDF/video) y Bienvenida de OKs.";
+  } else if (subtipo === "O7_OBJECION_PREREGISTRO") {
+    replyText =
+      "Trabajamos con pre-registro nominal del interesado (nombre, apellido y fecha de envío) con protección de 60 días para ordenar la comercialización sin duplicar citas.\n" +
+      "Cada contacto llega filtrado con anticipo en USD confirmado antes de pasártelo; podés enviarnos el enlace o archivo de lista vigente para dar el alta?";
+    alertaAndon = true;
+    motivoAndon = "ANDON O7: Desarrolladora consulta/objeta pre-registro de punta; validar regla por escrito.";
   } else if (vertical === "O7") {
     replyText =
       "Excelente. En ZAGUÁN trabajamos obra nueva en Punta del Este y Maldonado ordenando listas de precios Desde USD, esquema de cuotas, gastos de ocupación y protocolo de pre-registro de interesados.\n" +
