@@ -1,0 +1,77 @@
+{
+  "boveda": "1 - ZAGUÁN · Bóveda Privada de Propiedades (Uso Interno · Nunca Exponer en Vidriera Pública)",
+  "actualizado": "2026-11-22T11:45:00-03:00",
+  "regla_de_oro": "Nada se puede perder. Todo dato sensible o trazable a PDF (padrón, manzana, carpeta catastral, valor catastral, cédula, teléfono dueño, honorarios, fuentes exactas) vive acá a mano para el equipo y para responder por WhatsApp, NUNCA publicado abierto en la web para evitar puenteo.",
+  "fichas": [
+    {
+      "id_crm": "MP-16",
+      "ref_publica": "ZAG-VTA-01",
+      "vertical_14": "O5 · Proyecto de construcción base / terreno frente a la laguna (cruce D7 <-> O5)",
+      "estado_publicacion": "ficha_activa_con_boveda_privada",
+      "url_publica_sin_padron": "https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/",
+      "contacto_privado": {
+        "duena": "María Cristina",
+        "telefono_wa": "+598 95 853 284",
+        "alias_marketplace": "Vení Cuando Quieras",
+        "aviso_origen_marketplace": "https://www.facebook.com/marketplace/item/2182940665928762/",
+        "carpeta_local_fuente": "/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/Maria casa en construcción Santa Mónica/"
+      },
+      "datos_privados_catastrales_y_pdf": {
+        "pdf_fuente": "B-GH-704.pdf (Dirección Nacional de Catastro · Cédula Catastral · Código *11837748* · Expedida INTERNET 30/01/2025)",
+        "departamento": "Maldonado",
+        "localidad_catastral": "Santa Mónica",
+        "padron": "704",
+        "manzana_catastral": "26",
+        "carpeta_catastral": "8",
+        "regimen": "Común (propiedad independiente)",
+        "area_predio_m2": 348,
+        "area_edificada_m2": 201,
+        "desglose_superficies_pdf": [
+          "Piso 0,0 (Planta Baja): 100 m² (Cubierta, techado · Categoría Económica · Regular · Obra Original 2013)",
+          "Piso 1,0 (Planta Alta): 47 m² Porche + 54 m² Vivienda (Obra Original 2013)"
+        ],
+        "djcu_y_vigencia_pdf": "Cumple Art. 178 Ley 17296 · DJCU del 23/01/2025 válida por 5 años · Vigencia DEC.S/N/24",
+        "valor_catastral_total_2024": "$ 601.972 (Valor territorial $ 6.456 + Mejoras $ 595.516)",
+        "valor_liquidacion_impuestos_2024": "$ 125.559 (Patrimonio, I.T.P. y Primaria)"
+      },
+      "fuente_declaraciones_duena_whatsapp": {
+        "archivo_chat": "+598 95 853 284.zip (21/11/2026)",
+        "calle_y_coordenadas": "Calle María Belén, Santa Mónica (-34.8485315, -54.7064563)",
+        "google_maps_exacto": "https://maps.app.goo.gl/rHgAbFeJLbSDZhwd6?g_st=iw",
+        "decreto_regularizacion": "Mensaje de María Cristina (21/11 10:25): 'Rige actual decreto de la intendencia para regularizar obras sin multas y recargos y con Arquitecto de oficio hasta Diciembre de 2027!' (sin planos presentados aún).",
+        "estructura_obra": "Base estructural completa en hormigón armado diseñada por ingeniera civil para vientos oceánicos y lluvias costeras.",
+        "croquis_fuentes": [
+          "WhatsApp Image 2026-11-21 at 11.00.02.jpeg",
+          "WhatsApp Image 2026-11-21 at 11.00.11.jpeg",
+          "assets/images/propiedades/santa-monica-casa-hormigon/collage_croquis.jpg"
+        ],
+        "video_completo_original": {
+          "archivo_original_duena": "WhatsApp Video 2026-11-21 at 10.24.14.mp4",
+          "video_publicado_con_portada": "assets/images/propiedades/santa-monica-casa-hormigon/recorrido.mp4",
+          "duracion": "2 min 33 s"
+        }
+      },
+      "respuesta_whatsapp_sugerida_cuando_piden_padron": "El Padrón es 704 (Manzana 26, Carpeta 8, Santa Mónica, Maldonado) sobre terreno propio de 348 m² en régimen común, con 201 m² construidos en hormigón armado y DJCU vigente al 23/01/2025 (válida por 5 años). Acá tenés el croquis base y el video completo del recorrido. Querés coordinar visita en la zona o revisar la cédula catastral por acá?"
+    },
+    {
+      "id_crm": "MP-12",
+      "ref_publica": "ZAG-ALQ-05",
+      "vertical_14": "O6 · Dueño Alquila Anual",
+      "estado_publicacion": "activa_en_pauta_ads_candado_franja_gris",
+      "url_publica_sin_contacto": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
+      "contacto_privado": {
+        "dueno": "Jorge (papá de Valentina / dueño directo)",
+        "telefono_wa": "+598 99 925 848",
+        "aviso_origen_marketplace": "https://www.facebook.com/marketplace/item/1456453363347314/"
+      },
+      "condiciones_privadas_pactadas": {
+        "precio_mensual": "$U 30.000",
+        "incluye": "Gastos comunes e Internet Wi-Fi incluidos",
+        "no_incluye": "Luz (UTE) y agua (OSE) aparte",
+        "garantias_aceptadas": "Aseguradora aprobada (Porto Seguro, Sura, Mapfre, Santander). NO ACEPTA ANDA.",
+        "honorarios_pactados": "1 mes de alquiler sin IVA"
+      },
+      "respuesta_whatsapp_sugerida": "Apartamento 2 dormitorios a estrenar en La Fortuna (Av. Ágata, Maldonado) a $U 30.000/mes con gastos comunes y Wi-Fi incluidos. Admite mascota pequeña, tiene cochera fija y acepta aseguradoras (Porto, Sura, Mapfre o Santander; no ANDA). Qué día buscás visitarlo?"
+    }
+  ]
+}

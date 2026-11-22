@@ -147,6 +147,69 @@ def audit_image(path: str) -> list[str]:
     return errs
 
 
+def audit_ficha_html(html_path: str, boveda_path: str | None = None) -> list[str]:
+    errs = []
+    if not os.path.isfile(html_path):
+        return [f"Ficha HTML no encontrada: {html_path}"]
+
+    with open(html_path, "r", encoding="utf-8") as f:
+        raw = f.read()
+    low = raw.lower()
+
+    m_padron = re.search(
+        r"\b(?:Padr[oó]n\s*(?:N[°º]?\s*)?\d+|Manzana\s+Catastral\s+\d+|Carpeta\s*(?:Catastral\s*)?\d+)\b",
+        raw,
+        re.IGNORECASE,
+    )
+    if m_padron:
+        errs.append(
+            f"CANDADO FICHA PRIVADA VS. PÚBLICA: '{m_padron.group(0)}' está expuesto en la web pública. "
+            "Debe vivir únicamente en FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json."
+        )
+
+    for tc_pat in (
+        r"\ben Construcci[oó]n\b",
+        r"\bHormig[oó]n Armado\b",
+        r"\bFrente a la Laguna\b",
+        r"\bTerreno Propio\b",
+        r"\bSuperficie Edificada\b",
+        r"\bRecorrela en Video\b",
+    ):
+        m_tc = re.search(tc_pat, raw)
+        if m_tc:
+            errs.append(f"Title Case anglosajón prohibido en ficha pública: '{m_tc.group(0)}'.")
+
+    if re.search(r"\bcasa en construcci[oó]n\b", low):
+        errs.append("Vertical O5 mal nombrada como 'Casa en construcción'. Usar 'Proyecto en construcción'.")
+
+    if ("santa mónica" in low or "hormigón" in low) and "proyecto en construcción" in low:
+        faltan_seo = [
+            kw for kw in ("proyecto", "lote", "terreno", "santa mónica", "josé ignacio", "laguna")
+            if kw not in low
+        ]
+        if faltan_seo:
+            errs.append(f"Racimo SEO/GEO incompleto para proyecto O5: faltan {', '.join(faltan_seo)}.")
+
+    # Verificar que exista respaldo en Bóveda Privada para la ficha
+    default_boveda = os.path.abspath(
+        os.path.join(os.path.dirname(os.path.dirname(html_path)), "..", "admin", "FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json")
+    )
+    bpath = boveda_path or default_boveda
+    if not os.path.isfile(bpath):
+        errs.append(f"Falta archivo de Bóveda Privada: {bpath}")
+    else:
+        import json
+        with open(bpath, "r", encoding="utf-8") as bf:
+            bdata = json.load(bf)
+        fichas = bdata.get("fichas", [])
+        slug = os.path.basename(os.path.dirname(os.path.abspath(html_path)))
+        match = [x for x in fichas if slug in (x.get("url_publica_sin_padron") or x.get("url_publica_sin_contacto") or "")]
+        if not match:
+            errs.append(f"La propiedad '{slug}' no tiene su respaldo guardado en {bpath} ('Nada se puede perder').")
+
+    return errs
+
+
 def main():
     parser = argparse.ArgumentParser(description="Poka-Yoke mecánico ZAGUÁN (PASS / FAIL)")
     sub = parser.add_subparsers(dest="mode", required=True)
@@ -159,11 +222,17 @@ def main():
     p_img = sub.add_parser("imagen", help="Valida dimensiones y ausencia de texto amarillo en placas")
     p_img.add_argument("ruta", help="Ruta a imagen JPG o PNG")
 
+    p_html = sub.add_parser("ficha-html", help="Audita una ficha HTML pública contra los 7 Poka-Yokes y la Bóveda Privada")
+    p_html.add_argument("ruta", help="Ruta al index.html de la propiedad")
+    p_html.add_argument("--boveda", help="Ruta opcional a FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json")
+
     args = parser.parse_args()
     if args.mode == "texto":
         errs = audit_text(args.mensaje, args.vertical, args.primer_contacto)
-    else:
+    elif args.mode == "imagen":
         errs = audit_image(args.ruta)
+    else:
+        errs = audit_ficha_html(args.ruta, args.boveda)
 
     if errs:
         print("FAIL")
