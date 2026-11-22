@@ -1,0 +1,2862 @@
+{
+  "proyecto": "1 - ZAGUÁN",
+  "actualizado": "2026-11-22T14:34:23.489Z",
+  "total_registros": 64,
+  "pokayoke_aprobados": 64,
+  "pokayoke_fallidos": 0,
+  "resumen_por_vertical": {
+    "O7": 20,
+    "O4": 3,
+    "D2": 4,
+    "O6": 22,
+    "O1": 12,
+    "O3": 1,
+    "O5": 1,
+    "O2": 1
+  },
+  "items": [
+    {
+      "id_registro": "DES-betania-iv",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "EZMA Construcciones",
+      "telefono_wa": "59895024203",
+      "zona_barrio": "Fraccionamiento 4H · Maldonado (Leandro Gómez casi Tauro)",
+      "titulo_o_activo": "Betania IV",
+      "precio_publicado": "Desde USD 79.800",
+      "estado_crm": "activo_publico",
+      "ok_bienvenida": "aprobado_desarrolladora",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "50% anticipo y hasta 24 cuotas · 1 estacionamiento en planta baja incluido · Gastos de ocupación 1,5% a la entrega",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola EZMA, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Betania IV para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59895024203?text=Hola%20EZMA%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Betania%20IV%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Betania IV (Fraccionamiento 4H · Maldonado (Leandro Gómez casi Tauro)): precio público Desde USD 79.800 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Betania IV en Fraccionamiento 4H · Maldonado (Leandro Gómez casi Tauro): Desde USD 79.800. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Betania IV",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "DES-nostrum-roosevelt",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Altius Group (Canal Inmobiliario)",
+      "telefono_wa": "59896424235",
+      "zona_barrio": "Av. Roosevelt Parada 19 · Maldonado",
+      "titulo_o_activo": "Nostrum Roosevelt",
+      "precio_publicado": "Desde USD 107.419",
+      "estado_crm": "activo_publico",
+      "ok_bienvenida": "aprobado_desarrolladora",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Vivienda Promovida Ley 18.795 (Exoneración ITP 2%, IRPF/IRAE 10 años y Patrimonio 10 años) · Gastos de ocupación 4%",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Altius, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Nostrum Roosevelt para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59896424235?text=Hola%20Altius%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Nostrum%20Roosevelt%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Nostrum Roosevelt (Av. Roosevelt Parada 19 · Maldonado): precio público Desde USD 107.419 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Nostrum Roosevelt en Av. Roosevelt Parada 19 · Maldonado: Desde USD 107.419. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Nostrum Roosevelt",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "DES-more-atlantico",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Altius Group (Canal Inmobiliario)",
+      "telefono_wa": "59896424235",
+      "zona_barrio": "Av. Roosevelt Parada 22 · Punta del Este · Maldonado (junto a Atlántico Shopping)",
+      "titulo_o_activo": "More Atlántico Torre 3",
+      "precio_publicado": "Desde USD 139.121",
+      "estado_crm": "activo_publico",
+      "ok_bienvenida": "aprobado_desarrolladora",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Certificación LEED + Vivienda Promovida Ley 18.795 · Gastos de ocupación 5%",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Altius, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en More Atlántico Torre 3 para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59896424235?text=Hola%20Altius%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20More%20Atl%C3%A1ntico%20Torre%203%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva More Atlántico Torre 3 (Av. Roosevelt Parada 22 · Punta del Este · Maldonado (junto a Atlántico Shopping)): precio público Desde USD 139.121 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "More Atlántico Torre 3 en Av. Roosevelt Parada 22 · Punta del Este · Maldonado (junto a Atlántico Shopping): Desde USD 139.121. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de More Atlántico Torre 3",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "DES-eve-tower",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "WMW (Cristina Mondillo / Rosario Silvera Lima)",
+      "telefono_wa": "59894487084",
+      "zona_barrio": "Parada 8 · Playa Brava, Punta del Este (Avenida Roosevelt y Guanabara, a 100 m del mar)",
+      "titulo_o_activo": "EVE Tower",
+      "precio_publicado": "Desde USD 150.000",
+      "estado_crm": "activo_publico",
+      "ok_bienvenida": "aprobado_desarrolladora",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Hay financiación. Consultá las condiciones. (Cochera opcional, con precio aparte)",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola WMW, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en EVE Tower para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894487084?text=Hola%20WMW%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20EVE%20Tower%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva EVE Tower (Parada 8 · Playa Brava, Punta del Este (Avenida Roosevelt y Guanabara, a 100 m del mar)): precio público Desde USD 150.000 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "EVE Tower en Parada 8 · Playa Brava, Punta del Este (Avenida Roosevelt y Guanabara, a 100 m del mar): Desde USD 150.000. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de EVE Tower",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "DES-golden-rise",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Grupo Caybo",
+      "telefono_wa": "59894161888",
+      "zona_barrio": "Parada 18 · Av. Franklin D. Roosevelt y Salt Lake, Punta del Este",
+      "titulo_o_activo": "Golden Rise",
+      "precio_publicado": "Desde USD 139.900",
+      "estado_crm": "activo_publico",
+      "ok_bienvenida": "aprobado_desarrolladora",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "10% de reserva, 20% al compromiso de compraventa, 30 cuotas durante la obra y saldo en hasta 120 cuotas (Cochera opcional, con precio aparte)",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Grupo, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Golden Rise para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894161888?text=Hola%20Grupo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Golden%20Rise%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Golden Rise (Parada 18 · Av. Franklin D. Roosevelt y Salt Lake, Punta del Este): precio público Desde USD 139.900 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Golden Rise en Parada 18 · Av. Franklin D. Roosevelt y Salt Lake, Punta del Este: Desde USD 139.900. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Golden Rise",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "OFF-TORRES-ESTE",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Off-Market Privado",
+      "nombre_persona": "Agustina Valls (Colega)",
+      "telefono_wa": "59891284200",
+      "zona_barrio": "Av. Chiverta, Aidy Grill, Punta del Este",
+      "titulo_o_activo": "Torres del Este (Torre Mansa y Torre Brava)",
+      "precio_publicado": "Privado 1-a-1",
+      "estado_crm": "off_market_privado",
+      "ok_bienvenida": "candado_no_publicar",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Comisión Zaguán al comprador | HSBC 50% hasta entrega + 50% 5-15 años | GO 5% | Cocheras USD 19.000",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Agustina, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Torres del Este (Torre Mansa y Torre Brava) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59891284200?text=Hola%20Agustina%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Torres%20del%20Este%20(Torre%20Mansa%20y%20Torre%20Brava)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Torres del Este (Torre Mansa y Torre Brava) (Av. Chiverta, Aidy Grill, Punta del Este): precio público Privado 1-a-1 + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Torres del Este (Torre Mansa y Torre Brava) en Av. Chiverta, Aidy Grill, Punta del Este: Privado 1-a-1. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Torres del Este (Torre Mansa y Torre Brava)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "OFF-MANANTIALES-GOLF",
+      "vertical_code": "O4",
+      "vertical_14": "O4 / O7 · Off-Market Lotes",
+      "nombre_persona": "Agustina Valls (Colega)",
+      "telefono_wa": "59891284200",
+      "zona_barrio": "Ruta 104 frente al MACA Atchugarry, Manantiales",
+      "titulo_o_activo": "Manantiales Golf (+300 ha, lotes desde 2.000 m2)",
+      "precio_publicado": "Desde USD 189.000",
+      "estado_crm": "off_market_privado",
+      "ok_bienvenida": "candado_no_publicar",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "faltantes_capa_1": [
+        "Padrón y manzana",
+        "Metros totales y frente/fondo",
+        "Servicios en puerta (OSE/UTE/saneamiento)",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "FOT/FOS/retiros permitidos",
+        "Títulos y planos en PDF"
+      ],
+      "condiciones_actuales": "10% anticipo + 60 cuotas fijas sin interés o Plan Lifestyle 72 cuotas | Membresía golf opcional USD 20.000",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Agustina, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Ruta 104 frente al MACA Atchugarry, Manantiales (Desde USD 189.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59891284200?text=Hola%20Agustina%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Ruta%20104%20frente%20al%20MACA%20Atchugarry%2C%20Manantiales%20(Desde%20USD%20189.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Ruta 104 frente al MACA Atchugarry, Manantiales: destacar potencial constructivo, metros y ubicación real (Desde USD 189.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Ruta 104 frente al MACA Atchugarry, Manantiales, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Ruta 104 frente al MACA Atchugarry, Manantiales (Desde USD 189.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Ruta 104 frente al MACA Atchugarry, Manantiales",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D5 (busca lote) + D7 (busca lote y evalúa obra base o demolición)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "ZAG-ALQ-01",
+      "vertical_code": "D2",
+      "vertical_14": "D2 / O6 · Ancla Categoría Alquiler",
+      "nombre_persona": "Ficha Ancla Interna Zaguán",
+      "telefono_wa": "59898712064",
+      "zona_barrio": "Parada 8 · Playa Brava, Punta del Este",
+      "titulo_o_activo": "3 dormitorios frente al mar, 2 baños, 2 cocheras y amenities",
+      "precio_publicado": "USD 1.700",
+      "estado_crm": "ANCLA_CATEGORIA_INTERNA",
+      "ok_bienvenida": "ficha_ancla_interna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "GC: Incluidos | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder: \"Esta unidad está en revisión de reserva. Si buscás 3D frente al mar en La Brava en este rango (USD 1.700), te paso opciones activas hoy mismo y coordinamos visita\". Derivar a búsqueda a medida o captación.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Parada 8 · Playa Brava, Punta del Este (USD 1.700), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Parada%208%20%C2%B7%20Playa%20Brava%2C%20Punta%20del%20Este%20(USD%201.700)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Parada 8 · Playa Brava, Punta del Este: claridad de requisitos y garantías aceptadas.",
+        "3_angulo_pauta_ads": {
+          "publico": "Parada 8 · Playa Brava, Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en Parada 8 · Playa Brava, Punta del Este (USD 1.700). Consultá disponibilidad real hoy.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y busco visita",
+            "Busco en otra zona",
+            "Tengo propiedad para publicar"
+          ]
+        },
+        "4_cruce_latente_x_y": "O6 (inventario anual real como ZAG-ALQ-05 La Fortuna)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "ZAG-ALQ-02",
+      "vertical_code": "D2",
+      "vertical_14": "D2 / O6 · Ancla Categoría Alquiler",
+      "nombre_persona": "Ficha Ancla Interna Zaguán",
+      "telefono_wa": "59898712064",
+      "zona_barrio": "Av. Roosevelt y Cantegril · Punta del Este",
+      "titulo_o_activo": "Piso alto a estrenar 2 dormitorios con suite y parrillero",
+      "precio_publicado": "$U 70.000",
+      "estado_crm": "ANCLA_CATEGORIA_INTERNA",
+      "ok_bienvenida": "ficha_ancla_interna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "GC: Según edificio | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato de 2D con parrillero en Roosevelt / Cantegril.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Av. Roosevelt y Cantegril · Punta del Este ($U 70.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Av.%20Roosevelt%20y%20Cantegril%20%C2%B7%20Punta%20del%20Este%20(%24U%2070.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Av. Roosevelt y Cantegril · Punta del Este: claridad de requisitos y garantías aceptadas.",
+        "3_angulo_pauta_ads": {
+          "publico": "Av. Roosevelt y Cantegril · Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en Av. Roosevelt y Cantegril · Punta del Este ($U 70.000). Consultá disponibilidad real hoy.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y busco visita",
+            "Busco en otra zona",
+            "Tengo propiedad para publicar"
+          ]
+        },
+        "4_cruce_latente_x_y": "O6 (inventario anual real como ZAG-ALQ-05 La Fortuna)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "ZAG-ALQ-03",
+      "vertical_code": "D2",
+      "vertical_14": "D2 / O6 · Ancla Categoría Alquiler",
+      "nombre_persona": "Ficha Ancla Interna Zaguán",
+      "telefono_wa": "59898712064",
+      "zona_barrio": "Parada 16 · Playa Mansa, Punta del Este",
+      "titulo_o_activo": "Semipiso 2 dormitorios con terraza y cochera a 150 m del mar",
+      "precio_publicado": "$U 62.000",
+      "estado_crm": "ANCLA_CATEGORIA_INTERNA",
+      "ok_bienvenida": "ficha_ancla_interna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "GC: Según edificio | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer relevamiento inmediato en Playa Mansa en el rango de $U 60.000.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Parada 16 · Playa Mansa, Punta del Este ($U 62.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Parada%2016%20%C2%B7%20Playa%20Mansa%2C%20Punta%20del%20Este%20(%24U%2062.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Parada 16 · Playa Mansa, Punta del Este: claridad de requisitos y garantías aceptadas.",
+        "3_angulo_pauta_ads": {
+          "publico": "Parada 16 · Playa Mansa, Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en Parada 16 · Playa Mansa, Punta del Este ($U 62.000). Consultá disponibilidad real hoy.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y busco visita",
+            "Busco en otra zona",
+            "Tengo propiedad para publicar"
+          ]
+        },
+        "4_cruce_latente_x_y": "O6 (inventario anual real como ZAG-ALQ-05 La Fortuna)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "ZAG-ALQ-04",
+      "vertical_code": "D2",
+      "vertical_14": "D2 / O6 · Ancla Categoría Alquiler",
+      "nombre_persona": "Ficha Ancla Interna Zaguán",
+      "telefono_wa": "59898712064",
+      "zona_barrio": "Zona residencial · Maldonado",
+      "titulo_o_activo": "2 dormitorios a estrenar con losa radiante y cochera fija",
+      "precio_publicado": "$U 52.000",
+      "estado_crm": "ANCLA_CATEGORIA_INTERNA",
+      "ok_bienvenida": "ficha_ancla_interna",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "faltantes_capa_1": [
+        "Zona deseada",
+        "Dormitorios y tope mensual",
+        "Garantía aprobada (Porto, Sura, Mapfre, Santander, ANDA)",
+        "Fecha de ingreso y mascotas"
+      ],
+      "faltantes_capa_2": [
+        "Franja horaria para visita",
+        "Cantidad de ocupantes"
+      ],
+      "condiciones_actuales": "GC: Aprox. $U 14.000/mes | FICHA ANCLA DE CATEGORÍA (NO ES STOCK FÍSICO PROPIO). Si llega lead por WhatsApp, responder que está en instancia de reserva y ofrecer opciones activas en Maldonado ($U 30.000 de Jorge en La Fortuna o similares).",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Gracias por consultar en ZAGUÁN. Si buscás alquiler anual en Zona residencial · Maldonado ($U 52.000), indicanos barrio, dormitorios y qué garantía tenés aprobada para pasarte opciones activas.",
+        "link_wa_me_1clic": "https://wa.me/59898712064?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Gracias%20por%20consultar%20en%20ZAGU%C3%81N.%20Si%20busc%C3%A1s%20alquiler%20anual%20en%20Zona%20residencial%20%C2%B7%20Maldonado%20(%24U%2052.000)%2C%20indicanos%20barrio%2C%20dormitorios%20y%20qu%C3%A9%20garant%C3%ADa%20ten%C3%A9s%20aprobada%20para%20pasarte%20opciones%20activas.",
+        "2_angulo_redes_aprobalo": "Placa informativa de demanda alquiler anual en Zona residencial · Maldonado: claridad de requisitos y garantías aceptadas.",
+        "3_angulo_pauta_ads": {
+          "publico": "Zona residencial · Maldonado (+17 km), 24 a 45 años",
+          "gancho": "Alquiler anual en Zona residencial · Maldonado ($U 52.000). Consultá disponibilidad real hoy.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y busco visita",
+            "Busco en otra zona",
+            "Tengo propiedad para publicar"
+          ]
+        },
+        "4_cruce_latente_x_y": "O6 (inventario anual real como ZAG-ALQ-05 La Fortuna)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-01",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Sofía de Souza",
+      "telefono_wa": "59892503980",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Casa 2 dormitorios con entrada para auto y fondo con churrasquero (Barrio 4H)",
+      "precio_publicado": "$U 31.500 / mes (Pide Porto)",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Sofía, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 31.500 / mes (Pide Porto)). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59892503980?text=Hola%20Sof%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2031.500%20%2F%20mes%20(Pide%20Porto)).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 31.500 / mes (Pide Porto) + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares ($U 31.500 / mes (Pide Porto)). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-02",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Stefani John",
+      "telefono_wa": "59898241088",
+      "zona_barrio": "Península",
+      "titulo_o_activo": "Casa 1 dormitorio con estufa a leña y patio amplio en Punta del Este",
+      "precio_publicado": "USD 500 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Stefani, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Península (USD 500 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59898241088?text=Hola%20Stefani%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pen%C3%ADnsula%20(USD%20500%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Península: precio transparente USD 500 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Península y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Península (USD 500 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Península",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-03",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Alejandra Rodríguez Camacho",
+      "telefono_wa": "59898737304",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Casa 2 dormitorios con patio independiente en Centro de Maldonado",
+      "precio_publicado": "$U 28.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Alejandra, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 28.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59898737304?text=Hola%20Alejandra%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2028.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 28.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares ($U 28.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-04",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Romi Núñez",
+      "telefono_wa": "59892935347",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Casa 2 dormitorios, 2 baños y parrillero en Barrio La Fortuna",
+      "precio_publicado": "$U 27.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Romi, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 27.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59892935347?text=Hola%20Romi%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2027.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 27.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares ($U 27.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-05",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Oscar Ruiz",
+      "telefono_wa": "59899908617",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Apartamento anual con gastos comunes incluidos (Zona Hospital Maldonado)",
+      "precio_publicado": "$U 25.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Oscar, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 25.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899908617?text=Hola%20Oscar%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2025.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 25.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares ($U 25.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-06",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Gladys Inzaurralde",
+      "telefono_wa": "59893697157",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Propiedad 2 dormitorios amplia e independiente con entrada para auto",
+      "precio_publicado": "Consultar valor anual",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 11/11 11:58: no está disponible ya",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Gladys, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares (Consultar valor anual). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59893697157?text=Hola%20Gladys%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(Consultar%20valor%20anual).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente Consultar valor anual + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares (Consultar valor anual). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-07",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Anabela Torres",
+      "telefono_wa": "59894388782",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Apartamento 1 dormitorio independiente en planta alta (Barrio Asturias)",
+      "precio_publicado": "$U 16.000 / mes",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 11/11 10:45: Buen dia / Muchas gracias, pero nosotros nos encargamos",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 16.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59894388782?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2016.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 16.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro / Pinares ($U 16.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro / Pinares",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-08",
+      "vertical_code": "O4",
+      "vertical_14": "O4 · Dueño Vende Lote/Terreno",
+      "nombre_persona": "Danilo Rodríguez",
+      "telefono_wa": "59898756099",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Terreno nivelado con papeles al día listo para transferir (La Fortuna / Los Eucaliptus)",
+      "precio_publicado": "USD 35.000",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "faltantes_capa_1": [
+        "Padrón y manzana",
+        "Metros totales y frente/fondo",
+        "Servicios en puerta (OSE/UTE/saneamiento)",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "FOT/FOS/retiros permitidos",
+        "Títulos y planos en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: 11/11 11:58: NO TENGO NINGUN TERRENO EN NINGUN LADO",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 35.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59898756099?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2035.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 35.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Maldonado Centro / Pinares (USD 35.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Maldonado Centro / Pinares",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D5 (busca lote) + D7 (busca lote y evalúa obra base o demolición)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-09",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Edu Gómez",
+      "telefono_wa": "59899189771",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Casa 2 dormitorios amplia en Maldonado (Barrio Rivera)",
+      "precio_publicado": "USD 65.000 – 85.000",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Edu, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 65.000 – 85.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59899189771?text=Hola%20Edu%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2065.000%20%E2%80%93%2085.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 65.000 – 85.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Maldonado Centro / Pinares (USD 65.000 – 85.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Maldonado Centro / Pinares",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-10",
+      "vertical_code": "O3",
+      "vertical_14": "O3 / O1 · Dueño Vende Comercial/Mixto",
+      "nombre_persona": "Mario Viroga",
+      "telefono_wa": "59895398869",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "Propiedad particular con mejoras en eje San Carlos / La Capuera",
+      "precio_publicado": "USD 14.500 – 180.000",
+      "estado_crm": "respondio",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Colocar activo comercial o galpón con rubro e infraestructura habilitada.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: Buenos días !!!! Un gusto Tengo una casa en Pedro Loustane a la venta si. A la orden",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Mario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 14.500 – 180.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59895398869?text=Hola%20Mario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2014.500%20%E2%80%93%20180.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 14.500 – 180.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Maldonado Centro / Pinares (USD 14.500 – 180.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Maldonado Centro / Pinares",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D6 (busca local/oficina) + O6 (alquiler si no cierra venta rápida)"
+      },
+      "alerta_andon": true,
+      "motivo_andon": "Propietario respondió; falta correr Bienvenida de OKs y Capa 2.",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-11",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Alberto Parisi",
+      "telefono_wa": "59899151475",
+      "zona_barrio": "Barrio Rivera, Maldonado",
+      "titulo_o_activo": "Dueño Alquila casa luminosa, buena ubicación",
+      "precio_publicado": "$U 30.000 / mes",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 21/11: SE ALQUILÓ LA CASA, GRACIAS",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Alberto, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio Rivera, Maldonado ($U 30.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899151475?text=Hola%20Alberto%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20Rivera%2C%20Maldonado%20(%24U%2030.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio Rivera, Maldonado: precio transparente $U 30.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Barrio Rivera, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Barrio Rivera, Maldonado ($U 30.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Barrio Rivera, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-12",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Jorge (papá de Valentina / dueño directo)",
+      "telefono_wa": "59899925848",
+      "zona_barrio": "La Fortuna, Maldonado",
+      "titulo_o_activo": "ALQUILO APTO- sin inmobiliaria de por medio TRATO CON DUEÑO DIRECTO",
+      "precio_publicado": "$U 30.000 / mes",
+      "estado_crm": "propiedad_en_cartera",
+      "ok_bienvenida": "activa_en_pauta_ads_candado_franja_gris",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "{\"precio_mensual\": \"$U 30.000\", \"incluye\": \"Gastos comunes e Internet incluido\", \"no_incluye\": \"Luz y agua aparte\", \"garantias_aceptadas\": \"Cualquier aseguradora (Porto, Sura, Mapfre). NO ACEPTA ANDA.\", \"honorarios_pactados\": \"1 mes de alquiler sin IVA\"} | Resp: Buen día, soy Jorge el papá de Valentina y el dueño del apto. El apto por ahora esta libre. Si tenes gente y lo quieres mostrar coordinamos hora.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Jorge, cómo estás? Te chequeo corto por el apto en La Fortuna ($U 30.000 GC y Wi-Fi inc.): seguimos filtrando interesados con garantía aseguradora aprobada (sin ANDA). Sigue libre para coordinar visita esta semana?",
+        "link_wa_me_1clic": "https://wa.me/59899925848?text=Hola%20Jorge%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20chequeo%20corto%20por%20el%20apto%20en%20La%20Fortuna%20(%24U%2030.000%20GC%20y%20Wi-Fi%20inc.)%3A%20seguimos%20filtrando%20interesados%20con%20garant%C3%ADa%20aseguradora%20aprobada%20(sin%20ANDA).%20Sigue%20libre%20para%20coordinar%20visita%20esta%20semana%3F",
+        "2_angulo_redes_aprobalo": "Carrusel/Secuencia 4:5 La Fortuna: destacar $U 30.000 con GC y Wi-Fi incluidos + cochera fija + pet-friendly.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
+          "gancho": "Apartamento 2 dormitorios a estrenar en La Fortuna a $U 30.000 con gastos comunes y Wi-Fi incluidos.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y quiero coordinar visita",
+            "Quiero recibir la ficha completa y ubicación exacta de La Fortuna",
+            "Busco en otra zona o tengo propiedad para publicar"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": true,
+      "motivo_andon": "Campaña activa en Zaguán ADS; controlar visitas y vigencia cada 7 días.",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-13",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Sylvia Gertner",
+      "telefono_wa": "59894284460",
+      "zona_barrio": "Parada 5 Brava / Aidy Grill, Punta del Este",
+      "titulo_o_activo": "Dueño alquila anual buen apto en punta del este",
+      "precio_publicado": "Precio a consultar (anual)",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Sylvia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Parada 5 Brava / Aidy Grill, Punta del Este (Precio a consultar (anual)). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59894284460?text=Hola%20Sylvia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Parada%205%20Brava%20%2F%20Aidy%20Grill%2C%20Punta%20del%20Este%20(Precio%20a%20consultar%20(anual)).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Parada 5 Brava / Aidy Grill, Punta del Este: precio transparente Precio a consultar (anual) + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Parada 5 Brava / Aidy Grill, Punta del Este y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Parada 5 Brava / Aidy Grill, Punta del Este (Precio a consultar (anual)). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Parada 5 Brava / Aidy Grill, Punta del Este",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-14",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Roberta Sanchez",
+      "telefono_wa": "59899208762",
+      "zona_barrio": "San Carlos (cerca de Escuela 80), Maldonado",
+      "titulo_o_activo": "Casa en alquiler en San Carlos",
+      "precio_publicado": "$U 23.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Roberta, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en San Carlos (cerca de Escuela 80), Maldonado ($U 23.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899208762?text=Hola%20Roberta%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20San%20Carlos%20(cerca%20de%20Escuela%2080)%2C%20Maldonado%20(%24U%2023.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en San Carlos (cerca de Escuela 80), Maldonado: precio transparente $U 23.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "San Carlos (cerca de Escuela 80), Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en San Carlos (cerca de Escuela 80), Maldonado ($U 23.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por San Carlos (cerca de Escuela 80), Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-15",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Emilia Levy",
+      "telefono_wa": "59899156330",
+      "zona_barrio": "Beaulieu, Piriápolis, Maldonado",
+      "titulo_o_activo": "Venta de casa de 1 d y demás",
+      "precio_publicado": "USD 93.000",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: La alquiló por su cuenta y se la queda (retirada de venta).",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Emilia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Beaulieu, Piriápolis, Maldonado (USD 93.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59899156330?text=Hola%20Emilia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Beaulieu%2C%20Piri%C3%A1polis%2C%20Maldonado%20(USD%2093.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Beaulieu, Piriápolis, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 93.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Beaulieu, Piriápolis, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Beaulieu, Piriápolis, Maldonado (USD 93.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Beaulieu, Piriápolis, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-16",
+      "vertical_code": "O5",
+      "vertical_14": "O1 / O5 · Dueño Vende Casa (Verificar obra)",
+      "nombre_persona": "Vení Cuando Quieras",
+      "telefono_wa": "59895853284",
+      "zona_barrio": "Santa Mónica (José Ignacio / La Barra), Maldonado",
+      "titulo_o_activo": "Dueño vende",
+      "precio_publicado": "USD 160.000",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Mostrar el valor de una construcción base o proyecto en curso que en foto fija parece obra gris.",
+      "faltantes_capa_1": [
+        "Ubicación y entorno (ej. frente a laguna / costa)",
+        "Metros y avance real de obra",
+        "Precio USD y forma de pago"
+      ],
+      "faltantes_capa_2": [
+        "Memoria estructural y autoría (ej. cálculo para vientos oceánicos)",
+        "Croquis base proyectable",
+        "Antigüedad por audio",
+        "Permisos BPS/Intendencia y papeles en PDF",
+        "Video completo de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Para completar el respaldo de tu casa en Santa Mónica (USD 160.000) con estructura para vientos oceánicos y croquis frente a la laguna, confirmame si ya sumamos el video de recorrido y los papeles del padrón para filtrarte compradores reales.",
+        "link_wa_me_1clic": "https://wa.me/59895853284?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Para%20completar%20el%20respaldo%20de%20tu%20casa%20en%20Santa%20M%C3%B3nica%20(USD%20160.000)%20con%20estructura%20para%20vientos%20oce%C3%A1nicos%20y%20croquis%20frente%20a%20la%20laguna%2C%20confirmame%20si%20ya%20sumamos%20el%20video%20de%20recorrido%20y%20los%20papeles%20del%20padr%C3%B3n%20para%20filtrarte%20compradores%20reales.",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel 4:5 + Video completo Santa Mónica (llegando a José Ignacio): explicar en portada que es construcción base en hormigón con croquis frente a laguna para proyectar sin arrancar de cero.",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores e inversores de lotes y casas en La Barra, Manantiales, José Ignacio y Montevideo (28 a 60 años)",
+          "gancho": "Buscás armar tu proyecto frente a la laguna en Santa Mónica, llegando a José Ignacio? Mirá esta construcción base con croquis proyectable y video completo.",
+          "botones_wa": [
+            "Quiero ver el video completo y la ubicación en Santa Mónica",
+            "Busco lote o proyecto para construir en La Barra / José Ignacio",
+            "Tengo propiedad para vender en la zona"
+          ]
+        },
+        "4_cruce_latente_x_y": "Cruce maestro D7 <-> O5: captar a quien busca terreno en Santa Mónica / José Ignacio ofreciéndole construcción base sólida calculada para vientos oceánicos (ahorra 12 meses de obra)."
+      },
+      "alerta_andon": true,
+      "motivo_andon": "Caso escuela Capa 2 multimodal (vientos oceánicos, croquis, video, audio antigüedad, PDF terreno).",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-17",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Anabela Rodriguez",
+      "telefono_wa": "59894543038",
+      "zona_barrio": "Maldonado Centro",
+      "titulo_o_activo": "Alquilo apartamento para perdona sola sin mascota",
+      "precio_publicado": "$U 14.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro ($U 14.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59894543038?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20(%24U%2014.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro: precio transparente $U 14.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Maldonado Centro y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Maldonado Centro ($U 14.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Maldonado Centro",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-18",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Rosario Ruiz",
+      "telefono_wa": "59899838963",
+      "zona_barrio": "El Tesoro (a 300m del Puente), La Barra, Maldonado",
+      "titulo_o_activo": "Hermoso apartamento para 2 personas .El tesoro por calle Juana america a 300 m. Puente la barra .",
+      "precio_publicado": "$U 28.000 / mes",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "cerrada_alquilado_sin_404",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "{\"canon_mensual\": \"$U 28.000\", \"gastos_comunes\": \"$0 (sin gastos comunes)\", \"consumos\": \"Luz (UTE) y Agua (OSE) aparte\", \"garantias\": \"Aseguradoras (Porto, Sura, Mapfre) o ANDA\", \"ajuste\": \"Anual en pesos\", \"ubicacion\": \"Calle Juana de América a 300m del Puente de La Barra, El Tesoro\", \"disponibilidad\": \"Terminando jardín / Inmediata\"} | Resp: 21/11: perdón pero ya se alquilaron las 2",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Rosario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en El Tesoro (a 300m del Puente), La Barra, Maldonado ($U 28.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899838963?text=Hola%20Rosario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20El%20Tesoro%20(a%20300m%20del%20Puente)%2C%20La%20Barra%2C%20Maldonado%20(%24U%2028.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en El Tesoro (a 300m del Puente), La Barra, Maldonado: precio transparente $U 28.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "El Tesoro (a 300m del Puente), La Barra, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en El Tesoro (a 300m del Puente), La Barra, Maldonado ($U 28.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por El Tesoro (a 300m del Puente), La Barra, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-19",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Bruno Sosa",
+      "telefono_wa": "59899811176",
+      "zona_barrio": "Barrio Biarritz, Maldonado",
+      "titulo_o_activo": "🏡 ¡APARTAMENTO EN ALQUILER – BARRIO BIARRITZ, MALDONADO! 🔑",
+      "precio_publicado": "$U 18.000 / mes",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Bruno, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio Biarritz, Maldonado ($U 18.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899811176?text=Hola%20Bruno%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20Biarritz%2C%20Maldonado%20(%24U%2018.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio Biarritz, Maldonado: precio transparente $U 18.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Barrio Biarritz, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Barrio Biarritz, Maldonado ($U 18.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Barrio Biarritz, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-20",
+      "vertical_code": "O6",
+      "vertical_14": "O6 / O3 · Dueño Alquila Comercial",
+      "nombre_persona": "Nacho Fernandez",
+      "telefono_wa": "59899041618",
+      "zona_barrio": "Cerca de Ruta 39, Maldonado",
+      "titulo_o_activo": "DUEÑO ALQUILA – GALPÓN",
+      "precio_publicado": "$U 45.000 / mes",
+      "estado_crm": "cerrado",
+      "ok_bienvenida": "baja_cerrada",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: YA SE ALQUILÓ, GRACIAS",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Nacho, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Cerca de Ruta 39, Maldonado ($U 45.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59899041618?text=Hola%20Nacho%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Cerca%20de%20Ruta%2039%2C%20Maldonado%20(%24U%2045.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Cerca de Ruta 39, Maldonado: precio transparente $U 45.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Cerca de Ruta 39, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Cerca de Ruta 39, Maldonado ($U 45.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Cerca de Ruta 39, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-21",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Anabella Rodriguez",
+      "telefono_wa": "59896125093",
+      "zona_barrio": "Barrio San Francisco, Maldonado",
+      "titulo_o_activo": "Alquiler anual Barrio San Francisco",
+      "precio_publicado": "A consultar (alquiler anual)",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Anabella, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio San Francisco, Maldonado (A consultar (alquiler anual)). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59896125093?text=Hola%20Anabella%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20San%20Francisco%2C%20Maldonado%20(A%20consultar%20(alquiler%20anual)).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio San Francisco, Maldonado: precio transparente A consultar (alquiler anual) + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Barrio San Francisco, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Barrio San Francisco, Maldonado (A consultar (alquiler anual)). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Barrio San Francisco, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-22",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Cristian Gonzalez",
+      "telefono_wa": "59891519071",
+      "zona_barrio": "Pan de Azúcar, Maldonado",
+      "titulo_o_activo": "Alquiler anual Pan de Azúcar",
+      "precio_publicado": "$U 16.500 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Cristian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pan de Azúcar, Maldonado ($U 16.500 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59891519071?text=Hola%20Cristian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pan%20de%20Az%C3%BAcar%2C%20Maldonado%20(%24U%2016.500%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Pan de Azúcar, Maldonado: precio transparente $U 16.500 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Pan de Azúcar, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Pan de Azúcar, Maldonado ($U 16.500 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Pan de Azúcar, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-23",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Esteban Perez",
+      "telefono_wa": "59898620176",
+      "zona_barrio": "Aiguá, Maldonado",
+      "titulo_o_activo": "Se vende casa en Aigua",
+      "precio_publicado": "USD 40.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Esteban, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Aiguá, Maldonado (USD 40.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59898620176?text=Hola%20Esteban%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Aigu%C3%A1%2C%20Maldonado%20(USD%2040.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Aiguá, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 40.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Aiguá, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Aiguá, Maldonado (USD 40.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Aiguá, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-24",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Dady Silvera",
+      "telefono_wa": "59891006302",
+      "zona_barrio": "San Carlos, Maldonado",
+      "titulo_o_activo": "Venta de casa en San Carlos sobre calle 25 de agosto",
+      "precio_publicado": "USD 60.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Dady, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 60.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59891006302?text=Hola%20Dady%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%2060.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 60.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en San Carlos, Maldonado (USD 60.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de San Carlos, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-25",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Fabian Chigliazza",
+      "telefono_wa": "59894237595",
+      "zona_barrio": "Barrio Rodríguez Barrios, San Carlos, Maldonado",
+      "titulo_o_activo": "Vendo casa en Rodriguez Barrios",
+      "precio_publicado": "USD 50.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Fabian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Barrio Rodríguez Barrios, San Carlos, Maldonado (USD 50.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59894237595?text=Hola%20Fabian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Barrio%20Rodr%C3%ADguez%20Barrios%2C%20San%20Carlos%2C%20Maldonado%20(USD%2050.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Barrio Rodríguez Barrios, San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 50.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Barrio Rodríguez Barrios, San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Barrio Rodríguez Barrios, San Carlos, Maldonado (USD 50.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Barrio Rodríguez Barrios, San Carlos, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-26",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Flo Garrido",
+      "telefono_wa": "59892552522",
+      "zona_barrio": "Pinares, Maldonado",
+      "titulo_o_activo": "Dueño vende casa pinares",
+      "precio_publicado": "USD 380.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Flo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Pinares, Maldonado (USD 380.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59892552522?text=Hola%20Flo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Pinares%2C%20Maldonado%20(USD%20380.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Pinares, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 380.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Pinares, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Pinares, Maldonado (USD 380.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Pinares, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-27",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Danilo Noueched",
+      "telefono_wa": "59894728495",
+      "zona_barrio": "Las Delicias, Maldonado",
+      "titulo_o_activo": "Casa en Las Delicias a 2 cuadras del mar",
+      "precio_publicado": "USD 380.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Las Delicias, Maldonado (USD 380.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59894728495?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Las%20Delicias%2C%20Maldonado%20(USD%20380.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Las Delicias, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 380.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Las Delicias, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Las Delicias, Maldonado (USD 380.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Las Delicias, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-28",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Juan Beraza",
+      "telefono_wa": "59899850321",
+      "zona_barrio": "Balneario Buenos Aires, Maldonado",
+      "titulo_o_activo": "Casa en venta Balneario Buenos Aires calle 15 y ruta 10",
+      "precio_publicado": "USD 138.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Juan, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Balneario Buenos Aires, Maldonado (USD 138.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59899850321?text=Hola%20Juan%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Balneario%20Buenos%20Aires%2C%20Maldonado%20(USD%20138.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Balneario Buenos Aires, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 138.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Balneario Buenos Aires, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Balneario Buenos Aires, Maldonado (USD 138.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Balneario Buenos Aires, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-29",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Rosa Bosso",
+      "telefono_wa": "59898680052",
+      "zona_barrio": "Punta Colorada, Piriápolis, Maldonado",
+      "titulo_o_activo": "Venta casa en Punta Colorada, Piriapolis",
+      "precio_publicado": "USD 240.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Rosa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Punta Colorada, Piriápolis, Maldonado (USD 240.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59898680052?text=Hola%20Rosa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Punta%20Colorada%2C%20Piri%C3%A1polis%2C%20Maldonado%20(USD%20240.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Punta Colorada, Piriápolis, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 240.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Punta Colorada, Piriápolis, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Punta Colorada, Piriápolis, Maldonado (USD 240.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Punta Colorada, Piriápolis, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-30",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Nelson Curotto",
+      "telefono_wa": "59894309275",
+      "zona_barrio": "Zona Country, Piriápolis, Maldonado",
+      "titulo_o_activo": "Alquiler anual, zona country Piriapolis.",
+      "precio_publicado": "$U 20.000 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Nelson, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Zona Country, Piriápolis, Maldonado ($U 20.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59894309275?text=Hola%20Nelson%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Zona%20Country%2C%20Piri%C3%A1polis%2C%20Maldonado%20(%24U%2020.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Zona Country, Piriápolis, Maldonado: precio transparente $U 20.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Zona Country, Piriápolis, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Zona Country, Piriápolis, Maldonado ($U 20.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Zona Country, Piriápolis, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-31",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "María Cerron",
+      "telefono_wa": "59894702274",
+      "zona_barrio": "San Carlos, Maldonado",
+      "titulo_o_activo": "Casa en venta San Carlos",
+      "precio_publicado": "A consultar",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola María, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (A consultar). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59894702274?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(A%20consultar).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (A consultar).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en San Carlos, Maldonado (A consultar). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de San Carlos, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-32",
+      "vertical_code": "O2",
+      "vertical_14": "O2 · Dueño Vende Apartamento",
+      "nombre_persona": "MaquinasGym Montevideo",
+      "telefono_wa": "59894871351",
+      "zona_barrio": "Piriápolis Playa, Maldonado",
+      "titulo_o_activo": "Venta Apartamento en Piriapolis Playa",
+      "precio_publicado": "USD 117.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Defender precio por m2 frente a torres vecinas y aclarar gastos comunes reales.",
+      "faltantes_capa_1": [
+        "Edificio y piso / orientación",
+        "Metros propios y terraza",
+        "Gastos comunes mensuales",
+        "Cochera / baulera",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "Estado documental / títulos PDF",
+        "Si tiene renta vigente o está vacío"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Piriápolis Playa, Maldonado (USD 117.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59894871351?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Piri%C3%A1polis%20Playa%2C%20Maldonado%20(USD%20117.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Piriápolis Playa, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 117.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Piriápolis Playa, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Piriápolis Playa, Maldonado (USD 117.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Piriápolis Playa, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D4 (compra apto hecho) + D1 (vender usado para pasar a pozo)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-33",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Anita Toledo",
+      "telefono_wa": "59898963070",
+      "zona_barrio": "La Fortuna, Maldonado",
+      "titulo_o_activo": "Apartamento 2 dormitorios La Fortuna",
+      "precio_publicado": "$U 30.000 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Anita, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en La Fortuna, Maldonado ($U 30.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59898963070?text=Hola%20Anita%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20La%20Fortuna%2C%20Maldonado%20(%24U%2030.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en La Fortuna, Maldonado: precio transparente $U 30.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "La Fortuna, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en La Fortuna, Maldonado ($U 30.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por La Fortuna, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-34",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Sabrina Pérez (Susana Navarro)",
+      "telefono_wa": "59895358136",
+      "zona_barrio": "San Carlos, Maldonado",
+      "titulo_o_activo": "CASA EN VENTA/ San Carlos",
+      "precio_publicado": "USD 45.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Sabrina, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 45.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59895358136?text=Hola%20Sabrina%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%2045.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 45.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en San Carlos, Maldonado (USD 45.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de San Carlos, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-35",
+      "vertical_code": "O1",
+      "vertical_14": "O1 · Dueño Vende Casa",
+      "nombre_persona": "Ferre Ferre",
+      "telefono_wa": "59895282982",
+      "zona_barrio": "Balneario Buenos Aires, Maldonado",
+      "titulo_o_activo": "OPORTUNIDAD DE COMPRAR CASA PRECIO BAJO POR VIAJE",
+      "precio_publicado": "USD 80.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Ferre, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Balneario Buenos Aires, Maldonado (USD 80.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59895282982?text=Hola%20Ferre%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Balneario%20Buenos%20Aires%2C%20Maldonado%20(USD%2080.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial Balneario Buenos Aires, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 80.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en Balneario Buenos Aires, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en Balneario Buenos Aires, Maldonado (USD 80.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de Balneario Buenos Aires, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D3 (compra casa hecha) + D7 (lote que acepta casa a reciclar o demoler)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-36",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Elisa Tejeria",
+      "telefono_wa": "59891686777",
+      "zona_barrio": "Balneario Chihuahua, Maldonado",
+      "titulo_o_activo": "Alquilo cabaña Balneario Chihuahua. Ideal personal aeropuerto Laguna del Sauce",
+      "precio_publicado": "$U 26.000 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Elisa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Balneario Chihuahua, Maldonado ($U 26.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59891686777?text=Hola%20Elisa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Balneario%20Chihuahua%2C%20Maldonado%20(%24U%2026.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Balneario Chihuahua, Maldonado: precio transparente $U 26.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Balneario Chihuahua, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Balneario Chihuahua, Maldonado ($U 26.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Balneario Chihuahua, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-37",
+      "vertical_code": "O4",
+      "vertical_14": "O4 · Dueño Vende Lote/Terreno",
+      "nombre_persona": "Alejandro Luzardo",
+      "telefono_wa": "59895630415",
+      "zona_barrio": "San Carlos, Maldonado",
+      "titulo_o_activo": "Se vende Padrón entero San Carlos",
+      "precio_publicado": "USD 240.000",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "faltantes_capa_1": [
+        "Padrón y manzana",
+        "Metros totales y frente/fondo",
+        "Servicios en puerta (OSE/UTE/saneamiento)",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "FOT/FOS/retiros permitidos",
+        "Títulos y planos en PDF"
+      ],
+      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 240.000). Trabajamos sin exclusividad y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
+        "link_wa_me_1clic": "https://wa.me/59895630415?text=Hola%20Alejandro%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%20240.000).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 240.000).",
+        "3_angulo_pauta_ads": {
+          "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
+          "gancho": "Oportunidad en San Carlos, Maldonado (USD 240.000). Consultá ficha técnica y documentación por WhatsApp.",
+          "botones_wa": [
+            "Quiero más detalles de San Carlos, Maldonado",
+            "Busco casa, terreno o proyecto en la zona",
+            "Tengo propiedad para publicar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D5 (busca lote) + D7 (busca lote y evalúa obra base o demolición)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-38",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Giovanna Gonzalez",
+      "telefono_wa": "59896511181",
+      "zona_barrio": "Pinares Parada 36, Punta del Este, Maldonado",
+      "titulo_o_activo": "Casa Barrio Pinares parada 36",
+      "precio_publicado": "USD 1.500 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Giovanna, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pinares Parada 36, Punta del Este, Maldonado (USD 1.500 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59896511181?text=Hola%20Giovanna%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pinares%20Parada%2036%2C%20Punta%20del%20Este%2C%20Maldonado%20(USD%201.500%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Pinares Parada 36, Punta del Este, Maldonado: precio transparente USD 1.500 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Pinares Parada 36, Punta del Este, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Pinares Parada 36, Punta del Este, Maldonado (USD 1.500 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Pinares Parada 36, Punta del Este, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "MP-39",
+      "vertical_code": "O6",
+      "vertical_14": "O6 · Dueño Alquila",
+      "nombre_persona": "Claudia Elinger Celi Eli",
+      "telefono_wa": "59898607109",
+      "zona_barrio": "Centro, Maldonado",
+      "titulo_o_activo": "Alquilo Apartamento Céntrico Maldonado, 2 DORMITORIOS",
+      "precio_publicado": "$U 32.000 / mes",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_bienvenida",
+      "candado_franja_gris": true,
+      "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Centro, Maldonado ($U 32.000 / mes). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+        "link_wa_me_1clic": "https://wa.me/59898607109?text=Hola%20Claudia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Centro%2C%20Maldonado%20(%24U%2032.000%20%2F%20mes).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+        "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Centro, Maldonado: precio transparente $U 32.000 / mes + filtro de garantía claro.",
+        "3_angulo_pauta_ads": {
+          "publico": "Centro, Maldonado y alrededores (+17 km), 24 a 48 años",
+          "gancho": "Alquiler anual en Centro, Maldonado ($U 32.000 / mes). Requisitos claros y visitas coordinadas por WhatsApp.",
+          "botones_wa": [
+            "Tengo garantía aseguradora y consulto por Centro, Maldonado",
+            "Busco alquiler anual en otra zona de Maldonado",
+            "Tengo propiedad para alquilar sin exclusividad"
+          ]
+        },
+        "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-01",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Pinares del Bosque Desarrollos",
+      "telefono_wa": "59892480763",
+      "zona_barrio": "Maldonado Centro / Pinares",
+      "titulo_o_activo": "https://pinaresdelbosque.com/",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Pinares, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://pinaresdelbosque.com/ para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59892480763?text=Hola%20Pinares%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Fpinaresdelbosque.com%2F%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://pinaresdelbosque.com/ (Maldonado Centro / Pinares): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://pinaresdelbosque.com/ en Maldonado Centro / Pinares: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://pinaresdelbosque.com/",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-03",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Kaplan Desarrollos Inmobiliarios",
+      "telefono_wa": "5989798138259897555676",
+      "zona_barrio": "Roosevelt / Aidy Grill",
+      "titulo_o_activo": "https://kaplan.uy/contacto",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Kaplan, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://kaplan.uy/contacto para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/5989798138259897555676?text=Hola%20Kaplan%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Fkaplan.uy%2Fcontacto%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://kaplan.uy/contacto (Roosevelt / Aidy Grill): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://kaplan.uy/contacto en Roosevelt / Aidy Grill: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://kaplan.uy/contacto",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-04",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Invergroup Desarrollos (Av. Roosevelt Parada 17)",
+      "telefono_wa": "59842253700",
+      "zona_barrio": "Roosevelt / Aidy Grill",
+      "titulo_o_activo": "https://www.invergroup.com.uy/contact-2",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Invergroup, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://www.invergroup.com.uy/contact-2 para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59842253700?text=Hola%20Invergroup%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Fwww.invergroup.com.uy%2Fcontact-2%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://www.invergroup.com.uy/contact-2 (Roosevelt / Aidy Grill): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://www.invergroup.com.uy/contact-2 en Roosevelt / Aidy Grill: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://www.invergroup.com.uy/contact-2",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-07",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "CSA Constructora (Obras en Península y Punta del Este)",
+      "telefono_wa": "59827114672",
+      "zona_barrio": "Península",
+      "titulo_o_activo": "https://csa.com.uy/",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola CSA, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://csa.com.uy/ para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59827114672?text=Hola%20CSA%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Fcsa.com.uy%2F%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://csa.com.uy/ (Península): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://csa.com.uy/ en Península: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://csa.com.uy/",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-09",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Alma de Manantiales Developers",
+      "telefono_wa": "59894030777",
+      "zona_barrio": "La Barra / Manantiales",
+      "titulo_o_activo": "https://almademanantiales.com/contacto/",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Alma, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://almademanantiales.com/contacto/ para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894030777?text=Hola%20Alma%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Falmademanantiales.com%2Fcontacto%2F%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://almademanantiales.com/contacto/ (La Barra / Manantiales): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://almademanantiales.com/contacto/ en La Barra / Manantiales: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://almademanantiales.com/contacto/",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "PD-10",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Sebastián Mengot Arquitectura Residencial",
+      "telefono_wa": "59894881593",
+      "zona_barrio": "La Barra / Manantiales",
+      "titulo_o_activo": "https://www.mengot.com.uy/contacto",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "enviado_1",
+      "ok_bienvenida": "pendiente_acuerdo_canal",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Falta alta canal externo, lista de precios, gastos de ocupación y esquema de comisión",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Sebastián, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en https://www.mengot.com.uy/contacto para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894881593?text=Hola%20Sebasti%C3%A1n%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20https%3A%2F%2Fwww.mengot.com.uy%2Fcontacto%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva https://www.mengot.com.uy/contacto (La Barra / Manantiales): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "https://www.mengot.com.uy/contacto en La Barra / Manantiales: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de https://www.mengot.com.uy/contacto",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-01",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "WMW (Weiss Mora Weiss) (Rosario Silvera Lima / Cristina Mondillo)",
+      "telefono_wa": "59895405520",
+      "zona_barrio": "Av. Roosevelt Parada 16 / Parada 11, Punta del Este",
+      "titulo_o_activo": "Ocean Drive Country II (+ Venetian / One)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Ya tenemos aprobado y publicado EVE Tower con WMW. Pedir carpeta, planos y lista cero de Ocean Drive Country II.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola WMW, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Ocean Drive Country II (+ Venetian / One) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59895405520?text=Hola%20WMW%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Ocean%20Drive%20Country%20II%20(%2B%20Venetian%20%2F%20One)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Ocean Drive Country II (+ Venetian / One) (Av. Roosevelt Parada 16 / Parada 11, Punta del Este): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Ocean Drive Country II (+ Venetian / One) en Av. Roosevelt Parada 16 / Parada 11, Punta del Este: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Ocean Drive Country II (+ Venetian / One)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-02",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Liderus S.A. (Departamento Comercial Liderus S.A.)",
+      "telefono_wa": "59893351269",
+      "zona_barrio": "Maldonado Centro / Pinares (José Dodera 515 esq. 3 de Febrero)",
+      "titulo_o_activo": "Torres Cardinal (Etapa 2) & Cardinal Pinares",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Ley 18.795 Vivienda Promovida en Maldonado y Pinares. Complemento directo de Betania IV y Nostrum Roosevelt.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Liderus, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Torres Cardinal (Etapa 2) & Cardinal Pinares para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59893351269?text=Hola%20Liderus%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Torres%20Cardinal%20(Etapa%202)%20%26%20Cardinal%20Pinares%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Torres Cardinal (Etapa 2) & Cardinal Pinares (Maldonado Centro / Pinares (José Dodera 515 esq. 3 de Febrero)): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Torres Cardinal (Etapa 2) & Cardinal Pinares en Maldonado Centro / Pinares (José Dodera 515 esq. 3 de Febrero): Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Torres Cardinal (Etapa 2) & Cardinal Pinares",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-03",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Cimiento Desarrollos Inmobiliarios (Comercial Cimiento Desarrollos)",
+      "telefono_wa": "59891689948",
+      "zona_barrio": "Av. Franklin D. Roosevelt Parada 20 esq. M. Sánchez Moscoso, Maldonado",
+      "titulo_o_activo": "Roosevelt Home (2 Torres · 122 aptos Ley 18.795)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Ubicado en Parada 20 de Roosevelt, exactamente entre Nostrum Roosevelt (Pda. 19) y More Atlántico (Pda. 22). Ley 18.795.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Cimiento, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Roosevelt Home (2 Torres · 122 aptos Ley 18.795) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59891689948?text=Hola%20Cimiento%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Roosevelt%20Home%20(2%20Torres%20%C2%B7%20122%20aptos%20Ley%2018.795)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Roosevelt Home (2 Torres · 122 aptos Ley 18.795) (Av. Franklin D. Roosevelt Parada 20 esq. M. Sánchez Moscoso, Maldonado): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Roosevelt Home (2 Torres · 122 aptos Ley 18.795) en Av. Franklin D. Roosevelt Parada 20 esq. M. Sánchez Moscoso, Maldonado: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Roosevelt Home (2 Torres · 122 aptos Ley 18.795)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-04",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Justany Desarrollos Inmobiliarios (Comercial Justany Desarrollos)",
+      "telefono_wa": "59892354725",
+      "zona_barrio": "Parada 12 de Playa Brava (Necochea e Ipanema), San Rafael, Punta del Este",
+      "titulo_o_activo": "Altos de San Rafael (Baja Densidad · Playa Brava)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Obra boutique de 2 bloques de 4 plantas en San Rafael (Pda. 12 Brava). Cubre al comprador que busca baja densidad.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Justany, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Altos de San Rafael (Baja Densidad · Playa Brava) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59892354725?text=Hola%20Justany%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Altos%20de%20San%20Rafael%20(Baja%20Densidad%20%C2%B7%20Playa%20Brava)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Altos de San Rafael (Baja Densidad · Playa Brava) (Parada 12 de Playa Brava (Necochea e Ipanema), San Rafael, Punta del Este): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Altos de San Rafael (Baja Densidad · Playa Brava) en Parada 12 de Playa Brava (Necochea e Ipanema), San Rafael, Punta del Este: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Altos de San Rafael (Baja Densidad · Playa Brava)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-05",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Tikto Arquitectura / OAP Estudio (Equipo Comercial Wave Desarrollos)",
+      "telefono_wa": "59894973965",
+      "zona_barrio": "Playa Brava y Av. Roosevelt Parada 18 (esq. Patria Vieja), Punta del Este",
+      "titulo_o_activo": "Wave Brava & Wave Roosevelt (Parada 18)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Misma micro-zona que Golden Rise (Parada 18 Roosevelt) + bloque en Playa Brava.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Tikto, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Wave Brava & Wave Roosevelt (Parada 18) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894973965?text=Hola%20Tikto%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Wave%20Brava%20%26%20Wave%20Roosevelt%20(Parada%2018)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Wave Brava & Wave Roosevelt (Parada 18) (Playa Brava y Av. Roosevelt Parada 18 (esq. Patria Vieja), Punta del Este): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Wave Brava & Wave Roosevelt (Parada 18) en Playa Brava y Av. Roosevelt Parada 18 (esq. Patria Vieja), Punta del Este: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Wave Brava & Wave Roosevelt (Parada 18)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-06",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Estudio Fischer & Xukah Desarrollos (Dirección Comercial Estudio Fischer / Xukah)",
+      "telefono_wa": "59898732306",
+      "zona_barrio": "Parada 18 Mansa / Parada 27 Mansa / Parada 32 Brava, Punta del Este",
+      "titulo_o_activo": "Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Multicatálogo en 1 solo acuerdo: obras en Mansa y Brava con financiación directa hasta en 40 cuotas.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Estudio, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59898732306?text=Hola%20Estudio%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Mansa%20Tower%20%2F%20Amansa%20%2F%20Mood%2032%20%2F%20The%20Creek%20(Plan%2040%20cuotas)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas) (Parada 18 Mansa / Parada 27 Mansa / Parada 32 Brava, Punta del Este): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas) en Parada 18 Mansa / Parada 27 Mansa / Parada 32 Brava, Punta del Este: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Mansa Tower / Amansa / Mood 32 / The Creek (Plan 40 cuotas)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-07",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "The Corner Desarrollos (Ventas The Corner La Barra)",
+      "telefono_wa": "59897978642",
+      "zona_barrio": "Ruta 10 y calle Los Destinos, La Barra, Maldonado",
+      "titulo_o_activo": "The Corner La Barra",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Preventa en pozo boutique en La Barra (5 módulos, 20 unidades). Abre inventario directo en La Barra.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola The, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en The Corner La Barra para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59897978642?text=Hola%20The%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20The%20Corner%20La%20Barra%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva The Corner La Barra (Ruta 10 y calle Los Destinos, La Barra, Maldonado): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "The Corner La Barra en Ruta 10 y calle Los Destinos, La Barra, Maldonado: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de The Corner La Barra",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    },
+    {
+      "id_registro": "T2-08",
+      "vertical_code": "O7",
+      "vertical_14": "O7 · Desarrolladora Pozo",
+      "nombre_persona": "Grupo Caybo (Equipo Comercial Grupo Caybo)",
+      "telefono_wa": "59894161888",
+      "zona_barrio": "Av. Roosevelt próx. a Punta Shopping, Punta del Este",
+      "titulo_o_activo": "Diamond Residences (Av. Roosevelt próx. Punta Shopping)",
+      "precio_publicado": "Lista desarrolladora",
+      "estado_crm": "pendiente",
+      "ok_bienvenida": "pendiente_alta_tanda2",
+      "candado_franja_gris": false,
+      "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "faltantes_capa_1": [
+        "Lista vigente Desde USD",
+        "Cronograma de cuotas",
+        "Gastos de ocupación (%)",
+        "Fecha de entrega"
+      ],
+      "faltantes_capa_2": [
+        "Exoneraciones Ley 18.795",
+        "Reglas de pre-registro de clientes"
+      ],
+      "condiciones_actuales": "Ya tenemos aprobado y publicado Golden Rise con Grupo Caybo. Pedir carpeta de Diamond Residences.",
+      "concatenado_4_salidas": {
+        "1_guion_whatsapp_mar": "Hola Grupo, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Trabajamos obra nueva en Punta del Este y Maldonado con desglose de gastos de ocupación y pre-registro formal. Seguimos con disponibilidad vigente en Diamond Residences (Av. Roosevelt próx. Punta Shopping) para validar listas y planos?",
+        "link_wa_me_1clic": "https://wa.me/59894161888?text=Hola%20Grupo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Trabajamos%20obra%20nueva%20en%20Punta%20del%20Este%20y%20Maldonado%20con%20desglose%20de%20gastos%20de%20ocupaci%C3%B3n%20y%20pre-registro%20formal.%20Seguimos%20con%20disponibilidad%20vigente%20en%20Diamond%20Residences%20(Av.%20Roosevelt%20pr%C3%B3x.%20Punta%20Shopping)%20para%20validar%20listas%20y%20planos%3F",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel obra nueva Diamond Residences (Av. Roosevelt próx. Punta Shopping) (Av. Roosevelt próx. a Punta Shopping, Punta del Este): precio público Lista desarrolladora + esquema de cuotas y beneficios reales.",
+        "3_angulo_pauta_ads": {
+          "publico": "Inversores Uruguay / Argentina / Brasil interesados en Punta del Este y Maldonado (30 a 62 años)",
+          "gancho": "Diamond Residences (Av. Roosevelt próx. Punta Shopping) en Av. Roosevelt próx. a Punta Shopping, Punta del Este: Lista desarrolladora. Financiación y costos totales de cierre sin sorpresas.",
+          "botones_wa": [
+            "Quiero planos y cuotas de Diamond Residences (Av. Roosevelt próx. Punta Shopping)",
+            "Busco inversión en pozo Ley 18.795",
+            "Quiero asesoramiento notarial para comprar desde el exterior"
+          ]
+        },
+        "4_cruce_latente_x_y": "D1 (inversor pozo) + D4 (comprador de usado que conviene financiar en cuotas de obra)"
+      },
+      "alerta_andon": false,
+      "motivo_andon": "",
+      "pokayoke_pass": true,
+      "pokayoke_violaciones": []
+    }
+  ]
+}

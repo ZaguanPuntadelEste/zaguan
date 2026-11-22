@@ -1,0 +1,404 @@
+{
+  "fecha": "2026-11-22T14:34:23.409Z",
+  "total_avisos_abiertos": 20,
+  "candidatos_limpios_sin_inmobiliaria": 13,
+  "descartados_inmobiliaria": 7,
+  "con_celular_directo": 10,
+  "fichas_candidatas": [
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/alquiler-local-comercial-punta-del-este-maldonado-33-metros-inmuebles-29665619",
+      "titulo": "Comercio en alquiler en Punta Del Este",
+      "precio": "USD 880.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O3",
+      "celulares_uy": [
+        "099700076"
+      ],
+      "descripcion_breve": "Comercio en alquiler en Punta Del Este, Maldonado. 33 m2. USD 880.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en Punta Del Este (USD 880.). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?",
+      "link_wa_me_1clic": "https://wa.me/59899700076?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20local%2Fespacio%20comercial%20en%20Punta%20Del%20Este%20(USD%20880.).%20Trabajamos%20sin%20exclusividad%20acercando%20clientes%20calificados%20por%20rubro.%20Sigue%20disponible%20para%20confirmarte%20metros%20reales%2C%20trif%C3%A1sica%20y%20usos%20admitidos%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/alquiler-apartamento-punta-del-este-maldonado-2-dormitorios-inmuebles-3000004583",
+      "titulo": "Apartamento en alquiler de dos dormitorios en Punta Del Este",
+      "precio": "USD 1300.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O6",
+      "celulares_uy": [
+        "098259650"
+      ],
+      "descripcion_breve": "Apartamento en alquiler de dos dormitorios en Punta Del Este, Maldonado. 75 m2. USD 1300.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en Punta Del Este (USD 1300.). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+      "link_wa_me_1clic": "https://wa.me/59898259650?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20publicaci%C3%B3n%20de%20alquiler%20anual%20en%20Punta%20Del%20Este%20(USD%201300.).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/alquiler-apartamento-piriapolis-maldonado-1-dormitorio-inmuebles-27324621",
+      "titulo": "Apartamento en alquiler de un dormitorio en Piriápolis",
+      "precio": "UYU 15900.",
+      "zona": "Piriápolis",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O6",
+      "celulares_uy": [
+        "099250033"
+      ],
+      "descripcion_breve": "Apartamento en alquiler de un dormitorio en Piriápolis, Maldonado. 30 m2. UYU 15900.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en Piriápolis (UYU 15900.). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+      "link_wa_me_1clic": "https://wa.me/59899250033?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20publicaci%C3%B3n%20de%20alquiler%20anual%20en%20Piri%C3%A1polis%20(UYU%2015900.).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/alquiler-apartamento-punta-del-este-maldonado-3-dormitorios-inmuebles-29221673",
+      "titulo": "Apartamento en alquiler de tres dormitorios en Punta Del Este",
+      "precio": "USD 6500.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O6",
+      "celulares_uy": [
+        "094453332"
+      ],
+      "descripcion_breve": "Apartamento en alquiler de tres dormitorios en Punta Del Este, Maldonado. 1 m2. USD 6500.",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en Punta Del Este (USD 6500.). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+      "link_wa_me_1clic": "https://wa.me/59894453332?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20publicaci%C3%B3n%20de%20alquiler%20anual%20en%20Punta%20Del%20Este%20(USD%206500.).%20Trabajamos%20sin%20exclusividad%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%20y%20si%20incluye%20gastos%20comunes%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-2-dormitorios-inmuebles-3000004379",
+      "titulo": "Apartamento en venta de dos dormitorios en Punta Del Este",
+      "precio": "USD 215000.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O2",
+      "celulares_uy": [
+        "093380672"
+      ],
+      "descripcion_breve": "Apartamento en venta de dos dormitorios en Punta Del Este, Maldonado. 58 m2. USD 215000.",
+      "faltantes_capa_1": [
+        "Edificio y piso / orientación",
+        "Metros propios y terraza",
+        "Gastos comunes mensuales",
+        "Cochera / baulera",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "Estado documental / títulos PDF",
+        "Si tiene renta vigente o está vacío"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en Punta Del Este (USD 215000.). Trabajamos sin exclusividad y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?",
+      "link_wa_me_1clic": "https://wa.me/59893380672?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20Punta%20Del%20Este%20(USD%20215000.).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20interesados%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20ubicaci%C3%B3n%20exacta%20y%20documentaci%C3%B3n%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-casa-la-capuera-maldonado-2-dormitorios-inmuebles-3000005237",
+      "titulo": "Casa en venta de dos dormitorios en La Capuera",
+      "precio": "USD 74000.",
+      "zona": "La Capuera",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O1",
+      "celulares_uy": [
+        "091045188"
+      ],
+      "descripcion_breve": "Casa en venta de dos dormitorios en La Capuera, Maldonado. 85 m2. USD 74000.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en La Capuera (USD 74000.). Trabajamos sin exclusividad y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?",
+      "link_wa_me_1clic": "https://wa.me/59891045188?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20La%20Capuera%20(USD%2074000.).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20interesados%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20ubicaci%C3%B3n%20exacta%20y%20documentaci%C3%B3n%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-campo-ruta-39-maldonado-30000-hectareas-inmuebles-3000002872",
+      "titulo": "Campo en venta en Ruta 39",
+      "precio": "USD 70000.",
+      "zona": "Ruta",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O1",
+      "celulares_uy": [
+        "099699177"
+      ],
+      "descripcion_breve": "Campo en venta en Ruta 39, Maldonado. 30000 m2. USD 70000.",
+      "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
+        "Metros de terreno y edificados",
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
+      ],
+      "faltantes_capa_2": [
+        "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
+        "Antigüedad real (audio)",
+        "Documentación en PDF"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en Ruta (USD 70000.). Trabajamos sin exclusividad y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?",
+      "link_wa_me_1clic": "https://wa.me/59899699177?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20Ruta%20(USD%2070000.).%20Trabajamos%20sin%20exclusividad%20y%20pre-calificamos%20interesados%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20ubicaci%C3%B3n%20exacta%20y%20documentaci%C3%B3n%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-terreno-piriapolis-maldonado-730-hectareas-inmuebles-3000009003",
+      "titulo": "Terreno en venta monoambiente en Piriápolis",
+      "precio": "USD 98000.",
+      "zona": "Piriápolis",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O4",
+      "celulares_uy": [],
+      "descripcion_breve": "Terreno en venta monoambiente en Piriápolis, Maldonado. 730 m2. USD 98000.",
+      "faltantes_capa_1": [
+        "Padrón y manzana",
+        "Metros totales y frente/fondo",
+        "Servicios en puerta (OSE/UTE/saneamiento)",
+        "Precio USD"
+      ],
+      "faltantes_capa_2": [
+        "FOT/FOS/retiros permitidos",
+        "Títulos y planos en PDF"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en Piriápolis (USD 98000.). Trabajamos sin exclusividad y pre-calificamos interesados con respaldo notarial local. Sigue disponible para confirmar metros, ubicación exacta y documentación?",
+      "link_wa_me_1clic": "",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/alquiler-local-comercial-punta-del-este-maldonado-33-metros-inmuebles-29665619",
+      "titulo": "Comercio en alquiler en Punta Del Este",
+      "precio": "USD 880.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O3",
+      "celulares_uy": [
+        "099700076"
+      ],
+      "descripcion_breve": "Comercio en alquiler en Punta Del Este, Maldonado. 33 m2. USD 880.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en Punta Del Este (USD 880.). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?",
+      "link_wa_me_1clic": "https://wa.me/59899700076?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20local%2Fespacio%20comercial%20en%20Punta%20Del%20Este%20(USD%20880.).%20Trabajamos%20sin%20exclusividad%20acercando%20clientes%20calificados%20por%20rubro.%20Sigue%20disponible%20para%20confirmarte%20metros%20reales%2C%20trif%C3%A1sica%20y%20usos%20admitidos%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-local-comercial-punta-del-este-maldonado-325-metros-inmuebles-27739617",
+      "titulo": "Comercio en venta monoambiente en Punta Del Este",
+      "precio": "USD 2000000.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O3",
+      "celulares_uy": [
+        "094453332"
+      ],
+      "descripcion_breve": "Comercio en venta monoambiente en Punta Del Este, Maldonado. 325 m2. USD 2000000.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en Punta Del Este (USD 2000000.). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?",
+      "link_wa_me_1clic": "https://wa.me/59894453332?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20local%2Fespacio%20comercial%20en%20Punta%20Del%20Este%20(USD%202000000.).%20Trabajamos%20sin%20exclusividad%20acercando%20clientes%20calificados%20por%20rubro.%20Sigue%20disponible%20para%20confirmarte%20metros%20reales%2C%20trif%C3%A1sica%20y%20usos%20admitidos%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-local-comercial-piriapolis-maldonado-1634-metros-inmuebles-27739796",
+      "titulo": "Comercio en venta monoambiente en Piriápolis",
+      "precio": "USD 3300000.",
+      "zona": "Piriápolis",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O3",
+      "celulares_uy": [
+        "094453332"
+      ],
+      "descripcion_breve": "Comercio en venta monoambiente en Piriápolis, Maldonado. 1634 m2. USD 3300000.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en Piriápolis (USD 3300000.). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?",
+      "link_wa_me_1clic": "https://wa.me/59894453332?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20local%2Fespacio%20comercial%20en%20Piri%C3%A1polis%20(USD%203300000.).%20Trabajamos%20sin%20exclusividad%20acercando%20clientes%20calificados%20por%20rubro.%20Sigue%20disponible%20para%20confirmarte%20metros%20reales%2C%20trif%C3%A1sica%20y%20usos%20admitidos%3F",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "Gallito",
+      "url": "https://www.gallito.com.uy/venta-local-comercial-punta-del-este-maldonado-162-metros-inmuebles-3000005702",
+      "titulo": "Comercio en venta en Punta Del Este",
+      "precio": "USD 275000.",
+      "zona": "Punta Del Este",
+      "publicante": "Sin especificar en ficha",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O3",
+      "celulares_uy": [],
+      "descripcion_breve": "Comercio en venta en Punta Del Este, Maldonado. 162 m2. USD 275000.",
+      "faltantes_capa_1": [
+        "Metros de salón y frente",
+        "Habilitación municipal y trifásica",
+        "Gastos comunes / cargas",
+        "Precio USD o canon"
+      ],
+      "faltantes_capa_2": [
+        "Planos en PDF",
+        "Usos admitidos (gastronomía, consultorio, depósito)"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en Punta Del Este (USD 275000.). Trabajamos sin exclusividad acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?",
+      "link_wa_me_1clic": "",
+      "pokayoke_pass": true
+    },
+    {
+      "portal": "InfoCasas",
+      "url": "https://www.infocasas.com.uy/alquiler-casa-3-dormitorios-en-suite-el-chorro-manantiales/194461784",
+      "titulo": "ALQUILER Casa 3 dormitorios en suite- El Chorro- Manantiales",
+      "precio": "U$S 12000",
+      "zona": "El Chorro",
+      "publicante": "RED Hub Inmobiliario",
+      "descartado_por_inmobiliaria": false,
+      "vertical_code": "O6",
+      "celulares_uy": [],
+      "descripcion_breve": "** El precio publicado corresponde a 1a.Quincena de Enero&nbsp; 2027*** Ubicada en la tranquila zona de El Chorro, Maldonado, esta casa de dos plantas, con cerramiento exterior y orientación Este ofrece comodidad y estil",
+      "faltantes_capa_1": [
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Mascotas y plazo"
+      ],
+      "faltantes_capa_2": [
+        "Quién tiene llaves y horarios",
+        "Condiciones de ajuste y video de recorrido"
+      ],
+      "guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en El Chorro (U$S 12000). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?",
+      "link_wa_me_1clic": "",
+      "pokayoke_pass": true
+    }
+  ],
+  "fichas_descartadas_inmobiliaria": [
+    {
+      "portal": "InfoCasas",
+      "titulo": "Alquiler Casa 3 Dormitorios en Cerro San Antonio",
+      "publicante": "Nefertiti Propiedades",
+      "url": "https://www.infocasas.com.uy/alquiler-casa-3-dormitorios-en-cerro-san-antonio/194397283"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "En venta y alquiler Penthouse en Delamar",
+      "publicante": "Cabodevilla Real Estate",
+      "url": "https://www.infocasas.com.uy/en-venta-y-alquiler-penthouse-en-delamar/193991091"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "Casa de 4 dormitorios en alquiler anual Barrio privado La Barra",
+      "publicante": "Cabodevilla Real Estate",
+      "url": "https://www.infocasas.com.uy/casa-de-4-dormitorios-en-alquiler-anual-barrio-privado-la-barra/194142397"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "Venta de casa en Barrio Privado Campo Brava - Ref : PBI13585",
+      "publicante": "Punta Ballena Inmobiliaria",
+      "url": "https://www.infocasas.com.uy/venta-de-casa-en-barrio-privado-campo-brava-ref-pbi13585/194628428"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "Alquiler Local en Maldonado centro 110 mts",
+      "publicante": "Wild Bienes Raíces ",
+      "url": "https://www.infocasas.com.uy/alquiler-local-en-maldonado-centro-110-mts/194244926"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "Casa en venta de 6 dormitorios c/ cochera en Barrio Córdoba",
+      "publicante": "COSTAS DEL ESTE REAL ESTATE",
+      "url": "https://www.infocasas.com.uy/casa-en-venta-de-6-dormitorios-c-cochera-en-barrio-cordoba/192323668"
+    },
+    {
+      "portal": "InfoCasas",
+      "titulo": "Hermoso apartamento en Peninsula con bajos gastos",
+      "publicante": "DAGMAR INMOBILIARIA",
+      "url": "https://www.infocasas.com.uy/hermoso-apartamento-en-peninsula-con-bajos-gastos/194496343"
+    }
+  ],
+  "errores": []
+}
