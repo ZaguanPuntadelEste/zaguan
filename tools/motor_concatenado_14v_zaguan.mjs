@@ -179,28 +179,28 @@ function construirConcatenado(row) {
       publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',
       gancho: 'Apartamento 2 dormitorios a estrenar en La Fortuna a $U 30.000 con gastos comunes y Wi-Fi incluidos.',
       botones_wa: [
-        'Tengo garantía aseguradora y quiero coordinar visita',
-        'Quiero recibir la ficha completa y ubicación exacta de La Fortuna',
-        'Busco en otra zona o tengo propiedad para publicar',
+        'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar',
+        'Tengo ingresos para tramitar aseguradora y quiero ver la ficha',
+        'Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar',
       ],
     };
     alertaAndon = true;
     motivoAndon = 'Campaña activa en Zaguán ADS; controlar visitas y vigencia cada 7 días.';
   } else if (row.id_registro === 'MP-16') {
-    guionWa = `${saludo} Soy Mar, de ZAGUÁN Propiedades. Para completar el respaldo de tu casa en Santa Mónica (USD 160.000) con estructura para vientos oceánicos y croquis frente a la laguna, confirmame si ya sumamos el video de recorrido y los papeles del padrón para filtrarte compradores reales.`;
-    anguloRedes = 'Reel/Carrusel 4:5 + Video completo Santa Mónica (llegando a José Ignacio): explicar en portada que es construcción base en hormigón con croquis frente a laguna para proyectar sin arrancar de cero.';
+    guionWa = `${saludo} Soy Mar, de ZAGUÁN Propiedades. Para completar el respaldo de tu proyecto en construcción en Santa Mónica (USD 160.000) con estructura para vientos oceánicos y croquis frente a la Laguna, confirmame si ya sumamos todos los papeles del padrón para filtrarte compradores reales.`;
+    anguloRedes = 'Reel/Carrusel 4:5 + Video completo 2m31s privado a pedido Santa Mónica (a 7 km de José Ignacio): proyecto en construcción sobre lote propio de 348 m² frente a la Laguna.';
     anguloAds = {
-      publico: 'Compradores e inversores de lotes y casas en La Barra, Manantiales, José Ignacio y Montevideo (28 a 60 años)',
-      gancho: 'Buscás armar tu proyecto frente a la laguna en Santa Mónica, llegando a José Ignacio? Mirá esta construcción base con croquis proyectable y video completo.',
+      publico: 'Compradores e inversores de lotes, proyectos y propiedades en Santa Mónica, La Barra, Manantiales, José Ignacio y Montevideo (28 a 60 años)',
+      gancho: 'Proyecto en construcción frente a la Laguna en Santa Mónica, a 7 km de José Ignacio (USD 160.000 · lote propio 348 m² · 201 m² hormigón armado).',
       botones_wa: [
-        'Quiero ver el video completo y la ubicación en Santa Mónica',
-        'Busco lote o proyecto para construir en La Barra / José Ignacio',
-        'Tengo propiedad para vender en la zona',
+        'Evalúo compra contado USD 160.000: quiero video 2m31s y padrón',
+        'Comparo lote vs. obra (USD 160.000): pido video 2m31s y croquis',
+        'Busco casa terminada, terreno libre o pozo en cuotas',
       ],
     };
     cruceLatente = 'Cruce maestro D7 <-> O5: captar a quien busca terreno en Santa Mónica / José Ignacio ofreciéndole construcción base sólida calculada para vientos oceánicos (ahorra 12 meses de obra).';
     alertaAndon = true;
-    motivoAndon = 'Caso escuela Capa 2 multimodal (vientos oceánicos, croquis, video, audio antigüedad, PDF terreno).';
+    motivoAndon = 'Caso escuela Capa 2 multimodal (Bóveda Privada PDF B-GH-704.pdf + decreto dic 2027 + video 2m31s a pedido).';
   } else if (vCode === 'O6') {
     guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en ${zona} (${precio}). Trabajamos sin exclusividad filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás y si incluye gastos comunes?`;
     anguloRedes = `Ficha / Story 9:16 Alquiler Anual en ${zona}: precio transparente ${precio} + filtro de garantía claro.`;
@@ -226,16 +226,21 @@ function construirConcatenado(row) {
       ],
     };
   } else if (row.id_registro === 'MP-65' || row.id_registro === 'MP-66') {
-    guionWa = `${saludo} Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.`;
-    anguloRedes = 'Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.';
+    const saludoLunes = nombre ? `Hola ${nombre}, buen lunes.` : 'Hola, buen lunes.';
+    guionWa = `${saludoLunes} Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?`;
+    anguloRedes = 'Botones V2 auto-calificadores en Meta Ads La Fortuna: filtrar aseguradora o ingresos ANTES de dar link; 0 pin GPS crudo; personas y día en Turno 2.';
     anguloAds = {
       publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',
-      gancho: 'Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.',
-      botones_wa: ['Tengo garantía aseguradora y quiero coordinar visita', 'Quiero recibir la ficha completa de La Fortuna', 'Busco en otra zona o con otra garantía'],
+      gancho: 'Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 3 botones auto-calificadores <= 80 car.',
+      botones_wa: [
+        'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar',
+        'Tengo ingresos para tramitar aseguradora y quiero ver la ficha',
+        'Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar',
+      ],
     };
-    cruceLatente = 'Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto.';
+    cruceLatente = 'Rescate T2 mañana lunes 23/11 (10:00–11:30 hs) — HOY domingo no insistir para no quemar el lead.';
     alertaAndon = true;
-    motivoAndon = `Lead real de hoy (${row.id_registro} · ${row.nombre_persona}) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.`;
+    motivoAndon = `Lead real (${row.id_registro} · ${row.nombre_persona}): HOY domingo no escribir (ya recibió T0 + cierre). Mandar rescate T2 lunes 23/11 10:00–11:30 hs.`;
   } else if (vCode === 'D2') {
     guionWa = `${saludo} Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en ${zona} (${precio}), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?`;
     anguloRedes = `Placa informativa de demanda alquiler anual en ${zona}: claridad de requisitos y garantías aceptadas.`;

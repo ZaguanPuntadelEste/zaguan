@@ -22,9 +22,9 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "T0 hace 1 sola pregunta filtro (garantía aseguradora). Cantidad de personas y día van recién en Turno 2."
     ],
     tiempos: {
-      T0_INMEDIATO: `Acá tenés la ficha completa con fotos y condiciones de La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos): ${LA_FORTUNA_URL}\nPara este alquiler se pide garantía de aseguradora (Porto, Sura, Mapfre o Santander; no acepta ANDA ni CGN). Contás con alguna de esas aseguradoras o estás tramitando una?`,
-      T1_AMARILLO_20_MIN: "Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
-      T2_NARANJA_24_HS: "Seguimos coordinando visitas en La Fortuna para estos días. Si buscás otro rango de precio o zona en Maldonado, avisame en una línea y actualizo tu búsqueda.",
+      T0_INMEDIATO: `Con esa aseguradora calificás para el apartamento a estrenar de 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera fija y mascota pequeña).\nAcá tenés las fotos y condiciones completas: ${LA_FORTUNA_URL}\nQué día y horario te queda cómodo ir a verlo esta semana?`,
+      T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ver qué documentación pide Porto, Sura, Mapfre o Santander, avisame y te paso el requisito en 2 líneas.",
+      T2_NARANJA_24_HS: "Hola, buen lunes. Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?",
       TURNO_2_CALIFICADO: "Impecable. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
     },
   },
@@ -33,14 +33,14 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
     tipo_ficha: "TIPO_2_FRANJA_GRIS_DOBLE_FICHA_CON_BOVEDA_PRIVADA",
     ejemplo: "Santa Mónica · Proyecto en construcción (USD 160.000)",
     reglas_freno: [
-      "1 solo link a la ficha pública (nunca exponer Padrón, Manzana ni pin GPS exacto en T0).",
-      "Usar el video completo (2m31s) y los datos catastrales de la Bóveda Privada como anzuelo para que el lead responda.",
+      "Ticket USD 160.000 en los botones del anuncio; 0 promesa de 'ubicación exacta' y 0 Padrón público en T0.",
+      "Usar el video completo (2m31s) y la cédula catastral de Bóveda Privada como filtro de intención/liquidez antes de entregar.",
       "En T2 activar el cruce latente D7 <-> O4/O1 (terreno libre vs. obra base ahorrando 12 meses de construcción)."
     ],
     tiempos: {
-      T0_INMEDIATO: `Te comparto la ficha completa de Santa Mónica: ${SANTA_MONICA_URL}\nBuscás para proyecto propio o inversión? Si te interesa evaluar la estructura, avisame y te paso por acá el video del recorrido completo de 2 minutos y medio y los datos catastrales.`,
-      T1_AMARILLO_30_MIN: "Viste el adelanto en la ficha de Santa Mónica? Si querés ver la escala real de las dos plantas frente a la Laguna, decime y te mando el video completo sin cortes por acá.",
-      T2_NARANJA_24_HS: "Te consulto corto: te interesa que te envíe el video completo y el croquis de Santa Mónica, o estás buscando terreno libre / casa ya terminada en esa zona?",
+      T0_INMEDIATO: `Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la Laguna, USD 160.000): ${SANTA_MONICA_URL}\nPara pasarte el video completo de 2m31s y los datos catastrales con decreto vigente hasta dic. 2027: lo evaluás para vivienda propia o para inversión?`,
+      T1_AMARILLO_30_MIN: "Viste el adelanto en la ficha de Santa Mónica? Si contás con fondos en USD para evaluar compra directa, avisame y te paso el video de 2m31s y el croquis por acá.",
+      T2_NARANJA_24_HS: "Te consulto corto: te interesa que te envíe el video completo y el croquis de Santa Mónica (USD 160.000), o estás buscando terreno libre / casa terminada?",
       TURNO_2_CALIFICADO: "Los datos catastrales (según Bóveda Privada D1/PDF verificado) corresponden a terreno propio de 348 m² en régimen común, con 201 m² construidos en hormigón armado y DJCU vigente. Acá tenés el croquis base y el video completo del recorrido. Querés coordinar visita esta semana?",
     },
   },
@@ -171,9 +171,19 @@ function matchesAny(txt, patterns) {
 export function clasificarVertical14(rawText) {
   const t = (rawText || "").toLowerCase();
 
-  // Botones exactos de Meta Ads La Fortuna (ZAG-ALQ-05)
-  if (t.includes("tengo garantía aseguradora") || t.includes("tengo garantia aseguradora")) {
+  // Botones exactos de Meta Ads La Fortuna (ZAG-ALQ-05 · V2 Auto-Calificadores)
+  if (
+    t.includes("tengo porto, sura, mapfre o santander")
+    || t.includes("tengo garantía aseguradora")
+    || t.includes("tengo garantia aseguradora")
+  ) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_VISITA_FILTRADA" };
+  }
+  if (t.includes("tengo ingresos para tramitar aseguradora")) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_INGRESOS_TRAMITE" };
+  }
+  if (t.includes("busco con anda/cgn") || t.includes("busco con anda, cgn") || t.includes("tengo anda, cgn")) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_OTRA_GARANTIA" };
   }
   if (t.includes("ficha completa y ubicación exacta de la fortuna") || t.includes("ficha completa y ubicacion exacta de la fortuna")) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_FICHA" };
@@ -333,9 +343,24 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO") {
   let esPasiva = false;
 
   if (subtipo === "LA_FORTUNA_VISITA_FILTRADA") {
-    replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.TURNO_2_CALIFICADO;
+    replyText =
+      "Con esa aseguradora calificás para el apartamento a estrenar de 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera fija y mascota pequeña).\n" +
+      `Acá tenés las fotos y condiciones completas: ${LA_FORTUNA_URL}\n` +
+      "Qué día y horario te queda cómodo ir a verlo esta semana?";
     alertaAndon = true;
-    motivoAndon = "Lead de Meta Ads La Fortuna con garantía aseguradora listo para coordinar visita (MP-12).";
+    motivoAndon = "Lead Meta Ads La Fortuna ya declaró aseguradora activa (Botón 1): listo para coordinar visita (MP-12).";
+  } else if (subtipo === "LA_FORTUNA_INGRESOS_TRAMITE") {
+    replyText =
+      `Acá ves fotos y condiciones de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera): ${LA_FORTUNA_URL}\n` +
+      "Porto, Sura, Mapfre y Santander aprueban en 24 a 48 hs con recibo o certificación de ingresos. Querés que te indique qué te piden para pre-aprobarla y visitar?";
+    alertaAndon = true;
+    motivoAndon = "Lead Meta Ads La Fortuna calificable con ingresos (Botón 2): acompañar pre-aprobación aseguradora.";
+  } else if (subtipo === "LA_FORTUNA_OTRA_GARANTIA") {
+    replyText =
+      "En La Fortuna se trabaja con póliza de aseguradora, aunque relevamos opciones en otras zonas y garantías de Maldonado además de publicar propiedades con difusión abierta.\n" +
+      "Buscás alquilar en otro barrio o rango (indicanos zona, garantía y tope), o tenés una propiedad para publicar?";
+    alertaAndon = true;
+    motivoAndon = "Lead Meta Ads Botón 3 (ANDA/CGN/otra zona o captación): derivar a cartera D2 sin quemar La Fortuna.";
   } else if (subtipo === "LA_FORTUNA_FICHA") {
     replyText =
       ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos[etapaSla]

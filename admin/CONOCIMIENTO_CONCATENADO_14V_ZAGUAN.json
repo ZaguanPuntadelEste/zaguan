@@ -1,6 +1,6 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-22T15:21:08.609Z",
+  "actualizado": "2026-11-22T15:38:57.658Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -1017,9 +1017,9 @@
           "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
           "gancho": "Apartamento 2 dormitorios a estrenar en La Fortuna a $U 30.000 con gastos comunes y Wi-Fi incluidos.",
           "botones_wa": [
-            "Tengo garantía aseguradora y quiero coordinar visita",
-            "Quiero recibir la ficha completa y ubicación exacta de La Fortuna",
-            "Busco en otra zona o tengo propiedad para publicar"
+            "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar",
+            "Tengo ingresos para tramitar aseguradora y quiero ver la ficha",
+            "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar"
           ]
         },
         "4_cruce_latente_x_y": "D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)"
@@ -1190,22 +1190,22 @@
       ],
       "condiciones_actuales": "[FICHA PRIVADA: Padrón/Manzana/Carpeta en Bóveda Privada (PDF B-GH-704.pdf verificado) · DJCU 23/01/2025 PDF B-GH-704.pdf verificado · 348m2 lote / 201m2 hormigón · Decreto regularización Intendencia hasta dic 2027 · Video completo 2m33s + croquis] | Ficha pública activa sin Padrón expuesto para responder por WhatsApp.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola María, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Para completar el respaldo de tu casa en Santa Mónica (USD 160.000) con estructura para vientos oceánicos y croquis frente a la laguna, confirmame si ya sumamos el video de recorrido y los papeles del padrón para filtrarte compradores reales.",
-        "link_wa_me_1clic": "https://wa.me/59895853284?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Para%20completar%20el%20respaldo%20de%20tu%20casa%20en%20Santa%20M%C3%B3nica%20(USD%20160.000)%20con%20estructura%20para%20vientos%20oce%C3%A1nicos%20y%20croquis%20frente%20a%20la%20laguna%2C%20confirmame%20si%20ya%20sumamos%20el%20video%20de%20recorrido%20y%20los%20papeles%20del%20padr%C3%B3n%20para%20filtrarte%20compradores%20reales.",
-        "2_angulo_redes_aprobalo": "Reel/Carrusel 4:5 + Video completo Santa Mónica (llegando a José Ignacio): explicar en portada que es construcción base en hormigón con croquis frente a laguna para proyectar sin arrancar de cero.",
+        "1_guion_whatsapp_mar": "Hola María, cómo estás? Soy Mar, de ZAGUÁN Propiedades. Para completar el respaldo de tu proyecto en construcción en Santa Mónica (USD 160.000) con estructura para vientos oceánicos y croquis frente a la Laguna, confirmame si ya sumamos todos los papeles del padrón para filtrarte compradores reales.",
+        "link_wa_me_1clic": "https://wa.me/59895853284?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Soy%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Para%20completar%20el%20respaldo%20de%20tu%20proyecto%20en%20construcci%C3%B3n%20en%20Santa%20M%C3%B3nica%20(USD%20160.000)%20con%20estructura%20para%20vientos%20oce%C3%A1nicos%20y%20croquis%20frente%20a%20la%20Laguna%2C%20confirmame%20si%20ya%20sumamos%20todos%20los%20papeles%20del%20padr%C3%B3n%20para%20filtrarte%20compradores%20reales.",
+        "2_angulo_redes_aprobalo": "Reel/Carrusel 4:5 + Video completo 2m31s privado a pedido Santa Mónica (a 7 km de José Ignacio): proyecto en construcción sobre lote propio de 348 m² frente a la Laguna.",
         "3_angulo_pauta_ads": {
-          "publico": "Compradores e inversores de lotes y casas en La Barra, Manantiales, José Ignacio y Montevideo (28 a 60 años)",
-          "gancho": "Buscás armar tu proyecto frente a la laguna en Santa Mónica, llegando a José Ignacio? Mirá esta construcción base con croquis proyectable y video completo.",
+          "publico": "Compradores e inversores de lotes, proyectos y propiedades en Santa Mónica, La Barra, Manantiales, José Ignacio y Montevideo (28 a 60 años)",
+          "gancho": "Proyecto en construcción frente a la Laguna en Santa Mónica, a 7 km de José Ignacio (USD 160.000 · lote propio 348 m² · 201 m² hormigón armado).",
           "botones_wa": [
-            "Quiero ver el video completo y la ubicación en Santa Mónica",
-            "Busco lote o proyecto para construir en La Barra / José Ignacio",
-            "Tengo propiedad para vender en la zona"
+            "Evalúo compra contado USD 160.000: quiero video 2m31s y padrón",
+            "Comparo lote vs. obra (USD 160.000): pido video 2m31s y croquis",
+            "Busco casa terminada, terreno libre o pozo en cuotas"
           ]
         },
         "4_cruce_latente_x_y": "Cruce maestro D7 <-> O5: captar a quien busca terreno en Santa Mónica / José Ignacio ofreciéndole construcción base sólida calculada para vientos oceánicos (ahorra 12 meses de obra)."
       },
       "alerta_andon": true,
-      "motivo_andon": "Caso escuela Capa 2 multimodal (vientos oceánicos, croquis, video, audio antigüedad, PDF terreno).",
+      "motivo_andon": "Caso escuela Capa 2 multimodal (Bóveda Privada PDF B-GH-704.pdf + decreto dic 2027 + video 2m31s a pedido).",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     },
@@ -2867,8 +2867,8 @@
       "zona_barrio": "La Fortuna, Maldonado",
       "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
       "precio_publicado": "$U 30.000 / mes",
-      "estado_crm": "sin_respuesta_post_t0",
-      "ok_bienvenida": "rescate_t1_t2_la_fortuna",
+      "estado_crm": "rescate_lunes_24h",
+      "ok_bienvenida": "rescate_t2_lunes_10am",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
       "faltantes_capa_1": [
@@ -2881,24 +2881,24 @@
         "Franja horaria para visita",
         "Cantidad de ocupantes"
       ],
-      "condiciones_actuales": "Botón 2 tocado 09:31 · En T0 recibió 2 links + pin GPS + 'visita con el dueño' + 3 preguntas juntas + cierre pasivo 10:03 · Clavó visto · Aplicar rescate T1/T2 1 pregunta garantía vs. alternativa.",
+      "condiciones_actuales": "HOY domingo 22/11 NO insistir (ya recibió T0 largo + cierre 10:03). Disparar 1 único rescate T2 mañana lunes 23/11 10:00–11:30 hs; corte 48 hs mié 25/11.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Jime, cómo estás? Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
-        "link_wa_me_1clic": "https://wa.me/59898723753?text=Hola%20Jime%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Pudiste%20ver%20las%20fotos%20de%20La%20Fortuna%3F%20Decime%20si%20te%20sirve%20la%20condici%C3%B3n%20de%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20agendarte%20visita%20esta%20semana%2C%20o%20si%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%20de%20Maldonado%20as%C3%AD%20te%20paso%20alternativas.",
-        "2_angulo_redes_aprobalo": "Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.",
+        "1_guion_whatsapp_mar": "Hola Jime, buen lunes. Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?",
+        "link_wa_me_1clic": "https://wa.me/59898723753?text=Hola%20Jime%2C%20buen%20lunes.%20Te%20consulto%20corto%20por%20el%20apartamento%20de%20La%20Fortuna%3A%20cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20coordinar%20visita%20esta%20semana%2C%20o%20est%C3%A1s%20buscando%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%3F",
+        "2_angulo_redes_aprobalo": "Botones V2 auto-calificadores en Meta Ads La Fortuna: filtrar aseguradora o ingresos ANTES de dar link; 0 pin GPS crudo; personas y día en Turno 2.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
-          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.",
+          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 3 botones auto-calificadores <= 80 car.",
           "botones_wa": [
-            "Tengo garantía aseguradora y quiero coordinar visita",
-            "Quiero recibir la ficha completa de La Fortuna",
-            "Busco en otra zona o con otra garantía"
+            "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar",
+            "Tengo ingresos para tramitar aseguradora y quiero ver la ficha",
+            "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar"
           ]
         },
-        "4_cruce_latente_x_y": "Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto."
+        "4_cruce_latente_x_y": "Rescate T2 mañana lunes 23/11 (10:00–11:30 hs) — HOY domingo no insistir para no quemar el lead."
       },
       "alerta_andon": true,
-      "motivo_andon": "Lead real de hoy (MP-65 · Jime) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.",
+      "motivo_andon": "Lead real (MP-65 · Jime): HOY domingo no escribir (ya recibió T0 + cierre). Mandar rescate T2 lunes 23/11 10:00–11:30 hs.",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     },
@@ -2911,8 +2911,8 @@
       "zona_barrio": "La Fortuna, Maldonado",
       "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
       "precio_publicado": "$U 30.000 / mes",
-      "estado_crm": "sin_respuesta_post_t0",
-      "ok_bienvenida": "rescate_t1_t2_la_fortuna",
+      "estado_crm": "rescate_lunes_24h",
+      "ok_bienvenida": "rescate_t2_lunes_10am",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
       "faltantes_capa_1": [
@@ -2925,24 +2925,24 @@
         "Franja horaria para visita",
         "Cantidad de ocupantes"
       ],
-      "condiciones_actuales": "Botón 2 tocado 10:27 · En T0 recibió 2 links + pin GPS + 'visita con el dueño' + 3 preguntas juntas + cierre pasivo 10:33 · Clavó visto · Aplicar rescate T1/T2 1 pregunta garantía vs. alternativa.",
+      "condiciones_actuales": "HOY domingo 22/11 NO insistir (ya recibió T0 largo + cierre 10:33). Disparar 1 único rescate T2 mañana lunes 23/11 10:00–11:30 hs; corte 48 hs mié 25/11.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Eduardo, cómo estás? Pudiste ver las fotos de La Fortuna? Decime si te sirve la condición de garantía aseguradora (Porto, Sura, Mapfre o Santander) para agendarte visita esta semana, o si buscás con otra garantía / en otra zona de Maldonado así te paso alternativas.",
-        "link_wa_me_1clic": "https://wa.me/59898618020?text=Hola%20Eduardo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Pudiste%20ver%20las%20fotos%20de%20La%20Fortuna%3F%20Decime%20si%20te%20sirve%20la%20condici%C3%B3n%20de%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20agendarte%20visita%20esta%20semana%2C%20o%20si%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%20de%20Maldonado%20as%C3%AD%20te%20paso%20alternativas.",
-        "2_angulo_redes_aprobalo": "Reorientar pauta y bienvenida WA La Fortuna: 1 solo link web + 1 sola pregunta filtro (garantía aseguradora) en T0; personas y día recién en Turno 2.",
+        "1_guion_whatsapp_mar": "Hola Eduardo, buen lunes. Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?",
+        "link_wa_me_1clic": "https://wa.me/59898618020?text=Hola%20Eduardo%2C%20buen%20lunes.%20Te%20consulto%20corto%20por%20el%20apartamento%20de%20La%20Fortuna%3A%20cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20para%20coordinar%20visita%20esta%20semana%2C%20o%20est%C3%A1s%20buscando%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%3F",
+        "2_angulo_redes_aprobalo": "Botones V2 auto-calificadores en Meta Ads La Fortuna: filtrar aseguradora o ingresos ANTES de dar link; 0 pin GPS crudo; personas y día en Turno 2.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
-          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 1 link + 1 pregunta filtro.",
+          "gancho": "Alquiler anual en La Fortuna ($U 30.000 GC y Wi-Fi inc.). 3 botones auto-calificadores <= 80 car.",
           "botones_wa": [
-            "Tengo garantía aseguradora y quiero coordinar visita",
-            "Quiero recibir la ficha completa de La Fortuna",
-            "Busco en otra zona o con otra garantía"
+            "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar",
+            "Tengo ingresos para tramitar aseguradora y quiero ver la ficha",
+            "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar"
           ]
         },
-        "4_cruce_latente_x_y": "Rescate T1/T2 La Fortuna -> O6 alternativas en Maldonado si el lead tiene ANDA o presupuesto distinto."
+        "4_cruce_latente_x_y": "Rescate T2 mañana lunes 23/11 (10:00–11:30 hs) — HOY domingo no insistir para no quemar el lead."
       },
       "alerta_andon": true,
-      "motivo_andon": "Lead real de hoy (MP-66 · Eduardo Etchelet) clavó visto tras T0 largo con 2 links; listo para rescate en 1 clic.",
+      "motivo_andon": "Lead real (MP-66 · Eduardo Etchelet): HOY domingo no escribir (ya recibió T0 + cierre). Mandar rescate T2 lunes 23/11 10:00–11:30 hs.",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     }
