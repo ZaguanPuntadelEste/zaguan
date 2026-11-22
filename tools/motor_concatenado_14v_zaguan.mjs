@@ -227,7 +227,7 @@ function construirConcatenado(row) {
     };
   } else if (row.id_registro === 'MP-65' || row.id_registro === 'MP-66') {
     const saludoCorto = nombre ? `Hola ${nombre}, buenas tardes.` : 'Hola, buenas tardes.';
-    guionWa = `${saludoCorto} Te consulto corto por el alquiler anual del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?`;
+    guionWa = `${saludoCorto} Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?`;
     anguloRedes = 'Alquiler anual en Maldonado · Botones V2 auto-calificadores + ángulo Mudate ya a estrenar tu vivienda en La Fortuna.';
     anguloAds = {
       publico: 'Maldonado + Punta del Este (+17 km), 24 a 45 años',
@@ -238,9 +238,9 @@ function construirConcatenado(row) {
         'Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar',
       ],
     };
-    cruceLatente = 'Descartado sin seguimiento por orden de Dirección.';
-    alertaAndon = false;
-    motivoAndon = '';
+    cruceLatente = 'Rescate estandarizado 24/48h lunes 23/11 10:00 hs con catálogo /alquileres/ por zona y novedades + horarios del martes en La Fortuna.';
+    alertaAndon = true;
+    motivoAndon = `Lead real (${row.id_registro} · ${row.nombre_persona}): 1 rescate estandarizado lunes 24/48h con catálogo por zona y novedades.`;
   } else if (vCode === 'D2') {
     guionWa = `${saludo} Gracias por consultar en ZAGUÁN. Para pasarte opciones activas en ${zona} (${precio}), contás con garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander) o buscás con otra garantía?`;
     anguloRedes = `Placa informativa de demanda alquiler anual en ${zona}: claridad de requisitos y garantías aceptadas.`;

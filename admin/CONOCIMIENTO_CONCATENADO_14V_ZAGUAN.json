@@ -1,6 +1,6 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-22T18:57:00.823Z",
+  "actualizado": "2026-11-22T19:38:24.675Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -2867,8 +2867,8 @@
       "zona_barrio": "La Fortuna, Maldonado",
       "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
       "precio_publicado": "$U 30.000 / mes",
-      "estado_crm": "descartado_sin_seguimiento",
-      "ok_bienvenida": "descartado_por_direccion",
+      "estado_crm": "rescate_lunes_24_48h",
+      "ok_bienvenida": "rescate_estandar_24_48h_lunes",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
       "faltantes_capa_1": [
@@ -2881,10 +2881,10 @@
         "Franja horaria para visita",
         "Cantidad de ocupantes"
       ],
-      "condiciones_actuales": "Descartado por Dirección (sin respuesta al filtro inicial; cero seguimiento).",
+      "condiciones_actuales": "Pasado a rescate estandarizado 24/48 hs para lunes 23/11 con catálogo por zona (/alquileres/) + horarios del martes en La Fortuna.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Jime, buenas tardes. Te consulto corto por el alquiler anual del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?",
-        "link_wa_me_1clic": "https://wa.me/59898723753?text=Hola%20Jime%2C%20buenas%20tardes.%20Te%20consulto%20corto%20por%20el%20alquiler%20anual%20del%20apartamento%20de%202%20dormitorios%20a%20estrenar%20en%20La%20Fortuna%20(%24U%2030.000%20con%20gastos%20comunes%2C%20Wi-Fi%20y%20cochera%20incluidos%2C%20listo%20para%20mudarse%20ya)%3A%20estamos%20armando%20los%20horarios%20de%20visita%20para%20este%20martes%3B%20cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%2C%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%3F",
+        "1_guion_whatsapp_mar": "Hola Jime, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
+        "link_wa_me_1clic": "https://wa.me/59898723753?text=Hola%20Jime%2C%20buenas%20tardes.%20Por%20si%20segu%C3%ADs%20buscando%20alquiler%20anual%20en%20Maldonado%20o%20Punta%20del%20Este%3A%20para%20este%20martes%20estamos%20armando%20las%20visitas%20del%20apartamento%20de%202%20dormitorios%20a%20estrenar%20en%20La%20Fortuna%20(%24U%2030.000%20con%20gastos%20comunes%2C%20Wi-Fi%20y%20cochera%20incluidos)%2C%20y%20ac%C3%A1%20pod%C3%A9s%20revisar%20otras%20opciones%20anuales%20por%20zona%20y%20novedades%20de%20ZAGU%C3%81N%3A%20https%3A%2F%2Fzaguanpropiedades.com%2Falquileres%2F%20%C2%B7%20Cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otro%20barrio%3F",
         "2_angulo_redes_aprobalo": "Alquiler anual en Maldonado · Botones V2 auto-calificadores + ángulo Mudate ya a estrenar tu vivienda en La Fortuna.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
@@ -2895,10 +2895,10 @@
             "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar"
           ]
         },
-        "4_cruce_latente_x_y": "Descartado sin seguimiento por orden de Dirección."
+        "4_cruce_latente_x_y": "Rescate estandarizado 24/48h lunes 23/11 10:00 hs con catálogo /alquileres/ por zona y novedades + horarios del martes en La Fortuna."
       },
-      "alerta_andon": false,
-      "motivo_andon": "",
+      "alerta_andon": true,
+      "motivo_andon": "Lead real (MP-65 · Jime): 1 rescate estandarizado lunes 24/48h con catálogo por zona y novedades.",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     },
@@ -2911,8 +2911,8 @@
       "zona_barrio": "La Fortuna, Maldonado",
       "titulo_o_activo": "La Fortuna 2 Dormitorios ($U 30.000/mes)",
       "precio_publicado": "$U 30.000 / mes",
-      "estado_crm": "descartado_sin_seguimiento",
-      "ok_bienvenida": "descartado_por_direccion",
+      "estado_crm": "rescate_lunes_24_48h",
+      "ok_bienvenida": "rescate_estandar_24_48h_lunes",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
       "faltantes_capa_1": [
@@ -2925,10 +2925,10 @@
         "Franja horaria para visita",
         "Cantidad de ocupantes"
       ],
-      "condiciones_actuales": "Descartado por Dirección (sin respuesta al filtro inicial; cero seguimiento).",
+      "condiciones_actuales": "Pasado a rescate estandarizado 24/48 hs para lunes 23/11 con catálogo por zona (/alquileres/) + horarios del martes en La Fortuna.",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Eduardo, buenas tardes. Te consulto corto por el alquiler anual del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?",
-        "link_wa_me_1clic": "https://wa.me/59898618020?text=Hola%20Eduardo%2C%20buenas%20tardes.%20Te%20consulto%20corto%20por%20el%20alquiler%20anual%20del%20apartamento%20de%202%20dormitorios%20a%20estrenar%20en%20La%20Fortuna%20(%24U%2030.000%20con%20gastos%20comunes%2C%20Wi-Fi%20y%20cochera%20incluidos%2C%20listo%20para%20mudarse%20ya)%3A%20estamos%20armando%20los%20horarios%20de%20visita%20para%20este%20martes%3B%20cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%2C%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otra%20zona%3F",
+        "1_guion_whatsapp_mar": "Hola Eduardo, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
+        "link_wa_me_1clic": "https://wa.me/59898618020?text=Hola%20Eduardo%2C%20buenas%20tardes.%20Por%20si%20segu%C3%ADs%20buscando%20alquiler%20anual%20en%20Maldonado%20o%20Punta%20del%20Este%3A%20para%20este%20martes%20estamos%20armando%20las%20visitas%20del%20apartamento%20de%202%20dormitorios%20a%20estrenar%20en%20La%20Fortuna%20(%24U%2030.000%20con%20gastos%20comunes%2C%20Wi-Fi%20y%20cochera%20incluidos)%2C%20y%20ac%C3%A1%20pod%C3%A9s%20revisar%20otras%20opciones%20anuales%20por%20zona%20y%20novedades%20de%20ZAGU%C3%81N%3A%20https%3A%2F%2Fzaguanpropiedades.com%2Falquileres%2F%20%C2%B7%20Cont%C3%A1s%20con%20garant%C3%ADa%20aseguradora%20(Porto%2C%20Sura%2C%20Mapfre%20o%20Santander)%20o%20busc%C3%A1s%20con%20otra%20garant%C3%ADa%20%2F%20en%20otro%20barrio%3F",
         "2_angulo_redes_aprobalo": "Alquiler anual en Maldonado · Botones V2 auto-calificadores + ángulo Mudate ya a estrenar tu vivienda en La Fortuna.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado + Punta del Este (+17 km), 24 a 45 años",
@@ -2939,10 +2939,10 @@
             "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar"
           ]
         },
-        "4_cruce_latente_x_y": "Descartado sin seguimiento por orden de Dirección."
+        "4_cruce_latente_x_y": "Rescate estandarizado 24/48h lunes 23/11 10:00 hs con catálogo /alquileres/ por zona y novedades + horarios del martes en La Fortuna."
       },
-      "alerta_andon": false,
-      "motivo_andon": "",
+      "alerta_andon": true,
+      "motivo_andon": "Lead real (MP-66 · Eduardo Etchelet): 1 rescate estandarizado lunes 24/48h con catálogo por zona y novedades.",
       "pokayoke_pass": true,
       "pokayoke_violaciones": []
     }

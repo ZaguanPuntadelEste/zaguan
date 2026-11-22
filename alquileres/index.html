@@ -710,7 +710,7 @@
           <!-- Barra de estado y retroalimentación IA -->
           <div class="results-count-bar" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
             <div>
-              <div id="results-count" class="results-count-text">Mostrando 5 disponibles y 1 alquilada</div>
+              <div id="results-count" class="results-count-text">Mostrando 4 disponibles y 2 alquiladas</div>
               <div id="search-feedback" class="search-feedback-text"></div>
             </div>
             <select id="price-sort" class="sort-select" aria-label="Ordenar por precio">
@@ -839,30 +839,30 @@
               </div>
             </div>
           </article>
-<article class="rental-card" data-price-uyu="62000" data-status="disponible" data-currency="pesos" data-bedrooms="2d" data-zone="mansa" data-features="mar terraza cochera seguridad" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 62000 pesos">
-            <a class="rental-card-media-link" href="/alquileres/la-mansa-parada-16-2d/" aria-label="Ver ficha completa de semipiso en Playa Mansa">
-              <img src="/assets/images/alquileres-test/la-mansa-parada-16-2d/living.jpg" alt="Living comedor apaisado con salida a terraza en Playa Mansa" loading="lazy">
+<article class="rental-card rental-card--rented" data-price-uyu="62000" data-status="alquilado" data-currency="pesos" data-bedrooms="2d" data-zone="mansa" data-features="mar terraza cochera seguridad" data-keywords="la mansa parada 16 playa mansa 2 dormitorios semipiso terraza cochera 150m mar seguridad 62000 pesos alquilado cerrado">
+            <a class="rental-card-media-link" href="/alquileres/la-mansa-parada-16-2d/" aria-label="Ver ficha completa de semipiso en Playa Mansa (Alquilado)">
+              <img src="/assets/images/alquileres-test/la-mansa-parada-16-2d/living.jpg" alt="Living comedor apaisado con salida a terraza en Playa Mansa (Alquilado)" loading="lazy">
               <span class="rental-badge">Parada 16 · Playa Mansa</span>
-              <span class="rental-badge--green">A 150 m del mar</span>
+              <div class="rental-rented-ribbon">🔒 ALQUILADO · Propiedad cerrada</div>
             </a>
             <div class="rental-card-body">
               <div>
                 <div class="rental-ref">REF. ZAG-ALQ-03</div>
-                <div class="rental-price">$U 62.000 <small>/ mes</small></div>
+                <div class="rental-price" style="opacity:0.72;"><span style="text-decoration:line-through;">$U 62.000</span> <small style="color:#D4AF37; font-weight:700;">· ALQUILADO</small></div>
                 <a class="rental-title-link" href="/alquileres/la-mansa-parada-16-2d/">
                   <h3 class="rental-title">Semipiso de 2 dormitorios con terraza y cochera en Playa Mansa</h3>
                 </a>
-                <p class="rental-desc">A 150 metros del mar sobre Parada 16. Living comedor apaisado con salida a terraza hacia pinos, cocina definida con desayunador en cuarzo, 2 baños y portería 24 hs.</p>
+                <p class="rental-desc">A 150 metros del mar sobre Parada 16. Esta unidad ya concretó su alquiler anual. Consultanos por opciones similares disponibles en Playa Mansa y Maldonado.</p>
                 <div class="specs-list">
                   <div class="spec-item">Dormitorios: <strong>2 amplios</strong></div>
                   <div class="spec-item">Baños: <strong>2 completos</strong></div>
                   <div class="spec-item">Cochera: <strong>Techada</strong></div>
-                  <div class="spec-item">Distancia al mar: <strong>150 metros</strong></div>
+                  <div class="spec-item">Estado: <strong style="color:#D4AF37;">Alquilada</strong></div>
                 </div>
               </div>
               <div class="rental-actions">
-                <a href="/alquileres/la-mansa-parada-16-2d/" class="btn-action btn-action--primary">Ver ficha completa →</a>
-                <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20por%20el%20alquiler%20anual%20Ref.%20ZAG-ALQ-03%20%28Semipiso%202%20dormitorios%20en%20Playa%20Mansa%20Parada%2016%20%C2%B7%20%24U%2062.000%2Fmes%29.%20Ficha%3A%20https%3A%2F%2Fzaguanpropiedades.com%2Falquileres%2Fla-mansa-parada-16-2d%2F" class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar</a>
+                <a href="/alquileres/la-mansa-parada-16-2d/" class="btn-action btn-action--rented">Ver ficha (Alquilado · Similares) ↗</a>
+                <a href="https://wa.me/59898712064?text=Hola%2C%20vi%20que%20el%20semipiso%20de%20Playa%20Mansa%20(%24U%2062.000)%20ya%20se%20alquil%C3%B3%20y%20quiero%20consultar%20por%20opciones%20similares%20de%20alquiler%20anual." class="btn-action btn-action--outline" target="_blank" rel="noopener noreferrer">Consultar similares</a>
               </div>
             </div>
           </article>
@@ -922,7 +922,7 @@
         <div class="owners-banner">
           <div class="owners-banner-text">
             <h3>¿Tenés una propiedad para alquiler anual?</h3>
-            <p>Sumá tu casa o apartamento en Punta del Este o Maldonado sin ataduras de exclusividad. Presentamos a tu propiedad con la categoría que merece y solo cobramos honorarios si se firma el contrato.</p>
+            <p>Sumá tu casa o apartamento en Punta del Este o Maldonado. Presentamos tu propiedad con filtro previo de garantía aseguradora y respaldo notarial.</p>
           </div>
           <a href="/publicar/" class="btn-action btn-action--primary" style="flex:none; width:auto; padding:14px 24px;">Sumar mi propiedad →</a>
         </div>

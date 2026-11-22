@@ -24,8 +24,8 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
     tiempos: {
       T0_INMEDIATO: `Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}\nQué día y horario te sirve visitar esta semana?`,
       T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ver qué documentación pide Porto, Sura, Mapfre o Santander, avisame y te paso el requisito en 2 líneas.",
-      T2_NARANJA_24_HS: "Hola, buenas tardes. Te consulto corto por el alquiler anual del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos, listo para mudarse ya): estamos armando los horarios de visita para este martes; contás con garantía aseguradora (Porto, Sura, Mapfre o Santander), o buscás con otra garantía / en otra zona?",
-      TURNO_2_CALIFICADO: "Impecable. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
+      T2_NARANJA_24_HS: "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/ · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
+      TURNO_2_CALIFICADO: "Excelente. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
     },
   },
   FAMILIA_B_COMPRA_LOTE_PROYECTO: {
