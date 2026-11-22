@@ -22,7 +22,7 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "T0 hace 1 sola pregunta filtro (garantía aseguradora). Cantidad de personas y día van recién en Turno 2."
     ],
     tiempos: {
-      T0_INMEDIATO: `Con esa aseguradora calificás para el apartamento a estrenar de 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera fija y mascota pequeña).\nAcá tenés las fotos y condiciones completas: ${LA_FORTUNA_URL}\nQué día y horario te queda cómodo ir a verlo esta semana?`,
+      T0_INMEDIATO: `Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}\nQué día y horario te sirve visitar esta semana?`,
       T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ver qué documentación pide Porto, Sura, Mapfre o Santander, avisame y te paso el requisito en 2 líneas.",
       T2_NARANJA_24_HS: "Hola, buen lunes. Te consulto corto por el apartamento de La Fortuna: contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita esta semana, o estás buscando con otra garantía / en otra zona?",
       TURNO_2_CALIFICADO: "Impecable. Para cuántas personas sería el alquiler y qué día y franja horaria te queda cómodo para ir a verlo?",
@@ -344,15 +344,15 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO") {
 
   if (subtipo === "LA_FORTUNA_VISITA_FILTRADA") {
     replyText =
-      "Con esa aseguradora calificás para el apartamento a estrenar de 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera fija y mascota pequeña).\n" +
-      `Acá tenés las fotos y condiciones completas: ${LA_FORTUNA_URL}\n` +
-      "Qué día y horario te queda cómodo ir a verlo esta semana?";
+      "Con esa aseguradora calificás para La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\n" +
+      `Acá ves fotos y ficha: ${LA_FORTUNA_URL}\n` +
+      "Qué día y horario te sirve visitar esta semana?";
     alertaAndon = true;
     motivoAndon = "Lead Meta Ads La Fortuna ya declaró aseguradora activa (Botón 1): listo para coordinar visita (MP-12).";
   } else if (subtipo === "LA_FORTUNA_INGRESOS_TRAMITE") {
     replyText =
-      `Acá ves fotos y condiciones de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera): ${LA_FORTUNA_URL}\n` +
-      "Porto, Sura, Mapfre y Santander aprueban en 24 a 48 hs con recibo o certificación de ingresos. Querés que te indique qué te piden para pre-aprobarla y visitar?";
+      `Acá ves fotos y ficha de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera): ${LA_FORTUNA_URL}\n` +
+      "Porto, Sura, Mapfre y Santander aprueban en 24/48 hs con recibo o ingresos. Querés que te indique cómo pre-aprobarla y visitar?";
     alertaAndon = true;
     motivoAndon = "Lead Meta Ads La Fortuna calificable con ingresos (Botón 2): acompañar pre-aprobación aseguradora.";
   } else if (subtipo === "LA_FORTUNA_OTRA_GARANTIA") {
