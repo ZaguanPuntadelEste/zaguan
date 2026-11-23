@@ -8,7 +8,7 @@
     toggle.addEventListener('click',() => { const open=header.classList.toggle('menu-open'); document.body.classList.toggle('menu-open',open); toggle.setAttribute('aria-expanded',String(open)); toggle.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú'); });
     document.querySelectorAll('#mobile-menu a').forEach(a=>a.addEventListener('click',close));
     document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
-    window.addEventListener('resize',()=>{if(window.innerWidth>900)close();});
+    window.addEventListener('resize',()=>{if(window.innerWidth>1120)close();});
   }
   const path=location.pathname;
   const origin=path.includes('avances-obra')?'la nota de avances de obra de Betania IV':path.includes('apartamentos-en-pozo')?'la nota del proyecto Betania IV y su financiación hasta en 24 cuotas':'la portada de Novedades del Este';
@@ -31,7 +31,7 @@
     if(!nav.querySelector('a[href="/novedades-del-este/"]')){const a=document.createElement('a');a.href='/novedades-del-este/';a.textContent='Novedades del Este';nav.prepend(a);}
   });
   const style=document.createElement('style');
-  style.textContent='.article-body figure{overflow:hidden;border-radius:18px;transition:box-shadow 250ms ease}.article-body figure img{transition:transform 350ms ease}.article-body figure:hover{box-shadow:0 12px 30px rgba(8,21,33,.12)}.article-body figure:hover img{transform:scale(1.02)}.site-header .main-nav{gap:16px}.site-header .main-nav a{font-size:9px}@media(prefers-reduced-motion:reduce){.article-body figure:hover img{transform:none}}';
+  style.textContent='.article-body figure{overflow:hidden;border-radius:18px;transition:box-shadow 250ms ease}.article-body figure img{transition:transform 350ms ease}.article-body figure:hover{box-shadow:0 12px 30px rgba(8,21,33,.12)}.article-body figure:hover img{transform:scale(1.02)}@media(prefers-reduced-motion:reduce){.article-body figure:hover img{transform:none}}';
   document.head.appendChild(style);
   document.querySelectorAll('[data-novedades-gallery]').forEach(g=>{
     let urls;try{urls=JSON.parse(g.dataset.images);}catch{return;}

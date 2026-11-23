@@ -36,6 +36,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/proyecto-estructura.css?v=20261123">
   <style>
     :root {
       --estuario: #123B4A;
@@ -67,7 +68,7 @@
     .container { width: min(calc(100% - 48px), var(--max)); margin: 0 auto; }
 
     /* Header */
-    .site-header {
+    #site-header {
       background: var(--bigua);
       color: var(--bone);
       border-bottom: 1px solid rgba(243,240,232,0.16);
@@ -75,23 +76,14 @@
       top: 0;
       z-index: 50;
     }
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 76px;
-      gap: 20px;
+    #site-header.is-scrolled {
+      background: rgba(243,240,232,0.96);
+      color: var(--bigua);
     }
-    .brand-logo { height: 32px; width: auto; }
-    .main-nav { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-    .main-nav a {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(243,240,232,0.82);
+    #site-header.menu-open {
+      background: var(--bone);
+      color: var(--bigua);
     }
-    .main-nav a:hover { color: var(--bone); }
 
     /* Barra de Anclas */
     .anchor-bar {
@@ -200,6 +192,11 @@
     .btn--light:hover { background: #FFFFFF; }
     .btn--dark { background: var(--bigua); color: var(--bone); border-color: var(--bigua); }
     .btn--dark:hover { background: var(--umbral); border-color: var(--umbral); }
+    .btn--estuario { background: var(--estuario); color: var(--bone); border-color: rgba(243,240,232,0.35); }
+    .btn--estuario:hover { background: var(--umbral); border-color: var(--umbral); }
+    input::placeholder, textarea::placeholder { color: rgba(243,240,232,0.68); }
+    #verificador-garantias input::placeholder { color: #5C6770; }
+    #verificador-garantias .field input::placeholder, #alq-pb-ing::placeholder { color: rgba(243,240,232,0.68); }
 
     /* Secciones */
     .section {
@@ -295,18 +292,10 @@
     @media (max-width: 900px) {
       .triage-grid, .grid-2 { grid-template-columns: 1fr; }
     }
-    .mob-header-cta { display: none; }
     @media (max-width: 600px) {
       .container { width: calc(100% - 24px); }
-      .header-inner { flex-wrap: wrap; min-height: 48px; gap: 8px; padding: 10px 0; }
-      .brand-logo { height: 22px; }
-      .main-nav { display: flex; order: 3; width: 100%; gap: 10px 14px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid rgba(243,240,232,0.14); }
-      .main-nav a { font-size: 10.5px; }
-      .mob-header-cta { display: flex; align-items: center; gap: 8px; }
-      .mob-header-cta a { font-size: 11px; font-weight: 700; padding: 5px 9px; border: 1px solid rgba(243,240,232,0.25); color: var(--bone); }
-      .mob-header-cta a.mob-wa { background: var(--bone); color: var(--bigua); border-color: var(--bone); }
       .anchor-bar { padding: 6px 0; font-size: 11px; }
-      .hero { padding: 14px 0 20px; }
+      .hero { padding: 18px 0 22px; }
       .eyebrow { margin-bottom: 6px; font-size: 10px; }
       .hero h1 { font-size: 24px; line-height: 1.06; margin-bottom: 6px; }
       .hero-sub { font-size: 13px; line-height: 1.38; margin-bottom: 12px; }
@@ -382,7 +371,7 @@
             "name": "¿Cuál es la relación alquiler/ingreso y cómo califican extranjeros con menos de 18 meses en Uruguay?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Se calcula aproximadamente un 30% de afectación sobre el ingreso líquido, pudiendo combinar 1 ingreso o hasta 3 o 5 co-solicitantes sin Clearing negativo. Quienes cobran ingresos del exterior o llevan menos de 18 meses de residencia cuentan con certificación contable/notarial mediante escribanía aliada o garantía de Depósito."
+              "text": "Se calcula en torno a un 30% de afectación sobre el ingreso líquido, pudiendo combinar 1 ingreso o hasta 4 personas solicitantes con historial limpio en Clearing de Informes. Quienes cobran ingresos del exterior o llevan menos de 18 meses de residencia cuentan con certificación contable o notarial mediante escribanía aliada o garantía de depósito."
             }
           }
         ]
@@ -392,25 +381,40 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a href="/" aria-label="ZAGUÁN Propiedades, inicio">
-        <img class="brand-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
+      <a class="brand" href="/" aria-label="ZAGUÁN Propiedades, inicio">
+        <img class="brand-logo brand-logo--white" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
+        <img class="brand-logo brand-logo--black" src="/assets/brand/zaguan-black.png" alt="">
       </a>
-      <nav class="main-nav" aria-label="Navegación principal"><a href="/propiedades/">Venta: Casas y Lotes</a><a href="/proyectos/">Desarrollos en Pozo</a><a href="/alquileres/">Alquiler Anual</a><a href="/garantias-alquiler/">Verificador de Garantías</a><a href="/novedades-del-este/">Novedades del Este</a><a href="/publicar/">Publicar Propiedad</a></nav>
-      <div class="mob-header-cta">
-        <a href="/garantias-alquiler/">Garantías</a>
-        <a class="mob-wa" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20te%20escribo%20desde%20ZAGU%C3%81N%20Propiedades%20por%20alquiler%20anual." target="_blank" rel="noopener noreferrer">WhatsApp Mar →</a>
-      </div>
+      <nav class="main-nav" aria-label="Navegación principal"><a href="/propiedades/">Venta: casas y lotes</a><a href="/proyectos/">Desarrollos en pozo</a><a href="/alquileres/" aria-current="page">Alquiler anual</a><a href="/garantias-alquiler/">Verificador de garantías</a><a href="/novedades-del-este/">Novedades del Este</a><a href="/publicar/">Publicar propiedad</a></nav>
+      <nav class="language-nav" aria-label="Selector de idioma">
+        <a href="/alquiloanual/" lang="es" aria-current="page">ES</a>
+        <a href="/en/" lang="en">EN</a>
+        <a href="/pt/" lang="pt">PT</a>
+      </nav>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Abrir menú" aria-controls="mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
+    <nav class="mobile-menu" id="mobile-menu" aria-label="Menú móvil">
+      <div class="container mobile-menu-inner">
+        <a href="/propiedades/">Venta: casas y lotes</a>
+        <a href="/proyectos/">Desarrollos en pozo</a>
+        <a href="/alquileres/" aria-current="page">Alquiler anual</a>
+        <a href="/garantias-alquiler/">Verificador de garantías</a>
+        <a href="/novedades-del-este/">Novedades del Este</a>
+        <a href="/publicar/">Publicar propiedad</a>
+        <a href="https://wa.me/59898712064?text=Hola%20Mar%2C%20te%20escribo%20desde%20ZAGU%C3%81N%20Propiedades%20por%20alquiler%20anual." target="_blank" rel="noopener noreferrer">Contactanos por WhatsApp</a>
+        <div class="mobile-languages"><a href="/alquiloanual/" lang="es" aria-current="page">ES</a><a href="/en/" lang="en">EN</a><a href="/pt/" lang="pt">PT</a></div>
+      </div>
+    </nav>
   </header>
 
   <nav class="anchor-bar" aria-label="Secciones de esta página">
     <div class="container anchor-list">
       <a href="#triaje">1. Triaje rápido</a>
-      <a href="#propiedades-disponibles">2. Propiedades disponibles (2)</a>
+      <a href="#propiedades-disponibles">2. Propiedades en cartera (6 · 4 disponibles)</a>
       <a href="#propietarios-exclusiva">3. Tengo una propiedad para alquilar</a>
-      <a href="#verificador-garantias">4. Verificador de garantías y FAQs</a>
+      <a href="#verificador-garantias">4. Verificador de garantías y consultas</a>
       <a href="#inquilinos-garantia">5. Busco alquiler anual</a>
       <a href="#comparar-pozo">6. Comparar alquiler vs. pozo en cuotas</a>
     </div>
@@ -471,7 +475,7 @@
             <p class="eyebrow" style="color:var(--feather); margin-bottom:6px;">Disponibilidad inmediata</p>
             <h2 style="font-size:clamp(26px, 3.4vw, 40px); color:var(--bigua);">Propiedades disponibles para alquiler anual</h2>
           </div>
-          <a href="/alquileres/" class="btn btn--dark" style="flex:none;">Ver galería completa (2) →</a>
+          <a href="/alquileres/" class="btn btn--dark" style="flex:none;">Ver galería (6 en cartera · 4 disponibles) →</a>
         </div>
 
         <div class="triage-grid triage-grid-alquileres">
@@ -541,8 +545,9 @@
           </div>
         </div>
 
+        <div>
         <!-- Unidad Destacada en Cartera -->
-        <div style="background:#123B4A; border:1px solid rgba(243,240,232,0.18); border-radius:16px; padding:24px; margin-bottom:30px; display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
+        <div style="background:#123B4A; border:1px solid rgba(243,240,232,0.18); border-radius:16px; padding:24px; margin-bottom:24px; display:flex; gap:20px; align-items:center; flex-wrap:wrap;">
           <img src="/assets/images/propiedades/la-fortuna-jorge/foto_02.jpg" alt="Apartamento 2D La Fortuna" style="width:140px; height:105px; object-fit:cover; border-radius:10px; border:1px solid rgba(255,255,255,0.1);">
           <div style="flex:1; min-width:240px;">
             <div style="display:flex; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
@@ -623,28 +628,29 @@
             </div>
           </form>
         </div>
+        </div>
       </div>
     </section>
 
-    <!-- Verificador Interactivo de Prerrequisitos de Garantía + FAQs Reales -->
+    <!-- Verificador Interactivo de Requisitos de Garantía + Consultas Frecuentes -->
     <section class="section" id="verificador-garantias" style="background:var(--limestone);">
       <div class="container">
-        <p class="eyebrow" style="color:var(--feather);">Prerrequisitos de Aseguradoras en Uruguay · Porto Seguro · Sura · Mapfre · Santander</p>
+        <p class="eyebrow" style="color:var(--feather);">Requisitos estándar en Uruguay · Porto Seguro · Sura · Mapfre · Santander</p>
         <h2 style="font-size:clamp(26px, 3.3vw, 40px); color:var(--bigua);">Verificador gratuito de garantías para alquiler anual</h2>
         <div style="background:var(--bone);border-left:3px solid var(--estuario);padding:14px 16px;margin:16px 0 24px;font-size:13.5px;color:var(--bigua);">
-          <strong>Aclaración institucional:</strong> ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro. Este verificador gratuito te permite comprobar en 30 segundos los prerrequisitos estándar de las aseguradoras en Uruguay (Porto Seguro, Sura, Mapfre, Santander) para saber dónde estás parado mientras buscamos o reservamos tu propiedad con gestión ZAGUÁN.
+          <strong>Aclaración institucional:</strong> Las garantías y pólizas de seguro son evaluadas y emitidas por cada compañía aseguradora. Este verificador gratuito de ZAGUÁN Propiedades te permite comprobar en 30 segundos qué requisitos cumplís hoy según los criterios estándar en Uruguay (Porto Seguro, Sura, Mapfre, Santander) mientras buscamos o reservamos tu propiedad con gestión ZAGUÁN.
         </div>
 
         <div class="grid-2" style="gap:24px;">
           <!-- PUERTA A EMBEDDED -->
           <div style="background:var(--bone);border:1px solid var(--mist);padding:24px;">
             <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta A · Prioridad inmediata</span>
-            <h3 style="font-size:22px;margin-bottom:8px;">Ya tengo garantía aprobada o pre-aprobada / Depósito listo</h3>
+            <h3 style="font-size:22px;margin-bottom:8px;">Ya tengo garantía aprobada o depósito listo</h3>
             <p style="font-size:13.5px;color:var(--estuario);margin-bottom:14px;">Coordinamos visitas directo en las propiedades que coinciden con tu búsqueda.</p>
             <div style="display:grid;gap:10px;">
-              <input id="alq-pa-nombre" type="text" placeholder="Nombre y apellido" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
-              <input id="alq-pa-wa" type="tel" placeholder="WhatsApp (+598 ...)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
-              <select id="alq-pa-gar" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <input id="alq-pa-nombre" type="text" aria-label="Nombre y apellido" placeholder="Nombre y apellido" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <input id="alq-pa-wa" type="tel" aria-label="WhatsApp" placeholder="WhatsApp (+598 ...)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <select id="alq-pa-gar" aria-label="Garantía disponible" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
                 <option value="Porto Seguro">Porto Seguro</option>
                 <option value="Sura">Sura</option>
                 <option value="Mapfre">Mapfre</option>
@@ -652,46 +658,46 @@
                 <option value="ANDA / Contaduría">ANDA / Contaduría</option>
                 <option value="Depósito listo">Depósito listo</option>
               </select>
-              <input id="alq-pa-zona" type="text" placeholder="Zona y presupuesto (ej. La Fortuna $U 30.000)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <input id="alq-pa-zona" type="text" aria-label="Zona y presupuesto" placeholder="Zona y presupuesto (ej. La Fortuna $U 30.000)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
               <button type="button" class="btn btn--dark" onclick="enviarPuertaAInline()">Registrar prioridad y abrir WhatsApp →</button>
             </div>
           </div>
 
           <!-- PUERTA B EMBEDDED -->
           <div style="background:var(--bigua);color:var(--bone);padding:24px;border:1px solid var(--estuario);">
-            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta B · Simulador Multi-Persona (1 a 4)</span>
-            <h3 style="font-size:22px;color:var(--bone);margin-bottom:8px;">Todavía no la tengo y quiero simular si calificamos con gestión ZAGUÁN</h3>
-            <p style="font-size:13px;color:rgba(243,240,232,0.82);margin-bottom:10px;">Podés sumar de 1 a 4 solicitantes (todos los que aportan firman contrato · 1 póliza = 1 contrato) e incluir continuidad sin corte en BPS.</p>
+            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta B · Simulador multipersona (1 a 4)</span>
+            <h3 style="font-size:22px;color:var(--bone);margin-bottom:8px;">Quiero simular si calificamos para tramitarla con gestión ZAGUÁN</h3>
+            <p style="font-size:13px;color:rgba(243,240,232,0.84);margin-bottom:10px;">Podés sumar de 1 a 4 personas solicitantes (quienes suman ingresos firman contrato · 1 póliza = 1 contrato) e incluir continuidad sin corte en BPS.</p>
             <div style="display:grid;gap:10px;margin-top:12px;">
-              <select id="alq-pb-doc" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
-                <option value="ci_vigente_2y">CI uruguaya vigente (>= 2 años) + residencia</option>
-                <option value="extranjero_18m">Pasaporte + más de 18 meses de residencia en Uruguay</option>
-                <option value="extranjero_nuevo">Extranjero con menos de 18 meses (certificación escribanía/contable o Depósito)</option>
+              <select id="alq-pb-doc" aria-label="Documento y residencia en Uruguay" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <option value="ci_vigente_2y">CI uruguaya vigente (2 o más años) + residencia</option>
+                <option value="extranjero_18m">Pasaporte / DNI con residencia de 18+ meses en Uruguay</option>
+                <option value="extranjero_nuevo">Residencia extranjera menor a 18 meses (escribanía aliada o depósito)</option>
               </select>
-              <select id="alq-pb-lab" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+              <select id="alq-pb-lab" aria-label="Modalidad laboral" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
                 <option value="dependencia_fijo">Relación de dependencia sueldo fijo (1 año o continuidad BPS + 3 recibos)</option>
                 <option value="dependencia_variable">Relación de dependencia sueldo variable / comisiones (1 año o continuidad BPS + 6 recibos)</option>
-                <option value="independiente">Independiente / Unipersonal (1–2 años + BPS/DGI al día + Contador Público)</option>
+                <option value="independiente">Actividad independiente / unipersonal (1–2 años + BPS/DGI + profesional contable)</option>
                 <option value="exterior">Ingresos del exterior (facturas + bancos + escribanía aliada)</option>
-                <option value="sin_ingresos_formales">Sin ingresos formales demostrables (Depósito)</option>
+                <option value="sin_ingresos_formales">Ingresos alternativos mediante depósito de garantía</option>
               </select>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-                <input id="alq-pb-ing" type="number" value="105000" placeholder="Ingresos totales $U" oninput="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
-                <select id="alq-pb-sol" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <input id="alq-pb-ing" type="number" min="0" step="1000" inputmode="numeric" aria-label="Ingresos líquidos mensuales en pesos uruguayos" value="105000" placeholder="Ingresos totales $U" oninput="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <select id="alq-pb-sol" aria-label="Cantidad de personas solicitantes" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
                   <option value="1">1 solicitante</option>
-                  <option value="2">2 solicitantes suman</option>
-                  <option value="3">3 solicitantes suman</option>
-                  <option value="4">4 solicitantes suman</option>
+                  <option value="2">2 personas solicitantes</option>
+                  <option value="3">3 personas solicitantes</option>
+                  <option value="4">4 personas solicitantes</option>
                 </select>
               </div>
               <div id="alq-pb-res" style="background:rgba(243,240,232,0.08);border:1px solid rgba(243,240,232,0.2);padding:12px;font-size:13px;">
-                Tope estimado al 30%: <strong>$U 31.500 / mes</strong> · Documentación: últimos 3 recibos de sueldo (o Historia Laboral Nominada BPS + ambos empleos si cambiaste sin corte).
+                Tope estimado al 30%: <strong>$U 31.500 / mes</strong> · Documentación: últimos 3 recibos de sueldo (o historia laboral nominada de BPS + ambos empleos si cambiaste sin corte).
               </div>
               <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-                <a class="btn btn--light" id="alq-pb-sim-link" href="/garantias-alquiler/" style="flex:1;">Simulador Multi-Persona (1 a 4) →</a>
-                <a class="btn btn--estuario" href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="flex:1;">Guía 8 FAQs reales →</a>
+                <a class="btn btn--light" id="alq-pb-sim-link" href="/garantias-alquiler/" style="flex:1;">Simulador multipersona (1 a 4) →</a>
+                <a class="btn btn--estuario" href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="flex:1;">Guía 8 preguntas reales →</a>
               </div>
-              <a class="btn btn--estuario" id="alq-pb-wa-btn" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20verificar%20mis%20prerrequisitos%20para%20garant%C3%ADa%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer" style="width:100%;">Consultar directo con Mar por WhatsApp</a>
+              <a class="btn btn--estuario" id="alq-pb-wa-btn" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20verificar%20mis%20requisitos%20para%20garant%C3%ADa%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer" style="width:100%;">Consultar directo con Mar por WhatsApp</a>
             </div>
           </div>
         </div>
@@ -910,5 +916,6 @@
 
     evalGarantiaInline();
   </script>
+  <script src="/assets/js/novedades-header.js?v=20261123" defer></script>
 </body>
 </html>
