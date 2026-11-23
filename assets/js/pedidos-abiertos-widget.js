@@ -38,66 +38,75 @@
   }
 
   var initEsCompra = /venta|compra|pozo/i.test(opInicial);
-  var initPresuPlaceholder = initEsCompra ? 'Ej. USD 120.000' : 'Ej. $U 30.000 / mes';
+  var initPresuPlaceholder = initEsCompra ? 'Ej. USD 120.000' : 'Ej. $U 27.000 / mes';
   var initCuandoOpts = buildCuandoOptions(initEsCompra);
+  var is2DormDefault = host.getAttribute('data-dormitorios') === '2' || /\b2\s*(?:d\b|dorm)/i.test(tituloProp);
 
   host.innerHTML =
-    '<section aria-label="Dejar búsqueda en Pedidos Abiertos" style="margin-top:24px;padding:18px 20px;border-radius:14px;background:rgba(15,29,43,0.94);border:1px solid rgba(212,175,55,0.38);color:#F1F5F9;">' +
-      '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px;">' +
+    '<style>' +
+      '#zg-pa-form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;align-items:end}' +
+      '#zg-pa-form label{display:grid;gap:5px;font-size:12px;color:#B8C5D0;min-width:0;font-weight:500}' +
+      '#zg-pa-form input,#zg-pa-form select{width:100%;height:42px;box-sizing:border-box;padding:0 11px;border-radius:8px;border:1px solid rgba(243,240,232,0.24);background:#081521;color:#F3F0E8;font-size:13.5px;font-family:inherit;min-width:0}' +
+      '#zg-pa-form input:focus,#zg-pa-form select:focus{outline:2px solid #B7D6E0;outline-offset:1px;border-color:#B7D6E0}' +
+      '#zg-pa-btn{width:100%;height:42px;padding:0 14px;border-radius:8px;border:1px solid #F3F0E8;background:#F3F0E8;color:#081521;font-weight:700;font-size:13.5px;cursor:pointer;font-family:inherit;white-space:nowrap;transition:background .18s ease}' +
+      '#zg-pa-btn:hover{background:#B7D6E0;border-color:#B7D6E0}' +
+      '@media(max-width:960px){#zg-pa-form{grid-template-columns:repeat(2,minmax(0,1fr))}}' +
+      '@media(max-width:560px){#zg-pa-form{grid-template-columns:1fr}}' +
+    '</style>' +
+    '<section aria-label="Dejar búsqueda en Pedidos Abiertos" style="margin-top:20px;padding:22px 26px;border-radius:16px;background:#123B4A;border:1px solid rgba(243,240,232,0.18);color:#F3F0E8;">' +
+      '<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:14px;">' +
         '<div>' +
-          '<span style="display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:#FCD34D;margin-bottom:2px;">Búsqueda personalizada en Zaguán</span>' +
-          '<h3 style="margin:0;font-size:17px;line-height:1.28;color:#FFFFFF;">' +
+          '<span style="display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#B7D6E0;margin-bottom:4px;">Búsqueda personalizada en Zaguán</span>' +
+          '<h3 style="margin:0;font-size:18px;line-height:1.25;color:#F3F0E8;font-family:Archivo,sans-serif;">' +
             (fechaFutura ? '¿Buscás para esa fecha, otra modalidad u otro presupuesto?' : '¿Buscás otra propiedad, menos o más dormitorios, o alquilar / comprar?') +
           '</h3>' +
         '</div>' +
-        '<span style="font-size:12px;color:#B7D6E0;">Solo WhatsApp · Respuesta directa con Mar</span>' +
+        '<span style="font-size:12.5px;color:#B7D6E0;font-weight:600;">Solo WhatsApp · Respuesta directa con Mar</span>' +
       '</div>' +
-      '<form id="zg-pa-form" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px;align-items:end;">' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+      '<form id="zg-pa-form">' +
+        '<label>' +
           '<span>WhatsApp *</span>' +
-          '<input id="zg-pa-tel" type="tel" required placeholder="099 123 456" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13.5px;">' +
+          '<input id="zg-pa-tel" type="tel" required placeholder="099 123 456">' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>Tu nombre (opcional)</span>' +
-          '<input id="zg-pa-nombre" type="text" placeholder="Ej. Sofía" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13.5px;">' +
+          '<input id="zg-pa-nombre" type="text" placeholder="Ej. Sofía">' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>¿Qué operación buscás?</span>' +
-          '<select id="zg-pa-op" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13px;">' +
+          '<select id="zg-pa-op">' +
             '<option value="Alquiler Anual"' + (opInicial === 'Alquiler Anual' ? ' selected' : '') + '>Alquiler anual ($U / USD)</option>' +
             '<option value="Compra / Venta"' + (opInicial === 'Compra / Venta' ? ' selected' : '') + '>Compra: casa, apto o terreno (USD)</option>' +
             '<option value="Desarrollo en pozo"' + (opInicial === 'Desarrollo en pozo' ? ' selected' : '') + '>Desarrollo en pozo en cuotas (USD)</option>' +
           '</select>' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>Zona o barrio</span>' +
-          '<input id="zg-pa-zona" type="text" value="' + zonaDefault.replace(/"/g, '&quot;') + '" placeholder="Ej. Maldonado Centro, Mansa, Barra" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13.5px;">' +
+          '<input id="zg-pa-zona" type="text" value="' + zonaDefault.replace(/"/g, '&quot;') + '" placeholder="Ej. Maldonado Centro, Mansa, Barra">' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>¿Para cuándo buscás?</span>' +
-          '<select id="zg-pa-cuando" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13px;">' +
+          '<select id="zg-pa-cuando">' +
             initCuandoOpts.map(function(o) { return '<option value="' + o.val + '">' + o.label + '</option>'; }).join('') +
           '</select>' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>Dormitorios / tipología</span>' +
-          '<select id="zg-pa-dorms" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13px;">' +
+          '<select id="zg-pa-dorms">' +
             '<option value="0|Monoambiente o 1 dormitorio|Monoambiente o 1 dormitorio">Monoambiente o 1 dormitorio</option>' +
-            '<option value="0|Monoambiente, 1 o 2 dormitorios|1 o 2 dormitorios">Indistinto (1 o 2 dormitorios)</option>' +
+            '<option value="0|Monoambiente, 1 o 2 dormitorios|1 o 2 dormitorios"' + (is2DormDefault ? ' selected' : '') + '>Indistinto (1 o 2 dormitorios)</option>' +
             '<option value="2|2 dormitorios|2 dormitorios">2 dormitorios</option>' +
             '<option value="3|3 o más dormitorios|3 o más dormitorios">3 o más dormitorios</option>' +
             '<option value="0|Terreno, proyecto o local comercial|Terreno, proyecto o local comercial">Terreno, proyecto o local comercial</option>' +
           '</select>' +
         '</label>' +
-        '<label style="display:grid;gap:4px;font-size:12px;color:#CBD5E1;">' +
+        '<label>' +
           '<span>Presupuesto aprox.</span>' +
-          '<input id="zg-pa-presu" type="text" placeholder="' + initPresuPlaceholder + '" style="padding:9px 10px;border-radius:8px;border:1px solid rgba(148,163,184,0.35);background:#081521;color:#fff;font-size:13.5px;">' +
+          '<input id="zg-pa-presu" type="text" placeholder="' + initPresuPlaceholder + '">' +
         '</label>' +
-        '<button type="submit" id="zg-pa-btn" style="padding:10px 14px;border-radius:8px;border:0;background:#16A34A;color:#fff;font-weight:700;font-size:13px;cursor:pointer;">' +
-          '🎯 Dejar mi búsqueda' +
-        '</button>' +
+        '<button type="submit" id="zg-pa-btn">Dejar mi búsqueda →</button>' +
       '</form>' +
-      '<div id="zg-pa-result" style="display:none;margin-top:12px;padding:12px 14px;border-radius:8px;background:rgba(22,163,74,0.14);border:1px solid rgba(22,163,74,0.45);font-size:13px;"></div>' +
+      '<div id="zg-pa-result" style="display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:rgba(8,21,33,0.72);border:1px solid #B7D6E0;color:#F3F0E8;font-size:13.5px;"></div>' +
     '</section>';
 
   var form = document.getElementById('zg-pa-form');
@@ -110,7 +119,7 @@
   opSel.addEventListener('change', function() {
     var esCompraNow = /venta|compra|pozo/i.test(opSel.value);
     if (presuInput) {
-      presuInput.placeholder = esCompraNow ? 'Ej. USD 120.000' : 'Ej. $U 30.000 / mes';
+      presuInput.placeholder = esCompraNow ? 'Ej. USD 120.000' : 'Ej. $U 27.000 / mes';
     }
     if (cuandoSel) {
       var optsNow = buildCuandoOptions(esCompraNow);
@@ -203,20 +212,22 @@
         'Hola Mar, acabo de dejar mi búsqueda en ZAGUÁN: ' + textoSint + '. Quedo a las órdenes para ver opciones.'
       );
       resBox.style.display = 'block';
-      resBox.style.background = 'rgba(22,163,74,0.14)';
+      resBox.style.background = 'rgba(8,21,33,0.72)';
+      resBox.style.borderColor = '#B7D6E0';
       resBox.innerHTML =
-        '✅ <strong>¡Búsqueda agendada en Pedidos Abiertos!</strong> Ya le llegó el aviso al equipo de ZAGUÁN. Si querés sumar algún detalle por WhatsApp ahora: ' +
-        '<a href="' + waHref + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:6px;padding:7px 13px;border-radius:6px;background:#16A34A;color:#fff;font-weight:700;text-decoration:none;">📲 Hablar con ZAGUÁN por WhatsApp</a>';
+        '<strong>Búsqueda agendada en Pedidos Abiertos.</strong> Ya llegó el aviso al equipo de ZAGUÁN. Si querés sumar algún detalle por WhatsApp ahora: ' +
+        '<a href="' + waHref + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:8px;padding:8px 14px;border-radius:8px;background:#F3F0E8;color:#081521;font-weight:700;text-decoration:none;">Hablar con Mar por WhatsApp →</a>';
       form.reset();
       opSel.value = opElegida;
       if (zonaInput) zonaInput.value = zonaElegida;
     } catch (err) {
       resBox.style.display = 'block';
-      resBox.style.background = 'rgba(239,68,68,0.16)';
+      resBox.style.background = 'rgba(18,59,74,0.9)';
+      resBox.style.borderColor = 'rgba(243,240,232,0.45)';
       resBox.innerHTML = 'No pudimos guardar en este momento. Podés escribir directo por WhatsApp con los botones de arriba.';
     } finally {
       btn.disabled = false;
-      btn.textContent = '🎯 Dejar mi búsqueda';
+      btn.textContent = 'Dejar mi búsqueda →';
     }
   });
 })();

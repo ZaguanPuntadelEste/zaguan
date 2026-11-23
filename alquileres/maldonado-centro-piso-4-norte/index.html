@@ -193,13 +193,13 @@
     }
     .gallery-thumbs {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 10px;
       margin-bottom: 26px;
     }
     @media (max-width: 640px) {
       .gallery-lead { height: 320px; }
-      .gallery-thumbs { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .gallery-thumbs { grid-template-columns: repeat(4, 1fr); gap: 8px; }
       .gallery-lead-hint { font-size: 11px; padding: 5px 10px; bottom: 10px; right: 10px; }
     }
     .thumb {
@@ -618,27 +618,33 @@
 
         <div class="gallery-lead" onclick="openLightbox(0)">
           <img id="main-img" src="/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg" alt="Living comedor con doble ventanal de vidrio al frente y vista despejada en Centro de Maldonado">
-          <span class="gallery-lead-hint">🔍 Tocar para ampliar (6 fotos)</span>
+          <span class="gallery-lead-hint">🔍 Tocar para ampliar (8 fotos)</span>
         </div>
 
         <div class="gallery-thumbs">
           <div class="thumb active" onclick="openLightbox(0)" title="Living-comedor con doble ventanal al frente y aire acondicionado">
             <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg" alt="Living-comedor con doble ventanal de vidrio al frente">
           </div>
-          <div class="thumb" onclick="openLightbox(1)" title="Dormitorio principal con piso de parquet y orientación Norte">
-            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_02.jpg" alt="Dormitorio principal orientación Norte">
+          <div class="thumb" onclick="openLightbox(1)" title="Living-comedor luminoso con rack de TV y ventanal al frente">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_02.jpg" alt="Living-comedor con rack de TV y vista al frente">
           </div>
-          <div class="thumb" onclick="openLightbox(2)" title="Segundo dormitorio luminoso con piso de parquet">
-            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_03.jpg" alt="Segundo dormitorio con vista abierta">
+          <div class="thumb" onclick="openLightbox(2)" title="Cocina definida luminosa con mesada, placares y citófono">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_03.jpg" alt="Cocina definida con mesada y placares completos">
           </div>
-          <div class="thumb" onclick="openLightbox(3)" title="Cocina definida con placares aéreos y bajo mesada">
-            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_04.jpg" alt="Cocina definida con comedor y placares">
+          <div class="thumb" onclick="openLightbox(3)" title="Dormitorio principal con piso de parquet y orientación norte">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_04.jpg" alt="Dormitorio principal orientación norte">
           </div>
-          <div class="thumb" onclick="openLightbox(4)" title="Cocina hacia terraza lavadero ventilada con extractor">
-            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_05.jpg" alt="Acceso a terraza lavadero ventilada">
+          <div class="thumb" onclick="openLightbox(4)" title="Segundo dormitorio luminoso con piso de parquet y vista despejada">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_05.jpg" alt="Segundo dormitorio con vista abierta">
           </div>
-          <div class="thumb" onclick="openLightbox(5)" title="Baño completo con calefón instalado y ventana exterior">
-            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_06.jpg" alt="Baño completo con calefón">
+          <div class="thumb" onclick="openLightbox(5)" title="Dormitorio con piso de parquet y estanterías de madera instaladas">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_06.jpg" alt="Dormitorio con estanterías de madera y piso de parquet">
+          </div>
+          <div class="thumb" onclick="openLightbox(6)" title="Segundo ángulo de dormitorio con piso de parquet y buena iluminación">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_07.jpg" alt="Interior de dormitorio luminoso con piso de parquet">
+          </div>
+          <div class="thumb" onclick="openLightbox(7)" title="Baño completo con calefón instalado y ventilación">
+            <img src="/assets/images/propiedades/maldonado-centro-claudia/foto_08.jpg" alt="Baño completo con calefón instalado">
           </div>
         </div>
 
@@ -809,7 +815,7 @@
       </aside>
     </div>
 
-    <div style="max-width:1216px;margin:24px auto 0;background:#122B3F;border:1px solid rgba(183,214,224,0.28);border-radius:14px;padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
+    <div style="max-width:1216px;margin:24px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
       <div style="min-width:240px;flex:1;">
         <strong style="color:#F3F0E8;display:block;font-size:15px;">¿Querés comprobar si tu carpeta califica para $U 27.000 + $U 5.000 GC ($U 32.000)?</strong>
         <span style="color:#B7D6E0;font-size:13px;">Simulá de 1 a 4 personas solicitantes (tope 30%, continuidad en BPS, 3 vs. 6 recibos) o leé las 8 preguntas reales.</span>
@@ -838,7 +844,7 @@
   </div>
 
   <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Visor de fotos">
-    <div class="lightbox-counter" id="lightbox-counter">1 / 6</div>
+    <div class="lightbox-counter" id="lightbox-counter">1 / 8</div>
     <button class="lightbox-close" onclick="closeLightbox()" aria-label="Cerrar visor">&times;</button>
     <button class="lightbox-nav lightbox-prev" onclick="prevLightbox(event)" aria-label="Foto anterior">&#10094;</button>
     <div class="lightbox-content" id="lightbox-touch-area" onclick="event.stopPropagation()">
@@ -851,11 +857,13 @@
   <script>
     var gallery = [
       { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg', title: 'Living-comedor con doble ventanal de vidrio al frente y aire acondicionado' },
-      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_02.jpg', title: 'Dormitorio principal con piso de parquet y orientación Norte' },
-      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_03.jpg', title: 'Segundo dormitorio luminoso con piso de parquet' },
-      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_04.jpg', title: 'Cocina definida con mesada y placares completos' },
-      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_05.jpg', title: 'Sector de cocina con salida a terraza lavadero y extractor' },
-      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_06.jpg', title: 'Baño completo con calefón instalado y ventana exterior' }
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_02.jpg', title: 'Living-comedor luminoso con rack de TV y ventanal al frente' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_03.jpg', title: 'Cocina definida luminosa con mesada, placares y citófono' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_04.jpg', title: 'Dormitorio principal con piso de parquet y orientación norte' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_05.jpg', title: 'Segundo dormitorio luminoso con piso de parquet y vista despejada' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_06.jpg', title: 'Dormitorio con piso de parquet y estanterías de madera instaladas' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_07.jpg', title: 'Segundo ángulo de dormitorio con piso de parquet y buena iluminación' },
+      { src: '/assets/images/propiedades/maldonado-centro-claudia/foto_08.jpg', title: 'Baño completo con calefón instalado y ventilación' }
     ];
 
     var currentIndex = 0;

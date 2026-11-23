@@ -180,7 +180,7 @@ def build_mp4(photos: list[str], overlay_path: str, mp4_out: str, audio_path: st
 
 def build_feed_4_5(photo_path: str, kicker: str, headline: str, subline: str, badge_top: str, out_path: str, cta_text: str = "Ver ficha completa · ZAGUÁN Propiedades"):
     fw, fh = 1080, 1350
-    split = 835
+    split = 742
     bg = Image.new("RGB", (fw, fh), (8, 21, 33))
     im = Image.open(photo_path).convert("RGB")
     bg.paste(fit_cover(im, fw, split + 36, focus_y=0.45), (0, 0))
@@ -216,18 +216,18 @@ def build_feed_4_5(photo_path: str, kicker: str, headline: str, subline: str, ba
     f_k = ImageFont.truetype(FONT_BOLD, 22)
     ktxt = kicker.upper()[:56]
     ktw = draw.textlength(ktxt, font=f_k)
-    draw.rectangle([(72, split + 36), (min(fw - 72, 72 + ktw + 40), split + 82)], fill=(18, 59, 74, 255), outline=(45, 118, 138, 255), width=1)
-    draw.text((92, split + 47), ktxt, font=f_k, fill=(183, 214, 224, 255))
+    draw.rectangle([(72, split + 74), (min(fw - 72, 72 + ktw + 40), split + 120)], fill=(18, 59, 74, 255), outline=(45, 118, 138, 255), width=1)
+    draw.text((92, split + 85), ktxt, font=f_k, fill=(183, 214, 224, 255))
 
     f_h = ImageFont.truetype(FONT_BLACK, 68)
     for idx, line in enumerate(wrap_two_lines(draw, headline, f_h, fw - 144)):
-        draw.text((72, split + 102 + idx * 76), line, font=f_h, fill=(243, 240, 232, 255))
+        draw.text((72, split + 144 + idx * 76), line, font=f_h, fill=(243, 240, 232, 255))
 
     f_s = ImageFont.truetype(FONT_REG, 38)
     for idx, line in enumerate(wrap_two_lines(draw, subline, f_s, fw - 144)):
-        draw.text((72, split + 266 + idx * 46), line, font=f_s, fill=(183, 214, 224, 255))
+        draw.text((72, split + 312 + idx * 46), line, font=f_s, fill=(183, 214, 224, 255))
 
-    bx0, by0, bx1, by1 = 72, split + 378, fw - 72, split + 458
+    bx0, by0, bx1, by1 = 72, split + 448, fw - 72, split + 528
     draw.rectangle([(bx0, by0), (bx1, by1)], fill=(243, 240, 232, 255))
     f_cta = ImageFont.truetype(FONT_BLACK, 28)
     draw.text((bx0 + 30, by0 + 25), (cta_text if "cta_text" in locals() else "Ver ficha completa · ZAGUÁN Propiedades"), font=f_cta, fill=(8, 21, 33, 255))
