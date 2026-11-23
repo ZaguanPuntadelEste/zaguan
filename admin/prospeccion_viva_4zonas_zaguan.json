@@ -1554,13 +1554,17 @@
         "Zona: San Carlos, Maldonado",
         "Precio en aviso: USD 240.000"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Autorizó ingreso a cartera el 23/11 15:01 hs; relevar m², renta de locales, títulos/planos y fotos por WhatsApp.",
       "corchetes_faltantes": [
         "Metros comerciales, locales activos y frente/fondo",
         "Renta actual estimada (si los locales están alquilados)",
-        "Estado documental y planos al día para escriturar"
+        "Estado documental y planos al día para escriturar",
+        "Fotos actuales o video corto por WhatsApp"
       ],
-      "carril": "2_esperando_respuesta_72h",
+      "carril": "3_en_conversacion",
+      "estado_envio": "respondio",
+      "respuesta_recibida": "Buenas tardes, si la propiedad sigue disponible y a la venta. Pueden agregarla a su cartera, gracias.",
+      "fecha_respuesta": "2026-11-23 15:01",
       "nivel_semaforo": "1B_CON_ALERTA",
       "badge_alerta": "🟡 SAN CARLOS · ALTO POTENCIAL COMERCIAL (USD 240.000)",
       "alerta_mar": "Padrón entero con locales en San Carlos (USD 240.000). Priorizar consultas sobre m² edificados, cantidad de locales, renta mensual activa y documentación al día.",
@@ -1620,25 +1624,26 @@
       "seguimiento_72h": "Hola Claudia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Centro, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
-        "Operación: Alquiler anual",
-        "Zona: Centro, Maldonado",
-        "Precio en aviso: $U 32.000 / mes",
-        "Dormitorios en aviso: 2",
-        "Garantía en aviso: aseguradora"
+        "Operación: Alquiler anual · Centro, Maldonado",
+        "Precio: $U 27.000/mes + $U 5.000 GC con agua OSE incluida ($U 32.000 total)",
+        "Superficie y piso: ~50 m², Piso 4 por ascensor, orientación Norte",
+        "Luz y aberturas: sol en invierno en dormitorios, sombra verano, puestas de sol en living y cocina, doble ventanal de vidrio al frente",
+        "Edificio y equipo: cámaras de seguridad, terraza lavadero, sin muebles, aire acondicionado y calefón instalados",
+        "Admisión y cochera: acepta niños y mascotas; cocheras en alquiler en el edificio · Garantía: solo aseguradora de Uruguay",
+        "Visitas: de 16:00 hs en adelante, cualquier día"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; aguardando respuesta sobre depósito/extranjeros, GC/Wi-Fi y cochera.",
-      "corchetes_faltantes": [
-        "Depósito o clientes del exterior certificando ingresos con escribanía aliada",
-        "Qué incluye el monto mensual con los gastos comunes (Wi-Fi / consumos)",
-        "Si tiene cochera"
-      ],
-      "carril": "3_en_conversacion",
+      "estado_material_aviso": "6 fotos reales recibidas por WhatsApp el 23/11 + ficha pública REF. ZAG-ALQ-07 activa (calle exacta resguardada en Bóveda Privada).",
+      "corchetes_faltantes": [],
+      "carril": "4_ficha_activa",
+      "estado_envio": "ficha_activa",
+      "url_ficha_publica": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "disponibilidad_visitas": "De 16:00 hs en adelante, cualquier día",
       "ts_envio_1": 1795448809000,
       "fecha_envio_1": "2026-11-23 12:46",
-      "garantias_aceptadas": "Aseguradora aprobada",
-      "respuesta_recibida": "Hola, un gusto. Si, sigue disponible",
-      "fecha_respuesta": "2026-11-23 13:25",
-      "contestacion_mar": "Hola Claudia, un gusto también.\n\nVi que pedís aseguradora en el aviso, te consulto: contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada?\nY te consulto también qué incluye el monto mensual con los gastos comunes (Wi-Fi / algún consumo?)\nTiene cochera?",
+      "garantias_aceptadas": "Solo aseguradora privada de Uruguay (Porto Seguro, Sura, Mapfre, Santander)",
+      "respuesta_recibida": "Yo estoy disponible de 16hs en adelante, cualquier dia",
+      "fecha_respuesta": "2026-11-23 15:00",
+      "contestacion_mar": "Tomamos todos los datos ($U 27.000 más $U 5.000 de GC con agua incluida, aseguradora de acá, doble ventanal, cámaras, aire, calefón, niños y mascotas). Te avisamos directo cuando tengamos persona con garantía validada después de las 16 hs.",
       "sugerencia_mar": ""
     }
   ]

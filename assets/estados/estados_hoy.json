@@ -1,6 +1,15 @@
 {
-  "updated_at": "2026-11-23T12:25:00-03:00",
+  "updated_at": "2026-11-23T15:15:00-03:00",
   "estados_activos": [
+    {
+      "id": "ESTADO-CENTRO-MALDONADO-07",
+      "ref_publica": "ZAG-ALQ-07",
+      "titulo": "Apartamento 2D Piso 4 Norte en Centro de Maldonado ($U 27.000 + $U 5.000 GC)",
+      "imagen_9_16": "https://zaguanpropiedades.com/assets/estados/2_ESTADO_CENTRO_MALDONADO_27K.jpg",
+      "video_9_16": "https://zaguanpropiedades.com/assets/estados/2_VIDEO_ESTADO_CENTRO_MALDONADO.mp4",
+      "ficha_url": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/?utm_source=whatsapp_status&utm_medium=estado_9_16",
+      "copy_1_linea": "ALQUILER ANUAL · CENTRO DE MALDONADO | 2 dormitorios Piso 4 Norte (~50 m²) · $U 27.000 + $U 5.000 GC con agua incluida · Doble ventanal al frente, sol de invierno, lavadero, cámaras, aire y calefón · Acepta niños y mascotas · Garantía aseguradora · https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/"
+    },
     {
       "id": "ESTADO-LA-FORTUNA-05",
       "ref_publica": "ZAG-ALQ-05",
