@@ -351,13 +351,101 @@
 
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
     <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Propietarios · 5 Sub-Carriles (39 Dueños + 6 Dev + 15 Colegas)</button>
-    <button class="tab-btn" onclick="switchTab('tab-crm4c', this)">1B. B2C Matchmaker · Visitas · Cierres · Cola Mac</button>
+    <button class="tab-btn" id="btn-tab-pedidos" onclick="switchTab('tab-pedidos', this)">🎯 Pedidos Abiertos B2C (<span id="kpi-pedidos-tab-count">0</span>)</button>
+    <button class="tab-btn" onclick="switchTab('tab-crm4c', this)">1B. Matchmaker · Visitas · Cierres · Cola Mac</button>
     <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp Pozo & Pre-Registro 60 Días</button>
     <button class="tab-btn" onclick="switchTab('tab-devs', this)">2. Captación de Desarrolladoras de Pozo (PDE · Maldonado)</button>
     <button class="tab-btn" onclick="switchTab('tab-portales', this)">3. Fichas para Portales UY (ML / Gallito / InfoCasas) & Google Ads</button>
     <button class="tab-btn" onclick="switchTab('tab-d1', this)">4. Base Viva D1 & Bot @zaguan_crm_bot</button>
     <button class="tab-btn" onclick="switchTab('tab-warroom', this)">5. War Room Growth Manager (10 Iteraciones · Alquileres 60d · Cronómetro)</button>
   </nav>
+
+  <!-- ===================================================================== -->
+  <!-- TAB PEDIDOS ABIERTOS B2C (ALQUILER ANUAL · INVERNAL · COMPRA)         -->
+  <!-- ===================================================================== -->
+  <section id="tab-pedidos" class="tab-panel">
+    <div class="section-box" style="border-color:rgba(16,185,129,0.5);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;margin-bottom:14px;">
+        <div>
+          <span class="tag tag-active">CARRIL 2 VISIBLE · PEDIDOS ABIERTOS B2C (SIN PERDER LEADS POR MEMORIA)</span>
+          <h2 style="font-size:20px;margin-top:6px;">Pedidos Abiertos de Inquilinos y Compradores (Anual · Invernal · Compra)</h2>
+          <p style="font-size:13px;color:var(--muted);">Incluye reglas silenciosas automáticas: presupuesto elástico <strong>+7,5% con y sin GC</strong>, <strong>Mono/1D/2D abiertos</strong> para 1–2 personas, amoblado/sin muebles y seguimiento 1 → 3 → 2 de Mar.</p>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-yes btn-sm" onclick="loadRadar4Z()">🔄 Refrescar Pedidos en vivo</button>
+        </div>
+      </div>
+
+      <div style="background:rgba(8,21,33,0.75);border:1px solid var(--border);border-radius:10px;padding:12px;margin-bottom:14px;">
+        <label style="display:block;font-size:12px;color:var(--gold);font-weight:700;margin-bottom:6px;">⚡ Pegar o ingestar mensaje de un interesado directo en Cabina (o reenvialo a @zaguan_crm_bot en Telegram):</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <input type="text" id="pa-quick-nombre" placeholder="Nombre (opcional)" style="width:160px;background:#040d16;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:6px;font-size:12.5px;">
+          <input type="text" id="pa-quick-tel" placeholder="WhatsApp (ej. 59899...)" style="width:170px;background:#040d16;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:6px;font-size:12.5px;">
+          <input type="text" id="pa-quick-msg" placeholder="Ej: Busco alquiler anual para el 2027 en Punta del Este, hasta 40mil al mes..." style="flex:1;min-width:240px;background:#040d16;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:6px;font-size:12.5px;">
+          <button class="btn btn-yes btn-sm" onclick="ingestarPedidoAbiertoRapido()">🎯 Guardar y generar respuesta Mar</button>
+        </div>
+      </div>
+
+      <div class="form-grid" style="grid-template-columns:repeat(auto-fit,minmax(175px,1fr));margin-bottom:14px;">
+        <div class="field">
+          <label>Modalidad</label>
+          <select id="pa-f-mod" onchange="renderPedidosAbiertos()">
+            <option value="TODAS">Todas (Anual / Invernal / Compra)</option>
+            <option value="Anual">Alquiler Anual (12m)</option>
+            <option value="Invernal">Alquiler Invernal (Mar–Nov)</option>
+            <option value="Compra">Compra / Pozo</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Cuándo se muda</label>
+          <select id="pa-f-cuando" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">Todos</option>
+            <option value="YA">Entrar ya</option>
+            <option value="FUTURO">Mes futuro / 2027</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Presupuesto (c/ elástico)</label>
+          <select id="pa-f-presu" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">Todos los rangos</option>
+            <option value="30K">Hasta $U 30.000 (elástico $32.250)</option>
+            <option value="40K">Hasta $U 40.000 (elástico $43.000)</option>
+            <option value="MAS">Más de $U 40.000 o USD</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Dormitorios</label>
+          <select id="pa-f-dorms" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">Todos</option>
+            <option value="MONO_1_2">Mono / 1D / 2D (1–2 pers.)</option>
+            <option value="2D">2 Dormitorios+</option>
+            <option value="3D">3 Dormitorios+</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Mascota</label>
+          <select id="pa-f-mascota" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">Todos</option>
+            <option value="SI">Con mascota</option>
+            <option value="NO">Sin mascota / s/d</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Garantía</label>
+          <select id="pa-f-gar" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">Todas</option>
+            <option value="ASEG">Aseguradora (Porto/Sura/Mapfre/Sant.)</option>
+            <option value="TRAMITE">A tramitar en reserva (Dep/Indep/Ext)</option>
+            <option value="ANDA">ANDA / CGN</option>
+            <option value="DEPOSITO">Depósito / Sin garantía previa</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="pedidos-abiertos-summary" style="font-size:12.5px;color:#B7D6E0;margin-bottom:10px;"></div>
+      <div id="pedidos-abiertos-grid" class="card-grid"></div>
+    </div>
+  </section>
 
   <!-- ===================================================================== -->
   <!-- TAB 0: RADAR VIVO 4 ZONAS + 5 SUB-CARRILES D1                         -->
@@ -1387,6 +1475,10 @@ function lintMarLocal(text) {
 }
 
 function hydrateRadarFromCloud(crm, localFallback = null) {
+  if (!crm) {
+    if (typeof loadRadar4Z === 'function') loadRadar4Z();
+    return;
+  }
   crmCloudState = crm;
   const mp = [];
   const pd = [];
@@ -1471,6 +1563,7 @@ async function loadRadar4Z() {
         renderCarrilesSummaryBar();
         renderRadar4Z();
         renderGlobalSearch();
+        renderPedidosAbiertos();
         renderFourLanesTab();
         loadSemaforoLive();
         return;
@@ -1897,6 +1990,155 @@ function renderFourLanesTab() {
     const cola = crmCloudState.cola_ag || [];
     colaBox.innerHTML = cola.length ? cola.map(q => `<div class="card"><span class="tag ${q.estado === 'PENDIENTE_AG' ? 'tag-pending' : 'tag-active'}">${q.id} · ${q.estado}</span><h3 style="margin-top:6px;">${q.titulo}</h3><p style="font-size:12px;color:var(--muted);white-space:pre-wrap;">${q.detalle}</p>${q.estado !== 'HECHO_AG' ? `<div class="btn-row"><button class="btn btn-yes btn-sm" onclick="marcarColaAg('${q.id}', 'HECHO_AG')">✅ Marcar HECHO_AG</button></div>` : ''}</div>`).join('') : '<p style="color:var(--muted);font-size:13px;">Cola Mac vacía (0 tareas pendientes).</p>';
   }
+}
+
+window.ingestarPedidoAbiertoRapido = async function() {
+  const nombre = (document.getElementById('pa-quick-nombre')?.value || '').trim();
+  const telefono = (document.getElementById('pa-quick-tel')?.value || '').trim();
+  const texto = (document.getElementById('pa-quick-msg')?.value || '').trim();
+  if (!texto) { showToast('⚠️ Pegá el mensaje o audio transcripto del interesado'); return; }
+  const res = await fetch(`${CRM_API_URL}/api/interesados`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ nombre: nombre || undefined, telefono: telefono || undefined, texto, canal: 'cabina_web' })
+  });
+  const out = await res.json();
+  if (out.ok) {
+    document.getElementById('pa-quick-msg').value = '';
+    await loadRadar4Z();
+    showToast(`🎯 Pedido Abierto ${out.id} guardado (${out.triage?.subtipo || 'D2'})`);
+  } else {
+    showToast('⚠️ No se pudo guardar en D1');
+  }
+};
+
+window.avanzarTurnoB2C = async function(id) {
+  const input = document.getElementById(`pa-reply-in-${id}`);
+  const texto = (input?.value || '').trim();
+  if (!texto) { showToast('⚠️ Escribí o pegá lo que respondió el interesado'); return; }
+  const res = await fetch(`${CRM_API_URL}/api/interesados/responder`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, texto })
+  });
+  const out = await res.json();
+  if (out.ok) {
+    if (input) input.value = '';
+    await loadRadar4Z();
+    showToast(`✅ Turno actualizado (${out.triage?.subtipo || 'Mar listo'})`);
+  } else {
+    showToast('⚠️ Error avanzando turno B2C');
+  }
+};
+
+function renderPedidosAbiertos() {
+  const all = crmCloudState.interesados_b2c || [];
+  const countBadge = document.getElementById('kpi-pedidos-tab-count');
+  const kpiTotal = document.getElementById('kpi-b2c-total');
+  if (countBadge) countBadge.textContent = String(all.length);
+  if (kpiTotal) kpiTotal.textContent = String(all.length);
+
+  const grid = document.getElementById('pedidos-abiertos-grid');
+  const sumEl = document.getElementById('pedidos-abiertos-summary');
+  if (!grid) return;
+
+  const fMod = document.getElementById('pa-f-mod')?.value || 'TODAS';
+  const fCuando = document.getElementById('pa-f-cuando')?.value || 'TODOS';
+  const fPresu = document.getElementById('pa-f-presu')?.value || 'TODOS';
+  const fDorms = document.getElementById('pa-f-dorms')?.value || 'TODOS';
+  const fMasc = document.getElementById('pa-f-mascota')?.value || 'TODOS';
+  const fGar = document.getElementById('pa-f-gar')?.value || 'TODOS';
+
+  const filtrados = all.filter(it => {
+    const modTxt = String(it.modalidad_contrato || it.tipo_operacion || 'Anual');
+    if (fMod !== 'TODAS' && !modTxt.toLowerCase().includes(fMod.toLowerCase())) return false;
+
+    const cuandoTxt = String(it.desde_cuando || '').toLowerCase();
+    if (fCuando === 'YA' && !cuandoTxt.includes('entrar ya')) return false;
+    if (fCuando === 'FUTURO' && (!cuandoTxt || cuandoTxt.includes('entrar ya'))) return false;
+
+    const presuNum = Number(it.presupuesto_declarado || it.presupuesto_max || 0);
+    const esUsd = String(it.moneda || 'UYU').toUpperCase() === 'USD';
+    if (fPresu === '30K' && (esUsd || presuNum <= 0 || presuNum > 30000)) return false;
+    if (fPresu === '40K' && (esUsd || presuNum <= 0 || presuNum > 40000)) return false;
+    if (fPresu === 'MAS' && (!esUsd && presuNum <= 40000)) return false;
+
+    const dormsTxt = String(it.dormitorios_abiertos || '').toLowerCase();
+    const dMin = Number(it.dormitorios_min ?? 0);
+    if (fDorms === 'MONO_1_2' && dMin > 2) return false;
+    if (fDorms === '2D' && dMin < 2 && !dormsTxt.includes('2')) return false;
+    if (fDorms === '3D' && dMin < 3 && !dormsTxt.includes('3')) return false;
+
+    const hasMasc = String(it.tiene_mascota || '').toLowerCase() === 'si';
+    if (fMasc === 'SI' && !hasMasc) return false;
+    if (fMasc === 'NO' && hasMasc) return false;
+
+    const garTxt = `${it.garantia_tipo || ''} ${it.garantia_disponible || ''} ${it.situacion_laboral || ''}`.toLowerCase();
+    if (fGar === 'ASEG' && !/(porto|sura|mapfre|santander|aseguradora)/.test(garTxt)) return false;
+    if (fGar === 'TRAMITE' && !/(dependencia|independiente|exterior|sin_garantia|trámite|tramite)/.test(garTxt)) return false;
+    if (fGar === 'ANDA' && !/(anda|cgn|contaduria)/.test(garTxt)) return false;
+    if (fGar === 'DEPOSITO' && !/(deposito|depósito|sin garantía)/.test(garTxt)) return false;
+
+    return true;
+  });
+
+  if (sumEl) {
+    sumEl.innerHTML = `Mostrando <strong>${filtrados.length}</strong> de <strong>${all.length}</strong> Pedidos Abiertos en D1.`;
+  }
+
+  grid.innerHTML = filtrados.length ? filtrados.map(it => {
+    let ms = [];
+    try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch (e) {}
+    const mon = it.moneda || 'UYU';
+    const decl = Number(it.presupuesto_declarado || it.presupuesto_max || 0);
+    const elas = Number(it.presupuesto_elastico_max || (decl ? Math.round(decl * 1.075) : 0));
+    const presuLabel = decl
+      ? `${mon} ${decl.toLocaleString('de-DE')} (elástico ${mon} ${elas.toLocaleString('de-DE')} · c/s GC)`
+      : 'A definir';
+    const amobTxt = it.amoblado_preferencia === 'amoblado'
+      ? 'Amoblado'
+      : it.amoblado_preferencia === 'sin_muebles'
+      ? 'Sin muebles'
+      : 'Amoblado y sin muebles';
+    const goWaUrl = it.go_wa_url || `${CRM_API_URL}/go/wa?tipo=b2c&id=${encodeURIComponent(it.id)}&turno=${encodeURIComponent(it.paso_actual || 'T1')}`;
+    const safeCopy = String(it.ultimo_copy_mar || '').replace(/</g, '&lt;');
+
+    return `
+      <div class="card approved">
+        <div class="card-top">
+          <div>
+            <span class="tag tag-active">${it.id} · ${it.modalidad_contrato || it.tipo_operacion || 'Anual'} · Rama ${it.rama_conversacion || 'B'}</span>
+            <span class="tag tag-ley" style="margin-left:4px;">${it.paso_actual || it.turno_actual || 'PASO_1'}</span>
+            <h3 style="font-size:17px;margin-top:6px;">${String(it.nombre || 'Interesado B2C').replace(/</g, '&lt;')}</h3>
+            <p style="font-size:12.5px;color:#B7D6E0;margin-top:2px;">📱 ${it.telefono || 'Sin WhatsApp cargado'} · Canal: ${it.canal || 'whatsapp'} · Cuándo: <strong style="color:#FCD34D;">${it.desde_cuando || 'Mes a definir'}</strong></p>
+          </div>
+          <strong style="color:var(--gold);font-size:13.5px;text-align:right;">${presuLabel}</strong>
+        </div>
+
+        <div style="font-size:12px;color:#E2E8F0;background:rgba(8,21,33,0.65);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:grid;gap:4px;">
+          <div>📍 <strong>Zona abierta:</strong> ${it.zona_preferida || 'Punta del Este / Maldonado'}</div>
+          <div>🛏️ <strong>Espacio:</strong> ${it.dormitorios_abiertos || (it.dormitorios_min !== null ? it.dormitorios_min + 'D' : 'Monoambiente, 1 y 2 dormitorios')} · <strong>Mobiliario:</strong> ${amobTxt}</div>
+          <div>🐾 <strong>Mascota / Comodidades:</strong> ${it.mascota_detalle || it.tiene_mascota || 'Sin confirmar'} · ${it.comodidades_pedidas || 'Sin confirmar'}</div>
+          <div>🛡️ <strong>Garantía:</strong> ${it.garantia_disponible || 'Pendiente (Paso 2)'}${it.situacion_laboral ? ` (${it.situacion_laboral})` : ''}</div>
+          <div>🎯 <strong>Matches cartera:</strong> ${ms.length ? ms.map(m => `${m.id} ${m.nombre}`).join(', ') : 'En búsqueda activa al ingresar unidades'}</div>
+        </div>
+
+        <div style="margin-top:8px;">
+          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Respuesta lista de Mar (14 Candados OK):</label>
+          <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:76px;font-size:12px;">${safeCopy}</textarea>
+          <div class="btn-row" style="margin-top:6px;">
+            <a class="btn btn-wa btn-sm" href="${goWaUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 RESPONDER CON MAR EN 1 CLIC</a>
+            <button class="btn btn-yes btn-sm" onclick="copyTextById('pa-copy-${it.id}')">📋 Copiar respuesta</button>
+          </div>
+        </div>
+
+        <div style="margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
+          <input type="text" id="pa-reply-in-${it.id}" placeholder="Pegar nueva respuesta del interesado (ej: en abril, somos 2, cobro en exterior)..." style="flex:1;min-width:200px;background:#040d16;border:1px solid var(--border);color:#fff;padding:7px 9px;border-radius:6px;font-size:12px;">
+          <button class="btn btn-outline btn-sm" onclick="avanzarTurnoB2C('${it.id}')">➡️ Procesar turno siguiente</button>
+        </div>
+      </div>
+    `;
+  }).join('') : '<div style="padding:16px;color:var(--muted);">No hay Pedidos Abiertos que coincidan con estos filtros. Probá cargar uno arriba o reenviárselo a @zaguan_crm_bot.</div>';
 }
 
 window.setGlobalSearchFilter = function(mode) {

@@ -12,7 +12,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { clasificarYResponder } from '../workers/whatsapp-triage/index.js';
+import { clasificarYResponder, aplicarPokaYokeMar, extraerVariablesSilenciosasB2C } from '../workers/whatsapp-triage/index.js';
 
 const REPO_ROOT = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main';
 const DRIVE_OUT_60 = join(REPO_ROOT, 'admin/REPORTE_SIMULACION_60_ESCENARIOS.json');
@@ -560,6 +560,122 @@ export const ESCENARIOS_60 = [
     mustNotInclude: ['sin exclusividad', 'zaguanpropiedades.com/alquileres/', 'zaguanpropiedades.com/links/', '%'],
     expectAndon: true,
     expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  // BLOQUE 8: MATRIZ BASE D2 ALQUILER ANUAL / INVERNAL · MULTI-TURNO 1->3->2 · ÁRBOL GARANTÍA · 14 CANDADOS (SIM-65 a SIM-76)
+  {
+    id: 'SIM-65', bloque: 'Rama B · Búsqueda Abierta 2027', turno: 'T1 · Paso 1 Punta del Este $40k', contexto: 'la_fortuna',
+    input: 'Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes',
+    mustInclude: ['Te damos la bienvenida a Zaguán', 'Punta del Este', '40.000', '2027', 'desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?', 'que esté amoblado', 'podemos ayudarte con eso también'],
+    mustNotInclude: ['La Fortuna', 'la-fortuna-agata', 'pero', 'bienvenido', 'agendad', 'enero'],
+    expectAndon: true,
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-66', bloque: 'Rama B · Multi-Turno Orden 1->3->2', turno: 'T2 · Paso 3 Mascota/Comodidades', contexto: 'general',
+    input: 'Sería para mudarnos en abril, somos 2 personas',
+    mustInclude: ['Tomamos nota', 'Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?'],
+    mustNotInclude: ['La Fortuna', 'pero', 'solo/sola', 'muebles,'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-67', bloque: 'Rama B · Mascota Detalle', turno: 'T2 · Qué mascota tenés', contexto: 'general',
+    input: 'Sí, tengo mascota y necesito cochera',
+    mustInclude: ['Qué mascota tenés'],
+    mustNotInclude: ['qué mascota es', 'casa con patio', 'pero'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-68', bloque: 'Rama B · Paso 2 Garantía al Final', turno: 'T3 · Comodidades OK -> Garantía', contexto: 'general',
+    input: 'No tengo mascota, necesito cochera y que esté amoblado',
+    mustInclude: ['Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?'],
+    mustNotInclude: ['pero', 'bienvenido'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-69', bloque: 'Rama A -> Rama B Automático', turno: 'T1 · Mudanza futura desde La Fortuna', contexto: 'la_fortuna',
+    input: 'Busco para mudarme más adelante, mi contrato vence en junio',
+    mustInclude: ['Te damos la bienvenida a Zaguán', 'desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?'],
+    mustNotInclude: ['La Fortuna', 'la-fortuna-agata', 'pero'],
+    expectAndon: true,
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-70', bloque: 'Árbol Garantía · Paso 1 Efectivo/Depósito', turno: 'T2 · Sin garantía previa', contexto: 'general',
+    input: 'No tengo garantía, pago solo efectivo o depósito',
+    mustInclude: ['Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?'],
+    mustNotInclude: ['pero'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-71', bloque: 'Árbol Garantía · Dependencia', turno: 'T2 · 3 recibos + 30%', contexto: 'general',
+    input: 'Trabajo en relación de dependencia en una empresa',
+    mustInclude: ['3 recibos de sueldo', 'documento', '30%', 'una sola persona o combinando ingresos de hasta 4 personas'],
+    mustNotInclude: ['pero', 'agendado'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-72', bloque: 'Árbol Garantía · Independiente', turno: 'T2 · BPS/DGI + Certificación', contexto: 'general',
+    input: 'Trabajo de forma independiente con unipersonal',
+    mustInclude: ['BPS y DGI al día', 'certificación contable', 'último año', '30%'],
+    mustNotInclude: ['pero', 'agendado'],
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-73', bloque: 'Árbol Garantía · Exterior / Notarial', turno: 'T2 · Ingresos exterior', contexto: 'general',
+    input: 'Trabajo para afuera y cobro en el exterior',
+    mustInclude: ['En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?'],
+    mustNotInclude: ['pero'],
+    expectAndon: true,
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-74', bloque: 'Árbol Garantía · Sin Ingresos', turno: 'T2 · Meses de depósito', contexto: 'general',
+    input: 'No tengo ingresos demostrables ni recibo de sueldo',
+    mustInclude: ['Cuántos meses de depósito podés cubrir'],
+    mustNotInclude: ['pero'],
+    expectAndon: true,
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-75', bloque: 'Invernal vs. Anual', turno: 'T1 · Contrato marzo a noviembre vs 12 meses', contexto: 'general',
+    input: 'Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año',
+    mustInclude: ['invernal', 'marzo a noviembre', 'anual', '12 meses', 'dos contratos distintos con valores distintos'],
+    mustNotInclude: ['La Fortuna', 'pero'],
+    expectAndon: true,
+    expectSubtipoNot: ['AUTOSERVICIO_GENERAL'],
+  },
+  {
+    id: 'SIM-76',
+    bloque: 'Candados #13/#14 + Variables Silenciosas B2C',
+    turno: 'Validación Unitaria',
+    contexto: 'd2_interno',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'Candados #13/#14 + Presupuesto elástico $40k -> $43k + Dormitorios abiertos',
+    evaluate: () => {
+      const errores = [];
+      const vs = extraerVariablesSilenciosasB2C('Busco alquiler en Punta del Este hasta 40mil para 1 o 2 personas');
+      if (vs.presupuesto_declarado !== 40000 || vs.presupuesto_elastico_max !== 43000) errores.push('FALLA_ELASTICO_43000');
+      if (vs.modalidad_gc !== 'con_y_sin_gc') errores.push('FALLA_MODALIDAD_GC');
+      if (!String(vs.dormitorios_abiertos || '').includes('Monoambiente, 1 y 2 dormitorios')) errores.push('FALLA_DORMS_ABIERTOS');
+      if (vs.amoblado_preferencia !== 'amoblado_y_sin_muebles') errores.push('FALLA_AMOBLADO_PREF');
+
+      const badPero = aplicarPokaYokeMar('Tenemos opciones pero en otro barrio.', 'D2');
+      if (badPero.pokayoke_pass || !badPero.violaciones.includes('PROHIBIDO_PERO_COMERCIAL')) errores.push('NO_BLOQUEA_PERO');
+
+      const badGen = aplicarPokaYokeMar('Bienvenido, quedás agendado solo/sola. Qué mascota es y necesitás muebles?', 'D2');
+      if (badGen.pokayoke_pass) errores.push('NO_BLOQUEA_CANDADO_14');
+
+      return {
+        pass: errores.length === 0,
+        errores,
+        vertical_detectada: 'D2',
+        subtipo_detectado: errores.length === 0 ? 'CANDADOS_13_14_Y_SILENCIOSAS_OK' : 'FALLA_MATRIZ_D2',
+        alerta_andon: errores.length > 0,
+        replyText: errores.length === 0
+          ? 'OK: elástico $43.000, con_y_sin_gc, Mono/1D/2D y candados #13-#14 activos.'
+          : errores.join(' | '),
+      };
+    },
   },
 ];
 

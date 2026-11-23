@@ -94,6 +94,15 @@ export const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "LF-REQ", area: "La Fortuna · Objeción", titulo: "Requisitos y costos de ingreso (+ IVA)", contexto: "la_fortuna", ejemploInput: "Cuánto piden de depósito o comisión para entrar y qué requisitos piden?" },
   { id: "LF-PAR", area: "La Fortuna · Turno 2", titulo: "Suma ingresos de pareja para aseguradora", contexto: "la_fortuna", ejemploInput: "Con mi pareja sumamos $U 95.000 en recibos, llegamos para Porto o Sura?" },
   { id: "LF-TEMP", area: "Alquiler · Borde", titulo: "Pregunta por verano / quincena", contexto: "general", ejemploInput: "Lo alquilan solo por enero o quincena de verano?" },
+  { id: "RB-T1-2027", area: "Rama B · Búsqueda Abierta", titulo: "Turno 1 · 2027 / $40k Punta del Este", contexto: "la_fortuna", ejemploInput: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes" },
+  { id: "RB-T2-PASO3", area: "Rama B · Búsqueda Abierta", titulo: "Turno 2 (Paso 3) · Da mes y 2 personas", contexto: "general", ejemploInput: "Sería para mudarnos en abril, somos 2 personas" },
+  { id: "RB-MASC", area: "Rama B · Mascota", titulo: "Dice tengo mascota -> Qué mascota tenés?", contexto: "general", ejemploInput: "Sí, tengo mascota y necesito cochera" },
+  { id: "RB-T3-GAR", area: "Rama B · Garantía", titulo: "Turno 3 (Paso 2) · Comodidades OK -> Pide Garantía", contexto: "general", ejemploInput: "No tengo mascota, necesito cochera y que esté amoblado" },
+  { id: "GAR-EFEC", area: "Árbol Garantía", titulo: "Sin garantía / solo efectivo o depósito", contexto: "general", ejemploInput: "No tengo garantía, pago solo efectivo o depósito" },
+  { id: "GAR-DEP", area: "Árbol Garantía", titulo: "Relación de dependencia (3 recibos + 30%)", contexto: "general", ejemploInput: "Trabajo en relación de dependencia en una empresa" },
+  { id: "GAR-IND", area: "Árbol Garantía", titulo: "Independiente / Unipersonal (BPS + DGI)", contexto: "general", ejemploInput: "Trabajo de forma independiente con unipersonal" },
+  { id: "GAR-EXT", area: "Árbol Garantía", titulo: "Cobra en el exterior / Extranjero", contexto: "general", ejemploInput: "Trabajo para afuera y cobro en el exterior" },
+  { id: "INV-ANUAL", area: "Invernal vs. Anual", titulo: "Pide marzo a noviembre o todo el año", contexto: "general", ejemploInput: "Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año" },
   { id: "SM-B1", area: "Santa Mónica · Meta Ads", titulo: "Botón 1 · Compra contado USD 160.000", contexto: "santa_monica", ejemploInput: "Evalúo compra contado USD 160.000: quiero video 2m31s y padrón" },
   { id: "SM-B2", area: "Santa Mónica · Meta Ads", titulo: "Botón 2 · Compara lote vs obra", contexto: "santa_monica", ejemploInput: "Comparo lote vs. obra (USD 160.000): pido video 2m31s y croquis" },
   { id: "SM-OBRA", area: "Santa Mónica · Turno 2", titulo: "Qué le falta terminar a la obra", contexto: "santa_monica", ejemploInput: "Qué le falta terminar exactamente a la obra de Santa Mónica?" },
@@ -208,7 +217,224 @@ function extraerFranjaVisita(rawText) {
   return m ? m[0].trim() : "el horario que propusiste";
 }
 
-export function clasificarVertical14(rawText, contextoPropiedad = "general") {
+function _capWord(str) {
+  const s = String(str || "").trim();
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : "";
+}
+
+export function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
+  const text = String(rawText || "");
+  const norm = _normTriageStr(text);
+
+  // 1. Presupuesto declarado y elástico (+7.5% · con y sin GC)
+  let presu = prev.presupuesto_declarado ? Number(prev.presupuesto_declarado) : null;
+  let moneda = prev.moneda || "UYU";
+
+  // Limpiar años (2025..2035) antes de buscar montos numéricos
+  const textSinAnios = text.replace(/\b20(?:2[5-9]|3\d)\b/g, " ");
+  const mUsd = textSinAnios.match(/(?:usd|u\$s|us\$|d[oó]lares?)\s*([\d.,]+)/i)
+    || textSinAnios.match(/([\d.,]+)\s*(?:usd|u\$s|d[oó]lares?)/i);
+  const mPesos = textSinAnios.match(/(?:hasta|\$u|\$|\buyu)\s*([\d.,]+)\s*(mil)?/i)
+    || textSinAnios.match(/([\d.,]+)\s*(?:mil\b|pesos)/i);
+
+  if (mUsd) {
+    const val = parseFloat(mUsd[1].replace(/\./g, "").replace(",", "."));
+    if (Number.isFinite(val) && val > 0) {
+      presu = val;
+      moneda = "USD";
+    }
+  } else if (mPesos) {
+    let val = parseFloat(mPesos[1].replace(/\./g, "").replace(",", "."));
+    if (/\bmil\b/i.test(mPesos[0]) && val < 500) val *= 1000;
+    else if (val > 0 && val < 250 && /hasta/i.test(mPesos[0])) val *= 1000;
+    if (Number.isFinite(val) && val > 0) {
+      presu = val;
+      moneda = "UYU";
+    }
+  }
+
+  const presupuestoDeclarado = presu && Number.isFinite(presu) ? presu : null;
+  const presupuestoElasticoMax = presupuestoDeclarado ? Math.round(presupuestoDeclarado * 1.075) : null;
+  const modalidadGc = "con_y_sin_gc";
+
+  // 2. Contrato Anual vs. Invernal y Mes de Mudanza
+  const mesMatch = norm.match(/\b(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/);
+  const isEntrarYa = /\b(entrar\s+ya|para\s+ya|inmediato|este\s+mes|ahora\s+mismo|lo\s+antes\s+posible|ya\s+mismo)\b/i.test(norm);
+  const yearMatch = text.match(/\b(202[6-9]|203\d)\b/);
+  const isMasAdelante = /\b(mas\s+adelante|otra\s+fecha|futuro|contrato\s+vence)\b/i.test(norm) || Boolean(yearMatch);
+
+  const isInvernal = /\b(invernal|invierno|marzo\s+a\s+noviembre|marzo\s*[-–]\s*noviembre|mar\s+a\s+nov)\b/i.test(norm);
+  const isAnual = /\b(anual|todo\s+el\s+ano|12\s*meses)\b/i.test(norm);
+  let modalidadContrato = prev.modalidad_contrato || "Anual";
+  let mezclaInvernalAnual = Boolean(prev.mezcla_invernal_anual);
+  if (isInvernal && isAnual) {
+    modalidadContrato = "Anual / Invernal";
+    mezclaInvernalAnual = true;
+  } else if (isInvernal) {
+    modalidadContrato = "Invernal (Marzo a Noviembre)";
+  } else if (isAnual) {
+    modalidadContrato = "Anual (12 meses)";
+  }
+
+  let mesMudanza = prev.mes_mudanza || null;
+  if (isEntrarYa) mesMudanza = "Entrar ya";
+  else if (mesMatch && !isInvernal) mesMudanza = _capWord(mesMatch[1]);
+  else if (/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i.test(norm)) {
+    const mv = norm.match(/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i);
+    if (mv) mesMudanza = _capWord(mv[1]);
+  }
+  const desdeCuando = mesMudanza || (yearMatch ? `Año ${yearMatch[1]} (mes a definir)` : prev.desde_cuando || null);
+
+  // 3. Personas y dormitorios abiertos
+  let dormsMin = prev.dormitorios_min !== undefined && prev.dormitorios_min !== null ? Number(prev.dormitorios_min) : null;
+  let dormsAbiertos = prev.dormitorios_abiertos || null;
+  let personas = prev.personas_cantidad || null;
+
+  const dormExact = norm.match(/\b(\d+)\s*(?:o\s*(\d+)\s*)?(?:dormitorios?|dorm\b|d\b|ambientes?)\b/);
+  if (/\bmonoambiente\b/i.test(norm)) {
+    dormsMin = 0;
+    dormsAbiertos = dormExact ? "Monoambiente, 1 y 2 dormitorios" : "Monoambiente";
+  } else if (dormExact) {
+    dormsMin = parseInt(dormExact[1], 10);
+    dormsAbiertos = dormExact[2] ? `${dormExact[1]} y ${dormExact[2]} dormitorios` : `${dormExact[1]} dormitorio${dormsMin > 1 ? "s" : ""}`;
+  }
+
+  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
+  if (persMatch) {
+    personas = persMatch[1];
+    if (!dormsAbiertos) {
+      if (/3|4|familia|chicos|hijos/.test(personas)) {
+        dormsMin = 2;
+        dormsAbiertos = "2 y 3 dormitorios";
+      } else {
+        dormsMin = 0;
+        dormsAbiertos = "Monoambiente, 1 y 2 dormitorios";
+      }
+    }
+  }
+
+  // 4. Amoblado y Comodidades
+  let amobladoPref = prev.amoblado_preferencia || "amoblado_y_sin_muebles";
+  if (/\b(amoblad[oa]|con muebles|equipad[oa])\b/i.test(norm)) amobladoPref = "amoblado";
+  else if (/\b(sin muebles|vaci[oa]|desamoblad[oa])\b/i.test(norm)) amobladoPref = "sin_muebles";
+
+  const comods = new Set(String(prev.comodidades_pedidas || "").split(",").map((x) => x.trim()).filter(Boolean));
+  if (/\bcochera|garaje|estacionamiento\b/i.test(norm)) comods.add("Cochera");
+  if (/\bpatio|jardin|fondo\b/i.test(norm)) comods.add("Patio");
+  if (/\bamoblad[oa]\b/i.test(norm)) comods.add("Amoblado");
+  if (/\bsin muebles\b/i.test(norm)) comods.add("Sin muebles");
+  const comodidadesRespondidas = comods.size > 0 || /\b(sin comodidades|ninguna comodidad|me da igual)\b/i.test(norm) || Boolean(prev.comodidades_respondidas);
+
+  // 5. Mascota
+  let tieneMascota = prev.tiene_mascota || null;
+  let mascotaDetalle = prev.mascota_detalle || null;
+  if (/\b(no\s+tengo\s+mascota|sin\s+mascota|no\s+tenemos\s+mascota|ninguna\s+mascota)\b/i.test(norm)) {
+    tieneMascota = "no";
+    mascotaDetalle = "Sin mascota";
+  } else {
+    const detMatch = norm.match(/\b((?:perro|perrito|perra|cachorro)\s*(?:chico|pequeno|mediano|grande)?|(?:gato|gatito|gata)\s*(?:chico|grande)?|caniche|bulldog|labrador|golden|\d+\s*(?:perros?|gatos?))\b/i);
+    if (detMatch) {
+      tieneMascota = "si";
+      mascotaDetalle = _capWord(detMatch[1]);
+    } else if (/\b(tengo\s+mascota|con\s+mascota|si,\s*tengo\s+mascota|hay\s+mascota)\b/i.test(norm)) {
+      tieneMascota = "si";
+    }
+  }
+
+  // 6. Zona (Punta del Este abierta + Maldonado)
+  let zonaPreferida = prev.zona_preferida || null;
+  let zonaDisplay = prev.zona_display || null;
+  const barrios = [
+    ["la fortuna", "La Fortuna"],
+    ["pinares", "Pinares"],
+    ["roosevelt", "Roosevelt"],
+    ["aidy grill", "Aidy Grill"],
+    ["la barra", "La Barra"],
+    ["el tesoro", "El Tesoro"],
+    ["manantiales", "Manantiales"],
+    ["playa brava", "Playa Brava"],
+    ["playa mansa", "Playa Mansa"],
+    ["peninsula", "Península"],
+    ["cantegril", "Cantegril"],
+    ["maldonado centro", "Maldonado Centro"],
+    ["san rafael", "San Rafael"],
+  ];
+  const matchedBarrio = barrios.find(([pat]) => norm.includes(pat));
+  if (matchedBarrio) {
+    zonaDisplay = matchedBarrio[1];
+    zonaPreferida = matchedBarrio[1];
+  } else if (norm.includes("punta del este")) {
+    zonaDisplay = "Punta del Este";
+    zonaPreferida = "Punta del Este (abierto + Maldonado próximo)";
+  } else if (norm.includes("maldonado")) {
+    zonaDisplay = "Maldonado";
+    zonaPreferida = "Maldonado";
+  }
+
+  // 7. Garantía y Situación Laboral
+  let garantiaTipo = prev.garantia_tipo || null;
+  let garantiaDisp = prev.garantia_disponible || null;
+  let situacionLaboral = prev.situacion_laboral || null;
+  let mesesDeposito = prev.meses_deposito || null;
+
+  const asegList = ["Porto", "Sura", "Mapfre", "Santander"].filter((g) => norm.includes(g.toLowerCase()));
+  if (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm)) {
+    garantiaTipo = "aseguradora";
+    garantiaDisp = asegList.length ? asegList.join(", ") : "Aseguradora";
+  } else if (/\b(anda|cgn|contaduria)\b/i.test(norm)) {
+    garantiaTipo = "anda_cgn";
+    garantiaDisp = "ANDA / CGN";
+  } else if (/\b(no\s+tengo\s+garant|sin\s+garant|solo\s+efectivo|tengo\s+efectivo|solo\s+deposito|con\s+deposito|puedo\s+pagar\s+deposito)\b/i.test(norm)) {
+    garantiaTipo = "sin_garantia_o_deposito";
+    garantiaDisp = "Sin garantía previa (evalúa trámite / depósito)";
+  }
+
+  if (/\b(relacion\s+de\s+dependencia|empleado|en\s+planilla|recibo\s+de\s+sueldo|recibos\s+de\s+sueldo)\b/i.test(norm) && !/\bno\s+tengo\s+recibo/i.test(norm)) {
+    situacionLaboral = "relacion_dependencia";
+  } else if (/\b(independiente|unipersonal|monotributo|facturo|por\s+mi\s+cuenta)\b/i.test(norm)) {
+    situacionLaboral = "independiente";
+  } else if (/\b(exterior|para\s+afuera|cobro\s+afuera|extranjero|remoto\s+afuera)\b/i.test(norm)) {
+    situacionLaboral = "exterior";
+  } else if (/\b(no\s+tengo\s+ingresos\s+demostrables|sin\s+ingresos\s+demostrables|no\s+tengo\s+recibo|informal)\b/i.test(norm)) {
+    situacionLaboral = "sin_ingresos_demostrables";
+  }
+
+  const mDep = norm.match(/\b(\d+)\s*mes(?:es)?\s*(?:de\s*)?deposito\b/);
+  if (mDep) {
+    mesesDeposito = parseInt(mDep[1], 10);
+    garantiaTipo = "deposito";
+    garantiaDisp = `Depósito (${mesesDeposito} meses)`;
+  }
+
+  return {
+    presupuesto_declarado: presupuestoDeclarado,
+    presupuesto_elastico_max: presupuestoElasticoMax,
+    presupuesto_max: presupuestoDeclarado || prev.presupuesto_max || null,
+    moneda,
+    modalidad_gc: modalidadGc,
+    modalidad_contrato: modalidadContrato,
+    mezcla_invernal_anual: mezclaInvernalAnual,
+    mes_mudanza: mesMudanza,
+    desde_cuando: desdeCuando,
+    es_futuro_o_abierto: isMasAdelante || isInvernal || /\btendrias\s+opciones\b|\bhasta\s+\d+/.test(norm),
+    personas_cantidad: personas,
+    dormitorios_min: dormsMin,
+    dormitorios_abiertos: dormsAbiertos,
+    amoblado_preferencia: amobladoPref,
+    comodidades_pedidas: [...comods].join(", ") || null,
+    comodidades_respondidas: comodidadesRespondidas,
+    tiene_mascota: tieneMascota,
+    mascota_detalle: mascotaDetalle,
+    zona_preferida: zonaPreferida,
+    zona_display: zonaDisplay,
+    garantia_tipo: garantiaTipo,
+    garantia_disponible: garantiaDisp,
+    situacion_laboral: situacionLaboral,
+    meses_deposito: mesesDeposito,
+  };
+}
+
+export function clasificarVertical14(rawText, contextoPropiedad = "general", leadState = null) {
   const t = (rawText || "").toLowerCase();
   const ctx = (contextoPropiedad || "general").toLowerCase();
 
@@ -340,7 +566,10 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
   if (matchesAny(t, ["gastos de ocupación", "gastos de ocupacion", "gastos de conexión", "gastos de conexion"])) {
     return { vertical: "D1", subtipo: "POZO_GASTOS_OCUPACION" };
   }
-  if (matchesAny(t, ["argentino", "exterior", "buenos aires", "desde argentina", "no residente", "a distancia", "firmar desde"])) {
+  if (
+    matchesAny(t, ["argentino", "exterior", "buenos aires", "desde argentina", "no residente", "a distancia", "firmar desde"]) &&
+    (ctx === "pozo" || !matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "ingresos del exterior", "ingresos en el exterior"]))
+  ) {
     return { vertical: "D1", subtipo: "POZO_COMPRA_EXTERIOR" };
   }
   if (matchesAny(t, ["residencia fiscal", "3.500.000 ui"])) {
@@ -353,27 +582,106 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general") {
     return { vertical: "D1", subtipo: "DEMANDA_POZO" };
   }
 
-  // 6. Objeciones específicas de Alquiler / La Fortuna (D2)
-  if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"])) {
+  // 6. Objeciones específicas de Alquiler / La Fortuna + Árbol Garantía + Rama A/B (D2)
+  if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"]) && !matchesAny(t, ["marzo a noviembre", "invernal", "probar invierno"])) {
     return { vertical: "D2", subtipo: "OBJECION_TEMPORADA_VS_ANUAL" };
   }
   if (matchesAny(t, ["con mi pareja", "sumamos", "entre los dos", "sueldos conjuntos", "recibos de sueldo"]) && matchesAny(t, ["porto", "sura", "mapfre", "santander", "llegamos", "alcanza", "calific"])) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_SUMA_INGRESOS_PAREJA" };
   }
-  if (matchesAny(t, ["mascota", "perro", "gato"])) {
-    return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_MASCOTA" };
-  }
   if (matchesAny(t, ["dirección exacta", "direccion exacta", "número de puerta", "numero de puerta", "qué calle", "que calle", "ubicación exacta", "ubicacion exacta"])) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_DIRECCION_PUERTA" };
   }
-  if (matchesAny(t, ["depósito", "deposito", "comisión para entrar", "comision para entrar", "qué requisitos", "que requisitos", "cuánto piden", "cuanto piden"])) {
+  if (matchesAny(t, ["depósito o comisión", "deposito o comision", "comisión para entrar", "comision para entrar", "qué requisitos", "que requisitos", "cuánto piden de depósito", "cuanto piden de deposito"])) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_REQUISITOS_INGRESO" };
   }
-  if (matchesAny(t, ["gastos comunes", "aparte del alquiler", "qué incluye", "que incluye", "cuánto sale por mes", "cuanto sale por mes"]) || (ctx === "la_fortuna" && matchesAny(t, ["cuánto sale", "cuanto sale", "precio", "valor"]))) {
+  if (matchesAny(t, ["gastos comunes", "aparte del alquiler", "qué incluye", "que incluye", "cuánto sale por mes", "cuanto sale por mes"]) || (ctx === "la_fortuna" && matchesAny(t, ["cuánto sale", "cuanto sale", "precio", "valor"]) && !matchesAny(t, ["hasta", "2027", "punta del este", "tendrías opciones", "tendrias opciones"]))) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_GC_INCLUYE" };
   }
   if (matchesAny(t, ["audio", "llamar", "llamada", "teléfono", "telefono"])) {
     return { vertical: ctx === "santa_monica" ? "D7" : "D2", subtipo: "CANAL_AUDIO_WHATSAPP" };
+  }
+
+  // 6b. Árbol Completo de la Variable Garantía (paso a paso)
+  const vSil = extraerVariablesSilenciosasB2C(rawText, leadState || {});
+  if (matchesAny(t, ["no tengo ingresos demostrables", "sin ingresos demostrables", "no tengo recibo ni factur", "no puedo demostrar ingresos"])) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_SIN_INGRESOS_DEPOSITO" };
+  }
+  if (vSil.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "ingresos del exterior", "soy extranjero"])) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_EXTERIOR" };
+  }
+  if (vSil.situacion_laboral === "independiente" || matchesAny(t, ["de forma independiente", "con unipersonal", "soy independiente", "tengo unipersonal"])) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_INDEPENDIENTE" };
+  }
+  if (vSil.situacion_laboral === "relacion_dependencia" || matchesAny(t, ["relación de dependencia", "relacion de dependencia", "empleado en planilla", "tengo recibo de sueldo"])) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_RELACION_DEPENDENCIA" };
+  }
+  if (
+    matchesAny(t, ["no tengo garantía", "no tengo garantia", "sin garantía", "sin garantia", "solo efectivo", "pago solo efectivo", "tengo solo depósito", "tengo solo deposito"]) &&
+    !matchesAny(t, ["la fortuna", "bhu", "anda"])
+  ) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_SIN_GARANTIA_O_DEPOSITO" };
+  }
+  if (ctx === "la_fortuna" && matchesAny(t, ["aceptan deposito", "aceptan depósito", "bhu o anda"])) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_REQUISITOS_INGRESO" };
+  }
+  if ((matchesAny(t, ["tengo anda", "tengo contaduría", "tengo contaduria", "tengo cgn"]) || (ctx !== "general" && matchesAny(t, ["solo anda", "solo cgn"]))) && !t.includes("en otra zona o tengo propiedad")) {
+    return { vertical: "D2", subtipo: "D2_GARANTIA_ANDA_CGN_ABIERTA" };
+  }
+
+  // 6c. Rama B (Búsqueda abierta / 2027 / Invernal / Más adelante / Presupuesto abierto)
+  const esExcluidoRamaB = matchesAny(t, ["local comercial", "local u", "oficina", "consultorio", "galpón", "galpon", "terreno", "lote", "para construir"]);
+  const esRamaB = !esExcluidoRamaB && Boolean(
+    leadState?.rama_conversacion === "B"
+    || vSil.es_futuro_o_abierto
+    || matchesAny(t, [
+      "2027", "2028", "más adelante", "mas adelante", "otra fecha", "contrato vence",
+      "marzo a noviembre", "invernal", "probar invierno", "tendrías opciones", "tendrias opciones",
+      "mudarme más adelante", "mudarnos en", "para el mes que viene", "para dentro de",
+    ])
+    || (matchesAny(t, ["alquiler", "alquilar", "mudar"]) && (vSil.zona_display === "Punta del Este" || Boolean(vSil.presupuesto_declarado)))
+    || ((vSil.tiene_mascota || vSil.comodidades_respondidas) && !matchesAny(t, ["la fortuna", "santa m", "perro mediano, aceptan", "dos perros grandes, aceptan"]))
+  );
+
+  if (esRamaB && ctx !== "santa_monica" && ctx !== "pozo" && ctx !== "dueno") {
+    // Evaluar turno exacto en orden obligatorio 1 -> 3 -> 2
+    if (vSil.tiene_mascota === "si" && !vSil.mascota_detalle) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_MASCOTA_PREGUNTA" };
+    }
+    if (
+      vSil.tiene_mascota &&
+      vSil.comodidades_respondidas &&
+      !vSil.garantia_tipo &&
+      !vSil.es_futuro_o_abierto &&
+      !(leadState && (!leadState.mes_mudanza || (!leadState.dormitorios_abiertos && !leadState.personas_cantidad)))
+    ) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA" };
+    }
+    const faltaPaso1 = !vSil.mes_mudanza || (!vSil.dormitorios_abiertos && !vSil.personas_cantidad);
+    if (faltaPaso1) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_1_PASO_1" };
+    }
+    const respondioMascotaYComodidades = Boolean(vSil.tiene_mascota) || Boolean(vSil.comodidades_respondidas);
+    if (!respondioMascotaYComodidades) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_2_PASO_3" };
+    }
+    if (!vSil.garantia_tipo) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA" };
+    }
+    return { vertical: "D2", subtipo: "D2_RAMA_B_BUSQUEDA_COMPLETA" };
+  }
+
+  // 6d. Objeción mascota puntual en La Fortuna (SIM-06 / SIM-51) vs búsqueda abierta
+  if (matchesAny(t, ["mascota", "perro", "gato"])) {
+    if (ctx === "la_fortuna" || matchesAny(t, ["la fortuna", "aceptan en", "aceptan mascotas"])) {
+      return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_MASCOTA" };
+    }
+    return { vertical: "D2", subtipo: vSil.tiene_mascota === "si" && !vSil.mascota_detalle ? "D2_RAMA_B_MASCOTA_PREGUNTA" : "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA" };
+  }
+
+  // 6e. Rama A — Propiedad puntual disponible hoy (consulta si sigue libre / cómo verla sin garantía declarada)
+  if (ctx === "la_fortuna" && matchesAny(t, ["sigue disponible", "esta disponible", "está disponible", "como hacemos", "cómo hacemos", "quiero alquilarlo", "me gustaría verlo"])) {
+    return { vertical: "D2", subtipo: "D2_RAMA_A_FILTRO_DIRECTO" };
   }
 
   // 7. Propuestas de visita / día y hora (después de validar intents de pozo/objeciones)
@@ -506,6 +814,28 @@ export function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, e
     violaciones.push("SEGUIMIENTO_PASIVO_PROHIBIDO");
   }
 
+  // Candado #13: Prohibido usar "pero" en textos comerciales (reemplazar por conector afirmativo o punto seguido)
+  if (/\bpero\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_PERO_COMERCIAL");
+  }
+
+  // Candado #14: Neutralidad de género + vocabulario estricto de comodidades y mascotas
+  if (
+    /\b(bienvenido|bienvenidos|bienvenidas|bienvenido\/a|bienvenid@)\b/i.test(out) ||
+    /(?:^|[.!?]\s+|hola[!,]?\s+)bienvenida\b/i.test(out) ||
+    /\b(solo\/sola|solo\s+o\s+sola|viv[ií]s\s+sol[oa]|mudarte\s+sol[oa]|para\s+vos\s+sol[oa]|si\s+sos\s+sol[oa])\b/i.test(out) ||
+    /\b(agendad[oa]|agendad[oa]\/[oa]|qued[aá]s\s+agendad[oa]|te\s+dejo\s+agendad[oa]|te\s+dejamos\s+agendad[oa])\b/i.test(out) ||
+    /\b(interesado\/interesada|interesad[oa]\/[oa]|si\s+est[aá]s\s+interesad[oa])\b/i.test(out)
+  ) {
+    violaciones.push("NEUTRALIDAD_DE_GENERO");
+  }
+  if (/\bqu[eé]\s+mascota\s+es\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_QUE_MASCOTA_ES");
+  }
+  if (/\b(cochera,\s*patio,\s*(?:o\s+)?muebles|patio,\s*muebles|necesit[aá]s[^.?]*\bmuebles\b(?!\s+o\s+sin)|prefer[ií]s[^.?]*\bmuebles\b)\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_MUEBLES_SUELTO");
+  }
+
   return {
     texto: out,
     pokayoke_pass: violaciones.length === 0,
@@ -624,7 +954,9 @@ function _matchD1Override(rawText, contextoPropiedad, vertical, subtipo, canal, 
 }
 
 export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropiedad = "general", canal = "whatsapp", options = {}) {
-  const { vertical, subtipo } = clasificarVertical14(rawText, contextoPropiedad);
+  const leadState = options && options.leadState ? options.leadState : null;
+  const varsSilenciosas = extraerVariablesSilenciosasB2C(rawText, leadState || {});
+  const { vertical, subtipo } = clasificarVertical14(rawText, contextoPropiedad, leadState);
   const spec = VERTICAL_SPECS[vertical] || VERTICAL_SPECS.D2;
   const analisis = detectarFaltantes(vertical, rawText);
   const familia = seleccionarFamiliaArbol(vertical, subtipo);
@@ -904,6 +1236,79 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     }
     alertaAndon = true;
     motivoAndon = `Alta inbound de propietario (${vertical}): pasar a Master CSV y Bienvenida de OKs.`;
+  } else if (subtipo === "D2_GARANTIA_SIN_INGRESOS_DEPOSITO") {
+    replyText =
+      "Tomamos nota para buscar propietarios que evalúen depósito en garantía.\n" +
+      "Cuántos meses de depósito podés cubrir al momento de ingresar para dejarlo registrado en tu búsqueda?";
+    alertaAndon = true;
+    motivoAndon = "Garantía B2C: registra capacidad de meses de depósito.";
+  } else if (subtipo === "D2_GARANTIA_EXTERIOR") {
+    replyText =
+      "En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?";
+    alertaAndon = true;
+    motivoAndon = "Garantía B2C exterior: validación de facturas + extractos bancarios (<30% + certificado notarial).";
+  } else if (subtipo === "D2_GARANTIA_INDEPENDIENTE") {
+    replyText =
+      "De forma independiente o con unipersonal la aseguradora se tramita al momento de reservar con BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      "Contás con esos comprobantes al día para agendar tu búsqueda?";
+  } else if (subtipo === "D2_GARANTIA_RELACION_DEPENDENCIA") {
+    replyText =
+      "En relación de dependencia la aseguradora se tramita al momento de reservar con los últimos 3 recibos de sueldo y documento de identidad, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      "Con tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?";
+  } else if (subtipo === "D2_GARANTIA_SIN_GARANTIA_O_DEPOSITO") {
+    replyText =
+      "Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?";
+  } else if (subtipo === "D2_GARANTIA_ANDA_CGN_ABIERTA") {
+    replyText =
+      "Esa propiedad opera con garantía de aseguradora y tomamos nota de tu búsqueda con ANDA o Contaduría por si ingresa una opción que la acepte.\n" +
+      "Preferís que dejemos agenda con ANDA o Contaduría, o querés evaluar aseguradora con tus recibos?";
+  } else if (subtipo === "D2_RAMA_A_FILTRO_DIRECTO") {
+    replyText =
+      `Hola! Te damos la bienvenida a Zaguán. La propiedad está disponible (${LA_FORTUNA_URL}${utm}).\n` +
+      "Buscás para entrar ya y con qué garantía pensás alquilar (podemos ayudarte con eso también)?";
+    alertaAndon = true;
+    motivoAndon = "Rama A La Fortuna: filtro entrada inmediata + garantía.";
+  } else if (subtipo === "D2_RAMA_B_TURNO_1_PASO_1") {
+    const zonaParte = varsSilenciosas.zona_display ? ` en ${varsSilenciosas.zona_display}` : "";
+    const presuNum = varsSilenciosas.presupuesto_declarado
+      ? `${varsSilenciosas.moneda === "USD" ? "USD " : "$U "}${varsSilenciosas.presupuesto_declarado.toLocaleString("de-DE")}`
+      : "";
+    const presuParte = presuNum ? ` hasta ${presuNum} al mes` : "";
+    const yearMatch = String(rawText || "").match(/\b(202[6-9]|203\d)\b/);
+    const tempParte = yearMatch ? ` para el ${yearMatch[1]}` : (varsSilenciosas.desde_cuando ? ` para ${varsSilenciosas.desde_cuando}` : "");
+    const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
+      ? "\n\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos."
+      : "";
+    replyText =
+      `Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}\n\n` +
+      "Contanos así enfocamos la búsqueda: desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?\n\n" +
+      "_Si querés adelantarnos algo más:_\n" +
+      "_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n" +
+      "_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_";
+    alertaAndon = true;
+    motivoAndon = "Rama B Paso 1: búsqueda abierta guardada con presupuesto elástico y dormitorios abiertos.";
+  } else if (subtipo === "D2_RAMA_B_MASCOTA_PREGUNTA") {
+    replyText =
+      "Tomamos nota para priorizar propiedades que acepten mascotas. Qué mascota tenés?";
+  } else if (subtipo === "D2_RAMA_B_TURNO_2_PASO_3") {
+    const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
+      ? "Tené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\n"
+      : "";
+    replyText =
+      `${aclaraContrato}Tomamos nota. Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?`;
+  } else if (subtipo === "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA") {
+    replyText =
+      "Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?";
+  } else if (subtipo === "D2_RAMA_B_BUSQUEDA_COMPLETA") {
+    const zonaParte = varsSilenciosas.zona_display ? ` en ${varsSilenciosas.zona_display}` : "";
+    const presuNum = varsSilenciosas.presupuesto_declarado
+      ? ` hasta ${varsSilenciosas.moneda === "USD" ? "USD " : "$U "}${varsSilenciosas.presupuesto_declarado.toLocaleString("de-DE")}`
+      : "";
+    const garTxt = varsSilenciosas.garantia_disponible ? ` con ${varsSilenciosas.garantia_disponible}` : "";
+    replyText =
+      `Excelente, ya tomamos nota completa de tu búsqueda${zonaParte}${presuNum}${garTxt}. Apenas confirmemos propiedades que cumplan esas condiciones te enviamos las opciones por acá.`;
+    alertaAndon = true;
+    motivoAndon = "Rama B completa (Pasos 1-3-2): pasar a Pedidos Abiertos y activar matchmaker.";
   } else if (vertical === "D2" && subtipo === "DEMANDA_ALQUILER_GENERAL") {
     replyText =
       `Podés ver las fichas de alquiler anual activas hoy en ${ALQUILERES_URL}${utm} (incluyendo La Fortuna 2 dormitorios a $U 30.000 con gastos comunes y Wi-Fi incluidos).\n` +
@@ -963,6 +1368,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivo_andon: motivoAndon,
     pokayoke_pass: pk.pokayoke_pass,
     pokayoke_violaciones: pk.violaciones,
+    variables_silenciosas: varsSilenciosas,
     override_id: matchedOverride?.id || null,
     override_aplicado: Boolean(matchedOverride),
   };
@@ -1019,6 +1425,17 @@ const REDTEAM_50_CONVERSACIONAL = [
   { id: "SIM-62", contexto: "la_fortuna", input: "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños", mustInclude: ["familias con niños", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|garant[ií]a aseguradora/i, mustNotInclude: ["directamente", "propietario", "dueño", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-63", contexto: "la_fortuna", input: "Estoy en espera de otro apto, mañana a las 11 tengo la cita", mustInclude: ["mediodía", "prioridad"], mustMatch: /orden de cierre|11/i, mustNotInclude: ["directamente", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-64", contexto: "general", input: "Tengo una casa en Maldonado para publicar", mustInclude: ["publicación abierta"], mustMatch: /venta o alquiler anual/i, mustNotInclude: ["sin exclusividad", "zaguanpropiedades.com/alquileres/", "zaguanpropiedades.com/links/", "%"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-65", contexto: "la_fortuna", input: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes", mustInclude: ["Te damos la bienvenida a Zaguán", "Punta del Este", "40.000", "2027", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?", "que esté amoblado", "podemos ayudarte con eso también"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero", "bienvenido", "agendad", "enero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-66", contexto: "general", input: "Sería para mudarnos en abril, somos 2 personas", mustInclude: ["Tomamos nota", "Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?"], mustNotInclude: ["La Fortuna", "pero", "solo/sola", "muebles,"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-67", contexto: "general", input: "Sí, tengo mascota y necesito cochera", mustInclude: ["Qué mascota tenés"], mustNotInclude: ["qué mascota es", "casa con patio", "pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-68", contexto: "general", input: "No tengo mascota, necesito cochera y que esté amoblado", mustInclude: ["Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?"], mustNotInclude: ["pero", "bienvenido"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-69", contexto: "la_fortuna", input: "Busco para mudarme más adelante, mi contrato vence en junio", mustInclude: ["Te damos la bienvenida a Zaguán", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-70", contexto: "general", input: "No tengo garantía, pago solo efectivo o depósito", mustInclude: ["Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?"], mustNotInclude: ["pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-71", contexto: "general", input: "Trabajo en relación de dependencia en una empresa", mustInclude: ["3 recibos de sueldo", "documento", "30%", "una sola persona o combinando ingresos de hasta 4 personas"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-72", contexto: "general", input: "Trabajo de forma independiente con unipersonal", mustInclude: ["BPS y DGI al día", "certificación contable", "último año", "30%"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-73", contexto: "general", input: "Trabajo para afuera y cobro en el exterior", mustInclude: ["En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-74", contexto: "general", input: "No tengo ingresos demostrables ni recibo de sueldo", mustInclude: ["Cuántos meses de depósito podés cubrir"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-75", contexto: "general", input: "Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año", mustInclude: ["invernal", "marzo a noviembre", "anual", "12 meses", "dos contratos distintos con valores distintos"], mustNotInclude: ["La Fortuna", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
 ];
 
 const REDTEAM_14_INMEMORY_CONTRACTS = [
@@ -1074,6 +1491,8 @@ export function validarOverrideCandidato(candidateOverride) {
     "franja gris",
     "cotizada por separado",
     "torres del este",
+    "qué mascota es",
+    "que mascota es",
   ];
   for (const b of forbiddenBase) {
     if (low.includes(b)) errores.push(`VIOLA_CANDADO_POKA_YOKE('${b}')`);
@@ -1135,11 +1554,24 @@ export function runRedTeam64InMemory(candidateOverride = null, existingOverrides
     else failed.push({ id: esc.id, errores: errs });
   }
 
-  const ok = candidateCheck.pass && passedCount === allCases.length && failed.length === 0;
+  // SIM-76: Candados #13 y #14 + Variables Silenciosas
+  const vs76 = extraerVariablesSilenciosasB2C("Busco alquiler en Punta del Este hasta 40mil para 1 o 2 personas");
+  const p76_1 = aplicarPokaYokeMar("Bienvenida, pero agendado solo/sola qué mascota es cochera, patio, muebles", "D2");
+  const sim76Errs = [];
+  if (vs76.presupuesto_declarado !== 40000 || vs76.presupuesto_elastico_max !== 43000) sim76Errs.push("ELASTICO_FAIL");
+  if (vs76.modalidad_gc !== "con_y_sin_gc") sim76Errs.push("GC_FAIL");
+  if (!String(vs76.dormitorios_abiertos || "").includes("Monoambiente, 1 y 2 dormitorios")) sim76Errs.push("DORMS_FAIL");
+  if (vs76.amoblado_preferencia !== "amoblado_y_sin_muebles") sim76Errs.push("AMOBLADO_FAIL");
+  if (p76_1.pokayoke_pass) sim76Errs.push("CANDADOS_13_14_NO_BLOQUEARON");
+  if (sim76Errs.length === 0) passedCount++;
+  else failed.push({ id: "SIM-76", errores: sim76Errs });
+
+  const totalAll = allCases.length + 1;
+  const ok = candidateCheck.pass && passedCount === totalAll && failed.length === 0;
   return {
     ok,
     passed: passedCount,
-    total: allCases.length,
+    total: totalAll,
     failed,
   };
 }
