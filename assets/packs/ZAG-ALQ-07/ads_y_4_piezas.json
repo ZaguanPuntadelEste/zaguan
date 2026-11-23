@@ -11,7 +11,7 @@
     "PISO_ORIENTACION": "Piso 4 por ascensor, orientación Norte",
     "EQUIPAMIENTO": "Sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero",
     "SEGURIDAD_EDIFICIO": "Edificio seguro con ascensor y cámaras de seguridad",
-    "ADMISION_NINOS_MASCOTAS": "Acepta niños y el edificio acepta mascotas",
+    "ADMISION_NINOS_MASCOTAS": "El edificio acepta mascotas",
     "COCHERA": "Sin cochera propia incluida; hay cocheras disponibles en alquiler dentro del mismo edificio",
     "GARANTIA_ACEPTADA": "Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander)",
     "HORARIO_VISITAS": "Tras validar ficha, croquis y garantía",
@@ -46,7 +46,7 @@
       {
         "codigo": "ZAG-ALQ-07-P3",
         "portada_url": "https://zaguanpropiedades.com/assets/packs/ZAG-ALQ-07/03-portada-familia-mascotas.jpg",
-        "tema": "Pieza 3 · Acepta niños y mascotas, cámaras y lavadero definido (ZAG-ALQ-07)"
+        "tema": "Pieza 3 · Edificio pet-friendly con cámaras y lavadero definido (ZAG-ALQ-07)"
       },
       {
         "codigo": "ZAG-ALQ-07-P4",
@@ -68,9 +68,9 @@
       "headline": "2 dormitorios en Centro, Maldonado: $U 27.000/mes",
       "subline": "Gastos comunes $U 5.000 (agua inc.). Garantía Porto, Sura o Mapfre.",
       "cta_card": "Ver ficha, croquis y video · ZAGUÁN Propiedades",
-      "instagram_copy": "Buscás alquiler anual claro en Centro, Maldonado sin sorpresas en el monto final?\n\nUnidad de 2 dormitorios (~50 m²) en Piso 4 por ascensor, orientación Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero. Acepta niños y el edificio acepta mascotas.\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y validá tu garantía escribiendo \"FICHA\" por mensaje privado o en el enlace de nuestra biografía.\n\n#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades",
+      "instagram_copy": "Buscás alquiler anual claro en Centro, Maldonado sin sorpresas en el monto final?\n\nUnidad de 2 dormitorios (~50 m²) en Piso 4 por ascensor, orientación Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero. El edificio acepta mascotas.\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y validá tu garantía escribiendo \"FICHA\" por mensaje privado o en el enlace de nuestra biografía.\n\n#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades",
       "tiktok_copy": "Alquiler anual 2 dormitorios en Centro, Maldonado: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Mirá las 8 fotos, el croquis de distribución y validá tu garantía escribiendo \"FICHA\" o tocando el enlace de nuestra biografía.",
-      "facebook_copy": "Alquiler anual en Centro, Maldonado · 2 dormitorios (~50 m²)\n\nValor: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte, sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero, edificio seguro con ascensor y cámaras de seguridad. Acepta niños y el edificio acepta mascotas.\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y el simulador de garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "facebook_copy": "Alquiler anual en Centro, Maldonado · 2 dormitorios (~50 m²)\n\nValor: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte, sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero, edificio seguro con ascensor y cámaras de seguridad. El edificio acepta mascotas.\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y el simulador de garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "linkedin_copy": "Disponible en cartera activa de ZAGUÁN Propiedades (ZAG-ALQ-07): apartamento de 2 dormitorios (~50 m²) en Centro, Maldonado para contrato anual.\n\nCondiciones publicadas de frente: $U 27.000/mes más gastos comunes ($U 5.000 (agua OSE incluida)), edificio con ascensor y cámaras. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y el simulador de garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "youtube_title": "Centro, Maldonado 2D · $U 27.000/mes · ZAG-ALQ-07"
     },
@@ -94,19 +94,19 @@
     {
       "num": 3,
       "codigo": "ZAG-ALQ-07-P3",
-      "tema": "Pieza 3 · Acepta niños y mascotas, cámaras y lavadero definido (ZAG-ALQ-07)",
+      "tema": "Pieza 3 · Edificio pet-friendly con cámaras y lavadero definido (ZAG-ALQ-07)",
       "cover_photo_local": "/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/assets/images/propiedades/maldonado-centro-claudia/foto_03.jpg",
       "cover_filename": "03-portada-familia-mascotas.jpg",
-      "badge_top": "NIÑOS Y MASCOTAS",
+      "badge_top": "ACEPTA MASCOTAS",
       "kicker": "EDIFICIO SEGURO · CÁMARAS",
-      "headline": "Acepta niños y mascotas en edificio con cámaras",
+      "headline": "Acepta mascotas en edificio seguro con cámaras",
       "subline": "Cocina definida y lavadero. Garantía Porto, Sura o Mapfre.",
       "cta_card": "Ver 8 fotos, croquis y requisitos · ZAGUÁN",
-      "instagram_copy": "Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\nEste 2 dormitorios en Centro, Maldonado suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\nSolo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora: escribinos \"FICHA\" por privado o al WhatsApp del perfil.\n\n#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades",
-      "tiktok_copy": "Acepta niños y mascotas en Centro, Maldonado: 2 dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora escribiendo \"FICHA\" o desde el enlace del perfil.",
-      "facebook_copy": "Apartamento 2 dormitorios en Centro, Maldonado que acepta niños y mascotas.\n\nEdificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-      "linkedin_copy": "Un diferencial clave de esta unidad en Centro, Maldonado: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-      "youtube_title": "Alquiler 2D Centro, Maldonado acepta niños y mascotas · ZAG-ALQ-07"
+      "instagram_copy": "Buscás apartamento anual céntrico donde el edificio acepte mascotas?\n\nEste 2 dormitorios en Centro, Maldonado suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\nSolo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora: escribinos \"FICHA\" por privado o al WhatsApp del perfil.\n\n#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades",
+      "tiktok_copy": "Edificio que acepta mascotas en Centro, Maldonado: 2 dormitorios con cocina definida, terraza lavadero y cámaras de seguridad. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora escribiendo \"FICHA\" o desde el enlace del perfil.",
+      "facebook_copy": "Apartamento 2 dormitorios en Centro, Maldonado donde el edificio acepta mascotas.\n\nEdificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "linkedin_copy": "Un diferencial clave de esta unidad en Centro, Maldonado: edificio con cámaras que acepta mascotas, cocina definida con lavadero. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "youtube_title": "Alquiler 2D Centro, Maldonado acepta mascotas · ZAG-ALQ-07"
     },
     {
       "num": 4,

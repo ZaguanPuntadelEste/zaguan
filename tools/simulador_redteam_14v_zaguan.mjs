@@ -538,7 +538,7 @@ export const ESCENARIOS_60 = [
   {
     id: 'SIM-62', bloque: 'La Fortuna · Caso Lianet T1', turno: 'T1 · Objeción niños y visita previa', contexto: 'la_fortuna',
     input: 'Ya esa yo la fui a ver y me dijeron que el dueño no quería niños',
-    mustInclude: ['familias con niños', 'nuestra gestión ZAGUÁN'],
+    mustInclude: ['hasta 4 personas', 'mascota de raza pequeña', 'nuestra gestión ZAGUÁN'],
     mustMatch: /apartamento|garant[ií]a aseguradora/i,
     mustNotInclude: ['directamente', 'propietario', 'dueño', 'sin exclusividad'],
     expectAndon: true,

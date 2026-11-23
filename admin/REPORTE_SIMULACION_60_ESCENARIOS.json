@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-23T22:20:20.987Z",
+  "fecha": "2026-11-23T23:42:13.859Z",
   "total": 95,
   "pasaron": 95,
   "fallaron_count": 0,
@@ -17,7 +17,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_VISITA_FILTRADA",
       "alerta_andon": true,
-      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Qué día y horario te sirve visitar esta semana?*"
+      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera; capacidad máxima hasta 4 personas y mascota de raza pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Qué día y horario te sirve visitar esta semana?*"
     },
     {
       "id": "SIM-02",
@@ -30,7 +30,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_INGRESOS_TRAMITE",
       "alerta_andon": true,
-      "replyText": "Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nDesde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\n*Cuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?*"
+      "replyText": "Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos; capacidad máxima hasta 4 personas y mascota de raza pequeña): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nDesde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\n*Cuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?*"
     },
     {
       "id": "SIM-03",
@@ -277,7 +277,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?*"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, capacidad máxima de personas y si admite mascotas (y porte) y gastos comunes?*"
     },
     {
       "id": "SIM-22",
@@ -771,7 +771,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?*"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, capacidad máxima de personas y si admite mascotas (y porte) y gastos comunes?*"
     },
     {
       "id": "SIM-60",
@@ -810,7 +810,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_NINOS",
       "alerta_andon": true,
-      "replyText": "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\nComo ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\n*Ya tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?*"
+      "replyText": "Entendido. Te confirmo que la unidad tiene capacidad máxima de hasta 4 personas y acepta mascota de raza pequeña.\nComo ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\n*Ya tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?*"
     },
     {
       "id": "SIM-63",
@@ -1109,7 +1109,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_VISITA_FILTRADA",
       "alerta_andon": true,
-      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Qué día y horario te sirve visitar esta semana?*"
+      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera; capacidad máxima hasta 4 personas y mascota de raza pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Qué día y horario te sirve visitar esta semana?*"
     },
     {
       "id": "SIM-86",

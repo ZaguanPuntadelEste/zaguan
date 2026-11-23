@@ -324,38 +324,38 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
     {
       num: 3,
       codigo: `${spec.ref_publica}-P3`,
-      tema: `Pieza 3 · Acepta niños y mascotas, cámaras y lavadero definido (${v.REF_PUBLICA})`,
+      tema: `Pieza 3 · Edificio pet-friendly con cámaras y lavadero definido (${v.REF_PUBLICA})`,
       cover_photo_local: pickPhoto(2),
       cover_filename: "03-portada-familia-mascotas.jpg",
-      badge_top: "NIÑOS Y MASCOTAS",
+      badge_top: "ACEPTA MASCOTAS",
       kicker: lintSocialText(`EDIFICIO SEGURO · CÁMARAS`),
-      headline: lintSocialText("Acepta niños y mascotas en edificio con cámaras"),
+      headline: lintSocialText("Acepta mascotas en edificio seguro con cámaras"),
       subline: lintSocialText("Cocina definida y lavadero. Garantía Porto, Sura o Mapfre."),
       cta_card: lintSocialText("Ver 8 fotos, croquis y requisitos · ZAGUÁN"),
       instagram_copy: lintSocialText(
-        `Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\n` +
+        `Buscás apartamento anual céntrico donde el edificio acepte mascotas?\n\n` +
           `Este 2 dormitorios en ${v.ZONA_PUBLICA} suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\n` +
           `${v.GARANTIA_ACEPTADA}. Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora: escribinos "FICHA" por privado o al WhatsApp del perfil.\n\n` +
           `#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades`,
         { allowUrl: false, requireAduana: true }
       ),
       tiktok_copy: lintSocialText(
-        `Acepta niños y mascotas en ${v.ZONA_PUBLICA}: ${v.DORMITORIOS} dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. ${v.GARANTIA_ACEPTADA}. Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora escribiendo "FICHA" o desde el enlace del perfil.`,
+        `Edificio que acepta mascotas en ${v.ZONA_PUBLICA}: ${v.DORMITORIOS} dormitorios con cocina definida, terraza lavadero y cámaras de seguridad. ${v.GARANTIA_ACEPTADA}. Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora escribiendo "FICHA" o desde el enlace del perfil.`,
         { allowUrl: false, requireAduana: true }
       ),
       facebook_copy: lintSocialText(
-        `Apartamento 2 dormitorios en ${v.ZONA_PUBLICA} que acepta niños y mascotas.\n\n` +
+        `Apartamento 2 dormitorios en ${v.ZONA_PUBLICA} donde el edificio acepta mascotas.\n\n` +
           `Edificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n` +
           `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}.\n\n` +
           `Mirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: ${fullUrl}`,
         { requireAduana: true }
       ),
       linkedin_copy: lintSocialText(
-        `Un diferencial clave de esta unidad en ${v.ZONA_PUBLICA}: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero. ${v.GARANTIA_ACEPTADA}.\n\n` +
+        `Un diferencial clave de esta unidad en ${v.ZONA_PUBLICA}: edificio con cámaras que acepta mascotas, cocina definida con lavadero. ${v.GARANTIA_ACEPTADA}.\n\n` +
           `Mirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: ${fullUrl}`,
         { requireAduana: true }
       ),
-      youtube_title: lintSocialText(`Alquiler 2D ${v.ZONA_PUBLICA} acepta niños y mascotas · ${v.REF_PUBLICA}`).slice(0, 98),
+      youtube_title: lintSocialText(`Alquiler 2D ${v.ZONA_PUBLICA} acepta mascotas · ${v.REF_PUBLICA}`).slice(0, 98),
     },
     {
       num: 4,
@@ -1244,7 +1244,7 @@ if (args.flags.audit) {
     piso_orientacion: "Piso 4 orientación Norte",
     equipamiento: "Aire acondicionado y calefón instalados",
     seguridad: "Edificio con ascensor y cámaras",
-    admision: "Acepta niños y mascotas",
+    admision: "El edificio acepta mascotas",
     cochera: "Cocheras en alquiler en el edificio",
     garantias: "Garantía aseguradora (Porto Seguro, Sura, Mapfre o Santander)",
     dormitorios: 2,

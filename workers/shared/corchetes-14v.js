@@ -128,8 +128,8 @@ const BRACKET_META = {
     pregunta: "si admite mascotas",
   },
   acepta_menores: {
-    label: "Integrantes / ninos",
-    pregunta: "si es apto para ninos o cuantas personas maximo",
+    label: "Capacidad máxima",
+    pregunta: "capacidad máxima de personas",
   },
   amoblado: {
     label: "Mobiliario",

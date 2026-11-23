@@ -116,7 +116,7 @@ const MATRIZ_14V = {
   },
   O6: {
     dolor: 'Evitar impagos, destrozos y visitas en vano sin respaldo.',
-    capa1: ['Canon mensual en $U o USD', 'Qué incluye (GC, Wi-Fi, consumos)', 'Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)', 'Niños y mascotas admitidos', 'Plazo'],
+    capa1: ['Canon mensual en $U o USD', 'Qué incluye (GC, Wi-Fi, consumos)', 'Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)', 'Capacidad máxima de personas y mascotas (y porte)', 'Plazo'],
     capa2: ['Quién tiene llaves y horarios', 'Condiciones de ajuste y video de recorrido'],
     cruce: 'D2 (inquilinos filtrados con garantía aprobada) + D3/D4 (si evalúa vender luego)',
   },
@@ -212,7 +212,7 @@ function construirConcatenado(row) {
     alertaAndon = true;
     motivoAndon = 'Caso escuela Capa 2 multimodal (Bóveda Privada PDF B-GH-704.pdf + decreto dic 2027 + video 2m31s a pedido).';
   } else if (vCode === 'O6') {
-    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?`;
+    guionWa = `${saludo} Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, capacidad máxima de personas, si admite mascotas (y porte) y si incluye gastos comunes?`;
     anguloRedes = `Ficha / Story 9:16 Alquiler Anual en ${zona}: precio transparente ${precio} + filtro de garantía claro.`;
     anguloAds = {
       publico: `${zona} y alrededores (+17 km), 24 a 48 años`,
@@ -340,7 +340,7 @@ function armarPrimerContactoPortal(ficha) {
   const zona = ficha.zona || 'Maldonado';
   const precio = ficha.precio || 'valor publicado';
   if (vCode === 'O6') {
-    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?`;
+    return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en ${zona} (${precio}). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, capacidad máxima de personas, si admite mascotas (y porte) y si incluye gastos comunes?`;
   }
   if (vCode === 'O3') {
     return `Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu local/espacio comercial en ${zona} (${precio}). Trabajamos con publicación abierta acercando clientes calificados por rubro. Sigue disponible para confirmarte metros reales, trifásica y usos admitidos?`;

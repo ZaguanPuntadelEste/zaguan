@@ -22,7 +22,7 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "T0 hace 1 sola pregunta filtro (aseguradora o día). Cantidad de personas y datos van en Turno 2."
     ],
     tiempos: {
-      T0_INMEDIATO: `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}?utm_source=whatsapp&utm_medium=mar\nQué día y horario te sirve visitar esta semana?`,
+      T0_INMEDIATO: `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera; capacidad máxima hasta 4 personas y mascota de raza pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}?utm_source=whatsapp&utm_medium=mar\nQué día y horario te sirve visitar esta semana?`,
       T1_DESTRABE_5_MIN: "Pudiste revisar las fotos de la ficha, o preferís que evaluemos opciones similares en otro rango o zona?",
       T1_AMARILLO_20_MIN: "Si todavía estás tramitando la aseguradora o necesitás ayuda con nuestra gestión ZAGUÁN, avisame qué ingresos manejás y lo vemos en 2 líneas.",
       T2_NARANJA_24_HS: "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/?utm_source=whatsapp&utm_medium=mar · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?",
@@ -69,7 +69,7 @@ export const ARBOL_ESTRATEGICO_SEMAFORO = {
       "Prohibido usar la frase 'sin exclusividad'.",
       "Prohibido enviar URL de ficha pública individual al dueño ni antes ni después.",
       "Garantías aseguradoras solo si es alquiler (O6), nunca en ventas (O1..O5).",
-      "Relevar siempre si acepta niños y mascotas (Capa 1/2)."
+      "Relevar siempre capacidad máxima de personas y mascotas (y porte) (Capa 1/2)."
     ],
     tiempos: {
       T0_INMEDIATO: "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados antes de cada visita. Tu propiedad sigue disponible para confirmarnos barrio y valor pretendido?",
@@ -1171,11 +1171,11 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = "Saludo desde aviso La Fortuna: entrega ficha trackeada sin perder conversación.";
   } else if (subtipo === "LA_FORTUNA_OBJECION_NINOS") {
     replyText =
-      "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\n" +
+      "Entendido. Te confirmo que la unidad tiene capacidad máxima de hasta 4 personas y acepta mascota de raza pequeña.\n" +
       "Como ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\n" +
       "Ya tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?";
     alertaAndon = true;
-    motivoAndon = "ANDON NIÑOS LA FORTUNA (Caso Lianet): confirmada aceptación de niños y ofrecida gestión ZAGUÁN.";
+    motivoAndon = "ANDON CAPACIDAD LA FORTUNA: confirmada capacidad máxima hasta 4 personas y ofrecida gestión ZAGUÁN.";
   } else if (subtipo === "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA") {
     const mHora = String(rawText || "").match(/\b(?:a\s+las\s+)?(\d{1,2}(?::\d{2})?)\s*(?:hs|h)?\b/i);
     const hora = mHora ? mHora[1] : "";
@@ -1185,7 +1185,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     alertaAndon = true;
     motivoAndon = "ANDON CIERRE CALIENTE (Competencia): esperar resolución y recontacto al mediodía.";
   } else if (subtipo === "LA_FORTUNA_VISITA_FILTRADA") {
-    replyText = `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}${utm}\nQué día y horario te sirve visitar esta semana?`;
+    replyText = `Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera; capacidad máxima hasta 4 personas y mascota de raza pequeña).\nAcá ves fotos y ficha: ${LA_FORTUNA_URL}${utm}\nQué día y horario te sirve visitar esta semana?`;
     alertaAndon = true;
     motivoAndon = "Lead La Fortuna ya declaró póliza aseguradora (Botón 1): listo para agenda.";
   } else if (subtipo === "LA_FORTUNA_INGRESOS_TRAMITE") {
@@ -1193,7 +1193,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T1_DESTRABE_5_MIN;
     } else {
       replyText =
-        `Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): ${LA_FORTUNA_URL}${utm}\n` +
+        `Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos; capacidad máxima hasta 4 personas y mascota de raza pequeña): ${LA_FORTUNA_URL}${utm}\n` +
         "Desde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\n" +
         "Cuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?";
     }
@@ -1401,7 +1401,7 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     } else if (vertical === "O6") {
       replyText =
         "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n" +
-        "Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?";
+        "Me confirmás qué garantías aceptás, capacidad máxima de personas y si admite mascotas (y porte) y gastos comunes?";
     } else if (vertical === "O3") {
       replyText =
         "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta, filtrando cada interesado por rubro y solvencia.\n" +
@@ -1634,7 +1634,7 @@ const REDTEAM_50_CONVERSACIONAL = [
   { id: "SIM-59", contexto: "dueno", input: "Alquilo mi casa anual en Maldonado Centro a $U 33.000", mustInclude: ["publicación abierta", "Porto, Sura o Mapfre"], mustNotInclude: ["sin exclusividad", "zaguanpropiedades.com/alquileres/", "%", "comisión", "honorarios"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-60", contexto: "santa_monica", input: "Para vivir todo el año, cuento con los USD 160.000 y quiero ver el video completo", mustInclude: ["348", "201", "DJCU vigente", "2027"], mustNotInclude: ["Padrón 704", "Manzana 26", "Carpeta 8", "María Cristina", "bóveda privada", "franja gris"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-61", contexto: "la_fortuna", input: "Hola", mustInclude: ["la-fortuna-agata", "utm_source=whatsapp", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|30\.000/i, mustNotInclude: ["zaguanpropiedades.com/links/", "sin exclusividad", "qué día"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-62", contexto: "la_fortuna", input: "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños", mustInclude: ["familias con niños", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|garant[ií]a aseguradora/i, mustNotInclude: ["directamente", "propietario", "dueño", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-62", contexto: "la_fortuna", input: "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños", mustInclude: ["hasta 4 personas", "mascota de raza pequeña", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|garant[ií]a aseguradora/i, mustNotInclude: ["directamente", "propietario", "dueño", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-63", contexto: "la_fortuna", input: "Estoy en espera de otro apto, mañana a las 11 tengo la cita", mustInclude: ["mediodía", "prioridad"], mustMatch: /orden de cierre|11/i, mustNotInclude: ["directamente", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-64", contexto: "general", input: "Tengo una casa en Maldonado para publicar", mustInclude: ["publicación abierta"], mustMatch: /venta o alquiler anual/i, mustNotInclude: ["sin exclusividad", "zaguanpropiedades.com/alquileres/", "zaguanpropiedades.com/links/", "%"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-65", contexto: "la_fortuna", input: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes", mustInclude: ["Te damos la bienvenida a Zaguán", "Punta del Este", "40.000", "2027", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?", "que esté amoblado", "podemos ayudarte con eso también"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero", "bienvenido", "agendad", "enero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },

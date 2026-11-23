@@ -6,7 +6,7 @@
         href: '/alquileres/maldonado-centro-piso-4-norte/',
         badge: 'Alquiler anual · Nuevo ingreso',
         precio: '$U 32.000 / mes total',
-        detalle: '~50 m², piso 4 por ascensor con cámaras, doble ventanal al frente, sol de invierno, lavadero, aire y calefón · Acepta niños y mascotas · Porto, Sura, Mapfre o Santander.',
+        detalle: '~50 m², piso 4 por ascensor con cámaras, doble ventanal al frente, sol de invierno, lavadero, aire y calefón · Acepta mascotas · Porto, Sura, Mapfre o Santander.',
         alquiler_uyu: 32000,
         fecha_ingreso: '2026-11-23'
       },
@@ -15,7 +15,7 @@
         href: '/alquileres/la-fortuna-agata/',
         badge: 'Alquiler anual · Disponible',
         precio: '$U 30.000 / mes',
-        detalle: '2 dormitorios a estrenar en Av. Ágata con cochera fija, gastos comunes y Wi-Fi incluidos · Porto, Sura, Mapfre o Santander.',
+        detalle: '2 dormitorios a estrenar en Av. Ágata con cochera fija, gastos comunes y Wi-Fi incluidos · Máx. 4 personas y mascota de raza pequeña · Porto, Sura, Mapfre o Santander.',
         alquiler_uyu: 30000,
         fecha_ingreso: '2026-11-22'
       },
