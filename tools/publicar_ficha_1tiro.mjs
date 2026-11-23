@@ -1,22 +1,13 @@
 #!/usr/bin/env node
 /**
- * ZAGUÁN Propiedades — Orquestador de Fábrica en 1 Tiro (Publicación Completa)
+ * ZAGUÁN Propiedades — Orquestador de Fábrica 360° en 1 Tiro (Alta + 4 Redes + Ads Al Toque + Baja Total)
  *
  * Modos:
  *   node tools/publicar_ficha_1tiro.mjs --audit ZAG-ALQ-07
  *   node tools/publicar_ficha_1tiro.mjs --init-template /tmp/ficha_nueva.json
- *   node tools/publicar_ficha_1tiro.mjs --publish /tmp/ficha_nueva.json [--push] [--dry-run]
- *
- * Al ejecutar --publish, produce en 1 sola corrida:
- *   1. Validación Poka-Yoke: cero dirección exacta / dueño / padrón en textos públicos + cero adverbios -mente.
- *   2. Bóveda Privada (FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json) actualizada sin exponer en git público.
- *   3. Copia/validación de fotos reales (desde ZIP o carpeta) hacia assets/images/propiedades/<slug>/.
- *   4. Generación de Ficha Pública HTML (/alquileres/<slug>/index.html o /propiedades/<slug>/index.html)
- *      con Schema.org JSON-LD, Open Graph, Simulador de Garantías y Widget Pedidos Abiertos.
- *   5. Generación 9:16 JPG + MP4 animado con música y afade (assets/estados/) + estados_hoy.json.
- *   6. Alta automática en Home/Blog (assets/js/ultimas-propiedades-zaguan.js), Catálogo (/alquileres/ o /propiedades/),
- *      Simulador (/garantias-alquiler/), sitemap.xml y llms.txt.
- *   7. Con --push: commit + push origin main + chequeo 200 OK live + ping IndexNow + envío automático a Telegram.
+ *   node tools/publicar_ficha_1tiro.mjs --pack-redes /ruta/spec.json
+ *   node tools/publicar_ficha_1tiro.mjs --publish /ruta/spec.json [--push] [--dry-run]
+ *   node tools/publicar_ficha_1tiro.mjs --baja ZAG-ALQ-07 [--borrar-todo] [--push]
  */
 
 import fs from "node:fs";
@@ -27,11 +18,48 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, "..");
-const BOVEDA_PATH = "/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json";
+const DESKTOP_ROOT = "/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE";
+const BOVEDA_PATH = path.join(DESKTOP_ROOT, "FICHAS_PRIVADAS_BOVEDA_ZAGUAN.json");
+const PACKS_DESKTOP_DIR = path.join(DESKTOP_ROOT, "packs-redes");
 const WORKER_BASE = "https://zaguan-crm-bot.943ari.workers.dev";
 const BASE_URL = "https://zaguanpropiedades.com";
 
 const FORBIDDEN_MENTE_RE = /\b[a-záéíóúñ]{4,}mente\b/i;
+
+/**
+ * Diccionario oficial de Variables y [CORCHETES] de toda ficha Zaguán.
+ * Todo copy, HTML, Estado 9:16, pack de 4 redes y pauta IG Direct toma datos desde acá
+ * separando estrictamente capa PÚBLICA vs. BÓVEDA PRIVADA.
+ */
+export const FICHA_CORCHETES_VARIABLES = {
+  capa_publica: [
+    "[REF_PUBLICA]",
+    "[OPERACION]",
+    "[ZONA_PUBLICA]",
+    "[PRECIO_BASE]",
+    "[GASTOS_COMUNES]",
+    "[TOTAL_MENSUAL]",
+    "[METROS_M2]",
+    "[DORMITORIOS]",
+    "[PISO_ORIENTACION]",
+    "[EQUIPAMIENTO]",
+    "[SEGURIDAD_EDIFICIO]",
+    "[ADMISION_NINOS_MASCOTAS]",
+    "[COCHERA]",
+    "[GARANTIA_ACEPTADA]",
+    "[HORARIO_VISITAS]",
+    "[URL_FICHA]",
+  ],
+  capa_boveda_privada: [
+    "[ID_CRM]",
+    "[DUENO_NOMBRE]",
+    "[TELEFONO_DUENO_BOVEDA]",
+    "[DIRECCION_PRIVADA_BOVEDA]",
+    "[PADRON_MANZANA_CARPETA]",
+    "[HONORARIOS_DUENO_PRIVADO]",
+    "[OK_DUENO_FECHA]",
+  ],
+};
 
 function parseArgs(argv) {
   const out = { flags: {}, positional: [] };
@@ -78,6 +106,33 @@ function escapeHtml(s) {
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
+}
+
+function resolveVars(spec, fullUrl) {
+  const baseUyu = Number(spec.precio_uyu || spec.total_uyu || 0);
+  const gcUyu = Number(spec.gc_uyu || 0);
+  const totalUyu = Number(spec.total_uyu || baseUyu + gcUyu);
+  const precioBaseFmt = baseUyu ? `$U ${baseUyu.toLocaleString("de-DE")}/mes` : spec.precio_publico || "Consultar";
+  const gcFmt = gcUyu ? `$U ${gcUyu.toLocaleString("de-DE")} (${spec.gc_incluye || "según edificio"})` : "Incluidos";
+  const totalFmt = totalUyu ? `$U ${totalUyu.toLocaleString("de-DE")}/mes` : precioBaseFmt;
+  return {
+    REF_PUBLICA: spec.ref_publica,
+    OPERACION: spec.operacion || "Alquiler anual",
+    ZONA_PUBLICA: spec.zona_publica || "Maldonado",
+    PRECIO_BASE: precioBaseFmt,
+    GASTOS_COMUNES: gcFmt,
+    TOTAL_MENSUAL: totalFmt,
+    METROS_M2: spec.superficie_m2 || "A confirmar",
+    DORMITORIOS: String(spec.dormitorios || 2),
+    PISO_ORIENTACION: spec.piso_orientacion || "Luminoso",
+    EQUIPAMIENTO: spec.equipamiento || "Aire y calefón instalados",
+    SEGURIDAD_EDIFICIO: spec.seguridad || "Edificio con cámaras",
+    ADMISION_NINOS_MASCOTAS: spec.admision || "A confirmar",
+    COCHERA: spec.cochera || "Consultar opciones",
+    GARANTIA_ACEPTADA: spec.garantias || "Garantía aseguradora (Porto Seguro, Sura, Mapfre o Santander)",
+    HORARIO_VISITAS: spec.horario_visitas || "A coordinar",
+    URL_FICHA: fullUrl,
+  };
 }
 
 function assertPublicSafety(spec) {
@@ -152,6 +207,243 @@ function ingestPhotos(spec, photosDir) {
     throw new Error(`No hay fotos reales en ${photosDir}. Cargá fotos_zip o fotos_carpeta.`);
   }
   return finalPhotos;
+}
+
+function lintSocialText(txt, { allowUrl = true } = {}) {
+  if (/[¿¡]/.test(txt)) throw new Error(`Linter SÍ/NO: signo ¿/¡ prohibido en copy: ${txt.slice(0, 80)}`);
+  const mMente = txt.match(FORBIDDEN_MENTE_RE);
+  if (mMente) throw new Error(`Linter SÍ/NO: adverbio "${mMente[0]}" prohibido en copy: ${txt.slice(0, 80)}`);
+  if (/\bno\s+(?:solo|es|se\s+trata|necesit)/i.test(txt)) {
+    throw new Error(`Linter SÍ/NO: negación por contraste prohibida en copy: ${txt.slice(0, 80)}`);
+  }
+  if (!allowUrl && /https?:\/\/|wa\.me\//i.test(txt)) {
+    throw new Error(`Linter Instagram: URL cruda prohibida en copy IG: ${txt.slice(0, 80)}`);
+  }
+  return txt;
+}
+
+/**
+ * Genera el PAQUETE DE 4 PUBLICACIONES DE REDES (mismas fotos reales, cambiando
+ * foto de portada 4:5 y ángulo/CTA) + configuración IG Direct Al Toque (5 días / 72h corte).
+ */
+function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRun) {
+  const v = resolveVars(spec, fullUrl);
+  const pickPhoto = (idx) => path.join(photosDir, photos[idx % photos.length]);
+  const packDesktop = path.join(PACKS_DESKTOP_DIR, spec.ref_publica);
+  const packWebRel = `assets/packs/${spec.ref_publica}`;
+  const packWebDir = path.join(ROOT, packWebRel);
+
+  const pieces = [
+    {
+      num: 1,
+      codigo: `${spec.ref_publica}-P1`,
+      tema: `Pieza 1 · ${v.ZONA_PUBLICA}: ${v.DORMITORIOS} dormitorios a ${v.PRECIO_BASE} + GC con agua incluida`,
+      cover_photo_local: pickPhoto(0),
+      cover_filename: "01-portada-precio-visita.jpg",
+      badge_top: "ALQUILER ANUAL",
+      kicker: `${v.ZONA_PUBLICA} · REF. ${v.REF_PUBLICA}`,
+      headline: `${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}: ${v.PRECIO_BASE}`,
+      subline: `Gastos comunes ${v.GASTOS_COMUNES}. ${v.HORARIO_VISITAS}.`,
+      cta_card: "Pedir visita por WhatsApp · ZAGUÁN Propiedades",
+      instagram_copy: lintSocialText(
+        `Buscás alquiler anual claro en ${v.ZONA_PUBLICA} sin sorpresas en el monto final?\n\n` +
+          `Unidad de ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.PISO_ORIENTACION}: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.EQUIPAMIENTO}. ${v.ADMISION_NINOS_MASCOTAS}.\n\n` +
+          `Pedinos visita ${v.HORARIO_VISITAS.toLowerCase()} escribiendo "VISITA" por mensaje privado o tocando el enlace directo de WhatsApp en nuestra biografía.\n\n` +
+          `#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades`,
+        { allowUrl: false }
+      ),
+      facebook_copy: lintSocialText(
+        `Alquiler anual en ${v.ZONA_PUBLICA} · ${v.DORMITORIOS} dormitorios (${v.METROS_M2})\n\n` +
+          `Valor: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.PISO_ORIENTACION}, ${v.EQUIPAMIENTO.toLowerCase()}, ${v.SEGURIDAD_EDIFICIO.toLowerCase()}. ${v.ADMISION_NINOS_MASCOTAS}.\n` +
+          `${v.GARANTIA_ACEPTADA}.\n\n` +
+          `Reservá tu visita (${v.HORARIO_VISITAS}) desde la ficha oficial: ${fullUrl}`
+      ),
+      linkedin_copy: lintSocialText(
+        `Disponible en cartera activa de ZAGUÁN Propiedades (${v.REF_PUBLICA}): apartamento de ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.ZONA_PUBLICA} para contrato anual.\n\n` +
+          `Condiciones publicadas de frente: ${v.PRECIO_BASE} más gastos comunes (${v.GASTOS_COMUNES}), edificio con ascensor y cámaras, ${v.GARANTIA_ACEPTADA.toLowerCase()}.\n\n` +
+          `Ver ficha técnica completa: ${fullUrl}`
+      ),
+      youtube_title: lintSocialText(`${v.ZONA_PUBLICA} ${v.DORMITORIOS}D · ${v.PRECIO_BASE} · ${v.REF_PUBLICA}`).slice(0, 98),
+    },
+    {
+      num: 2,
+      tema: `Pieza 2 · Sol de invierno, puestas de sol y aire/calefón ya instalados (${v.REF_PUBLICA})`,
+      codigo: `${spec.ref_publica}-P2`,
+      cover_photo_local: pickPhoto(2),
+      cover_filename: "02-portada-luz-confort.jpg",
+      badge_top: "SOL DE INVIERNO",
+      kicker: `PISO 4 NORTE · ${v.ZONA_PUBLICA}`,
+      headline: "Sol de invierno y sombra fresca en verano",
+      subline: `${v.EQUIPAMIENTO}. Simulador de garantía en 30 segundos.`,
+      cta_card: "Simular garantía gratis · ZAGUÁN Propiedades",
+      instagram_copy: lintSocialText(
+        `Orientación Norte real: entra el sol en invierno en los dormitorios y tenés atardecer en el living y la cocina.\n\n` +
+          `Son ${v.METROS_M2} listos para mudarse: queda instalado aire acondicionado y calefón, con ${v.SEGURIDAD_EDIFICIO.toLowerCase()} y doble ventanal de vidrio al frente. ${v.COCHERA}.\n\n` +
+          `Comprobá hoy si tu póliza califica tocando nuestro enlace del perfil o escribiendo "GARANTÍA" por WhatsApp desde la bio.\n\n` +
+          `#MaldonadoCentro #AlquilerMaldonado #ViviendaUruguay #ZaguanPropiedades`,
+        { allowUrl: false }
+      ),
+      facebook_copy: lintSocialText(
+        `Luz Norte real en invierno y aire acondicionado + calefón ya instalados en ${v.ZONA_PUBLICA}.\n\n` +
+          `Piso 4 por ascensor (${v.METROS_M2}, 2 dormitorios en parquet), lavadero definido y doble ventanal al frente. ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}.\n\n` +
+          `Ver fotos reales y simular tu garantía aseguradora en 30 segundos: ${fullUrl}`
+      ),
+      linkedin_copy: lintSocialText(
+        `En ZAGUÁN Propiedades publicamos unidades anuales con historial real verificado: ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}, ${v.PISO_ORIENTACION}, doble ventanal al frente y aire + calefón listos.\n\n` +
+          `Ficha completa y simulador multi-persona de requisitos aseguradores: ${fullUrl}`
+      ),
+      youtube_title: lintSocialText(`Luz Norte 2D en ${v.ZONA_PUBLICA} · ${v.PRECIO_BASE} · ZAGUÁN`).slice(0, 98),
+    },
+    {
+      num: 3,
+      codigo: `${spec.ref_publica}-P3`,
+      tema: `Pieza 3 · Acepta niños y mascotas, cámaras y lavadero definido (${v.REF_PUBLICA})`,
+      cover_photo_local: pickPhoto(5),
+      cover_filename: "03-portada-familia-mascotas.jpg",
+      badge_top: "NIÑOS Y MASCOTAS",
+      kicker: `EDIFICIO SEGURO · CÁMARAS`,
+      headline: "Acepta niños y mascotas en edificio con cámaras",
+      subline: `Cocina definida, lavadero y ${v.HORARIO_VISITAS}.`,
+      cta_card: "Consultar horarios de visita · ZAGUÁN Propiedades",
+      instagram_copy: lintSocialText(
+        `Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\n` +
+          `Este 2 dormitorios en ${v.ZONA_PUBLICA} suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\n` +
+          `Te mandamos los detalles completos y coordinamos visita ${v.HORARIO_VISITAS.toLowerCase()}: escribinos "FICHA" por privado o al WhatsApp del perfil.\n\n` +
+          `#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades`,
+        { allowUrl: false }
+      ),
+      facebook_copy: lintSocialText(
+        `Apartamento 2 dormitorios en ${v.ZONA_PUBLICA} que acepta niños y mascotas.\n\n` +
+          `Edificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n\n` +
+          `Mirá todas las fotos y reservá horario de visita desde las 16 hs acá: ${fullUrl}`
+      ),
+      linkedin_copy: lintSocialText(
+        `Un diferencial clave de esta unidad en ${v.ZONA_PUBLICA}: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero y ${v.GARANTIA_ACEPTADA}.\n\n` +
+          `Detalles y ficha: ${fullUrl}`
+      ),
+      youtube_title: lintSocialText(`Alquiler 2D ${v.ZONA_PUBLICA} acepta niños y mascotas · ${v.REF_PUBLICA}`).slice(0, 98),
+    },
+    {
+      num: 4,
+      codigo: `${spec.ref_publica}-P4`,
+      tema: `Pieza 4 · Reel 9:16 + Filtro Aseguradora y Pauta IG Direct Al Toque (${v.REF_PUBLICA})`,
+      cover_photo_local: pickPhoto(1),
+      cover_filename: "04-portada-aseguradora-ads.jpg",
+      badge_top: "PORTO · SURA · MAPFRE",
+      kicker: `ASEGURADORA PRIVADA · VISITAS 16 HS+`,
+      headline: "Tenés Porto, Sura, Mapfre o Santander? Visitalo ya",
+      subline: `${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Respuesta directa con Mar.`,
+      cta_card: "Escribir ahora por WhatsApp · ZAGUÁN Propiedades",
+      instagram_copy: lintSocialText(
+        `Contás con garantía aseguradora o recibos continuos en BPS y querés mudarte ya en ${v.ZONA_PUBLICA}?\n\n` +
+          `Recorré en video este 2 dormitorios Piso 4 Norte: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Visitas disponibles ${v.HORARIO_VISITAS.toLowerCase()}.\n\n` +
+          `Tocá el botón de WhatsApp en nuestra biografía o comentá "ALQUILER" para pasarte la ficha y coordinar esta semana.\n\n` +
+          `#PortoSeguro #Sura #GarantiaDeAlquiler #Maldonado #ZaguanPropiedades`,
+        { allowUrl: false }
+      ),
+      facebook_copy: lintSocialText(
+        `Recorrido en video · Alquiler anual 2D en ${v.ZONA_PUBLICA} (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n\n` +
+          `${v.GARANTIA_ACEPTADA}. Consultá o agendá visita ${v.HORARIO_VISITAS.toLowerCase()} en la ficha oficial: ${fullUrl}`
+      ),
+      linkedin_copy: lintSocialText(
+        `Video presentación de alquiler anual (${v.REF_PUBLICA}) en ${v.ZONA_PUBLICA}. Proceso precalificado con aseguradora y visitas ágiles todos los días desde las 16 hs.\n\n` +
+          `Ficha completa: ${fullUrl}`
+      ),
+      youtube_title: lintSocialText(`Video 2D ${v.ZONA_PUBLICA} con aseguradora · ${v.REF_PUBLICA}`).slice(0, 98),
+    },
+  ];
+
+  const adsConfig = {
+    cuenta_publicitaria: "Zaguán ADS (act_1946619906468438 · BM Zaguán Punta)",
+    canal_ejecucion: "Instagram Direct (In-App / Web) — estandar ig-directo-real-estate",
+    objetivo_pantalla: "Visit your website",
+    special_ad_category: "Housing (Vivienda)",
+    publico: `Create your own · Maldonado y Punta del Este (+15 km), 24 a 52 años`,
+    duracion_ciclo: "5 días (corte de control 72 hs si consume > $U 800 sin consultas WhatsApp)",
+    url_destino_web_200_ok: fullUrl,
+    destino_whatsapp_directo: `https://wa.me/59898712064?text=${encodeURIComponent(
+      `Hola Mar, vi el anuncio de ${v.ZONA_PUBLICA} (${v.REF_PUBLICA} · ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}). Quiero la ficha y horarios de visita.`
+    )}`,
+    botones_whatsapp_calificadores_80c: [
+      "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar",
+      "Tengo ingresos para tramitar aseguradora y quiero simular garantía",
+      "Busco en otra zona o con depósito / tengo propiedad para publicar",
+    ],
+    comentario_precio_publico_ig: `El alquiler es de ${v.PRECIO_BASE} más ${v.GASTOS_COMUNES} de gastos comunes con agua OSE incluida. Tocá el botón del anuncio o el enlace de nuestro perfil para enviarte la ficha completa.`,
+    piezas_a_rotar: pieces.map((p) => ({
+      codigo: p.codigo,
+      portada_url: `${BASE_URL}/${packWebRel}/${p.cover_filename}`,
+      tema: p.tema,
+    })),
+    video_reel_9_16: `${BASE_URL}/${mp4Rel}`,
+  };
+
+  if (!dryRun) {
+    fs.mkdirSync(packDesktop, { recursive: true });
+    fs.mkdirSync(packWebDir, { recursive: true });
+
+    const pyPackSpec = `/tmp/pack4_${slugifyUpper(spec.ref_publica)}.json`;
+    const cardsPayload = pieces.map((p) => ({
+      photo: p.cover_photo_local,
+      badge_top: p.badge_top,
+      kicker: p.kicker,
+      headline: p.headline,
+      subline: p.subline,
+      cta_text: p.cta_card,
+      out_path: path.join(packWebDir, p.cover_filename),
+    }));
+    fs.writeFileSync(pyPackSpec, JSON.stringify({ operacion_badge: "ALQUILER ANUAL", cards: cardsPayload }), "utf8");
+    execFileSync("python3", [path.join(__dirname, "generar_estado_9_16.py"), "--pack-4-redes", "--spec", pyPackSpec], {
+      stdio: "inherit",
+    });
+    fs.rmSync(pyPackSpec, { force: true });
+
+    // Replicar portadas + copias + Ads Al Toque en escritorio packs-redes/<REF>/
+    for (const p of pieces) {
+      fs.copyFileSync(path.join(packWebDir, p.cover_filename), path.join(packDesktop, p.cover_filename));
+    }
+    const mdDoc = [
+      `# PAQUETE COMPLETO 360° · ${spec.ref_publica} (${spec.titulo_corto})`,
+      ``,
+      `## Variables y [CORCHETES] usados`,
+      "```json",
+      JSON.stringify(v, null, 2),
+      "```",
+      ``,
+      `## Configuración Ads Al Toque (IG Direct · Vivienda)`,
+      `- Objetivo: ${adsConfig.objetivo_pantalla}`,
+      `- Destino WhatsApp: ${adsConfig.destino_whatsapp_directo}`,
+      `- Destino Web: ${adsConfig.url_destino_web_200_ok}`,
+      `- Corte 72 hs: ${adsConfig.duracion_ciclo}`,
+      `- Respuesta comentario "¿Precio?": ${adsConfig.comentario_precio_publico_ig}`,
+      ``,
+      ...pieces.flatMap((p) => [
+        `## ${p.codigo} — ${p.tema}`,
+        `- Portada 4:5: ${BASE_URL}/${packWebRel}/${p.cover_filename}`,
+        `### Instagram (0 URLs crudas)`,
+        p.instagram_copy,
+        `### Facebook`,
+        p.facebook_copy,
+        `### LinkedIn`,
+        p.linkedin_copy,
+        `### YouTube (<=100 car)`,
+        p.youtube_title,
+        ``,
+      ]),
+    ].join("\n");
+
+    fs.writeFileSync(path.join(packDesktop, "PAQUETE_4_REDES_Y_ADS.json"), JSON.stringify({ variables: v, adsConfig, pieces }, null, 2), "utf8");
+    fs.writeFileSync(path.join(packDesktop, "PAQUETE_4_REDES_Y_ADS.md"), mdDoc, "utf8");
+    fs.writeFileSync(path.join(packWebDir, "ads_y_4_piezas.json"), JSON.stringify({ variables: v, adsConfig, pieces }, null, 2), "utf8");
+  }
+
+  return {
+    pack_desktop: packDesktop,
+    pack_web_url: `${BASE_URL}/${packWebRel}/`,
+    portadas_urls: pieces.map((p) => `${BASE_URL}/${packWebRel}/${p.cover_filename}`),
+    adsConfig,
+    pieces,
+  };
 }
 
 function buildRentalPdpHtml(spec, photos) {
@@ -459,6 +751,141 @@ function updateEstadosHoy(spec, fullUrl, jpgRel, mp4Rel, dryRun) {
   return { updated: true };
 }
 
+/**
+ * BAJA TOTAL EN 1 TIRO (--baja <REF_O_SLUG> [--borrar-todo] [--push]):
+ * Saca la propiedad de absolutamente todos los listados, home, blog, catálogo, simulador,
+ * estados 9:16, sitemap.xml, llms.txt y (con --borrar-todo) elimina carpetas y packs locales.
+ */
+async function runBajaTotal(needle, flags) {
+  const dryRun = Boolean(flags["dry-run"]);
+  const borrarTodo = Boolean(flags["borrar-todo"]);
+  const boveda = fs.existsSync(BOVEDA_PATH) ? JSON.parse(fs.readFileSync(BOVEDA_PATH, "utf8")) : { fichas: [] };
+  const estadosPath = "assets/estados/estados_hoy.json";
+  const estadosJs = JSON.parse(readUtf8(estadosPath));
+
+  const bov = (boveda.fichas || []).find(
+    (f) =>
+      String(f.ref_publica || "").toLowerCase() === needle.toLowerCase() ||
+      (f.url_publica_sin_contacto || "").includes(needle) ||
+      (f.id_crm || "").toLowerCase() === needle.toLowerCase()
+  );
+  const est = (estadosJs.estados_activos || []).find(
+    (e) =>
+      String(e.ref_publica || "").toLowerCase() === needle.toLowerCase() ||
+      (e.ficha_url || "").includes(needle)
+  );
+
+  const ref = bov?.ref_publica || est?.ref_publica || needle.toUpperCase();
+  const fullUrl = (bov?.url_publica_sin_contacto || bov?.url_publica_sin_padron || est?.ficha_url || "").split("?")[0];
+  const relPath = fullUrl ? fullUrl.replace(BASE_URL, "") : (needle.startsWith("/") ? needle : `/alquileres/${needle}/`);
+  const slug = relPath.split("/").filter(Boolean).pop() || needle;
+
+  const log = { ref, slug, relPath, dryRun, borrarTodo, cambios: {} };
+
+  // 1. Quitar de estados_hoy.json
+  const prevEstCount = (estadosJs.estados_activos || []).length;
+  estadosJs.estados_activos = (estadosJs.estados_activos || []).filter(
+    (e) => e.ref_publica !== ref && !(e.ficha_url || "").includes(slug)
+  );
+  if (estadosJs.estados_activos.length !== prevEstCount) {
+    estadosJs.updated_at = new Date().toISOString();
+    if (!dryRun) writeUtf8(estadosPath, JSON.stringify(estadosJs, null, 2));
+    log.cambios.estados_hoy = "eliminado";
+  }
+
+  // 2. Quitar de ultimas-propiedades-zaguan.js (Home y Blog)
+  let ult = readUtf8("assets/js/ultimas-propiedades-zaguan.js");
+  const ultRe = new RegExp(`\\s*\\{[^{}]*href:\\s*'[^']*${slug}[^']*'[^{}]*\\},?`, "g");
+  if (ultRe.test(ult)) {
+    ult = ult.replace(ultRe, "").replace(/,\s*\]/g, "\n    ]");
+    if (!dryRun) writeUtf8("assets/js/ultimas-propiedades-zaguan.js", ult);
+    log.cambios.ultimas_propiedades = "eliminado";
+  }
+
+  // 3. Quitar de alquileres/index.html
+  let alq = readUtf8("alquileres/index.html");
+  const cardRe = new RegExp(`(?:\\s*<!--[^>]*${ref}[^>]*-->)?\\s*<article class="rental-card"[\\s\\S]*?${slug}[\\s\\S]*?</article>`, "g");
+  const ldRe = new RegExp(`\\s*\\{\\s*"@type":\\s*"ListItem",[\\s\\S]*?${slug}[\\s\\S]*?\\},?`, "g");
+  if (cardRe.test(alq) || ldRe.test(alq)) {
+    alq = alq.replace(cardRe, "").replace(ldRe, "").replace(/,\s*\]/g, "\n        ]");
+    if (!dryRun) writeUtf8("alquileres/index.html", alq);
+    log.cambios.catalogo_alquileres = "eliminado";
+  }
+
+  // 4. Quitar de garantias-alquiler/index.html
+  let sim = readUtf8("garantias-alquiler/index.html");
+  const simRe = new RegExp(`\\s*'${slug}':[^\\n]*\\n?`, "g");
+  if (simRe.test(sim)) {
+    sim = sim.replace(simRe, "\n");
+    if (!dryRun) writeUtf8("garantias-alquiler/index.html", sim);
+    log.cambios.simulador_garantias = "eliminado";
+  }
+
+  // 5. Quitar de sitemap.xml
+  let sm = readUtf8("sitemap.xml");
+  const smRe = new RegExp(`\\s*<url>\\s*<loc>[^<]*${slug}[^<]*</loc>[\\s\\S]*?</url>`, "g");
+  if (smRe.test(sm)) {
+    sm = sm.replace(smRe, "");
+    if (!dryRun) writeUtf8("sitemap.xml", sm);
+    log.cambios.sitemap = "eliminado";
+  }
+
+  // 6. Quitar de llms.txt
+  let llms = readUtf8("llms.txt");
+  const llmsRe = new RegExp(`^.*(?:${ref}|${slug}).*\\n?`, "gm");
+  if (llmsRe.test(llms)) {
+    llms = llms.replace(llmsRe, "");
+    if (!dryRun) writeUtf8("llms.txt", llms);
+    log.cambios.llms_txt = "eliminado";
+  }
+
+  // 7. Borrar carpeta pública HTML, packs 4 redes y estados si --borrar-todo
+  if (borrarTodo && !dryRun) {
+    const pubFolder = path.join(ROOT, relPath.replace(/^\//, ""));
+    if (relPath && relPath.length > 5 && fs.existsSync(pubFolder)) {
+      fs.rmSync(pubFolder, { recursive: true, force: true });
+      log.cambios.carpeta_pdp = `eliminada (${pubFolder})`;
+    }
+    for (const dir of [path.join(ROOT, "assets/packs", ref), path.join(PACKS_DESKTOP_DIR, ref)]) {
+      if (fs.existsSync(dir)) {
+        fs.rmSync(dir, { recursive: true, force: true });
+        log.cambios[`pack_${path.basename(path.dirname(dir))}`] = `eliminado (${dir})`;
+      }
+    }
+    if (est?.imagen_9_16) {
+      const pJpg = path.join(ROOT, est.imagen_9_16.replace(`${BASE_URL}/`, ""));
+      if (fs.existsSync(pJpg)) fs.rmSync(pJpg, { force: true });
+    }
+    if (est?.video_9_16) {
+      const pMp4 = path.join(ROOT, est.video_9_16.replace(`${BASE_URL}/`, ""));
+      if (fs.existsSync(pMp4)) fs.rmSync(pMp4, { force: true });
+    }
+  }
+
+  // 8. Marcar baja en Bóveda Privada (conservando historial del propietario con estado_publicacion = 'baja_total')
+  if (bov && !dryRun) {
+    bov.estado_publicacion = "baja_total";
+    bov.fecha_baja = new Date().toISOString();
+    boveda.actualizado = new Date().toISOString();
+    fs.writeFileSync(BOVEDA_PATH, JSON.stringify(boveda, null, 2), "utf8");
+    log.cambios.boveda = "marcada baja_total";
+  }
+
+  log.pendientes_nube = [
+    `Pausar anuncio en Instagram/Meta Ads para ${ref} si tenía pauta prendida`,
+    `Cancelar/archivar en Aprobalo Cloud las piezas con tema '${ref}'`,
+    bov?.id_crm ? `Confirmar sello en CRM Worker para ${bov.id_crm}` : null,
+  ].filter(Boolean);
+
+  if (flags.push && !dryRun) {
+    execFileSync("git", ["-C", ROOT, "add", "-A"], { stdio: "inherit" });
+    execFileSync("git", ["-C", ROOT, "commit", "-m", `chore(zaguan): baja total 1-tiro ${ref} (${slug})`], { stdio: "inherit" });
+    execFileSync("git", ["-C", ROOT, "push", "origin", "main"], { stdio: "inherit" });
+  }
+
+  console.log(JSON.stringify({ ok: true, action: "baja_total", ...log }, null, 2));
+}
+
 function auditExisting(needle) {
   const estados = JSON.parse(readUtf8("assets/estados/estados_hoy.json")).estados_activos || [];
   const ultimas = readUtf8("assets/js/ultimas-propiedades-zaguan.js");
@@ -476,10 +903,12 @@ function auditExisting(needle) {
   const pdpExists = urlPath ? fs.existsSync(path.join(ROOT, urlPath.replace(/^\//, ""), "index.html")) : false;
   const jpgPath = est?.imagen_9_16 ? path.join(ROOT, est.imagen_9_16.replace(`${BASE_URL}/`, "")) : "";
   const mp4Path = est?.video_9_16 ? path.join(ROOT, est.video_9_16.replace(`${BASE_URL}/`, "")) : "";
+  const ref = bov?.ref_publica || est?.ref_publica || needle;
+  const packWeb = path.join(ROOT, "assets/packs", ref);
   const slug = urlPath.split("/").filter(Boolean).pop() || needle;
 
   const checks = {
-    ref: bov?.ref_publica || est?.ref_publica || needle,
+    ref,
     url: pubUrl || null,
     boveda_privada: Boolean(bov),
     ficha_html: pdpExists,
@@ -489,6 +918,7 @@ function auditExisting(needle) {
     estado_9_16_jpg: Boolean(jpgPath && fs.existsSync(jpgPath)),
     estado_9_16_mp4: Boolean(mp4Path && fs.existsSync(mp4Path)),
     estados_hoy_json: Boolean(est),
+    pack_4_redes_y_ads: Boolean(fs.existsSync(path.join(packWeb, "ads_y_4_piezas.json"))),
     sitemap_xml: Boolean(pubUrl && sitemap.includes(pubUrl)),
     llms_txt: Boolean(pubUrl && llms.includes(pubUrl)),
   };
@@ -499,7 +929,7 @@ function auditExisting(needle) {
   if (!allOk) process.exit(2);
 }
 
-async function runPublish(specPath, flags) {
+async function runPublish(specPath, flags, { packOnly = false } = {}) {
   const spec = JSON.parse(fs.readFileSync(specPath, "utf8"));
   const dryRun = Boolean(flags["dry-run"]);
   assertPublicSafety(spec);
@@ -514,8 +944,14 @@ async function runPublish(specPath, flags) {
   const photos = ingestPhotos(spec, photosDir);
   const estadoPrefix = spec.estado_prefijo || "4";
   const upperTag = slugifyUpper(spec.estado_slug || spec.slug);
-  const jpgRel = `assets/estados/${estadoPrefix}_ESTADO_${upperTag}.jpg`;
-  const mp4Rel = `assets/estados/${estadoPrefix}_VIDEO_ESTADO_${upperTag}.mp4`;
+  const jpgRel = spec.estado_jpg_rel || `assets/estados/${estadoPrefix}_ESTADO_${upperTag}.jpg`;
+  const mp4Rel = spec.estado_mp4_rel || `assets/estados/${estadoPrefix}_VIDEO_ESTADO_${upperTag}.mp4`;
+
+  const socialOut = build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRun);
+  if (packOnly) {
+    console.log(JSON.stringify({ ok: true, ref: spec.ref_publica, socialOut }, null, 2));
+    return;
+  }
 
   const pdpHtmlPath = `${section}/${spec.slug}/index.html`;
   if (!fs.existsSync(path.join(ROOT, pdpHtmlPath)) || flags.overwrite) {
@@ -549,22 +985,24 @@ async function runPublish(specPath, flags) {
     catalogo: updateCatalogoAlquileres(spec, relPath, photos, dryRun),
     simulador: updateGarantiasSim(spec, dryRun),
     estados: updateEstadosHoy(spec, fullUrl, jpgRel, mp4Rel, dryRun),
+    social_4_piezas_y_ads: socialOut.portadas_urls,
     sitemap: updateSitemap(fullUrl, dryRun),
     llms: updateLlmsTxt(spec, fullUrl, dryRun),
   };
 
   if (flags.push && !dryRun) {
     execFileSync("git", ["-C", ROOT, "add", "-A"], { stdio: "inherit" });
-    execFileSync("git", ["-C", ROOT, "commit", "-m", `feat(zaguan): ficha 1-tiro ${spec.ref_publica} (${spec.slug}) + estado 9:16 + indexacion`], { stdio: "inherit" });
+    execFileSync("git", ["-C", ROOT, "commit", "-m", `feat(zaguan): ficha 360 1-tiro ${spec.ref_publica} (${spec.slug}) + 4 redes + Ads + indexacion`], { stdio: "inherit" });
     execFileSync("git", ["-C", ROOT, "push", "origin", "main"], { stdio: "inherit" });
 
     let liveOk = false;
     for (let i = 0; i < 12; i++) {
-      const [rPage, rMp4] = await Promise.all([
+      const [rPage, rMp4, rPack] = await Promise.all([
         fetch(fullUrl).catch(() => ({ status: 0 })),
         fetch(`${BASE_URL}/${mp4Rel}`, { method: "HEAD" }).catch(() => ({ status: 0 })),
+        fetch(socialOut.portadas_urls[0], { method: "HEAD" }).catch(() => ({ status: 0 })),
       ]);
-      if (rPage.status === 200 && rMp4.status === 200) {
+      if (rPage.status === 200 && rMp4.status === 200 && rPack.status === 200) {
         liveOk = true;
         break;
       }
@@ -586,6 +1024,10 @@ async function runPublish(specPath, flags) {
 const args = parseArgs(process.argv);
 if (args.flags.audit) {
   auditExisting(args.flags.audit === true ? args.positional[0] : args.flags.audit);
+} else if (args.flags.baja) {
+  await runBajaTotal(args.flags.baja === true ? args.positional[0] : args.flags.baja, args.flags);
+} else if (args.flags["pack-redes"]) {
+  await runPublish(args.flags["pack-redes"] === true ? args.positional[0] : args.flags["pack-redes"], args.flags, { packOnly: true });
 } else if (args.flags["init-template"]) {
   const dest = args.flags["init-template"];
   const tpl = {
@@ -601,8 +1043,17 @@ if (args.flags.audit) {
     zona_publica: "Centro, Maldonado",
     precio_uyu: 30000,
     gc_uyu: 3500,
+    gc_incluye: "agua OSE incluida",
     total_uyu: 33500,
     precio_publico: "$U 30.000 + $U 3.500 GC",
+    superficie_m2: "~55 m²",
+    piso_orientacion: "Piso 4 orientación Norte",
+    equipamiento: "Aire acondicionado y calefón instalados",
+    seguridad: "Edificio con ascensor y cámaras",
+    admision: "Acepta niños y mascotas",
+    cochera: "Cocheras en alquiler en el edificio",
+    garantias: "Garantía aseguradora (Porto Seguro, Sura, Mapfre o Santander)",
+    horario_visitas: "Desde las 16:00 hs todos los días",
     dormitorios: 2,
     fotos_zip: "/ruta/al/WhatsApp.zip",
     estado_prefijo: "4",
@@ -618,10 +1069,17 @@ if (args.flags.audit) {
       disponibilidad_visitas: "A confirmar",
     },
   };
-  fs.writeFileSync(dest, JSON.stringify(tpl, null, 2), "utf8");
+  fs.writeFileSync(dest, JSON.stringify({ variables_corchetes_referencia: FICHA_CORCHETES_VARIABLES, ...tpl }, null, 2), "utf8");
   console.log(`Plantilla escrita en ${dest}`);
 } else if (args.flags.publish) {
   await runPublish(args.flags.publish, args.flags);
 } else {
-  console.log("Uso:\n  node tools/publicar_ficha_1tiro.mjs --audit ZAG-ALQ-07\n  node tools/publicar_ficha_1tiro.mjs --init-template /tmp/spec.json\n  node tools/publicar_ficha_1tiro.mjs --publish /tmp/spec.json [--push] [--dry-run]");
+  console.log(
+    "Uso:\n" +
+      "  node tools/publicar_ficha_1tiro.mjs --audit ZAG-ALQ-07\n" +
+      "  node tools/publicar_ficha_1tiro.mjs --init-template /tmp/spec.json\n" +
+      "  node tools/publicar_ficha_1tiro.mjs --pack-redes /ruta/spec.json\n" +
+      "  node tools/publicar_ficha_1tiro.mjs --publish /ruta/spec.json [--push] [--dry-run]\n" +
+      "  node tools/publicar_ficha_1tiro.mjs --baja ZAG-ALQ-07 [--borrar-todo] [--push]"
+  );
 }

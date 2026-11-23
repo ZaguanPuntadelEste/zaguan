@@ -178,13 +178,90 @@ def build_mp4(photos: list[str], overlay_path: str, mp4_out: str, audio_path: st
     subprocess.run(cmd, check=True)
 
 
+def build_feed_4_5(photo_path: str, kicker: str, headline: str, subline: str, badge_top: str, out_path: str, cta_text: str = "Ver ficha completa · ZAGUÁN Propiedades"):
+    fw, fh = 1080, 1350
+    split = 835
+    bg = Image.new("RGB", (fw, fh), (8, 21, 33))
+    im = Image.open(photo_path).convert("RGB")
+    bg.paste(fit_cover(im, fw, split + 36, focus_y=0.45), (0, 0))
+
+    ov = Image.new("RGBA", (fw, fh), (0, 0, 0, 0))
+    draw = ImageDraw.Draw(ov)
+
+    for y in range(210):
+        alpha = int(175 * (1 - y / 210) ** 1.4)
+        draw.line([(0, y), (fw, y)], fill=(8, 21, 33, alpha))
+
+    for y in range(split - 120, split):
+        t = (y - (split - 120)) / 120.0
+        alpha = int(255 * (t ** 1.6))
+        draw.line([(0, y), (fw, y)], fill=(8, 21, 33, alpha))
+
+    draw.rectangle([(0, split), (fw, fh)], fill=(8, 21, 33, 255))
+    draw.line([(0, split), (fw, split)], fill=(27, 84, 99, 255), width=3)
+
+    if os.path.isfile(LOGO_PATH):
+        logo = Image.open(LOGO_PATH).convert("RGBA")
+        th = 40
+        ratio = th / logo.height
+        lr = logo.resize((int(round(logo.width * ratio)), th), Image.LANCZOS)
+        ov.paste(lr, (72, 68), lr)
+
+    f_pill = ImageFont.truetype(FONT_BOLD, 20)
+    btxt = badge_top.upper()[:34]
+    tw = draw.textlength(btxt, font=f_pill)
+    draw.rectangle([(fw - 72 - tw - 40, 64), (fw - 72, 110)], fill=(18, 59, 74, 240), outline=(45, 118, 138, 255), width=2)
+    draw.text((fw - 72 - tw - 20, 75), btxt, font=f_pill, fill=(243, 240, 232, 255))
+
+    f_k = ImageFont.truetype(FONT_BOLD, 22)
+    ktxt = kicker.upper()[:56]
+    ktw = draw.textlength(ktxt, font=f_k)
+    draw.rectangle([(72, split + 36), (min(fw - 72, 72 + ktw + 40), split + 82)], fill=(18, 59, 74, 255), outline=(45, 118, 138, 255), width=1)
+    draw.text((92, split + 47), ktxt, font=f_k, fill=(183, 214, 224, 255))
+
+    f_h = ImageFont.truetype(FONT_BLACK, 68)
+    for idx, line in enumerate(wrap_two_lines(draw, headline, f_h, fw - 144)):
+        draw.text((72, split + 102 + idx * 76), line, font=f_h, fill=(243, 240, 232, 255))
+
+    f_s = ImageFont.truetype(FONT_REG, 38)
+    for idx, line in enumerate(wrap_two_lines(draw, subline, f_s, fw - 144)):
+        draw.text((72, split + 266 + idx * 46), line, font=f_s, fill=(183, 214, 224, 255))
+
+    bx0, by0, bx1, by1 = 72, split + 378, fw - 72, split + 458
+    draw.rectangle([(bx0, by0), (bx1, by1)], fill=(243, 240, 232, 255))
+    f_cta = ImageFont.truetype(FONT_BLACK, 28)
+    draw.text((bx0 + 30, by0 + 25), (cta_text if "cta_text" in locals() else "Ver ficha completa · ZAGUÁN Propiedades"), font=f_cta, fill=(8, 21, 33, 255))
+
+    comp = Image.alpha_composite(bg.convert("RGBA"), ov).convert("RGB")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    comp.save(out_path, "JPEG", quality=92)
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("--spec", required=True, help="JSON con datos públicos del estado 9:16")
+    parser.add_argument("--spec", required=True, help="JSON con datos públicos del estado 9:16 o pack 4 redes")
+    parser.add_argument("--pack-4-redes", action="store_true", help="Genera 4 portadas 4:5 (1080x1350) con fotos reales rotadas")
     args = parser.parse_args()
 
     with open(args.spec, "r", encoding="utf-8") as f:
         spec = json.load(f)
+
+    if args.pack_4_redes:
+        cards = spec.get("cards", [])
+        out_files = []
+        for idx, c in enumerate(cards, start=1):
+            build_feed_4_5(
+                c["photo"],
+                c["kicker"],
+                c["headline"],
+                c["subline"],
+                c.get("badge_top") or spec.get("operacion_badge", "ALQUILER ANUAL"),
+                c["out_path"],
+                c.get("cta_text") or "Ver ficha completa · ZAGUÁN Propiedades",
+            )
+            out_files.append(c["out_path"])
+        print(json.dumps({"ok": True, "pack_4_redes": out_files}))
+        return
 
     photos_dir = spec["photos_dir"]
     photos = sorted([
