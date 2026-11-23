@@ -206,9 +206,18 @@
     .section--alt { background: var(--limestone); }
     .grid-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
       gap: 42px;
       align-items: start;
+    }
+    .grid-2 > *, .triage-grid > *, .field-grid > *, .pozos-grid > * { min-width: 0; }
+    #verificador-garantias input,
+    #verificador-garantias select,
+    #verificador-garantias button {
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      box-sizing: border-box;
     }
     .pill-list {
       display: grid;
@@ -290,7 +299,7 @@
     }
 
     @media (max-width: 900px) {
-      .triage-grid, .grid-2 { grid-template-columns: 1fr; }
+      .triage-grid, .grid-2 { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 600px) {
       .container { width: calc(100% - 24px); }

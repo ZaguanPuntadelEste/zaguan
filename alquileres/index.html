@@ -1195,6 +1195,7 @@
         });
         cardsArr.forEach(function(c) { grid.appendChild(c); });
       });
+      priceSort.dispatchEvent(new Event('change'));
     }
 
     // Tracking Analytics / GTM para clics a WhatsApp
