@@ -695,7 +695,7 @@
       "precio": "$U 30.000 / mes",
       "zona": "La Fortuna, Maldonado",
       "url": "https://www.facebook.com/marketplace/item/1456453363347314/",
-      "nota_auditoria": "Perfil auditado (artículos personales); aclara sin inmobiliaria trato con dueño directo y celular 099 925 848 en descripción. | ⚠️ VERIFICAR CON JORGE (+598 99 925 848): La publicación MP-33 de Anita Toledo (2D en La Fortuna · $U 30.000 · Porto/Sura, mismo edificio de 8 unidades) pasó a 'ALQUILADO' en Marketplace. Confirmar con Jorge qué unidad de las 8 sigue libre antes de las visitas del martes.",
+      "nota_auditoria": "Perfil auditado (artículos personales); trato con dueño directo Jorge (+598 99 925 848). Ficha activa ZAG-ALQ-05 en cartera. Regla operativa: cero envíos nuevos hasta tener interesado real con día y hora de visita confirmada.",
       "mensaje_mar": "Hola Vale, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en La Fortuna ($U 30.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
       "estado_envio": "propiedad_en_cartera",
       "seguimiento_72h": "Hola Vale, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en La Fortuna, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
@@ -714,24 +714,21 @@
       "ts_envio_1": 1794932182680,
       "ref_ficha": "ZAG-ALQ-05",
       "url_ficha": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/",
-      "proximo_toque_vigencia_7d": "2026-11-24",
-      "guion_toque_vigencia": "Buen día Jorge, cómo estás? Esta semana estuvimos moviendo la ficha de La Fortuna con consultas que estamos filtrando por garantía aseguradora. Te chequeo corto: sigue disponible igual, verdad?",
+      "proximo_toque_tipo": "solo_con_visita_confirmada",
+      "proximo_toque_fecha": null,
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
         "Operación: Alquiler anual",
         "Zona: La Fortuna, Maldonado",
         "Precio en aviso: $U 30.000 / mes"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Fotos base limpias publicadas en ficha ZAG-ALQ-05.",
       "corchetes_faltantes": [
         "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
         "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
       ],
-      "nivel_semaforo": "1B_CON_ALERTA",
-      "alerta_mar": "⚠️ VERIFICAR CON JORGE (+598 99 925 848): La publicación MP-33 de Anita Toledo (2D en La Fortuna · $U 30.000 · Porto/Sura, mismo edificio de 8 unidades) pasó a 'ALQUILADO' en Marketplace. Confirmar con Jorge qué unidad de las 8 sigue libre antes de las visitas del martes.",
-      "badge_alerta": "⚠️ VERIFICAR DISPONIBILIDAD CON JORGE (MP-33 PASÓ A ALQUILADO)",
       "carril": "4_ficha_activa"
     },
     {
@@ -1611,15 +1608,15 @@
     {
       "id": "MP-39",
       "vendedor": "Claudia Elinger Celi Eli",
-      "telefono_directo": "59898607109",
+      "telefono_directo": "59894294017",
       "operacion": "Alquiler anual · Dueño Directo",
       "titulo": "Alquilo Apartamento Céntrico Maldonado, 2 DORMITORIOS",
       "precio": "$U 32.000 / mes",
       "zona": "Centro, Maldonado",
       "url": "https://www.facebook.com/marketplace/item/880460288464591/",
-      "nota_auditoria": "Perfil verificado con solo 2 publicaciones activas (este apartamento y 1 artículo gratuito) y foto limpia sin inmobiliaria; indica 'Por ASEGURADORA' y 'WhatsApp 098607109' en la descripción.",
+      "nota_auditoria": "Perfil verificado con solo 2 publicaciones activas y foto limpia sin inmobiliaria; indica 'Por ASEGURADORA' y 098607109 en aviso Marketplace (+598 94 294 017 contacto WA activo).",
       "mensaje_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en alquiler anual en Centro de Maldonado ($U 32.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
-      "estado_envio": "respondio",
+      "estado_envio": "esperando_respuesta_t2",
       "seguimiento_72h": "Hola Claudia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Centro, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1629,15 +1626,13 @@
         "Dormitorios en aviso: 2",
         "Garantía en aviso: aseguradora"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; aguardando respuesta sobre depósito/extranjeros, GC/Wi-Fi y cochera.",
       "corchetes_faltantes": [
-        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
-        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
-        "Si cuenta con cochera y características",
-        "Si admite niños y mascota (y porte)"
+        "Depósito o clientes del exterior certificando ingresos con escribanía aliada",
+        "Qué incluye el monto mensual con los gastos comunes (Wi-Fi / consumos)",
+        "Si tiene cochera"
       ],
       "carril": "3_en_conversacion",
-      "nivel_semaforo": "1A_LIMPIO",
       "ts_envio_1": 1795448809000,
       "fecha_envio_1": "2026-11-23 12:46",
       "garantias_aceptadas": "Aseguradora aprobada",

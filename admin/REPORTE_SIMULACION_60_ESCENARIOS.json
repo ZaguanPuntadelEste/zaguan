@@ -1,7 +1,7 @@
 {
-  "fecha": "2026-11-23T16:58:25.591Z",
-  "total": 93,
-  "pasaron": 93,
+  "fecha": "2026-11-23T17:55:29.279Z",
+  "total": 94,
+  "pasaron": 94,
   "fallaron_count": 0,
   "tasa_exito": "100%",
   "fallos_resumen": [],
@@ -1214,6 +1214,19 @@
       "subtipo_detectado": "SIMULADOR_Y_6_PDPS_OK",
       "alerta_andon": false,
       "replyText": "Simulador 1–4 personas + Guía 8 FAQs Posición #1 + Santa Mónica en Novedades + 6 PDPs enlazados OK"
+    },
+    {
+      "id": "SIM-94",
+      "bloque": "Cierre Integral UX/UI · Header Unificado 1120px + Paleta Mineral + Portada Limpia + Anti-Baba CRM/Telegram",
+      "turno": "QA Visual & Cero Ruido",
+      "contexto": "qa_cierre_integral",
+      "input": "6 páginas web + ultimas-propiedades + admin + CRM JSON/Worker",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "QA_INTEGRAL_WEB_CRM_TELEGRAM",
+      "subtipo_detectado": "CIERRE_INTEGRAL_OK",
+      "alerta_andon": false,
+      "replyText": "Header unificado 1120px + Paleta Mineral + Portada limpia 16:10 + 0 -mente + Linking dinámico + MP-39/MP-12 + 2 globos Telegram OK"
     }
   ]
 }

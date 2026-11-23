@@ -1763,6 +1763,14 @@ function getCronometroBadge(id, itemFallback) {
 }
 
 function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto, itemFallback) {
+  if (
+    itemFallback &&
+    (itemFallback.estado_envio === 'esperando_respuesta_t2' ||
+      itemFallback.proximo_toque_tipo === 'solo_con_visita_confirmada' ||
+      (itemFallback.sugerencia_mar === '' && (itemFallback.contestacion_mar || itemFallback.carril === '4_ficha_activa')))
+  ) {
+    return '';
+  }
   if (itemFallback && itemFallback.sugerencia_mar) {
     return lintMarLocal(itemFallback.sugerencia_mar);
   }
@@ -1906,7 +1914,11 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
             ${hasPreFicha ? `<button class="btn btn-yes btn-sm" onclick="confirmarPreFichaCabina('${id}')">✅ Confirmó "Sí" → Activar Ficha + Aprobalo</button>` : ''}
           </div>
         </div>
-      ` : ''}
+      ` : (!sugerencia && rec.carril === '3_en_conversacion' ? `
+        <div style="margin-top:8px;padding:7px 10px;border-radius:6px;background:rgba(56,189,248,0.1);border:1px solid rgba(56,189,248,0.35);font-size:12px;color:#BAE6FD;">⏳ Mensaje enviado — aguardando respuesta del propietario sobre los puntos consultados.</div>
+      ` : (!sugerencia && rec.carril === '4_ficha_activa' && !hasPreFicha ? `
+        <div style="margin-top:8px;padding:7px 10px;border-radius:6px;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);font-size:12px;color:#A7F3D0;">🏡 Propiedad activa en cartera — contactar solo con visita confirmada (día y hora).</div>
+      ` : ''))}
     </div>
   `;
 }
@@ -2224,76 +2236,85 @@ function renderPedidosAbiertos() {
     }
     const mon = it.moneda || 'UYU';
     const decl = Number(it.presupuesto_declarado || it.presupuesto_max || 0);
-    const elas = Number(it.presupuesto_elastico_max || (decl ? Math.round(decl * 1.075) : 0));
+    const elas = Number(it.presupuesto_elastico_max || 0);
     const presuLabel = decl
-      ? `${mon} ${decl.toLocaleString('de-DE')} (elástico ${mon} ${elas.toLocaleString('de-DE')} · c/s GC)`
+      ? `${mon} ${decl.toLocaleString('de-DE')}${elas > decl ? ` (hasta ${mon} ${elas.toLocaleString('de-DE')})` : ''}`
       : 'A definir';
-    const amobTxt = it.amoblado_preferencia === 'amoblado'
-      ? 'Amoblado'
-      : it.amoblado_preferencia === 'sin_muebles'
-      ? 'Sin muebles'
-      : 'Amoblado y sin muebles';
+    const mobMap = { amoblado: 'Amoblado', prefiere_amoblado: 'Prefiere amoblado', sin_muebles: 'Sin muebles' };
     const goWaUrl = it.go_wa_url || `${CRM_API_URL}/go/wa?tipo=b2c&id=${encodeURIComponent(it.id)}&turno=${encodeURIComponent(it.paso_actual || 'T1')}`;
     const safeCopy = String(it.ultimo_copy_mar || '').replace(/</g, '&lt;');
-    const safeNotas = String(it.notas || '').replace(/</g, '&lt;');
-    const estadoBusq = it.estado_busqueda || 'caza_activa_hoy';
-    const estadoConv = it.estado_conversacion || 'busqueda_activa_abierta';
-    const hitoCliente = it.hito_expectativa_cliente || '';
+
+    const cleanLines = String(it.notas || '')
+      .split(/\n+/)
+      .map(l => l.trim())
+      .filter(l => l && !/^\[Beacon\b/i.test(l));
+    const lastRealMsg = (cleanLines.slice(-1)[0] || '').replace(/^\[[^\]]+\]:\s*/, '');
+    const safeLastMsg = lastRealMsg.replace(/</g, '&lt;');
+    const safeHistory = cleanLines.join('\n').replace(/</g, '&lt;');
+
+    const confirmedChips = [];
+    if (it.modalidad_contrato || it.tipo_operacion) confirmedChips.push(it.modalidad_contrato || it.tipo_operacion);
+    if (it.desde_cuando && !/por confirmar|a definir/i.test(it.desde_cuando)) confirmedChips.push(`Para ${it.desde_cuando}`);
+    if (it.zona_preferida && it.zona_preferida !== 'Punta del Este / Maldonado') confirmedChips.push(`📍 ${it.zona_preferida}`);
+    if (it.personas_cantidad && !/sin confirmar|pendiente/i.test(String(it.personas_cantidad))) confirmedChips.push(`👥 ${it.personas_cantidad}`);
+    if (it.dormitorios_abiertos && it.dormitorios_abiertos !== 'Monoambiente, 1 y 2 dormitorios') {
+      confirmedChips.push(`🛏️ ${it.dormitorios_abiertos}`);
+    } else if (it.dormitorios_min !== null && it.dormitorios_min !== undefined) {
+      confirmedChips.push(`🛏️ ${it.dormitorios_min}D`);
+    }
+    if (it.amoblado_preferencia && mobMap[it.amoblado_preferencia]) confirmedChips.push(mobMap[it.amoblado_preferencia]);
+    if (it.mascota_detalle) {
+      confirmedChips.push(`🐾 ${it.mascota_detalle}`);
+    } else if (it.tiene_mascota && !/sin confirmar|pendiente/i.test(String(it.tiene_mascota))) {
+      const lowPet = String(it.tiene_mascota).toLowerCase();
+      confirmedChips.push(lowPet === 'si' ? '🐾 Con mascota' : lowPet === 'no' ? 'Sin mascotas' : `🐾 ${it.tiene_mascota}`);
+    }
+    if (it.comodidades_pedidas && !/sin confirmar|pendiente/i.test(it.comodidades_pedidas)) confirmedChips.push(it.comodidades_pedidas);
+    const garTxt = (it.garantia_disponible && !/pendiente|sin confirmar/i.test(it.garantia_disponible)) ? it.garantia_disponible : (it.garantia_precalificacion || '');
+    if (garTxt) confirmedChips.push(`🛡️ ${garTxt}`);
+    if (it.situacion_laboral) confirmedChips.push(it.situacion_laboral);
+
     const matchesHtml = ms.length
-      ? `<div style="display:grid;gap:6px;margin-top:4px;">` + ms.map(m => {
+      ? `<div style="display:grid;gap:6px;margin-top:8px;">` + ms.map(m => {
           const mGoWa = m.go_wa_url || `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(m.id)}&turno=${m.carril === '1_por_contactar' ? 'T0' : 'T1'}`;
-          const mTag = m.etiqueta_match || '🎯 Match en cartera';
           return `<div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);border-radius:6px;padding:7px 9px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
-            <div>
-              <div style="font-size:11.5px;color:#6EE7B7;font-weight:700;">${String(mTag).replace(/</g, '&lt;')}</div>
-              <div style="font-size:12.5px;color:#F8FAFC;margin-top:2px;"><strong>${String(m.id).replace(/</g, '&lt;')} · ${String(m.nombre || '').replace(/</g, '&lt;')}</strong> — ${String(m.titulo || m.zona || '').replace(/</g, '&lt;')} (${String(m.precio_texto || '').replace(/</g, '&lt;')})</div>
-            </div>
-            <a class="btn btn-wa btn-sm" href="${mGoWa}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 /go/wa 1 clic</a>
+            <div style="font-size:12.5px;color:#F8FAFC;">🎯 <strong>${String(m.id).replace(/</g, '&lt;')} · ${String(m.nombre || '').replace(/</g, '&lt;')}</strong> — ${String(m.titulo || m.zona || '').replace(/</g, '&lt;')} (${String(m.precio_texto || '').replace(/</g, '&lt;')})</div>
+            <a class="btn btn-wa btn-sm" href="${mGoWa}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 Consultar al dueño</a>
           </div>`;
         }).join('') + `</div>`
-      : '<div style="font-size:12px;color:#94A3B8;">En búsqueda activa al ingresar unidades o coincidencias por polígono.</div>';
+      : '';
 
     return `
       <div class="card approved" id="pa-card-${it.id}">
         <div class="card-top">
           <div>
-            <span class="tag tag-active">${it.id} · ${it.modalidad_contrato || it.tipo_operacion || 'Anual'} · Rama ${it.rama_conversacion || 'B'}</span>
-            <span class="tag" style="margin-left:4px;background:rgba(16,185,129,0.18);color:#6EE7B7;border:1px solid rgba(16,185,129,0.4);">🟢 ${estadoBusq === 'caza_activa_hoy' ? 'Caza activa HOY' : estadoBusq}</span>
-            <span class="tag tag-ley" style="margin-left:4px;">💬 ${estadoConv}</span>
-            ${hitoCliente ? `<span class="tag" style="margin-left:4px;background:rgba(245,158,11,0.18);color:#FCD34D;border:1px solid rgba(245,158,11,0.4);">🗓️ Hito expectativa: ${hitoCliente}</span>` : ''}
-            <h3 style="font-size:17px;margin-top:6px;">${String(it.nombre || 'Interesado B2C').replace(/</g, '&lt;')}</h3>
-            <p style="font-size:12.5px;color:#B7D6E0;margin-top:2px;">📱 ${it.telefono || 'Sin WhatsApp cargado'} · Canal: ${it.canal || 'whatsapp'} · Cuándo: <strong style="color:#FCD34D;">${it.desde_cuando || 'Mes a definir'}</strong></p>
+            <h3 style="font-size:17px;">${String(it.nombre || 'Interesado B2C').replace(/</g, '&lt;')}</h3>
+            <p style="font-size:12.5px;color:#B7D6E0;margin-top:3px;">📱 ${it.telefono || 'Sin WhatsApp cargado'}</p>
           </div>
           <div style="display:flex;align-items:flex-start;gap:8px;">
-            <strong style="color:var(--gold);font-size:13.5px;text-align:right;">${presuLabel}</strong>
-            <button class="btn btn-sm" style="background:rgba(239,68,68,0.18);color:#FCA5A5;border:1px solid rgba(239,68,68,0.4);padding:5px 8px;" title="Eliminar fila de D1 y pantalla" onclick="eliminarPedidoAbiertoD1('${it.id}')">🗑️</button>
+            <strong style="color:var(--gold);font-size:14px;text-align:right;">${presuLabel}</strong>
+            <button class="btn btn-sm" style="background:rgba(239,68,68,0.18);color:#FCA5A5;border:1px solid rgba(239,68,68,0.4);padding:5px 8px;" title="Eliminar pedido de D1" onclick="eliminarPedidoAbiertoD1('${it.id}')">🗑️</button>
           </div>
         </div>
 
-        <div style="font-size:12px;color:#E2E8F0;background:rgba(8,21,33,0.65);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:grid;gap:4px;">
-          <div>📍 <strong>Zona abierta:</strong> ${it.zona_preferida || 'Punta del Este / Maldonado'}</div>
-          <div>👥 <strong>Personas:</strong> ${it.personas_cantidad || 'Sin confirmar'} · 💬 <strong>Estado:</strong> ${it.estado || 'activo'}</div>
-          <div>🛏️ <strong>Espacio:</strong> ${it.dormitorios_abiertos || (it.dormitorios_min !== null ? it.dormitorios_min + 'D' : 'Monoambiente, 1 y 2 dormitorios')} · <strong>Mobiliario:</strong> ${amobTxt}</div>
-          <div>🐾 <strong>Mascota / Comodidades:</strong> ${it.mascota_detalle || it.tiene_mascota || 'Sin confirmar'} · ${it.comodidades_pedidas || 'Sin confirmar'}</div>
-          <div>🛡️ <strong>Garantía:</strong> ${it.garantia_disponible || 'Pendiente (Paso 2)'}${it.situacion_laboral ? ` (${it.situacion_laboral})` : ''}</div>
-          <div>🎯 <strong>Cruce Radar hoy (Exacto + Polígono en Zona):</strong></div>
-          ${matchesHtml}
-        </div>
+        ${safeLastMsg ? `<div style="margin-top:8px;padding:9px 11px;border-left:3px solid var(--gold);background:rgba(8,21,33,0.7);border-radius:6px;font-size:13px;color:#F8FAFC;">“${safeLastMsg}”</div>` : ''}
+        ${cleanLines.length > 1 ? `<details style="margin-top:6px;"><summary style="font-size:11.5px;color:#94A3B8;cursor:pointer;">Ver conversación completa (${cleanLines.length} mensajes)</summary><pre style="margin-top:4px;white-space:pre-wrap;font-size:11.5px;color:#CBD5E1;background:#040d16;padding:8px;border-radius:6px;border:1px solid var(--border);">${safeHistory}</pre></details>` : ''}
 
-        ${safeNotas ? `<details style="margin-top:6px;"><summary style="font-size:11.5px;color:#94A3B8;cursor:pointer;">📜 Ver historial y detalles sumados (+Detalle)</summary><pre style="margin-top:4px;white-space:pre-wrap;font-size:11.5px;color:#CBD5E1;background:#040d16;padding:8px;border-radius:6px;border:1px solid var(--border);">${safeNotas}</pre></details>` : ''}
+        ${confirmedChips.length ? `<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">${confirmedChips.map(c => `<span style="font-size:11.5px;padding:3px 8px;border-radius:999px;background:rgba(56,189,248,0.12);border:1px solid rgba(56,189,248,0.3);color:#E2E8F0;">${String(c).replace(/</g, '&lt;')}</span>`).join('')}</div>` : ''}
+
+        ${matchesHtml}
 
         <div style="margin-top:8px;">
-          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Respuesta lista de Mar (15 Candados OK):</label>
-          <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:84px;font-size:12px;">${safeCopy}</textarea>
+          <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:80px;font-size:12px;">${safeCopy}</textarea>
           <div class="btn-row" style="margin-top:6px;">
-            <a class="btn btn-wa btn-sm" href="${goWaUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 RESPONDER CON MAR EN 1 CLIC</a>
-            <button class="btn btn-yes btn-sm" onclick="copyTextById('pa-copy-${it.id}')">📋 Copiar respuesta</button>
+            <a class="btn btn-wa btn-sm" href="${goWaUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 Abrir WhatsApp con este mensaje</a>
+            <button class="btn btn-yes btn-sm" onclick="copyTextById('pa-copy-${it.id}')">📋 Copiar</button>
           </div>
         </div>
 
         <div style="margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
-          <input type="text" id="pa-reply-in-${it.id}" placeholder="Pegar nuevo detalle o mensaje (ej: Ah, me olvidé de decirte que tenga parrillero)..." style="flex:1;min-width:200px;background:#040d16;border:1px solid var(--border);color:#fff;padding:7px 9px;border-radius:6px;font-size:12px;">
-          <button class="btn btn-outline btn-sm" onclick="avanzarTurnoB2C('${it.id}')">➕ Sumar detalle / avanzar turno</button>
+          <input type="text" id="pa-reply-in-${it.id}" placeholder="Pegar nuevo mensaje del cliente..." style="flex:1;min-width:200px;background:#040d16;border:1px solid var(--border);color:#fff;padding:7px 9px;border-radius:6px;font-size:12px;">
+          <button class="btn btn-outline btn-sm" onclick="avanzarTurnoB2C('${it.id}')">➕ Actualizar con mensaje</button>
         </div>
       </div>
     `;
@@ -2562,11 +2583,6 @@ function renderRadar4Z() {
       const waDirect = it.telefono_directo ? `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(it.id)}&turno=T0` : '';
       const rec = getContactRecord(it.id, it);
       const isAlert = it.nivel_semaforo === '1B_CON_ALERTA' || Boolean(it.alerta_mar);
-      const semaforoBadge = rec.estado === 'cerrado'
-        ? ''
-        : (isAlert
-          ? `<span class="tag" style="margin-left:4px;background:rgba(245,158,11,0.2);color:#FCD34D;border:1px solid #F59E0B;">${it.badge_alerta || '🟡 Nivel 2 · Revisar alerta Mar'}</span>`
-          : `<span class="tag" style="margin-left:4px;background:rgba(16,185,129,0.18);color:#6EE7B7;border:1px solid rgba(16,185,129,0.45);">🟢 Nivel 1 · Limpio</span>`);
       const canDiscard = rec.estado !== 'cerrado' && (rec.carril === '1_por_contactar' || rec.carril === '2_esperando_respuesta_72h');
       const alertBannerHtml = isAlert && it.alerta_mar ? `
         <div style="background:rgba(245,158,11,0.16);border:1.5px solid #F59E0B;border-radius:8px;padding:9px 11px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
@@ -2580,7 +2596,7 @@ function renderRadar4Z() {
       <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}" id="mp-card-${it.id}" style="${isAlert && rec.estado !== 'cerrado' ? 'border-color:rgba(245,158,11,0.75);' : ''}">
         <div class="card-top">
           <div>
-            <span class="tag tag-active">${it.id} · ${it.operacion}</span>${semaforoBadge}
+            <span class="tag tag-active">${it.id} · ${it.operacion}</span>
             <div style="margin-top:6px;">${getCronometroBadge(it.id, it)}</div>
             <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
             <p style="font-size:13px;color:#fff;margin-top:2px;">👤 Dueño: <strong style="color:var(--gold);">${it.vendedor}</strong> · 📱 +${it.telefono_directo} · 📍 ${it.zona}</p>
@@ -2590,10 +2606,9 @@ function renderRadar4Z() {
         ${alertBannerHtml}
         ${renderReplyLoaderBox(it.id, it.vendedor, it.operacion, it.telefono_directo, it, 'mp')}
         <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);display:grid;gap:4px;">
-          <div>🛡️ ${it.nota_auditoria}</div>
-          ${(it.corchetes_en_aviso && it.corchetes_en_aviso.length) ? `<div style="color:#B7D6E0;"><strong>✅ Ya tomado del aviso (${it.vertical_calculada || 'MP'}):</strong> ${it.corchetes_en_aviso.join(' · ')}</div>` : ''}
+          ${(it.corchetes_en_aviso && it.corchetes_en_aviso.length) ? `<div style="color:#B7D6E0;"><strong>✅ Ya tomado del aviso:</strong> ${it.corchetes_en_aviso.join(' · ')}</div>` : ''}
           ${it.estado_material_aviso ? `<div style="color:#D4CCBD;"><strong>📷 Material en aviso:</strong> ${it.estado_material_aviso}</div>` : ''}
-          ${(it.corchetes_faltantes && it.corchetes_faltantes.length) ? `<div style="color:#FBBF24;"><strong>🎯 Faltantes que pregunta Mar:</strong> ${it.corchetes_faltantes.join(' · ')}</div>` : ''}
+          ${(it.corchetes_faltantes && it.corchetes_faltantes.length) ? `<div style="color:#FBBF24;"><strong>🎯 Falta confirmar:</strong> ${it.corchetes_faltantes.join(' · ')}</div>` : ''}
         </div>
         ${(rec.carril === '1_por_contactar' && rec.estado === 'pendiente') ? `
         <div class="field">

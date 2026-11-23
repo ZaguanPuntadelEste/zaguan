@@ -789,29 +789,29 @@ export const ESCENARIOS_60 = [
   // BLOQUE 8: VERIFICADOR DE GARANTÍAS, FORMULARIOS SILENCIOSOS, 5 ACCIONES Y COMET LIVE
   makeHtmlAuditScenario('SIM-81', 'Verificador de Garantías · Simulador Multi-Persona (1–4) y Paleta ZAGUÁN', 'garantias-alquiler/index.html', {
     mustInclude: [
-      'ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro',
+      'Las garantías y pólizas de seguro son evaluadas y emitidas por cada compañía aseguradora',
       'Puerta A',
       'Puerta B',
       'últimos 3 meses de recibos de sueldo',
       'últimos 6 meses de recibos de sueldo',
-      '18 meses de residencia',
-      'Contador Público',
-      '1 a 4 solicitantes',
-      '+ Sumar Solicitante',
-      'Historia Laboral Nominada de BPS',
+      'menor a 18 meses',
+      'profesional contable',
+      '1 a 4 personas solicitantes',
+      '+ Sumar solicitante',
+      'historia laboral nominada de BPS',
       '1 póliza = 1 contrato',
       'CIERRE_INMEDIATO_CON_GARANTIA_LISTA',
       'verificador_garantias_web',
       'Schema.org',
       'FAQPage'
     ],
-    mustNotInclude: ['sin exclusividad', 'encajar', '#10b981', '#25d366', '#ef4444', '#fca5a5', '#6ee7b7', '#22c55e', '#dc2626'],
+    mustNotInclude: ['sin exclusividad', 'encajar', '#10b981', '#25d366', '#ef4444', '#fca5a5', '#6ee7b7', '#22c55e', '#dc2626', '#EEF4F6'],
     mustExistPaths: ['garantias-alquiler/index.html'],
   }),
   makeHtmlAuditScenario('SIM-82', 'Alquiler Anual · Verificador + Captura Silenciosa', 'alquiloanual/index.html', {
     mustInclude: [
       'verificador-garantias',
-      'ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías',
+      'Las garantías y pólizas de seguro son evaluadas y emitidas por cada compañía aseguradora',
       'formulario_web_silencioso',
       '/api/propietarios/web',
       '/api/interesados',
@@ -951,7 +951,7 @@ export const ESCENARIOS_60 = [
       const findId = (id) => list.find((x) => x.id === id);
       if (findId('MP-29')?.sello_cierre !== 'INMOBILIARIA ENCUBIERTA') errs.push('MP29_NO_ARCHIVADA_INMOBILIARIA');
       if (findId('MP-33')?.sello_cierre !== 'ALQUILADO EN MARKETPLACE') errs.push('MP33_NO_ARCHIVADA_ALQUILADO');
-      if (!String(findId('MP-12')?.alerta_mar || '').includes('MP-33')) errs.push('MP12_SIN_ALERTA_VERIFICAR_JORGE');
+      if (findId('MP-12')?.proximo_toque_tipo !== 'solo_con_visita_confirmada' || findId('MP-12')?.alerta_mar) errs.push('MP12_NO_SILENCIADO_HASTA_VISITA');
       if (findId('MP-27')?.carril !== '5_cerrado_radar') errs.push('MP27_DANILO_NO_CERRADO_RADAR');
       if (findId('MP-27')?.sello_cierre !== 'DECISIÓN FAMILIAR / NO AUTORIZA') errs.push('MP27_SELLO_INCORRECTO');
       if (findId('MP-38')?.carril !== '5_cerrado_radar') errs.push('MP38_VIZCAYA_NO_CERRADA_RADAR');
@@ -1071,12 +1071,12 @@ export const ESCENARIOS_60 = [
     evaluate: () => {
       const errs = [];
       const garHtml = readHtml('garantias-alquiler/index.html') || '';
-      if (!garHtml.includes('agregarSolicitante') || !garHtml.includes('Historia Laboral Nominada de BPS') || !garHtml.includes('1 póliza = 1 contrato') || !garHtml.includes('veredictoDesbloqueado')) {
+      if (!garHtml.includes('agregarSolicitante') || !garHtml.includes('historia laboral nominada de BPS') || !garHtml.includes('1 póliza = 1 contrato') || !garHtml.includes('veredictoDesbloqueado')) {
         errs.push('GARANTIAS_SIN_SIMULADOR_MULTIPERSONA_COMPLETO');
       }
       const guiaSlug = 'requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos';
       const guiaHtml = readHtml(`novedades-del-este/${guiaSlug}/index.html`) || '';
-      if (!guiaHtml || !guiaHtml.includes('8.') || !guiaHtml.includes('Historia Laboral Nominada de BPS') || !guiaHtml.includes('no otorga, no evalúa ni aprueba garantías')) {
+      if (!guiaHtml || !guiaHtml.includes('8.') || !guiaHtml.includes('historia laboral nominada de BPS') || !guiaHtml.includes('evaluadas y emitidas por cada compañía aseguradora')) {
         errs.push('GUIA_PILAR_8_FAQS_INCOMPLETA');
       }
       const novHtml = readHtml('novedades-del-este/index.html') || '';
@@ -1109,6 +1109,76 @@ export const ESCENARIOS_60 = [
         subtipo_detectado: errs.length ? 'GARANTIAS_O_LINKS_INCOMPLETOS' : 'SIMULADOR_Y_6_PDPS_OK',
         alerta_andon: errs.length > 0,
         replyText: errs.length ? errs.join(',') : 'Simulador 1–4 personas + Guía 8 FAQs Posición #1 + Santa Mónica en Novedades + 6 PDPs enlazados OK',
+      };
+    },
+  },
+  {
+    id: 'SIM-94',
+    bloque: 'Cierre Integral UX/UI · Header Unificado 1120px + Paleta Mineral + Portada Limpia + Anti-Baba CRM/Telegram',
+    turno: 'QA Visual & Cero Ruido',
+    contexto: 'qa_cierre_integral',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: '6 páginas web + ultimas-propiedades + admin + CRM JSON/Worker',
+    evaluate: () => {
+      const errs = [];
+      const hdrJs = readHtml('assets/js/novedades-header.js') || '';
+      if (hdrJs.includes('font-size:9px') || !hdrJs.includes('1120')) errs.push('HEADER_JS_NO_UNIFICADO');
+      for (const css of ['assets/css/portadas.css', 'assets/css/proyecto-estructura.css', 'assets/css/novedades-del-este.css']) {
+        const c = readHtml(css) || '';
+        if (!c.includes('1120px')) errs.push(`CSS_SIN_BREAKPOINT_1120_${css}`);
+      }
+      const paginasMenu = [
+        'index.html',
+        'propiedades/index.html',
+        'alquileres/index.html',
+        'garantias-alquiler/index.html',
+        'alquiloanual/index.html',
+        'novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/index.html',
+      ];
+      for (const pg of paginasMenu) {
+        const h = readHtml(pg) || '';
+        if (!h.includes('id="mobile-menu"') && !h.includes('class="mobile-menu"')) errs.push(`FALTA_MOBILE_MENU_${pg}`);
+      }
+      const guia = readHtml('novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/index.html') || '';
+      if (!guia.includes('#E8E4DA') || guia.includes('#EEF4F6') || !guia.includes('ultimas-propiedades-zaguan.js')) {
+        errs.push('GUIA_SIN_PALETA_MINERAL_O_LINKING');
+      }
+      const gar = readHtml('garantias-alquiler/index.html') || '';
+      if (!gar.includes('step="1000"') || !gar.includes('ultimas-propiedades-zaguan.js') || /\b[a-záéíóúñü]+mente\b/i.test(gar)) {
+        errs.push('GARANTIAS_SIN_STEP_O_CON_MENTE');
+      }
+      const alq = readHtml('alquiloanual/index.html') || '';
+      if (!alq.includes('step="1000"') || !alq.includes('btn--estuario') || !alq.includes('6 en cartera · 4 disponibles') || /\b[a-záéíóúñü]+mente\b/i.test(alq)) {
+        errs.push('ALQUILOANUAL_UX_O_MENTE');
+      }
+      const prop = readHtml('propiedades/index.html') || '';
+      const home = readHtml('index.html') || '';
+      if (!prop.includes('portada_limpia_16x10.jpg') || !home.includes('portada_limpia_16x10.jpg')) {
+        errs.push('FALTA_PORTADA_LIMPIA_SANTA_MONICA');
+      }
+      const ultJs = readHtml('assets/js/ultimas-propiedades-zaguan.js') || '';
+      if (!ultJs.includes('ZAGUAN_ULTIMAS_PROPIEDADES')) errs.push('FALTA_ULTIMAS_PROPIEDADES_JS');
+      const radarRaw = readHtml('admin/prospeccion_viva_4zonas_zaguan.json') || '{}';
+      const radar = JSON.parse(radarRaw);
+      const mp39 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-39');
+      const mp12 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-12');
+      if (!mp39 || mp39.telefono_directo !== '59894294017' || mp39.estado_envio !== 'esperando_respuesta_t2') {
+        errs.push('MP39_NO_SINCRONIZADO');
+      }
+      if (!mp12 || mp12.proximo_toque_tipo !== 'solo_con_visita_confirmada' || mp12.alerta_mar) {
+        errs.push('MP12_CON_ALERTA_PREMATURA');
+      }
+      const workerJs = readHtml('../../../../Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/src/index.js') || '';
+      if (workerJs && (!workerJs.includes('sendTgVideo') || !workerJs.includes('solo_con_visita_confirmada') || workerJs.includes('[Beacon ${'))) {
+        errs.push('WORKER_TELEGRAM_O_BEACON_FAIL');
+      }
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'QA_INTEGRAL_WEB_CRM_TELEGRAM',
+        subtipo_detectado: errs.length ? 'QA_FAIL' : 'CIERRE_INTEGRAL_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Header unificado 1120px + Paleta Mineral + Portada limpia 16:10 + 0 -mente + Linking dinámico + MP-39/MP-12 + 2 globos Telegram OK',
       };
     },
   },
