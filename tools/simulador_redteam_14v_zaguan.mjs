@@ -905,6 +905,67 @@ export const ESCENARIOS_60 = [
     mustMatch: /cu[aá]ntas personas|mascota|cochera/i,
     mustNotInclude: ['pero ', 'sola', 'bienvenido', 'agradecida'],
   },
+  {
+    id: 'SIM-89',
+    bloque: 'Poka-Yoke 1° Contacto Propietarios + Anti-Duplicado (/go/wa + JSON)',
+    turno: 'T0 Propietarios Marketplace (cero URL, cero frase duplicada, 100% _cursiva_)',
+    contexto: 'admin_json',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'prospeccion_viva_4zonas_zaguan.json + worker lintCopyMar',
+    evaluate: () => {
+      const mpJson = JSON.parse(readFileSync('/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/prospeccion_viva_4zonas_zaguan.json', 'utf8'));
+      const wIdx = readFileSync('/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/src/index.js', 'utf8');
+      const errs = [];
+      for (const it of (mpJson.marketplace_duenos_directos || [])) {
+        const m = String(it.mensaje_mar || '');
+        if (/zaguanpropiedades\.com/i.test(m)) errs.push(`URL_EN_PRIMER_CONTACTO_${it.id}`);
+        if (/con\s+autorizaci[oó]n\s+abierta\s+con\s+publicaci[oó]n\s+abierta/i.test(m)) errs.push(`FRASE_DUPLICADA_${it.id}`);
+        if (!/_[^_]+_/.test(m)) errs.push(`FALTA_CURSIVA_CORCHETES_${it.id}`);
+      }
+      if (!wIdx.includes('stripFirstContactUrl')) errs.push('FALTA_STRIP_URL_EN_WORKER');
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'POKA_YOKE_T0_PROPIETARIOS',
+        subtipo_detectado: errs.length ? 'T0_INFECTADO' : 'T0_39_DUENOS_LIMPIOS_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : '39/39 dueños Marketplace sin URL en T0, sin frase duplicada y con _cursiva_ en [CORCHETES]',
+      };
+    },
+  },
+  {
+    id: 'SIM-90',
+    bloque: 'Semáforo 3 Niveles + MP-29/MP-33 + Alerta MP-12 + Buscador Ctrl+F San Carlos',
+    turno: 'Cierre Operativo Comet <-> D1 <-> /admin/',
+    contexto: 'admin_html',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'admin/index.html + prospeccion_viva_4zonas_zaguan.json',
+    evaluate: () => {
+      const mpJson = JSON.parse(readFileSync('/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/prospeccion_viva_4zonas_zaguan.json', 'utf8'));
+      const adminHtml = readHtml('admin/index.html') || '';
+      const errs = [];
+      const list = mpJson.marketplace_duenos_directos || [];
+      const findId = (id) => list.find((x) => x.id === id);
+      if (findId('MP-29')?.sello_cierre !== 'INMOBILIARIA ENCUBIERTA') errs.push('MP29_NO_ARCHIVADA_INMOBILIARIA');
+      if (findId('MP-33')?.sello_cierre !== 'ALQUILADO EN MARKETPLACE') errs.push('MP33_NO_ARCHIVADA_ALQUILADO');
+      if (!String(findId('MP-12')?.alerta_mar || '').includes('MP-33')) errs.push('MP12_SIN_ALERTA_VERIFICAR_JORGE');
+      if (findId('MP-27')?.carril !== '3_en_conversacion') errs.push('MP27_DANILO_NO_EN_CONVERSACION');
+      for (const alId of ['MP-24', 'MP-25', 'MP-31', 'MP-34', 'MP-37']) {
+        if (findId(alId)?.nivel_semaforo !== '1B_CON_ALERTA') errs.push(`FALTA_SEMAFORO_AMARILLO_${alId}`);
+      }
+      if (/all\.slice\(\s*0\s*,\s*18\s*\)/.test(adminHtml)) errs.push('GLOBAL_SEARCH_SIGUE_TRUNCADO_18');
+      if (!adminHtml.includes('<option value="San Carlos">')) errs.push('FALTA_ZONA_SAN_CARLOS_FILTRO');
+      if (!adminHtml.includes('descartarOwnerDirectoD1') || !adminHtml.includes('focusOwnerCardInRadar')) errs.push('FALTA_BOTON_DESCARTAR_O_FOCUS_RADAR');
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'ADMIN_SEMAFORO_3_NIVELES',
+        subtipo_detectado: errs.length ? 'ADMIN_INCOMPLETO' : 'ADMIN_SEMAFORO_Y_BUSCADOR_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Semáforo 3 niveles + MP-29/33 cerradas + alerta MP-12 + filtro San Carlos + buscador global sin tope OK',
+      };
+    },
+  },
 ];
 
 function evaluarEscenario(esc) {

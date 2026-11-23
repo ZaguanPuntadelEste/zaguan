@@ -426,7 +426,7 @@
   </div>
 
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
-    <button class="tab-btn active" onclick="switchTab('tab-radar4z', this)">0. Propietarios · 5 Sub-Carriles (39 Dueños + 6 Dev + 15 Colegas)</button>
+    <button class="tab-btn active" id="btn-tab-radar4z" onclick="switchTab('tab-radar4z', this)">0. Propietarios · 5 Sub-Carriles (39 Dueños + 6 Dev + 15 Colegas)</button>
     <button class="tab-btn" id="btn-tab-pedidos" onclick="switchTab('tab-pedidos', this)">🎯 Pedidos Abiertos B2C (<span id="kpi-pedidos-tab-count">0</span>)</button>
     <button class="tab-btn" onclick="switchTab('tab-crm4c', this)">1B. Matchmaker · Visitas · Cierres · Cola Mac</button>
     <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp Pozo & Pre-Registro 60 Días</button>
@@ -557,11 +557,12 @@
         <div class="field">
           <label>Filtrar por Zona</label>
           <select id="r4z-zona" onchange="renderRadar4Z()">
-            <option value="TODAS">Todas las zonas (Maldonado/Pinares · Roosevelt · Península · La Barra)</option>
+            <option value="TODAS">Todas las zonas (Maldonado/Pinares · Roosevelt · Península · La Barra · San Carlos)</option>
             <option value="Maldonado Centro / Pinares">1. Maldonado Centro / Pinares</option>
             <option value="Roosevelt / Aidy Grill">2. Roosevelt / Aidy Grill</option>
             <option value="Península">3. Península</option>
             <option value="La Barra / Manantiales">4. La Barra / Manantiales</option>
+            <option value="San Carlos">5. San Carlos / Balneario Buenos Aires / Corredor Este</option>
           </select>
         </div>
         <div class="field">
@@ -1584,13 +1585,16 @@ function hydrateRadarFromCloud(crm, localFallback = null) {
       url: p.url_aviso || raw.url || loc.url || '',
       operacion: p.tipo_operacion || raw.operacion || loc.operacion || '',
       nota_auditoria: p.notas_internas || raw.nota_auditoria || loc.nota_auditoria || '',
-      mensaje_mar: loc.mensaje_mar || p.mensaje_mar || raw.mensaje_mar || '',
+      mensaje_mar: p.mensaje_mar || loc.mensaje_mar || raw.mensaje_mar || '',
       seguimiento_72h: loc.seguimiento_72h || p.seguimiento_72h || raw.seguimiento_72h || '',
       angulo_real_sin_humo: loc.angulo_real_sin_humo || p.mensaje_mar || raw.angulo_real_sin_humo || '',
       corchetes_en_aviso: loc.corchetes_en_aviso || raw.corchetes_en_aviso || [],
       estado_material_aviso: loc.estado_material_aviso || raw.estado_material_aviso || '',
       corchetes_faltantes: loc.corchetes_faltantes || raw.corchetes_faltantes || [],
       vertical_calculada: loc.vertical_calculada || raw.vertical_calculada || '',
+      nivel_semaforo: raw.nivel_semaforo || loc.nivel_semaforo || '',
+      badge_alerta: raw.badge_alerta || loc.badge_alerta || '',
+      alerta_mar: raw.alerta_mar || loc.alerta_mar || '',
       fuera_de_radio: isFueraRadio,
       sello_cierre: isFueraRadio ? (loc.sello_cierre || 'FUERA DE RADIO (>40-50KM)') : (p.sello_cierre || loc.sello_cierre || raw.sello_cierre || null),
       motivo_cierre: isFueraRadio ? (loc.motivo_cierre || p.notas_internas || '') : (p.motivo_cierre || loc.motivo_cierre || raw.motivo_cierre || ''),
@@ -1822,7 +1826,20 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
         </div>
       `;
     }
-    const fechaRadar = (itemFallback && itemFallback.proximo_toque_fecha) || 'sin fecha';
+    const selloCierre = (itemFallback && itemFallback.sello_cierre) || 'CERRADO';
+    const fechaRadar = (itemFallback && itemFallback.proximo_toque_fecha) || '';
+    if (!fechaRadar || ['INMOBILIARIA ENCUBIERTA', 'ALQUILADO EN MARKETPLACE', 'DESCARTADO EN RADAR'].includes(selloCierre)) {
+      return `
+        <div style="background:rgba(127,29,29,0.22);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
+          ${timelineHtml}
+          <div style="font-size:12.5px;color:#FCA5A5;font-weight:700;margin-bottom:4px;">🛑 CERRADO / ARCHIVADO (${selloCierre}) — CERO ENVÍOS EN FRÍO</div>
+          <div style="font-size:12px;color:#E2E8F0;margin-bottom:6px;">${(itemFallback && itemFallback.motivo_cierre) || 'Archivado de la tanda activa.'}</div>
+          <div class="btn-row" style="margin-top:6px;">
+            <button class="btn btn-outline btn-sm" onclick="moverCarrilD1('${id}', '1_por_contactar')">🔄 Reactivar manualmente</button>
+          </div>
+        </div>
+      `;
+    }
     const first = (nombrePersona || '').split(' ')[0] || '';
     const saludo = first && !first.includes('(') ? `Hola ${first}` : 'Buen día';
     const zona = (itemFallback && (itemFallback.empresa_o_zona || itemFallback.zona)) || 'Maldonado';
@@ -1832,7 +1849,7 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
     return `
       <div style="background:rgba(127,29,29,0.22);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
         ${timelineHtml}
-        <div style="font-size:12.5px;color:#FCA5A5;font-weight:700;margin-bottom:6px;">🛑 PROPIEDAD CERRADA (${(itemFallback && itemFallback.sello_cierre) || 'CERRADO'}) — HOY NO HAY QUE ESCRIBIRLE</div>
+        <div style="font-size:12.5px;color:#FCA5A5;font-weight:700;margin-bottom:6px;">🛑 PROPIEDAD CERRADA (${selloCierre}) — HOY NO HAY QUE ESCRIBIRLE</div>
         <div style="font-size:12px;color:#E2E8F0;margin-bottom:6px;">Próximo recontacto agendado (${(itemFallback && itemFallback.proximo_toque_tipo) || 'radar'}): <strong>${fechaRadar}</strong></div>
         <label style="display:block;font-size:11px;color:#FCD34D;font-weight:700;margin-bottom:4px;">📅 Mensaje de reactivación preparado recién para esa fecha (${fechaRadar}):</label>
         <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:62px;font-size:12px;">${futureCopy}</textarea>
@@ -2380,18 +2397,18 @@ function renderGlobalSearch() {
   if (q.length > 0) {
     const qNorm = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     filtered = all.filter(c => {
-      const hay = `${c.nombre} ${c.subtitulo} ${c.id} ${c.telefono} ${c.email} ${c.zona} ${c.rawItem?.notas || ''} ${c.rawItem?.garantia_disponible || ''} ${c.rawItem?.hito_expectativa_cliente || ''} ${c.rawItem?.propiedad_interes || ''}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const hay = `${c.nombre} ${c.subtitulo} ${c.id} ${c.telefono} ${c.email} ${c.zona} ${c.rawItem?.notas || ''} ${c.rawItem?.garantia_disponible || ''} ${c.rawItem?.hito_expectativa_cliente || ''} ${c.rawItem?.propiedad_interes || ''} ${c.rawItem?.alerta_mar || ''} ${c.rawItem?.badge_alerta || ''} ${c.rawItem?.sello_cierre || ''} ${c.rawItem?.motivo_cierre || ''}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       return hay.includes(qNorm);
     });
   } else {
     if (globalSearchFilterMode === 'CERRADOS') {
-      filtered = all.filter(c => c.estado === 'cerrado');
+      filtered = all.filter(c => c.estado === 'cerrado' || c.rawItem?.carril === '5_cerrado_radar');
     } else if (globalSearchFilterMode === 'ACTIVOS') {
       filtered = all.filter(c => c.isPedidoB2C || c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril)));
     } else if (globalSearchFilterMode === 'ESPERANDO') {
       filtered = all.filter(c => c.estado === 'enviado_1' || c.estado === 'seguimiento_enviado');
     } else {
-      filtered = all.slice(0, 18);
+      filtered = all;
     }
   }
 
@@ -2444,6 +2461,7 @@ function renderGlobalSearch() {
         </div>
         ${renderReplyLoaderBox(c.id, c.nombre, c.operacion, c.telefono, c.rawItem, 'global')}
         <div class="btn-row" style="margin-top:6px;">
+          <button class="btn btn-yes btn-sm" onclick="focusOwnerCardInRadar('${c.id}')">🎯 Ver tarjeta en lista ↓</button>
           ${waHref ? `<a class="btn btn-wa btn-sm" href="${waHref}" target="_blank" rel="noopener noreferrer">📲 Abrir su chat en WhatsApp (+${c.telefono})</a>` : ''}
           ${c.rawItem && c.rawItem.url ? `<a class="btn btn-email btn-sm" href="${c.rawItem.url}" target="_blank" rel="noopener noreferrer">📘 Ver Publicación Original en Marketplace ↗</a>` : ''}
         </div>
@@ -2451,6 +2469,29 @@ function renderGlobalSearch() {
     `;
   }).join('');
 }
+
+window.descartarOwnerDirectoD1 = async function(id, motivoBadge) {
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/propietarios/descartar`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id,
+        sello_cierre: 'DESCARTADO EN RADAR',
+        motivo_cierre: `Descartado en 1 clic desde alerta Mar (${motivoBadge || 'San Carlos / filtro manual'})`
+      })
+    });
+    const out = await res.json();
+    if (out.ok) {
+      await loadRadar4Z();
+      showToast(`🗑️ ${id} archivado en 1 clic en 5 · Cerrado`);
+    } else {
+      showToast('⚠️ Error descartando en D1');
+    }
+  } catch (e) {
+    showToast('⚠️ No se pudo conectar para descartar');
+  }
+};
 
 function renderRadar4Z() {
   const grid = document.getElementById('radar4z-grid');
@@ -2463,26 +2504,68 @@ function renderRadar4Z() {
 
   if (tipoSel === 'MARKETPLACE') {
     const list = (radar4ZData.marketplace_duenos_directos || []).filter(it => {
-      const okZona = zonaSel === 'TODAS' || (it.zona || '').includes(zonaSel.split('/')[0].trim()) || it.zona === zonaSel;
+      const zTxt = it.zona || '';
+      const okZona = zonaSel === 'TODAS'
+        || zTxt.includes(zonaSel.split('/')[0].trim())
+        || zTxt === zonaSel
+        || (zonaSel === 'San Carlos' && /san carlos|balneario buenos aires|santa m[oó]nica|jos[eé] ignacio/i.test(zTxt));
       const okCarril = carrilSel === 'TODOS' || (it.carril || '1_por_contactar') === carrilSel;
       return okZona && okCarril;
     });
+
+    const carrilRank = {
+      '1_por_contactar': 1,
+      '4_ficha_activa': 2,
+      '3_en_conversacion': 3,
+      '2_esperando_respuesta_72h': 4,
+      '5_cerrado_radar': 5
+    };
+    list.sort((a, b) => {
+      const ca = a.carril || '1_por_contactar';
+      const cb = b.carril || '1_por_contactar';
+      const ra = carrilRank[ca] || 9;
+      const rb = carrilRank[cb] || 9;
+      if (ra !== rb) return ra - rb;
+      const sa = a.nivel_semaforo === '1B_CON_ALERTA' ? 2 : a.nivel_semaforo === 'ROJO_CERRADO' ? 3 : 1;
+      const sb = b.nivel_semaforo === '1B_CON_ALERTA' ? 2 : b.nivel_semaforo === 'ROJO_CERRADO' ? 3 : 1;
+      if (sa !== sb) return sa - sb;
+      if (a.id === 'MP-37' && b.id !== 'MP-37') return -1;
+      if (b.id === 'MP-37' && a.id !== 'MP-37') return 1;
+      return String(a.id).localeCompare(String(b.id));
+    });
+
     grid.innerHTML = list.map((it, idx) => {
       const msg1 = lintMarLocal(it.mensaje_mar || '');
       const seg1 = lintMarLocal(it.seguimiento_72h || '');
       const waDirect = it.telefono_directo ? `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(it.id)}&turno=T0` : '';
       const rec = getContactRecord(it.id, it);
+      const isAlert = it.nivel_semaforo === '1B_CON_ALERTA' || Boolean(it.alerta_mar);
+      const semaforoBadge = rec.estado === 'cerrado'
+        ? ''
+        : (isAlert
+          ? `<span class="tag" style="margin-left:4px;background:rgba(245,158,11,0.2);color:#FCD34D;border:1px solid #F59E0B;">${it.badge_alerta || '🟡 Nivel 2 · Revisar alerta Mar'}</span>`
+          : `<span class="tag" style="margin-left:4px;background:rgba(16,185,129,0.18);color:#6EE7B7;border:1px solid rgba(16,185,129,0.45);">🟢 Nivel 1 · Limpio</span>`);
+      const canDiscard = rec.estado !== 'cerrado' && (rec.carril === '1_por_contactar' || rec.carril === '2_esperando_respuesta_72h');
+      const alertBannerHtml = isAlert && it.alerta_mar ? `
+        <div style="background:rgba(245,158,11,0.16);border:1.5px solid #F59E0B;border-radius:8px;padding:9px 11px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+          <div style="flex:1;min-width:210px;">
+            <div style="font-size:12px;font-weight:800;color:#FCD34D;">${it.badge_alerta || '⚠️ ALERTA MAR'}</div>
+            <div style="font-size:12px;color:#FEF3C7;margin-top:2px;">${it.alerta_mar}</div>
+          </div>
+          ${canDiscard ? `<button class="btn btn-no btn-sm" onclick="descartarOwnerDirectoD1('${it.id}', '${String(it.badge_alerta || '').replace(/'/g, '')}')">🗑️ Descartar en 1 clic</button>` : ''}
+        </div>` : '';
       return `
-      <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}">
+      <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}" id="mp-card-${it.id}" style="${isAlert && rec.estado !== 'cerrado' ? 'border-color:rgba(245,158,11,0.75);' : ''}">
         <div class="card-top">
           <div>
-            <span class="tag tag-active">${it.id} · ${it.operacion}</span>
+            <span class="tag tag-active">${it.id} · ${it.operacion}</span>${semaforoBadge}
             <div style="margin-top:6px;">${getCronometroBadge(it.id, it)}</div>
             <h3 style="font-size:17px;margin-top:6px;">${it.titulo}</h3>
             <p style="font-size:13px;color:#fff;margin-top:2px;">👤 Dueño: <strong style="color:var(--gold);">${it.vendedor}</strong> · 📱 +${it.telefono_directo} · 📍 ${it.zona}</p>
           </div>
           <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
         </div>
+        ${alertBannerHtml}
         ${renderReplyLoaderBox(it.id, it.vendedor, it.operacion, it.telefono_directo, it, 'mp')}
         <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);display:grid;gap:4px;">
           <div>🛡️ ${it.nota_auditoria}</div>
@@ -2610,6 +2693,31 @@ window.irAPedidoAbierto = function(b2cId) {
     const el = document.getElementById('pa-card-' + b2cId) || document.getElementById('tab-pedidos');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }, 120);
+};
+
+window.focusOwnerCardInRadar = function(ownerId) {
+  const btn = document.getElementById('btn-tab-radar4z');
+  if (btn) switchTab('tab-radar4z', btn);
+  const zonaEl = document.getElementById('r4z-zona');
+  const carrilEl = document.getElementById('r4z-carril');
+  const tipoEl = document.getElementById('r4z-tipo');
+  if (zonaEl) zonaEl.value = 'TODAS';
+  if (carrilEl) carrilEl.value = 'TODOS';
+  if (tipoEl) {
+    if (String(ownerId).startsWith('INM-')) tipoEl.value = 'INMOBILIARIAS';
+    else if (String(ownerId).startsWith('PD-') || String(ownerId).startsWith('DES-')) tipoEl.value = 'DIRECTOS';
+    else tipoEl.value = 'MARKETPLACE';
+  }
+  renderRadar4Z();
+  setTimeout(() => {
+    const el = document.getElementById('mp-card-' + ownerId);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      const prevOutline = el.style.outline;
+      el.style.outline = '3px solid #E6B85C';
+      setTimeout(() => { el.style.outline = prevOutline; }, 3200);
+    }
+  }, 100);
 };
 
 function checkUrlTabHash() {
