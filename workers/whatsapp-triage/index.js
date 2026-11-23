@@ -610,16 +610,17 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
 
   // 6b. Árbol Completo de la Variable Garantía (paso a paso)
   const vSil = extraerVariablesSilenciosasB2C(rawText, leadState || {});
+  const vTurn = extraerVariablesSilenciosasB2C(rawText, {});
   if (matchesAny(t, ["no tengo ingresos demostrables", "sin ingresos demostrables", "no tengo recibo ni factur", "no puedo demostrar ingresos"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_SIN_INGRESOS_DEPOSITO" };
   }
-  if (vSil.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "soy extranjero"])) {
+  if (vTurn.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "soy extranjero"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_EXTERIOR" };
   }
-  if (vSil.situacion_laboral === "independiente" || matchesAny(t, ["de forma independiente", "con unipersonal", "soy independiente", "tengo unipersonal"])) {
+  if (vTurn.situacion_laboral === "independiente" || matchesAny(t, ["de forma independiente", "con unipersonal", "soy independiente", "tengo unipersonal"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_INDEPENDIENTE" };
   }
-  if (vSil.situacion_laboral === "relacion_dependencia" || matchesAny(t, ["relación de dependencia", "relacion de dependencia", "empleado en planilla", "tengo recibo de sueldo"])) {
+  if (vTurn.situacion_laboral === "relacion_dependencia" || matchesAny(t, ["relación de dependencia", "relacion de dependencia", "empleado en planilla", "tengo recibo de sueldo"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_RELACION_DEPENDENCIA" };
   }
   if (
