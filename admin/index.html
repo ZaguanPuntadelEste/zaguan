@@ -1404,6 +1404,7 @@ function hydrateRadarFromCloud(crm, localFallback = null) {
     let raw = {};
     try { raw = p.raw_json ? JSON.parse(p.raw_json) : {}; } catch (e) {}
     const loc = localMpMap[p.id] || localPdMap[p.id] || {};
+    const isFueraRadio = Boolean(loc.fuera_de_radio || (loc.sello_cierre && loc.sello_cierre.includes('FUERA DE RADIO')) || p.proximo_toque_tipo === 'fuera_de_radio');
     const merged = {
       ...raw,
       ...p,
@@ -1421,11 +1422,16 @@ function hydrateRadarFromCloud(crm, localFallback = null) {
       corchetes_en_aviso: loc.corchetes_en_aviso || raw.corchetes_en_aviso || [],
       estado_material_aviso: loc.estado_material_aviso || raw.estado_material_aviso || '',
       corchetes_faltantes: loc.corchetes_faltantes || raw.corchetes_faltantes || [],
-      vertical_calculada: loc.vertical_calculada || raw.vertical_calculada || ''
+      vertical_calculada: loc.vertical_calculada || raw.vertical_calculada || '',
+      fuera_de_radio: isFueraRadio,
+      sello_cierre: isFueraRadio ? (loc.sello_cierre || 'FUERA DE RADIO (>40-50KM)') : (p.sello_cierre || loc.sello_cierre || raw.sello_cierre || null),
+      motivo_cierre: isFueraRadio ? (loc.motivo_cierre || p.notas_internas || '') : (p.motivo_cierre || loc.motivo_cierre || raw.motivo_cierre || ''),
+      carril: isFueraRadio ? '5_cerrado_radar' : (p.carril || '1_por_contactar'),
+      estado_envio: isFueraRadio ? 'cerrado' : (p.estado_envio || 'pendiente')
     };
     state.seguimiento_radar[p.id] = {
-      estado: p.estado_envio || 'pendiente',
-      carril: p.carril || '1_por_contactar',
+      estado: merged.estado_envio,
+      carril: merged.carril,
       ts: p.ts_envio_1 || Date.now(),
       fecha: p.fecha_envio_1 || '',
       respuesta: p.respuesta_recibida || ''
@@ -1632,6 +1638,18 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
     : (respActual ? `<div style="margin-bottom:8px;padding:8px 10px;border-radius:6px;background:rgba(16,185,129,0.14);font-size:12px;color:#fff;">"${respActual}"</div>` : '');
 
   if (rec.carril === '5_cerrado_radar') {
+    if (itemFallback && (itemFallback.fuera_de_radio || itemFallback.proximo_toque_tipo === 'fuera_de_radio' || String(itemFallback.sello_cierre || '').includes('FUERA DE RADIO'))) {
+      return `
+        <div style="background:rgba(127,29,29,0.22);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
+          ${timelineHtml}
+          <div style="font-size:12.5px;color:#FCA5A5;font-weight:700;margin-bottom:4px;">🛑 EXCLUIDA POR RADIO OPERATIVO (${itemFallback.sello_cierre || 'FUERA DE RADIO'}) — NO CONTACTAR</div>
+          <div style="font-size:12px;color:#E2E8F0;margin-bottom:6px;">${itemFallback.motivo_cierre || 'Fuera del radio operativo actual: cero alquiler en Piriápolis, Pan de Azúcar, Aiguá o Chihuahua; cero venta en Piriápolis/Aiguá.'}</div>
+          <div class="btn-row" style="margin-top:6px;">
+            <button class="btn btn-outline btn-sm" onclick="moverCarrilD1('${id}', '1_por_contactar')">🔄 Reactivar manualmente</button>
+          </div>
+        </div>
+      `;
+    }
     const fechaRadar = (itemFallback && itemFallback.proximo_toque_fecha) || 'sin fecha';
     const first = (nombrePersona || '').split(' ')[0] || '';
     const saludo = first && !first.includes('(') ? `Hola ${first}` : 'Buen día';
@@ -2046,9 +2064,9 @@ function renderRadar4Z() {
           <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
         </details>
         <div class="btn-row">
-          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
+          ${rec.estado !== 'cerrado' && waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
           ${rec.estado === 'pendiente' ? `<button class="btn btn-outline btn-sm" onclick="confirmarEnvioMar('${it.id}', 'mp-msg-${idx}')">✅ Ya lo mandé</button>` : ''}
-          <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>
+          ${rec.estado !== 'cerrado' ? `<button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>` : ''}
           ${it.url ? `<a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>` : ''}
         </div>
       </div>`;

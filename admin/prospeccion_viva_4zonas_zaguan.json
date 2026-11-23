@@ -989,7 +989,7 @@
       "url": "https://www.facebook.com/marketplace/item/1182731367415529/",
       "nota_auditoria": "Perfil particular verificado sin múltiples propiedades; contrato anual y celular 091 519 071 visible en la descripción.",
       "mensaje_mar": "Hola Cristian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pan de Azúcar ($U 16.500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Cristian, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Pan de Azúcar, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1003,7 +1003,11 @@
         "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-23",
@@ -1016,7 +1020,7 @@
       "url": "https://www.facebook.com/marketplace/item/1027807016319176/",
       "nota_auditoria": "Las 8 publicaciones activas del perfil corresponden a la misma casa en Aiguá; celular 098 620 176 intercalado en la descripción ('Se 098 vende 620 casa 176').",
       "mensaje_mar": "Hola Esteban, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Aiguá (USD 40.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Esteban, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Aiguá, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1030,7 +1034,11 @@
         "Calidad constructiva y mejoras realizadas",
         "Cochera o entrada vehicular",
         "Planos y final de obra al día (apto banco vs. contado)"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-24",
@@ -1178,7 +1186,7 @@
       "url": "https://www.facebook.com/marketplace/item/1050503138040357/",
       "nota_auditoria": "Perfil verificado con 1 sola propiedad y más de 10 artículos personales (juguetes/ropa); celular 098 680 052 en la descripción.",
       "mensaje_mar": "Hola Rosa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Punta Colorada, Piriápolis (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Rosa, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Punta Colorada, Piriápolis, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1192,7 +1200,11 @@
         "Calidad constructiva y mejoras realizadas",
         "Cochera o entrada vehicular",
         "Planos y final de obra al día (apto banco vs. contado)"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-30",
@@ -1205,7 +1217,7 @@
       "url": "https://www.facebook.com/marketplace/item/2601632197004951/",
       "nota_auditoria": "Reside en Piriápolis; perfil con 1 sola publicación activa (y 1 antigua marcada alquilada de la misma unidad); celular 094 309 275 en la descripción.",
       "mensaje_mar": "Hola Nelson, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Zona Country, Piriápolis ($U 20.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Nelson, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Zona Country, Piriápolis, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1219,7 +1231,11 @@
         "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-31",
@@ -1260,7 +1276,7 @@
       "url": "https://www.facebook.com/marketplace/item/2188301648629676/",
       "nota_auditoria": "Perfil verificado con solo 1 inmueble publicado (resto equipamiento gym/vehículos); sin marcas inmobiliarias y aclara que el dueño viaja desde Montevideo los fines de semana para mostrarlo; celular 094 871 351 en la descripción.",
       "mensaje_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en venta en Piriápolis Playa (USD 117.000). Vi en tu publicación que viajás los fines de semana para mostrarlo.\n\nTrabajamos con publicación abierta (seguís vendiendo por tu cuenta) y acompañamiento notarial para compradores locales y del exterior. Sigue disponible para sumarlo a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros propios tiene, cómo es la cochera (fija o no, techada o descubierta, subsuelo o nivel de calle), cuánto paga de gastos comunes con su detalle o alguna sobretasa especial por arreglos de los últimos meses y si acepta préstamo bancario._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Piriápolis Playa, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O2",
       "corchetes_en_aviso": [
@@ -1275,7 +1291,11 @@
         "Detalle de cochera (fija o no, techada/descubierta, subsuelo o nivel calle)",
         "Gastos comunes mensuales, qué incluyen y sobretasas especiales en dólares o arreglos",
         "Si tiene planos/final para préstamo bancario o venta contado"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-33",
@@ -1371,7 +1391,7 @@
       "url": "https://www.facebook.com/marketplace/item/1130894126067524/",
       "nota_auditoria": "Perfil verificado con publicaciones personales de indumentaria y avisos de la misma cabaña en Chihuahua; especifica 'Modalidad de alquiler anual' y celular 091 686 777 en la descripción.",
       "mensaje_mar": "Hola Elisa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu cabaña en alquiler anual en Balneario Chihuahua ($U 26.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Elisa, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Balneario Chihuahua, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1385,7 +1405,11 @@
         "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
-      ]
+      ],
+      "carril": "5_cerrado_radar",
+      "fuera_de_radio": true,
+      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
+      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
     },
     {
       "id": "MP-37",
