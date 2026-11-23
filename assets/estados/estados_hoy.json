@@ -1,0 +1,23 @@
+{
+  "updated_at": "2026-11-23T12:25:00-03:00",
+  "estados_activos": [
+    {
+      "id": "ESTADO-LA-FORTUNA-05",
+      "ref_publica": "ZAG-ALQ-05",
+      "titulo": "Apartamento 2D a estrenar en La Fortuna, Maldonado ($U 30.000/mes)",
+      "imagen_9_16": "https://zaguanpropiedades.com/assets/estados/1_ESTADO_LA_FORTUNA_30K.jpg",
+      "video_9_16": "https://zaguanpropiedades.com/assets/estados/1_VIDEO_ESTADO_LA_FORTUNA.mp4",
+      "ficha_url": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp_status&utm_medium=estado_9_16",
+      "copy_1_linea": "Alquiler anual 2D a estrenar en La Fortuna, Maldonado · $U 30.000/mes (cochera fija, GC y Wi-Fi incluidos) · Garantía aseguradora (Porto, Sura, Mapfre o Santander) · https://zaguanpropiedades.com/alquileres/la-fortuna-agata/"
+    },
+    {
+      "id": "ESTADO-SANTA-MONICA-01",
+      "ref_publica": "ZAG-VTA-01",
+      "titulo": "Obra avanzada frente a la Laguna en Santa Mónica (USD 160.000)",
+      "imagen_9_16": "https://zaguanpropiedades.com/assets/estados/3_ESTADO_SANTA_MONICA_160K.jpg",
+      "video_9_16": "https://zaguanpropiedades.com/assets/estados/3_VIDEO_ESTADO_SANTA_MONICA.mp4",
+      "ficha_url": "https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/?utm_source=whatsapp_status&utm_medium=estado_9_16",
+      "copy_1_linea": "Obra avanzada en hormigón armado sobre lote de 348 m² frente a la Laguna, Santa Mónica · USD 160.000 · Video recorrido y croquis: https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/"
+    }
+  ]
+}

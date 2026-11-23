@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Mis 5 Acciones del Día · ZAGUÁN Propiedades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #081521;
+      --surface: #0D1F30;
+      --estuario: #123B4A;
+      --bone: #F3F0E8;
+      --gold: #E6B85C;
+      --muted: #A3B3C2;
+      --border: rgba(243,240,232,0.16);
+      --umbral: #1B5463;
+      --max: 1180px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--bone);
+      font-family: 'Inter', Arial, sans-serif;
+      line-height: 1.5;
+      padding-bottom: 48px;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(calc(100% - 32px), var(--max)); margin: 0 auto; }
+    .topbar {
+      background: rgba(5, 9, 13, 0.9);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(10px);
+    }
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    h1, h2, h3 { font-family: 'Archivo', sans-serif; letter-spacing: -0.025em; }
+    .hero { padding: 28px 0 20px; }
+    .badge {
+      display: inline-block;
+      background: rgba(230,184,92,0.16);
+      color: var(--gold);
+      border: 1px solid rgba(230,184,92,0.45);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .hero h1 { font-size: clamp(24px, 3.6vw, 34px); margin-bottom: 8px; }
+    .hero p { color: var(--muted); max-width: 780px; font-size: 14px; }
+
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .action-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+    .action-card--gold {
+      border-color: rgba(230,184,92,0.55);
+      background: linear-gradient(180deg, rgba(230,184,92,0.08) 0%, var(--surface) 100%);
+    }
+    .step-num {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .action-card h2 { font-size: 19px; color: #FFFFFF; margin-top: 4px; }
+    .action-card p { font-size: 13px; color: #D5E0EA; margin-top: 6px; }
+    .note-line {
+      font-size: 12px;
+      color: #FCD34D;
+      background: rgba(8,21,33,0.75);
+      border: 1px solid rgba(230,184,92,0.3);
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-top: 8px;
+    }
+    .cmd-box {
+      background: #05090D;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+    .cmd-box code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      color: #6EE7B7;
+      font-weight: 700;
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 13px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-gold { background: var(--gold); color: #081521; }
+    .btn-estuario { background: var(--estuario); color: var(--bone); border-color: rgba(243,240,232,0.35); }
+    .btn-outline { background: transparent; color: var(--bone); border-color: var(--border); }
+    .btn-sm { padding: 6px 10px; font-size: 11.5px; }
+
+    .social-panel {
+      margin-top: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px;
+    }
+    .status-msg {
+      margin-top: 10px;
+      font-size: 12.5px;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: #05090D;
+      border: 1px solid var(--border);
+      display: none;
+    }
+    .comments-list { display: grid; gap: 10px; margin-top: 12px; }
+    .comment-item {
+      background: #081521;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 12.5px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 18px;
+      right: 18px;
+      background: var(--gold);
+      color: #081521;
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-weight: 800;
+      font-size: 12.5px;
+      display: none;
+      z-index: 99;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="/assets/brand/zaguan-white.png" alt="ZAGUÁN" style="height:26px;width:auto;">
+        <span style="font-size:12px;color:var(--muted);">· Rutina Operativa Diaria (Linktree Interno)</span>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-outline btn-sm" href="/admin/">← Volver a Cabina Admin</a>
+        <a class="btn btn-gold btn-sm" href="/admin/#tab-pedidos">🎯 Pedidos Abiertos B2C</a>
+        <a class="btn btn-estuario btn-sm" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ @zaguan_crm_bot ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <span class="badge">🧭 Linktree Operativo ZAGUÁN · Crons 24/7 (08:30 y 19:30 hs UY)</span>
+      <h1>Mis 5 acciones del día en ZAGUÁN</h1>
+      <p>Qué hacer, dónde tocar y qué comando invocar cada día para no perder ningún lead, subir el Estado 9:16 en 1 toque y mantener la máquina funcionando en la nube.</p>
+    </section>
+
+    <section class="actions-grid" aria-label="Mis 5 acciones del día">
+      <!-- Tarjeta 1 -->
+      <article class="action-card action-card--gold">
+        <div>
+          <span class="step-num">Acción 01 · Respuesta & Test con Mar</span>
+          <h2>1. Responder o testear con Mar (WhatsApp / Telegram)</h2>
+          <p>Reenviá consultas reales o entrá directo a los Pedidos Abiertos en D1 para disparar la respuesta lista de Mar con 15 Candados Poka-Yoke.</p>
+          <div class="note-line">💡 Si tocás <strong>/go/wa</strong> se guarda como Real en D1; si es prueba, tocás <strong>🗑️ Descartar test</strong>.</div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ Abrir @zaguan_crm_bot ↗</a>
+          <a class="btn btn-estuario" href="/admin/#tab-pedidos">🎯 Abrir Pedidos Abiertos B2C</a>
+        </div>
+      </article>
+
+      <!-- Tarjeta 2 -->
+      <article class="action-card">
+        <div>
+          <span class="step-num">Acción 02 · Caza Orgánica Matutina (08:30 hs)</span>
+          <h2>2. Subir Estado de WhatsApp de caza del día</h2>
+          <p>Pedile al bot la placa 9:16 activa de hoy (sin unidades ya alquiladas) junto con su copy listo para copiar y pegar al pie del Estado.</p>
+          <div id="estado-hoy-preview" style="font-size:12px;color:#B7D6E0;margin-top:8px;">Cargando estado activo de hoy...</div>
+        </div>
+        <div>
+          <div class="btn-row">
+            <button class="btn btn-gold" id="btn-enviar-estado" onclick="mandarEstadoHoyTelegram()">📲 Mandarme Estado 9:16 de Hoy a Telegram</button>
+            <a class="btn btn-outline btn-sm" id="link-img-estado" href="https://zaguanpropiedades.com/assets/estados/1_ESTADO_LA_FORTUNA_30K.jpg" target="_blank" rel="noopener noreferrer">🖼️ Ver Imagen 9:16 ↗</a>
+          </div>
+          <div class="status-msg" id="estado-msg"></div>
+        </div>
+      </article>
+
+      <!-- Tarjeta 3 -->
+      <article class="action-card">
+        <div>
+          <span class="step-num">Acción 03 · Prospección Lado A + Comet Live</span>
+          <h2>3. Cazar 20 dueños nuevos + leer WhatsApp vivo de Comet</h2>
+          <p>Ejecuta el barrido de dueños directos en el radio operativo, lee WhatsApp vivo en Comet puerto 9222 sin múltiples avisos y sincroniza D1.</p>
+          <div class="cmd-box">
+            <code>/scrapeo-total</code>
+            <button class="btn btn-gold btn-sm" onclick="copyCmd('/scrapeo-total')">📋 Copiar comando</button>
+          </div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-outline btn-sm" href="/admin/">📋 Abrir Tanda 1x1 en /admin/</a>
+        </div>
+      </article>
+
+      <!-- Tarjeta 4 -->
+      <article class="action-card">
+        <div>
+          <span class="step-num">Acción 04 · Demanda Latente en Redes</span>
+          <h2>4. Cazar comentarios en redes, seguidores y demanda latente</h2>
+          <p>Detecta comentarios o DMs en Instagram y Facebook con intención real, los pasa por Mar con link trackeado y los suma a Pedidos Abiertos.</p>
+          <div class="cmd-box">
+            <code>/ingenieria-social</code>
+            <button class="btn btn-gold btn-sm" onclick="copyCmd('/ingenieria-social')">📋 Copiar comando</button>
+          </div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-estuario btn-sm" onclick="loadSocialComments()">💬 Ver comentarios IG/FB capturados</button>
+        </div>
+      </article>
+
+      <!-- Tarjeta 5 -->
+      <article class="action-card action-card--gold" style="grid-column: 1 / -1;">
+        <div>
+          <span class="step-num">Acción 05 · Control Ejecutivo 08:30 y 19:30 hs UY</span>
+          <h2>5. Pulso de Ads, Analytics, Redes y Agenda</h2>
+          <p>Auditá tráfico real en GA4, consultas de Meta Ads, cola de publicaciones en Aprobalo Cloud, simulador conversacional y verificación de garantías.</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:8px;">
+            <div class="cmd-box">
+              <code>/reporte-pulso</code>
+              <button class="btn btn-gold btn-sm" onclick="copyCmd('/reporte-pulso')">📋 Copiar</button>
+            </div>
+            <div class="cmd-box">
+              <code>/ejecutar-ads</code>
+              <button class="btn btn-gold btn-sm" onclick="copyCmd('/ejecutar-ads')">📋 Copiar</button>
+            </div>
+          </div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="https://aprobala-app.943ari.workers.dev/p/Ta-8cI-XA1ltr0hwLJGDVx7cW0ra6gJJ" target="_blank" rel="noopener noreferrer">✅ Abrir Aprobalo Cloud Zaguán ↗</a>
+          <a class="btn btn-estuario" href="/admin/simulador-mar.html">💬 Abrir Simulador de Mar ↗</a>
+          <a class="btn btn-estuario" href="/garantias-alquiler/">🛡️ Verificador de Garantías ↗</a>
+          <a class="btn btn-outline" href="/alquiloanual/">🔑 Vidriera /alquiloanual/ ↗</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="social-panel" id="social-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+        <div>
+          <h2 style="font-size:18px;">📣 Comentarios y DMs de Instagram / Facebook capturados en D1</h2>
+          <p style="font-size:12.5px;color:var(--muted);">Cada consulta entrante por webhook o carga manual genera respuesta sugerida de Mar con UTM tracking y alerta en Telegram.</p>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="loadSocialComments()">🔄 Actualizar lista</button>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+        <select id="sc-plat" style="background:#05090D;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:8px;font-size:12.5px;">
+          <option value="instagram">Instagram Comentario</option>
+          <option value="facebook">Facebook Comentario</option>
+        </select>
+        <input id="sc-user" type="text" placeholder="@usuario o nombre" style="width:170px;background:#05090D;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:8px;font-size:12.5px;">
+        <input id="sc-msg" type="text" placeholder="Pegar comentario capturado (ej: Precio y garantía de La Fortuna?)" style="flex:1;min-width:220px;background:#05090D;border:1px solid var(--border);color:#fff;padding:8px 10px;border-radius:8px;font-size:12.5px;">
+        <button class="btn btn-gold btn-sm" onclick="capturarComentarioManual()">➕ Responder con Mar y Guardar en D1</button>
+      </div>
+      <div class="comments-list" id="comments-list">
+        <div style="color:var(--muted);font-size:12.5px;">Cargando comentarios recientes desde Cloudflare D1...</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast">Copiado</div>
+
+  <script>
+    const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+
+    function showToast(msg) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.display = 'block';
+      setTimeout(() => { t.style.display = 'none'; }, 2200);
+    }
+
+    function copyCmd(txt) {
+      navigator.clipboard.writeText(txt).then(() => showToast('Copiado: ' + txt));
+    }
+
+    async function loadEstadoPreview() {
+      try {
+        const res = await fetch(CRM_API_URL + '/api/telegram/estados-hoy');
+        const js = await res.json();
+        if (js && js.estado_hoy) {
+          document.getElementById('estado-hoy-preview').innerHTML =
+            '<strong>Hoy toca:</strong> ' + js.estado_hoy.titulo + '<br><span style="color:#A3B3C2;">' + js.estado_hoy.copy_1_linea + '</span>';
+          document.getElementById('link-img-estado').href = js.estado_hoy.imagen_9_16;
+        }
+      } catch (e) {}
+    }
+
+    async function mandarEstadoHoyTelegram() {
+      const btn = document.getElementById('btn-enviar-estado');
+      const box = document.getElementById('estado-msg');
+      btn.disabled = true;
+      btn.textContent = '⏳ Enviando a @zaguan_crm_bot...';
+      try {
+        const res = await fetch(CRM_API_URL + '/api/telegram/estados-hoy', { method: 'POST' });
+        const js = await res.json();
+        box.style.display = 'block';
+        box.innerHTML = js.enviado_telegram
+          ? '✅ Listo: te envié la placa 9:16 y el copy completo a <strong>@zaguan_crm_bot</strong>.'
+          : '✅ Estado listo: <strong>' + (js.estado_hoy ? js.estado_hoy.titulo : 'La Fortuna') + '</strong> (tocá Ver Imagen 9:16 o iniciá el bot con /start).';
+      } catch (e) {
+        box.style.display = 'block';
+        box.textContent = '💥 Error consultando el Worker.';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '📲 Mandarme Estado 9:16 de Hoy a Telegram';
+      }
+    }
+
+    async function loadSocialComments() {
+      const box = document.getElementById('comments-list');
+      try {
+        const res = await fetch(CRM_API_URL + '/api/social-comments');
+        const js = await res.json();
+        const items = js.comentarios || [];
+        if (!items.length) {
+          box.innerHTML = '<div style="color:var(--muted);font-size:12.5px;">Todavía no entraron comentarios hoy. Podés pegar uno arriba para generar respuesta automática de Mar.</div>';
+          return;
+        }
+        box.innerHTML = items.map(c => `
+          <div class="comment-item">
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;">
+              <strong style="color:var(--gold);">${String(c.plataforma || '').toUpperCase()} · ${String(c.sender_name || '')}</strong>
+              <span style="color:var(--muted);font-size:11px;">${String(c.created_at || '').slice(0,16).replace('T',' ')} · Pedido ${c.b2c_id || ''}</span>
+            </div>
+            <p style="margin-top:4px;color:#FFFFFF;">"${String(c.mensaje || '').replace(/</g,'&lt;')}"</p>
+            <div style="margin-top:6px;padding:8px;background:#05090D;border-radius:6px;color:#B7D6E0;">
+              <strong>Respuesta Mar:</strong> ${String(c.respuesta_mar || '').replace(/</g,'&lt;')}
+            </div>
+          </div>
+        `).join('');
+      } catch (e) {
+        box.innerHTML = '<div style="color:var(--muted);font-size:12.5px;">Error cargando comentarios.</div>';
+      }
+    }
+
+    async function capturarComentarioManual() {
+      const plat = document.getElementById('sc-plat').value;
+      const user = document.getElementById('sc-user').value.trim();
+      const msg = document.getElementById('sc-msg').value.trim();
+      if (!msg) return;
+      const res = await fetch(CRM_API_URL + '/api/social-comment', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plataforma: plat, tipo: 'comentario', sender_name: user || '@usuario', texto: msg })
+      });
+      const js = await res.json();
+      if (js.ok) {
+        document.getElementById('sc-msg').value = '';
+        showToast('Guardado en Pedidos Abiertos (' + js.b2c_id + ')');
+        loadSocialComments();
+      }
+    }
+
+    loadEstadoPreview();
+    loadSocialComments();
+  </script>
+</body>
+</html>

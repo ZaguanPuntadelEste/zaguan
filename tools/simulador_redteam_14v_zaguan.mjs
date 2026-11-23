@@ -785,6 +785,126 @@ export const ESCENARIOS_60 = [
       return { pass, errores: pass ? [] : ['DOBLE_RELOJ_SUMA_ADITIVA_FAIL'], vertical_detectada: 'D2', subtipo_detectado: 'DOBLE_RELOJ_ACTIVO_OK', alerta_andon: false, replyText: `${vs80.comodidades_pedidas} | ${vs80.estado_busqueda} | ${vs80.hito_expectativa_cliente}` };
     },
   },
+  // BLOQUE 8: VERIFICADOR DE GARANTÍAS, FORMULARIOS SILENCIOSOS, 5 ACCIONES Y COMET LIVE
+  makeHtmlAuditScenario('SIM-81', 'Verificador de Garantías · Paleta ZAGUÁN', 'garantias-alquiler/index.html', {
+    mustInclude: [
+      'ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro',
+      'Puerta A',
+      'Puerta B',
+      'últimos 3 meses de recibos de sueldo',
+      'últimos 6 meses de recibos de sueldo',
+      '18 meses de residencia',
+      'Contador Público',
+      'Hasta 3 ingresos combinados',
+      'Hasta 5 ingresos combinados',
+      'CIERRE_INMEDIATO_CON_GARANTIA_LISTA',
+      'verificador_garantias_web',
+      'Schema.org',
+      'FAQPage'
+    ],
+    mustNotInclude: ['sin exclusividad', 'encajar', '#10b981', '#25d366', '#ef4444', '#fca5a5', '#6ee7b7', '#22c55e', '#dc2626'],
+    mustExistPaths: ['garantias-alquiler/index.html'],
+  }),
+  makeHtmlAuditScenario('SIM-82', 'Alquiler Anual · Verificador + Captura Silenciosa', 'alquiloanual/index.html', {
+    mustInclude: [
+      'verificador-garantias',
+      'ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías',
+      'formulario_web_silencioso',
+      '/api/propietarios/web',
+      '/api/interesados',
+      '3 recibos',
+      '6 recibos'
+    ],
+    mustNotInclude: ['sin exclusividad', 'sin ataduras de exclusividad', 'encajar', '#10b981', '#25d366', '#ef4444'],
+  }),
+  makeHtmlAuditScenario('SIM-83', 'Cierre Fuga Formularios Web (Búsqueda + Publicar)', 'busqueda-personalizada/index.html', {
+    mustInclude: ['https://zaguan-crm-bot.943ari.workers.dev/api/interesados', 'formulario_web_silencioso', 'keepalive:true'],
+    customCheck: () => {
+      const pubHtml = readHtml('publicar/index.html') || '';
+      const errs = [];
+      if (!pubHtml.includes('/api/propietarios/web')) errs.push('FALTA_ENDPOINT_PROPIETARIOS_EN_PUBLICAR');
+      if (!pubHtml.includes('formulario_web_silencioso')) errs.push('FALTA_CANAL_SILENCIOSO_EN_PUBLICAR');
+      return errs;
+    },
+  }),
+  makeHtmlAuditScenario('SIM-84', 'Cabina /admin/ · 5 Acciones + Buscador B2C + Rutina', 'admin/index.html', {
+    mustInclude: [
+      'rutina-5-acciones-box',
+      'MIS 5 ACCIONES DEL DÍA EN ZAGUÁN',
+      '/admin/rutina-diaria.html',
+      'crmCloudState.interesados_b2c',
+      'isPedidoB2C',
+      '/scrapeo-total',
+      '/ingenieria-social',
+      '/reporte-pulso',
+      '/ejecutar-ads',
+      'tab-pedidos'
+    ],
+    mustExistPaths: ['admin/rutina-diaria.html', 'PROJECT_LINKTREE.json', 'assets/estados/1_ESTADO_LA_FORTUNA_30K.jpg', 'assets/estados/estados_hoy.json'],
+    customCheck: () => {
+      const rutHtml = readHtml('admin/rutina-diaria.html') || '';
+      const errs = [];
+      if (!rutHtml.includes('/api/telegram/estados-hoy')) errs.push('FALTA_API_ESTADOS_EN_RUTINA');
+      if (!rutHtml.includes('/api/social-comments')) errs.push('FALTA_API_SOCIAL_EN_RUTINA');
+      if (!rutHtml.includes('Ta-8cI-XA1ltr0hwLJGDVx7cW0ra6gJJ')) errs.push('FALTA_LINK_APROBALO_EN_RUTINA');
+      return errs;
+    },
+  }),
+  {
+    id: 'SIM-85',
+    bloque: 'Comet Live Chat · Lead 99 529 203 La Fortuna con Garantía',
+    turno: 'T0 · Botón 1 Meta Ads (Hoy 12:12 hs)',
+    contexto: 'la_fortuna',
+    input: 'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar',
+    mustInclude: ['la-fortuna-agata', '30.000'],
+    mustMatch: /coordinar|visitar|d[ií]a/i,
+    mustNotInclude: ['pero ', 'sin exclusividad', 'encajar'],
+  },
+  {
+    id: 'SIM-86',
+    bloque: 'SEO/GEO · llms.txt & sitemap.xml con Verificador Garantías',
+    turno: 'Verificación de indexación y GEO',
+    contexto: 'web_html',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'llms.txt + sitemap.xml incluyen /garantias-alquiler/',
+    evaluate: () => {
+      const llms = readHtml('llms.txt') || '';
+      const sm = readHtml('sitemap.xml') || '';
+      const errs = [];
+      if (!llms.includes('https://zaguanpropiedades.com/garantias-alquiler/')) errs.push('FALTA_GARANTIAS_EN_LLMS');
+      if (!llms.includes('últimos 3 meses') || !llms.includes('últimos 6 meses')) errs.push('FALTA_REGLA_RECIBOS_EN_LLMS');
+      if (!sm.includes('https://zaguanpropiedades.com/garantias-alquiler/')) errs.push('FALTA_GARANTIAS_EN_SITEMAP');
+      return { pass: errs.length === 0, errores: errs, vertical_detectada: 'GEO_SEO', subtipo_detectado: errs.length ? 'GEO_INCOMPLETO' : 'GEO_GARANTIAS_OK', alerta_andon: errs.length > 0, replyText: errs.length ? errs.join(',') : 'llms.txt + sitemap.xml actualizados con /garantias-alquiler/' };
+    },
+  },
+  {
+    id: 'SIM-87',
+    bloque: 'Crons 24/7 (08:30 y 19:30 UY) + Redes + Estados en Worker',
+    turno: 'Infraestructura Cloudflare Worker',
+    contexto: 'worker',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'wrangler.jsonc + src/index.js',
+    evaluate: () => {
+      const wJson = readFileSync('/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/wrangler.jsonc', 'utf8');
+      const wIdx = readFileSync('/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/src/index.js', 'utf8');
+      const errs = [];
+      if (!wJson.includes('30 11 * * *') || !wJson.includes('30 22 * * *')) errs.push('FALTA_CRONS_0830_1930_EN_WRANGLER');
+      if (!wIdx.includes('/api/telegram/estados-hoy')) errs.push('FALTA_ESTADOS_HOY_EN_WORKER');
+      if (!wIdx.includes('/api/social-comment')) errs.push('FALTA_SOCIAL_COMMENT_EN_WORKER');
+      if (!wIdx.includes('/api/propietarios/web')) errs.push('FALTA_PROPIETARIOS_WEB_EN_WORKER');
+      if (!wIdx.includes('runCronApertura0830') || !wIdx.includes('runCronCierre1930')) errs.push('FALTA_HANDLERS_CRON');
+      return { pass: errs.length === 0, errores: errs, vertical_detectada: 'CLOUDFLARE_WORKER', subtipo_detectado: errs.length ? 'WORKER_INCOMPLETO' : 'WORKER_CRONS_OK', alerta_andon: errs.length > 0, replyText: errs.length ? errs.join(',') : 'Worker con Crons 08:30/19:30 UY, Estados 9:16 y Redes OK' };
+    },
+  },
+  {
+    id: 'SIM-88',
+    bloque: 'Caso B2C 1→3→2 Post-T0 · Co-solicitantes + D2 Rama B',
+    turno: 'Alquiler anual Pinares/Punta del Este',
+    contexto: 'general',
+    input: 'Busco apartamento de 2 dormitorios en Punta del Este para marzo 2027 hasta $U 40.000',
+    mustMatch: /cu[aá]ntas personas|mascota|cochera/i,
+    mustNotInclude: ['pero ', 'sola', 'bienvenido', 'agradecida'],
+  },
 ];
 
 function evaluarEscenario(esc) {

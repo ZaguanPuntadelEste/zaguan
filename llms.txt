@@ -7,6 +7,7 @@
 - Vidriera rápida en 1 pantalla (Pozo y Alquiler Anual): https://zaguanpropiedades.com/oportunidades/
 - Catálogo de proyectos en pozo: https://zaguanpropiedades.com/proyectos/
 - Alquiler anual (Propietarios e Inquilinos con garantía): https://zaguanpropiedades.com/alquiloanual/
+- Verificador gratuito de garantías de alquiler anual en Uruguay (Porto Seguro, Sura, Mapfre, Santander, ANDA y Depósito): https://zaguanpropiedades.com/garantias-alquiler/
 - Blog editorial ("Novedades del Este"): https://zaguanpropiedades.com/novedades-del-este/
 - Búsqueda personalizada: https://zaguanpropiedades.com/busqueda-personalizada/
 - Publicar propiedad: https://zaguanpropiedades.com/publicar/
@@ -111,3 +112,12 @@
 
 ## Catálogo de Venta Directa (Dueño Directo)
 - REF. ZAG-VTA-01 · Santa Mónica, a 7 km de José Ignacio (Proyecto en construcción en hormigón armado sobre lote propio de 348 m², 201 m² edificados frente a la Laguna y el océano, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/
+
+## Verificador y Prerrequisitos de Garantías de Alquiler Anual (Uruguay)
+- Página interactiva y guía oficial: https://zaguanpropiedades.com/garantias-alquiler/
+- Aclaración institucional: ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro; el verificador permite comprobar en 30 segundos los prerrequisitos estándar de aseguradoras en Uruguay (Porto Seguro, Sura, Mapfre, Santander).
+- Relación de dependencia con sueldo fijo: mínimo 1 año de antigüedad + últimos 3 meses de recibos de sueldo.
+- Relación de dependencia con sueldo variable / comisiones: mínimo 1 año de antigüedad + últimos 6 meses de recibos de sueldo.
+- Independiente / Unipersonal / Profesional: mínimo 1 a 2 años de antigüedad con BPS y DGI al día + certificación de ingresos por Contador Público.
+- Ingresos del exterior / Extranjeros (< 18 meses de residencia): facturas emitidas, estados de cuenta bancarios y certificación contable/notarial con escribanía aliada o Depósito.
+- Tope estándar alquiler/ingreso: 30% del ingreso líquido, combinando 1 ingreso, hasta 3 ingresos o hasta 5 ingresos sin Clearing negativo.

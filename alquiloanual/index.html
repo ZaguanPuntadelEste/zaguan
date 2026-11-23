@@ -365,7 +365,23 @@
             "name": "¿Cómo funciona la publicación de mi propiedad para alquiler anual en ZAGUÁN?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "En ZAGUÁN Propiedades sumamos tu propiedad mediante autorización simple sin ataduras de exclusividad: ordenamos la ficha en nuestra web, defendemos el valor acordado y te presentamos postulantes pre-filtrados con garantía aseguradora. Solo cobramos honorarios si se concreta el contrato."
+              "text": "En ZAGUÁN Propiedades sumamos tu propiedad con publicación abierta y autorización simple: ordenamos la ficha en nuestra web, defendemos el valor acordado y te presentamos postulantes pre-filtrados con garantía aseguradora. Solo cobramos honorarios si se concreta el contrato."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuántos recibos de sueldo necesito según sueldo fijo o variable y cuánto es la antigüedad mínima?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para relación de dependencia con sueldo fijo se requiere mínimo 1 año de antigüedad y últimos 3 meses de recibos de sueldo; si el sueldo es variable o por comisiones se solicitan 1 año de antigüedad y últimos 6 meses de recibos. Independientes y unipersonales requieren 1 a 2 años con BPS y DGI al día más certificación de Contador Público."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la relación alquiler/ingreso y cómo califican extranjeros con menos de 18 meses en Uruguay?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Se calcula aproximadamente un 30% de afectación sobre el ingreso líquido, pudiendo combinar 1 ingreso o hasta 3 o 5 co-solicitantes sin Clearing negativo. Quienes cobran ingresos del exterior o llevan menos de 18 meses de residencia cuentan con certificación contable/notarial mediante escribanía aliada o garantía de Depósito."
             }
           }
         ]
@@ -384,11 +400,12 @@
         <a href="/oportunidades/">Vitrina rápida</a>
         <a href="/proyectos/">Propiedades en pozo</a>
         <a href="/alquiloanual/" aria-current="page">Alquiler anual</a>
+        <a href="/garantias-alquiler/">Verificador de garantías</a>
         <a href="/busqueda-personalizada/">Búsqueda personalizada</a>
         <a href="/publicar/">Publicar propiedad</a>
       </nav>
       <div class="mob-header-cta">
-        <a href="/oportunidades/">Pozo (5)</a>
+        <a href="/garantias-alquiler/">Garantías</a>
         <a class="mob-wa" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20te%20escribo%20desde%20ZAGU%C3%81N%20Propiedades%20por%20alquiler%20anual." target="_blank" rel="noopener noreferrer">WhatsApp Mar →</a>
       </div>
     </div>
@@ -399,8 +416,9 @@
       <a href="#triaje">1. Triaje rápido</a>
       <a href="#propiedades-disponibles">2. Propiedades disponibles (2)</a>
       <a href="#propietarios-exclusiva">3. Tengo una propiedad para alquilar</a>
-      <a href="#inquilinos-garantia">4. Busco alquiler anual con garantía</a>
-      <a href="#comparar-pozo">5. Comparar alquiler vs. pozo en cuotas</a>
+      <a href="#verificador-garantias">4. Verificador de garantías y FAQs</a>
+      <a href="#inquilinos-garantia">5. Busco alquiler anual</a>
+      <a href="#comparar-pozo">6. Comparar alquiler vs. pozo en cuotas</a>
     </div>
   </nav>
 
@@ -416,7 +434,7 @@
             <div>
               <span class="triage-step">Entrada 01 · Propietarios</span>
               <h2>¿Tenés una propiedad?</h2>
-              <p style="margin-top:10px;">Sumá tu casa o apartamento en Punta del Este · Maldonado sin ataduras de exclusividad: armamos la ficha, filtramos postulantes con garantía aseguradora (Porto, Sura, Mapfre o Anda) y solo cobramos si concretás.</p>
+              <p style="margin-top:10px;">Sumá tu casa o apartamento en Punta del Este · Maldonado con publicación abierta: armamos la ficha, filtramos postulantes con garantía aseguradora (Porto, Sura, Mapfre o Anda) y solo cobramos si concretás.</p>
             </div>
             <a class="btn btn--dark" href="#propietarios-exclusiva">
               <span>Vendé y alquilá en ZAGUÁN</span>
@@ -566,7 +584,7 @@
               <div class="field field--full">
                 <label for="rol-select">Mi situación</label>
                 <select id="rol-select" required>
-                  <option value="propietario_alquiler">Tengo una propiedad para alquilar / vender (Autorización simple)</option>
+                  <option value="propietario_alquiler">Tengo una propiedad para alquilar / vender (Publicación abierta)</option>
                   <option value="inquilino_anual">Busco alquilar todo el año (tengo garantía aseguradora)</option>
                 </select>
               </div>
@@ -588,6 +606,7 @@
                   <option value="Porto Seguro">Porto Seguro</option>
                   <option value="Sura">Sura</option>
                   <option value="Mapfre">Mapfre</option>
+                  <option value="Santander">Santander</option>
                   <option value="Anda / Contaduría">Anda / Contaduría</option>
                   <option value="Depósito BHU / A definir">Depósito BHU / A definir</option>
                 </select>
@@ -609,6 +628,75 @@
               <button type="submit" class="btn btn--light" style="width:100%;">Enviar a Mar por WhatsApp y registrar en ZAGUÁN →</button>
             </div>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Verificador Interactivo de Prerrequisitos de Garantía + FAQs Reales -->
+    <section class="section" id="verificador-garantias" style="background:var(--limestone);">
+      <div class="container">
+        <p class="eyebrow" style="color:var(--feather);">Prerrequisitos de Aseguradoras en Uruguay · Porto Seguro · Sura · Mapfre · Santander</p>
+        <h2 style="font-size:clamp(26px, 3.3vw, 40px); color:var(--bigua);">Verificador gratuito de garantías para alquiler anual</h2>
+        <div style="background:var(--bone);border-left:3px solid var(--estuario);padding:14px 16px;margin:16px 0 24px;font-size:13.5px;color:var(--bigua);">
+          <strong>Aclaración institucional:</strong> ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro. Este verificador gratuito te permite comprobar en 30 segundos los prerrequisitos estándar de las aseguradoras en Uruguay (Porto Seguro, Sura, Mapfre, Santander) para saber dónde estás parado mientras buscamos o reservamos tu propiedad con gestión ZAGUÁN.
+        </div>
+
+        <div class="grid-2" style="gap:24px;">
+          <!-- PUERTA A EMBEDDED -->
+          <div style="background:var(--bone);border:1px solid var(--mist);padding:24px;">
+            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta A · Prioridad inmediata</span>
+            <h3 style="font-size:22px;margin-bottom:8px;">Ya tengo garantía aprobada o pre-aprobada / Depósito listo</h3>
+            <p style="font-size:13.5px;color:var(--estuario);margin-bottom:14px;">Coordinamos visitas directo en las propiedades que coinciden con tu búsqueda.</p>
+            <div style="display:grid;gap:10px;">
+              <input id="alq-pa-nombre" type="text" placeholder="Nombre y apellido" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <input id="alq-pa-wa" type="tel" placeholder="WhatsApp (+598 ...)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <select id="alq-pa-gar" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+                <option value="Porto Seguro">Porto Seguro</option>
+                <option value="Sura">Sura</option>
+                <option value="Mapfre">Mapfre</option>
+                <option value="Santander">Santander</option>
+                <option value="ANDA / Contaduría">ANDA / Contaduría</option>
+                <option value="Depósito listo">Depósito listo</option>
+              </select>
+              <input id="alq-pa-zona" type="text" placeholder="Zona y presupuesto (ej. La Fortuna $U 30.000)" style="padding:10px 12px;border:1px solid var(--mist);background:#FFFFFF;color:var(--bigua);font-size:14px;">
+              <button type="button" class="btn btn--dark" onclick="enviarPuertaAInline()">Registrar prioridad y abrir WhatsApp →</button>
+            </div>
+          </div>
+
+          <!-- PUERTA B EMBEDDED -->
+          <div style="background:var(--bigua);color:var(--bone);padding:24px;border:1px solid var(--estuario);">
+            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta B · Calculadora 30% + Recibos</span>
+            <h3 style="font-size:22px;color:var(--bone);margin-bottom:8px;">Todavía no la tengo y quiero verificar si califico para tramitarla con gestión ZAGUÁN</h3>
+            <div style="display:grid;gap:10px;margin-top:12px;">
+              <select id="alq-pb-doc" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <option value="ci_vigente_2y">CI uruguaya vigente (>= 2 años) + residencia</option>
+                <option value="extranjero_18m">Pasaporte + más de 18 meses de residencia en Uruguay</option>
+                <option value="extranjero_nuevo">Extranjero con menos de 18 meses (certificación escribanía/contable o Depósito)</option>
+              </select>
+              <select id="alq-pb-lab" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <option value="dependencia_fijo">Relación de dependencia sueldo fijo (1 año + 3 recibos)</option>
+                <option value="dependencia_variable">Relación de dependencia sueldo variable / comisiones (1 año + 6 recibos)</option>
+                <option value="independiente">Independiente / Unipersonal (1-2 años + BPS/DGI + Contador Público)</option>
+                <option value="exterior">Ingresos del exterior (facturas + bancos + escribanía aliada)</option>
+                <option value="sin_ingresos_formales">Sin ingresos formales demostrables (Depósito)</option>
+              </select>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <input id="alq-pb-ing" type="number" value="105000" placeholder="Ingresos totales $U" oninput="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                <select id="alq-pb-sol" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
+                  <option value="1">1 ingreso</option>
+                  <option value="3">Hasta 3 ingresos combinados</option>
+                  <option value="5">Hasta 5 ingresos combinados</option>
+                </select>
+              </div>
+              <div id="alq-pb-res" style="background:rgba(243,240,232,0.08);border:1px solid rgba(243,240,232,0.2);padding:12px;font-size:13px;">
+                Tope estimado al 30%: <strong>$U 31.500 / mes</strong> · Documentación: últimos 3 recibos de sueldo.
+              </div>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+                <a class="btn btn--light" href="/garantias-alquiler/" style="flex:1;">Abrir verificador completo →</a>
+                <a class="btn btn--estuario" id="alq-pb-wa-btn" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20verificar%20mis%20prerrequisitos%20para%20garant%C3%ADa%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer" style="flex:1;">Consultar con Mar</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -681,6 +769,62 @@
   </footer>
 
   <script>
+    const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+
+    function evalGarantiaInline() {
+      const doc = document.getElementById('alq-pb-doc').value;
+      const lab = document.getElementById('alq-pb-lab').value;
+      const ing = Number(document.getElementById('alq-pb-ing').value || 0);
+      const sol = document.getElementById('alq-pb-sol').value;
+      const tope30 = Math.round(ing * 0.30);
+      const reqMap = {
+        dependencia_fijo: '1 año antigüedad + últimos 3 recibos de sueldo',
+        dependencia_variable: '1 año antigüedad + últimos 6 recibos de sueldo',
+        independiente: '1 a 2 años antigüedad + BPS/DGI al día + Contador Público',
+        exterior: 'Facturas + extractos bancarios + escribanía aliada',
+        sin_ingresos_formales: 'Orientación directa a Depósito (2 a 5 meses)'
+      };
+      const resNote = doc === 'extranjero_nuevo' ? ' · Menos de 18 meses residencia: certificación notarial/contable o Depósito.' : '';
+      document.getElementById('alq-pb-res').innerHTML =
+        'Tope sugerido al 30% (' + sol + ' ingreso' + (sol === '1' ? '' : 's') + ' sin Clearing): <strong>$U ' + tope30.toLocaleString('de-DE') + ' / mes</strong><br>' +
+        'Requisitos: ' + (reqMap[lab] || '') + resNote;
+      const waMsg = 'Hola Mar, revisé mis prerrequisitos en ZAGUÁN (' + lab + ', ' + sol + ' ingresos, tope 30% $U ' + tope30.toLocaleString('de-DE') + '). Quiero tramitar garantía con gestión ZAGUÁN.';
+      document.getElementById('alq-pb-wa-btn').href = 'https://wa.me/59898712064?text=' + encodeURIComponent(waMsg);
+    }
+
+    window.enviarPuertaAInline = function() {
+      const nombre = document.getElementById('alq-pa-nombre').value.trim();
+      const wa = document.getElementById('alq-pa-wa').value.trim();
+      const gar = document.getElementById('alq-pa-gar').value;
+      const zona = document.getElementById('alq-pa-zona').value.trim();
+      if (!nombre || !wa) {
+        alert('Completá tu nombre y WhatsApp para registrar tu búsqueda prioritaria.');
+        return;
+      }
+      const msg = 'Hola Mar, ya tengo garantía aprobada (' + gar + '). Soy ' + nombre + ' (' + wa + '). Busco alquiler anual en ' + (zona || 'Maldonado / Punta del Este') + '.';
+      try {
+        fetch(CRM_API_URL + '/api/interesados', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify({
+            nombre: nombre,
+            telefono: wa,
+            tipo_operacion: 'Alquiler Anual',
+            modalidad_contrato: 'Anual',
+            zona_preferida: zona || 'Punta del Este / Maldonado',
+            garantia_disponible: gar,
+            garantia_precalificacion: 'CIERRE_INMEDIATO_CON_GARANTIA_LISTA',
+            estado_conversacion: 'cierre_inmediato_con_garantia_lista',
+            estado_busqueda: 'caza_activa_hoy',
+            canal: 'verificador_garantias_web',
+            texto: msg
+          })
+        }).catch(() => {});
+      } catch (err) {}
+      window.open('https://wa.me/59898712064?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    };
+
     document.getElementById('alquiler-unified-form').addEventListener('submit', function(e) {
       e.preventDefault();
       const rol = document.getElementById('rol-select').value;
@@ -692,9 +836,48 @@
       const valor = document.getElementById('alq-valor').value.trim();
       const notas = document.getElementById('alq-notas').value.trim();
 
-      // Redireccion directa a WhatsApp para evitar bloqueo de popups en in-app browsers
-      const textMsg = "Hola Mar, completé el formulario de ZAGUÁN: Me llamo " + nombre + ", WhatsApp " + wa + ". Busco en " + zona + ", garantía " + garantia + ", " + dorm + ". Presupuesto: " + (valor || "A convenir") + (notas ? ". Detalle: " + notas : "");
-      const waUrl = 'https://wa.me/59898712064?text=' + encodeURIComponent(textMsg);
+      const msg = rol === 'propietario_alquiler'
+        ? `Hola Mar, soy ${nombre} (${wa}). Tengo una propiedad en ${zona} (${dorm}) por un valor estimado de ${valor}. Quiero sumarla a ZAGUÁN con filtro de garantía ${garantia}. Detalles: ${notas}`
+        : `Hola Mar, soy ${nombre} (${wa}). Busco alquiler anual en ${zona} (${dorm}), presupuesto ${valor}, y cuento con garantía ${garantia}. Detalles: ${notas}`;
+
+      // Captura silenciosa inmediata a Cloudflare D1 antes de abrir WhatsApp
+      try {
+        const endpoint = rol === 'propietario_alquiler' ? '/api/propietarios/web' : '/api/interesados';
+        const bodyPayload = rol === 'propietario_alquiler'
+          ? {
+              nombre,
+              telefono: wa,
+              zona,
+              tipo_operacion: 'Alquiler Anual (Web)',
+              dormitorios: dorm,
+              valor,
+              garantia,
+              notas,
+              source_page: 'alquiloanual',
+              canal: 'formulario_web_silencioso'
+            }
+          : {
+              nombre,
+              telefono: wa,
+              tipo_operacion: 'Alquiler Anual',
+              modalidad_contrato: 'Anual',
+              zona_preferida: zona,
+              garantia_disponible: garantia,
+              dormitorios_abiertos: dorm,
+              presupuesto_max: Number(String(valor || '').replace(/[^\d]/g, '')) || null,
+              moneda: /usd/i.test(valor) ? 'USD' : 'UYU',
+              estado_busqueda: 'caza_activa_hoy',
+              canal: 'formulario_web_silencioso',
+              texto: msg,
+              notas
+            };
+        fetch(CRM_API_URL + endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          keepalive: true,
+          body: JSON.stringify(bodyPayload)
+        }).catch(() => {});
+      } catch (err) {}
 
       try {
         const key = 'zaguan_crm_d1_v2_clean';
@@ -711,18 +894,16 @@
           tipologia: dorm,
           valor: valor,
           notas: notas,
-          estado: rol === 'propietario_alquiler' ? 'Autorización simple por activar' : 'Inquilino calificado activo',
+          estado: rol === 'propietario_alquiler' ? 'Publicación abierta por activar' : 'Inquilino calificado activo',
           vence_60d: new Date(Date.now() + 60 * 86400000).toISOString().slice(0, 10)
         });
         localStorage.setItem(key, JSON.stringify(state));
       } catch (err) {}
 
-      const msg = rol === 'propietario_alquiler'
-        ? `Hola Mar, soy ${nombre} (${wa}). Tengo una propiedad en ${zona} (${dorm}) por un valor estimado de ${valor}. Quiero sumarla a ZAGUÁN con filtro de garantía ${garantia}. Detalles: ${notas}`
-        : `Hola Mar, soy ${nombre} (${wa}). Busco alquiler anual en ${zona} (${dorm}), presupuesto ${valor}, y cuento con garantía ${garantia}. Detalles: ${notas}`;
-
       window.open('https://wa.me/59898712064?text=' + encodeURIComponent(msg), '_blank', 'noopener');
     });
+
+    evalGarantiaInline();
   </script>
 </body>
 </html>

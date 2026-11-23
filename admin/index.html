@@ -293,6 +293,82 @@
     </div>
   </div>
 
+  <!-- BARRA OPERATIVA DE 5 ACCIONES DEL DÍA (LINKTREE INTERNO 1 CLIC) -->
+  <details class="section-box" id="rutina-5-acciones-box" open style="border:1.5px solid rgba(56,189,248,0.45);background:linear-gradient(180deg,rgba(18,59,74,0.42) 0%,rgba(8,21,33,0.96) 100%);margin-bottom:16px;padding:14px 18px;">
+    <summary style="cursor:pointer;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;list-style:none;">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <span class="tag tag-ley">🧭 RUTINA DIARIA ZAGUÁN</span>
+        <strong style="font-size:16px;color:#FFFFFF;">🧭 MIS 5 ACCIONES DEL DÍA EN ZAGUÁN (QUÉ HACER, DÓNDE TOCAR Y QUÉ COMANDO INVOCAR)</strong>
+      </div>
+      <a class="btn btn-email btn-sm" href="/admin/rutina-diaria.html" target="_blank" rel="noopener noreferrer">🧭 Abrir Vista Completa 5 Acciones ↗</a>
+    </summary>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:14px;">
+      <!-- 1 -->
+      <div style="background:rgba(8,21,33,0.88);border:1px solid rgba(230,184,92,0.45);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;">1 · WhatsApp / Telegram</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-top:2px;">Responder o testear con Mar</div>
+          <div style="font-size:11.5px;color:#FCD34D;margin-top:4px;">Si tocás <strong>/go/wa</strong> se guarda como Real en D1; si es prueba, tocás <strong>🗑️ Descartar test</strong>.</div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-wa btn-sm" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ @zaguan_crm_bot</a>
+          <button class="btn btn-yes btn-sm" onclick="switchTab('tab-pedidos', document.getElementById('btn-tab-pedidos'));document.getElementById('tab-pedidos').scrollIntoView({behavior:'smooth'});">🎯 Pedidos B2C</button>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div style="background:rgba(8,21,33,0.88);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;">2 · 08:30 hs Estado 9:16</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-top:2px;">Subir Estado de WhatsApp de Caza</div>
+          <div style="font-size:11.5px;color:#B7D6E0;margin-top:4px;">Te manda la placa 9:16 activa y su copy listo al Telegram en 1 toque.</div>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-email btn-sm" id="btn-top-estado916" onclick="enviarEstado916DesdeTopbar()">📲 Mandarme Estado 9:16 de Hoy a Telegram</button>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div style="background:rgba(8,21,33,0.88);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;">3 · Prospección Lado A + Comet</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-top:2px;">Cazar 20 Dueños + Leer WhatsApp</div>
+          <div style="font-size:11.5px;color:#B7D6E0;margin-top:4px;">Corre el barrido limpio, lee chats vivos de Comet y actualiza D1.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;background:#040d16;border:1px solid var(--border);border-radius:6px;padding:5px 8px;">
+          <code style="color:#6EE7B7;font-size:12px;font-weight:700;">/scrapeo-total</code>
+          <button class="btn btn-outline btn-sm" style="padding:4px 8px;font-size:11px;" onclick="copyQuickCommand('/scrapeo-total')">📋 Copiar</button>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div style="background:rgba(8,21,33,0.88);border:1px solid var(--border);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;">4 · Comentarios Redes / Demanda</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-top:2px;">Cazar Comentarios y Seguidores</div>
+          <div style="font-size:11.5px;color:#B7D6E0;margin-top:4px;">Mina comentarios IG/FB y demanda latente para entrar a Pedidos Abiertos.</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;background:#040d16;border:1px solid var(--border);border-radius:6px;padding:5px 8px;">
+          <code style="color:#6EE7B7;font-size:12px;font-weight:700;">/ingenieria-social</code>
+          <button class="btn btn-outline btn-sm" style="padding:4px 8px;font-size:11px;" onclick="copyQuickCommand('/ingenieria-social')">📋 Copiar</button>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div style="background:rgba(8,21,33,0.88);border:1px solid rgba(230,184,92,0.45);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;gap:8px;">
+        <div>
+          <div style="font-size:11px;font-weight:800;color:var(--gold);text-transform:uppercase;">5 · 08:30 y 19:30 hs UY</div>
+          <div style="font-size:13.5px;font-weight:700;color:#fff;margin-top:2px;">Pulso Ads, Analytics, Redes y Agenda</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-top:4px;">
+            <button class="btn btn-outline btn-sm" style="padding:3px 7px;font-size:11px;" onclick="copyQuickCommand('/reporte-pulso')">📋 /reporte-pulso</button>
+            <button class="btn btn-outline btn-sm" style="padding:3px 7px;font-size:11px;" onclick="copyQuickCommand('/ejecutar-ads')">📋 /ejecutar-ads</button>
+          </div>
+        </div>
+        <div class="btn-row">
+          <a class="btn btn-outline btn-sm" href="https://aprobala-app.943ari.workers.dev/p/Ta-8cI-XA1ltr0hwLJGDVx7cW0ra6gJJ" target="_blank" rel="noopener noreferrer">✅ Aprobalo</a>
+          <a class="btn btn-outline btn-sm" href="/admin/simulador-mar.html">💬 Simulador</a>
+          <a class="btn btn-outline btn-sm" href="/garantias-alquiler/">🛡️ Garantías</a>
+        </div>
+      </div>
+    </div>
+  </details>
+
   <!-- BUSCADOR GLOBAL INSTANTÁNEO + CARGA DE RESPUESTA EN 1 CLIC (ARRIBA DEL TODO) -->
   <div class="section-box" style="border:2px solid var(--gold);background:linear-gradient(180deg,rgba(230,184,92,0.12) 0%,rgba(13,31,48,0.96) 100%);margin-bottom:18px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
@@ -309,8 +385,8 @@
     </div>
     <div class="form-grid" style="grid-template-columns: 2fr 1fr; align-items: end;">
       <div class="field">
-        <label for="crm-global-search" style="color:var(--gold);font-size:13px;">🔍 Escribí el nombre, apellido, celular o empresa (ej.: Danilo, Gladys, Anabela, Sofía, Stefani, Alejandra, Romi, Oscar, Edu, Mario, Kaplan, Pinares...)</label>
-        <input type="text" id="crm-global-search" placeholder="Escribí 2 letras del nombre o número y aparece en el acto..." oninput="renderGlobalSearch()" style="font-size:15px;padding:11px 14px;border-color:var(--gold);">
+        <label for="crm-global-search" style="color:var(--gold);font-size:13px;">🔍 Escribí el nombre, apellido, celular o empresa (ej.: Cecilia Rial, La Fortuna, Danilo, Anabela, Sofía, Pinares...)</label>
+        <input type="text" id="crm-global-search" placeholder="Escribí 2 letras del nombre o número (incluye Pedidos Abiertos B2C)..." oninput="renderGlobalSearch()" style="font-size:15px;padding:11px 14px;border-color:var(--gold);">
       </div>
       <div class="field">
         <label>Resumen en vivo de respuestas</label>
@@ -2193,6 +2269,30 @@ window.setGlobalSearchFilter = function(mode) {
 
 function getAllUnifiedContacts() {
   const unified = [];
+  (crmCloudState.interesados_b2c || []).forEach(it => {
+    let ms = Array.isArray(it.matches) ? it.matches : [];
+    if (!ms.length && it.matches_json) {
+      try { ms = JSON.parse(it.matches_json); } catch (e) {}
+    }
+    const mon = it.moneda || 'UYU';
+    const decl = Number(it.presupuesto_declarado || it.presupuesto_max || 0);
+    const presuTxt = decl ? `${mon} ${decl.toLocaleString('de-DE')}` : 'Presupuesto a definir';
+    unified.push({
+      id: it.id,
+      isPedidoB2C: true,
+      categoria: `🎯 Pedido Abierto B2C (${it.modalidad_contrato || it.tipo_operacion || 'Anual'})`,
+      nombre: it.nombre || 'Interesado B2C',
+      subtitulo: `${it.dormitorios_abiertos || 'Tipología abierta'} · ${presuTxt} · Garantía: ${it.garantia_disponible || 'Pendiente'} · ${it.garantia_precalificacion || it.estado || ''}`,
+      zona: it.zona_preferida || 'Punta del Este / Maldonado',
+      telefono: String(it.telefono || '').replace(/[^0-9]/g, ''),
+      email: '',
+      operacion: it.tipo_operacion || 'Alquiler Anual',
+      mensaje_inicial: it.ultimo_copy_mar || '',
+      estado: it.estado_busqueda === 'cerrado' ? 'cerrado' : 'respondio',
+      matches: ms,
+      rawItem: it
+    });
+  });
   (radar4ZData.marketplace_duenos_directos || []).forEach(it => {
     const rec = getContactRecord(it.id, it);
     unified.push({
@@ -2268,29 +2368,30 @@ function renderGlobalSearch() {
   const all = getAllUnifiedContacts();
 
   const cerradosCount = all.filter(c => c.estado === 'cerrado' || (c.rawItem && c.rawItem.carril === '5_cerrado_radar')).length;
-  const activosCount = all.filter(c => c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril))).length;
+  const pedidosB2cCount = all.filter(c => c.isPedidoB2C).length;
+  const activosCount = all.filter(c => c.isPedidoB2C || c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril))).length;
   const esperandoCount = all.filter(c => c.estado === 'enviado_1' || c.estado === 'seguimiento_enviado').length;
 
   if (summaryEl) {
-    summaryEl.innerHTML = `<strong>${esperandoCount}</strong> esperando respuesta (reloj 72h activo) · <strong style="color:#6EE7B7;">${activosCount}</strong> en conversación / ficha activa · <strong style="color:#FCA5A5;">${cerradosCount}</strong> cerrados / radar`;
+    summaryEl.innerHTML = `<strong style="color:var(--gold);">${pedidosB2cCount}</strong> Pedidos Abiertos B2C · <strong>${esperandoCount}</strong> esperando 72h · <strong style="color:#6EE7B7;">${activosCount}</strong> activos · <strong style="color:#FCA5A5;">${cerradosCount}</strong> cerrados`;
   }
 
   let filtered = all;
   if (q.length > 0) {
     const qNorm = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     filtered = all.filter(c => {
-      const hay = `${c.nombre} ${c.subtitulo} ${c.id} ${c.telefono} ${c.email} ${c.zona}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      const hay = `${c.nombre} ${c.subtitulo} ${c.id} ${c.telefono} ${c.email} ${c.zona} ${c.rawItem?.notas || ''} ${c.rawItem?.garantia_disponible || ''} ${c.rawItem?.hito_expectativa_cliente || ''} ${c.rawItem?.propiedad_interes || ''}`.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
       return hay.includes(qNorm);
     });
   } else {
     if (globalSearchFilterMode === 'CERRADOS') {
       filtered = all.filter(c => c.estado === 'cerrado');
     } else if (globalSearchFilterMode === 'ACTIVOS') {
-      filtered = all.filter(c => c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril)));
+      filtered = all.filter(c => c.isPedidoB2C || c.estado === 'respondio' || c.estado === 'propiedad_en_cartera' || (c.rawItem && ['3_en_conversacion','4_ficha_activa'].includes(c.rawItem.carril)));
     } else if (globalSearchFilterMode === 'ESPERANDO') {
       filtered = all.filter(c => c.estado === 'enviado_1' || c.estado === 'seguimiento_enviado');
     } else {
-      filtered = all.slice(0, 15);
+      filtered = all.slice(0, 18);
     }
   }
 
@@ -2300,6 +2401,35 @@ function renderGlobalSearch() {
   }
 
   box.innerHTML = filtered.map(c => {
+    if (c.isPedidoB2C) {
+      const it = c.rawItem || {};
+      const goB2cUrl = it.go_wa_url || `${CRM_API_URL}/go/wa?tipo=b2c&id=${encodeURIComponent(c.id)}&turno=${encodeURIComponent(it.paso_actual || 'T1')}`;
+      const ms = Array.isArray(c.matches) ? c.matches : [];
+      const hitoHtml = it.hito_expectativa_cliente ? `<span class="tag" style="margin-left:4px;background:rgba(245,158,11,0.18);color:#FCD34D;border:1px solid rgba(245,158,11,0.4);">🗓️ Hito expectativa: ${it.hito_expectativa_cliente}</span>` : '';
+      const matchesLine = ms.length
+        ? `<div style="font-size:12px;color:#6EE7B7;background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);border-radius:6px;padding:7px 9px;margin-top:4px;"><strong>🎯 Match en zona (${ms[0].id}):</strong> ${String(ms[0].nombre || '').replace(/</g,'&lt;')} — ${String(ms[0].etiqueta_match || 'Coincidencia de polígono').replace(/</g,'&lt;')}</div>`
+        : '';
+      return `
+        <div class="card aprobado" style="border-width:1.5px;">
+          <div class="card-top">
+            <div>
+              <span class="tag tag-active">${c.id} · Pedido Abierto B2C</span>
+              <span class="tag" style="margin-left:4px;background:rgba(16,185,129,0.18);color:#6EE7B7;border:1px solid rgba(16,185,129,0.4);">🟢 ${it.estado_busqueda === 'caza_activa_hoy' ? 'Caza activa HOY' : (it.estado_busqueda || 'Activo')}</span>
+              ${hitoHtml}
+              <h3 style="font-size:17px;margin-top:6px;color:#fff;">🎯 ${String(c.nombre).replace(/</g,'&lt;')}</h3>
+              <p style="font-size:12.5px;color:var(--muted);margin-top:2px;">📍 ${String(c.zona).replace(/</g,'&lt;')} ${c.telefono ? `· 📱 +${c.telefono}` : ''} · Cuándo: <strong style="color:#FCD34D;">${String(it.desde_cuando || 'A definir').replace(/</g,'&lt;')}</strong></p>
+              <p style="font-size:12.5px;color:#D5E0EA;margin-top:4px;">${String(c.subtitulo).replace(/</g,'&lt;')}</p>
+              ${matchesLine}
+            </div>
+          </div>
+          ${it.ultimo_copy_mar ? `<textarea class="msg-preview" style="min-height:68px;font-size:12px;" readonly>${String(it.ultimo_copy_mar).replace(/</g,'&lt;')}</textarea>` : ''}
+          <div class="btn-row" style="margin-top:6px;">
+            <a class="btn btn-wa btn-sm" href="${goB2cUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 RESPONDER CON MAR (/go/wa)</a>
+            <button class="btn btn-email btn-sm" onclick="irAPedidoAbierto('${c.id}')">🎯 Abrir ficha en Pedidos Abiertos ↓</button>
+          </div>
+        </div>
+      `;
+    }
     const waHref = c.telefono ? `https://wa.me/${c.telefono}` : '';
     return `
       <div class="card ${c.estado === 'cerrado' ? 'descartado' : 'aprobado'}" style="border-width:1.5px;">
@@ -2448,6 +2578,50 @@ function renderRadar4Z() {
     </div>`;
   }).join('');
 }
+
+window.copyQuickCommand = function(cmd) {
+  navigator.clipboard.writeText(cmd).then(() => showToast('📋 Copiado: ' + cmd));
+};
+
+window.enviarEstado916DesdeTopbar = async function() {
+  const btn = document.getElementById('btn-top-estado916');
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = '⏳ Enviando a Telegram...';
+  }
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/telegram/estados-hoy`, { method: 'POST' });
+    const js = await res.json();
+    showToast(js.enviado_telegram ? '📲 Estado 9:16 y copy enviados a @zaguan_crm_bot' : '✅ Estado 9:16 listo en Rutina Diaria');
+  } catch (e) {
+    showToast('⚠️ Error enviando Estado 9:16');
+  } finally {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = '📲 Mandarme Estado 9:16 de Hoy a Telegram';
+    }
+  }
+};
+
+window.irAPedidoAbierto = function(b2cId) {
+  const btn = document.getElementById('btn-tab-pedidos');
+  if (btn) switchTab('tab-pedidos', btn);
+  setTimeout(() => {
+    const el = document.getElementById('pa-card-' + b2cId) || document.getElementById('tab-pedidos');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }, 120);
+};
+
+function checkUrlTabHash() {
+  const hash = window.location.hash || '';
+  const params = new URLSearchParams(window.location.search);
+  if (hash === '#tab-pedidos' || params.get('tab') === 'pedidos') {
+    const btn = document.getElementById('btn-tab-pedidos');
+    if (btn) switchTab('tab-pedidos', btn);
+  }
+}
+window.addEventListener('hashchange', checkUrlTabHash);
+checkUrlTabHash();
 
 loadRadar4Z();
 renderQuickWaResponse();
