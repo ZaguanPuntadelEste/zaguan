@@ -84,7 +84,7 @@
   sec.className = 'emp';
   sec.id = 'emprendimientos';
   sec.setAttribute('aria-labelledby', 'titulo-emprendimientos');
-  sec.innerHTML = '<div class="container"><div class="emp-head"><div><p class="eyebrow">Emprendimientos verificados · Atención ES / EN + Escribanía Aliada</p><h2 id="titulo-emprendimientos">5 desarrollos en pozo y obra nueva.</h2></div>' + (items.length > 1 ? '<div class="emp-nav"><button type="button" data-dir="-1" aria-label="Anterior">←</button><button type="button" data-dir="1" aria-label="Siguiente">→</button></div>' : '') + '</div><div class="emp-rule"></div><div class="emp-track" tabindex="0" aria-label="Emprendimientos">' + cards + '</div><p class="emp-note">Asesoramiento integral en español e inglés para residentes y compradores del exterior con escribanía local aliada.</p></div>';
+  sec.innerHTML = '<div class="container"><div class="emp-head"><div><p class="eyebrow">Emprendimientos verificados · Atención ES / EN + Escribanía Aliada</p><h2 id="titulo-emprendimientos">Desarrollos en pozo y obra nueva.</h2></div>' + (items.length > 1 ? '<div class="emp-nav"><button type="button" data-dir="-1" aria-label="Anterior">←</button><button type="button" data-dir="1" aria-label="Siguiente">→</button></div>' : '') + '</div><div class="emp-rule"></div><div class="emp-track" tabindex="0" aria-label="Emprendimientos">' + cards + '</div><p class="emp-note">Asesoramiento integral en español e inglés para residentes y compradores del exterior con escribanía local aliada.</p></div>';
   if (!sec.parentNode) anchor.parentNode.insertBefore(sec, anchor);
   var track = sec.querySelector('.emp-track');
   var btns = sec.querySelectorAll('.emp-nav button');

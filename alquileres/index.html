@@ -690,7 +690,7 @@
           <!-- Chips de filtrado rápido con scroll horizontal encapsulado -->
           <div class="filter-chips-wrapper">
             <div class="filter-chips" role="tablist" aria-label="Filtros rápidos">
-              <button class="chip is-active" data-filter="all" type="button">Todas (7)</button>
+              <button class="chip is-active" data-filter="all" type="button">Todas</button>
               <button class="chip" data-filter="brava" type="button">Playa Brava</button>
               <button class="chip" data-filter="mansa" type="button">Playa Mansa</button>
               <button class="chip" data-filter="roosevelt" type="button">Roosevelt</button>
@@ -705,7 +705,7 @@
           <!-- Barra de estado y retroalimentación IA -->
           <div class="results-count-bar" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:10px;">
             <div>
-              <div id="results-count" class="results-count-text">Mostrando 5 disponibles y 2 alquiladas</div>
+              <div id="results-count" class="results-count-text">Catálogo activo verificado · Ordenado por disponibilidad y precio</div>
               <div id="search-feedback" class="search-feedback-text"></div>
             </div>
             <select id="price-sort" class="sort-select" aria-label="Ordenar por precio">
@@ -1105,19 +1105,13 @@
         }
       });
 
-      // Actualizar texto de conteo
-      let availVisible = 0;
-      let rentedVisible = 0;
-      cards.forEach(c => {
-        if (c.style.display !== 'none') {
-          if (c.dataset.status === 'alquilado') rentedVisible++;
-          else availVisible++;
-        }
-      });
+      // Actualizar estado de visibilidad sin exponer conteos numéricos
       if (visibleCount === cards.length) {
-        resultsCount.textContent = 'Mostrando ' + availVisible + ' disponibles' + (rentedVisible ? ' y ' + rentedVisible + (rentedVisible === 1 ? ' alquilada' : ' alquiladas') : '');
+        resultsCount.textContent = 'Catálogo activo verificado · Ordenado por disponibilidad y precio';
+      } else if (visibleCount === 0) {
+        resultsCount.textContent = 'Sin coincidencias con el filtro aplicado';
       } else {
-        resultsCount.textContent = 'Mostrando ' + visibleCount + ' de ' + cards.length + ' propiedades';
+        resultsCount.textContent = 'Filtro activo aplicado sobre el catálogo';
       }
 
       // Mostrar retroalimentación de criterio detectado
