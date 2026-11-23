@@ -988,6 +988,9 @@
           photo_title: item.title
         });
       }
+      if (typeof window.__zgTrackGalleryPhoto === 'function') {
+        window.__zgTrackGalleryPhoto(currentIndex);
+      }
     }
 
     function openLightbox(index) {
@@ -1139,6 +1142,34 @@
       if (typeof gtag === 'function') {
         gtag('event', 'view_item_la_fortuna', viewPayload);
       }
+
+      var lid = params.get('lid');
+      var beaconUrl = 'https://zaguan-crm-bot.943ari.workers.dev/api/ficha-evento';
+      var visitedFotos = {};
+      var foto2Sent = false;
+      function sendFichaBeacon(evento, fotosCount) {
+        if (!lid || !navigator.sendBeacon) return;
+        try {
+          var blob = new Blob([JSON.stringify({
+            lid: lid,
+            slug: 'la-fortuna-agata',
+            evento: evento,
+            fotos_vistas: fotosCount
+          })], { type: 'text/plain;charset=UTF-8' });
+          navigator.sendBeacon(beaconUrl, blob);
+        } catch (e) {}
+      }
+      if (lid) {
+        sendFichaBeacon('vista', 1);
+      }
+      window.__zgTrackGalleryPhoto = function(idx) {
+        visitedFotos[String(idx)] = true;
+        var count = Object.keys(visitedFotos).length;
+        if (lid && !foto2Sent && count >= 2) {
+          foto2Sent = true;
+          sendFichaBeacon('fotos_2_plus', count);
+        }
+      };
     })();
   </script>
   <script src="/assets/js/novedades-header.js" defer></script>

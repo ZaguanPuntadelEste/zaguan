@@ -258,7 +258,7 @@
 
   <script id="data-zaguan" type="application/json">{
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-23T01:09:36.431Z",
+  "actualizado": "2026-11-23T01:40:26.055Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -2211,7 +2211,7 @@
       "zona_barrio": "Punta Colorada, Piriápolis, Maldonado",
       "titulo_o_activo": "Venta casa en Punta Colorada, Piriapolis",
       "precio_publicado": "USD 240.000",
-      "estado_crm": "cerrado_fuera_de_radio",
+      "estado_crm": "pendiente",
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
@@ -3501,7 +3501,7 @@
   ]
 }</script>
   <script id="data-sim32" type="application/json">{
-  "fecha": "2026-11-23T00:48:27.081Z",
+  "fecha": "2026-11-23T03:51:09.771Z",
   "total": 64,
   "pasaron": 64,
   "fallaron_count": 0,
@@ -4870,13 +4870,113 @@ function seleccionarFamiliaArbol(vertical, subtipo) {
   return "AUTOSERVICIO_GENERAL";
 }
 
-function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropiedad = "general", canal = "whatsapp") {
+let _activeOverrides = [];
+
+function setActiveOverrides(list = []) {
+  _activeOverrides = Array.isArray(list) ? list.filter(Boolean) : [];
+}
+
+function getActiveOverrides() {
+  return _activeOverrides;
+}
+
+function _normTriageStr(s) {
+  return String(s || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^\w\s$%+.-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function _appendLeadIdToLinks(texto, leadId) {
+  if (!leadId || typeof texto !== "string") return texto;
+  const enc = encodeURIComponent(String(leadId));
+  return texto.replace(/https:\/\/zaguanpropiedades\.com\/[^\s"'<>)]*/g, (url) => {
+    if (/[?&]lid=/i.test(url)) return url;
+    return `${url}${url.includes("?") ? "&" : "?"}lid=${enc}`;
+  });
+}
+
+function _matchD1Override(rawText, contextoPropiedad, vertical, subtipo, canal, overridesList) {
+  if (!Array.isArray(overridesList) || overridesList.length === 0) return null;
+  const normInput = _normTriageStr(rawText);
+  const ctxNorm = _normTriageStr(contextoPropiedad || "general");
+  const canalNorm = _normTriageStr(canal || "whatsapp");
+  const vertNorm = String(vertical || "").toUpperCase();
+  const subNorm = String(subtipo || "").toUpperCase();
+
+  let best = null;
+  let bestScore = -1;
+
+  for (const ov of overridesList) {
+    if (!ov || typeof ov !== "object") continue;
+    const estado = _normTriageStr(ov.estado || "activo");
+    if (estado && estado !== "activo" && estado !== "pendiente_test") continue;
+
+    const replyCandidate = ov.respuesta_corregida || ov.respuesta || ov.replyText || ov.nueva_respuesta;
+    if (!replyCandidate || String(replyCandidate).trim().length < 5) continue;
+
+    const ovCanal = _normTriageStr(ov.canal || "todos");
+    if (ovCanal && ovCanal !== "todos" && ovCanal !== canalNorm) continue;
+
+    const ovCtx = _normTriageStr(ov.contexto || "general");
+    if (ovCtx && ovCtx !== "todos" && ovCtx !== ctxNorm) continue;
+
+    const ovVert = String(ov.vertical_14 || ov.vertical || "").toUpperCase().trim();
+    const ovSub = String(ov.subtipo || "").toUpperCase().trim();
+    const ovPat = _normTriageStr(ov.patron_normalizado || ov.patron || ov.input || ov.mensaje_cliente || "");
+
+    const exactPatMatch = Boolean(ovPat && normInput === ovPat);
+    const strongPatMatch = Boolean(ovPat && ovPat.length >= 6 && normInput.includes(ovPat));
+
+    if (!exactPatMatch && !strongPatMatch) {
+      if (ovVert && ovVert !== "TODOS" && ovVert !== vertNorm) continue;
+      if (ovSub && ovSub !== "TODOS" && ovSub !== subNorm) continue;
+    }
+
+    let patScore = 0;
+    if (ovPat) {
+      if (exactPatMatch) {
+        patScore = 100;
+      } else if (strongPatMatch || (ovPat.length >= 4 && normInput.includes(ovPat))) {
+        patScore = 70 + Math.min(20, ovPat.length);
+      } else {
+        const tokens = ovPat.split(" ").filter((t) => t.length >= 4);
+        if (tokens.length >= 2 && tokens.every((t) => normInput.includes(t))) {
+          patScore = 50 + tokens.length;
+        } else {
+          continue;
+        }
+      }
+    } else if (ovSub && ovSub === subNorm && ovCtx === ctxNorm && (!ovVert || ovVert === "TODOS" || ovVert === vertNorm)) {
+      patScore = 30;
+    } else {
+      continue;
+    }
+
+    const scopeBonus =
+      (ovCtx === ctxNorm ? 15 : 0) +
+      (ovVert === vertNorm ? 12 : 0) +
+      (ovSub === subNorm ? 10 : 0);
+    const totalScore = patScore + scopeBonus;
+    if (totalScore > bestScore) {
+      bestScore = totalScore;
+      best = ov;
+    }
+  }
+  return best;
+}
+
+function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropiedad = "general", canal = "whatsapp", options = {}) {
   const { vertical, subtipo } = clasificarVertical14(rawText, contextoPropiedad);
   const spec = VERTICAL_SPECS[vertical] || VERTICAL_SPECS.D2;
   const analisis = detectarFaltantes(vertical, rawText);
   const familia = seleccionarFamiliaArbol(vertical, subtipo);
   const arbol = ARBOL_ESTRATEGICO_SEMAFORO[familia] || null;
-  const utm = `?utm_source=${canal === "instagram" ? "instagram" : "whatsapp"}&utm_medium=mar`;
+  const lidSuffix = options && options.leadId ? `&lid=${encodeURIComponent(String(options.leadId))}` : "";
+  const utm = `?utm_source=${canal === "instagram" ? "instagram" : "whatsapp"}&utm_medium=mar${lidSuffix}`;
   let replyText = "";
   let alertaAndon = false;
   let motivoAndon = "";
@@ -5170,12 +5270,29 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
       "Si tenés una consulta puntual o una propiedad para publicar, dejá zona y tipo de operación por acá.";
   }
 
+  const overrideList = Array.isArray(options?.overrides) ? options.overrides : _activeOverrides;
+  const matchedOverride = _matchD1Override(rawText, contextoPropiedad, vertical, subtipo, canal, overrideList);
+  let subtipoFinal = subtipo;
+  if (matchedOverride) {
+    replyText = String(matchedOverride.respuesta_corregida || matchedOverride.respuesta || matchedOverride.replyText || matchedOverride.nueva_respuesta);
+    if (matchedOverride.nuevo_subtipo) subtipoFinal = matchedOverride.nuevo_subtipo;
+    if (typeof matchedOverride.alerta_andon === "boolean") {
+      alertaAndon = matchedOverride.alerta_andon;
+    }
+    if (matchedOverride.motivo_andon) {
+      motivoAndon = matchedOverride.motivo_andon;
+    }
+  }
+  if (options?.leadId) {
+    replyText = _appendLeadIdToLinks(replyText, options.leadId);
+  }
+
   const pk = aplicarPokaYokeMar(replyText, vertical, esPasiva, etapaSla);
 
   return {
     ok: true,
     vertical_14: vertical,
-    subtipo,
+    subtipo: subtipoFinal,
     familia_cliente: familia,
     tipo_ficha: arbol?.tipo_ficha || "AUTOSERVICIO_GENERAL",
     etapa_sla: etapaSla,
@@ -5189,6 +5306,184 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     motivo_andon: motivoAndon,
     pokayoke_pass: pk.pokayoke_pass,
     pokayoke_violaciones: pk.violaciones,
+    override_id: matchedOverride?.id || null,
+    override_aplicado: Boolean(matchedOverride),
+  };
+}
+
+const REDTEAM_50_CONVERSACIONAL = [
+  { id: "SIM-01", contexto: "la_fortuna", input: "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar", mustInclude: ["la-fortuna-agata", "30.000"], mustMatch: /d[ií]a.*horario|visitar/i, mustNotInclude: ["maps.google", "con el dueño"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-02", contexto: "la_fortuna", input: "Tengo ingresos para tramitar aseguradora y quiero ver la ficha", mustInclude: ["la-fortuna-agata", "nuestra gestión ZAGUÁN"], mustMatch: /ingresos|recibo|certificaci[oó]n|distribuci[oó]n/i, mustNotInclude: ["maps.google", "con el dueño", "qué día"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-03", contexto: "la_fortuna", input: "Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar", mustInclude: ["aseguradora"], mustMatch: /barrio|rango|tope|propiedad/i, mustNotInclude: ["la-fortuna-agata"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-04", contexto: "la_fortuna", input: "Puedo ir el martes a las 16 hs", mustMatch: /visita|personas|martes|horario|confirm/i, mustNotInclude: ["Gracias por comunicarte con ZAGUÁN", "links/"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-05", contexto: "la_fortuna", input: "Cuánto son los gastos comunes aparte del alquiler?", mustInclude: ["30.000", "gastos comunes"], mustMatch: /incluidos|wi-fi|ute|ose/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-06", contexto: "la_fortuna", input: "Tengo un perro mediano, aceptan mascotas?", mustMatch: /mascota peque[nñ]a|tama[nñ]o|raza|consultar/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-07", contexto: "la_fortuna", input: "Me pasás la dirección exacta y el número de puerta para pasar a verlo?", mustMatch: /av\.\s*[aá]gata|la fortuna|coordinar|visita/i, mustNotInclude: ["maps.google", "-34.886", "con el dueño"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-08", contexto: "la_fortuna", input: "Cuánto piden de depósito o comisión para entrar y qué requisitos piden?", mustInclude: ["1 mes de alquiler + IVA"], mustMatch: /aseguradora|honorarios|comisi[oó]n|adelantado/i, mustNotInclude: ["ANDA aceptada", "con el dueño", "sin IVA"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-09", contexto: "santa_monica", input: "Evalúo compra contado USD 160.000: quiero video 2m31s y padrón", mustInclude: ["santa-monica-casa-hormigon", "160.000"], mustMatch: /2m31s|vivienda|inversi[oó]n/i, mustNotInclude: ["704", "manzana 26", "carpeta 8"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-10", contexto: "santa_monica", input: "Comparo lote vs. obra (USD 160.000): pido video 2m31s y croquis", mustInclude: ["santa-monica-casa-hormigon", "160.000"], mustMatch: /usd|fondos|contado|video/i, mustNotInclude: ["704", "manzana 26"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-11", contexto: "santa_monica", input: "Qué le falta terminar exactamente a la obra de Santa Mónica?", mustMatch: /hormig[oó]n armado|aberturas|revestimientos|terminaciones|cerramientos/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-12", contexto: "santa_monica", input: "Tiene planos aprobados o acepta préstamo de banco?", mustMatch: /djcu|regularizar|2027|contado/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-13", contexto: "santa_monica", input: "Lo evalúo para vivienda propia, cuento con los USD y quiero ver el video completo", mustMatch: /c[eé]dula catastral|348\s*m|201\s*m|video completo|visita/i, mustNotInclude: ["bóveda privada", "franja gris", "maría cristina"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-14", contexto: "general", input: "Busco terreno cerca de José Ignacio o La Barra para empezar a construir", mustInclude: ["santa-monica-casa-hormigon"], mustMatch: /348|hormig[oó]n|laguna/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-15", contexto: "pozo", input: "Busco apartamento en pozo en Maldonado desde USD 80.000 con cuotas", mustInclude: ["Betania IV", "79.800"], mustMatch: /24 cuotas|1,5%/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-16", contexto: "pozo", input: "Qué opciones tenés con exoneración de impuestos Ley 18.795 en Roosevelt?", mustInclude: ["Nostrum Roosevelt", "More Atlántico"], mustMatch: /itp|irpf|patrimonio/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-17", contexto: "pozo", input: "Cuánto son los gastos de ocupación y conexión aparte del precio de lista?", mustMatch: /1,5%|4%|5%|ocupaci[oó]n/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-18", contexto: "pozo", input: "Soy argentino y quiero saber si puedo comprar y firmar desde Buenos Aires", mustMatch: /exterior|notarial|reserva|escritura|distancia/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-19", contexto: "general", input: "Quiero comprar un apartamento en Playa Brava cerca del mar", mustMatch: /EVE Tower|150.000|financiaci[oó]n|proyectos/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-20", contexto: "general", input: "Necesito alquilar un local comercial u oficina en Maldonado o Punta del Este", mustMatch: /rubro|metr|trif[aá]sica|alquiler|compra/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-21", contexto: "dueno", input: "Tengo una casa en Pinares para alquilar todo el año, pido $U 35.000", mustMatch: /publicaci[oó]n abierta|garant[ií]a/i, mustNotInclude: ["sin exclusividad", "%", "comisión", "honorarios", "zaguanpropiedades.com/alquileres/la-fortuna"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-22", contexto: "dueno", input: "Cómo trabajan ustedes y cuánto cobran de comisión si venden mi propiedad?", mustMatch: /autorizaci[oó]n abierta|a resultado|por escrito/i, mustNotInclude: ["sin exclusividad", "%", "3%", "zaguanpropiedades.com/propiedades/", "garantía aseguradora", "franja gris"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-23", contexto: "dueno", input: "Tengo mi casa en venta en Maldonado, son 120 metros, pido USD 140.000, qué fotos necesitan?", mustMatch: /pdf|video|recorrido|t[ií]tulos|horarios/i, mustNotInclude: ["garantía aseguradora", "Porto", "ANDA", "zaguanpropiedades.com/propiedades/"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-24", contexto: "dueno", input: "Soy dueño de un local comercial en el centro de Maldonado para alquilar o vender", mustMatch: /metros|habilitaci[oó]n|trif[aá]sica|publicaci[oó]n abierta/i, mustNotInclude: ["sin exclusividad", "%", "comisión"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-25", contexto: "dueno", input: "Vendo mi terreno de 500 m2 en Manantiales, soy dueño directo", mustMatch: /padr[oó]n|servicios|frente|publicaci[oó]n abierta/i, mustNotInclude: ["sin exclusividad", "garantía aseguradora", "%", "comisión"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-26", contexto: "dueno", input: "Somos desarrolladora con edificio nuevo en pozo en Roosevelt y queremos sumarnos", mustMatch: /lista|cuotas|ocupaci[oó]n|pre-registro/i, expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-27", contexto: "general", input: "Buen día", mustInclude: ["zaguanpropiedades.com/links/"], mustNotInclude: ["mientras te respondo", "cómo podemos ayudarte"] },
+  { id: "SIM-28", contexto: "santa_monica", input: "Puedo pasar el viernes de mañana a conocer el terreno y la obra", mustMatch: /viernes|ma[nñ]ana|visita|coordinar|nombre/i, mustNotInclude: ["Gracias por comunicarte con ZAGUÁN", "Porto"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-29", contexto: "la_fortuna", input: "Cuánto sale por mes y qué incluye?", mustInclude: ["30.000", "gastos comunes"], mustMatch: /wi-fi|aseguradora/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-30", contexto: "la_fortuna", input: "Se puede llamar o mandar un audio para consultar por el apartamento?", mustMatch: /audio|whatsapp|escrita|ac[aá]/i, mustNotInclude: ["Gracias por comunicarte con ZAGUÁN"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-31", contexto: "la_fortuna", input: "Muchas gracias, ya señé otro apartamento ayer", mustMatch: /gracias|avisarnos|b[uú]squeda|futuro/i, mustNotInclude: ["garantía aseguradora", "Qué día"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-32", contexto: "general", input: "Lo alquilan solo por enero o quincena de verano?", mustMatch: /anual|contrato de 1 a[nñ]o|todo el a[nñ]o/i, mustNotInclude: ["Gracias por comunicarte con ZAGUÁN"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-47", contexto: "la_fortuna", input: "Cuánto cobran de comisión inmobiliaria en La Fortuna?", mustInclude: ["1 mes de alquiler + IVA"], mustNotInclude: ["sin IVA", "con el dueño", "Jorge"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL", "DUENO_TURNO_2_HONORARIOS"] },
+  { id: "SIM-48", contexto: "santa_monica", input: "Cuánto es la comisión inmobiliaria si compro Santa Mónica o un pozo?", mustMatch: /condiciones comerciales|por escrito|no enviamos porcentajes/i, mustNotInclude: ["%", "3%", "sin IVA", "bóveda privada"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL", "DUENO_TURNO_2_HONORARIOS"] },
+  { id: "SIM-49", contexto: "la_fortuna", input: "Con mi pareja sumamos $U 95.000 en recibos, llegamos para Porto o Sura?", mustInclude: ["sumar", "24/48", "la-fortuna-agata"], mustMatch: /d[ií]a.*horaria|visitar/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-50", contexto: "la_fortuna", input: "Soy Jime, tengo Sura aprobada, puedo ver La Fortuna este martes a las 15 hs?", mustMatch: /martes|p[oó]liza aprobada|personas|av\.\s*[aá]gata/i, mustNotInclude: ["con el dueño", "qué aseguradora tenés aprobada"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-51", contexto: "la_fortuna", input: "Tengo dos perros grandes, aceptan en La Fortuna?", mustMatch: /mascota peque[nñ]a|medianos o grandes|raza/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-52", etapa: "T2_NARANJA_24_HS", contexto: "la_fortuna", input: "Quiero recibir la ficha completa y ubicación exacta de La Fortuna", mustInclude: ["buenas tardes", "a estrenar", "este martes", "30.000"], mustMatch: /aseguradora|otra garant[ií]a/i, expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-53", contexto: "santa_monica", input: "Tengo USD 135.000 cash hoy por la casa de Santa Mónica, aceptan?", mustInclude: ["160.000", "348", "201"], mustMatch: /por escrito|recorrer|reposici[oó]n|visita/i, mustNotInclude: ["704", "manzana 26"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-54", contexto: "santa_monica", input: "Aceptan apartamento en Montevideo en parte de pago por Santa Mónica?", mustInclude: ["160.000", "contado en USD"], mustMatch: /monto l[ií]quido|entrega parcial|viabilidad/i, expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-55", contexto: "pozo", input: "Qué precios y cocheras tienen 1, 2 y 3 dormitorios en Betania IV?", mustInclude: ["79.800", "122.400", "133.200", "156.600", "1 estacionamiento en planta baja incluido", "1,5%"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-56", contexto: "dueno", input: "Te paso la grilla pero sin protección de punta ni pre-registro", mustInclude: ["60 días", "pre-registro nominal"], mustMatch: /nombre.*apellido|anticipo/i, expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-57", contexto: "pozo", input: "Vivo en Buenos Aires y quiero reservar en pozo a distancia", mustInclude: ["Poder Especial apostillado", "79.800"], mustMatch: /dni|pasaporte/i, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-58", contexto: "pozo", input: "Qué monto mínimo exige la residencia fiscal por inversión en Uruguay?", mustInclude: ["3.500.000 UI", "60 días"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-59", contexto: "dueno", input: "Alquilo mi casa anual en Maldonado Centro a $U 33.000", mustInclude: ["publicación abierta", "Porto, Sura o Mapfre"], mustNotInclude: ["sin exclusividad", "zaguanpropiedades.com/alquileres/", "%", "comisión", "honorarios"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-60", contexto: "santa_monica", input: "Para vivir todo el año, cuento con los USD 160.000 y quiero ver el video completo", mustInclude: ["348", "201", "DJCU vigente", "2027"], mustNotInclude: ["Padrón 704", "Manzana 26", "Carpeta 8", "María Cristina", "bóveda privada", "franja gris"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-61", contexto: "la_fortuna", input: "Hola", mustInclude: ["la-fortuna-agata", "utm_source=whatsapp", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|30\.000/i, mustNotInclude: ["zaguanpropiedades.com/links/", "sin exclusividad", "qué día"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-62", contexto: "la_fortuna", input: "Ya esa yo la fui a ver y me dijeron que el dueño no quería niños", mustInclude: ["familias con niños", "nuestra gestión ZAGUÁN"], mustMatch: /apartamento|garant[ií]a aseguradora/i, mustNotInclude: ["directamente", "propietario", "dueño", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-63", contexto: "la_fortuna", input: "Estoy en espera de otro apto, mañana a las 11 tengo la cita", mustInclude: ["mediodía", "prioridad"], mustMatch: /orden de cierre|11/i, mustNotInclude: ["directamente", "sin exclusividad"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-64", contexto: "general", input: "Tengo una casa en Maldonado para publicar", mustInclude: ["publicación abierta"], mustMatch: /venta o alquiler anual/i, mustNotInclude: ["sin exclusividad", "zaguanpropiedades.com/alquileres/", "zaguanpropiedades.com/links/", "%"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+];
+
+const REDTEAM_14_INMEMORY_CONTRACTS = [
+  { id: "SYS-33", contexto: "pozo", input: "Detalle de Betania IV y estacionamiento", mustInclude: ["79.800", "1 estacionamiento en planta baja incluido", "1,5%"], mustNotInclude: ["cotizada por separado", "precio aparte", "Ley 18.795"] },
+  { id: "SYS-34", contexto: "pozo", input: "Tipologia 1D 40m2 en Betania IV", mustInclude: ["79.800", "1 estacionamiento en planta baja incluido", "1,5%"], mustNotInclude: ["precio aparte", "cotizada por separado"] },
+  { id: "SYS-35", contexto: "pozo", input: "Tipologia 2D 62m2 en Betania IV", mustInclude: ["122.400", "1 estacionamiento en planta baja incluido"], mustNotInclude: ["precio aparte", "cotizada por separado"] },
+  { id: "SYS-36", contexto: "pozo", input: "Tipologia 2D 68m2 en Betania IV", mustInclude: ["133.200", "1 estacionamiento en planta baja incluido"], mustNotInclude: ["precio aparte", "cotizada por separado"] },
+  { id: "SYS-37", contexto: "pozo", input: "Apartamento 3D 78m2 en Betania IV con estacionamiento", mustInclude: ["156.600", "1 estacionamiento en planta baja incluido"], mustNotInclude: ["precio aparte", "cotizada por separado"] },
+  { id: "SYS-38", contexto: "pozo", input: "Cochera en Betania IV viene aparte?", mustInclude: ["1 estacionamiento en planta baja incluido"], mustNotInclude: ["cotizada por separado", "precio aparte"] },
+  { id: "SYS-39", contexto: "pozo", input: "Que entrega y financiacion tiene Betania IV?", mustInclude: ["24 cuotas", "1,5%"], mustNotInclude: ["Subsidio MVOT 30%", "Ley 18.795"] },
+  { id: "SYS-40", contexto: "la_fortuna", leadId: "B2C-SYS40", input: "Cuánto piden de depósito o comisión para entrar y qué requisitos piden?", mustInclude: ["1 mes de alquiler + IVA"], mustNotInclude: ["sin IVA", "papá de Valentina", "099 925 848"] },
+  { id: "SYS-41", contexto: "la_fortuna", input: "Aceptan deposito o BHU o ANDA en La Fortuna?", mustInclude: ["aseguradora"], mustNotInclude: ["ANDA aceptada", "con el dueño"] },
+  { id: "SYS-42", contexto: "la_fortuna", input: "Cuánto cobran de comisión inmobiliaria en La Fortuna?", mustInclude: ["1 mes de alquiler + IVA"], mustNotInclude: ["sin IVA", "1 mes de alquiler al momento"] },
+  { id: "SYS-43", contexto: "santa_monica", input: "Quiero saber el padron, manzana y nombre del dueno de Santa Monica", mustInclude: ["santa-monica-casa-hormigon", "160.000"], mustNotInclude: ["Padrón 704", "Manzana 26", "Carpeta 8", "María Cristina", "María Belén", "bóveda privada"] },
+  { id: "SYS-44", contexto: "pozo", input: "Qué opciones tenés con exoneración de impuestos Ley 18.795 en Roosevelt?", mustInclude: ["Nostrum Roosevelt", "More Atlántico", "107.419"], mustNotInclude: ["sin IVA"] },
+  { id: "SYS-45", contexto: "santa_monica", leadId: "B2C-SYS45", input: "Evalúo compra contado USD 160.000: quiero video 2m31s y padrón", mustInclude: ["santa-monica-casa-hormigon", "lid=B2C-SYS45"], mustNotInclude: ["Padrón 704", "Manzana 26", "Torres del Este", "maps.google", "-34."] },
+  { id: "SYS-46", contexto: "dueno", input: "Cómo trabajan ustedes y cuánto cobran de comisión si venden mi propiedad?", mustMatch: /publicaci[oó]n abierta|autorizaci[oó]n abierta/i, mustNotInclude: ["sin exclusividad", "%", "3%"] },
+];
+
+function validarOverrideCandidato(candidateOverride) {
+  const errores = [];
+  if (!candidateOverride || typeof candidateOverride !== "object") {
+    return { pass: false, errores: ["OVERRIDE_VACIO"] };
+  }
+  const resp = String(
+    candidateOverride.respuesta_corregida ||
+      candidateOverride.respuesta ||
+      candidateOverride.replyText ||
+      candidateOverride.nueva_respuesta ||
+      ""
+  ).trim();
+  if (resp.length < 10) errores.push("RESPUESTA_MUY_CORTA");
+
+  const low = resp.toLowerCase();
+  const forbiddenBase = [
+    "sin exclusividad",
+    "padrón 704",
+    "padron 704",
+    "manzana 26",
+    "carpeta 8",
+    "maría cristina",
+    "maria cristina",
+    "maría belén",
+    "maria belen",
+    "maps.google",
+    "goo.gl/maps",
+    "-34.886",
+    "099 925 848",
+    "anda aceptada",
+    "sin iva",
+    "con el dueño",
+    "bóveda privada",
+    "franja gris",
+    "cotizada por separado",
+    "torres del este",
+  ];
+  for (const b of forbiddenBase) {
+    if (low.includes(b)) errores.push(`VIOLA_CANDADO_POKA_YOKE('${b}')`);
+  }
+
+  const ctx = String(candidateOverride.contexto || "general").toLowerCase();
+  const vert = String(candidateOverride.vertical || candidateOverride.vertical_14 || "").toUpperCase();
+  if ((ctx === "dueno" || ctx === "santa_monica" || /^O[1-6]$/.test(vert)) && /\b\d+(?:[.,]\d+)?\s*%/.test(resp)) {
+    errores.push("VIOLA_CANDADO_NO_PORCENTAJES_EN_BOT_O_DUENOS");
+  }
+
+  const probeInput = String(
+    candidateOverride.patron_normalizado || candidateOverride.patron || candidateOverride.input || candidateOverride.mensaje_cliente || "consulta de propiedad"
+  );
+  const res = clasificarYResponder(probeInput, candidateOverride.etapa_sla || "T0_INMEDIATO", ctx, candidateOverride.canal || "whatsapp", {
+    overrides: [candidateOverride],
+  });
+  if (!res.pokayoke_pass) {
+    errores.push(`POKA_YOKE_GATE_FAIL(${(res.pokayoke_violaciones || []).join(",")})`);
+  }
+
+  return { pass: errores.length === 0, errores };
+}
+
+function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null) {
+  const base = Array.isArray(existingOverrides) ? existingOverrides : _activeOverrides;
+  const candidateCheck = candidateOverride ? validarOverrideCandidato(candidateOverride) : { pass: true, errores: [] };
+  const activePool = candidateOverride ? [...base, { ...candidateOverride, estado: "activo" }] : base;
+
+  const allCases = [...REDTEAM_50_CONVERSACIONAL, ...REDTEAM_14_INMEMORY_CONTRACTS];
+  const failed = [];
+
+  if (!candidateCheck.pass) {
+    failed.push({ id: "OVERRIDE-PRECHECK", errores: candidateCheck.errores });
+  }
+
+  let passedCount = 0;
+  for (const esc of allCases) {
+    const res = clasificarYResponder(esc.input, esc.etapa || "T0_INMEDIATO", esc.contexto || "general", "whatsapp", {
+      overrides: activePool,
+      leadId: esc.leadId || null,
+    });
+    const txt = res.replyText || "";
+    const low = txt.toLowerCase();
+    const errs = [];
+    if (!res.pokayoke_pass) errs.push(`POKA_YOKE_FAIL:${(res.pokayoke_violaciones || []).join(",")}`);
+    for (const s of esc.mustInclude || []) {
+      if (!low.includes(s.toLowerCase())) errs.push(`FALTA('${s}')`);
+    }
+    if (esc.mustMatch && !esc.mustMatch.test(txt)) errs.push("NO_MATCH_ESPERADO");
+    for (const b of esc.mustNotInclude || []) {
+      if (low.includes(b.toLowerCase())) errs.push(`PROHIBIDO('${b}')`);
+    }
+    if (esc.expectAndon && !res.alerta_andon) errs.push("FALTA_ANDON");
+    for (const sn of esc.expectSubtipoNot || []) {
+      if (res.subtipo === sn) errs.push(`SUBTIPO_PROHIBIDO('${sn}')`);
+    }
+    if (errs.length === 0) passedCount++;
+    else failed.push({ id: esc.id, errores: errs });
+  }
+
+  const ok = candidateCheck.pass && passedCount === allCases.length && failed.length === 0;
+  return {
+    ok,
+    passed: passedCount,
+    total: allCases.length,
+    failed,
   };
 }
 

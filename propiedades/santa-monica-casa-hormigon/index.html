@@ -828,6 +828,9 @@
           th.classList.remove('active');
         }
       });
+      if (typeof window.__zgTrackGalleryPhotoSM === 'function') {
+        window.__zgTrackGalleryPhotoSM(currentIndex);
+      }
     }
 
     function openLightbox(index) {
@@ -890,6 +893,37 @@
         }
       }
     }
+
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var lid = params.get('lid');
+      var beaconUrl = 'https://zaguan-crm-bot.943ari.workers.dev/api/ficha-evento';
+      var visitedFotos = {};
+      var foto2Sent = false;
+      function sendFichaBeacon(evento, fotosCount) {
+        if (!lid || !navigator.sendBeacon) return;
+        try {
+          var blob = new Blob([JSON.stringify({
+            lid: lid,
+            slug: 'santa-monica-casa-hormigon',
+            evento: evento,
+            fotos_vistas: fotosCount
+          })], { type: 'text/plain;charset=UTF-8' });
+          navigator.sendBeacon(beaconUrl, blob);
+        } catch (e) {}
+      }
+      if (lid) {
+        sendFichaBeacon('vista', 1);
+      }
+      window.__zgTrackGalleryPhotoSM = function(idx) {
+        visitedFotos[String(idx)] = true;
+        var count = Object.keys(visitedFotos).length;
+        if (lid && !foto2Sent && count >= 2) {
+          foto2Sent = true;
+          sendFichaBeacon('fotos_2_plus', count);
+        }
+      };
+    })();
   </script>
   <script src="/assets/js/novedades-header.js" defer></script>
 </body>

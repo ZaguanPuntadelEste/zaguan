@@ -1621,7 +1621,10 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
   const hist = (itemFallback && Array.isArray(itemFallback.conversaciones)) ? itemFallback.conversaciones : [];
   const sugerencia = buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respActual, itemFallback);
   const cleanPhone = (telefonoWa || '').replace(/[^0-9]/g, '');
-  const waReplyHref = cleanPhone && sugerencia ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(sugerencia)}` : '';
+  const hasPreFicha = Boolean(itemFallback && itemFallback.resumen_pre_ficha && !itemFallback.pre_ficha_confirmada);
+  const goTurno = hasPreFicha ? 'PRE_FICHA' : (rec.carril === '1_por_contactar' ? 'T0' : rec.carril === '2_esperando_respuesta_72h' ? 'T1' : 'T2');
+  const waReplyHref = cleanPhone && sugerencia ? `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(id)}&turno=${encodeURIComponent(goTurno)}` : '';
+  const waPreFichaHref = cleanPhone && hasPreFicha ? `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(id)}&turno=PRE_FICHA` : '';
 
   const timelineHtml = hist.length
     ? `<div style="margin-bottom:8px;max-height:160px;overflow-y:auto;display:grid;gap:5px;">
@@ -1690,14 +1693,31 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
           <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:68px;font-size:12px;">${sugerencia}</textarea>
           <div class="btn-row" style="margin-top:6px;">
             <button class="btn btn-yes btn-sm" onclick="copyTextById('sug-reply-${prefixId}-${id}')">📋 Copiar copy de Mar</button>
-            ${waReplyHref ? `<a class="btn btn-wa btn-sm" href="${waReplyHref}" target="_blank" rel="noopener noreferrer">📲 Abrir WhatsApp con este copy</a>` : ''}
-            <button class="btn btn-outline btn-sm" onclick="confirmarEnvioMar('${id}', 'sug-reply-${prefixId}-${id}')">✅ Ya lo mandé (registrar en hilo D1)</button>
+            ${waReplyHref ? `<a class="btn btn-wa btn-sm" href="${waReplyHref}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(hydrateRadarFromCloud, 1800)">📲 Abrir WhatsApp en 1 clic (auto-registra 72h)</a>` : ''}
+            ${waPreFichaHref ? `<a class="btn btn-wa btn-sm" style="background:#0EA5E9;color:#04121E;" href="${waPreFichaHref}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(hydrateRadarFromCloud, 1800)">📝 Enviar Resumen Pre-Ficha (1 clic)</a>` : ''}
+            ${hasPreFicha ? `<button class="btn btn-yes btn-sm" onclick="confirmarPreFichaCabina('${id}')">✅ Confirmó "Sí" → Activar Ficha + Aprobalo</button>` : ''}
           </div>
         </div>
       ` : ''}
     </div>
   `;
 }
+
+window.confirmarPreFichaCabina = async function(id) {
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/propietarios/confirmar-pre-ficha`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id, texto_confirmacion: 'Sí (confirmado en Cabina)' })
+    });
+    const out = await res.json();
+    if (!res.ok || !out.ok) throw new Error(out.error || 'Error confirmando Pre-Ficha');
+    await hydrateRadarFromCloud();
+    alert(`✅ Pre-Ficha confirmada para ${id}: pasó a Ficha Activa, se encoló sin datos privados (${out.cola_id}) y se envió borrador a Aprobalo.`);
+  } catch (e) {
+    alert('Error al confirmar Pre-Ficha: ' + (e.message || e));
+  }
+};
 
 window.guardarRespuestaContacto = async function(id, nuevoEstado, inputId) {
   const el = document.getElementById(inputId);
@@ -2034,7 +2054,7 @@ function renderRadar4Z() {
     grid.innerHTML = list.map((it, idx) => {
       const msg1 = lintMarLocal(it.mensaje_mar || '');
       const seg1 = lintMarLocal(it.seguimiento_72h || '');
-      const waDirect = it.telefono_directo ? `https://wa.me/${it.telefono_directo}?text=${encodeURIComponent(msg1)}` : '';
+      const waDirect = it.telefono_directo ? `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(it.id)}&turno=T0` : '';
       const rec = getContactRecord(it.id, it);
       return `
       <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}">
@@ -2064,8 +2084,7 @@ function renderRadar4Z() {
           <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
         </details>
         <div class="btn-row">
-          ${rec.estado !== 'cerrado' && waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer">📲 1° WhatsApp Directo (${it.telefono_directo})</a>` : ''}
-          ${rec.estado === 'pendiente' ? `<button class="btn btn-outline btn-sm" onclick="confirmarEnvioMar('${it.id}', 'mp-msg-${idx}')">✅ Ya lo mandé</button>` : ''}
+          ${rec.estado !== 'cerrado' && waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(hydrateRadarFromCloud, 1800)">📲 1° WhatsApp Directo (${it.telefono_directo} · auto-registra 72h)</a>` : ''}
           ${rec.estado !== 'cerrado' ? `<button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>` : ''}
           ${it.url ? `<a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>` : ''}
         </div>
