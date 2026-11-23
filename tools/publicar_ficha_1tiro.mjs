@@ -130,7 +130,7 @@ function resolveVars(spec, fullUrl) {
     ADMISION_NINOS_MASCOTAS: spec.admision || "A confirmar",
     COCHERA: spec.cochera || "Consultar opciones",
     GARANTIA_ACEPTADA: spec.garantias || "Garantía aseguradora (Porto Seguro, Sura, Mapfre o Santander)",
-    HORARIO_VISITAS: spec.horario_visitas || "A coordinar",
+    HORARIO_VISITAS: "Con cita previa",
     URL_FICHA: fullUrl,
   };
 }
@@ -214,7 +214,7 @@ function lcFirst(s) {
   return txt ? txt.charAt(0).toLowerCase() + txt.slice(1) : txt;
 }
 
-function lintSocialText(txt, { allowUrl = true } = {}) {
+function lintSocialText(txt, { allowUrl = true, requireAduana = false } = {}) {
   if (/[¿¡]/.test(txt)) throw new Error(`Linter SÍ/NO: signo ¿/¡ prohibido en copy: ${txt.slice(0, 80)}`);
   const mMente = txt.match(FORBIDDEN_MENTE_RE);
   if (mMente) throw new Error(`Linter SÍ/NO: adverbio "${mMente[0]}" prohibido en copy: ${txt.slice(0, 80)}`);
@@ -223,6 +223,12 @@ function lintSocialText(txt, { allowUrl = true } = {}) {
   }
   if (!allowUrl && /https?:\/\/|wa\.me\//i.test(txt)) {
     throw new Error(`Linter Instagram/TikTok: URL cruda prohibida en copy: ${txt.slice(0, 80)}`);
+  }
+  if (/\b(?:desde\s+las\s+\d{1,2}|todos\s+los\s+d[ií]as\s+desde|\d{1,2}:00\s*hs|\d{1,2}\s*hs\+?)/i.test(txt)) {
+    throw new Error(`Fuga de horario interno del dueño prohibida en copy público: ${txt.slice(0, 100)}`);
+  }
+  if (requireAduana && !/(?:aseguradora|porto|sura|mapfre)/i.test(txt)) {
+    throw new Error(`Falta Aduana de Aseguradora (Porto/Sura/Mapfre/Santander) en copy: ${txt.slice(0, 100)}`);
   }
   return txt;
 }
@@ -246,31 +252,34 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
       cover_photo_local: pickPhoto(0),
       cover_filename: "01-portada-precio-visita.jpg",
       badge_top: "ALQUILER ANUAL",
-      kicker: `${v.ZONA_PUBLICA} · REF. ${v.REF_PUBLICA}`,
-      headline: `${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}: ${v.PRECIO_BASE}`,
-      subline: `Gastos comunes $U 5.000 (agua inc.). ${v.HORARIO_VISITAS}.`,
-      cta_card: "Pedir visita por WhatsApp · ZAGUÁN Propiedades",
+      kicker: lintSocialText(`${v.ZONA_PUBLICA} · REF. ${v.REF_PUBLICA}`),
+      headline: lintSocialText(`${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}: ${v.PRECIO_BASE}`),
+      subline: lintSocialText("Gastos comunes $U 5.000 (agua inc.). Solo garantía aseguradora."),
+      cta_card: lintSocialText("Pedir visita por WhatsApp · ZAGUÁN Propiedades"),
       instagram_copy: lintSocialText(
         `Buscás alquiler anual claro en ${v.ZONA_PUBLICA} sin sorpresas en el monto final?\n\n` +
           `Unidad de ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.PISO_ORIENTACION}: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.EQUIPAMIENTO}. ${v.ADMISION_NINOS_MASCOTAS}.\n\n` +
-          `Pedinos visita ${lcFirst(v.HORARIO_VISITAS)} escribiendo "VISITA" por mensaje privado o tocando el enlace directo de WhatsApp en nuestra biografía.\n\n` +
+          `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}.\n\n` +
+          `Pedinos visita con cita previa escribiendo "VISITA" por mensaje privado o tocando el enlace directo de WhatsApp en nuestra biografía.\n\n` +
           `#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades`,
-        { allowUrl: false }
+        { allowUrl: false, requireAduana: true }
       ),
       tiktok_copy: lintSocialText(
-        `Alquiler anual ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.PISO_ORIENTACION}. ${v.ADMISION_NINOS_MASCOTAS}. Escribí VISITA o tocá el link de nuestra bio para coordinar.`,
-        { allowUrl: false }
+        `Alquiler anual ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.PISO_ORIENTACION}. ${v.GARANTIA_ACEPTADA}. Escribí VISITA o tocá el link de nuestra bio para coordinar con cita previa.`,
+        { allowUrl: false, requireAduana: true }
       ),
       facebook_copy: lintSocialText(
         `Alquiler anual en ${v.ZONA_PUBLICA} · ${v.DORMITORIOS} dormitorios (${v.METROS_M2})\n\n` +
           `Valor: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.PISO_ORIENTACION}, ${lcFirst(v.EQUIPAMIENTO)}, ${lcFirst(v.SEGURIDAD_EDIFICIO)}. ${v.ADMISION_NINOS_MASCOTAS}.\n` +
-          `${v.GARANTIA_ACEPTADA}.\n\n` +
-          `Reservá tu visita (${v.HORARIO_VISITAS}) desde la ficha oficial: ${fullUrl}`
+          `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}.\n\n` +
+          `Reservá tu visita con cita previa desde la ficha oficial: ${fullUrl}`,
+        { requireAduana: true }
       ),
       linkedin_copy: lintSocialText(
         `Disponible en cartera activa de ZAGUÁN Propiedades (${v.REF_PUBLICA}): apartamento de ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.ZONA_PUBLICA} para contrato anual.\n\n` +
           `Condiciones publicadas de frente: ${v.PRECIO_BASE} más gastos comunes (${v.GASTOS_COMUNES}), edificio con ascensor y cámaras. ${v.GARANTIA_ACEPTADA}.\n\n` +
-          `Ver ficha técnica completa: ${fullUrl}`
+          `Coordinamos visitas con cita previa. Ver ficha técnica completa: ${fullUrl}`,
+        { requireAduana: true }
       ),
       youtube_title: lintSocialText(`${v.ZONA_PUBLICA} ${v.DORMITORIOS}D · ${v.PRECIO_BASE} · ${v.REF_PUBLICA}`).slice(0, 98),
     },
@@ -281,29 +290,31 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
       cover_photo_local: pickPhoto(4),
       cover_filename: "02-portada-luz-confort.jpg",
       badge_top: "SOL DE INVIERNO",
-      kicker: `PISO 4 NORTE · ${v.ZONA_PUBLICA}`,
-      headline: "Sol de invierno y sombra fresca en verano",
-      subline: "Aire y calefón incluidos. Simulá tu garantía.",
-      cta_card: "Simular garantía gratis · ZAGUÁN Propiedades",
+      kicker: lintSocialText(`PISO 4 NORTE · ${v.ZONA_PUBLICA}`),
+      headline: lintSocialText("Sol de invierno y sombra fresca en verano"),
+      subline: lintSocialText("Aire y calefón incluidos. Simulá tu garantía."),
+      cta_card: lintSocialText("Simular garantía gratis · ZAGUÁN Propiedades"),
       instagram_copy: lintSocialText(
         `Orientación Norte real: entra el sol en invierno en los dormitorios y tenés atardecer en el living y la cocina.\n\n` +
           `Son ${v.METROS_M2} listos para mudarse: queda instalado aire acondicionado y calefón, con ${lcFirst(v.SEGURIDAD_EDIFICIO)} y doble ventanal de vidrio al frente. ${v.COCHERA}.\n\n` +
-          `Comprobá hoy si tu póliza califica tocando nuestro enlace del perfil o escribiendo "GARANTÍA" por WhatsApp desde la bio.\n\n` +
+          `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}. Comprobá hoy si tu póliza califica tocando nuestro enlace del perfil o escribiendo "GARANTÍA" por WhatsApp desde la bio.\n\n` +
           `#MaldonadoCentro #AlquilerMaldonado #ViviendaUruguay #ZaguanPropiedades`,
-        { allowUrl: false }
+        { allowUrl: false, requireAduana: true }
       ),
       tiktok_copy: lintSocialText(
-        `Sol en invierno al Norte y sombra fresca en verano: ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.ZONA_PUBLICA} con aire y calefón listos. Simulá tu garantía desde el link de la bio.`,
-        { allowUrl: false }
+        `Sol en invierno al Norte y sombra fresca en verano: ${v.DORMITORIOS} dormitorios (${v.METROS_M2}) en ${v.ZONA_PUBLICA} con aire y calefón listos. ${v.GARANTIA_ACEPTADA}. Simulá tu garantía desde el link de la bio.`,
+        { allowUrl: false, requireAduana: true }
       ),
       facebook_copy: lintSocialText(
         `Luz Norte real en invierno y aire acondicionado + calefón ya instalados en ${v.ZONA_PUBLICA}.\n\n` +
-          `Piso 4 por ascensor (${v.METROS_M2}, 2 dormitorios en parquet), lavadero definido y doble ventanal al frente. ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}.\n\n` +
-          `Ver fotos reales y simular tu garantía aseguradora en 30 segundos: ${fullUrl}`
+          `Piso 4 por ascensor (${v.METROS_M2}, 2 dormitorios en parquet), lavadero definido y doble ventanal al frente. ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. ${v.GARANTIA_ACEPTADA}.\n\n` +
+          `Ver fotos reales y simular tu garantía aseguradora en 30 segundos: ${fullUrl}`,
+        { requireAduana: true }
       ),
       linkedin_copy: lintSocialText(
-        `En ZAGUÁN Propiedades publicamos unidades anuales con historial real verificado: ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}, ${v.PISO_ORIENTACION}, doble ventanal al frente y aire + calefón listos.\n\n` +
-          `Ficha completa y simulador multi-persona de requisitos aseguradores: ${fullUrl}`
+        `En ZAGUÁN Propiedades publicamos unidades anuales con historial real verificado: ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA}, ${v.PISO_ORIENTACION}, doble ventanal al frente y aire + calefón listos. ${v.GARANTIA_ACEPTADA}.\n\n` +
+          `Ficha completa y simulador multi-persona de requisitos aseguradores: ${fullUrl}`,
+        { requireAduana: true }
       ),
       youtube_title: lintSocialText(`Luz Norte 2D en ${v.ZONA_PUBLICA} · ${v.PRECIO_BASE} · ZAGUÁN`).slice(0, 98),
     },
@@ -314,29 +325,32 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
       cover_photo_local: pickPhoto(2),
       cover_filename: "03-portada-familia-mascotas.jpg",
       badge_top: "NIÑOS Y MASCOTAS",
-      kicker: `EDIFICIO SEGURO · CÁMARAS`,
-      headline: "Acepta niños y mascotas en edificio con cámaras",
-      subline: "Cocina definida y lavadero. Visitas desde 16 hs.",
-      cta_card: "Consultar horarios de visita · ZAGUÁN Propiedades",
+      kicker: lintSocialText(`EDIFICIO SEGURO · CÁMARAS`),
+      headline: lintSocialText("Acepta niños y mascotas en edificio con cámaras"),
+      subline: lintSocialText("Cocina definida y lavadero. Garantía Porto, Sura o Mapfre."),
+      cta_card: lintSocialText("Coordinar visita con cita previa · ZAGUÁN"),
       instagram_copy: lintSocialText(
         `Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\n` +
           `Este 2 dormitorios en ${v.ZONA_PUBLICA} suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\n` +
-          `Te mandamos los detalles completos y coordinamos visita ${lcFirst(v.HORARIO_VISITAS)}: escribinos "FICHA" por privado o al WhatsApp del perfil.\n\n` +
+          `${v.GARANTIA_ACEPTADA}. Te mandamos los detalles completos y coordinamos visita con cita previa: escribinos "FICHA" por privado o al WhatsApp del perfil.\n\n` +
           `#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades`,
-        { allowUrl: false }
+        { allowUrl: false, requireAduana: true }
       ),
       tiktok_copy: lintSocialText(
-        `Acepta niños y mascotas en ${v.ZONA_PUBLICA}: ${v.DORMITORIOS} dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. Escribí FICHA para ver fotos y horarios desde las 16 hs.`,
-        { allowUrl: false }
+        `Acepta niños y mascotas en ${v.ZONA_PUBLICA}: ${v.DORMITORIOS} dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. ${v.GARANTIA_ACEPTADA}. Escribí FICHA para ver fotos y coordinar visita con cita previa.`,
+        { allowUrl: false, requireAduana: true }
       ),
       facebook_copy: lintSocialText(
         `Apartamento 2 dormitorios en ${v.ZONA_PUBLICA} que acepta niños y mascotas.\n\n` +
-          `Edificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n\n` +
-          `Mirá todas las fotos y reservá horario de visita desde las 16 hs acá: ${fullUrl}`
+          `Edificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n` +
+          `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}.\n\n` +
+          `Mirá todas las fotos y reservá horario de visita con cita previa acá: ${fullUrl}`,
+        { requireAduana: true }
       ),
       linkedin_copy: lintSocialText(
         `Un diferencial clave de esta unidad en ${v.ZONA_PUBLICA}: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero. ${v.GARANTIA_ACEPTADA}.\n\n` +
-          `Detalles y ficha: ${fullUrl}`
+          `Visitas con cita previa. Detalles y ficha: ${fullUrl}`,
+        { requireAduana: true }
       ),
       youtube_title: lintSocialText(`Alquiler 2D ${v.ZONA_PUBLICA} acepta niños y mascotas · ${v.REF_PUBLICA}`).slice(0, 98),
     },
@@ -347,28 +361,30 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
       cover_photo_local: pickPhoto(1),
       cover_filename: "04-portada-aseguradora-ads.jpg",
       badge_top: "PORTO · SURA · MAPFRE",
-      kicker: `ASEGURADORA PRIVADA · VISITAS 16 HS+`,
-      headline: "Tenés Porto, Sura, Mapfre o Santander? Visitalo ya",
-      subline: `${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Respuesta directa con Mar.`,
-      cta_card: "Escribir ahora por WhatsApp · ZAGUÁN Propiedades",
+      kicker: lintSocialText(`GARANTÍA EXCLUYENTE · PORTO · SURA · MAPFRE`),
+      headline: lintSocialText("Tenés Porto, Sura, Mapfre o Santander? Visitalo ya"),
+      subline: lintSocialText(`${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Respuesta directa con Mar.`),
+      cta_card: lintSocialText("Escribir ahora por WhatsApp · ZAGUÁN Propiedades"),
       instagram_copy: lintSocialText(
         `Contás con garantía aseguradora o recibos continuos en BPS y querés mudarte ya en ${v.ZONA_PUBLICA}?\n\n` +
-          `Recorré en video este 2 dormitorios Piso 4 Norte: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Visitas disponibles ${lcFirst(v.HORARIO_VISITAS)}.\n\n` +
+          `Recorré en video este 2 dormitorios Piso 4 Norte: ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}. Coordinamos visitas con cita previa.\n\n` +
           `Tocá el botón de WhatsApp en nuestra biografía o comentá "ALQUILER" para pasarte la ficha y coordinar esta semana.\n\n` +
           `#PortoSeguro #Sura #GarantiaDeAlquiler #Maldonado #ZaguanPropiedades`,
-        { allowUrl: false }
+        { allowUrl: false, requireAduana: true }
       ),
       tiktok_copy: lintSocialText(
-        `Recorrido en video · ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA} con garantía Porto, Sura, Mapfre o Santander. ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Visitas desde las 16 hs, link en el perfil.`,
-        { allowUrl: false }
+        `Recorrido en video · ${v.DORMITORIOS} dormitorios en ${v.ZONA_PUBLICA} con garantía Porto, Sura, Mapfre o Santander. ${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}. Visitas con cita previa, link en el perfil.`,
+        { allowUrl: false, requireAduana: true }
       ),
       facebook_copy: lintSocialText(
         `Recorrido en video · Alquiler anual 2D en ${v.ZONA_PUBLICA} (${v.PRECIO_BASE} + ${v.GASTOS_COMUNES}).\n\n` +
-          `${v.GARANTIA_ACEPTADA}. Consultá o agendá visita ${lcFirst(v.HORARIO_VISITAS)} en la ficha oficial: ${fullUrl}`
+          `Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}. Consultá o agendá visita con cita previa en la ficha oficial: ${fullUrl}`,
+        { requireAduana: true }
       ),
       linkedin_copy: lintSocialText(
-        `Video presentación de alquiler anual (${v.REF_PUBLICA}) en ${v.ZONA_PUBLICA}. Proceso precalificado con aseguradora y visitas ágiles todos los días desde las 16 hs.\n\n` +
-          `Ficha completa: ${fullUrl}`
+        `Video presentación de alquiler anual (${v.REF_PUBLICA}) en ${v.ZONA_PUBLICA}. Proceso precalificado con aseguradora y visitas ágiles con cita previa. ${v.GARANTIA_ACEPTADA}.\n\n` +
+          `Ficha completa: ${fullUrl}`,
+        { requireAduana: true }
       ),
       youtube_title: lintSocialText(`Video 2D ${v.ZONA_PUBLICA} con aseguradora · ${v.REF_PUBLICA}`).slice(0, 98),
     },
@@ -390,7 +406,7 @@ function build4SocialPostsAndAds(spec, photos, photosDir, fullUrl, mp4Rel, dryRu
       "Tengo ingresos para tramitar aseguradora y quiero simular garantía",
       "Busco en otra zona o con depósito / tengo propiedad para publicar",
     ],
-    comentario_precio_publico_ig: `El alquiler es de ${v.PRECIO_BASE} más ${v.GASTOS_COMUNES} de gastos comunes. Tocá el botón del anuncio o el enlace de nuestro perfil para enviarte la ficha completa.`,
+    comentario_precio_publico_ig: `El alquiler es de ${v.PRECIO_BASE} más ${v.GASTOS_COMUNES} de gastos comunes. Requisito excluyente: ${lcFirst(v.GARANTIA_ACEPTADA)}. Tocá el botón del anuncio o el enlace de nuestro perfil para ver la ficha y coordinar visita con cita previa.`,
     piezas_a_rotar: pieces.map((p) => ({
       codigo: p.codigo,
       portada_url: `${BASE_URL}/${packWebRel}/${p.cover_filename}`,
@@ -1228,7 +1244,6 @@ if (args.flags.audit) {
     admision: "Acepta niños y mascotas",
     cochera: "Cocheras en alquiler en el edificio",
     garantias: "Garantía aseguradora (Porto Seguro, Sura, Mapfre o Santander)",
-    horario_visitas: "Desde las 16:00 hs todos los días",
     dormitorios: 2,
     fotos_zip: "/ruta/al/WhatsApp.zip",
     estado_prefijo: "4",

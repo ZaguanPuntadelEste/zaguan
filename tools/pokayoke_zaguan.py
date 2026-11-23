@@ -92,6 +92,18 @@ def audit_text(text: str, vertical: str, primer_contacto: bool = False) -> list[
         if "zaguanpropiedades.com" not in text.lower():
             errs.append("BIENVENIDA_PASIVA inválida: falta link vivo de autoservicio a zaguanpropiedades.com.")
 
+    # Horarios internos del propietario (SOLO agenda interna de Ariana — prohibido en público)
+    owner_sched = re.search(
+        r"\b(?:desde\s+las\s+\d{1,2}|todos\s+los\s+d[ií]as\s+desde|\d{1,2}:00\s*hs|\d{1,2}\s*hs\+?)",
+        text,
+        re.IGNORECASE,
+    )
+    if owner_sched:
+        errs.append(
+            f"FUGA DE HORARIO INTERNO DEL DUEÑO ('{owner_sched.group(0)}'): "
+            "la disponibilidad del propietario es solo para agenda interna; en público usar 'con cita previa'."
+        )
+
     return errs
 
 
