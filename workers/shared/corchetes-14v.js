@@ -278,7 +278,7 @@ export function filtrarPayloadPublicoSinBoveda(input, depth = 0) {
 }
 
 export function detectarVerticalPropietario(row = {}, extraTexto = "") {
-  const combined = `${row.vertical_14 || ""} ${row.tipo_contacto || ""} ${row.categoria || ""} ${row.titulo_o_activo || ""} ${row.precio_publicado || ""} ${row.notas || ""} ${extraTexto || ""}`.toLowerCase();
+  const combined = `${row.vertical_14 || ""} ${row.tipo_operacion || ""} ${row.tipo_contacto || ""} ${row.categoria || ""} ${row.titulo_o_activo || ""} ${row.publicacion_titulo || ""} ${row.precio_publicado || ""} ${row.precio_texto || ""} ${row.notas || ""} ${row.notas_internas || ""} ${extraTexto || ""}`.toLowerCase();
   const explicitMatch = String(row.vertical_14 || "").match(/\b([OD][1-7])\b/i);
   if (explicitMatch) {
     const code = explicitMatch[1].toUpperCase();
@@ -319,21 +319,30 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     prevSaved = {};
   }
 
+  const tituloIn = propietario.titulo_o_activo || propietario.publicacion_titulo;
+  const zonaIn = propietario.zona_barrio || propietario.empresa_o_zona;
+  const precioIn = propietario.precio_publicado || propietario.precio_texto;
   const rawCorpus = [
-    propietario.titulo_o_activo,
-    propietario.empresa_o_zona,
-    propietario.zona_barrio,
-    propietario.precio_publicado,
+    tituloIn,
+    zonaIn,
+    precioIn,
+    propietario.tipo_operacion,
     propietario.notas,
+    propietario.notas_internas,
+    propietario.respuesta_recibida,
     propietario.mensaje_mar,
+    propietario.dormitorios !== null && propietario.dormitorios !== undefined ? `${propietario.dormitorios} dormitorios` : "",
+    propietario.garantias_aceptadas,
+    propietario.gastos_comunes_incluidos ? "gastos comunes incluidos" : "",
+    propietario.acepta_mascota,
     extraTexto,
   ]
     .filter(Boolean)
     .join(" · ");
 
   const c = { ...(prevSaved.confirmados || prevSaved || {}) };
-  if (propietario.empresa_o_zona || propietario.zona_barrio) {
-    c.zona_barrio = c.zona_barrio || propietario.zona_barrio || propietario.empresa_o_zona;
+  if (zonaIn) {
+    c.zona_barrio = c.zona_barrio || zonaIn;
   }
 
   // Precio USD / UYU
@@ -348,10 +357,10 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     c.precio_uyu = uyuVal;
     c.precio_publicado = c.precio_publicado || uyuVal;
   }
-  if (propietario.precio_publicado && !c.precio_publicado) {
-    c.precio_publicado = propietario.precio_publicado;
-    if (/usd|u\$s/i.test(propietario.precio_publicado)) c.precio_usd = c.precio_usd || propietario.precio_publicado;
-    else if (/\$|uyu/i.test(propietario.precio_publicado)) c.precio_uyu = c.precio_uyu || propietario.precio_publicado;
+  if (precioIn && !c.precio_publicado) {
+    c.precio_publicado = precioIn;
+    if (/usd|u\$s/i.test(precioIn)) c.precio_usd = c.precio_usd || precioIn;
+    else if (/\$|uyu/i.test(precioIn)) c.precio_uyu = c.precio_uyu || precioIn;
   }
 
   // Dormitorios / Banos
@@ -506,10 +515,10 @@ export function evaluarCorchetesPropietario(propietario = {}, extraTexto = "") {
   const cubiertos = totalReq - faltantes.length;
   const porcentaje = Math.round((cubiertos / totalReq) * 100);
 
-  const nombre = primerNombrePersona(propietario.nombre_persona);
+  const nombre = primerNombrePersona(propietario.nombre_persona || propietario.nombre);
   const saludo = nombre ? `Hola ${nombre}` : "Hola";
   const zonaPublica = filtrarPayloadPublicoSinBoveda(confirmados.zona_barrio || propietario.empresa_o_zona || "Maldonado");
-  const tituloPublico = filtrarPayloadPublicoSinBoveda(propietario.titulo_o_activo || `${spec.operacion} en ${zonaPublica}`);
+  const tituloPublico = filtrarPayloadPublicoSinBoveda(propietario.titulo_o_activo || propietario.publicacion_titulo || `${spec.operacion} en ${zonaPublica}`);
 
   let siguientePreguntaWa = "";
   if (faltantes.length > 0) {
@@ -561,10 +570,10 @@ export function evaluarCorchetesPropietario(propietario = {}, extraTexto = "") {
 export function construirPayloadBorradorAprobalo(propietario = {}, evalResult = {}) {
   const safeProp = filtrarPayloadPublicoSinBoveda(propietario);
   const safeEval = filtrarPayloadPublicoSinBoveda(evalResult);
-  const zona = safeEval?.confirmados?.zona_barrio || safeProp.empresa_o_zona || "Maldonado";
-  const precio = safeEval?.confirmados?.precio_usd || safeEval?.confirmados?.precio_uyu || safeEval?.confirmados?.precio_publicado || safeProp.precio_publicado || "Valor a consultar";
+  const zona = safeEval?.confirmados?.zona_barrio || safeProp.zona_barrio || safeProp.empresa_o_zona || "Maldonado";
+  const precio = safeEval?.confirmados?.precio_usd || safeEval?.confirmados?.precio_uyu || safeEval?.confirmados?.precio_publicado || safeProp.precio_publicado || safeProp.precio_texto || "Valor a consultar";
   const op = safeEval?.operacion || "Propiedad destacada";
-  const titulo = safeProp.titulo_o_activo || `${op} en ${zona}`;
+  const titulo = safeProp.titulo_o_activo || safeProp.publicacion_titulo || `${op} en ${zona}`;
 
   const bullets = Object.entries(safeEval?.confirmados || {})
     .filter(([k]) => !/^(fotos_video|disponibilidad_visitas)$/.test(k))
