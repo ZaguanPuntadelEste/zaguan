@@ -8,10 +8,19 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const CSV_DRIVE = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/MASTER_PUBLICACIONES_Y_OKS_ZAGUAN.csv';
+const RADAR_VIVA_DRIVE = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/prospeccion_viva_4zonas_zaguan.json';
 const OUT_DRIVE = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/CONOCIMIENTO_CONCATENADO_14V_ZAGUAN.json';
 const OUT_DESK = '/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/CONOCIMIENTO_CONCATENADO_14V_ZAGUAN.json';
 const RADAR_OUT = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/admin/radar_portales_abiertos.json';
 const RADAR_OUT_DESK = '/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/radar_portales_abiertos.json';
+
+let MP_RADAR_MAP = {};
+try {
+  const radarObj = JSON.parse(readFileSync(RADAR_VIVA_DRIVE, 'utf-8'));
+  for (const mp of (radarObj.marketplace_duenos_directos || [])) {
+    MP_RADAR_MAP[mp.id] = mp;
+  }
+} catch {}
 
 function parseCSV(text) {
   const clean = text.replace(/^\uFEFF/, '');
@@ -264,6 +273,10 @@ function construirConcatenado(row) {
     };
   }
 
+  const mpEntry = MP_RADAR_MAP[row.id_registro];
+  if (mpEntry && mpEntry.mensaje_mar && !['MP-12', 'MP-16'].includes(row.id_registro)) {
+    guionWa = mpEntry.mensaje_mar;
+  }
   const pk = validarPokaYokeTexto(guionWa, vCode);
   const waLink = telDigits.length >= 8 ? `https://wa.me/${telDigits}?text=${encodeURIComponent(guionWa)}` : '';
   if (row.ok_bienvenida === 'pendiente_bienvenida' && row.estado_crm === 'respondio') {
@@ -284,7 +297,9 @@ function construirConcatenado(row) {
     ok_bienvenida: row.ok_bienvenida,
     candado_franja_gris: /^O[1-6]$/.test(vCode),
     dolor_detectado: meta.dolor,
-    faltantes_capa_1: meta.capa1,
+    corchetes_en_aviso: mpEntry?.corchetes_en_aviso || [],
+    estado_material_aviso: mpEntry?.estado_material_aviso || '',
+    faltantes_capa_1: mpEntry?.corchetes_faltantes?.length ? mpEntry.corchetes_faltantes : meta.capa1,
     faltantes_capa_2: meta.capa2,
     condiciones_actuales: row.condiciones_y_faltantes,
     concatenado_4_salidas: {

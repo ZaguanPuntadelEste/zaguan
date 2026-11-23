@@ -1386,27 +1386,42 @@ function lintMarLocal(text) {
   return s;
 }
 
-function hydrateRadarFromCloud(crm) {
+function hydrateRadarFromCloud(crm, localFallback = null) {
   crmCloudState = crm;
   const mp = [];
   const pd = [];
   const inm = [];
   if (!state.seguimiento_radar) state.seguimiento_radar = {};
 
+  const localMpMap = {};
+  const localPdMap = {};
+  if (localFallback) {
+    (localFallback.marketplace_duenos_directos || []).forEach(x => { localMpMap[x.id] = x; });
+    (localFallback.prospectos_directos_4zonas || []).forEach(x => { localPdMap[x.id] = x; });
+  }
+
   (crm.propietarios || []).forEach(p => {
     let raw = {};
     try { raw = p.raw_json ? JSON.parse(p.raw_json) : {}; } catch (e) {}
+    const loc = localMpMap[p.id] || localPdMap[p.id] || {};
     const merged = {
       ...raw,
       ...p,
-      vendedor: raw.vendedor || p.nombre,
-      titulo: p.publicacion_titulo || raw.titulo || '',
-      precio: p.precio_texto || raw.precio || '',
-      zona: p.empresa_o_zona || raw.zona || '',
-      telefono_directo: p.telefono || raw.telefono_directo || '',
-      url: p.url_aviso || raw.url || '',
-      operacion: p.tipo_operacion || raw.operacion || '',
-      nota_auditoria: p.notas_internas || raw.nota_auditoria || ''
+      vendedor: raw.vendedor || loc.vendedor || p.nombre,
+      titulo: p.publicacion_titulo || raw.titulo || loc.titulo || '',
+      precio: p.precio_texto || raw.precio || loc.precio || '',
+      zona: p.empresa_o_zona || raw.zona || loc.zona || '',
+      telefono_directo: p.telefono || raw.telefono_directo || loc.telefono_directo || '',
+      url: p.url_aviso || raw.url || loc.url || '',
+      operacion: p.tipo_operacion || raw.operacion || loc.operacion || '',
+      nota_auditoria: p.notas_internas || raw.nota_auditoria || loc.nota_auditoria || '',
+      mensaje_mar: loc.mensaje_mar || p.mensaje_mar || raw.mensaje_mar || '',
+      seguimiento_72h: loc.seguimiento_72h || p.seguimiento_72h || raw.seguimiento_72h || '',
+      angulo_real_sin_humo: loc.angulo_real_sin_humo || p.mensaje_mar || raw.angulo_real_sin_humo || '',
+      corchetes_en_aviso: loc.corchetes_en_aviso || raw.corchetes_en_aviso || [],
+      estado_material_aviso: loc.estado_material_aviso || raw.estado_material_aviso || '',
+      corchetes_faltantes: loc.corchetes_faltantes || raw.corchetes_faltantes || [],
+      vertical_calculada: loc.vertical_calculada || raw.vertical_calculada || ''
     };
     state.seguimiento_radar[p.id] = {
       estado: p.estado_envio || 'pendiente',
@@ -1417,7 +1432,7 @@ function hydrateRadarFromCloud(crm) {
     };
     if (p.tipo_contacto === 'marketplace_dueno') mp.push(merged);
     else if (p.tipo_contacto === 'desarrolladora') {
-      pd.push({ ...merged, zona: p.empresa_o_zona, segmento: p.tipo_operacion, url_verificada: p.url_aviso, email_verificado: p.email, whatsapp_o_tel_verificado: p.telefono, angulo_real_sin_humo: p.mensaje_mar || raw.angulo_real_sin_humo || '' });
+      pd.push({ ...merged, zona: p.empresa_o_zona, segmento: p.tipo_operacion, url_verificada: p.url_aviso, email_verificado: p.email, whatsapp_o_tel_verificado: p.telefono, angulo_real_sin_humo: merged.angulo_real_sin_humo });
     } else {
       inm.push({ ...merged, zona_foco: p.empresa_o_zona, url_oficial: p.url_aviso, email_verificado: p.email, telefono_o_wa_verificado: p.telefono, http_status: 200 });
     }
@@ -1432,14 +1447,20 @@ function hydrateRadarFromCloud(crm) {
 
 async function loadRadar4Z() {
   const statusEl = document.getElementById('d1-live-status');
+  let localFallback = null;
+  try {
+    const resLoc = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
+    if (resLoc.ok) localFallback = await resLoc.json();
+  } catch (eLoc) {}
+
   try {
     const res = await fetch(`${CRM_API_URL}/api/crm?v=${Date.now()}`);
     if (res.ok) {
       const crm = await res.json();
       if (crm && crm.ok) {
-        hydrateRadarFromCloud(crm);
+        hydrateRadarFromCloud(crm, localFallback);
         if (statusEl) {
-          statusEl.value = `CONECTADO (${crm.propietarios.length} propietarios · Telegram ${crm.telegram_bloqueado ? 'vinculado a tu chat' : 'listo para tu /start'})`;
+          statusEl.value = `CONECTADO (${crm.propietarios.length} propietarios · Telegram ${crm.telegram_bloqueado ? 'vinculado a tu chat' : 'listo para tu /start'} · Corchetes v2)`;
         }
         renderCarrilesSummaryBar();
         renderRadar4Z();
@@ -1453,15 +1474,12 @@ async function loadRadar4Z() {
     console.warn('No se pudo conectar a Worker D1, cargando respaldo JSON:', e);
   }
   loadSemaforoLive();
-  try {
-    const resFallback = await fetch('/admin/prospeccion_viva_4zonas_zaguan.json?v=' + Date.now());
-    if (resFallback.ok) {
-      radar4ZData = await resFallback.json();
-      if (statusEl) statusEl.value = 'MODO RESPALDO LOCAL (Sin conexión a D1)';
-      renderRadar4Z();
-      renderGlobalSearch();
-    }
-  } catch (e2) {}
+  if (localFallback) {
+    radar4ZData = localFallback;
+    if (statusEl) statusEl.value = 'MODO RESPALDO LOCAL (Sin conexión a D1 · Corchetes v2)';
+    renderRadar4Z();
+    renderGlobalSearch();
+  }
 }
 
 window.loadSemaforoLive = async function() {
@@ -1581,12 +1599,12 @@ function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto,
     msg = `Perfecto${comaNombre}, gracias por responder con claridad y muchos éxitos. Quedamos a las órdenes si más adelante necesitás interesados con garantía aseguradora aprobada. Saludos, Mar — ZAGUÁN Propiedades.`;
   } else if (low.includes('comisi') || low.includes('honorario') || low.includes('cuanto cobran') || low.includes('cuánto cobran') || low.includes('porcentaje')) {
     msg = esVenta
-      ? `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder. Trabajamos con autorización abierta sin exclusividad (seguís ofreciendo por tu cuenta y solo devenga honorarios de plaza del 3% + IVA si concretamos nosotros la venta con comprador propio y escribanía aliada). Me pasás ubicación exacta, m² y si tenés fotos actuales por acá?`
-      : `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder. Trabajamos alquiler anual con autorización abierta sin exclusividad (seguís ofreciéndola por tu cuenta y solo cobramos 1 mes de alquiler + IVA si cerramos contrato nosotros con inquilino filtrado con garantía aseguradora aprobada). Qué garantías aceptás y si tenés fotos y condiciones para armar la ficha?`;
+      ? `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder.\n\nTrabajamos con autorización abierta (seguís ofreciendo por tu cuenta) y honorarios de plaza del 3% + IVA al concretar la venta con escribanía aliada.\n\n_Me confirmás metros, calidad constructiva/estado y si contás con fotos adicionales o algún detalle de planos para armar la presentación?_`
+      : `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder.\n\nTrabajamos alquiler anual con autorización abierta (seguís ofreciéndolo por tu cuenta) y honorarios de 1 mes de alquiler + IVA al firmar contrato.\n\n_Si ya nos indicaste valor y garantía, confirmame qué incluye el monto, si contemplás extranjeros certificando ingresos con escribanía aliada, y cómo es el tema cochera o mascotas._`;
   } else if (esVenta) {
-    msg = `Genial${comaNombre}, muchas gracias por responder. Trabajamos sin exclusividad mientras presentamos la propiedad a compradores calificados con escribanía aliada. Me compartís precio en dólares, ubicación exacta, m² aproximados y fotos por acá? Saludos, Mar.`;
+    msg = `Genial${comaNombre}, gracias por responder.\n\nTrabajamos con publicación abierta y acompañamiento notarial de nuestra escribanía aliada.\n\n_Si tenés fotos adicionales de detalle o algún video continuo de los ambientes para enriquecer el material publicado, mandalos por acá junto con los datos de metros y planos/gastos comunes que falten confirmar._`;
   } else {
-    msg = `Genial${comaNombre}, muchas gracias por responder. Trabajamos alquiler anual sin exclusividad filtrando inquilinos con garantía aseguradora aprobada (Porto, Sura, Mapfre o ANDA). Me confirmás precio mensual, gastos comunes, si acepta mascota y fotos por acá para armar la ficha? Saludos, Mar.`;
+    msg = `Genial${comaNombre}, gracias por responder.\n\nTrabajamos alquiler anual con publicación abierta (seguís ofreciéndolo por tu cuenta).\n\n_Para dejar el resumen listo y publicar el material con tu OK, confirmame los datos que falten del valor (gastos comunes/Wi-Fi), cochera (fija, techada o nivel), si acepta niños o mascotas y si tenés fotos adicionales de detalle o video para enriquecer el aviso._`;
   }
   return lintMarLocal(msg);
 }
@@ -1618,7 +1636,7 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
     const first = (nombrePersona || '').split(' ')[0] || '';
     const saludo = first && !first.includes('(') ? `Hola ${first}` : 'Buen día';
     const zona = (itemFallback && (itemFallback.empresa_o_zona || itemFallback.zona)) || 'Maldonado';
-    const futureCopy = lintMarLocal(`${saludo}, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Quedé agendada para escribirte por esta fecha sobre tu propiedad en ${zona}: se acerca el año desde la operación anterior y quería saber si vuelve a quedar disponible para moverla sin exclusividad.`);
+    const futureCopy = lintMarLocal(`${saludo}, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Quedé agendada para escribirte por esta fecha sobre tu propiedad en ${zona}: se acerca el año desde la operación anterior y quería saber si vuelve a quedar disponible para volver a moverla con publicación abierta.`);
     const waFuture = cleanPhone ? `https://wa.me/${cleanPhone}?text=${encodeURIComponent(futureCopy)}` : '';
     const gcalLink = buildGCalUrlAdmin(itemFallback || { id, nombre: nombrePersona, telefono: cleanPhone }, futureCopy);
     return `
@@ -2012,11 +2030,14 @@ function renderRadar4Z() {
           <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
         </div>
         ${renderReplyLoaderBox(it.id, it.vendedor, it.operacion, it.telefono_directo, it, 'mp')}
-        <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);">
-          🛡️ ${it.nota_auditoria}
+        <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);display:grid;gap:4px;">
+          <div>🛡️ ${it.nota_auditoria}</div>
+          ${(it.corchetes_en_aviso && it.corchetes_en_aviso.length) ? `<div style="color:#B7D6E0;"><strong>✅ Ya tomado del aviso (${it.vertical_calculada || 'MP'}):</strong> ${it.corchetes_en_aviso.join(' · ')}</div>` : ''}
+          ${it.estado_material_aviso ? `<div style="color:#D4CCBD;"><strong>📷 Material en aviso:</strong> ${it.estado_material_aviso}</div>` : ''}
+          ${(it.corchetes_faltantes && it.corchetes_faltantes.length) ? `<div style="color:#FBBF24;"><strong>🎯 Faltantes que pregunta Mar:</strong> ${it.corchetes_faltantes.join(' · ')}</div>` : ''}
         </div>
         <div class="field">
-          <label>1° Mensaje (Linter SÍ/NO verificado · Cero mención de porcentajes/comisión)</label>
+          <label>1° Mensaje con [CORCHETES] reales (Punto y aparte + _cursiva_ · Cero %/comisión · Cero URL)</label>
           <textarea class="msg-preview" id="mp-msg-${idx}">${msg1}</textarea>
         </div>
         <details style="font-size:12px;color:var(--muted);">
@@ -2071,7 +2092,7 @@ function renderRadar4Z() {
     const modoUrl = it.segmento.includes('Desarrolladora') ? '' : '&modo=alquiler';
     const vitrineUrl = `https://zaguanpropiedades.com/oportunidades/?b2b_ref=${encodeURIComponent(shortName)}${modoUrl}`;
     const msgCorto = lintMarLocal(`${it.angulo_real_sin_humo}\n\nCarpeta rápida en 1 pantalla para ${shortName}:\n${vitrineUrl}`);
-    const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual y venta sin exclusividad'}`;
+    const subject = `${shortName} × ZAGUÁN Propiedades — ${it.segmento.includes('Desarrolladora') ? 'Canal externo obra nueva con pre-registro' : 'Alquiler anual y venta con publicación abierta'}`;
     const gmailHref = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&authuser=zaguanpropiedades%40gmail.com&to=${encodeURIComponent(it.email_verificado)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(msgCorto)}`;
     const waHref = waNum ? `https://wa.me/${waNum}?text=${encodeURIComponent(msgCorto)}` : `https://wa.me/?text=${encodeURIComponent(msgCorto)}`;
 

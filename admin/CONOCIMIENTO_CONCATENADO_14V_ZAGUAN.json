@@ -1,6 +1,6 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-22T23:03:16.097Z",
+  "actualizado": "2026-11-23T00:48:27.023Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -28,6 +28,8 @@
       "ok_bienvenida": "aprobado_desarrolladora",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -72,6 +74,8 @@
       "ok_bienvenida": "aprobado_desarrolladora",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -116,6 +120,8 @@
       "ok_bienvenida": "aprobado_desarrolladora",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -160,6 +166,8 @@
       "ok_bienvenida": "aprobado_desarrolladora",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -204,6 +212,8 @@
       "ok_bienvenida": "aprobado_desarrolladora",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -248,6 +258,8 @@
       "ok_bienvenida": "candado_no_publicar",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -292,6 +304,8 @@
       "ok_bienvenida": "candado_no_publicar",
       "candado_franja_gris": true,
       "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Padrón y manzana",
         "Metros totales y frente/fondo",
@@ -336,6 +350,8 @@
       "ok_bienvenida": "ficha_ancla_interna",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
@@ -380,6 +396,8 @@
       "ok_bienvenida": "ficha_ancla_interna",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
@@ -424,6 +442,8 @@
       "ok_bienvenida": "ficha_ancla_interna",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
@@ -468,6 +488,8 @@
       "ok_bienvenida": "ficha_ancla_interna",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
@@ -512,21 +534,29 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: $U 31.500 / mes",
+        "Dormitorios en aviso: 2",
+        "Lugar para auto mencionado en aviso (falta detallar si es fija/techada/nivel)",
+        "Garantía en aviso: Porto Seguro"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Detalle de cochera (fija o no, techada o descubierta, subsuelo o calle)",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada, Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Detalle de cochera (fija o no, techada o descubierta, subsuelo o calle), Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Sofía, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 31.500 / mes (Pide Porto)). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59892503980?text=Hola%20Sof%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2031.500%20%2F%20mes%20(Pide%20Porto)).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Sofía, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios en alquiler anual en Barrio 4H ($U 31.500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de Porto Seguro. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), cómo es el lugar de auto (fijo, techado o nivel) y si admite niños o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59892503980?text=Hola%20Sof%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%202%20dormitorios%20en%20alquiler%20anual%20en%20Barrio%204H%20(%24U%2031.500%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Vi%20que%20ped%C3%ADs%20garant%C3%ADa%20de%20Porto%20Seguro.%20Si%20sigue%20libre%2C%20contame%20si%20adem%C3%A1s%20de%20aseguradora%20contempl%C3%A1s%20dep%C3%B3sito%20o%20clientes%20del%20exterior%20con%20ingresos%20certificados%20mediante%20nuestra%20escriban%C3%ADa%20aliada%2C%20qu%C3%A9%20incluye%20el%20monto%20mensual%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20c%C3%B3mo%20es%20el%20lugar%20de%20auto%20(fijo%2C%20techado%20o%20nivel)%20y%20si%20admite%20ni%C3%B1os%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 31.500 / mes (Pide Porto) + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -557,21 +587,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Península",
+        "Precio en aviso: USD 500 / mes",
+        "Dormitorios en aviso: 1"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Stefani, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Península (USD 500 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59898241088?text=Hola%20Stefani%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pen%C3%ADnsula%20(USD%20500%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Stefani, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 1 dormitorio en alquiler anual en Península (USD 500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59898241088?text=Hola%20Stefani%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%201%20dormitorio%20en%20alquiler%20anual%20en%20Pen%C3%ADnsula%20(USD%20500%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Península: precio transparente USD 500 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Península y alrededores (+17 km), 24 a 48 años",
@@ -602,21 +638,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: $U 28.000 / mes",
+        "Dormitorios en aviso: 2"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Alejandra, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 28.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59898737304?text=Hola%20Alejandra%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2028.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Alejandra, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios en alquiler anual en Maldonado Centro ($U 28.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59898737304?text=Hola%20Alejandra%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%202%20dormitorios%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20(%24U%2028.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 28.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -647,21 +689,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: $U 27.000 / mes",
+        "Dormitorios en aviso: 2"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Romi, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 27.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59892935347?text=Hola%20Romi%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2027.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Romi, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios en alquiler anual en La Fortuna ($U 27.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59892935347?text=Hola%20Romi%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%202%20dormitorios%20en%20alquiler%20anual%20en%20La%20Fortuna%20(%24U%2027.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 27.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -692,21 +740,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: $U 25.000 / mes",
+        "Gastos comunes incluidos declarados en aviso"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Consumos aparte (UTE/OSE) y Wi-Fi",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Consumos aparte (UTE/OSE) y Wi-Fi, Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Oscar, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 25.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899908617?text=Hola%20Oscar%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2025.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Oscar, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en zona Hospital de Maldonado ($U 25.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), si Wi-Fi u otros servicios van aparte de luz y agua, si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899908617?text=Hola%20Oscar%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20alquiler%20anual%20en%20zona%20Hospital%20de%20Maldonado%20(%24U%2025.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20si%20Wi-Fi%20u%20otros%20servicios%20van%20aparte%20de%20luz%20y%20agua%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 25.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -737,21 +791,29 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio: NO declarado en aviso (a consultar)",
+        "Dormitorios en aviso: 2",
+        "Lugar para auto mencionado en aviso (falta detallar si es fija/techada/nivel)"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Valor mensual pretendido",
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Detalle de cochera (fija o no, techada o descubierta, subsuelo o calle)",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 11/11 11:58: no está disponible ya",
+      "condiciones_actuales": "Falta confirmar [O6]: Valor mensual pretendido, Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Detalle de cochera (fija o no, techada o descubierta, subsuelo o calle), Si admite niños y mascota (y porte) | Resp: 11/11 11:58: no está disponible ya",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Gladys, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares (Consultar valor anual). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59893697157?text=Hola%20Gladys%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(Consultar%20valor%20anual).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Gladys, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué valor mensual estás pidiendo, qué garantía o cuántos meses de depósito aceptás (en ZAGUÁN también recibimos extranjeros certificando ingresos con nuestra escribanía aliada), qué incluye el monto y cómo es el tema cochera o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59893697157?text=Hola%20Gladys%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20valor%20mensual%20est%C3%A1s%20pidiendo%2C%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20acept%C3%A1s%20(en%20ZAGU%C3%81N%20tambi%C3%A9n%20recibimos%20extranjeros%20certificando%20ingresos%20con%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20monto%20y%20c%C3%B3mo%20es%20el%20tema%20cochera%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente Consultar valor anual + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -782,21 +844,27 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: $U 16.000 / mes",
+        "Dormitorios en aviso: 1"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 11/11 10:45: Buen dia / Muchas gracias, pero nosotros nos encargamos",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte) | Resp: 11/11 10:45: Buen dia / Muchas gracias, pero nosotros nos encargamos",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro / Pinares ($U 16.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59894388782?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20%2F%20Pinares%20(%24U%2016.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 1 dormitorio en alquiler anual en Barrio Asturias ($U 16.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59894388782?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20de%201%20dormitorio%20en%20alquiler%20anual%20en%20Barrio%20Asturias%20(%24U%2016.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro / Pinares: precio transparente $U 16.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro / Pinares y alrededores (+17 km), 24 a 48 años",
@@ -827,20 +895,25 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "corchetes_en_aviso": [
+        "Operación: Venta terreno / padrón",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: USD 35.000",
+        "Estado documental en aviso: papeles al día"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Padrón y manzana",
-        "Metros totales y frente/fondo",
-        "Servicios en puerta (OSE/UTE/saneamiento)",
-        "Precio USD"
+        "Metros totales, frente y fondo",
+        "Servicios en puerta (UTE, OSE, saneamiento)"
       ],
       "faltantes_capa_2": [
         "FOT/FOS/retiros permitidos",
         "Títulos y planos en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: 11/11 11:58: NO TENGO NINGUN TERRENO EN NINGUN LADO",
+      "condiciones_actuales": "Falta confirmar [O4]: Metros totales, frente y fondo, Servicios en puerta (UTE, OSE, saneamiento) | Resp: 11/11 11:58: NO TENGO NINGUN TERRENO EN NINGUN LADO",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 35.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59898756099?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2035.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu terreno en venta en Maldonado Centro (USD 35.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros totales tiene (frente y fondo), qué servicios tiene en puerta (luz, agua, saneamiento) y confirmame si es padrón independiente listo para escriturar o PH (y si evaluás contado, banco o entrega en pago)._",
+        "link_wa_me_1clic": "https://wa.me/59898756099?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20terreno%20en%20venta%20en%20Maldonado%20Centro%20(USD%2035.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20cu%C3%A1ntos%20metros%20totales%20tiene%20(frente%20y%20fondo)%2C%20qu%C3%A9%20servicios%20tiene%20en%20puerta%20(luz%2C%20agua%2C%20saneamiento)%20y%20confirmame%20si%20es%20padr%C3%B3n%20independiente%20listo%20para%20escriturar%20o%20PH%20(y%20si%20evalu%C3%A1s%20contado%2C%20banco%20o%20entrega%20en%20pago)._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 35.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
@@ -871,22 +944,28 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: USD 65.000 – 85.000",
+        "Dormitorios en aviso: 2"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Edu, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 65.000 – 85.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59899189771?text=Hola%20Edu%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2065.000%20%E2%80%93%2085.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Edu, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios en venta en Barrio Rivera (USD 65.000 – 85.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59899189771?text=Hola%20Edu%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%202%20dormitorios%20en%20venta%20en%20Barrio%20Rivera%20(USD%2065.000%20%E2%80%93%2085.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 65.000 – 85.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
@@ -917,20 +996,25 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Colocar activo comercial o galpón con rubro e infraestructura habilitada.",
+      "corchetes_en_aviso": [
+        "Operación: Venta terreno / padrón",
+        "Zona: Maldonado Centro / Pinares",
+        "Precio en aviso: USD 14.500 – 180.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Metros de salón y frente",
-        "Habilitación municipal y trifásica",
-        "Gastos comunes / cargas",
-        "Precio USD o canon"
+        "Metros totales, frente y fondo",
+        "Servicios en puerta (UTE, OSE, saneamiento)",
+        "Régimen y estado documental (padrón independiente listo para escriturar)"
       ],
       "faltantes_capa_2": [
         "Planos en PDF",
         "Usos admitidos (gastronomía, consultorio, depósito)"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: Buenos días !!!! Un gusto Tengo una casa en Pedro Loustane a la venta si. A la orden",
+      "condiciones_actuales": "Falta confirmar [O4]: Metros totales, frente y fondo, Servicios en puerta (UTE, OSE, saneamiento), Régimen y estado documental (padrón independiente listo para escriturar) | Resp: Buenos días !!!! Un gusto Tengo una casa en Pedro Loustane a la venta si. A la orden",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Mario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Maldonado Centro / Pinares (USD 14.500 – 180.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59895398869?text=Hola%20Mario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Maldonado%20Centro%20%2F%20Pinares%20(USD%2014.500%20%E2%80%93%20180.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Mario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en eje San Carlos / La Capuera (USD 14.500 – 180.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros totales tiene (frente y fondo), qué servicios tiene en puerta (luz, agua, saneamiento) y si es padrón independiente con papeles al día para escriturar (y si evaluás contado, banco o entrega en pago)._",
+        "link_wa_me_1clic": "https://wa.me/59895398869?text=Hola%20Mario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20eje%20San%20Carlos%20%2F%20La%20Capuera%20(USD%2014.500%20%E2%80%93%20180.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20cu%C3%A1ntos%20metros%20totales%20tiene%20(frente%20y%20fondo)%2C%20qu%C3%A9%20servicios%20tiene%20en%20puerta%20(luz%2C%20agua%2C%20saneamiento)%20y%20si%20es%20padr%C3%B3n%20independiente%20con%20papeles%20al%20d%C3%ADa%20para%20escriturar%20(y%20si%20evalu%C3%A1s%20contado%2C%20banco%20o%20entrega%20en%20pago)._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Maldonado Centro / Pinares: destacar potencial constructivo, metros y ubicación real (USD 14.500 – 180.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Maldonado Centro / Pinares, Punta del Este y Montevideo (28 a 60 años)",
@@ -961,21 +1045,26 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Barrio Rivera, Maldonado",
+        "Precio en aviso: $U 30.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: 21/11: SE ALQUILÓ LA CASA, GRACIAS",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte) | Resp: 21/11: SE ALQUILÓ LA CASA, GRACIAS",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Alberto, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio Rivera, Maldonado ($U 30.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899151475?text=Hola%20Alberto%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20Rivera%2C%20Maldonado%20(%24U%2030.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Alberto, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en alquiler anual en Barrio Rivera ($U 30.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899151475?text=Hola%20Alberto%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20alquiler%20anual%20en%20Barrio%20Rivera%20(%24U%2030.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio Rivera, Maldonado: precio transparente $U 30.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Barrio Rivera, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1006,12 +1095,17 @@
       "ok_bienvenida": "activa_en_pauta_ads_candado_franja_gris",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: La Fortuna, Maldonado",
+        "Precio en aviso: $U 30.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
@@ -1051,21 +1145,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Parada 5 Brava / Aidy Grill, Punta del Este",
+        "Precio: NO declarado en aviso (a consultar)"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Valor mensual pretendido",
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Valor mensual pretendido, Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Sylvia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Parada 5 Brava / Aidy Grill, Punta del Este (Precio a consultar (anual)). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59894284460?text=Hola%20Sylvia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Parada%205%20Brava%20%2F%20Aidy%20Grill%2C%20Punta%20del%20Este%20(Precio%20a%20consultar%20(anual)).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Sylvia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en Parada 5 de la Brava.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué valor mensual estás pidiendo, qué garantía o cuántos meses de depósito aceptás (en ZAGUÁN también recibimos extranjeros certificando ingresos con nuestra escribanía aliada), qué incluye el monto y cómo es el tema cochera o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59894284460?text=Hola%20Sylvia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20alquiler%20anual%20en%20Parada%205%20de%20la%20Brava.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20valor%20mensual%20est%C3%A1s%20pidiendo%2C%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20acept%C3%A1s%20(en%20ZAGU%C3%81N%20tambi%C3%A9n%20recibimos%20extranjeros%20certificando%20ingresos%20con%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20monto%20y%20c%C3%B3mo%20es%20el%20tema%20cochera%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Parada 5 Brava / Aidy Grill, Punta del Este: precio transparente Precio a consultar (anual) + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Parada 5 Brava / Aidy Grill, Punta del Este y alrededores (+17 km), 24 a 48 años",
@@ -1096,21 +1196,26 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: San Carlos (cerca de Escuela 80), Maldonado",
+        "Precio en aviso: $U 23.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Roberta, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en San Carlos (cerca de Escuela 80), Maldonado ($U 23.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899208762?text=Hola%20Roberta%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20San%20Carlos%20(cerca%20de%20Escuela%2080)%2C%20Maldonado%20(%24U%2023.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Roberta, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en alquiler anual en San Carlos (cerca de Escuela 80) ($U 23.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899208762?text=Hola%20Roberta%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20alquiler%20anual%20en%20San%20Carlos%20(cerca%20de%20Escuela%2080)%20(%24U%2023.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en San Carlos (cerca de Escuela 80), Maldonado: precio transparente $U 23.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "San Carlos (cerca de Escuela 80), Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1141,22 +1246,28 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Beaulieu, Piriápolis, Maldonado",
+        "Precio en aviso: USD 93.000",
+        "Dormitorios en aviso: 1"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación | Resp: La alquiló por su cuenta y se la queda (retirada de venta).",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado) | Resp: La alquiló por su cuenta y se la queda (retirada de venta).",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Emilia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Beaulieu, Piriápolis, Maldonado (USD 93.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59899156330?text=Hola%20Emilia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Beaulieu%2C%20Piri%C3%A1polis%2C%20Maldonado%20(USD%2093.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Emilia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 1 dormitorio en venta en Beaulieu, Piriápolis (USD 93.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59899156330?text=Hola%20Emilia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20de%201%20dormitorio%20en%20venta%20en%20Beaulieu%2C%20Piri%C3%A1polis%20(USD%2093.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Beaulieu, Piriápolis, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 93.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Beaulieu, Piriápolis, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1187,10 +1298,15 @@
       "ok_bienvenida": "ficha_activa_con_boveda_privada",
       "candado_franja_gris": true,
       "dolor_detectado": "Mostrar el valor de una construcción base o proyecto en curso que en foto fija parece obra gris.",
+      "corchetes_en_aviso": [
+        "Operación: Proyecto en construcción",
+        "Zona: Santa Mónica (José Ignacio / La Barra), Maldonado",
+        "Precio en aviso: USD 160.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación y entorno (ej. frente a laguna / costa)",
-        "Metros y avance real de obra",
-        "Precio USD y forma de pago"
+        "Etapa de obra ejecutada y faltante",
+        "Autoría estructural e Intendencia/BPS"
       ],
       "faltantes_capa_2": [
         "Memoria estructural y autoría (ej. cálculo para vientos oceánicos)",
@@ -1233,21 +1349,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Maldonado Centro",
+        "Precio en aviso: $U 14.000 / mes",
+        "Restricción declarada: sin mascotas / persona sola"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Maldonado Centro ($U 14.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59894543038?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20(%24U%2014.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Anabela, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en Maldonado Centro ($U 14.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite familias con niños._",
+        "link_wa_me_1clic": "https://wa.me/59894543038?text=Hola%20Anabela%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20alquiler%20anual%20en%20Maldonado%20Centro%20(%24U%2014.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20familias%20con%20ni%C3%B1os._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Maldonado Centro: precio transparente $U 14.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Maldonado Centro y alrededores (+17 km), 24 a 48 años",
@@ -1278,12 +1400,17 @@
       "ok_bienvenida": "cerrada_alquilado_sin_404",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: El Tesoro (a 300m del Puente), La Barra, Maldonado",
+        "Precio en aviso: $U 28.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
@@ -1291,8 +1418,8 @@
       ],
       "condiciones_actuales": "{\"canon_mensual\": \"$U 28.000\", \"gastos_comunes\": \"$0 (sin gastos comunes)\", \"consumos\": \"Luz (UTE) y Agua (OSE) aparte\", \"garantias\": \"Aseguradoras (Porto, Sura, Mapfre) o ANDA\", \"ajuste\": \"Anual en pesos\", \"ubicacion\": \"Calle Juana de América a 300m del Puente de La Barra, El Tesoro\", \"disponibilidad\": \"Terminando jardín / Inmediata\"} | Resp: 21/11: perdón pero ya se alquilaron las 2",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Rosario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en El Tesoro (a 300m del Puente), La Barra, Maldonado ($U 28.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899838963?text=Hola%20Rosario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20El%20Tesoro%20(a%20300m%20del%20Puente)%2C%20La%20Barra%2C%20Maldonado%20(%24U%2028.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Rosario, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en El Tesoro (a 300m del Puente), La Barra ($U 28.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899838963?text=Hola%20Rosario%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20alquiler%20anual%20en%20El%20Tesoro%20(a%20300m%20del%20Puente)%2C%20La%20Barra%20(%24U%2028.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en El Tesoro (a 300m del Puente), La Barra, Maldonado: precio transparente $U 28.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "El Tesoro (a 300m del Puente), La Barra, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1323,21 +1450,26 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Barrio Biarritz, Maldonado",
+        "Precio en aviso: $U 18.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Bruno, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio Biarritz, Maldonado ($U 18.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899811176?text=Hola%20Bruno%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20Biarritz%2C%20Maldonado%20(%24U%2018.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Bruno, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en Barrio Biarritz ($U 18.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899811176?text=Hola%20Bruno%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20alquiler%20anual%20en%20Barrio%20Biarritz%20(%24U%2018.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio Biarritz, Maldonado: precio transparente $U 18.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Barrio Biarritz, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1368,21 +1500,26 @@
       "ok_bienvenida": "baja_cerrada",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Cerca de Ruta 39, Maldonado",
+        "Precio en aviso: $U 45.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios | Resp: YA SE ALQUILÓ, GRACIAS",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte) | Resp: YA SE ALQUILÓ, GRACIAS",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Nacho, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Cerca de Ruta 39, Maldonado ($U 45.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59899041618?text=Hola%20Nacho%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Cerca%20de%20Ruta%2039%2C%20Maldonado%20(%24U%2045.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Nacho, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu galpón en alquiler anual en Cerca de Ruta 39 ($U 45.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59899041618?text=Hola%20Nacho%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20galp%C3%B3n%20en%20alquiler%20anual%20en%20Cerca%20de%20Ruta%2039%20(%24U%2045.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Cerca de Ruta 39, Maldonado: precio transparente $U 45.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Cerca de Ruta 39, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1413,21 +1550,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Barrio San Francisco, Maldonado",
+        "Precio: NO declarado en aviso (a consultar)"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Valor mensual pretendido",
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Valor mensual pretendido, Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Anabella, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio San Francisco, Maldonado (A consultar (alquiler anual)). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59896125093?text=Hola%20Anabella%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20San%20Francisco%2C%20Maldonado%20(A%20consultar%20(alquiler%20anual)).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Anabella, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio San Francisco.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué valor mensual estás pidiendo, qué garantía o cuántos meses de depósito aceptás (en ZAGUÁN también recibimos extranjeros certificando ingresos con nuestra escribanía aliada), qué incluye el monto y cómo es el tema cochera o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59896125093?text=Hola%20Anabella%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Barrio%20San%20Francisco.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20valor%20mensual%20est%C3%A1s%20pidiendo%2C%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20acept%C3%A1s%20(en%20ZAGU%C3%81N%20tambi%C3%A9n%20recibimos%20extranjeros%20certificando%20ingresos%20con%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20monto%20y%20c%C3%B3mo%20es%20el%20tema%20cochera%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Barrio San Francisco, Maldonado: precio transparente A consultar (alquiler anual) + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Barrio San Francisco, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1458,21 +1601,26 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Pan de Azúcar, Maldonado",
+        "Precio en aviso: $U 16.500 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Cristian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pan de Azúcar, Maldonado ($U 16.500 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59891519071?text=Hola%20Cristian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pan%20de%20Az%C3%BAcar%2C%20Maldonado%20(%24U%2016.500%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Cristian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pan de Azúcar ($U 16.500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59891519071?text=Hola%20Cristian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pan%20de%20Az%C3%BAcar%20(%24U%2016.500%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Pan de Azúcar, Maldonado: precio transparente $U 16.500 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Pan de Azúcar, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1503,22 +1651,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Aiguá, Maldonado",
+        "Precio en aviso: USD 40.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Esteban, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Aiguá, Maldonado (USD 40.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59898620176?text=Hola%20Esteban%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Aigu%C3%A1%2C%20Maldonado%20(USD%2040.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Esteban, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Aiguá (USD 40.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59898620176?text=Hola%20Esteban%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Aigu%C3%A1%20(USD%2040.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Aiguá, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 40.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Aiguá, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1549,22 +1702,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: San Carlos, Maldonado",
+        "Precio en aviso: USD 60.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Dady, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 60.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59891006302?text=Hola%20Dady%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%2060.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Dady, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos (USD 60.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59891006302?text=Hola%20Dady%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20(USD%2060.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 60.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1595,22 +1753,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Barrio Rodríguez Barrios, San Carlos, Maldonado",
+        "Precio en aviso: USD 50.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Fabian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Barrio Rodríguez Barrios, San Carlos, Maldonado (USD 50.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59894237595?text=Hola%20Fabian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Barrio%20Rodr%C3%ADguez%20Barrios%2C%20San%20Carlos%2C%20Maldonado%20(USD%2050.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Fabian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Barrio Rodríguez Barrios, San Carlos (USD 50.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59894237595?text=Hola%20Fabian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Barrio%20Rodr%C3%ADguez%20Barrios%2C%20San%20Carlos%20(USD%2050.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Barrio Rodríguez Barrios, San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 50.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Barrio Rodríguez Barrios, San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1641,22 +1804,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Pinares, Maldonado",
+        "Precio en aviso: USD 380.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Flo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Pinares, Maldonado (USD 380.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59892552522?text=Hola%20Flo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Pinares%2C%20Maldonado%20(USD%20380.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Flo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Pinares (USD 380.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59892552522?text=Hola%20Flo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Pinares%20(USD%20380.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Pinares, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 380.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Pinares, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1687,22 +1855,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Las Delicias, Maldonado",
+        "Precio en aviso: USD 380.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Las Delicias, Maldonado (USD 380.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59894728495?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Las%20Delicias%2C%20Maldonado%20(USD%20380.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Las Delicias (USD 380.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59894728495?text=Hola%20Danilo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Las%20Delicias%20(USD%20380.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Las Delicias, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 380.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Las Delicias, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1733,22 +1906,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Balneario Buenos Aires, Maldonado",
+        "Precio en aviso: USD 138.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Juan, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Balneario Buenos Aires, Maldonado (USD 138.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59899850321?text=Hola%20Juan%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Balneario%20Buenos%20Aires%2C%20Maldonado%20(USD%20138.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Juan, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Balneario Buenos Aires (USD 138.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59899850321?text=Hola%20Juan%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Balneario%20Buenos%20Aires%20(USD%20138.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Balneario Buenos Aires, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 138.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Balneario Buenos Aires, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1779,22 +1957,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Punta Colorada, Piriápolis, Maldonado",
+        "Precio en aviso: USD 240.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Rosa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Punta Colorada, Piriápolis, Maldonado (USD 240.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59898680052?text=Hola%20Rosa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Punta%20Colorada%2C%20Piri%C3%A1polis%2C%20Maldonado%20(USD%20240.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Rosa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Punta Colorada, Piriápolis (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59898680052?text=Hola%20Rosa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Punta%20Colorada%2C%20Piri%C3%A1polis%20(USD%20240.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Punta Colorada, Piriápolis, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 240.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Punta Colorada, Piriápolis, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1825,21 +2008,26 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Zona Country, Piriápolis, Maldonado",
+        "Precio en aviso: $U 20.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Nelson, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Zona Country, Piriápolis, Maldonado ($U 20.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59894309275?text=Hola%20Nelson%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Zona%20Country%2C%20Piri%C3%A1polis%2C%20Maldonado%20(%24U%2020.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Nelson, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Zona Country, Piriápolis ($U 20.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59894309275?text=Hola%20Nelson%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Zona%20Country%2C%20Piri%C3%A1polis%20(%24U%2020.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Zona Country, Piriápolis, Maldonado: precio transparente $U 20.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Zona Country, Piriápolis, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -1870,22 +2058,28 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: San Carlos, Maldonado",
+        "Precio: NO declarado en aviso (a consultar)"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
+        "Valor pretendido en USD",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Valor pretendido en USD, Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola María, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (A consultar). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59894702274?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(A%20consultar).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola María, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame qué valor en USD estás manejando, metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59894702274?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20qu%C3%A9%20valor%20en%20USD%20est%C3%A1s%20manejando%2C%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (A consultar).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1916,21 +2110,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Defender precio por m2 frente a torres vecinas y aclarar gastos comunes reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta apartamento",
+        "Zona: Piriápolis Playa, Maldonado",
+        "Precio en aviso: USD 117.000",
+        "Disponibilidad de visitas: dueño viaja fines de semana desde Montevideo"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Edificio y piso / orientación",
         "Metros propios y terraza",
-        "Gastos comunes mensuales",
-        "Cochera / baulera",
-        "Precio USD"
+        "Detalle de cochera (fija o no, techada/descubierta, subsuelo o nivel calle)",
+        "Gastos comunes mensuales, qué incluyen y sobretasas especiales en dólares o arreglos",
+        "Si tiene planos/final para préstamo bancario o venta contado"
       ],
       "faltantes_capa_2": [
         "Estado documental / títulos PDF",
         "Si tiene renta vigente o está vacío"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O2]: Metros propios y terraza, Detalle de cochera (fija o no, techada/descubierta, subsuelo o nivel calle), Gastos comunes mensuales, qué incluyen y sobretasas especiales en dólares o arreglos, Si tiene planos/final para préstamo bancario o venta contado",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Piriápolis Playa, Maldonado (USD 117.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59894871351?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Piri%C3%A1polis%20Playa%2C%20Maldonado%20(USD%20117.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en venta en Piriápolis Playa (USD 117.000). Vi en tu publicación que viajás los fines de semana para mostrarlo.\n\nTrabajamos con publicación abierta (seguís vendiendo por tu cuenta) y acompañamiento notarial para compradores locales y del exterior. Sigue disponible para sumarlo a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros propios tiene, cómo es la cochera (fija o no, techada o descubierta, subsuelo o nivel de calle), cuánto paga de gastos comunes con su detalle o alguna sobretasa especial por arreglos de los últimos meses y si acepta préstamo bancario._",
+        "link_wa_me_1clic": "https://wa.me/59894871351?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20en%20venta%20en%20Piri%C3%A1polis%20Playa%20(USD%20117.000).%20Vi%20en%20tu%20publicaci%C3%B3n%20que%20viaj%C3%A1s%20los%20fines%20de%20semana%20para%20mostrarlo.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20vendiendo%20por%20tu%20cuenta)%20y%20acompa%C3%B1amiento%20notarial%20para%20compradores%20locales%20y%20del%20exterior.%20Sigue%20disponible%20para%20sumarlo%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20cu%C3%A1ntos%20metros%20propios%20tiene%2C%20c%C3%B3mo%20es%20la%20cochera%20(fija%20o%20no%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20nivel%20de%20calle)%2C%20cu%C3%A1nto%20paga%20de%20gastos%20comunes%20con%20su%20detalle%20o%20alguna%20sobretasa%20especial%20por%20arreglos%20de%20los%20%C3%BAltimos%20meses%20y%20si%20acepta%20pr%C3%A9stamo%20bancario._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Piriápolis Playa, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 117.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Piriápolis Playa, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1961,21 +2161,28 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: La Fortuna, Maldonado",
+        "Precio en aviso: $U 30.000 / mes",
+        "Dormitorios en aviso: 2",
+        "Garantía en aviso: Porto o Sura"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada, Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Anita, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en La Fortuna, Maldonado ($U 30.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59898963070?text=Hola%20Anita%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20La%20Fortuna%2C%20Maldonado%20(%24U%2030.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Anita, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en alquiler anual en La Fortuna ($U 30.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de Porto o Sura. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59898963070?text=Hola%20Anita%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20de%202%20dormitorios%20en%20alquiler%20anual%20en%20La%20Fortuna%20(%24U%2030.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Vi%20que%20ped%C3%ADs%20garant%C3%ADa%20de%20Porto%20o%20Sura.%20Si%20sigue%20libre%2C%20contame%20si%20adem%C3%A1s%20de%20aseguradora%20contempl%C3%A1s%20dep%C3%B3sito%20o%20clientes%20del%20exterior%20con%20ingresos%20certificados%20mediante%20nuestra%20escriban%C3%ADa%20aliada%2C%20qu%C3%A9%20incluye%20el%20monto%20mensual%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en La Fortuna, Maldonado: precio transparente $U 30.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "La Fortuna, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -2006,22 +2213,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: San Carlos, Maldonado",
+        "Precio en aviso: USD 45.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Sabrina, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 45.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59895358136?text=Hola%20Sabrina%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%2045.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Susana, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos (USD 45.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59895358136?text=Hola%20Susana%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20(USD%2045.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 45.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2052,22 +2264,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
+      "corchetes_en_aviso": [
+        "Operación: Venta casa",
+        "Zona: Balneario Buenos Aires, Maldonado",
+        "Precio en aviso: USD 80.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Precio en USD",
-        "Estado de títulos / planos",
-        "Banco o permuta"
+        "Calidad constructiva y mejoras realizadas",
+        "Cochera o entrada vehicular",
+        "Planos y final de obra al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
         "Antigüedad real (audio)",
         "Documentación en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Ferre, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en Balneario Buenos Aires, Maldonado (USD 80.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59895282982?text=Hola%20Ferre%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20Balneario%20Buenos%20Aires%2C%20Maldonado%20(USD%2080.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Balneario Buenos Aires (USD 80.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
+        "link_wa_me_1clic": "https://wa.me/59895282982?text=Hola%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Balneario%20Buenos%20Aires%20(USD%2080.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Balneario Buenos Aires, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 80.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Balneario Buenos Aires, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2098,21 +2315,26 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Balneario Chihuahua, Maldonado",
+        "Precio en aviso: $U 26.000 / mes"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Garantía o meses de depósito (+ opción extranjeros con escribanía aliada), Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Elisa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Balneario Chihuahua, Maldonado ($U 26.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59891686777?text=Hola%20Elisa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Balneario%20Chihuahua%2C%20Maldonado%20(%24U%2026.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Elisa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu cabaña en alquiler anual en Balneario Chihuahua ($U 26.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué garantía o cuántos meses de depósito pedís (también trabajamos con extranjeros certificando ingresos mediante nuestra escribanía aliada), qué incluye el valor (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños y mascota (y de qué porte)._",
+        "link_wa_me_1clic": "https://wa.me/59891686777?text=Hola%20Elisa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20caba%C3%B1a%20en%20alquiler%20anual%20en%20Balneario%20Chihuahua%20(%24U%2026.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20qu%C3%A9%20garant%C3%ADa%20o%20cu%C3%A1ntos%20meses%20de%20dep%C3%B3sito%20ped%C3%ADs%20(tambi%C3%A9n%20trabajamos%20con%20extranjeros%20certificando%20ingresos%20mediante%20nuestra%20escriban%C3%ADa%20aliada)%2C%20qu%C3%A9%20incluye%20el%20valor%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20y%20mascota%20(y%20de%20qu%C3%A9%20porte)._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Balneario Chihuahua, Maldonado: precio transparente $U 26.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Balneario Chihuahua, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -2143,20 +2365,25 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
+      "corchetes_en_aviso": [
+        "Operación: Venta terreno / padrón",
+        "Zona: San Carlos, Maldonado",
+        "Precio en aviso: USD 240.000"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Padrón y manzana",
-        "Metros totales y frente/fondo",
-        "Servicios en puerta (OSE/UTE/saneamiento)",
-        "Precio USD"
+        "Metros totales, frente y fondo",
+        "Servicios en puerta (UTE, OSE, saneamiento)",
+        "Régimen y estado documental (padrón independiente listo para escriturar)"
       ],
       "faltantes_capa_2": [
         "FOT/FOS/retiros permitidos",
         "Títulos y planos en PDF"
       ],
-      "condiciones_actuales": "Falta confirmar Capa 1/2: m2, títulos/planos PDF, antigüedad, detalles constructivos, ubicación",
+      "condiciones_actuales": "Falta confirmar [O4]: Metros totales, frente y fondo, Servicios en puerta (UTE, OSE, saneamiento), Régimen y estado documental (padrón independiente listo para escriturar)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en venta en San Carlos, Maldonado (USD 240.000). Trabajamos con autorización abierta y pre-calificamos compradores con respaldo notarial local. Sigue disponible para confirmar metros, documentación y detalles constructivos?",
-        "link_wa_me_1clic": "https://wa.me/59895630415?text=Hola%20Alejandro%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20venta%20en%20San%20Carlos%2C%20Maldonado%20(USD%20240.000).%20Trabajamos%20con%20autorizaci%C3%B3n%20abierta%20y%20pre-calificamos%20compradores%20con%20respaldo%20notarial%20local.%20Sigue%20disponible%20para%20confirmar%20metros%2C%20documentaci%C3%B3n%20y%20detalles%20constructivos%3F",
+        "1_guion_whatsapp_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu padrón entero en venta en San Carlos (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros totales tiene (frente y fondo), qué servicios tiene en puerta (luz, agua, saneamiento) y si es padrón independiente con papeles al día para escriturar (y si evaluás contado, banco o entrega en pago)._",
+        "link_wa_me_1clic": "https://wa.me/59895630415?text=Hola%20Alejandro%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20padr%C3%B3n%20entero%20en%20venta%20en%20San%20Carlos%20(USD%20240.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20cu%C3%A1ntos%20metros%20totales%20tiene%20(frente%20y%20fondo)%2C%20qu%C3%A9%20servicios%20tiene%20en%20puerta%20(luz%2C%20agua%2C%20saneamiento)%20y%20si%20es%20padr%C3%B3n%20independiente%20con%20papeles%20al%20d%C3%ADa%20para%20escriturar%20(y%20si%20evalu%C3%A1s%20contado%2C%20banco%20o%20entrega%20en%20pago)._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 240.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2187,21 +2414,27 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Pinares Parada 36, Punta del Este, Maldonado",
+        "Precio en aviso: USD 1.500 / mes",
+        "Garantía en aviso: aseguradora"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada, Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Giovanna, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Pinares Parada 36, Punta del Este, Maldonado (USD 1.500 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59896511181?text=Hola%20Giovanna%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Pinares%20Parada%2036%2C%20Punta%20del%20Este%2C%20Maldonado%20(USD%201.500%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Giovanna, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en alquiler anual en Pinares Parada 36 (USD 1.500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59896511181?text=Hola%20Giovanna%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20alquiler%20anual%20en%20Pinares%20Parada%2036%20(USD%201.500%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Vi%20que%20ped%C3%ADs%20garant%C3%ADa%20de%20aseguradora.%20Si%20sigue%20libre%2C%20contame%20si%20adem%C3%A1s%20de%20aseguradora%20contempl%C3%A1s%20dep%C3%B3sito%20o%20clientes%20del%20exterior%20con%20ingresos%20certificados%20mediante%20nuestra%20escriban%C3%ADa%20aliada%2C%20qu%C3%A9%20incluye%20el%20monto%20mensual%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Pinares Parada 36, Punta del Este, Maldonado: precio transparente USD 1.500 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Pinares Parada 36, Punta del Este, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -2232,21 +2465,28 @@
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
+      "corchetes_en_aviso": [
+        "Operación: Alquiler anual",
+        "Zona: Centro, Maldonado",
+        "Precio en aviso: $U 32.000 / mes",
+        "Dormitorios en aviso: 2",
+        "Garantía en aviso: aseguradora"
+      ],
+      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Canon mensual en $U o USD",
-        "Qué incluye (GC, Wi-Fi, consumos)",
-        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
-        "Niños y mascotas admitidos",
-        "Plazo"
+        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
+        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
+        "Si cuenta con cochera y características",
+        "Si admite niños y mascota (y porte)"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",
         "Condiciones de ajuste y video de recorrido"
       ],
-      "condiciones_actuales": "Falta confirmar: garantías aceptadas/rechazadas, GC/consumos, mascotas, llaves/horarios",
+      "condiciones_actuales": "Falta confirmar [O6]: Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada, Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte), Si cuenta con cochera y características, Si admite niños y mascota (y porte)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Centro, Maldonado ($U 32.000 / mes). Trabajamos con publicación abierta filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de coordinar visitas. Sigue disponible para confirmarte qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?",
-        "link_wa_me_1clic": "https://wa.me/59898607109?text=Hola%20Claudia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20propiedad%20en%20alquiler%20anual%20en%20Centro%2C%20Maldonado%20(%24U%2032.000%20%2F%20mes).%20Trabajamos%20con%20publicaci%C3%B3n%20abierta%20filtrando%20garant%C3%ADa%20aseguradora%20aprobada%20(Porto%2C%20Sura%20o%20Mapfre)%20antes%20de%20coordinar%20visitas.%20Sigue%20disponible%20para%20confirmarte%20qu%C3%A9%20garant%C3%ADas%20acept%C3%A1s%2C%20si%20admite%20ni%C3%B1os%20o%20mascotas%20y%20si%20incluye%20gastos%20comunes%3F",
+        "1_guion_whatsapp_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en alquiler anual en Centro de Maldonado ($U 32.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
+        "link_wa_me_1clic": "https://wa.me/59898607109?text=Hola%20Claudia%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20apartamento%20de%202%20dormitorios%20en%20alquiler%20anual%20en%20Centro%20de%20Maldonado%20(%24U%2032.000%20%2F%20mes).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta).%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Vi%20que%20ped%C3%ADs%20garant%C3%ADa%20de%20aseguradora.%20Si%20sigue%20libre%2C%20contame%20si%20adem%C3%A1s%20de%20aseguradora%20contempl%C3%A1s%20dep%C3%B3sito%20o%20clientes%20del%20exterior%20con%20ingresos%20certificados%20mediante%20nuestra%20escriban%C3%ADa%20aliada%2C%20qu%C3%A9%20incluye%20el%20monto%20mensual%20(gastos%20comunes%2C%20Wi-Fi%20o%20consumos)%2C%20si%20tiene%20cochera%20(fija%2C%20techada%20o%20descubierta%2C%20subsuelo%20o%20calle)%20y%20si%20admite%20ni%C3%B1os%20o%20mascotas._",
         "2_angulo_redes_aprobalo": "Ficha / Story 9:16 Alquiler Anual en Centro, Maldonado: precio transparente $U 32.000 / mes + filtro de garantía claro.",
         "3_angulo_pauta_ads": {
           "publico": "Centro, Maldonado y alrededores (+17 km), 24 a 48 años",
@@ -2277,6 +2517,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2321,6 +2563,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2365,6 +2609,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2409,6 +2655,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2453,6 +2701,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2497,6 +2747,8 @@
       "ok_bienvenida": "pendiente_acuerdo_canal",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2541,6 +2793,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2585,6 +2839,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2629,6 +2885,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2673,6 +2931,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2717,6 +2977,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2761,6 +3023,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2805,6 +3069,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2849,6 +3115,8 @@
       "ok_bienvenida": "pendiente_alta_tanda2",
       "candado_franja_gris": false,
       "dolor_detectado": "Registrar interesados bajo protocolo oficial de desarrolladora y mostrar gastos reales de cierre.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Lista vigente Desde USD",
         "Cronograma de cuotas",
@@ -2893,6 +3161,8 @@
       "ok_bienvenida": "rescate_estandar_24_48h_lunes",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
@@ -2937,6 +3207,8 @@
       "ok_bienvenida": "rescate_estandar_24_48h_lunes",
       "candado_franja_gris": false,
       "dolor_detectado": "Falta de alquiler anual estable en Maldonado/PDE y demora de respuestas.",
+      "corchetes_en_aviso": [],
+      "estado_material_aviso": "",
       "faltantes_capa_1": [
         "Zona deseada",
         "Dormitorios y tope mensual",
