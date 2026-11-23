@@ -14,7 +14,7 @@
     "ADMISION_NINOS_MASCOTAS": "Acepta niños y el edificio acepta mascotas",
     "COCHERA": "Sin cochera propia incluida; hay cocheras disponibles en alquiler dentro del mismo edificio",
     "GARANTIA_ACEPTADA": "Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander)",
-    "HORARIO_VISITAS": "Con cita previa",
+    "HORARIO_VISITAS": "Tras validar ficha, croquis y garantía",
     "URL_FICHA": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/"
   },
   "adsConfig": {
@@ -25,13 +25,13 @@
     "publico": "Create your own · Maldonado y Punta del Este (+15 km), 24 a 52 años",
     "duracion_ciclo": "5 días (corte de control 72 hs si consume > $U 800 sin consultas WhatsApp)",
     "url_destino_web_200_ok": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-    "destino_whatsapp_directo": "https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20anuncio%20de%20Centro%2C%20Maldonado%20(ZAG-ALQ-07%20%C2%B7%20%24U%2027.000%2Fmes%20%2B%20%24U%205.000%20(agua%20OSE%20incluida)).%20Quiero%20la%20ficha%20y%20horarios%20de%20visita.",
+    "destino_whatsapp_directo": "https://wa.me/59898712064?text=Hola%20Mar%2C%20vi%20el%20anuncio%20de%20Centro%2C%20Maldonado%20(ZAG-ALQ-07%20%C2%B7%20%24U%2027.000%2Fmes%20%2B%20%24U%205.000%20(agua%20OSE%20incluida)).%20Quiero%20ver%20la%20ficha%20completa%20con%20croquis%20y%20validar%20garant%C3%ADa%20aseguradora.",
     "botones_whatsapp_calificadores_80c": [
-      "Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar",
-      "Tengo ingresos para tramitar aseguradora y quiero simular garantía",
-      "Busco en otra zona o con depósito / tengo propiedad para publicar"
+      "Tengo Porto, Sura, Mapfre o Santander: quiero ver la ficha completa",
+      "Tengo recibos en BPS y quiero simular si califico para aseguradora",
+      "Quiero comparar las 2 opciones de 2D ($U 30.000 y $U 27.000 + $U 5.000 GC)"
     ],
-    "comentario_precio_publico_ig": "El alquiler es de $U 27.000/mes más $U 5.000 (agua OSE incluida) de gastos comunes. Requisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Tocá el botón del anuncio o el enlace de nuestro perfil para ver la ficha y coordinar visita con cita previa.",
+    "comentario_precio_publico_ig": "El alquiler es de $U 27.000/mes más $U 5.000 (agua OSE incluida) de gastos comunes. Requisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Tocá el botón del anuncio o el enlace de nuestro perfil para ver la ficha completa con las 8 fotos, el croquis y el simulador de garantía.",
     "piezas_a_rotar": [
       {
         "codigo": "ZAG-ALQ-07-P1",
@@ -66,12 +66,12 @@
       "badge_top": "ALQUILER ANUAL",
       "kicker": "Centro, Maldonado · REF. ZAG-ALQ-07",
       "headline": "2 dormitorios en Centro, Maldonado: $U 27.000/mes",
-      "subline": "Gastos comunes $U 5.000 (agua inc.). Solo garantía aseguradora.",
-      "cta_card": "Pedir visita por WhatsApp · ZAGUÁN Propiedades",
-      "instagram_copy": "Buscás alquiler anual claro en Centro, Maldonado sin sorpresas en el monto final?\n\nUnidad de 2 dormitorios (~50 m²) en Piso 4 por ascensor, orientación Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero. Acepta niños y el edificio acepta mascotas.\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nPedinos visita con cita previa escribiendo \"VISITA\" por mensaje privado o tocando el enlace directo de WhatsApp en nuestra biografía.\n\n#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades",
-      "tiktok_copy": "Alquiler anual 2 dormitorios en Centro, Maldonado: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Escribí VISITA o tocá el link de nuestra bio para coordinar con cita previa.",
-      "facebook_copy": "Alquiler anual en Centro, Maldonado · 2 dormitorios (~50 m²)\n\nValor: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte, sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero, edificio seguro con ascensor y cámaras de seguridad. Acepta niños y el edificio acepta mascotas.\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nReservá tu visita con cita previa desde la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-      "linkedin_copy": "Disponible en cartera activa de ZAGUÁN Propiedades (ZAG-ALQ-07): apartamento de 2 dormitorios (~50 m²) en Centro, Maldonado para contrato anual.\n\nCondiciones publicadas de frente: $U 27.000/mes más gastos comunes ($U 5.000 (agua OSE incluida)), edificio con ascensor y cámaras. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nCoordinamos visitas con cita previa. Ver ficha técnica completa: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "subline": "Gastos comunes $U 5.000 (agua inc.). Garantía Porto, Sura o Mapfre.",
+      "cta_card": "Ver ficha, croquis y video · ZAGUÁN Propiedades",
+      "instagram_copy": "Buscás alquiler anual claro en Centro, Maldonado sin sorpresas en el monto final?\n\nUnidad de 2 dormitorios (~50 m²) en Piso 4 por ascensor, orientación Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero. Acepta niños y el edificio acepta mascotas.\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y validá tu garantía escribiendo \"FICHA\" por mensaje privado o en el enlace de nuestra biografía.\n\n#Maldonado #AlquilerAnual #PuntaDelEste #ZaguanPropiedades",
+      "tiktok_copy": "Alquiler anual 2 dormitorios en Centro, Maldonado: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Mirá las 8 fotos, el croquis de distribución y validá tu garantía escribiendo \"FICHA\" o tocando el enlace de nuestra biografía.",
+      "facebook_copy": "Alquiler anual en Centro, Maldonado · 2 dormitorios (~50 m²)\n\nValor: $U 27.000/mes + $U 5.000 (agua OSE incluida). Piso 4 por ascensor, orientación Norte, sin muebles, con aire acondicionado y calefón instalados, cocina definida y terraza lavadero, edificio seguro con ascensor y cámaras de seguridad. Acepta niños y el edificio acepta mascotas.\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y el simulador de garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "linkedin_copy": "Disponible en cartera activa de ZAGUÁN Propiedades (ZAG-ALQ-07): apartamento de 2 dormitorios (~50 m²) en Centro, Maldonado para contrato anual.\n\nCondiciones publicadas de frente: $U 27.000/mes más gastos comunes ($U 5.000 (agua OSE incluida)), edificio con ascensor y cámaras. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis de distribución y el simulador de garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "youtube_title": "Centro, Maldonado 2D · $U 27.000/mes · ZAG-ALQ-07"
     },
     {
@@ -101,11 +101,11 @@
       "kicker": "EDIFICIO SEGURO · CÁMARAS",
       "headline": "Acepta niños y mascotas en edificio con cámaras",
       "subline": "Cocina definida y lavadero. Garantía Porto, Sura o Mapfre.",
-      "cta_card": "Coordinar visita con cita previa · ZAGUÁN",
-      "instagram_copy": "Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\nEste 2 dormitorios en Centro, Maldonado suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\nSolo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te mandamos los detalles completos y coordinamos visita con cita previa: escribinos \"FICHA\" por privado o al WhatsApp del perfil.\n\n#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades",
-      "tiktok_copy": "Acepta niños y mascotas en Centro, Maldonado: 2 dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Escribí FICHA para ver fotos y coordinar visita con cita previa.",
-      "facebook_copy": "Apartamento 2 dormitorios en Centro, Maldonado que acepta niños y mascotas.\n\nEdificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá todas las fotos y reservá horario de visita con cita previa acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-      "linkedin_copy": "Un diferencial clave de esta unidad en Centro, Maldonado: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nVisitas con cita previa. Detalles y ficha: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "cta_card": "Ver 8 fotos, croquis y requisitos · ZAGUÁN",
+      "instagram_copy": "Te cuesta encontrar apartamento anual céntrico donde acepten niños y mascotas?\n\nEste 2 dormitorios en Centro, Maldonado suma cocina definida con terraza lavadero, buena ventilación, doble ventanal al frente y edificio seguro con cámaras.\n\nSolo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora: escribinos \"FICHA\" por privado o al WhatsApp del perfil.\n\n#MascotasBienvenidas #MaldonadoUruguay #AlquilerAnual #ZaguanPropiedades",
+      "tiktok_copy": "Acepta niños y mascotas en Centro, Maldonado: 2 dormitorios con cocina definida, terraza lavadero y cámaras en el edificio. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Te enviamos la ficha completa con las 8 fotos, croquis y requisitos de aseguradora escribiendo \"FICHA\" o desde el enlace del perfil.",
+      "facebook_copy": "Apartamento 2 dormitorios en Centro, Maldonado que acepta niños y mascotas.\n\nEdificio seguro con ascensor y cámaras, terraza lavadero, aire acondicionado y calefón incluidos ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "linkedin_copy": "Un diferencial clave de esta unidad en Centro, Maldonado: contrato anual formal que acepta niños y mascotas, edificio con cámaras, cocina definida con lavadero. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá las 8 fotos, el croquis y validá tu garantía aseguradora acá: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "youtube_title": "Alquiler 2D Centro, Maldonado acepta niños y mascotas · ZAG-ALQ-07"
     },
     {
@@ -116,13 +116,13 @@
       "cover_filename": "04-portada-aseguradora-ads.jpg",
       "badge_top": "PORTO · SURA · MAPFRE",
       "kicker": "GARANTÍA EXCLUYENTE · PORTO · SURA · MAPFRE",
-      "headline": "Tenés Porto, Sura, Mapfre o Santander? Visitalo ya",
-      "subline": "$U 27.000/mes + $U 5.000 (agua OSE incluida). Respuesta directa con Mar.",
-      "cta_card": "Escribir ahora por WhatsApp · ZAGUÁN Propiedades",
-      "instagram_copy": "Contás con garantía aseguradora o recibos continuos en BPS y querés mudarte ya en Centro, Maldonado?\n\nRecorré en video este 2 dormitorios Piso 4 Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Requisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Coordinamos visitas con cita previa.\n\nTocá el botón de WhatsApp en nuestra biografía o comentá \"ALQUILER\" para pasarte la ficha y coordinar esta semana.\n\n#PortoSeguro #Sura #GarantiaDeAlquiler #Maldonado #ZaguanPropiedades",
-      "tiktok_copy": "Recorrido en video · 2 dormitorios en Centro, Maldonado con garantía Porto, Sura, Mapfre o Santander. $U 27.000/mes + $U 5.000 (agua OSE incluida). Visitas con cita previa, link en el perfil.",
-      "facebook_copy": "Recorrido en video · Alquiler anual 2D en Centro, Maldonado ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Consultá o agendá visita con cita previa en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
-      "linkedin_copy": "Video presentación de alquiler anual (ZAG-ALQ-07) en Centro, Maldonado. Proceso precalificado con aseguradora y visitas ágiles con cita previa. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nFicha completa: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "headline": "Tenés Porto, Sura, Mapfre o Santander? Mirá la ficha",
+      "subline": "$U 27.000/mes + $U 5.000 (agua OSE incluida). 8 fotos, croquis y video.",
+      "cta_card": "Ver ficha y validar garantía · ZAGUÁN",
+      "instagram_copy": "Contás con garantía aseguradora o recibos continuos en BPS y querés mudarte ya en Centro, Maldonado?\n\nRecorré en video este 2 dormitorios Piso 4 Norte: $U 27.000/mes + $U 5.000 (agua OSE incluida). Requisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nPedinos la ficha completa con croquis, video y simulador de garantía tocando el enlace de nuestra biografía o comentando \"ALQUILER\".\n\n#PortoSeguro #Sura #GarantiaDeAlquiler #Maldonado #ZaguanPropiedades",
+      "tiktok_copy": "Recorrido en video · 2 dormitorios en Centro, Maldonado con garantía Porto, Sura, Mapfre o Santander. $U 27.000/mes + $U 5.000 (agua OSE incluida). Pedinos la ficha completa con croquis, video y simulador de garantía desde el enlace del perfil.",
+      "facebook_copy": "Recorrido en video · Alquiler anual 2D en Centro, Maldonado ($U 27.000/mes + $U 5.000 (agua OSE incluida)).\n\nRequisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Mirá el video, el croquis y validá tu garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
+      "linkedin_copy": "Video presentación de alquiler anual (ZAG-ALQ-07) en Centro, Maldonado. Solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander).\n\nMirá el video, el croquis y validá tu garantía en la ficha oficial: https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "youtube_title": "Video 2D Centro, Maldonado con aseguradora · ZAG-ALQ-07"
     }
   ]
