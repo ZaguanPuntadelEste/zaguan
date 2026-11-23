@@ -926,9 +926,12 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
 
   const overrideList = Array.isArray(options?.overrides) ? options.overrides : _activeOverrides;
   const matchedOverride = _matchD1Override(rawText, contextoPropiedad, vertical, subtipo, canal, overrideList);
+  let verticalFinal = vertical;
   let subtipoFinal = subtipo;
   if (matchedOverride) {
     replyText = String(matchedOverride.respuesta_corregida || matchedOverride.respuesta || matchedOverride.replyText || matchedOverride.nueva_respuesta);
+    const ovVert = String(matchedOverride.vertical_14 || matchedOverride.vertical || "").toUpperCase().trim();
+    if (ovVert && ovVert !== "TODOS") verticalFinal = ovVert;
     if (matchedOverride.nuevo_subtipo) subtipoFinal = matchedOverride.nuevo_subtipo;
     if (typeof matchedOverride.alerta_andon === "boolean") {
       alertaAndon = matchedOverride.alerta_andon;
@@ -941,11 +944,11 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     replyText = _appendLeadIdToLinks(replyText, options.leadId);
   }
 
-  const pk = aplicarPokaYokeMar(replyText, vertical, esPasiva, etapaSla);
+  const pk = aplicarPokaYokeMar(replyText, verticalFinal, esPasiva, etapaSla);
 
   return {
     ok: true,
-    vertical_14: vertical,
+    vertical_14: verticalFinal,
     subtipo: subtipoFinal,
     familia_cliente: familia,
     tipo_ficha: arbol?.tipo_ficha || "AUTOSERVICIO_GENERAL",
