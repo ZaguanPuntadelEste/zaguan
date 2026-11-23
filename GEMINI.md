@@ -69,7 +69,7 @@ Guardada en `04_OFF_MARKET_AGUSTINA_VALLS_NO_PUBLICAR` y en `/admin/`. **Prohibi
   - Las 19 etiquetas del embudo (`01 propietario nuevo` a `08 seguimiento`, `SEGUIR COLEGA/DESARROLLADOR`, `DESARROLLADOR NO INMO`, `Datos alquiler anual`, etc.) y los 105 chats están respaldados en `00_DOCUMENTOS_WHATSAPP_ORDENADOS/ZAGUAN_WHATSAPP_COMPLETO.json`.
 - **Redes Sociales 100% en Aprobalo Cloud:**
   - **Cuenta ID en Aprobalo:** `0d9bb9b9-5348-4a2a-a0c9-b5ca64f9c5cb` (`Zaguán`)
-  - **Cabina de Aprobación / Edición:** `https://aprobala-app.943ari.workers.dev/p/w8frJy8xjWXG4SGGbkPstV1FveXelKQX`
+  - **Cabina de Aprobación / Edición:** `https://aprobala-app.943ari.workers.dev/p/Ta-8cI-XA1ltr0hwLJGDVx7cW0ra6gJJ`
 
 ---
 
