@@ -407,6 +407,8 @@ export function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
   }
 
   return {
+    rama_conversacion: prev.rama_conversacion || null,
+    paso_actual: prev.paso_actual || null,
     presupuesto_declarado: presupuestoDeclarado,
     presupuesto_elastico_max: presupuestoElasticoMax,
     presupuesto_max: presupuestoDeclarado || prev.presupuesto_max || null,
@@ -640,6 +642,7 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
       "mudarme más adelante", "mudarnos en", "para el mes que viene", "para dentro de",
     ])
     || (matchesAny(t, ["alquiler", "alquilar", "mudar"]) && (vSil.zona_display === "Punta del Este" || Boolean(vSil.presupuesto_declarado)))
+    || (Boolean(vSil.mes_mudanza && (vSil.personas_cantidad || vSil.dormitorios_abiertos)) && !matchesAny(t, ["la fortuna", "santa m"]))
     || ((vSil.tiene_mascota || vSil.comodidades_respondidas) && !matchesAny(t, ["la fortuna", "santa m", "perro mediano, aceptan", "dos perros grandes, aceptan"]))
   );
 
