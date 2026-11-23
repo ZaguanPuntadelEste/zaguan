@@ -2031,6 +2031,22 @@ window.avanzarTurnoB2C = async function(id) {
   }
 };
 
+window.eliminarPedidoAbiertoD1 = async function(id) {
+  if (!confirm(`Confirmás eliminar el pedido ${id} de Pedidos Abiertos?`)) return;
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/interesados/${encodeURIComponent(id)}`, { method: 'DELETE' });
+    const out = await res.json();
+    if (out.ok) {
+      await loadRadar4Z();
+      showToast(`🗑️ Pedido ${id} eliminado de D1`);
+    } else {
+      showToast('⚠️ Error eliminando pedido en D1');
+    }
+  } catch (e) {
+    showToast('⚠️ No se pudo conectar para eliminar');
+  }
+};
+
 function renderPedidosAbiertos() {
   const all = crmCloudState.interesados_b2c || [];
   const countBadge = document.getElementById('kpi-pedidos-tab-count');
@@ -2087,8 +2103,10 @@ function renderPedidosAbiertos() {
   }
 
   grid.innerHTML = filtrados.length ? filtrados.map(it => {
-    let ms = [];
-    try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch (e) {}
+    let ms = Array.isArray(it.matches) ? it.matches : [];
+    if (!ms.length) {
+      try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch (e) {}
+    }
     const mon = it.moneda || 'UYU';
     const decl = Number(it.presupuesto_declarado || it.presupuesto_max || 0);
     const elas = Number(it.presupuesto_elastico_max || (decl ? Math.round(decl * 1.075) : 0));
@@ -2102,17 +2120,39 @@ function renderPedidosAbiertos() {
       : 'Amoblado y sin muebles';
     const goWaUrl = it.go_wa_url || `${CRM_API_URL}/go/wa?tipo=b2c&id=${encodeURIComponent(it.id)}&turno=${encodeURIComponent(it.paso_actual || 'T1')}`;
     const safeCopy = String(it.ultimo_copy_mar || '').replace(/</g, '&lt;');
+    const safeNotas = String(it.notas || '').replace(/</g, '&lt;');
+    const estadoBusq = it.estado_busqueda || 'caza_activa_hoy';
+    const estadoConv = it.estado_conversacion || 'busqueda_activa_abierta';
+    const hitoCliente = it.hito_expectativa_cliente || '';
+    const matchesHtml = ms.length
+      ? `<div style="display:grid;gap:6px;margin-top:4px;">` + ms.map(m => {
+          const mGoWa = m.go_wa_url || `${CRM_API_URL}/go/wa?tipo=propietario&id=${encodeURIComponent(m.id)}&turno=${m.carril === '1_por_contactar' ? 'T0' : 'T1'}`;
+          const mTag = m.etiqueta_match || '🎯 Match en cartera';
+          return `<div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.35);border-radius:6px;padding:7px 9px;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+            <div>
+              <div style="font-size:11.5px;color:#6EE7B7;font-weight:700;">${String(mTag).replace(/</g, '&lt;')}</div>
+              <div style="font-size:12.5px;color:#F8FAFC;margin-top:2px;"><strong>${String(m.id).replace(/</g, '&lt;')} · ${String(m.nombre || '').replace(/</g, '&lt;')}</strong> — ${String(m.titulo || m.zona || '').replace(/</g, '&lt;')} (${String(m.precio_texto || '').replace(/</g, '&lt;')})</div>
+            </div>
+            <a class="btn btn-wa btn-sm" href="${mGoWa}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 /go/wa 1 clic</a>
+          </div>`;
+        }).join('') + `</div>`
+      : '<div style="font-size:12px;color:#94A3B8;">En búsqueda activa al ingresar unidades o coincidencias por polígono.</div>';
 
     return `
-      <div class="card approved">
+      <div class="card approved" id="pa-card-${it.id}">
         <div class="card-top">
           <div>
             <span class="tag tag-active">${it.id} · ${it.modalidad_contrato || it.tipo_operacion || 'Anual'} · Rama ${it.rama_conversacion || 'B'}</span>
-            <span class="tag tag-ley" style="margin-left:4px;">${it.paso_actual || it.turno_actual || 'PASO_1'}</span>
+            <span class="tag" style="margin-left:4px;background:rgba(16,185,129,0.18);color:#6EE7B7;border:1px solid rgba(16,185,129,0.4);">🟢 ${estadoBusq === 'caza_activa_hoy' ? 'Caza activa HOY' : estadoBusq}</span>
+            <span class="tag tag-ley" style="margin-left:4px;">💬 ${estadoConv}</span>
+            ${hitoCliente ? `<span class="tag" style="margin-left:4px;background:rgba(245,158,11,0.18);color:#FCD34D;border:1px solid rgba(245,158,11,0.4);">🗓️ Hito expectativa: ${hitoCliente}</span>` : ''}
             <h3 style="font-size:17px;margin-top:6px;">${String(it.nombre || 'Interesado B2C').replace(/</g, '&lt;')}</h3>
             <p style="font-size:12.5px;color:#B7D6E0;margin-top:2px;">📱 ${it.telefono || 'Sin WhatsApp cargado'} · Canal: ${it.canal || 'whatsapp'} · Cuándo: <strong style="color:#FCD34D;">${it.desde_cuando || 'Mes a definir'}</strong></p>
           </div>
-          <strong style="color:var(--gold);font-size:13.5px;text-align:right;">${presuLabel}</strong>
+          <div style="display:flex;align-items:flex-start;gap:8px;">
+            <strong style="color:var(--gold);font-size:13.5px;text-align:right;">${presuLabel}</strong>
+            <button class="btn btn-sm" style="background:rgba(239,68,68,0.18);color:#FCA5A5;border:1px solid rgba(239,68,68,0.4);padding:5px 8px;" title="Eliminar fila de D1 y pantalla" onclick="eliminarPedidoAbiertoD1('${it.id}')">🗑️</button>
+          </div>
         </div>
 
         <div style="font-size:12px;color:#E2E8F0;background:rgba(8,21,33,0.65);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:grid;gap:4px;">
@@ -2121,12 +2161,15 @@ function renderPedidosAbiertos() {
           <div>🛏️ <strong>Espacio:</strong> ${it.dormitorios_abiertos || (it.dormitorios_min !== null ? it.dormitorios_min + 'D' : 'Monoambiente, 1 y 2 dormitorios')} · <strong>Mobiliario:</strong> ${amobTxt}</div>
           <div>🐾 <strong>Mascota / Comodidades:</strong> ${it.mascota_detalle || it.tiene_mascota || 'Sin confirmar'} · ${it.comodidades_pedidas || 'Sin confirmar'}</div>
           <div>🛡️ <strong>Garantía:</strong> ${it.garantia_disponible || 'Pendiente (Paso 2)'}${it.situacion_laboral ? ` (${it.situacion_laboral})` : ''}</div>
-          <div>🎯 <strong>Matches cartera:</strong> ${ms.length ? ms.map(m => `${m.id} ${m.nombre}`).join(', ') : 'En búsqueda activa al ingresar unidades'}</div>
+          <div>🎯 <strong>Cruce Radar hoy (Exacto + Polígono en Zona):</strong></div>
+          ${matchesHtml}
         </div>
+
+        ${safeNotas ? `<details style="margin-top:6px;"><summary style="font-size:11.5px;color:#94A3B8;cursor:pointer;">📜 Ver historial y detalles sumados (+Detalle)</summary><pre style="margin-top:4px;white-space:pre-wrap;font-size:11.5px;color:#CBD5E1;background:#040d16;padding:8px;border-radius:6px;border:1px solid var(--border);">${safeNotas}</pre></details>` : ''}
 
         <div style="margin-top:8px;">
           <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Respuesta lista de Mar (15 Candados OK):</label>
-          <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:76px;font-size:12px;">${safeCopy}</textarea>
+          <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:84px;font-size:12px;">${safeCopy}</textarea>
           <div class="btn-row" style="margin-top:6px;">
             <a class="btn btn-wa btn-sm" href="${goWaUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 RESPONDER CON MAR EN 1 CLIC</a>
             <button class="btn btn-yes btn-sm" onclick="copyTextById('pa-copy-${it.id}')">📋 Copiar respuesta</button>
@@ -2134,8 +2177,8 @@ function renderPedidosAbiertos() {
         </div>
 
         <div style="margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;display:flex;gap:6px;flex-wrap:wrap;">
-          <input type="text" id="pa-reply-in-${it.id}" placeholder="Pegar nueva respuesta del interesado (ej: en abril, somos 2, cobro en exterior)..." style="flex:1;min-width:200px;background:#040d16;border:1px solid var(--border);color:#fff;padding:7px 9px;border-radius:6px;font-size:12px;">
-          <button class="btn btn-outline btn-sm" onclick="avanzarTurnoB2C('${it.id}')">➡️ Procesar turno siguiente</button>
+          <input type="text" id="pa-reply-in-${it.id}" placeholder="Pegar nuevo detalle o mensaje (ej: Ah, me olvidé de decirte que tenga parrillero)..." style="flex:1;min-width:200px;background:#040d16;border:1px solid var(--border);color:#fff;padding:7px 9px;border-radius:6px;font-size:12px;">
+          <button class="btn btn-outline btn-sm" onclick="avanzarTurnoB2C('${it.id}')">➕ Sumar detalle / avanzar turno</button>
         </div>
       </div>
     `;

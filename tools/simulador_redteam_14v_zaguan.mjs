@@ -669,7 +669,7 @@ export const ESCENARIOS_60 = [
       if (badPar.pokayoke_pass || !badPar.violaciones.includes('PROHIBIDO_ASUMIR_PARENTESCO')) errores.push('NO_BLOQUEA_CANDADO_15');
 
       const r3Q = clasificarYResponder('Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este', 'T0_INMEDIATO', 'general', 'whatsapp');
-      if (r3Q.subtipo !== 'D2_RAMA_B_CIERRE_3_PREGUNTAS' || !r3Q.pokayoke_pass || !r3Q.replyText.includes('*buscás que esté amoblado o te da igual?*')) errores.push('FALLA_CIERRE_3Q');
+      if (r3Q.subtipo !== 'D2_RAMA_B_CIERRE_3_PREGUNTAS' || !r3Q.pokayoke_pass || !r3Q.replyText.includes('- *buscás que esté amoblado o te da igual?*')) errores.push('FALLA_CIERRE_3Q');
 
       const rCierre = clasificarYResponder(
         'Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, prefiero amoblado no excluyente sirve sin muebles, con 1 perro y garantía depósito o aseguradora',
@@ -681,7 +681,8 @@ export const ESCENARIOS_60 = [
         rCierre.subtipo !== 'D2_RAMA_B_BUSQUEDA_COMPLETA' ||
         !rCierre.pokayoke_pass ||
         /[()]/.test(rCierre.replyText) ||
-        !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\n\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
+        rCierre.replyText.includes('\n\n') ||
+        !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
       ) {
         errores.push('FALLA_CIERRE_RAMA_B_FORMATO');
       }
@@ -690,12 +691,98 @@ export const ESCENARIOS_60 = [
         pass: errores.length === 0,
         errores,
         vertical_detectada: 'D2',
-        subtipo_detectado: errores.length === 0 ? 'CANDADOS_13_14_Y_SILENCIOSAS_OK' : 'FALLA_MATRIZ_D2',
+        subtipo_detectado: errores.length === 0 ? 'CANDADOS_13_15_Y_SILENCIOSAS_OK' : 'FALLA_MATRIZ_D2',
         alerta_andon: errores.length > 0,
         replyText: errores.length === 0
-          ? 'OK: elástico $43.000, con_y_sin_gc, Mono/1D/2D y candados #13-#14 activos.'
+          ? 'OK: elástico $43.000, con_y_sin_gc, Mono/1D/2D y candados #13-#15 activos.'
           : errores.join(' | '),
       };
+    },
+  },
+  {
+    id: 'SIM-77',
+    bloque: 'Post-Cierre Nombre Agendado · Saltos Simples \\n',
+    turno: 'Nombre Cecilia tras cierre',
+    contexto: 'general',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'Cecilia Rial (responde nombre tras D2_RAMA_B_BUSQUEDA_COMPLETA)',
+    evaluate: () => {
+      const r77 = clasificarYResponder('Cecilia Rial', 'T1_SEGUIMIENTO', 'general', 'whatsapp', {
+        leadState: { paso_actual: 'D2_RAMA_B_BUSQUEDA_COMPLETA', rama_conversacion: 'B' },
+      });
+      const pass = r77.subtipo === 'D2_RAMA_B_NOMBRE_AGENDADO' &&
+        r77.pokayoke_pass &&
+        !r77.replyText.includes('\n\n') &&
+        r77.replyText.includes('Un gusto, Cecilia!\ndejamos asentado tu nombre de contacto.\n') &&
+        r77.alerta_andon;
+      return { pass, errores: pass ? [] : [`NOMBRE_AGENDADO_FAIL:${r77.subtipo}`], vertical_detectada: 'D2', subtipo_detectado: r77.subtipo, alerta_andon: r77.alerta_andon, replyText: r77.replyText };
+    },
+  },
+  {
+    id: 'SIM-78',
+    bloque: 'Puerta Abierta Post-Cierre · T_ADD_DETAIL',
+    turno: 'Agrega detalle post-cierre sin resetear a T0',
+    contexto: 'general',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'Ah, me olvidé de decirte que tenga parrillero',
+    evaluate: () => {
+      const r78 = clasificarYResponder('Ah, me olvidé de decirte que tenga parrillero', 'T1_SEGUIMIENTO', 'general', 'whatsapp', {
+        leadState: {
+          nombre: 'Cecilia Rial',
+          estado_conversacion: 'busqueda_activa_abierta',
+          estado_busqueda: 'caza_activa_hoy',
+          hito_expectativa_cliente: '2027-01-15',
+          paso_actual: 'BUSQUEDA_ACTIVA_ABIERTA',
+          comodidades_pedidas: 'Cochera',
+        },
+      });
+      const pass = r78.subtipo === 'T_ADD_DETAIL' &&
+        r78.pokayoke_pass &&
+        r78.replyText.includes('Anotado, Cecilia! Ya sumamos parrillero a tu búsqueda activa.') &&
+        !r78.replyText.includes('Te damos la bienvenida') &&
+        !r78.replyText.includes('\n\n');
+      return { pass, errores: pass ? [] : [`T_ADD_DETAIL_FAIL:${r78.subtipo}`], vertical_detectada: 'D2', subtipo_detectado: r78.subtipo, alerta_andon: r78.alerta_andon, replyText: r78.replyText };
+    },
+  },
+  {
+    id: 'SIM-79',
+    bloque: 'Formato Shift+Enter \\n y Guiones Claros',
+    turno: 'Cero renglones en blanco y guiones claros',
+    contexto: 'general',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'Verifica Shift+Enter \\n simple y guiones abajo',
+    evaluate: () => {
+      const r79 = clasificarYResponder('Busco alquiler anual para el 2027 en punta del este hasta 40mil', 'T0_INMEDIATO', 'la_fortuna', 'whatsapp');
+      const r3q = clasificarYResponder('Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este', 'T0_INMEDIATO', 'general', 'whatsapp');
+      const pass = r79.pokayoke_pass && !r79.replyText.includes('\n\n') && r79.replyText.includes('- _si tenés mascota') && r3q.replyText.includes('- *tenés mascota?*') && !r3q.replyText.includes('\n\n');
+      return { pass, errores: pass ? [] : ['FORMATO_SHIFT_ENTER_FAIL'], vertical_detectada: 'D2', subtipo_detectado: r79.subtipo, alerta_andon: r79.alerta_andon, replyText: r3q.replyText };
+    },
+  },
+  {
+    id: 'SIM-80',
+    bloque: 'Doble Reloj + Suma Aditiva de Comodidades',
+    turno: 'caza_activa_hoy + hito 2027-01-15 + Parrillero sin pisar Cochera',
+    contexto: 'general',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'Suma Parrillero y Fondo cercado manteniendo Cochera y Doble Reloj',
+    evaluate: () => {
+      const vs80 = extraerVariablesSilenciosasB2C('Ah, me olvidé de decirte que tenga parrillero y fondo cercado', {
+        nombre: 'Cecilia Rial',
+        estado_conversacion: 'busqueda_activa_abierta',
+        estado_busqueda: 'caza_activa_hoy',
+        hito_expectativa_cliente: '2027-01-15',
+        comodidades_pedidas: 'Cochera',
+        presupuesto_declarado: 40000,
+        presupuesto_elastico_max: 43000,
+      });
+      const pass = vs80.estado_conversacion === 'busqueda_activa_abierta' &&
+        vs80.estado_busqueda === 'caza_activa_hoy' &&
+        vs80.hito_expectativa_cliente === '2027-01-15' &&
+        vs80.comodidades_pedidas.includes('Cochera') &&
+        vs80.comodidades_pedidas.includes('Parrillero') &&
+        vs80.comodidades_pedidas.includes('Fondo cercado') &&
+        vs80.presupuesto_elastico_max === 43000;
+      return { pass, errores: pass ? [] : ['DOBLE_RELOJ_SUMA_ADITIVA_FAIL'], vertical_detectada: 'D2', subtipo_detectado: 'DOBLE_RELOJ_ACTIVO_OK', alerta_andon: false, replyText: `${vs80.comodidades_pedidas} | ${vs80.estado_busqueda} | ${vs80.hito_expectativa_cliente}` };
     },
   },
 ];

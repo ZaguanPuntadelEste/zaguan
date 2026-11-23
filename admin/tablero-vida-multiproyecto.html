@@ -3501,23 +3501,12 @@
   ]
 }</script>
   <script id="data-sim32" type="application/json">{
-  "fecha": "2026-11-23T12:57:43.057Z",
+  "fecha": "2026-11-23T12:58:23.042Z",
   "total": 76,
-  "pasaron": 75,
-  "fallaron_count": 1,
-  "tasa_exito": "99%",
-  "fallos_resumen": [
-    {
-      "id": "SIM-76",
-      "bloque": "Candados #13/#14/#15 + Negrita Preguntas + Cierre 3Q y Rama B",
-      "input": "Candados #13/#14/#15 + Presupuesto elástico $40k -> $43k + Negritas + Cierre Rama B",
-      "subtipo_detectado": "FALLA_MATRIZ_D2",
-      "errores": [
-        "FALLA_CIERRE_RAMA_B_FORMATO"
-      ],
-      "reply_obtenido": "FALLA_CIERRE_RAMA_B_FORMATO"
-    }
-  ],
+  "pasaron": 76,
+  "fallaron_count": 0,
+  "tasa_exito": "100%",
+  "fallos_resumen": [],
   "resultados": [
     {
       "id": "SIM-01",
@@ -4500,14 +4489,12 @@
       "turno": "Validación Unitaria",
       "contexto": "d2_interno",
       "input": "Candados #13/#14/#15 + Presupuesto elástico $40k -> $43k + Negritas + Cierre Rama B",
-      "pass": false,
-      "errores": [
-        "FALLA_CIERRE_RAMA_B_FORMATO"
-      ],
+      "pass": true,
+      "errores": [],
       "vertical_detectada": "D2",
-      "subtipo_detectado": "FALLA_MATRIZ_D2",
-      "alerta_andon": true,
-      "replyText": "FALLA_CIERRE_RAMA_B_FORMATO"
+      "subtipo_detectado": "CANDADOS_13_14_Y_SILENCIOSAS_OK",
+      "alerta_andon": false,
+      "replyText": "OK: elástico $43.000, con_y_sin_gc, Mono/1D/2D y candados #13-#14 activos."
     }
   ]
 }</script>
@@ -4848,9 +4835,16 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     amobladoExplicito = true;
   }
 
-  const comods = new Set(String(prev.comodidades_pedidas || "").split(",").map((x) => x.trim()).filter(Boolean));
+  const comods = new Set(String(prev.comodidades_pedidas || "").split(/[,|]+/).map((x) => x.trim()).filter(Boolean));
   if (/\bcochera|garaje|estacionamiento\b/i.test(norm)) comods.add("Cochera");
   if (/\bpatio|jardin|fondo\b/i.test(norm)) comods.add("Patio");
+  if (/\b(parrillero|churrasquero|barbacoa|quincho)\b/i.test(norm)) comods.add("Parrillero");
+  if (/\b(fondo\s+cercado|patio\s+cercado|cercado|perimetral)\b/i.test(norm)) comods.add("Fondo cercado");
+  if (/\b(estufa\s+a\s+lena|chimenea|hogar)\b/i.test(norm)) comods.add("Estufa a leña");
+  if (/\b(terraza|balcon)\b/i.test(norm)) comods.add("Terraza / Balcón");
+  if (/\b(piscina|pileta)\b/i.test(norm)) comods.add("Piscina");
+  if (/\b(aire\s+acondicionado|split)\b/i.test(norm)) comods.add("Aire acondicionado");
+  if (/\blavadero\b/i.test(norm)) comods.add("Lavadero");
   if (/\bamoblad[oa]\b/i.test(norm)) comods.add("Amoblado");
   if (/\bsin muebles\b/i.test(norm)) comods.add("Sin muebles");
   const comodidadesRespondidas = comods.size > 0 || /\b(sin comodidades|ninguna comodidad|me da igual)\b/i.test(norm) || Boolean(prev.comodidades_respondidas);
@@ -4940,6 +4934,10 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
   }
 
   return {
+    nombre: prev.nombre || null,
+    estado_conversacion: prev.estado_conversacion || null,
+    estado_busqueda: prev.estado_busqueda || "caza_activa_hoy",
+    hito_expectativa_cliente: prev.hito_expectativa_cliente || null,
     rama_conversacion: prev.rama_conversacion || null,
     paso_actual: prev.paso_actual || null,
     presupuesto_declarado: presupuestoDeclarado,
@@ -4978,6 +4976,27 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
   if (matchesAny(t, ["ya señé", "ya señe", "ya alquilé", "ya alquile", "ya conseguí", "ya consegui", "ya compré", "ya compre", "ya vendí", "ya vendi", "no me interesa"])) {
     const v = ctx === "dueno" ? "O6" : (ctx === "santa_monica" ? "D3" : "D2");
     return { vertical: v, subtipo: "CIERRE_NEGATIVO_EDUCADO" };
+  }
+
+  // 0a-bis. Post-Cierre Puerta Abierta (busqueda_activa_abierta) -> Suma Incremental T_ADD_DETAIL sin resetear a T0
+  const enBusquedaActivaAbierta = Boolean(
+    leadState && (
+      leadState.estado_conversacion === "busqueda_activa_abierta" ||
+      ["BUSQUEDA_ACTIVA_ABIERTA", "D2_RAMA_B_NOMBRE_AGENDADO", "T_ADD_DETAIL"].includes(leadState.paso_actual)
+    )
+  );
+  if (enBusquedaActivaAbierta) {
+    return { vertical: "D2", subtipo: "T_ADD_DETAIL" };
+  }
+
+  // 0a-ter. Cierre con nombre recibido tras D2_RAMA_B_BUSQUEDA_COMPLETA
+  if (
+    leadState?.paso_actual === "D2_RAMA_B_BUSQUEDA_COMPLETA" &&
+    String(rawText || "").trim().length >= 2 &&
+    String(rawText || "").trim().length <= 60 &&
+    !matchesAny(t, ["la fortuna", "santa m", "alquiler", "busco", "no tengo", "precio", "cuanto", "cuánto"])
+  ) {
+    return { vertical: "D2", subtipo: "D2_RAMA_B_NOMBRE_AGENDADO" };
   }
 
   // 0b. Cierre caliente por competencia / cita en otro apto (Caso Lianet T2)
@@ -5295,6 +5314,25 @@ function detectarFaltantes(vertical, rawText) {
   };
 }
 
+function extraerPrimerNombre(rawText = "", leadState = null) {
+  const fromState = String(leadState?.nombre || "")
+    .replace(/Pendiente nombre.*/i, "")
+    .replace(/Interesad[oa]\s+B2C/i, "")
+    .trim();
+  if (fromState) return _capWord(fromState.split(/\s+/)[0]);
+  const clean = String(rawText || "").replace(/[¿¡!?.,]/g, " ").trim();
+  const explicit = clean.match(/(?:soy|me llamo|mi nombre es)\s+([a-záéíóúñ]{2,20})/i);
+  if (explicit) return _capWord(explicit[1]);
+  const words = clean.split(/\s+/).filter(Boolean);
+  if (words.length >= 1 && words.length <= 3 && !/\d/.test(clean)) {
+    const first = words[0];
+    if (first.length >= 2 && !/^(hola|buenas|buen|gracias|si|sí|ok|dale)$/i.test(first)) {
+      return _capWord(first);
+    }
+  }
+  return "";
+}
+
 function _asegurarNegritaEnPreguntasActivas(texto) {
   const lines = String(texto || "").split("\n");
   return lines
@@ -5318,6 +5356,8 @@ function _asegurarNegritaEnPreguntasActivas(texto) {
         return /\b(?:aprox|av|dic|oct|nov|ene|feb|mar|abr|may|jun|jul|ago|set|sep|etc|art|sr|sra|dr)\.$/.test(sub) || /\d\.$/.test(sub);
       };
       let splitIdx = 0;
+      const listMatch = beforeQ.match(/^(\s*-\s+)/);
+      if (listMatch) splitIdx = listMatch[1].length;
       const reSep = /([.!:·]\s+)/g;
       let m;
       while ((m = reSep.exec(beforeQ)) !== null) {
@@ -5376,7 +5416,7 @@ function armarMensajeCierreBusquedaRamaB(v) {
   const resumen = gar ? `${resumenBase} y garantía ${gar.charAt(0).toLowerCase() + gar.slice(1)}` : resumenBase;
   return (
     `Clarísimo todo! Ya dejamos armada tu búsqueda para ${fechaTxt}:\n` +
-    `_${resumen}._\n\n` +
+    `_${resumen}._\n` +
     "Nos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! *Cómo es tu nombre para agendar tu búsqueda?*"
   );
 }
@@ -5388,6 +5428,7 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   if (/[¿¡]/.test(out)) {
     out = out.replace(/[¿¡]/g, "");
   }
+  out = out.replace(/\r?\n[ \t]*\r?\n+/g, "\n");
   out = _asegurarNegritaEnPreguntasActivas(out);
 
   // Candado Cocina vs Vidriera: nunca filtrar términos internos ni datos privados al cliente final
@@ -5923,14 +5964,14 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     const yearMatch = String(rawText || "").match(/\b(202[6-9]|203\d)\b/);
     const tempParte = yearMatch ? ` para el ${yearMatch[1]}` : (varsSilenciosas.desde_cuando ? ` para ${varsSilenciosas.desde_cuando}` : "");
     const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
-      ? "\n\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos."
+      ? "\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos."
       : "";
     replyText =
-      `Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}\n\n` +
-      "Contanos así enfocamos la búsqueda: desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?\n\n" +
+      `Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}\n` +
+      "Contanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n" +
       "_Si querés adelantarnos algo más:_\n" +
-      "_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n" +
-      "_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_";
+      "- _si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n" +
+      "- _con qué garantía pensás alquilar (podemos ayudarte con eso también)_";
     alertaAndon = true;
     motivoAndon = "Rama B Paso 1: búsqueda abierta guardada con presupuesto elástico y dormitorios abiertos.";
   } else if (subtipo === "D2_RAMA_B_MASCOTA_PREGUNTA") {
@@ -5939,16 +5980,42 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
   } else if (subtipo === "D2_RAMA_B_CIERRE_3_PREGUNTAS") {
     replyText =
       "Tomamos nota. Para terminar de definir tu búsqueda:\n" +
-      "*buscás que esté amoblado o te da igual?*\n" +
-      "*tenés mascota?*\n" +
+      "- *buscás que esté amoblado o te da igual?*\n" +
+      "- *tenés mascota?*\n" +
       "y por último:\n" +
-      "*con qué garantía pensás alquilar (podemos ayudarte con eso también)?*";
+      "- *con qué garantía pensás alquilar (podemos ayudarte con eso también)?*";
   } else if (subtipo === "D2_RAMA_B_TURNO_2_PASO_3") {
     const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
-      ? "Tené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\n"
+      ? "Tené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n"
       : "";
     replyText =
       `${aclaraContrato}Tomamos nota. Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?`;
+  } else if (subtipo === "D2_RAMA_B_NOMBRE_AGENDADO") {
+    const primerNombre = extraerPrimerNombre(rawText, leadState) || "contacto";
+    replyText =
+      `Un gusto, ${primerNombre}!\n` +
+      "dejamos asentado tu nombre de contacto.\n" +
+      "Hacia mediados de enero deberíamos acercar tu necesidad a algo concreto, y la temporada es un tsunami por estos lares! por eso recordá que sos libre de incluir detalles que te acuerdes o se te ocurran, en cualquier momento, y vamos ajustando!";
+    alertaAndon = true;
+    motivoAndon = `Nombre agendado (${primerNombre}): búsqueda pasa a busqueda_activa_abierta + caza_activa_hoy (hito 2027-01-15).`;
+  } else if (subtipo === "T_ADD_DETAIL") {
+    const primerNombre = extraerPrimerNombre("", leadState) || extraerPrimerNombre(rawText, leadState) || "";
+    const saludoNombre = primerNombre ? `, ${primerNombre}` : "";
+    const detalleClean = String(rawText || "").replace(/\bpero\b/gi, "y").replace(/[()¿¡]/g, "").trim();
+    const tagsAdd = [];
+    if (/\b(parrillero|churrasquero|barbacoa|quincho)\b/i.test(detalleClean)) tagsAdd.push("parrillero");
+    if (/\b(fondo\s+cercado|patio\s+cercado|cercado)\b/i.test(detalleClean)) tagsAdd.push("fondo cercado");
+    if (/\bcochera\b/i.test(detalleClean)) tagsAdd.push("cochera");
+    if (/\b(patio|jard[ií]n)\b/i.test(detalleClean)) tagsAdd.push("patio");
+    if (/\b(estufa\s+a\s+le[nñ]a)\b/i.test(detalleClean)) tagsAdd.push("estufa a leña");
+    if (/\b(piscina|pileta)\b/i.test(detalleClean)) tagsAdd.push("piscina");
+    if (/\b(aire\s+acondicionado|split)\b/i.test(detalleClean)) tagsAdd.push("aire acondicionado");
+    const queSumamos = tagsAdd.length ? tagsAdd.join(" y ") : "ese nuevo detalle";
+    replyText =
+      `Anotado${saludoNombre}! Ya sumamos ${queSumamos} a tu búsqueda activa.\n` +
+      "Seguimos cruzando propiedades con tu perfil actualizado y te avisamos por acá apenas tengamos opciones para vos!";
+    alertaAndon = true;
+    motivoAndon = `T_ADD_DETAIL${primerNombre ? " (" + primerNombre + ")" : ""}: sumó ${queSumamos} sin resetear búsqueda.`;
   } else if (subtipo === "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA") {
     replyText =
       "Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?";
@@ -6206,7 +6273,7 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
     else failed.push({ id: esc.id, errores: errs });
   }
 
-  // SIM-76: Candados #13, #14 y #15 + Negrita en preguntas + Cierre 3 preguntas cortas + Cierre Rama B sin paréntesis
+  // SIM-76: Candados #13, #14 y #15 + Negrita en preguntas + Cierre 3 preguntas cortas + Cierre Rama B sin paréntesis ni \n\n
   const vs76 = extraerVariablesSilenciosasB2C("Busco alquiler en Punta del Este hasta 40mil para 1 o 2 personas");
   const p76_1 = aplicarPokaYokeMar("Bienvenida, pero agendado solo/sola qué mascota es cochera, patio, muebles", "D2");
   const p76_15 = aplicarPokaYokeMar("Buscamos una casa ideal para vos y tus hijos o tu familia.", "D2");
@@ -6224,19 +6291,97 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
   if (vs76.amoblado_preferencia !== "amoblado_y_sin_muebles") sim76Errs.push("AMOBLADO_FAIL");
   if (p76_1.pokayoke_pass) sim76Errs.push("CANDADOS_13_14_NO_BLOQUEARON");
   if (p76_15.pokayoke_pass || !p76_15.violaciones.includes("PROHIBIDO_ASUMIR_PARENTESCO")) sim76Errs.push("CANDADO_15_NO_BLOQUEO");
-  if (r3Q.subtipo !== "D2_RAMA_B_CIERRE_3_PREGUNTAS" || !r3Q.pokayoke_pass || !r3Q.replyText.includes("*buscás que esté amoblado o te da igual?*")) sim76Errs.push("CIERRE_3Q_FAIL");
+  if (r3Q.subtipo !== "D2_RAMA_B_CIERRE_3_PREGUNTAS" || !r3Q.pokayoke_pass || !r3Q.replyText.includes("- *buscás que esté amoblado o te da igual?*")) sim76Errs.push("CIERRE_3Q_FAIL");
   if (
     rCierre.subtipo !== "D2_RAMA_B_BUSQUEDA_COMPLETA" ||
     !rCierre.pokayoke_pass ||
     /[()]/.test(rCierre.replyText) ||
-    !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\n\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
+    rCierre.replyText.includes("\n\n") ||
+    !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
   ) {
     sim76Errs.push("CIERRE_RAMA_B_FORMATO_FAIL");
   }
   if (sim76Errs.length === 0) passedCount++;
   else failed.push({ id: "SIM-76", errores: sim76Errs });
 
-  const totalAll = allCases.length + 1;
+  // SIM-77: Nombre recibido tras cierre Rama B ("Cecilia") con saltos simples \n sin renglones en blanco
+  const r77 = clasificarYResponder("Cecilia Rial", "T1_SEGUIMIENTO", "general", "whatsapp", {
+    leadState: { paso_actual: "D2_RAMA_B_BUSQUEDA_COMPLETA", rama_conversacion: "B" },
+  });
+  if (
+    r77.subtipo === "D2_RAMA_B_NOMBRE_AGENDADO" &&
+    r77.pokayoke_pass &&
+    !r77.replyText.includes("\n\n") &&
+    r77.replyText.includes("Un gusto, Cecilia!\ndejamos asentado tu nombre de contacto.\n") &&
+    r77.alerta_andon
+  ) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-77", errores: [`NOMBRE_AGENDADO_FAIL:${r77.subtipo}`] });
+  }
+
+  // SIM-78: T_ADD_DETAIL post-cierre en busqueda_activa_abierta sin resetear a T0 ni re-enviar bienvenida
+  const r78 = clasificarYResponder("Ah, me olvidé de decirte que tenga parrillero", "T1_SEGUIMIENTO", "general", "whatsapp", {
+    leadState: {
+      nombre: "Cecilia Rial",
+      estado_conversacion: "busqueda_activa_abierta",
+      estado_busqueda: "caza_activa_hoy",
+      hito_expectativa_cliente: "2027-01-15",
+      paso_actual: "BUSQUEDA_ACTIVA_ABIERTA",
+      comodidades_pedidas: "Cochera",
+    },
+  });
+  if (
+    r78.subtipo === "T_ADD_DETAIL" &&
+    r78.pokayoke_pass &&
+    r78.replyText.includes("Anotado, Cecilia! Ya sumamos parrillero a tu búsqueda activa.") &&
+    !r78.replyText.includes("Te damos la bienvenida") &&
+    !r78.replyText.includes("\n\n")
+  ) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-78", errores: [`T_ADD_DETAIL_FAIL:${r78.subtipo}`] });
+  }
+
+  // SIM-79: Formato Shift+Enter \n simple y guiones claros abajo sin renglones en blanco en toda respuesta de Mar
+  const r79 = clasificarYResponder("Busco alquiler anual para el 2027 en punta del este hasta 40mil", "T0_INMEDIATO", "la_fortuna", "whatsapp");
+  if (
+    r79.pokayoke_pass &&
+    !r79.replyText.includes("\n\n") &&
+    r79.replyText.includes("- _si tenés mascota") &&
+    r3Q.replyText.includes("- *tenés mascota?*") &&
+    !r3Q.replyText.includes("\n\n")
+  ) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-79", errores: ["FORMATO_SHIFT_ENTER_FAIL"] });
+  }
+
+  // SIM-80: Doble Reloj (caza_activa_hoy + hito 2027-01-15) + Suma aditiva de comodidades sin pisar Cochera
+  const vs80 = extraerVariablesSilenciosasB2C("Ah, me olvidé de decirte que tenga parrillero y fondo cercado", {
+    nombre: "Cecilia Rial",
+    estado_conversacion: "busqueda_activa_abierta",
+    estado_busqueda: "caza_activa_hoy",
+    hito_expectativa_cliente: "2027-01-15",
+    comodidades_pedidas: "Cochera",
+    presupuesto_declarado: 40000,
+    presupuesto_elastico_max: 43000,
+  });
+  if (
+    vs80.estado_conversacion === "busqueda_activa_abierta" &&
+    vs80.estado_busqueda === "caza_activa_hoy" &&
+    vs80.hito_expectativa_cliente === "2027-01-15" &&
+    vs80.comodidades_pedidas.includes("Cochera") &&
+    vs80.comodidades_pedidas.includes("Parrillero") &&
+    vs80.comodidades_pedidas.includes("Fondo cercado") &&
+    vs80.presupuesto_elastico_max === 43000
+  ) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-80", errores: ["DOBLE_RELOJ_SUMA_ADITIVA_FAIL"] });
+  }
+
+  const totalAll = allCases.length + 5;
   const ok = candidateCheck.pass && passedCount === totalAll && failed.length === 0;
   return {
     ok,
