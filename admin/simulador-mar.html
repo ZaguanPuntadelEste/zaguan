@@ -328,7 +328,8 @@
       </div>
       <div class="top-actions">
         <a class="nav-link" href="/admin/tablero-vida-multiproyecto.html">← Volver al Tablero Multi-Proyecto</a>
-        <button class="nav-link primary" onclick="exportarReglasCorregidas()">Copiar mis correcciones para sincronizar</button>
+        <a class="nav-link" href="/admin/">← Cabina CRM</a>
+        <button class="nav-link primary" onclick="sincronizarTodoEnNube()">☁️ Enviar correcciones pendientes a la nube</button>
       </div>
     </div>
   </header>
@@ -369,11 +370,12 @@
       </section>
 
       <section class="panel">
-        <h2>4 · Correcciones guardadas por vos (<span id="overrideCount">0</span>)</h2>
-        <div id="overridesList" style="max-height:200px;overflow-y:auto;"></div>
-        <div style="display:flex;gap:8px;margin-top:8px;">
-          <button class="mini-btn" onclick="exportarReglasCorregidas()">Copiar todo</button>
-          <button class="mini-btn" onclick="borrarTodasCorrecciones()">Reiniciar</button>
+        <h2>4 · Correcciones enseñadas a Mar (<span id="overrideCount">0</span>)</h2>
+        <div id="cloudTrainStatus" style="font-size:11px;color:var(--sky);margin-bottom:8px;">Conectando con base en la nube...</div>
+        <div id="overridesList" style="max-height:220px;overflow-y:auto;"></div>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
+          <button class="mini-btn" onclick="exportarReglasCorregidas()">Copiar</button>
+          <button class="mini-btn" onclick="borrarTodasCorrecciones()">Limpiar ensayos locales</button>
         </div>
       </section>
     </aside>
@@ -1369,6 +1371,9 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       ejecutarTurno(txt, 'T0_INMEDIATO');
     }
 
+    const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+    let cloudTrainRules = [];
+
     function ejecutarTurno(texto, etapa = 'T0_INMEDIATO', etiquetaSistema = null) {
       mensajes.push({
         role: 'lead',
@@ -1380,6 +1385,8 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       mensajes.push({
         role: 'mar',
         text: out.textoMostrado,
+        origText: out.replyText,
+        leadText: texto,
         res: out,
         etapa,
         editing: false,
@@ -1395,6 +1402,8 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       mensajes.push({
         role: 'mar',
         text: `${label}\n\n${out.textoMostrado}`,
+        origText: out.replyText,
+        leadText: ultimoLead,
         res: out,
         etapa,
         editing: false,
@@ -1431,32 +1440,118 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       renderChat();
     }
 
-    function guardarCorreccionBubble(idx) {
+    async function enviarReglaANube(entry) {
+      const res = await fetch(`${CRM_API_URL}/api/cola-ag`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          tipo_tarea: 'entrenamiento_mar',
+          contacto_id: null,
+          titulo: `Entrenamiento Mar [${entry.canal} · ${entry.subtipo}]`,
+          detalle: JSON.stringify({
+            canal: entry.canal,
+            contexto: entry.contexto,
+            vertical: entry.vertical,
+            subtipo: entry.subtipo,
+            lead_dijo: entry.lead_dijo || '',
+            respuesta_original: entry.respuesta_original || '',
+            nueva_respuesta: entry.text,
+            regla_ariana: entry.nota || '',
+            fecha: entry.fecha
+          }),
+          origen: 'simulador-mar'
+        })
+      });
+      if (!res.ok) throw new Error('Error HTTP ' + res.status);
+      return await res.json();
+    }
+
+    async function guardarCorreccionBubble(idx) {
       const msg = mensajes[idx];
       if (!msg || !msg.res) return;
       const ta = document.getElementById(`editTa_${idx}`);
+      const noteEl = document.getElementById(`editNote_${idx}`);
       const nuevo = (ta?.value || '').trim();
+      const nota = (noteEl?.value || '').trim();
       if (!nuevo) return;
       const pk = __TRIAGE__.aplicarPokaYokeMar(nuevo, msg.res.vertical_14, false, msg.etapa || 'T0_INMEDIATO');
       if (!pk.pokayoke_pass) {
         alert('Atención Poka-Yoke detectado en tu texto:\n- ' + pk.violaciones.join('\n- ') + '\nCorregilo antes de guardar para no violar reglas de marca.');
         return;
       }
-      overrides[msg.res.key] = {
+      const entry = {
         key: msg.res.key,
         canal: canalActual,
         contexto: contextoActual,
         vertical: msg.res.vertical_14,
         subtipo: msg.res.subtipo,
+        lead_dijo: msg.leadText || '',
+        respuesta_original: msg.origText || msg.res.replyText || '',
         text: pk.texto,
+        nota,
+        cloudSaved: false,
         fecha: new Date().toISOString()
       };
+      try {
+        const cloudRes = await enviarReglaANube(entry);
+        if (cloudRes && cloudRes.ok) {
+          entry.cloudSaved = true;
+          entry.cloudId = cloudRes.id;
+        }
+      } catch (e) {
+        console.warn('No se pudo guardar en nube ahora:', e);
+      }
+      overrides[msg.res.key] = entry;
       localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
       msg.text = pk.texto;
       msg.editing = false;
       msg.res.editadoPorAriana = true;
+      msg.res.cloudSaved = entry.cloudSaved;
+      await cargarAprendizajesNube();
       renderOverrides();
       renderChat();
+    }
+
+    async function sincronizarTodoEnNube() {
+      const vals = Object.values(overrides || {});
+      const pendientes = vals.filter(v => !v.cloudSaved);
+      if (!pendientes.length) {
+        alert(vals.length ? 'Todas tus correcciones ya están guardadas en la nube.' : 'Tocá "✍️ Corregir esta respuesta / Enseñarle a Mar" debajo de cualquier respuesta primero.');
+        return;
+      }
+      let okCount = 0;
+      for (const entry of pendientes) {
+        try {
+          const out = await enviarReglaANube(entry);
+          if (out && out.ok) {
+            entry.cloudSaved = true;
+            entry.cloudId = out.id;
+            okCount++;
+          }
+        } catch (e) {}
+      }
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
+      await cargarAprendizajesNube();
+      renderOverrides();
+      alert(`Listo: ${okCount} corrección(es) guardada(s) en la nube para pasar a regla fija de Mar.`);
+    }
+
+    async function cargarAprendizajesNube() {
+      const statusEl = document.getElementById('cloudTrainStatus');
+      try {
+        const res = await fetch(`${CRM_API_URL}/api/cola-ag?v=${Date.now()}`);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const data = await res.json();
+        cloudTrainRules = (data.cola_ag || []).filter(q => q.tipo_tarea === 'entrenamiento_mar');
+        if (statusEl) {
+          const pend = cloudTrainRules.filter(x => x.estado === 'PENDIENTE_AG').length;
+          const hechas = cloudTrainRules.filter(x => x.estado === 'HECHO_AG').length;
+          statusEl.innerHTML = `☁️ Conectado en la nube: <strong>${pend}</strong> por incorporar al código · <strong>${hechas}</strong> ya fijas en Mar.`;
+        }
+      } catch (e) {
+        if (statusEl) statusEl.textContent = 'Sin conexión a la nube: guardando en memoria local del navegador.';
+      }
+      renderOverrides();
     }
 
     function renderChat() {
@@ -1479,19 +1574,20 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
                 <span class="badge">${esc(r.vertical_14)} · ${esc(r.subtipo)}</span>
                 <span class="badge">${r.pokayoke_pass ? 'POKA-YOKE PASS' : 'POKA-YOKE FAIL'}</span>
                 ${r.alerta_andon ? `<span class="badge bone">ANDON</span>` : ''}
-                ${r.editadoPorAriana ? `<span class="badge bone">EDITADO POR VOS</span>` : ''}
+                ${r.editadoPorAriana ? `<span class="badge bone">${r.cloudSaved ? '☁️ ENSEÑADA EN NUBE' : 'EDITADO LOCAL'}</span>` : ''}
                 <span>${esc(m.hora)}</span>
               </div>
               <div class="msg-actions">
                 <button class="mini-btn" onclick="copiarBubble(${i})">Copiar texto</button>
-                <button class="mini-btn" onclick="toggleEditBubble(${i})">${m.editing ? 'Cancelar edición' : '✏️ Corregir a Mar / Guardar regla'}</button>
+                <button class="mini-btn" onclick="toggleEditBubble(${i})">${m.editing ? 'Cancelar edición' : '✍️ Corregir esta respuesta / Enseñarle a Mar'}</button>
               </div>
               ${m.editing ? `
                 <div class="edit-box">
                   <label>Cómo querés que conteste Mar cuando ocurra "${esc(r.subtipo)}" en ${esc(canalActual)}:</label>
                   <textarea class="textarea-box" id="editTa_${i}" rows="4">${esc(m.text)}</textarea>
-                  <div style="margin-top:8px;display:flex;gap:8px;">
-                    <button class="send-btn" style="padding:7px 12px;font-size:11.5px;" onclick="guardarCorreccionBubble(${i})">Guardar regla en simulador</button>
+                  <input class="search-box" id="editNote_${i}" style="margin-top:6px;" type="text" placeholder="Regla o motivo en 1 línea (opcional · ej: si pregunta por niños, confirmar primero sin pedir cita)...">
+                  <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
+                    <button class="send-btn" style="padding:7px 12px;font-size:11.5px;" onclick="guardarCorreccionBubble(${i})">💾 Guardar y enseñarle a Mar (en la nube)</button>
                   </div>
                 </div>
               ` : ''}
@@ -1523,29 +1619,42 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
 
     function renderOverrides() {
       const vals = Object.values(overrides || {});
-      document.getElementById('overrideCount').textContent = vals.length;
+      document.getElementById('overrideCount').textContent = vals.length + cloudTrainRules.length;
       const box = document.getElementById('overridesList');
-      if (!vals.length) {
-        box.innerHTML = '<div style="font-size:11.5px;color:var(--muted);">Todavía no guardaste correcciones. Tocá "✏️ Corregir a Mar" en cualquier respuesta del chat para entrenar reglas nuevas.</div>';
+      if (!vals.length && !cloudTrainRules.length) {
+        box.innerHTML = '<div style="font-size:11.5px;color:var(--muted);">Todavía no guardaste correcciones. Tocá "✍️ Corregir esta respuesta / Enseñarle a Mar" debajo de cualquier burbuja para grabar la regla en la nube.</div>';
         return;
       }
-      box.innerHTML = vals.map(v => `
+      const localHtml = vals.map(v => `
         <div class="rules-card">
-          <strong>${esc(v.canal)} · ${esc(v.subtipo)}</strong>
+          <strong>${v.cloudSaved ? '☁️' : '💾'} ${esc(v.canal)} · ${esc(v.subtipo)}</strong>
+          ${v.nota ? `<div style="color:var(--bone);margin-top:2px;">Regla: ${esc(v.nota)}</div>` : ''}
           <div style="color:var(--sky);margin-top:3px;">${esc(v.text)}</div>
         </div>
       `).join('');
+      const cloudHtml = cloudTrainRules.map(q => {
+        let det = {};
+        try { det = JSON.parse(q.detalle || '{}'); } catch {}
+        return `
+          <div class="rules-card" style="border-color:rgba(183,214,224,0.35);">
+            <strong>☁️ ${esc(q.estado === 'HECHO_AG' ? 'YA FIJA EN MAR' : 'GUARDADA EN NUBE')} · ${esc(det.subtipo || q.titulo)}</strong>
+            ${det.regla_ariana ? `<div style="color:var(--bone);margin-top:2px;">Regla: ${esc(det.regla_ariana)}</div>` : ''}
+            <div style="color:var(--sky);margin-top:3px;">${esc(det.nueva_respuesta || '')}</div>
+          </div>
+        `;
+      }).join('');
+      box.innerHTML = cloudHtml + localHtml;
     }
 
     function exportarReglasCorregidas() {
       const vals = Object.values(overrides || {});
-      if (!vals.length) {
+      if (!vals.length && !cloudTrainRules.length) {
         alert('No hay correcciones guardadas todavía.');
         return;
       }
-      const txt = 'CORRECCIONES BOT DE MAR (ZAGUÁN):\n\n' + vals.map((v, i) => `${i + 1}. [${v.canal} / ${v.contexto} / ${v.subtipo}]\n${v.text}`).join('\n\n');
+      const txt = 'CORRECCIONES BOT DE MAR (ZAGUÁN):\n\n' + vals.map((v, i) => `${i + 1}. [${v.canal} / ${v.contexto} / ${v.subtipo}]\n${v.nota ? 'Regla: ' + v.nota + '\n' : ''}${v.text}`).join('\n\n');
       navigator.clipboard.writeText(txt);
-      alert('Copiado al portapapeles. Pegalo en el chat para fijarlo en producción.');
+      alert('Copiado al portapapeles.');
     }
 
     function borrarTodasCorrecciones() {
@@ -1564,6 +1673,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
     updateCanalAndContextUI();
     renderPresets();
     renderOverrides();
+    cargarAprendizajesNube();
     resetChat();
   </script>
 </body>
