@@ -505,7 +505,9 @@ const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "RB-T1-2027", area: "Rama B · Búsqueda Abierta", titulo: "Turno 1 · 2027 / $40k Punta del Este", contexto: "la_fortuna", ejemploInput: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes" },
   { id: "RB-T2-PASO3", area: "Rama B · Búsqueda Abierta", titulo: "Turno 2 (Paso 3) · Da mes y 2 personas", contexto: "general", ejemploInput: "Sería para mudarnos en abril, somos 2 personas" },
   { id: "RB-MASC", area: "Rama B · Mascota", titulo: "Dice tengo mascota -> Qué mascota tenés?", contexto: "general", ejemploInput: "Sí, tengo mascota y necesito cochera" },
+  { id: "RB-3Q", area: "Rama B · 3 Preguntas Cortas", titulo: "Adelanta mes, personas y cochera -> 3 preguntas en negrita", contexto: "general", ejemploInput: "Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este" },
   { id: "RB-T3-GAR", area: "Rama B · Garantía", titulo: "Turno 3 (Paso 2) · Comodidades OK -> Pide Garantía", contexto: "general", ejemploInput: "No tengo mascota, necesito cochera y que esté amoblado" },
+  { id: "RB-CIERRE", area: "Rama B · Cierre Completo", titulo: "Completa datos -> Cierre con cursiva y pregunta nombre", contexto: "general", ejemploInput: "Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, sin muebles, con 1 perro y garantía depósito o aseguradora" },
   { id: "GAR-EFEC", area: "Árbol Garantía", titulo: "Sin garantía / solo efectivo o depósito", contexto: "general", ejemploInput: "No tengo garantía, pago solo efectivo o depósito" },
   { id: "GAR-DEP", area: "Árbol Garantía", titulo: "Relación de dependencia (3 recibos + 30%)", contexto: "general", ejemploInput: "Trabajo en relación de dependencia en una empresa" },
   { id: "GAR-IND", area: "Árbol Garantía", titulo: "Independiente / Unipersonal (BPS + DGI)", contexto: "general", ejemploInput: "Trabajo de forma independiente con unipersonal" },
@@ -691,7 +693,11 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     const mv = norm.match(/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i);
     if (mv) mesMudanza = _capWord(mv[1]);
   }
-  const desdeCuando = mesMudanza || (yearMatch ? `Año ${yearMatch[1]} (mes a definir)` : prev.desde_cuando || null);
+  const prevYearMatch = String(prev.desde_cuando || "").match(/\b(202[6-9]|203\d)\b/);
+  const effectiveYear = yearMatch?.[1] || prevYearMatch?.[1] || null;
+  const desdeCuando = mesMudanza
+    ? (effectiveYear && !isEntrarYa && !mesMudanza.includes(effectiveYear) ? `${mesMudanza} ${effectiveYear}` : mesMudanza)
+    : (effectiveYear ? `Año ${effectiveYear} (mes a definir)` : prev.desde_cuando || null);
 
   // 3. Personas y dormitorios abiertos
   let dormsMin = prev.dormitorios_min !== undefined && prev.dormitorios_min !== null ? Number(prev.dormitorios_min) : null;
@@ -707,11 +713,11 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     dormsAbiertos = dormExact[2] ? `${dormExact[1]} y ${dormExact[2]} dormitorios` : `${dormExact[1]} dormitorio${dormsMin > 1 ? "s" : ""}`;
   }
 
-  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
+  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|\d+\s*adult[oa]s?(?:\s+y\s+\d+\s*(?:ni[nñ]os?|ninos?|chicos?|hijos?))?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
   if (persMatch) {
     personas = persMatch[1];
     if (!dormsAbiertos) {
-      if (/3|4|familia|chicos|hijos/.test(personas)) {
+      if (/3|4|familia|chicos|hijos|ninos/.test(personas)) {
         dormsMin = 2;
         dormsAbiertos = "2 y 3 dormitorios";
       } else {
@@ -723,8 +729,17 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
 
   // 4. Amoblado y Comodidades
   let amobladoPref = prev.amoblado_preferencia || "amoblado_y_sin_muebles";
-  if (/\b(amoblad[oa]|con muebles|equipad[oa])\b/i.test(norm)) amobladoPref = "amoblado";
-  else if (/\b(sin muebles|vaci[oa]|desamoblad[oa])\b/i.test(norm)) amobladoPref = "sin_muebles";
+  let amobladoExplicito = Boolean(prev.amoblado_explicito);
+  if (/\b(me da igual|cualquiera de los dos|indistinto|no excluyente|sirve sin muebles|con o sin muebles)\b/i.test(norm)) {
+    amobladoPref = "amoblado_y_sin_muebles";
+    amobladoExplicito = true;
+  } else if (/\b(amoblad[oa]|con muebles|equipad[oa])\b/i.test(norm)) {
+    amobladoPref = "amoblado";
+    amobladoExplicito = true;
+  } else if (/\b(sin muebles|vaci[oa]|desamoblad[oa])\b/i.test(norm)) {
+    amobladoPref = "sin_muebles";
+    amobladoExplicito = true;
+  }
 
   const comods = new Set(String(prev.comodidades_pedidas || "").split(",").map((x) => x.trim()).filter(Boolean));
   if (/\bcochera|garaje|estacionamiento\b/i.test(norm)) comods.add("Cochera");
@@ -786,15 +801,18 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
   let mesesDeposito = prev.meses_deposito || null;
 
   const asegList = ["Porto", "Sura", "Mapfre", "Santander"].filter((g) => norm.includes(g.toLowerCase()));
-  if (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm)) {
+  if (/\bdeposito\b/i.test(norm) && (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm))) {
+    garantiaTipo = "deposito_o_aseguradora";
+    garantiaDisp = "Depósito o aseguradora";
+  } else if (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm)) {
     garantiaTipo = "aseguradora";
     garantiaDisp = asegList.length ? asegList.join(", ") : "Aseguradora";
   } else if (/\b(anda|cgn|contaduria)\b/i.test(norm)) {
     garantiaTipo = "anda_cgn";
     garantiaDisp = "ANDA / CGN";
-  } else if (/\b(no\s+tengo\s+garant|sin\s+garant|solo\s+efectivo|tengo\s+efectivo|solo\s+deposito|con\s+deposito|puedo\s+pagar\s+deposito)\b/i.test(norm)) {
+  } else if (/\b(no\s+tengo\s+garant|sin\s+garant|solo\s+efectivo|tengo\s+efectivo|solo\s+deposito|con\s+deposito|garantia\s+deposito|puedo\s+pagar\s+deposito)\b/i.test(norm)) {
     garantiaTipo = "sin_garantia_o_deposito";
-    garantiaDisp = "Sin garantía previa (evalúa trámite / depósito)";
+    garantiaDisp = "Depósito en garantía";
   }
 
   if (/\b(relacion\s+de\s+dependencia|empleado|en\s+planilla|recibo\s+de\s+sueldo|recibos\s+de\s+sueldo)\b/i.test(norm) && !/\bno\s+tengo\s+recibo/i.test(norm)) {
@@ -831,6 +849,7 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     dormitorios_min: dormsMin,
     dormitorios_abiertos: dormsAbiertos,
     amoblado_preferencia: amobladoPref,
+    amoblado_explicito: amobladoExplicito,
     comodidades_pedidas: [...comods].join(", ") || null,
     comodidades_respondidas: comodidadesRespondidas,
     tiene_mascota: tieneMascota,
@@ -1077,6 +1096,14 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     if (faltaPaso1) {
       return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_1_PASO_1" };
     }
+    if (
+      Boolean(vSil.comodidades_respondidas) &&
+      !vSil.tiene_mascota &&
+      !vSil.amoblado_explicito &&
+      !vSil.garantia_tipo
+    ) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_CIERRE_3_PREGUNTAS" };
+    }
     const respondioMascotaYComodidades = Boolean(vSil.tiene_mascota) || Boolean(vSil.comodidades_respondidas);
     if (!respondioMascotaYComodidades) {
       return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_2_PASO_3" };
@@ -1161,6 +1188,92 @@ function detectarFaltantes(vertical, rawText) {
   };
 }
 
+function _asegurarNegritaEnPreguntasActivas(texto) {
+  const lines = String(texto || "").split("\n");
+  return lines
+    .map((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || (/^_.*_$/.test(trimmed) && !/\?\*/.test(trimmed))) return line;
+      const urls = [];
+      const masked = line.replace(/https?:\/\/[^\s)]+/gi, (m) => {
+        const tok = `__ZURL${urls.length}__`;
+        urls.push(m);
+        return tok;
+      });
+      if (!masked.includes("?") || /\*[^*\n]+\?\*/.test(masked)) {
+        return line;
+      }
+      const qIdx = masked.lastIndexOf("?");
+      const beforeQ = masked.slice(0, qIdx + 1);
+      const afterQ = masked.slice(qIdx + 1);
+      const isAbbrBefore = (str, dotPos) => {
+        const sub = str.slice(Math.max(0, dotPos - 8), dotPos + 1).toLowerCase();
+        return /\b(?:aprox|av|dic|oct|nov|ene|feb|mar|abr|may|jun|jul|ago|set|sep|etc|art|sr|sra|dr)\.$/.test(sub) || /\d\.$/.test(sub);
+      };
+      let splitIdx = 0;
+      const reSep = /([.!:·]\s+)/g;
+      let m;
+      while ((m = reSep.exec(beforeQ)) !== null) {
+        const endPos = m.index + m[1].length;
+        if (endPos >= beforeQ.length - 1) continue;
+        if (m[1].startsWith(".") && isAbbrBefore(beforeQ, m.index)) continue;
+        if (beforeQ.slice(endPos).startsWith("__ZURL")) continue;
+        splitIdx = endPos;
+      }
+      const prefix = beforeQ.slice(0, splitIdx);
+      const question = beforeQ.slice(splitIdx).trim();
+      if (!question) return line;
+      const rebuilt = `${prefix}*${question}*${afterQ}`;
+      return rebuilt.replace(/__ZURL(\d+)__/g, (_, i) => urls[Number(i)]);
+    })
+    .join("\n");
+}
+
+function armarMensajeCierreBusquedaRamaB(v) {
+  const cleanNoPar = (s) => String(s || "").replace(/\([^)]*\)/g, "").replace(/[()]/g, "").replace(/\s+/g, " ").trim();
+  const rawFecha = cleanNoPar(v?.desde_cuando || v?.mes_mudanza || "próxima mudanza");
+  const fechaTxt = rawFecha ? rawFecha.charAt(0).toLowerCase() + rawFecha.slice(1) : "próxima mudanza";
+  const partes = [];
+  const dorms = cleanNoPar(v?.dormitorios_abiertos || (v?.dormitorios_min ? `${v.dormitorios_min} dormitorios` : "2 o 3 dormitorios"));
+  if (dorms) partes.push(dorms);
+  const comods = String(v?.comodidades_pedidas || "")
+    .split(/[,|]+/)
+    .map((x) => cleanNoPar(x).toLowerCase())
+    .filter((x) => x && !x.startsWith("amoblad") && x !== "sin muebles");
+  if (comods.includes("cochera") || /cochera/i.test(String(v?.comodidades_pedidas || ""))) {
+    partes.push("con cochera");
+  } else if (comods.length) {
+    partes.push(`con ${comods.join(" y ")}`);
+  }
+  if (v?.amoblado_preferencia === "amoblado") partes.push("amoblado");
+  else if (v?.amoblado_preferencia === "sin_muebles") partes.push("sin muebles");
+  else partes.push("ideal amoblado o sin muebles");
+
+  if (v?.tiene_mascota === "si") {
+    const mDet = cleanNoPar(v.mascota_detalle || "mascota").replace(/^s[ií],?\s*/i, "").toLowerCase();
+    partes.push(`con ${mDet || "mascota"}`);
+  } else if (v?.tiene_mascota === "no") {
+    partes.push("sin mascotas");
+  }
+
+  const zona = cleanNoPar(v?.zona_preferida || v?.zona_display || "Punta del Este y Maldonado");
+  if (zona) partes.push(`en ${zona}`);
+
+  if (v?.presupuesto_declarado) {
+    const monPrefix = v.moneda === "USD" ? "USD " : "$U ";
+    partes.push(`hasta ${monPrefix}${Number(v.presupuesto_declarado).toLocaleString("de-DE")} mensuales`);
+  }
+
+  const gar = cleanNoPar(v?.garantia_disponible || "");
+  const resumenBase = cleanNoPar(partes.join(", "));
+  const resumen = gar ? `${resumenBase} y garantía ${gar.charAt(0).toLowerCase() + gar.slice(1)}` : resumenBase;
+  return (
+    `Clarísimo todo! Ya dejamos armada tu búsqueda para ${fechaTxt}:\n` +
+    `_${resumen}._\n\n` +
+    "Nos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! *Cómo es tu nombre para agendar tu búsqueda?*"
+  );
+}
+
 function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla = "T0_INMEDIATO") {
   let out = String(texto || "").trim();
   const violaciones = [];
@@ -1168,6 +1281,7 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   if (/[¿¡]/.test(out)) {
     out = out.replace(/[¿¡]/g, "");
   }
+  out = _asegurarNegritaEnPreguntasActivas(out);
 
   // Candado Cocina vs Vidriera: nunca filtrar términos internos ni datos privados al cliente final
   if (/\b(b[oó]veda privada|franja gris|mar[ií]a bel[eé]n|mar[ií]a cristina|manzana 26|carpeta 8|padr[oó]n 704)\b/i.test(out)) {
@@ -1218,8 +1332,12 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   }
 
   const outSinUrls = out.replace(/https?:\/\/[^\s]+/gi, "");
+  const linesWithQ = outSinUrls.split(/\r?\n/).map((l) => l.trim()).filter((l) => l.includes("?"));
   const qCount = (outSinUrls.match(/\?/g) || []).length;
-  if (qCount > 1) {
+  const eachLineSingleBoldQ =
+    linesWithQ.length > 0 &&
+    linesWithQ.every((l) => (l.match(/\?/g) || []).length === 1 && /\*[^*\n]+\?\*/.test(l));
+  if (qCount > 3 || (qCount > 1 && !eachLineSingleBoldQ)) {
     violaciones.push("DOS_O_MAS_PREGUNTAS_ENCADENADAS");
   }
 
@@ -1250,6 +1368,11 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   }
   if (/\b(cochera,\s*patio,\s*(?:o\s+)?muebles|patio,\s*muebles|necesit[aá]s[^.?]*\bmuebles\b(?!\s+o\s+sin)|prefer[ií]s[^.?]*\bmuebles\b)\b/i.test(out)) {
     violaciones.push("PROHIBIDO_MUEBLES_SUELTO");
+  }
+
+  // Candado #15: Prohibido asumir parentescos o vínculos no declarados ("tus hijos", "tu pareja", etc.)
+  if (/\b(tus\s+hijos|tu\s+pareja|tu\s+marido|tu\s+esposa|tu\s+familia)\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_ASUMIR_PARENTESCO");
   }
 
   return {
@@ -1706,6 +1829,13 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
   } else if (subtipo === "D2_RAMA_B_MASCOTA_PREGUNTA") {
     replyText =
       "Tomamos nota para priorizar propiedades que acepten mascotas. Qué mascota tenés?";
+  } else if (subtipo === "D2_RAMA_B_CIERRE_3_PREGUNTAS") {
+    replyText =
+      "Tomamos nota. Para terminar de definir tu búsqueda:\n" +
+      "*buscás que esté amoblado o te da igual?*\n" +
+      "*tenés mascota?*\n" +
+      "y por último:\n" +
+      "*con qué garantía pensás alquilar (podemos ayudarte con eso también)?*";
   } else if (subtipo === "D2_RAMA_B_TURNO_2_PASO_3") {
     const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
       ? "Tené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\n"
@@ -1716,13 +1846,7 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     replyText =
       "Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?";
   } else if (subtipo === "D2_RAMA_B_BUSQUEDA_COMPLETA") {
-    const zonaParte = varsSilenciosas.zona_display ? ` en ${varsSilenciosas.zona_display}` : "";
-    const presuNum = varsSilenciosas.presupuesto_declarado
-      ? ` hasta ${varsSilenciosas.moneda === "USD" ? "USD " : "$U "}${varsSilenciosas.presupuesto_declarado.toLocaleString("de-DE")}`
-      : "";
-    const garTxt = varsSilenciosas.garantia_disponible ? ` con ${varsSilenciosas.garantia_disponible}` : "";
-    replyText =
-      `Excelente, ya tomamos nota completa de tu búsqueda${zonaParte}${presuNum}${garTxt}. Apenas confirmemos propiedades que cumplan esas condiciones te enviamos las opciones por acá.`;
+    replyText = armarMensajeCierreBusquedaRamaB(varsSilenciosas);
     alertaAndon = true;
     motivoAndon = "Rama B completa (Pasos 1-3-2): pasar a Pedidos Abiertos y activar matchmaker.";
   } else if (vertical === "D2" && subtipo === "DEMANDA_ALQUILER_GENERAL") {
@@ -1844,12 +1968,12 @@ const REDTEAM_50_CONVERSACIONAL = [
   { id: "SIM-65", contexto: "la_fortuna", input: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes", mustInclude: ["Te damos la bienvenida a Zaguán", "Punta del Este", "40.000", "2027", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?", "que esté amoblado", "podemos ayudarte con eso también"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero", "bienvenido", "agendad", "enero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-66", contexto: "general", input: "Sería para mudarnos en abril, somos 2 personas", mustInclude: ["Tomamos nota", "Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?"], mustNotInclude: ["La Fortuna", "pero", "solo/sola", "muebles,"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-67", contexto: "general", input: "Sí, tengo mascota y necesito cochera", mustInclude: ["Qué mascota tenés"], mustNotInclude: ["qué mascota es", "casa con patio", "pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-68", contexto: "general", input: "No tengo mascota, necesito cochera y que esté amoblado", mustInclude: ["Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?"], mustNotInclude: ["pero", "bienvenido"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-69", contexto: "la_fortuna", input: "Busco para mudarme más adelante, mi contrato vence en junio", mustInclude: ["Te damos la bienvenida a Zaguán", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-70", contexto: "general", input: "No tengo garantía, pago solo efectivo o depósito", mustInclude: ["Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?"], mustNotInclude: ["pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-68", contexto: "general", input: "No tengo mascota, necesito cochera y que esté amoblado", mustInclude: ["Para dejar tu búsqueda completa:", "*con qué garantía pensás alquilar (podemos ayudarte con eso también)?*"], mustNotInclude: ["pero", "bienvenido"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-69", contexto: "la_fortuna", input: "Busco para mudarme más adelante, mi contrato vence en junio", mustInclude: ["Te damos la bienvenida a Zaguán", "*desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-70", contexto: "general", input: "No tengo garantía, pago solo efectivo o depósito", mustInclude: ["una sola persona o combinando ingresos de hasta 4 personas", "*Trabajás en relación de dependencia o de forma independiente?*"], mustNotInclude: ["pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-71", contexto: "general", input: "Trabajo en relación de dependencia en una empresa", mustInclude: ["3 recibos de sueldo", "documento", "30%", "una sola persona o combinando ingresos de hasta 4 personas"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-72", contexto: "general", input: "Trabajo de forma independiente con unipersonal", mustInclude: ["BPS y DGI al día", "certificación contable", "último año", "30%"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-73", contexto: "general", input: "Trabajo para afuera y cobro en el exterior", mustInclude: ["En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-73", contexto: "general", input: "Trabajo para afuera y cobro en el exterior", mustInclude: ["En Zaguán podemos conformar la garantía con comprobantes y certificado notarial.", "*Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?*"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-74", contexto: "general", input: "No tengo ingresos demostrables ni recibo de sueldo", mustInclude: ["Cuántos meses de depósito podés cubrir"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-75", contexto: "general", input: "Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año", mustInclude: ["invernal", "marzo a noviembre", "anual", "12 meses", "dos contratos distintos con valores distintos"], mustNotInclude: ["La Fortuna", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
 ];
@@ -1909,6 +2033,11 @@ function validarOverrideCandidato(candidateOverride) {
     "torres del este",
     "qué mascota es",
     "que mascota es",
+    "tus hijos",
+    "tu pareja",
+    "tu marido",
+    "tu esposa",
+    "tu familia",
   ];
   for (const b of forbiddenBase) {
     if (low.includes(b)) errores.push(`VIOLA_CANDADO_POKA_YOKE('${b}')`);
@@ -1970,15 +2099,33 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
     else failed.push({ id: esc.id, errores: errs });
   }
 
-  // SIM-76: Candados #13 y #14 + Variables Silenciosas
+  // SIM-76: Candados #13, #14 y #15 + Negrita en preguntas + Cierre 3 preguntas cortas + Cierre Rama B sin paréntesis
   const vs76 = extraerVariablesSilenciosasB2C("Busco alquiler en Punta del Este hasta 40mil para 1 o 2 personas");
   const p76_1 = aplicarPokaYokeMar("Bienvenida, pero agendado solo/sola qué mascota es cochera, patio, muebles", "D2");
+  const p76_15 = aplicarPokaYokeMar("Buscamos una casa ideal para vos y tus hijos o tu familia.", "D2");
+  const r3Q = clasificarYResponder("Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este", "T0_INMEDIATO", "general", "whatsapp");
+  const rCierre = clasificarYResponder(
+    "Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, prefiero amoblado no excluyente sirve sin muebles, con 1 perro y garantía depósito o aseguradora",
+    "T0_INMEDIATO",
+    "general",
+    "whatsapp"
+  );
   const sim76Errs = [];
   if (vs76.presupuesto_declarado !== 40000 || vs76.presupuesto_elastico_max !== 43000) sim76Errs.push("ELASTICO_FAIL");
   if (vs76.modalidad_gc !== "con_y_sin_gc") sim76Errs.push("GC_FAIL");
   if (!String(vs76.dormitorios_abiertos || "").includes("Monoambiente, 1 y 2 dormitorios")) sim76Errs.push("DORMS_FAIL");
   if (vs76.amoblado_preferencia !== "amoblado_y_sin_muebles") sim76Errs.push("AMOBLADO_FAIL");
   if (p76_1.pokayoke_pass) sim76Errs.push("CANDADOS_13_14_NO_BLOQUEARON");
+  if (p76_15.pokayoke_pass || !p76_15.violaciones.includes("PROHIBIDO_ASUMIR_PARENTESCO")) sim76Errs.push("CANDADO_15_NO_BLOQUEO");
+  if (r3Q.subtipo !== "D2_RAMA_B_CIERRE_3_PREGUNTAS" || !r3Q.pokayoke_pass || !r3Q.replyText.includes("*buscás que esté amoblado o te da igual?*")) sim76Errs.push("CIERRE_3Q_FAIL");
+  if (
+    rCierre.subtipo !== "D2_RAMA_B_BUSQUEDA_COMPLETA" ||
+    !rCierre.pokayoke_pass ||
+    /[()]/.test(rCierre.replyText) ||
+    !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\n\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
+  ) {
+    sim76Errs.push("CIERRE_RAMA_B_FORMATO_FAIL");
+  }
   if (sim76Errs.length === 0) passedCount++;
   else failed.push({ id: "SIM-76", errores: sim76Errs });
 
@@ -2020,7 +2167,9 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       { ctx: 'la_fortuna', tag: 'Rama B · Turno 1', title: 'Busca alquiler 2027 en Punta del Este ($40k)', text: 'Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes' },
       { ctx: 'general', tag: 'Rama B · Paso 3', title: 'Responde mes y personas ("abril, somos 2")', text: 'Sería para mudarnos en abril, somos 2 personas' },
       { ctx: 'general', tag: 'Rama B · Mascota', title: 'Dice "tengo mascota" -> Qué mascota tenés?', text: 'Sí, tengo mascota y necesito cochera' },
+      { ctx: 'general', tag: 'Rama B · 3 Preguntas', title: 'Ya dio cochera -> 3 preguntas cortas en *negrita*', text: 'Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este' },
       { ctx: 'general', tag: 'Rama B · Paso 2', title: 'Responde comodidades -> Garantía al final', text: 'No tengo mascota, necesito cochera y que esté amoblado' },
+      { ctx: 'general', tag: 'Rama B · Cierre', title: 'Cierre búsqueda completa (cursiva + *Cómo es tu nombre*)', text: 'Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, prefiero amoblado no excluyente sirve sin muebles, con 1 perro y garantía depósito o aseguradora' },
       { ctx: 'general', tag: 'Garantía · Efectivo', title: 'Sin garantía / pago solo efectivo o depósito', text: 'No tengo garantía, pago solo efectivo o depósito' },
       { ctx: 'general', tag: 'Garantía · Rel. Dep.', title: 'Trabajo en relación de dependencia', text: 'Trabajo en relación de dependencia en una empresa' },
       { ctx: 'general', tag: 'Garantía · Indep.', title: 'Trabajo de forma independiente / unipersonal', text: 'Trabajo de forma independiente con unipersonal' },

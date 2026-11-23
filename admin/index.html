@@ -2117,6 +2117,7 @@ function renderPedidosAbiertos() {
 
         <div style="font-size:12px;color:#E2E8F0;background:rgba(8,21,33,0.65);border:1px solid var(--border);border-radius:8px;padding:8px 10px;display:grid;gap:4px;">
           <div>📍 <strong>Zona abierta:</strong> ${it.zona_preferida || 'Punta del Este / Maldonado'}</div>
+          <div>👥 <strong>Personas:</strong> ${it.personas_cantidad || 'Sin confirmar'} · 💬 <strong>Estado:</strong> ${it.estado || 'activo'}</div>
           <div>🛏️ <strong>Espacio:</strong> ${it.dormitorios_abiertos || (it.dormitorios_min !== null ? it.dormitorios_min + 'D' : 'Monoambiente, 1 y 2 dormitorios')} · <strong>Mobiliario:</strong> ${amobTxt}</div>
           <div>🐾 <strong>Mascota / Comodidades:</strong> ${it.mascota_detalle || it.tiene_mascota || 'Sin confirmar'} · ${it.comodidades_pedidas || 'Sin confirmar'}</div>
           <div>🛡️ <strong>Garantía:</strong> ${it.garantia_disponible || 'Pendiente (Paso 2)'}${it.situacion_laboral ? ` (${it.situacion_laboral})` : ''}</div>
@@ -2124,7 +2125,7 @@ function renderPedidosAbiertos() {
         </div>
 
         <div style="margin-top:8px;">
-          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Respuesta lista de Mar (14 Candados OK):</label>
+          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Respuesta lista de Mar (15 Candados OK):</label>
           <textarea class="msg-preview" id="pa-copy-${it.id}" style="min-height:76px;font-size:12px;">${safeCopy}</textarea>
           <div class="btn-row" style="margin-top:6px;">
             <a class="btn btn-wa btn-sm" href="${goWaUrl}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(loadRadar4Z, 1800)">📲 RESPONDER CON MAR EN 1 CLIC</a>

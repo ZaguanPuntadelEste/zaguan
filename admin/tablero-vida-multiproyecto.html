@@ -3501,12 +3501,23 @@
   ]
 }</script>
   <script id="data-sim32" type="application/json">{
-  "fecha": "2026-11-23T12:11:31.452Z",
+  "fecha": "2026-11-23T12:57:43.057Z",
   "total": 76,
-  "pasaron": 76,
-  "fallaron_count": 0,
-  "tasa_exito": "100%",
-  "fallos_resumen": [],
+  "pasaron": 75,
+  "fallaron_count": 1,
+  "tasa_exito": "99%",
+  "fallos_resumen": [
+    {
+      "id": "SIM-76",
+      "bloque": "Candados #13/#14/#15 + Negrita Preguntas + Cierre 3Q y Rama B",
+      "input": "Candados #13/#14/#15 + Presupuesto elástico $40k -> $43k + Negritas + Cierre Rama B",
+      "subtipo_detectado": "FALLA_MATRIZ_D2",
+      "errores": [
+        "FALLA_CIERRE_RAMA_B_FORMATO"
+      ],
+      "reply_obtenido": "FALLA_CIERRE_RAMA_B_FORMATO"
+    }
+  ],
   "resultados": [
     {
       "id": "SIM-01",
@@ -3519,7 +3530,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_VISITA_FILTRADA",
       "alerta_andon": true,
-      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nQué día y horario te sirve visitar esta semana?"
+      "replyText": "Con esa aseguradora calificás para el apartamento en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi, cochera y mascota pequeña).\nAcá ves fotos y ficha: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Qué día y horario te sirve visitar esta semana?*"
     },
     {
       "id": "SIM-02",
@@ -3532,7 +3543,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_INGRESOS_TRAMITE",
       "alerta_andon": true,
-      "replyText": "Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nDesde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\nCuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?"
+      "replyText": "Acá tenés las fotos y distribución del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nDesde nuestra gestión ZAGUÁN te ayudamos a tramitar la garantía aseguradora con recibo de sueldo, certificación contable o ingresos conjuntos.\n*Cuando veas las fotos, me confirmás si esa distribución va con lo que buscás para avanzar con el trámite?*"
     },
     {
       "id": "SIM-03",
@@ -3545,7 +3556,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OTRA_GARANTIA",
       "alerta_andon": true,
-      "replyText": "Si tenés una propiedad para vender o alquilar anual en Maldonado o Punta del Este, contame en qué barrio está y nos ocupamos directo con vos.\nSi buscás alquilar en otro barrio o con otra garantía (en La Fortuna se pide aseguradora), pasame zona, dormitorios y presupuesto para avisarte apenas ingrese una opción acorde.\nCuál de los dos casos es el tuyo para empezar ahora?"
+      "replyText": "Si tenés una propiedad para vender o alquilar anual en Maldonado o Punta del Este, contame en qué barrio está y nos ocupamos directo con vos.\nSi buscás alquilar en otro barrio o con otra garantía (en La Fortuna se pide aseguradora), pasame zona, dormitorios y presupuesto para avisarte apenas ingrese una opción acorde.\n*Cuál de los dos casos es el tuyo para empezar ahora?*"
     },
     {
       "id": "SIM-04",
@@ -3558,7 +3569,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "TURNO_2_VISITA_LA_FORTUNA",
       "alerta_andon": true,
-      "replyText": "Anotado el martes a las 16 hs como preferencia para visitar el 2 dormitorios en La Fortuna.\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\nMe pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?"
+      "replyText": "Anotado el martes a las 16 hs como preferencia para visitar el 2 dormitorios en La Fortuna.\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\n*Me pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?*"
     },
     {
       "id": "SIM-05",
@@ -3571,7 +3582,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_GC_INCLUYE",
       "alerta_andon": false,
-      "replyText": "El alquiler de La Fortuna ($U 30.000/mes) ya incluye gastos comunes del predio, Internet Wi-Fi de alta velocidad y cochera fija.\nSolo los consumos independientes de UTE (luz) y OSE (agua) van aparte por cuenta del inquilino.\nContás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita?"
+      "replyText": "El alquiler de La Fortuna ($U 30.000/mes) ya incluye gastos comunes del predio, Internet Wi-Fi de alta velocidad y cochera fija.\nSolo los consumos independientes de UTE (luz) y OSE (agua) van aparte por cuenta del inquilino.\n*Contás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita?*"
     },
     {
       "id": "SIM-06",
@@ -3584,7 +3595,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_MASCOTA",
       "alerta_andon": false,
-      "replyText": "Gracias por avisar. El apartamento de La Fortuna ($U 30.000/mes) admite mascota pequeña de porte chico.\nPara perros medianos o grandes consultamos raza y peso antes de mover visitas y además relevamos casas con patio en Maldonado.\nMe pasás raza o tamaño aproximado junto con tu tope mensual por si sumamos alternativas?"
+      "replyText": "Gracias por avisar. El apartamento de La Fortuna ($U 30.000/mes) admite mascota pequeña de porte chico.\nPara perros medianos o grandes consultamos raza y peso antes de mover visitas y además relevamos casas con patio en Maldonado.\n*Me pasás raza o tamaño aproximado junto con tu tope mensual por si sumamos alternativas?*"
     },
     {
       "id": "SIM-07",
@@ -3597,7 +3608,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_DIRECCION_PUERTA",
       "alerta_andon": false,
-      "replyText": "La unidad está sobre Av. Ágata, en Barrio La Fortuna (Maldonado), a 300 metros de San Pablo y con ómnibus a metros hacia el centro y Ruta 39.\nEntregamos el punto exacto en puerta al dejar confirmada la visita presencial con nuestro equipo de ZAGUÁN.\nContás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar día y horario?"
+      "replyText": "La unidad está sobre Av. Ágata, en Barrio La Fortuna (Maldonado), a 300 metros de San Pablo y con ómnibus a metros hacia el centro y Ruta 39.\nEntregamos el punto exacto en puerta al dejar confirmada la visita presencial con nuestro equipo de ZAGUÁN.\n*Contás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar día y horario?*"
     },
     {
       "id": "SIM-08",
@@ -3610,7 +3621,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_REQUISITOS_INGRESO",
       "alerta_andon": false,
-      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
+      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\n*Ya contás con aseguradora aprobada o querés que veamos el trámite de ingreso?*"
     },
     {
       "id": "SIM-09",
@@ -3623,7 +3634,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_BOTON_1",
       "alerta_andon": true,
-      "replyText": "Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la Laguna, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral: lo evaluás para vivienda propia o para inversión?"
+      "replyText": "Te comparto la ficha pública de Santa Mónica (lote propio 348 m², 201 m² en hormigón armado frente a la Laguna, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral: *lo evaluás para vivienda propia o para inversión?*"
     },
     {
       "id": "SIM-10",
@@ -3636,7 +3647,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_BOTON_2",
       "alerta_andon": true,
-      "replyText": "Acá ves la ficha y el croquis proyectable en dos plantas de Santa Mónica (USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral con decreto de regularización hasta dic. 2027: contás con fondos en USD para evaluar compra directa?"
+      "replyText": "Acá ves la ficha y el croquis proyectable en dos plantas de Santa Mónica (USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nPara pasarte el video completo de 2m31s y la cédula catastral con decreto de regularización hasta dic. 2027: *contás con fondos en USD para evaluar compra directa?*"
     },
     {
       "id": "SIM-11",
@@ -3649,7 +3660,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_QUE_FALTA_OBRA",
       "alerta_andon": false,
-      "replyText": "La obra tiene la estructura de 201 m² en hormigón armado y ladrillo visto terminada en 2 plantas (calculada por ingeniera civil para vientos oceánicos) más las aberturas de aluminio de planta alta colocadas.\nFaltan revestimientos, terminaciones de cocina/baños, instalaciones y cerramientos de planta baja sobre el croquis base (2 suites abajo y estar/terraza panorámica arriba).\nEvaluás este proyecto en USD 160.000 para avanzar y recibir el video completo de recorrido por acá?"
+      "replyText": "La obra tiene la estructura de 201 m² en hormigón armado y ladrillo visto terminada en 2 plantas (calculada por ingeniera civil para vientos oceánicos) más las aberturas de aluminio de planta alta colocadas.\nFaltan revestimientos, terminaciones de cocina/baños, instalaciones y cerramientos de planta baja sobre el croquis base (2 suites abajo y estar/terraza panorámica arriba).\n*Evaluás este proyecto en USD 160.000 para avanzar y recibir el video completo de recorrido por acá?*"
     },
     {
       "id": "SIM-12",
@@ -3662,7 +3673,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_PLANOS_DECRETO",
       "alerta_andon": false,
-      "replyText": "Al ser una obra en curso sin final de obra, no aplica préstamo hipotecario bancario (la operación se plantea al contado en USD).\nEn documentación cuenta con Cédula Catastral y DJCU vigente (válida por 5 años), lista para presentar planos bajo el decreto vigente de la Intendencia de Maldonado para regularizar sin multas ni recargos y con arquitecto de oficio hasta diciembre de 2027.\nTe sirve evaluar compra al contado en USD 160.000 para pasarte el video completo y la documentación técnica por acá?"
+      "replyText": "Al ser una obra en curso sin final de obra, no aplica préstamo hipotecario bancario (la operación se plantea al contado en USD).\nEn documentación cuenta con Cédula Catastral y DJCU vigente (válida por 5 años), lista para presentar planos bajo el decreto vigente de la Intendencia de Maldonado para regularizar sin multas ni recargos y con arquitecto de oficio hasta diciembre de 2027.\n*Te sirve evaluar compra al contado en USD 160.000 para pasarte el video completo y la documentación técnica por acá?*"
     },
     {
       "id": "SIM-13",
@@ -3675,7 +3686,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_TURNO_2_BOVEDA_VIDEO",
       "alerta_andon": true,
-      "replyText": "La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?"
+      "replyText": "*La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?*"
     },
     {
       "id": "SIM-14",
@@ -3688,7 +3699,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "LATENTE_LOTE_PROYECTO",
       "alerta_andon": true,
-      "replyText": "Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la Laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\nEvaluás arrancar de cero en lote libre o te interesa que te pasemos el video completo de esta estructura base?"
+      "replyText": "Además de terrenos libres en esa zona, tenemos en cartera un proyecto en construcción sobre lote propio de 348 m² frente a la Laguna en Santa Mónica (a 7 km de José Ignacio, USD 160.000), con 201 m² en hormigón armado listos para revestir (ahorra 12 meses de obra): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/\n*Evaluás arrancar de cero en lote libre o te interesa que te pasemos el video completo de esta estructura base?*"
     },
     {
       "id": "SIM-15",
@@ -3701,7 +3712,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "DEMANDA_POZO",
       "alerta_andon": false,
-      "replyText": "Trabajamos 5 desarrollos en pozo en Maldonado y Punta del Este (incluyendo Betania IV desde USD 79.800 con 50% de anticipo, 24 cuotas, 1 estacionamiento en planta baja incluido y 1,5% de gastos de ocupación): https://zaguanpropiedades.com/proyectos/\nBuscás renta o vivienda y qué rango de anticipo en USD manejás para enviarte planos y listas vigentes?"
+      "replyText": "Trabajamos 5 desarrollos en pozo en Maldonado y Punta del Este (incluyendo Betania IV desde USD 79.800 con 50% de anticipo, 24 cuotas, 1 estacionamiento en planta baja incluido y 1,5% de gastos de ocupación): https://zaguanpropiedades.com/proyectos/\n*Buscás renta o vivienda y qué rango de anticipo en USD manejás para enviarte planos y listas vigentes?*"
     },
     {
       "id": "SIM-16",
@@ -3714,7 +3725,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "POZO_LEY_18795",
       "alerta_andon": false,
-      "replyText": "Las dos opciones fuertes con Vivienda Promovida Ley 18.795 en Roosevelt son Nostrum Roosevelt (Pda. 19, desde USD 107.419, gastos de ocupación 4%) y More Atlántico (Pda. 22, desde USD 139.121 con certificación LEED, gastos de ocupación 5%; ambos con exoneración de ITP, IRPF/IRAE y Patrimonio por 10 años, cochera opcional): https://zaguanpropiedades.com/proyectos/\nBuscás 1 o 2 dormitorios y querés que dejemos hecho el pre-registro formal con tu nombre para pasarte planos y listas vigentes?"
+      "replyText": "Las dos opciones fuertes con Vivienda Promovida Ley 18.795 en Roosevelt son Nostrum Roosevelt (Pda. 19, desde USD 107.419, gastos de ocupación 4%) y More Atlántico (Pda. 22, desde USD 139.121 con certificación LEED, gastos de ocupación 5%; ambos con exoneración de ITP, IRPF/IRAE y Patrimonio por 10 años, cochera opcional): https://zaguanpropiedades.com/proyectos/\n*Buscás 1 o 2 dormitorios y querés que dejemos hecho el pre-registro formal con tu nombre para pasarte planos y listas vigentes?*"
     },
     {
       "id": "SIM-17",
@@ -3727,7 +3738,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "POZO_GASTOS_OCUPACION",
       "alerta_andon": false,
-      "replyText": "Los gastos de ocupación en obra nueva varían según el edificio: Betania IV tiene 1,5% a la entrega; Nostrum Roosevelt y Golden Rise tienen 4%; More Atlántico y EVE Tower tienen 5%.\nEn todos los casos los incluimos desglosados en nuestra comparativa junto con el costo de cochera (incluida en Betania IV y opcional en los demás).\nQué presupuesto en USD o proyecto puntual estás comparando para mandarte el detalle neto?"
+      "replyText": "Los gastos de ocupación en obra nueva varían según el edificio: Betania IV tiene 1,5% a la entrega; Nostrum Roosevelt y Golden Rise tienen 4%; More Atlántico y EVE Tower tienen 5%.\nEn todos los casos los incluimos desglosados en nuestra comparativa junto con el costo de cochera (incluida en Betania IV y opcional en los demás).\n*Qué presupuesto en USD o proyecto puntual estás comparando para mandarte el detalle neto?*"
     },
     {
       "id": "SIM-18",
@@ -3740,7 +3751,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "POZO_COMPRA_EXTERIOR",
       "alerta_andon": false,
-      "replyText": "Compradores de Argentina y del exterior operan a distancia con nuestra escribanía aliada mediante boleto de reserva, verificación de ingresos (DNI o Pasaporte + últimos 3 recibos o certificación contable) y Poder Especial apostillado por La Haya para escritura.\nPodés ver los 5 desarrollos activos desde USD 79.800 en https://zaguanpropiedades.com/proyectos/\nQué tipología y forma de pago en cuotas buscás para mandarte el desglose notarial completo?"
+      "replyText": "Compradores de Argentina y del exterior operan a distancia con nuestra escribanía aliada mediante boleto de reserva, verificación de ingresos (DNI o Pasaporte + últimos 3 recibos o certificación contable) y Poder Especial apostillado por La Haya para escritura.\nPodés ver los 5 desarrollos activos desde USD 79.800 en https://zaguanpropiedades.com/proyectos/\n*Qué tipología y forma de pago en cuotas buscás para mandarte el desglose notarial completo?*"
     },
     {
       "id": "SIM-19",
@@ -3753,7 +3764,7 @@
       "vertical_detectada": "D4",
       "subtipo_detectado": "DEMANDA_APTO_BRAVA_CRUCE_POZO",
       "alerta_andon": false,
-      "replyText": "En Playa Brava tenemos EVE Tower en Parada 8 a 100 metros del mar (referencia desde USD 150.000 con financiación propia hasta 55 cuotas sin interés y 5% de gastos de ocupación), además de opciones en pozo en https://zaguanpropiedades.com/proyectos/\nBuscás entrega próxima para vivir todo el año o financiar en obra en USD?"
+      "replyText": "En Playa Brava tenemos EVE Tower en Parada 8 a 100 metros del mar (referencia desde USD 150.000 con financiación propia hasta 55 cuotas sin interés y 5% de gastos de ocupación), además de opciones en pozo en https://zaguanpropiedades.com/proyectos/\n*Buscás entrega próxima para vivir todo el año o financiar en obra en USD?*"
     },
     {
       "id": "SIM-20",
@@ -3766,7 +3777,7 @@
       "vertical_detectada": "D6",
       "subtipo_detectado": "DEMANDA_COMERCIAL",
       "alerta_andon": true,
-      "replyText": "Relevamos locales comerciales, oficinas y consultorios disponibles en Maldonado y Punta del Este según metraje, vidriera y potencia eléctrica (trifásica o habilitación comercial).\nQué rubro exacto vas a instalar, cuántos metros necesitás y buscás alquiler o compra?"
+      "replyText": "Relevamos locales comerciales, oficinas y consultorios disponibles en Maldonado y Punta del Este según metraje, vidriera y potencia eléctrica (trifásica o habilitación comercial).\n*Qué rubro exacto vas a instalar, cuántos metros necesitás y buscás alquiler o compra?*"
     },
     {
       "id": "SIM-21",
@@ -3779,7 +3790,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?*"
     },
     {
       "id": "SIM-22",
@@ -3792,7 +3803,7 @@
       "vertical_detectada": "O1",
       "subtipo_detectado": "DUENO_TURNO_2_HONORARIOS",
       "alerta_andon": true,
-      "replyText": "Trabajamos con autorización abierta: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\nTu propiedad es para venta o alquiler anual y en qué barrio está?"
+      "replyText": "Trabajamos con autorización abierta: seguís ofreciendo por tu cuenta mientras armamos la difusión y filtramos solvencia e intención real antes de cada visita.\nOperamos solo a resultado al concretar con un interesado de ZAGUÁN; las condiciones comerciales se acuerdan por escrito según el tipo de propiedad al armar la ficha interna.\n*Tu propiedad es para venta o alquiler anual y en qué barrio está?*"
     },
     {
       "id": "SIM-23",
@@ -3805,7 +3816,7 @@
       "vertical_detectada": "O1",
       "subtipo_detectado": "DUENO_TURNO_2_CAPA2",
       "alerta_andon": true,
-      "replyText": "Para armar la carpeta interna y evitar visitas de curiosos, podés enviarnos por acá fotos o video completo de recorrido, ubicación aproximada, y si tenés PDF de cédula catastral, DJCU o títulos.\nQué días y horarios tenés disponibilidad para mostrarla cuando filtremos un comprador real?"
+      "replyText": "Para armar la carpeta interna y evitar visitas de curiosos, podés enviarnos por acá fotos o video completo de recorrido, ubicación aproximada, y si tenés PDF de cédula catastral, DJCU o títulos.\n*Qué días y horarios tenés disponibilidad para mostrarla cuando filtremos un comprador real?*"
     },
     {
       "id": "SIM-24",
@@ -3818,7 +3829,7 @@
       "vertical_detectada": "O3",
       "subtipo_detectado": "INBOUND_COMERCIAL",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta, filtrando cada interesado por rubro y solvencia.\nMe confirmás metros del salón, si cuenta con trifásica/habilitación y valor pretendido?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos locales comerciales y oficinas con publicación abierta, filtrando cada interesado por rubro y solvencia.\n*Me confirmás metros del salón, si cuenta con trifásica/habilitación y valor pretendido?*"
     },
     {
       "id": "SIM-25",
@@ -3831,7 +3842,7 @@
       "vertical_detectada": "O4",
       "subtipo_detectado": "INBOUND_LOTE",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta, pre-calificando compradores antes de coordinar visitas.\nMe confirmás número de padrón o frente/fondo, servicios en puerta y valor en USD?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos lotes y terrenos con publicación abierta, pre-calificando compradores antes de coordinar visitas.\n*Me confirmás número de padrón o frente/fondo, servicios en puerta y valor en USD?*"
     },
     {
       "id": "SIM-26",
@@ -3844,7 +3855,7 @@
       "vertical_detectada": "O7",
       "subtipo_detectado": "INBOUND_DESARROLLADORA",
       "alerta_andon": true,
-      "replyText": "Excelente. En ZAGUÁN trabajamos obra nueva en Punta del Este y Maldonado ordenando listas de precios Desde USD, esquema de cuotas, gastos de ocupación y protocolo de pre-registro de interesados.\nNos pasás el nombre del emprendimiento, carpeta vigente y correo o contacto comercial para coordinar el alta?"
+      "replyText": "Excelente. En ZAGUÁN trabajamos obra nueva en Punta del Este y Maldonado ordenando listas de precios Desde USD, esquema de cuotas, gastos de ocupación y protocolo de pre-registro de interesados.\n*Nos pasás el nombre del emprendimiento, carpeta vigente y correo o contacto comercial para coordinar el alta?*"
     },
     {
       "id": "SIM-27",
@@ -3870,7 +3881,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "TURNO_2_VISITA_SANTA_MONICA",
       "alerta_andon": true,
-      "replyText": "Anotamos el viernes de mañana como preferencia para recorrer el proyecto en construcción en Santa Mónica (USD 160.000).\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto de encuentro junto con la cédula catastral por acá.\nMe pasás tu nombre completo para dejarte confirmada la visita?"
+      "replyText": "Anotamos el viernes de mañana como preferencia para recorrer el proyecto en construcción en Santa Mónica (USD 160.000).\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto de encuentro junto con la cédula catastral por acá.\n*Me pasás tu nombre completo para dejarte confirmada la visita?*"
     },
     {
       "id": "SIM-29",
@@ -3883,7 +3894,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_GC_INCLUYE",
       "alerta_andon": false,
-      "replyText": "El alquiler de La Fortuna ($U 30.000/mes) ya incluye gastos comunes del predio, Internet Wi-Fi de alta velocidad y cochera fija.\nSolo los consumos independientes de UTE (luz) y OSE (agua) van aparte por cuenta del inquilino.\nContás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita?"
+      "replyText": "El alquiler de La Fortuna ($U 30.000/mes) ya incluye gastos comunes del predio, Internet Wi-Fi de alta velocidad y cochera fija.\nSolo los consumos independientes de UTE (luz) y OSE (agua) van aparte por cuenta del inquilino.\n*Contás con póliza de aseguradora (Porto, Sura, Mapfre o Santander) para coordinar visita?*"
     },
     {
       "id": "SIM-30",
@@ -3922,7 +3933,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "OBJECION_TEMPORADA_VS_ANUAL",
       "alerta_andon": false,
-      "replyText": "En esta línea operamos alquileres anuales con contrato estable de 1 a 2 años en Maldonado y Punta del Este.\nSi estás buscando radicarte o alquilar todo el año, qué zona, cantidad de dormitorios y garantía manejás?"
+      "replyText": "En esta línea operamos alquileres anuales con contrato estable de 1 a 2 años en Maldonado y Punta del Este.\n*Si estás buscando radicarte o alquilar todo el año, qué zona, cantidad de dormitorios y garantía manejás?*"
     },
     {
       "id": "SIM-33",
@@ -4117,7 +4128,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_REQUISITOS_INGRESO",
       "alerta_andon": false,
-      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\nYa contás con aseguradora aprobada o querés que veamos el trámite de ingreso?"
+      "replyText": "Para ingresar en La Fortuna se exige garantía de aseguradora aprobada (Porto, Sura, Mapfre o Santander; excluye ANDA y CGN), primer mes por adelantado y 1 mes de alquiler + IVA de comisión inmobiliaria sobre contrato de 1 a 2 años.\nSi todavía no tenés póliza emitida, estas aseguradoras aprueban en 24/48 hs con recibo de sueldo o certificación contable de ingresos.\n*Ya contás con aseguradora aprobada o querés que veamos el trámite de ingreso?*"
     },
     {
       "id": "SIM-48",
@@ -4130,7 +4141,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "DEMANDA_HONORARIOS_COMPRA",
       "alerta_andon": true,
-      "replyText": "Trabajamos con condiciones comerciales y notariales claras de cierre según el tipo de operación e inmueble, por lo que no enviamos porcentajes genéricos por respuesta automática.\nConfirmame sobre qué propiedad o proyecto puntual evaluás avanzar así nuestro equipo te pasa el detalle por escrito?"
+      "replyText": "Trabajamos con condiciones comerciales y notariales claras de cierre según el tipo de operación e inmueble, por lo que no enviamos porcentajes genéricos por respuesta automática.\n*Confirmame sobre qué propiedad o proyecto puntual evaluás avanzar así nuestro equipo te pasa el detalle por escrito?*"
     },
     {
       "id": "SIM-49",
@@ -4143,7 +4154,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_SUMA_INGRESOS_PAREJA",
       "alerta_andon": false,
-      "replyText": "Sí, Porto, Sura, Mapfre y Santander permiten sumar los recibos de sueldo de la pareja o núcleo familiar para cubrir el criterio habitual (aprox. 3 veces el canon de $U 30.000/mes), así que con $U 95.000 líquidos califican en 24/48 hs.\nAcá ves fotos y ficha de La Fortuna: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/\nQué día y franja horaria les sirve visitar esta semana?"
+      "replyText": "Sí, Porto, Sura, Mapfre y Santander permiten sumar los recibos de sueldo de la pareja o núcleo familiar para cubrir el criterio habitual (aprox. 3 veces el canon de $U 30.000/mes), así que con $U 95.000 líquidos califican en 24/48 hs.\nAcá ves fotos y ficha de La Fortuna: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/\n*Qué día y franja horaria les sirve visitar esta semana?*"
     },
     {
       "id": "SIM-50",
@@ -4156,7 +4167,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "TURNO_2_VISITA_LA_FORTUNA",
       "alerta_andon": true,
-      "replyText": "Anotado martes a las 15 hs con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\nMe confirmás tu apellido y cuántas personas vivirían en el apartamento?"
+      "replyText": "Anotado martes a las 15 hs con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\n*Me confirmás tu apellido y cuántas personas vivirían en el apartamento?*"
     },
     {
       "id": "SIM-51",
@@ -4169,7 +4180,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_MASCOTA",
       "alerta_andon": false,
-      "replyText": "Gracias por avisar. El apartamento de La Fortuna ($U 30.000/mes) admite mascota pequeña de porte chico.\nPara perros medianos o grandes consultamos raza y peso antes de mover visitas y además relevamos casas con patio en Maldonado.\nMe pasás raza o tamaño aproximado junto con tu tope mensual por si sumamos alternativas?"
+      "replyText": "Gracias por avisar. El apartamento de La Fortuna ($U 30.000/mes) admite mascota pequeña de porte chico.\nPara perros medianos o grandes consultamos raza y peso antes de mover visitas y además relevamos casas con patio en Maldonado.\n*Me pasás raza o tamaño aproximado junto con tu tope mensual por si sumamos alternativas?*"
     },
     {
       "id": "SIM-52",
@@ -4182,7 +4193,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_FICHA",
       "alerta_andon": true,
-      "replyText": "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/?utm_source=whatsapp&utm_medium=mar · Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?"
+      "replyText": "Hola, buenas tardes. Por si seguís buscando alquiler anual en Maldonado o Punta del Este: para este martes estamos armando las visitas del apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 con gastos comunes, Wi-Fi y cochera incluidos), y acá podés revisar otras opciones anuales por zona y novedades de ZAGUÁN: https://zaguanpropiedades.com/alquileres/?utm_source=whatsapp&utm_medium=mar · *Contás con garantía aseguradora (Porto, Sura, Mapfre o Santander) o buscás con otra garantía / en otro barrio?*"
     },
     {
       "id": "SIM-53",
@@ -4195,7 +4206,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_CONTRAOFERTA",
       "alerta_andon": true,
-      "replyText": "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la Laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\nCualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\nTe paso el video completo de 2m31s y la agenda de visita esta semana?"
+      "replyText": "El valor publicado es USD 160.000 al contado sobre lote propio de 348 m² frente a la Laguna y 201 m² construidos en hormigón armado ya implantados (calculados por ingeniera civil para vientos oceánicos).\nCualquier propuesta formal en USD la elevamos por escrito después de recorrer la obra para que evalúes el valor de reposición.\n*Te paso el video completo de 2m31s y la agenda de visita esta semana?*"
     },
     {
       "id": "SIM-54",
@@ -4208,7 +4219,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_PERMUTA",
       "alerta_andon": true,
-      "replyText": "La operación de Santa Mónica (USD 160.000) está planteada al contado en USD, sin financiación bancaria directa.\nSi contás con una diferencia sólida en efectivo USD o querés analizar una entrega parcial, relevamos los datos antes de consultar viabilidad.\nQué monto líquido en USD tenés disponible además de la propiedad?"
+      "replyText": "La operación de Santa Mónica (USD 160.000) está planteada al contado en USD, sin financiación bancaria directa.\nSi contás con una diferencia sólida en efectivo USD o querés analizar una entrega parcial, relevamos los datos antes de consultar viabilidad.\n*Qué monto líquido en USD tenés disponible además de la propiedad?*"
     },
     {
       "id": "SIM-55",
@@ -4221,7 +4232,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "BETANIA_TIPOLOGIAS_PRECIOS",
       "alerta_andon": false,
-      "replyText": "En Betania IV (Fraccionamiento 4H, Maldonado · entrega estimada oct. 2028) las tipologías parten de USD 79.800 (1D 40 m²), USD 122.400 (2D 62 m²), USD 133.200 (2D 68 m² y accesible) y USD 156.600 (3D 87 m² totales), con 50% de anticipo + hasta 24 cuotas, 1,5% de gastos de ocupación y 1 estacionamiento en planta baja incluido en cada unidad: https://zaguanpropiedades.com/proyectos/betania-iv/\nBuscás 1, 2 o 3 dormitorios para enviarte el plano de esa planta?"
+      "replyText": "En Betania IV (Fraccionamiento 4H, Maldonado · entrega estimada oct. 2028) las tipologías parten de USD 79.800 (1D 40 m²), USD 122.400 (2D 62 m²), USD 133.200 (2D 68 m² y accesible) y USD 156.600 (3D 87 m² totales), con 50% de anticipo + hasta 24 cuotas, 1,5% de gastos de ocupación y 1 estacionamiento en planta baja incluido en cada unidad: https://zaguanpropiedades.com/proyectos/betania-iv/\n*Buscás 1, 2 o 3 dormitorios para enviarte el plano de esa planta?*"
     },
     {
       "id": "SIM-56",
@@ -4234,7 +4245,7 @@
       "vertical_detectada": "O7",
       "subtipo_detectado": "O7_OBJECION_PREREGISTRO",
       "alerta_andon": true,
-      "replyText": "Trabajamos con pre-registro nominal del interesado (nombre, apellido y fecha de envío) con protección de 60 días para ordenar la comercialización sin duplicar citas.\nCada contacto llega filtrado con anticipo en USD confirmado antes de pasártelo; podés enviarnos el enlace o archivo de lista vigente para dar el alta?"
+      "replyText": "Trabajamos con pre-registro nominal del interesado (nombre, apellido y fecha de envío) con protección de 60 días para ordenar la comercialización sin duplicar citas.\n*Cada contacto llega filtrado con anticipo en USD confirmado antes de pasártelo; podés enviarnos el enlace o archivo de lista vigente para dar el alta?*"
     },
     {
       "id": "SIM-57",
@@ -4247,7 +4258,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "POZO_COMPRA_EXTERIOR",
       "alerta_andon": false,
-      "replyText": "Compradores de Argentina y del exterior operan a distancia con nuestra escribanía aliada mediante boleto de reserva, verificación de ingresos (DNI o Pasaporte + últimos 3 recibos o certificación contable) y Poder Especial apostillado por La Haya para escritura.\nPodés ver los 5 desarrollos activos desde USD 79.800 en https://zaguanpropiedades.com/proyectos/\nQué tipología y forma de pago en cuotas buscás para mandarte el desglose notarial completo?"
+      "replyText": "Compradores de Argentina y del exterior operan a distancia con nuestra escribanía aliada mediante boleto de reserva, verificación de ingresos (DNI o Pasaporte + últimos 3 recibos o certificación contable) y Poder Especial apostillado por La Haya para escritura.\nPodés ver los 5 desarrollos activos desde USD 79.800 en https://zaguanpropiedades.com/proyectos/\n*Qué tipología y forma de pago en cuotas buscás para mandarte el desglose notarial completo?*"
     },
     {
       "id": "SIM-58",
@@ -4260,7 +4271,7 @@
       "vertical_detectada": "D1",
       "subtipo_detectado": "POZO_RESIDENCIA_FISCAL",
       "alerta_andon": true,
-      "replyText": "Para residencia fiscal por inversión inmobiliaria en Uruguay la normativa exige superar las 3.500.000 UI (aprox. USD 579.000 a 590.000) más 60 días de presencia anual, aunque se puede alcanzar acumulando unidades desde el compromiso inscripto.\nSi evaluás una unidad individual como inversión en renta bajo Ley 18.795 o armar un paquete, qué presupuesto total manejás?"
+      "replyText": "Para residencia fiscal por inversión inmobiliaria en Uruguay la normativa exige superar las 3.500.000 UI (aprox. USD 579.000 a 590.000) más 60 días de presencia anual, aunque se puede alcanzar acumulando unidades desde el compromiso inscripto.\n*Si evaluás una unidad individual como inversión en renta bajo Ley 18.795 o armar un paquete, qué presupuesto total manejás?*"
     },
     {
       "id": "SIM-59",
@@ -4273,7 +4284,7 @@
       "vertical_detectada": "O6",
       "subtipo_detectado": "INBOUND_DUENO_ALQUILER",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\nMe confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos alquileres anuales con publicación abierta, filtrando garantía aseguradora aprobada (Porto, Sura o Mapfre) antes de cada visita.\n*Me confirmás qué garantías aceptás, si admite niños o mascotas y si incluye gastos comunes?*"
     },
     {
       "id": "SIM-60",
@@ -4286,7 +4297,7 @@
       "vertical_detectada": "D7",
       "subtipo_detectado": "SANTA_MONICA_TURNO_2_BOVEDA_VIDEO",
       "alerta_andon": true,
-      "replyText": "La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?"
+      "replyText": "*La propiedad suma lote propio de 348 m² en régimen común, 201 m² edificados en hormigón armado y Cédula Catastral con DJCU vigente (23/01/2025, válida 5 años) lista para regularizar hasta diciembre de 2027. Te enviamos el video completo y croquis; qué día te sirve coordinar visita?*"
     },
     {
       "id": "SIM-61",
@@ -4299,7 +4310,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_HOLA_DESDE_AVISO",
       "alerta_andon": true,
-      "replyText": "Hola, te habla Mar de ZAGUÁN. Por el anuncio del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos), acá tenés las fotos y detalles completos en un enlace: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\nCuando lo revises, ya tenés garantía aseguradora o necesitás que te ayudemos a tramitarla con nuestra gestión ZAGUÁN?"
+      "replyText": "Hola, te habla Mar de ZAGUÁN. Por el anuncio del apartamento a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera incluidos), acá tenés las fotos y detalles completos en un enlace: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=whatsapp&utm_medium=mar\n*Cuando lo revises, ya tenés garantía aseguradora o necesitás que te ayudemos a tramitarla con nuestra gestión ZAGUÁN?*"
     },
     {
       "id": "SIM-62",
@@ -4312,7 +4323,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_OBJECION_NINOS",
       "alerta_andon": true,
-      "replyText": "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\nComo ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\nYa tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?"
+      "replyText": "Entendido. Te confirmo con total tranquilidad que la unidad admite familias con niños.\nComo ya conocés el apartamento y te gustó, el único paso para avanzar y reservarlo es la garantía aseguradora.\n*Ya tenés una aprobada o preferís que la tramitemos hoy con nuestra gestión ZAGUÁN?*"
     },
     {
       "id": "SIM-63",
@@ -4325,7 +4336,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA",
       "alerta_andon": true,
-      "replyText": "Esta propiedad tiene agenda activa de visitas y la reserva se confirma por orden de cierre.\nAnotada tu cita de las 11: mantenemos tu prioridad mientras siga disponible y reconectamos al mediodía.\nQuedamos en hablar a las 12 hs para confirmarte si sigue libre?"
+      "replyText": "Esta propiedad tiene agenda activa de visitas y la reserva se confirma por orden de cierre.\nAnotada tu cita de las 11: mantenemos tu prioridad mientras siga disponible y reconectamos al mediodía.\n*Quedamos en hablar a las 12 hs para confirmarte si sigue libre?*"
     },
     {
       "id": "SIM-64",
@@ -4338,7 +4349,7 @@
       "vertical_detectada": "O1",
       "subtipo_detectado": "INBOUND_CASA",
       "alerta_andon": true,
-      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados.\nLa propiedad es para venta o alquiler anual, y qué valor pretendido manejás?"
+      "replyText": "Hola, te escribe Mar, de ZAGUÁN Propiedades. Trabajamos en Punta del Este y Maldonado con publicación abierta y filtro previo de interesados.\n*La propiedad es para venta o alquiler anual, y qué valor pretendido manejás?*"
     },
     {
       "id": "SIM-65",
@@ -4351,7 +4362,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_TURNO_1_PASO_1",
       "alerta_andon": true,
-      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás en Punta del Este hasta $U 40.000 al mes para el 2027 y ofrecértelo.\n\nContanos así enfocamos la búsqueda: desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
+      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás en Punta del Este hasta $U 40.000 al mes para el 2027 y ofrecértelo.\n\nContanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
     },
     {
       "id": "SIM-66",
@@ -4364,7 +4375,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_TURNO_2_PASO_3",
       "alerta_andon": false,
-      "replyText": "Tomamos nota. Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?"
+      "replyText": "Tomamos nota. *Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?*"
     },
     {
       "id": "SIM-67",
@@ -4377,7 +4388,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_MASCOTA_PREGUNTA",
       "alerta_andon": false,
-      "replyText": "Tomamos nota para priorizar propiedades que acepten mascotas. Qué mascota tenés?"
+      "replyText": "Tomamos nota para priorizar propiedades que acepten mascotas. *Qué mascota tenés?*"
     },
     {
       "id": "SIM-68",
@@ -4390,7 +4401,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_TURNO_3_PASO_2_GARANTIA",
       "alerta_andon": false,
-      "replyText": "Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?"
+      "replyText": "Para dejar tu búsqueda completa: *con qué garantía pensás alquilar (podemos ayudarte con eso también)?*"
     },
     {
       "id": "SIM-69",
@@ -4403,7 +4414,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_TURNO_1_PASO_1",
       "alerta_andon": true,
-      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás para Junio y ofrecértelo.\n\nContanos así enfocamos la búsqueda: desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
+      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás para Junio y ofrecértelo.\n\nContanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
     },
     {
       "id": "SIM-70",
@@ -4416,7 +4427,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_SIN_GARANTIA_O_DEPOSITO",
       "alerta_andon": false,
-      "replyText": "Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?"
+      "replyText": "Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). *Trabajás en relación de dependencia o de forma independiente?*"
     },
     {
       "id": "SIM-71",
@@ -4429,7 +4440,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_RELACION_DEPENDENCIA",
       "alerta_andon": false,
-      "replyText": "En relación de dependencia la aseguradora se tramita al momento de reservar con los últimos 3 recibos de sueldo y documento de identidad, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\nCon tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?"
+      "replyText": "En relación de dependencia la aseguradora se tramita al momento de reservar con los últimos 3 recibos de sueldo y documento de identidad, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n*Con tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?*"
     },
     {
       "id": "SIM-72",
@@ -4442,7 +4453,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_INDEPENDIENTE",
       "alerta_andon": false,
-      "replyText": "De forma independiente o con unipersonal la aseguradora se tramita al momento de reservar con BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\nContás con esos comprobantes al día para agendar tu búsqueda?"
+      "replyText": "De forma independiente o con unipersonal la aseguradora se tramita al momento de reservar con BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n*Contás con esos comprobantes al día para agendar tu búsqueda?*"
     },
     {
       "id": "SIM-73",
@@ -4455,7 +4466,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_EXTERIOR",
       "alerta_andon": true,
-      "replyText": "En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?"
+      "replyText": "En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. *Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?*"
     },
     {
       "id": "SIM-74",
@@ -4468,7 +4479,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_SIN_INGRESOS_DEPOSITO",
       "alerta_andon": true,
-      "replyText": "Tomamos nota para buscar propietarios que evalúen depósito en garantía.\nCuántos meses de depósito podés cubrir al momento de ingresar para dejarlo registrado en tu búsqueda?"
+      "replyText": "Tomamos nota para buscar propietarios que evalúen depósito en garantía.\n*Cuántos meses de depósito podés cubrir al momento de ingresar para dejarlo registrado en tu búsqueda?*"
     },
     {
       "id": "SIM-75",
@@ -4481,20 +4492,22 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_RAMA_B_TURNO_1_PASO_1",
       "alerta_andon": true,
-      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás y ofrecértelo.\n\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\nContanos así enfocamos la búsqueda: desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
+      "replyText": "Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás y ofrecértelo.\n\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\nContanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n\n_Si querés adelantarnos algo más:_\n_- si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n_- con qué garantía pensás alquilar (podemos ayudarte con eso también)_"
     },
     {
       "id": "SIM-76",
-      "bloque": "Candados #13/#14 + Variables Silenciosas B2C",
+      "bloque": "Candados #13/#14/#15 + Negrita Preguntas + Cierre 3Q y Rama B",
       "turno": "Validación Unitaria",
       "contexto": "d2_interno",
-      "input": "Candados #13/#14 + Presupuesto elástico $40k -> $43k + Dormitorios abiertos",
-      "pass": true,
-      "errores": [],
+      "input": "Candados #13/#14/#15 + Presupuesto elástico $40k -> $43k + Negritas + Cierre Rama B",
+      "pass": false,
+      "errores": [
+        "FALLA_CIERRE_RAMA_B_FORMATO"
+      ],
       "vertical_detectada": "D2",
-      "subtipo_detectado": "CANDADOS_13_14_Y_SILENCIOSAS_OK",
-      "alerta_andon": false,
-      "replyText": "OK: elástico $43.000, con_y_sin_gc, Mono/1D/2D y candados #13-#14 activos."
+      "subtipo_detectado": "FALLA_MATRIZ_D2",
+      "alerta_andon": true,
+      "replyText": "FALLA_CIERRE_RAMA_B_FORMATO"
     }
   ]
 }</script>
@@ -4599,7 +4612,9 @@ const BANCO_RESPUESTAS_ESTANDAR = [
   { id: "RB-T1-2027", area: "Rama B · Búsqueda Abierta", titulo: "Turno 1 · 2027 / $40k Punta del Este", contexto: "la_fortuna", ejemploInput: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes" },
   { id: "RB-T2-PASO3", area: "Rama B · Búsqueda Abierta", titulo: "Turno 2 (Paso 3) · Da mes y 2 personas", contexto: "general", ejemploInput: "Sería para mudarnos en abril, somos 2 personas" },
   { id: "RB-MASC", area: "Rama B · Mascota", titulo: "Dice tengo mascota -> Qué mascota tenés?", contexto: "general", ejemploInput: "Sí, tengo mascota y necesito cochera" },
+  { id: "RB-3Q", area: "Rama B · 3 Preguntas Cortas", titulo: "Adelanta mes, personas y cochera -> 3 preguntas en negrita", contexto: "general", ejemploInput: "Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este" },
   { id: "RB-T3-GAR", area: "Rama B · Garantía", titulo: "Turno 3 (Paso 2) · Comodidades OK -> Pide Garantía", contexto: "general", ejemploInput: "No tengo mascota, necesito cochera y que esté amoblado" },
+  { id: "RB-CIERRE", area: "Rama B · Cierre Completo", titulo: "Completa datos -> Cierre con cursiva y pregunta nombre", contexto: "general", ejemploInput: "Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, sin muebles, con 1 perro y garantía depósito o aseguradora" },
   { id: "GAR-EFEC", area: "Árbol Garantía", titulo: "Sin garantía / solo efectivo o depósito", contexto: "general", ejemploInput: "No tengo garantía, pago solo efectivo o depósito" },
   { id: "GAR-DEP", area: "Árbol Garantía", titulo: "Relación de dependencia (3 recibos + 30%)", contexto: "general", ejemploInput: "Trabajo en relación de dependencia en una empresa" },
   { id: "GAR-IND", area: "Árbol Garantía", titulo: "Independiente / Unipersonal (BPS + DGI)", contexto: "general", ejemploInput: "Trabajo de forma independiente con unipersonal" },
@@ -4785,7 +4800,11 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     const mv = norm.match(/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i);
     if (mv) mesMudanza = _capWord(mv[1]);
   }
-  const desdeCuando = mesMudanza || (yearMatch ? `Año ${yearMatch[1]} (mes a definir)` : prev.desde_cuando || null);
+  const prevYearMatch = String(prev.desde_cuando || "").match(/\b(202[6-9]|203\d)\b/);
+  const effectiveYear = yearMatch?.[1] || prevYearMatch?.[1] || null;
+  const desdeCuando = mesMudanza
+    ? (effectiveYear && !isEntrarYa && !mesMudanza.includes(effectiveYear) ? `${mesMudanza} ${effectiveYear}` : mesMudanza)
+    : (effectiveYear ? `Año ${effectiveYear} (mes a definir)` : prev.desde_cuando || null);
 
   // 3. Personas y dormitorios abiertos
   let dormsMin = prev.dormitorios_min !== undefined && prev.dormitorios_min !== null ? Number(prev.dormitorios_min) : null;
@@ -4801,11 +4820,11 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     dormsAbiertos = dormExact[2] ? `${dormExact[1]} y ${dormExact[2]} dormitorios` : `${dormExact[1]} dormitorio${dormsMin > 1 ? "s" : ""}`;
   }
 
-  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
+  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|\d+\s*adult[oa]s?(?:\s+y\s+\d+\s*(?:ni[nñ]os?|ninos?|chicos?|hijos?))?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
   if (persMatch) {
     personas = persMatch[1];
     if (!dormsAbiertos) {
-      if (/3|4|familia|chicos|hijos/.test(personas)) {
+      if (/3|4|familia|chicos|hijos|ninos/.test(personas)) {
         dormsMin = 2;
         dormsAbiertos = "2 y 3 dormitorios";
       } else {
@@ -4817,8 +4836,17 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
 
   // 4. Amoblado y Comodidades
   let amobladoPref = prev.amoblado_preferencia || "amoblado_y_sin_muebles";
-  if (/\b(amoblad[oa]|con muebles|equipad[oa])\b/i.test(norm)) amobladoPref = "amoblado";
-  else if (/\b(sin muebles|vaci[oa]|desamoblad[oa])\b/i.test(norm)) amobladoPref = "sin_muebles";
+  let amobladoExplicito = Boolean(prev.amoblado_explicito);
+  if (/\b(me da igual|cualquiera de los dos|indistinto|no excluyente|sirve sin muebles|con o sin muebles)\b/i.test(norm)) {
+    amobladoPref = "amoblado_y_sin_muebles";
+    amobladoExplicito = true;
+  } else if (/\b(amoblad[oa]|con muebles|equipad[oa])\b/i.test(norm)) {
+    amobladoPref = "amoblado";
+    amobladoExplicito = true;
+  } else if (/\b(sin muebles|vaci[oa]|desamoblad[oa])\b/i.test(norm)) {
+    amobladoPref = "sin_muebles";
+    amobladoExplicito = true;
+  }
 
   const comods = new Set(String(prev.comodidades_pedidas || "").split(",").map((x) => x.trim()).filter(Boolean));
   if (/\bcochera|garaje|estacionamiento\b/i.test(norm)) comods.add("Cochera");
@@ -4880,15 +4908,18 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
   let mesesDeposito = prev.meses_deposito || null;
 
   const asegList = ["Porto", "Sura", "Mapfre", "Santander"].filter((g) => norm.includes(g.toLowerCase()));
-  if (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm)) {
+  if (/\bdeposito\b/i.test(norm) && (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm))) {
+    garantiaTipo = "deposito_o_aseguradora";
+    garantiaDisp = "Depósito o aseguradora";
+  } else if (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm)) {
     garantiaTipo = "aseguradora";
     garantiaDisp = asegList.length ? asegList.join(", ") : "Aseguradora";
   } else if (/\b(anda|cgn|contaduria)\b/i.test(norm)) {
     garantiaTipo = "anda_cgn";
     garantiaDisp = "ANDA / CGN";
-  } else if (/\b(no\s+tengo\s+garant|sin\s+garant|solo\s+efectivo|tengo\s+efectivo|solo\s+deposito|con\s+deposito|puedo\s+pagar\s+deposito)\b/i.test(norm)) {
+  } else if (/\b(no\s+tengo\s+garant|sin\s+garant|solo\s+efectivo|tengo\s+efectivo|solo\s+deposito|con\s+deposito|garantia\s+deposito|puedo\s+pagar\s+deposito)\b/i.test(norm)) {
     garantiaTipo = "sin_garantia_o_deposito";
-    garantiaDisp = "Sin garantía previa (evalúa trámite / depósito)";
+    garantiaDisp = "Depósito en garantía";
   }
 
   if (/\b(relacion\s+de\s+dependencia|empleado|en\s+planilla|recibo\s+de\s+sueldo|recibos\s+de\s+sueldo)\b/i.test(norm) && !/\bno\s+tengo\s+recibo/i.test(norm)) {
@@ -4925,6 +4956,7 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     dormitorios_min: dormsMin,
     dormitorios_abiertos: dormsAbiertos,
     amoblado_preferencia: amobladoPref,
+    amoblado_explicito: amobladoExplicito,
     comodidades_pedidas: [...comods].join(", ") || null,
     comodidades_respondidas: comodidadesRespondidas,
     tiene_mascota: tieneMascota,
@@ -5171,6 +5203,14 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     if (faltaPaso1) {
       return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_1_PASO_1" };
     }
+    if (
+      Boolean(vSil.comodidades_respondidas) &&
+      !vSil.tiene_mascota &&
+      !vSil.amoblado_explicito &&
+      !vSil.garantia_tipo
+    ) {
+      return { vertical: "D2", subtipo: "D2_RAMA_B_CIERRE_3_PREGUNTAS" };
+    }
     const respondioMascotaYComodidades = Boolean(vSil.tiene_mascota) || Boolean(vSil.comodidades_respondidas);
     if (!respondioMascotaYComodidades) {
       return { vertical: "D2", subtipo: "D2_RAMA_B_TURNO_2_PASO_3" };
@@ -5255,6 +5295,92 @@ function detectarFaltantes(vertical, rawText) {
   };
 }
 
+function _asegurarNegritaEnPreguntasActivas(texto) {
+  const lines = String(texto || "").split("\n");
+  return lines
+    .map((line) => {
+      const trimmed = line.trim();
+      if (!trimmed || (/^_.*_$/.test(trimmed) && !/\?\*/.test(trimmed))) return line;
+      const urls = [];
+      const masked = line.replace(/https?:\/\/[^\s)]+/gi, (m) => {
+        const tok = `__ZURL${urls.length}__`;
+        urls.push(m);
+        return tok;
+      });
+      if (!masked.includes("?") || /\*[^*\n]+\?\*/.test(masked)) {
+        return line;
+      }
+      const qIdx = masked.lastIndexOf("?");
+      const beforeQ = masked.slice(0, qIdx + 1);
+      const afterQ = masked.slice(qIdx + 1);
+      const isAbbrBefore = (str, dotPos) => {
+        const sub = str.slice(Math.max(0, dotPos - 8), dotPos + 1).toLowerCase();
+        return /\b(?:aprox|av|dic|oct|nov|ene|feb|mar|abr|may|jun|jul|ago|set|sep|etc|art|sr|sra|dr)\.$/.test(sub) || /\d\.$/.test(sub);
+      };
+      let splitIdx = 0;
+      const reSep = /([.!:·]\s+)/g;
+      let m;
+      while ((m = reSep.exec(beforeQ)) !== null) {
+        const endPos = m.index + m[1].length;
+        if (endPos >= beforeQ.length - 1) continue;
+        if (m[1].startsWith(".") && isAbbrBefore(beforeQ, m.index)) continue;
+        if (beforeQ.slice(endPos).startsWith("__ZURL")) continue;
+        splitIdx = endPos;
+      }
+      const prefix = beforeQ.slice(0, splitIdx);
+      const question = beforeQ.slice(splitIdx).trim();
+      if (!question) return line;
+      const rebuilt = `${prefix}*${question}*${afterQ}`;
+      return rebuilt.replace(/__ZURL(\d+)__/g, (_, i) => urls[Number(i)]);
+    })
+    .join("\n");
+}
+
+function armarMensajeCierreBusquedaRamaB(v) {
+  const cleanNoPar = (s) => String(s || "").replace(/\([^)]*\)/g, "").replace(/[()]/g, "").replace(/\s+/g, " ").trim();
+  const rawFecha = cleanNoPar(v?.desde_cuando || v?.mes_mudanza || "próxima mudanza");
+  const fechaTxt = rawFecha ? rawFecha.charAt(0).toLowerCase() + rawFecha.slice(1) : "próxima mudanza";
+  const partes = [];
+  const dorms = cleanNoPar(v?.dormitorios_abiertos || (v?.dormitorios_min ? `${v.dormitorios_min} dormitorios` : "2 o 3 dormitorios"));
+  if (dorms) partes.push(dorms);
+  const comods = String(v?.comodidades_pedidas || "")
+    .split(/[,|]+/)
+    .map((x) => cleanNoPar(x).toLowerCase())
+    .filter((x) => x && !x.startsWith("amoblad") && x !== "sin muebles");
+  if (comods.includes("cochera") || /cochera/i.test(String(v?.comodidades_pedidas || ""))) {
+    partes.push("con cochera");
+  } else if (comods.length) {
+    partes.push(`con ${comods.join(" y ")}`);
+  }
+  if (v?.amoblado_preferencia === "amoblado") partes.push("amoblado");
+  else if (v?.amoblado_preferencia === "sin_muebles") partes.push("sin muebles");
+  else partes.push("ideal amoblado o sin muebles");
+
+  if (v?.tiene_mascota === "si") {
+    const mDet = cleanNoPar(v.mascota_detalle || "mascota").replace(/^s[ií],?\s*/i, "").toLowerCase();
+    partes.push(`con ${mDet || "mascota"}`);
+  } else if (v?.tiene_mascota === "no") {
+    partes.push("sin mascotas");
+  }
+
+  const zona = cleanNoPar(v?.zona_preferida || v?.zona_display || "Punta del Este y Maldonado");
+  if (zona) partes.push(`en ${zona}`);
+
+  if (v?.presupuesto_declarado) {
+    const monPrefix = v.moneda === "USD" ? "USD " : "$U ";
+    partes.push(`hasta ${monPrefix}${Number(v.presupuesto_declarado).toLocaleString("de-DE")} mensuales`);
+  }
+
+  const gar = cleanNoPar(v?.garantia_disponible || "");
+  const resumenBase = cleanNoPar(partes.join(", "));
+  const resumen = gar ? `${resumenBase} y garantía ${gar.charAt(0).toLowerCase() + gar.slice(1)}` : resumenBase;
+  return (
+    `Clarísimo todo! Ya dejamos armada tu búsqueda para ${fechaTxt}:\n` +
+    `_${resumen}._\n\n` +
+    "Nos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! *Cómo es tu nombre para agendar tu búsqueda?*"
+  );
+}
+
 function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla = "T0_INMEDIATO") {
   let out = String(texto || "").trim();
   const violaciones = [];
@@ -5262,6 +5388,7 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   if (/[¿¡]/.test(out)) {
     out = out.replace(/[¿¡]/g, "");
   }
+  out = _asegurarNegritaEnPreguntasActivas(out);
 
   // Candado Cocina vs Vidriera: nunca filtrar términos internos ni datos privados al cliente final
   if (/\b(b[oó]veda privada|franja gris|mar[ií]a bel[eé]n|mar[ií]a cristina|manzana 26|carpeta 8|padr[oó]n 704)\b/i.test(out)) {
@@ -5312,8 +5439,12 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   }
 
   const outSinUrls = out.replace(/https?:\/\/[^\s]+/gi, "");
+  const linesWithQ = outSinUrls.split(/\r?\n/).map((l) => l.trim()).filter((l) => l.includes("?"));
   const qCount = (outSinUrls.match(/\?/g) || []).length;
-  if (qCount > 1) {
+  const eachLineSingleBoldQ =
+    linesWithQ.length > 0 &&
+    linesWithQ.every((l) => (l.match(/\?/g) || []).length === 1 && /\*[^*\n]+\?\*/.test(l));
+  if (qCount > 3 || (qCount > 1 && !eachLineSingleBoldQ)) {
     violaciones.push("DOS_O_MAS_PREGUNTAS_ENCADENADAS");
   }
 
@@ -5344,6 +5475,11 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
   }
   if (/\b(cochera,\s*patio,\s*(?:o\s+)?muebles|patio,\s*muebles|necesit[aá]s[^.?]*\bmuebles\b(?!\s+o\s+sin)|prefer[ií]s[^.?]*\bmuebles\b)\b/i.test(out)) {
     violaciones.push("PROHIBIDO_MUEBLES_SUELTO");
+  }
+
+  // Candado #15: Prohibido asumir parentescos o vínculos no declarados ("tus hijos", "tu pareja", etc.)
+  if (/\b(tus\s+hijos|tu\s+pareja|tu\s+marido|tu\s+esposa|tu\s+familia)\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_ASUMIR_PARENTESCO");
   }
 
   return {
@@ -5800,6 +5936,13 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
   } else if (subtipo === "D2_RAMA_B_MASCOTA_PREGUNTA") {
     replyText =
       "Tomamos nota para priorizar propiedades que acepten mascotas. Qué mascota tenés?";
+  } else if (subtipo === "D2_RAMA_B_CIERRE_3_PREGUNTAS") {
+    replyText =
+      "Tomamos nota. Para terminar de definir tu búsqueda:\n" +
+      "*buscás que esté amoblado o te da igual?*\n" +
+      "*tenés mascota?*\n" +
+      "y por último:\n" +
+      "*con qué garantía pensás alquilar (podemos ayudarte con eso también)?*";
   } else if (subtipo === "D2_RAMA_B_TURNO_2_PASO_3") {
     const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
       ? "Tené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos.\n\n"
@@ -5810,13 +5953,7 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     replyText =
       "Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?";
   } else if (subtipo === "D2_RAMA_B_BUSQUEDA_COMPLETA") {
-    const zonaParte = varsSilenciosas.zona_display ? ` en ${varsSilenciosas.zona_display}` : "";
-    const presuNum = varsSilenciosas.presupuesto_declarado
-      ? ` hasta ${varsSilenciosas.moneda === "USD" ? "USD " : "$U "}${varsSilenciosas.presupuesto_declarado.toLocaleString("de-DE")}`
-      : "";
-    const garTxt = varsSilenciosas.garantia_disponible ? ` con ${varsSilenciosas.garantia_disponible}` : "";
-    replyText =
-      `Excelente, ya tomamos nota completa de tu búsqueda${zonaParte}${presuNum}${garTxt}. Apenas confirmemos propiedades que cumplan esas condiciones te enviamos las opciones por acá.`;
+    replyText = armarMensajeCierreBusquedaRamaB(varsSilenciosas);
     alertaAndon = true;
     motivoAndon = "Rama B completa (Pasos 1-3-2): pasar a Pedidos Abiertos y activar matchmaker.";
   } else if (vertical === "D2" && subtipo === "DEMANDA_ALQUILER_GENERAL") {
@@ -5938,12 +6075,12 @@ const REDTEAM_50_CONVERSACIONAL = [
   { id: "SIM-65", contexto: "la_fortuna", input: "Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes", mustInclude: ["Te damos la bienvenida a Zaguán", "Punta del Este", "40.000", "2027", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?", "que esté amoblado", "podemos ayudarte con eso también"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero", "bienvenido", "agendad", "enero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-66", contexto: "general", input: "Sería para mudarnos en abril, somos 2 personas", mustInclude: ["Tomamos nota", "Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?"], mustNotInclude: ["La Fortuna", "pero", "solo/sola", "muebles,"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-67", contexto: "general", input: "Sí, tengo mascota y necesito cochera", mustInclude: ["Qué mascota tenés"], mustNotInclude: ["qué mascota es", "casa con patio", "pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-68", contexto: "general", input: "No tengo mascota, necesito cochera y que esté amoblado", mustInclude: ["Para dejar tu búsqueda completa: con qué garantía pensás alquilar (podemos ayudarte con eso también)?"], mustNotInclude: ["pero", "bienvenido"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-69", contexto: "la_fortuna", input: "Busco para mudarme más adelante, mi contrato vence en junio", mustInclude: ["Te damos la bienvenida a Zaguán", "desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-70", contexto: "general", input: "No tengo garantía, pago solo efectivo o depósito", mustInclude: ["Entiendo. En general para alquileres anuales de estos montos piden garantía de aseguradora y en Zaguán podemos ayudarte a tramitarla al momento de reservar (puede ser una sola persona o combinando ingresos de hasta 4 personas). Trabajás en relación de dependencia o de forma independiente?"], mustNotInclude: ["pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-68", contexto: "general", input: "No tengo mascota, necesito cochera y que esté amoblado", mustInclude: ["Para dejar tu búsqueda completa:", "*con qué garantía pensás alquilar (podemos ayudarte con eso también)?*"], mustNotInclude: ["pero", "bienvenido"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-69", contexto: "la_fortuna", input: "Busco para mudarme más adelante, mi contrato vence en junio", mustInclude: ["Te damos la bienvenida a Zaguán", "*desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*"], mustNotInclude: ["La Fortuna", "la-fortuna-agata", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-70", contexto: "general", input: "No tengo garantía, pago solo efectivo o depósito", mustInclude: ["una sola persona o combinando ingresos de hasta 4 personas", "*Trabajás en relación de dependencia o de forma independiente?*"], mustNotInclude: ["pero"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-71", contexto: "general", input: "Trabajo en relación de dependencia en una empresa", mustInclude: ["3 recibos de sueldo", "documento", "30%", "una sola persona o combinando ingresos de hasta 4 personas"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-72", contexto: "general", input: "Trabajo de forma independiente con unipersonal", mustInclude: ["BPS y DGI al día", "certificación contable", "último año", "30%"], mustNotInclude: ["pero", "agendado"], expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
-  { id: "SIM-73", contexto: "general", input: "Trabajo para afuera y cobro en el exterior", mustInclude: ["En Zaguán podemos conformar la garantía con comprobantes y certificado notarial. Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
+  { id: "SIM-73", contexto: "general", input: "Trabajo para afuera y cobro en el exterior", mustInclude: ["En Zaguán podemos conformar la garantía con comprobantes y certificado notarial.", "*Contás con facturas a tu nombre y disponés de extractos bancarios que reflejen que el alquiler representa menos de un 30% aprox. de tus ingresos justificables?*"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-74", contexto: "general", input: "No tengo ingresos demostrables ni recibo de sueldo", mustInclude: ["Cuántos meses de depósito podés cubrir"], mustNotInclude: ["pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
   { id: "SIM-75", contexto: "general", input: "Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año", mustInclude: ["invernal", "marzo a noviembre", "anual", "12 meses", "dos contratos distintos con valores distintos"], mustNotInclude: ["La Fortuna", "pero"], expectAndon: true, expectSubtipoNot: ["AUTOSERVICIO_GENERAL"] },
 ];
@@ -6003,6 +6140,11 @@ function validarOverrideCandidato(candidateOverride) {
     "torres del este",
     "qué mascota es",
     "que mascota es",
+    "tus hijos",
+    "tu pareja",
+    "tu marido",
+    "tu esposa",
+    "tu familia",
   ];
   for (const b of forbiddenBase) {
     if (low.includes(b)) errores.push(`VIOLA_CANDADO_POKA_YOKE('${b}')`);
@@ -6064,15 +6206,33 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
     else failed.push({ id: esc.id, errores: errs });
   }
 
-  // SIM-76: Candados #13 y #14 + Variables Silenciosas
+  // SIM-76: Candados #13, #14 y #15 + Negrita en preguntas + Cierre 3 preguntas cortas + Cierre Rama B sin paréntesis
   const vs76 = extraerVariablesSilenciosasB2C("Busco alquiler en Punta del Este hasta 40mil para 1 o 2 personas");
   const p76_1 = aplicarPokaYokeMar("Bienvenida, pero agendado solo/sola qué mascota es cochera, patio, muebles", "D2");
+  const p76_15 = aplicarPokaYokeMar("Buscamos una casa ideal para vos y tus hijos o tu familia.", "D2");
+  const r3Q = clasificarYResponder("Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este", "T0_INMEDIATO", "general", "whatsapp");
+  const rCierre = clasificarYResponder(
+    "Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, prefiero amoblado no excluyente sirve sin muebles, con 1 perro y garantía depósito o aseguradora",
+    "T0_INMEDIATO",
+    "general",
+    "whatsapp"
+  );
   const sim76Errs = [];
   if (vs76.presupuesto_declarado !== 40000 || vs76.presupuesto_elastico_max !== 43000) sim76Errs.push("ELASTICO_FAIL");
   if (vs76.modalidad_gc !== "con_y_sin_gc") sim76Errs.push("GC_FAIL");
   if (!String(vs76.dormitorios_abiertos || "").includes("Monoambiente, 1 y 2 dormitorios")) sim76Errs.push("DORMS_FAIL");
   if (vs76.amoblado_preferencia !== "amoblado_y_sin_muebles") sim76Errs.push("AMOBLADO_FAIL");
   if (p76_1.pokayoke_pass) sim76Errs.push("CANDADOS_13_14_NO_BLOQUEARON");
+  if (p76_15.pokayoke_pass || !p76_15.violaciones.includes("PROHIBIDO_ASUMIR_PARENTESCO")) sim76Errs.push("CANDADO_15_NO_BLOQUEO");
+  if (r3Q.subtipo !== "D2_RAMA_B_CIERRE_3_PREGUNTAS" || !r3Q.pokayoke_pass || !r3Q.replyText.includes("*buscás que esté amoblado o te da igual?*")) sim76Errs.push("CIERRE_3Q_FAIL");
+  if (
+    rCierre.subtipo !== "D2_RAMA_B_BUSQUEDA_COMPLETA" ||
+    !rCierre.pokayoke_pass ||
+    /[()]/.test(rCierre.replyText) ||
+    !/Clarísimo todo! Ya dejamos armada tu búsqueda para marzo 2027:\n_[^_\n]+_\n\nNos quedamos atentas y te escribiremos por acá apenas tengamos opciones para vos! \*Cómo es tu nombre para agendar tu búsqueda\?\*/.test(rCierre.replyText)
+  ) {
+    sim76Errs.push("CIERRE_RAMA_B_FORMATO_FAIL");
+  }
   if (sim76Errs.length === 0) passedCount++;
   else failed.push({ id: "SIM-76", errores: sim76Errs });
 
