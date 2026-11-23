@@ -570,7 +570,11 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
   }
   if (
     matchesAny(t, ["argentino", "exterior", "buenos aires", "desde argentina", "no residente", "a distancia", "firmar desde"]) &&
-    (ctx === "pozo" || !matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "ingresos del exterior", "ingresos en el exterior"]))
+    (ctx === "pozo" || (
+      leadState?.rama_conversacion !== "B" &&
+      !leadState?.garantia_tipo &&
+      !matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "trabajando para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "ingresos en el exterior"])
+    ))
   ) {
     return { vertical: "D1", subtipo: "POZO_COMPRA_EXTERIOR" };
   }
@@ -609,7 +613,7 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
   if (matchesAny(t, ["no tengo ingresos demostrables", "sin ingresos demostrables", "no tengo recibo ni factur", "no puedo demostrar ingresos"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_SIN_INGRESOS_DEPOSITO" };
   }
-  if (vSil.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "ingresos del exterior", "soy extranjero"])) {
+  if (vSil.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "soy extranjero"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_EXTERIOR" };
   }
   if (vSil.situacion_laboral === "independiente" || matchesAny(t, ["de forma independiente", "con unipersonal", "soy independiente", "tengo unipersonal"])) {
