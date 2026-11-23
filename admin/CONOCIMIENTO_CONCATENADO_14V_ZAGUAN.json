@@ -1,6 +1,6 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-23T01:09:36.431Z",
+  "actualizado": "2026-11-23T01:40:26.055Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -1953,7 +1953,7 @@
       "zona_barrio": "Punta Colorada, Piriápolis, Maldonado",
       "titulo_o_activo": "Venta casa en Punta Colorada, Piriapolis",
       "precio_publicado": "USD 240.000",
-      "estado_crm": "cerrado_fuera_de_radio",
+      "estado_crm": "pendiente",
       "ok_bienvenida": "pendiente_bienvenida",
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",

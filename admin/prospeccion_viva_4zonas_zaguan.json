@@ -1186,7 +1186,7 @@
       "url": "https://www.facebook.com/marketplace/item/1050503138040357/",
       "nota_auditoria": "Perfil verificado con 1 sola propiedad y más de 10 artículos personales (juguetes/ropa); celular 098 680 052 en la descripción.",
       "mensaje_mar": "Hola Rosa, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Punta Colorada, Piriápolis (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-      "estado_envio": "cerrado",
+      "estado_envio": "pendiente",
       "seguimiento_72h": "Hola Rosa, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Punta Colorada, Piriápolis, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1201,10 +1201,8 @@
         "Cochera o entrada vehicular",
         "Planos y final de obra al día (apto banco vs. contado)"
       ],
-      "carril": "5_cerrado_radar",
-      "fuera_de_radio": true,
-      "sello_cierre": "FUERA DE RADIO (>40-50KM)",
-      "motivo_cierre": "Excluido hoy por radio operativo (>40-50 km): cero alquiler en Piriápolis/Pan de Azúcar/Chihuahua y cero Piriápolis/Aiguá"
+      "carril": "1_por_contactar",
+      "fuera_de_radio": false
     },
     {
       "id": "MP-30",
