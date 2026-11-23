@@ -1,7 +1,7 @@
 {
-  "fecha": "2026-11-23T18:05:01.103Z",
-  "total": 94,
-  "pasaron": 94,
+  "fecha": "2026-11-23T22:20:20.987Z",
+  "total": 95,
+  "pasaron": 95,
   "fallaron_count": 0,
   "tasa_exito": "100%",
   "fallos_resumen": [],
@@ -1227,6 +1227,19 @@
       "subtipo_detectado": "CIERRE_INTEGRAL_OK",
       "alerta_andon": false,
       "replyText": "Header unificado 1120px + Paleta Mineral + Portada limpia 16:10 + 0 -mente + Linking dinámico + MP-39/MP-12 + 2 globos Telegram OK"
+    },
+    {
+      "id": "SIM-95",
+      "bloque": "Simulador Conversacional Multi-Turno · IA + Memoria Viva + Auditoría de Coherencia",
+      "turno": "Multi-Turno /api/mar/conversar",
+      "contexto": "simulador_mar_ia",
+      "input": "admin/simulador-mar.html + cloudflare-crm-worker/src/index.js",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "SIMULADOR_CONVERSACIONAL_MULTITURNO",
+      "subtipo_detectado": "IA_MEMORIA_COHERENCIA_OK",
+      "alerta_andon": false,
+      "replyText": "Simulador multi-turno con /api/mar/conversar + Llama 3.3 Workers AI + memoria acumulativa + auditor de coherencia OK"
     }
   ]
 }

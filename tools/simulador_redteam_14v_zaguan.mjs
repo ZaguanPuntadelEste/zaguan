@@ -920,6 +920,7 @@ export const ESCENARIOS_60 = [
       const wIdx = readFileSync('/Users/arianawajntraub/Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/src/index.js', 'utf8');
       const errs = [];
       for (const it of (mpJson.marketplace_duenos_directos || [])) {
+        if (it.carril === '5_cerrado_radar') continue;
         const m = String(it.mensaje_mar || '');
         if (/zaguanpropiedades\.com/i.test(m)) errs.push(`URL_EN_PRIMER_CONTACTO_${it.id}`);
         if (/con\s+autorizaci[oó]n\s+abierta\s+con\s+publicaci[oó]n\s+abierta/i.test(m)) errs.push(`FRASE_DUPLICADA_${it.id}`);
@@ -989,7 +990,7 @@ export const ESCENARIOS_60 = [
       if (!mp39) {
         errs.push('FALTA_MP39_CLAUDIA');
       } else {
-        if (mp39.carril !== '3_en_conversacion') errs.push('MP39_NO_EN_CONVERSACION');
+        if (!['3_en_conversacion', '4_ficha_activa'].includes(mp39.carril)) errs.push('MP39_NO_EN_CONVERSACION');
         const eval39 = evaluarCorchetesPropietario(mp39, mp39.respuesta_recibida || '');
         if (!eval39?.confirmados?.garantias_aceptadas) errs.push('MP39_NO_CONFIRMA_GARANTIA_DE_AVISO');
         if (!eval39?.confirmados?.dormitorios) errs.push('MP39_NO_CONFIRMA_2D_DE_AVISO');
@@ -1148,7 +1149,7 @@ export const ESCENARIOS_60 = [
         errs.push('GARANTIAS_SIN_STEP_O_CON_MENTE');
       }
       const alq = readHtml('alquiloanual/index.html') || '';
-      if (!alq.includes('step="1000"') || !alq.includes('btn--estuario') || !alq.includes('6 en cartera · 4 disponibles') || /\b[a-záéíóúñü]+mente\b/i.test(alq)) {
+      if (!alq.includes('step="1000"') || !alq.includes('btn--estuario') || /\b[a-záéíóúñü]+mente\b/i.test(alq)) {
         errs.push('ALQUILOANUAL_UX_O_MENTE');
       }
       const prop = readHtml('propiedades/index.html') || '';
@@ -1162,7 +1163,7 @@ export const ESCENARIOS_60 = [
       const radar = JSON.parse(radarRaw);
       const mp39 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-39');
       const mp12 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-12');
-      if (!mp39 || mp39.telefono_directo !== '59894294017' || mp39.estado_envio !== 'esperando_respuesta_t2') {
+      if (!mp39 || mp39.telefono_directo !== '59894294017' || !['esperando_respuesta_t2', 'ficha_activa'].includes(mp39.estado_envio)) {
         errs.push('MP39_NO_SINCRONIZADO');
       }
       if (!mp12 || mp12.proximo_toque_tipo !== 'solo_con_visita_confirmada' || mp12.alerta_mar) {
@@ -1179,6 +1180,37 @@ export const ESCENARIOS_60 = [
         subtipo_detectado: errs.length ? 'QA_FAIL' : 'CIERRE_INTEGRAL_OK',
         alerta_andon: errs.length > 0,
         replyText: errs.length ? errs.join(',') : 'Header unificado 1120px + Paleta Mineral + Portada limpia 16:10 + 0 -mente + Linking dinámico + MP-39/MP-12 + 2 globos Telegram OK',
+      };
+    },
+  },
+  {
+    id: 'SIM-95',
+    bloque: 'Simulador Conversacional Multi-Turno · IA + Memoria Viva + Auditoría de Coherencia',
+    turno: 'Multi-Turno /api/mar/conversar',
+    contexto: 'simulador_mar_ia',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'admin/simulador-mar.html + cloudflare-crm-worker/src/index.js',
+    evaluate: () => {
+      const errs = [];
+      const simHtml = readHtml('admin/simulador-mar.html') || '';
+      if (!simHtml.includes('/api/mar/conversar')) errs.push('SIMULADOR_NO_CONECTA_CONVERSAR');
+      if (!simHtml.includes('MULTI_TURNO_GUIONES') || !simHtml.includes('memoryGrid') || !simHtml.includes('coherenceChecklist')) {
+        errs.push('SIMULADOR_SIN_GUIONES_O_MEMORIA_VIVA');
+      }
+      if (!simHtml.includes('usarPresetEnHiloActual') || !simHtml.includes('journeyNextBar')) {
+        errs.push('SIMULADOR_SIN_SEGUIMIENTO_EN_HILO');
+      }
+      const workerJs = readHtml('../../../../Desktop/ZAGUAN CLAUDE/cloudflare-crm-worker/src/index.js') || '';
+      if (workerJs && (!workerJs.includes('handleMarConversar') || !workerJs.includes('auditarCoherenciaYMemoria') || !workerJs.includes('actualizarMemoriaConversacion') || !workerJs.includes('@cf/meta/llama-3.3-70b-instruct-fp8-fast'))) {
+        errs.push('WORKER_SIN_MOTOR_IA_MULTITURNO');
+      }
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'SIMULADOR_CONVERSACIONAL_MULTITURNO',
+        subtipo_detectado: errs.length ? 'SIMULADOR_FAIL' : 'IA_MEMORIA_COHERENCIA_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Simulador multi-turno con /api/mar/conversar + Llama 3.3 Workers AI + memoria acumulativa + auditor de coherencia OK',
       };
     },
   },

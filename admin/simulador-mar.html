@@ -67,16 +67,21 @@
     .nav-link.primary { background: var(--bone); color: var(--bg); border-color: var(--bone); }
 
     .layout {
-      max-width: 1420px;
+      max-width: 1460px;
       margin: 0 auto;
       padding: 16px 18px 36px;
       display: grid;
-      grid-template-columns: 390px 1fr;
-      gap: 16px;
+      grid-template-columns: 340px minmax(0, 1fr) 310px;
+      gap: 14px;
       align-items: start;
     }
-    @media (max-width: 980px) {
-      .layout { grid-template-columns: 1fr; }
+    .layout > * { min-width: 0; }
+    @media (max-width: 1180px) {
+      .layout { grid-template-columns: 330px minmax(0, 1fr); }
+      .memory-col { grid-column: 1 / -1; }
+    }
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: minmax(0, 1fr); padding: 12px 12px 28px; }
     }
 
     .panel {
@@ -280,9 +285,60 @@
       border-radius: 10px;
       padding: 10px;
       width: 100%;
-      min-width: 320px;
+      max-width: 100%;
+      min-width: 0;
     }
     .edit-box label { display: block; font-size: 11px; font-weight: 700; color: var(--sky); margin-bottom: 5px; }
+
+    .journey-bar {
+      background: rgba(15, 39, 56, 0.96);
+      border-top: 1px solid var(--border);
+      padding: 8px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .journey-pill {
+      background: rgba(183, 214, 224, 0.14);
+      border: 1px solid rgba(183, 214, 224, 0.35);
+      color: var(--bone);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+    }
+    .journey-pill:hover { background: var(--accent); border-color: var(--sky); }
+    .journey-pill strong { color: var(--sky); }
+
+    .mem-grid { display: grid; gap: 6px; }
+    .mem-item {
+      background: rgba(8, 21, 33, 0.72);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .mem-item span { color: var(--muted); font-size: 11px; }
+    .mem-item strong { color: var(--bone); text-align: right; word-break: break-word; }
+    .mem-change {
+      background: rgba(183, 214, 224, 0.14);
+      border: 1px solid rgba(183, 214, 224, 0.38);
+      color: var(--sky);
+      border-radius: 8px;
+      padding: 7px 9px;
+      font-size: 11.5px;
+      margin-bottom: 8px;
+    }
+    .audit-ok { background: rgba(27, 84, 99, 0.45); color: #B7D6E0; border-color: rgba(183, 214, 224, 0.4); }
+    .audit-warn { background: rgba(245, 158, 11, 0.2); color: #FCD34D; border-color: rgba(245, 158, 11, 0.5); }
+    .audit-fail { background: rgba(239, 68, 68, 0.22); color: #FCA5A5; border-color: rgba(239, 68, 68, 0.5); }
+    .send-btn:disabled { opacity: 0.55; cursor: wait; }
 
     .chat-composer {
       background: #0A1E28;
@@ -335,17 +391,27 @@
   </header>
 
   <main class="layout">
-    <aside>
+    <aside class="controls-col">
       <section class="panel">
-        <h2>1 · Canal donde entra el mensaje</h2>
+        <h2>1 · Cerebro y canal de prueba</h2>
+        <div class="seg-grid" style="margin-bottom:8px;">
+          <button class="seg-btn active" id="btnModoIa" onclick="setModo('ia')">
+            🧠 IA + Memoria viva
+            <small>Llama 3.3 · Hilo multi-turno</small>
+          </button>
+          <button class="seg-btn" id="btnModoReglas" onclick="setModo('reglas')">
+            ⚙️ Reglas fijas
+            <small>Motor determinista 94/94</small>
+          </button>
+        </div>
         <div class="seg-grid">
           <button class="seg-btn active" id="btnCanalWa" onclick="setCanal('whatsapp')">
             WhatsApp Business
-            <small>+598 98 712 064 · UTM whatsapp</small>
+            <small>+598 98 712 064 · UTM wa</small>
           </button>
           <button class="seg-btn" id="btnCanalIg" onclick="setCanal('instagram')">
             Instagram DM / FB
-            <small>@zaguanpropiedades · UTM instagram</small>
+            <small>@zaguanpropiedades · UTM ig</small>
           </button>
         </div>
         <div class="help-note" id="canalHelpNote"></div>
@@ -357,22 +423,27 @@
           <option value="la_fortuna">Anuncio Meta · La Fortuna ($U 30.000/mes)</option>
           <option value="santa_monica">Anuncio Meta · Santa Mónica (USD 160.000)</option>
           <option value="pozo">Google Search · Pozo (5 edificios desde USD 79.800)</option>
-          <option value="dueno">Prospección / Inbound · Dueño Directo (O1..O6)</option>
-          <option value="general">Entrada orgánica suelta (Sin aviso previo)</option>
+          <option value="dueno">Prospección / Inbound · Dueño directo (O1..O6)</option>
+          <option value="general">Entrada orgánica suelta (sin aviso previo)</option>
         </select>
         <div class="help-note" id="ctxHelpNote"></div>
       </section>
 
       <section class="panel">
-        <h2>3 · Escenarios rápidos para ensayar (1 clic)</h2>
-        <input class="search-box" style="margin-bottom:8px;" type="search" placeholder="Filtrar preguntas de prueba..." oninput="filtrarPresets(this.value)">
-        <div class="preset-list" id="presetList"></div>
+        <h2>3 · Guiones multi-turno (memoria real)</h2>
+        <p style="font-size:11.5px;color:var(--muted);margin-bottom:8px;">Elegí una historia de 4 a 5 turnos para probar memoria, cambios de idea y coherencia sin reiniciar entre mensajes.</p>
+        <div class="preset-list" id="journeyList" style="max-height:220px;margin-bottom:10px;"></div>
+        <details>
+          <summary style="font-size:12px;font-weight:700;color:var(--sky);cursor:pointer;margin-bottom:6px;">+ Mensajes sueltos para sumar al hilo actual</summary>
+          <input class="search-box" style="margin:6px 0 8px;" type="search" placeholder="Filtrar mensajes sueltos..." oninput="filtrarPresets(this.value)">
+          <div class="preset-list" id="presetList" style="max-height:220px;"></div>
+        </details>
       </section>
 
       <section class="panel">
-        <h2>4 · Correcciones enseñadas a Mar (<span id="overrideCount">0</span>)</h2>
+        <h2>4 · Reglas enseñadas a Mar (<span id="overrideCount">0</span>)</h2>
         <div id="cloudTrainStatus" style="font-size:11px;color:var(--sky);margin-bottom:8px;">Conectando con base en la nube...</div>
-        <div id="overridesList" style="max-height:220px;overflow-y:auto;"></div>
+        <div id="overridesList" style="max-height:190px;overflow-y:auto;"></div>
         <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
           <button class="mini-btn" onclick="exportarReglasCorregidas()">Copiar</button>
           <button class="mini-btn" onclick="borrarTodasCorrecciones()">Limpiar ensayos locales</button>
@@ -384,12 +455,12 @@
       <div class="chat-head">
         <div class="chat-head-left">
           <h2 id="chatHeaderTitle">Ensayo en vivo · WhatsApp Business (+598 98 712 064)</h2>
-          <p>Motor determinista 14 Verticales + Caso Lianet + Poka-Yoke SÍ/NO (64/64 PASS)</p>
+          <p id="chatSubTitle">Conversación multi-turno con memoria viva, Workers AI y auditoría de 15 candados</p>
         </div>
         <div class="chat-tools">
           <button class="mini-btn" onclick="simularEspera('T1_DESTRABE_5_MIN')">Simular 5 min visto</button>
           <button class="mini-btn" onclick="simularEspera('T2_NARANJA_24_HS')">Simular 24 hs</button>
-          <button class="mini-btn" onclick="resetChat()">Limpiar diálogo</button>
+          <button class="mini-btn" onclick="resetChat()">🔄 Nuevo chat (limpiar memoria)</button>
         </div>
       </div>
 
@@ -397,11 +468,26 @@
 
       <div class="chat-thread" id="chatThread"></div>
 
+      <div class="journey-bar" id="journeyNextBar"></div>
+
       <div class="chat-composer">
-        <textarea class="textarea-box" id="leadInput" placeholder="Escribí como un interesado difícil o un propietario y tocá Enviar (o usá los ensayos de la izquierda)..."></textarea>
-        <button class="send-btn" onclick="enviarTurnoLead()">Enviar</button>
+        <textarea class="textarea-box" id="leadInput" placeholder="Escribí la respuesta del interesado o dueño en esta charla (Enter envía; la memoria se mantiene)..."></textarea>
+        <button class="send-btn" id="sendTurnBtn" onclick="enviarTurnoLead()">Enviar</button>
       </div>
     </section>
+
+    <aside class="memory-col">
+      <section class="panel">
+        <h2>🧠 Memoria viva de esta charla</h2>
+        <div id="coherenceSummaryBox" class="rules-card" style="margin-bottom:10px;"></div>
+        <div id="turnChangesBox"></div>
+        <div class="mem-grid" id="memoryGrid"></div>
+      </section>
+      <section class="panel">
+        <h2>🛡️ Auditoría de coherencia</h2>
+        <div id="coherenceChecklist" class="mem-grid"></div>
+      </section>
+    </aside>
   </main>
 
   <script>
@@ -2301,42 +2387,101 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
 })();
 
     const STORAGE_KEY = 'zaguan_mar_overrides_v1';
+    const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+    let modoActual = 'ia';
     let canalActual = 'whatsapp';
     let contextoActual = 'la_fortuna';
     let presetFilter = '';
     let overrides = {};
     try { overrides = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch {}
 
+    const MULTI_TURNO_GUIONES = [
+      {
+        id: 'G-B2C-MEM',
+        tag: '5 turnos · B2C 2027',
+        ctx: 'general',
+        title: 'Alquiler 2027 · Cambio de tope + suma sin resetear',
+        desc: 'Prueba memoria acumulativa, cambio de presupuesto, nombre y detalle posterior sin re-saludar.',
+        turnos: [
+          'Busco alquiler anual para el 2027, en Punta del Este hasta 40mil al mes',
+          'Sería para marzo 2027, 2 dormitorios con cochera para 1 adulta y 2 niños',
+          'No tengo mascota, prefiero amoblado pero sirve sin muebles, tengo aseguradora Porto',
+          'Me llamo Cecilia Rial',
+          'Ah me olvidé de decirte que tenga parrillero y capaz estiro a $U 45.000'
+        ]
+      },
+      {
+        id: 'G-LA-FORTUNA',
+        tag: '4 turnos · Meta Ads',
+        ctx: 'la_fortuna',
+        title: 'La Fortuna · Objeciones niños, pareja y visita',
+        desc: 'Prueba hilo seguido tras saludo corto, objeción niños, ingresos conjuntos y agenda de visita sin repetir link ni saludar.',
+        turnos: [
+          'Hola',
+          'Ya esa unidad la fui a ver antes y me habían dicho que no querían niños',
+          'Con mi pareja sumamos $U 95.000 líquidos en recibos, llegamos para Porto?',
+          'Buenísimo, podemos pasar el martes a las 11 hs'
+        ]
+      },
+      {
+        id: 'G-CENTRO-EXT',
+        tag: '4 turnos · Extranjero',
+        ctx: 'general',
+        title: 'Centro Maldonado · Extranjero sin recibos UY',
+        desc: 'Prueba oferta de Centro Maldonado Piso 4 Norte ($U 32.000 total) y solución escribanía aliada / depósito sin mencionar dueño.',
+        turnos: [
+          'Hola, busco apartamento 2 dormitorios en Maldonado Centro hasta $U 35.000 para entrar ya',
+          'Soy extranjero hace 6 meses en Uruguay y trabajo para el exterior',
+          'No tengo mascota y prefiero sin muebles',
+          'Genial, me llamo Martín y quiero ir el jueves de tarde'
+        ]
+      },
+      {
+        id: 'G-SANTA-MONICA',
+        tag: '4 turnos · Venta O5',
+        ctx: 'santa_monica',
+        title: 'Santa Mónica · Trampa Padrón, banco y contraoferta',
+        desc: 'Verifica que NO filtre Padrón 704 / Manzana 26, aclare compra contado sin banco y maneje contraoferta USD 135k.',
+        turnos: [
+          'Hola',
+          'Qué le falta terminar a la obra y si acepta préstamo hipotecario de banco?',
+          'Tengo USD 135.000 cash hoy, me pasás el padrón y el video completo?',
+          'Me llamo Sebastián, quiero coordinar visita para el viernes'
+        ]
+      },
+      {
+        id: 'G-DUENO-TRAMPA',
+        tag: '4 turnos · Dueño O6',
+        ctx: 'dueno',
+        title: 'Dueño directo · Trampa comisión y link público',
+        desc: 'Prueba que NO filtre % en frío, NO diga "sin exclusividad" y NO envíe URL pública de propiedad al dueño.',
+        turnos: [
+          'Tengo una casa en Maldonado en alquiler anual a $U 42.000',
+          'Cómo trabajan ustedes y cuánto cobran de comisión?',
+          'Tiene 3 dormitorios, acepta Porto o Sura y mascotas chicas. Me mandás el link de cómo queda publicada?',
+          'Soy Patricia, cuándo pueden pasar a verla?'
+        ]
+      }
+    ];
+
     const PRESETS_ENSAYO = [
       { ctx: 'la_fortuna', tag: 'Meta Ads · Saludo', title: 'Escribe solo "Hola" desde el aviso de La Fortuna', text: 'Hola' },
-      { ctx: 'la_fortuna', tag: 'Meta Ads · Botón 2', title: 'Tiene ingresos para tramitar aseguradora', text: 'Tengo ingresos para tramitar aseguradora y quiero ver la ficha' },
       { ctx: 'la_fortuna', tag: 'Meta Ads · Botón 1', title: 'Ya tiene póliza Porto, Sura, Mapfre o Santander', text: 'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar' },
-      { ctx: 'la_fortuna', tag: 'Meta Ads · Botón 3', title: 'ANDA/CGN, otra zona o propiedad para publicar', text: 'Busco con ANDA/CGN, en otra zona o tengo propiedad para publicar' },
-      { ctx: 'la_fortuna', tag: 'Caso Lianet · T1', title: 'Ya la vio antes y le dijeron sin niños', text: 'Ya esa yo la fui a ver y me dijeron que el dueño no quería niños' },
-      { ctx: 'la_fortuna', tag: 'Caso Lianet · T2', title: 'Espera otro apto, tiene cita mañana a las 11', text: 'Estoy en espera de otro apto, mañana a las 11 tengo la cita' },
-      { ctx: 'la_fortuna', tag: 'Objeción', title: 'Pregunta gastos comunes e incluidos', text: 'Cuánto son los gastos comunes aparte del alquiler?' },
-      { ctx: 'la_fortuna', tag: 'Objeción', title: 'Tiene dos perros grandes', text: 'Tengo dos perros grandes, aceptan en La Fortuna?' },
-      { ctx: 'la_fortuna', tag: 'Objeción', title: 'Pide comisión y requisitos de entrada', text: 'Cuánto cobran de comisión inmobiliaria en La Fortuna?' },
-      { ctx: 'general', tag: 'Dueño · Captación', title: 'Propietario puro quiere publicar una casa', text: 'Tengo una casa en Maldonado para publicar' },
-      { ctx: 'dueno', tag: 'Dueño · Turno 2', title: 'Propietario pregunta cómo trabajan y cuánto cobran', text: 'Cómo trabajan ustedes y cuánto cobran de comisión si venden mi propiedad?' },
-      { ctx: 'santa_monica', tag: 'Santa Mónica · O5', title: 'Pregunta qué falta terminar y si acepta banco', text: 'Qué le falta terminar exactamente a la obra de Santa Mónica?' },
-      { ctx: 'pozo', tag: 'Google Search · D1', title: 'Comprador argentino pregunta cómo firmar a distancia', text: 'Vivo en Buenos Aires y quiero reservar en pozo a distancia' },
-      { ctx: 'general', tag: 'Borde · Frío', title: 'Saludo suelto sin contexto de aviso ("Buen día")', text: 'Buen día' },
-      { ctx: 'la_fortuna', tag: 'Rama B · Turno 1', title: 'Busca alquiler 2027 en Punta del Este ($40k)', text: 'Busco alquiler anual para el 2027, tendrías opciones? En punta del este, hasta 40mil al mes' },
-      { ctx: 'general', tag: 'Rama B · Paso 3', title: 'Responde mes y personas ("abril, somos 2")', text: 'Sería para mudarnos en abril, somos 2 personas' },
-      { ctx: 'general', tag: 'Rama B · Mascota', title: 'Dice "tengo mascota" -> Qué mascota tenés?', text: 'Sí, tengo mascota y necesito cochera' },
-      { ctx: 'general', tag: 'Rama B · 3 Preguntas', title: 'Ya dio cochera -> 3 preguntas cortas en *negrita*', text: 'Sería para marzo 2027, 2 o 3 dormitorios con cochera en Punta del Este' },
-      { ctx: 'general', tag: 'Rama B · Paso 2', title: 'Responde comodidades -> Garantía al final', text: 'No tengo mascota, necesito cochera y que esté amoblado' },
-      { ctx: 'general', tag: 'Rama B · Cierre', title: 'Cierre búsqueda completa (cursiva + *Cómo es tu nombre*)', text: 'Para marzo 2027, 2 o 3 dormitorios con cochera en Pinares hasta 40mil, prefiero amoblado no excluyente sirve sin muebles, con 1 perro y garantía depósito o aseguradora' },
-      { ctx: 'general', tag: 'Garantía · Efectivo', title: 'Sin garantía / pago solo efectivo o depósito', text: 'No tengo garantía, pago solo efectivo o depósito' },
-      { ctx: 'general', tag: 'Garantía · Rel. Dep.', title: 'Trabajo en relación de dependencia', text: 'Trabajo en relación de dependencia en una empresa' },
-      { ctx: 'general', tag: 'Garantía · Indep.', title: 'Trabajo de forma independiente / unipersonal', text: 'Trabajo de forma independiente con unipersonal' },
-      { ctx: 'general', tag: 'Garantía · Exterior', title: 'Trabajo para afuera y cobro en el exterior', text: 'Trabajo para afuera y cobro en el exterior' },
-      { ctx: 'general', tag: 'Invernal vs Anual', title: 'Pide marzo a noviembre o todo el año', text: 'Busco alquiler de marzo a noviembre para probar invierno o capaz todo el año' }
+      { ctx: 'la_fortuna', tag: 'Caso Lianet · T1', title: 'Objeción niños en La Fortuna', text: 'Ya esa yo la fui a ver y me dijeron que no querían niños' },
+      { ctx: 'la_fortuna', tag: 'Objeción', title: 'Pregunta gastos comunes aparte del alquiler', text: 'Cuánto son los gastos comunes aparte del alquiler?' },
+      { ctx: 'general', tag: 'Garantía · Exterior', title: 'Extranjero / cobra para el exterior', text: 'Trabajo para afuera y cobro en el exterior' },
+      { ctx: 'general', tag: 'Garantía · Indep.', title: 'Unipersonal / actividad independiente', text: 'Trabajo de forma independiente con unipersonal' },
+      { ctx: 'santa_monica', tag: 'Santa Mónica · O5', title: 'Qué falta terminar en obra Santa Mónica', text: 'Qué le falta terminar exactamente a la obra de Santa Mónica?' },
+      { ctx: 'pozo', tag: 'Google Search · D1', title: 'Comprador argentino a distancia en pozo', text: 'Vivo en Buenos Aires y quiero reservar en pozo a distancia' },
+      { ctx: 'dueno', tag: 'Dueño · Turno 2', title: 'Dueño pregunta cómo trabajan y comisión', text: 'Cómo trabajan ustedes y cuánto cobran de comisión?' }
     ];
 
     let mensajes = [];
     let simuladorLeadState = {};
+    let activeJourney = null;
+    let activeJourneyStep = 0;
+    let isSendingTurn = false;
+    let cloudTrainRules = [];
 
     function esc(s) {
       return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -2347,47 +2492,65 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
     }
 
     function updateCanalAndContextUI() {
+      document.getElementById('btnModoIa').classList.toggle('active', modoActual === 'ia');
+      document.getElementById('btnModoReglas').classList.toggle('active', modoActual === 'reglas');
       document.getElementById('btnCanalWa').classList.toggle('active', canalActual === 'whatsapp');
       document.getElementById('btnCanalIg').classList.toggle('active', canalActual === 'instagram');
 
       const canalNote = document.getElementById('canalHelpNote');
       const title = document.getElementById('chatHeaderTitle');
+      const subTitle = document.getElementById('chatSubTitle');
       if (canalActual === 'whatsapp') {
         title.textContent = 'Ensayo en vivo · WhatsApp Business (+598 98 712 064)';
-        canalNote.innerHTML = '<strong>WhatsApp (+598 98 712 064):</strong> Botones Meta Ads precargados + respuestas rápidas y tracking <code>?utm_source=whatsapp&utm_medium=mar</code> en cada ficha.';
+        canalNote.innerHTML = '<strong>WhatsApp (+598 98 712 064):</strong> Mantiene historial y memoria en toda la charla; tracking <code>?utm_source=whatsapp&utm_medium=mar</code>.';
       } else {
         title.textContent = 'Ensayo en vivo · Instagram DM / Messenger (@zaguanpropiedades)';
-        canalNote.innerHTML = '<strong>Instagram DM / Messenger:</strong> Meta Business Suite SÍ permite automatizar reglas por palabras clave acá en la nube usando este mismo cerebro de Mar con <code>?utm_source=instagram&utm_medium=mar</code>.';
+        canalNote.innerHTML = '<strong>Instagram DM:</strong> Respuestas cortas para DM sin repetir links y con tracking <code>?utm_source=instagram&utm_medium=mar</code>.';
+      }
+      if (subTitle) {
+        subTitle.textContent = modoActual === 'ia'
+          ? 'Modo activo: IA conversacional (Llama 3.3 en Cloudflare Workers AI) + memoria + auditoría de coherencia + 15 candados'
+          : 'Modo activo: Reglas fijas deterministas + acumulador de memoria + auditoría de coherencia';
       }
 
       const ctxMap = {
         la_fortuna: {
-          banner: '<strong>Anuncio activo detectado:</strong> Apartamento 2D a estrenar en La Fortuna ($U 30.000/mes) · aunque escriba solo "Hola", Mar ya sabe de qué aviso viene.',
-          note: 'Cualquier saludo corto ("Hola", "Info") o botón entrega la ficha con UTM sin empujar visita previa.'
+          banner: '<strong>Aviso activo:</strong> La Fortuna ($U 30.000/mes) · Mar ya sabe de qué anuncio viene desde el Turno 1.',
+          note: 'Permite probar seguimiento tras "Hola", objeciones encadenadas y reserva sin repetir la ficha.'
         },
         santa_monica: {
-          banner: '<strong>Anuncio activo detectado:</strong> Proyecto en construcción en Santa Mónica (USD 160.000 · Lote 348 m²). Candado Padrón activo.',
-          note: 'Protege Padrón 704 / Manzana 26 / Carpeta 8 y filtra fondos en USD antes de entregar video 2m31s.'
+          banner: '<strong>Aviso activo:</strong> Obra en Santa Mónica (USD 160.000 contado) · Candado Padrón y no-banco activos.',
+          note: 'Protege Padrón 704 / Manzana 26 / Carpeta 8 y filtra fondos USD reales antes de video completo.'
         },
         pozo: {
-          banner: '<strong>Entrada Google Search · Pozo:</strong> 5 desarrollos públicos desde USD 79.800 (Betania IV, Nostrum, More, Golden Rise, EVE).',
-          note: 'Golden Rise bloqueado en precio base USD 139.900; exterior con escribanía aliada.'
+          banner: '<strong>Entrada Pozo:</strong> 5 desarrollos desde USD 79.800 (Betania IV, Nostrum, More, Golden Rise, EVE).',
+          note: 'Precios Golden Rise solo 1 a 1; detalle de Ley 18.795 y exterior.'
         },
         dueno: {
-          banner: '<strong>Captación Franja Gris · Propietarios (O1..O6):</strong> Cero mención de % en 1° contacto · Cero "sin exclusividad" · Releva niños y mascotas.',
-          note: 'Bloquea envío de links públicos individuales al propietario.'
+          banner: '<strong>Captación Dueño Directo:</strong> 0% comisión en frío · 0 "sin exclusividad" · 0 links de fichas individuales.',
+          note: 'Evalúa si Mar mantiene firmeza y claridad durante objeciones repetidas.'
         },
         general: {
-          banner: '<strong>Entrada orgánica suelta (sin aviso previo):</strong> Si es dueño clasifica aparte; si saluda en frío manda accesos /links/ con UTM.',
-          note: 'Ideal para probar consultas abiertas de búsqueda o propietarios que entran por web.'
+          banner: '<strong>Entrada abierta sin aviso previo:</strong> Ideal para probar memoria multi-turno completa de principio a fin.',
+          note: 'Acumula zona, presupuesto, fecha, personas, comodidades, mascota, garantía y nombre.'
         }
       };
       const info = ctxMap[contextoActual] || ctxMap.general;
       document.getElementById('ctxHelpNote').textContent = info.note;
+      const turnoCount = mensajes.filter(m => m.role === 'lead').length;
       document.getElementById('adContextBanner').innerHTML = `
         <div>${info.banner}</div>
-        <div><span class="badge bone">${canalActual === 'whatsapp' ? 'CANAL: WHATSAPP' : 'CANAL: IG DM'}</span> <span class="badge">CTXT: ${esc(contextoActual)}</span></div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+          <span class="badge bone">${modoActual === 'ia' ? '🧠 IA + MEMORIA' : '⚙️ REGLAS'}</span>
+          <span class="badge">${canalActual === 'whatsapp' ? 'WA' : 'IG DM'} · ${esc(contextoActual)}</span>
+          <span class="badge">Turno ${turnoCount}</span>
+        </div>
       `;
+    }
+
+    function setModo(m) {
+      modoActual = m === 'reglas' ? 'reglas' : 'ia';
+      updateCanalAndContextUI();
     }
 
     function setCanal(c) {
@@ -2406,91 +2569,189 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       return `${canalActual}::${contextoActual}::${res.subtipo}`;
     }
 
-    function procesarMensajeCliente(texto, etapa = 'T0_INMEDIATO') {
-      const res = __TRIAGE__.clasificarYResponder(texto, etapa, contextoActual, canalActual, { leadState: simuladorLeadState });
+    function procesarMensajeClienteLocal(texto, etapa = 'T0_INMEDIATO') {
+      const effectiveStage = mensajes.some(m => m.role === 'mar') ? (etapa === 'T0_INMEDIATO' ? 'T1_SEGUIMIENTO' : etapa) : etapa;
+      const res = __TRIAGE__.clasificarYResponder(texto, effectiveStage, contextoActual, canalActual, { leadState: simuladorLeadState });
       if (res.variables_silenciosas) {
         simuladorLeadState = {
+          ...simuladorLeadState,
           ...res.variables_silenciosas,
-          rama_conversacion: res.subtipo?.startsWith('D2_RAMA_A') ? 'A' : (res.subtipo?.startsWith('D2_RAMA_B') ? 'B' : simuladorLeadState.rama_conversacion)
+          rama_conversacion: res.subtipo?.startsWith('D2_RAMA_A') ? 'A' : (res.subtipo?.startsWith('D2_RAMA_B') ? 'B' : simuladorLeadState.rama_conversacion),
+          paso_actual: res.subtipo === 'D2_RAMA_B_NOMBRE_AGENDADO' || res.subtipo === 'T_ADD_DETAIL' ? 'BUSQUEDA_ACTIVA_ABIERTA' : res.subtipo,
+          estado_conversacion: res.subtipo === 'D2_RAMA_B_NOMBRE_AGENDADO' || res.subtipo === 'T_ADD_DETAIL' ? 'busqueda_activa_abierta' : (simuladorLeadState.estado_conversacion || 'triaje_en_curso'),
         };
       }
       const key = overrideKey(res);
-      const customText = overrides[key]?.text || null;
       return {
         ...res,
+        motor: 'reglas_locales_offline',
+        modelo: 'fallback offline',
+        coherencia_pass: true,
+        coherencia_alertas: [],
+        cambios_detectados: [],
         key,
-        textoMostrado: customText || res.replyText,
-        editadoPorAriana: Boolean(customText)
+        textoMostrado: overrides[key]?.text || res.replyText,
+        editadoPorAriana: Boolean(overrides[key]?.text),
       };
     }
 
-    function enviarTurnoLead() {
+    async function procesarMensajeConversacional(texto, etapa = 'T0_INMEDIATO') {
+      const historyPayload = mensajes
+        .filter(m => m.res !== null && (m.role === 'lead' || m.role === 'mar'))
+        .map(m => ({
+          role: m.role === 'lead' ? 'user' : 'assistant',
+          content: m.role === 'lead' ? (m.rawText || m.text) : m.text,
+        }));
+
+      try {
+        const res = await fetch(`${CRM_API_URL}/api/mar/conversar`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            message: texto,
+            history: historyPayload,
+            leadState: simuladorLeadState,
+            contexto: contextoActual,
+            canal: canalActual,
+            etapa_sla: historyPayload.length > 0 && etapa === 'T0_INMEDIATO' ? 'T1_SEGUIMIENTO' : etapa,
+            modo: modoActual,
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok || !data.ok) throw new Error(data.error || `HTTP ${res.status}`);
+        if (data.memory) {
+          simuladorLeadState = data.memory;
+        }
+        const key = overrideKey(data);
+        const overrideLocal = modoActual === 'reglas' ? overrides[key]?.text : null;
+        return {
+          ...data,
+          key,
+          textoMostrado: overrideLocal || data.replyText,
+          editadoPorAriana: Boolean(overrideLocal),
+        };
+      } catch (e) {
+        return procesarMensajeClienteLocal(texto, etapa);
+      }
+    }
+
+    async function enviarTurnoLead() {
+      if (isSendingTurn) return;
       const box = document.getElementById('leadInput');
       const txt = (box.value || '').trim();
       if (!txt) return;
       box.value = '';
-      ejecutarTurno(txt, 'T0_INMEDIATO');
+      await ejecutarTurno(txt, 'T0_INMEDIATO');
     }
 
-    const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
-    let cloudTrainRules = [];
+    async function ejecutarTurno(texto, etapa = 'T0_INMEDIATO', etiquetaSistema = null) {
+      if (isSendingTurn) return;
+      isSendingTurn = true;
+      const sendBtn = document.getElementById('sendTurnBtn');
+      if (sendBtn) sendBtn.disabled = true;
 
-    function ejecutarTurno(texto, etapa = 'T0_INMEDIATO', etiquetaSistema = null) {
       mensajes.push({
         role: 'lead',
         text: etiquetaSistema ? `${etiquetaSistema}\n${texto}` : texto,
         rawText: texto,
         hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
       });
-      const out = procesarMensajeCliente(texto, etapa);
-      mensajes.push({
-        role: 'mar',
-        text: out.textoMostrado,
-        origText: out.replyText,
-        leadText: texto,
-        res: out,
-        etapa,
-        editing: false,
-        hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
-      });
-      renderChat();
+      renderChat(true);
+      updateCanalAndContextUI();
+
+      try {
+        const out = await procesarMensajeConversacional(texto, etapa);
+        mensajes.push({
+          role: 'mar',
+          text: out.textoMostrado,
+          origText: out.replyText,
+          leadText: texto,
+          res: out,
+          etapa,
+          editing: false,
+          hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
+        });
+      } finally {
+        isSendingTurn = false;
+        if (sendBtn) sendBtn.disabled = false;
+        renderChat(false);
+        renderMemoryPanel();
+        renderJourneyBar();
+        updateCanalAndContextUI();
+      }
     }
 
-    function simularEspera(etapa) {
-      const ultimoLead = [...mensajes].reverse().find(m => m.role === 'lead')?.rawText || 'Quiero recibir la ficha completa y ubicación exacta de La Fortuna';
+    async function simularEspera(etapa) {
+      if (isSendingTurn) return;
+      const ultimoLead = [...mensajes].reverse().find(m => m.role === 'lead')?.rawText || 'Quiero recibir la ficha completa de La Fortuna';
       const label = etapa === 'T1_DESTRABE_5_MIN' ? '[Simulación: pasaron 5 min en visto]' : '[Simulación: pasaron 24 hs sin respuesta]';
-      const out = procesarMensajeCliente(ultimoLead, etapa);
-      mensajes.push({
-        role: 'mar',
-        text: `${label}\n\n${out.textoMostrado}`,
-        origText: out.replyText,
-        leadText: ultimoLead,
-        res: out,
-        etapa,
-        editing: false,
-        hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
-      });
-      renderChat();
+      isSendingTurn = true;
+      renderChat(true);
+      try {
+        const out = await procesarMensajeConversacional(ultimoLead, etapa);
+        mensajes.push({
+          role: 'mar',
+          text: `${label}\n\n${out.textoMostrado}`,
+          origText: out.replyText,
+          leadText: ultimoLead,
+          res: out,
+          etapa,
+          editing: false,
+          hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
+        });
+      } finally {
+        isSendingTurn = false;
+        renderChat(false);
+        renderMemoryPanel();
+        updateCanalAndContextUI();
+      }
     }
 
-    function usarPreset(idx) {
-      const p = PRESETS_ENSAYO[idx];
-      if (!p) return;
+    async function iniciarGuion(idx) {
+      const g = MULTI_TURNO_GUIONES[idx];
+      if (!g || isSendingTurn) return;
       simuladorLeadState = {};
-      setContexto(p.ctx);
-      ejecutarTurno(p.text, 'T0_INMEDIATO');
+      mensajes = [];
+      activeJourney = g;
+      activeJourneyStep = 1;
+      setContexto(g.ctx);
+      renderJourneyBar();
+      renderMemoryPanel();
+      await ejecutarTurno(g.turnos[0], 'T0_INMEDIATO');
+    }
+
+    async function enviarSiguientePasoGuion() {
+      if (!activeJourney || activeJourneyStep >= activeJourney.turnos.length || isSendingTurn) return;
+      const txt = activeJourney.turnos[activeJourneyStep];
+      activeJourneyStep++;
+      renderJourneyBar();
+      await ejecutarTurno(txt, 'T1_SEGUIMIENTO');
+    }
+
+    async function usarPresetEnHiloActual(idx) {
+      const p = PRESETS_ENSAYO[idx];
+      if (!p || isSendingTurn) return;
+      if (!mensajes.some(m => m.role === 'lead')) {
+        setContexto(p.ctx);
+      }
+      await ejecutarTurno(p.text, mensajes.some(m => m.role === 'lead') ? 'T1_SEGUIMIENTO' : 'T0_INMEDIATO');
     }
 
     function resetChat() {
       simuladorLeadState = {};
+      activeJourney = null;
+      activeJourneyStep = 0;
       mensajes = [{
         role: 'mar',
-        text: 'Sala de ensayo lista. Elegí un canal (WhatsApp o IG DM), seleccioná un escenario de la izquierda o escribí abajo como si fueras un interesado difícil o un propietario.',
+        text: 'Sala de ensayo multi-turno lista. Elegí un guion de la izquierda (4 a 5 turnos) o escribí abajo mensaje por mensaje para verificar si Mar recuerda datos, responde cambios de idea y mantiene coherencia sin re-saludar ni repetir links.',
         res: null,
         editing: false,
         hora: new Date().toLocaleTimeString('es-UY', { hour: '2-digit', minute: '2-digit' })
       }];
-      renderChat();
+      renderChat(false);
+      renderMemoryPanel();
+      renderJourneyBar();
+      updateCanalAndContextUI();
     }
 
     function copiarBubble(idx) {
@@ -2532,6 +2793,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           canal: detalleObj.canal,
           patron_normalizado: detalleObj.patron_normalizado,
           respuesta_corregida: detalleObj.respuesta_corregida,
+          regla_ariana: detalleObj.regla_ariana,
           detalle: JSON.stringify(detalleObj),
           origen: 'simulador-mar'
         })
@@ -2576,10 +2838,10 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           entry.cloudSaved = true;
           entry.cloudId = cloudRes.id;
           entry.cloudActive = cloudRes.estado === 'activo';
-          entry.redteam = cloudRes.redteam ? `${cloudRes.redteam.passed}/${cloudRes.redteam.total} PASS` : '64/64 PASS';
+          entry.redteam = cloudRes.redteam ? `${cloudRes.redteam.passed}/${cloudRes.redteam.total} PASS` : '94/94 PASS';
         }
       } catch (e) {
-        alert(`⛔ Regla bloqueada por compuerta Red-Team 64/64 (NO activada):\n${e.message || e}`);
+        alert(`⛔ Regla bloqueada por compuerta Red-Team (NO activada):\n${e.message || e}`);
         return;
       }
       overrides[msg.res.key] = entry;
@@ -2597,7 +2859,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       const vals = Object.values(overrides || {});
       const pendientes = vals.filter(v => !v.cloudSaved);
       if (!pendientes.length) {
-        alert(vals.length ? 'Todas tus correcciones ya están guardadas en la nube.' : 'Tocá "✍️ Corregir esta respuesta / Enseñarle a Mar" debajo de cualquier respuesta primero.');
+        alert(vals.length ? 'Todas tus correcciones ya están guardadas en la nube.' : 'Tocá "✍️ Corregir / Enseñarle a Mar" debajo de cualquier respuesta primero.');
         return;
       }
       let okCount = 0;
@@ -2614,7 +2876,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
       await cargarAprendizajesNube();
       renderOverrides();
-      alert(`Listo: ${okCount} corrección(es) guardada(s) en la nube para pasar a regla fija de Mar.`);
+      alert(`Listo: ${okCount} corrección(es) guardada(s) en la nube para regir en Mar.`);
     }
 
     async function cargarAprendizajesNube() {
@@ -2628,17 +2890,17 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           const activas = cloudTrainRules.filter(x => x.estado === 'activo').length;
           const pend = cloudTrainRules.filter(x => x.estado === 'PENDIENTE_AG').length;
           const hechas = cloudTrainRules.filter(x => x.estado === 'HECHO_AG').length;
-          statusEl.innerHTML = `☁️ Conectado en la nube: <strong>${activas}</strong> activas en vivo (Red-Team 64/64 PASS) · <strong>${pend}</strong> pendientes · <strong>${hechas}</strong> fijas en código.`;
+          statusEl.innerHTML = `☁️ En la nube: <strong>${activas}</strong> activas en IA y reglas · <strong>${pend}</strong> pendientes · <strong>${hechas}</strong> fijas.`;
         }
       } catch (e) {
-        if (statusEl) statusEl.textContent = 'Sin conexión a la nube: guardando en memoria local del navegador.';
+        if (statusEl) statusEl.textContent = 'Sin conexión a la nube: guardando en memoria local.';
       }
       renderOverrides();
     }
 
-    function renderChat() {
+    function renderChat(showTyping = false) {
       const thread = document.getElementById('chatThread');
-      thread.innerHTML = mensajes.map((m, i) => {
+      let html = mensajes.map((m, i) => {
         if (m.role === 'lead') {
           return `
             <div class="msg-row lead">
@@ -2648,28 +2910,32 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           `;
         }
         const r = m.res;
+        const cohPass = r ? r.coherencia_pass !== false : true;
+        const motorLabel = r?.motor === 'ia_conversacional' ? '🧠 IA + Memoria' : (r?.motor ? '⚙️ Reglas' : '');
         return `
           <div class="msg-row mar">
             <div class="bubble">${formatLinks(m.text)}</div>
             ${r ? `
               <div class="msg-meta">
+                ${motorLabel ? `<span class="badge bone">${motorLabel}</span>` : ''}
                 <span class="badge">${esc(r.vertical_14)} · ${esc(r.subtipo)}</span>
-                <span class="badge">${r.pokayoke_pass ? 'POKA-YOKE PASS' : 'POKA-YOKE FAIL'}</span>
-                ${r.alerta_andon ? `<span class="badge bone">ANDON</span>` : ''}
-                ${r.editadoPorAriana ? `<span class="badge bone">${r.cloudSaved ? '☁️ ENSEÑADA EN NUBE' : 'EDITADO LOCAL'}</span>` : ''}
+                <span class="badge ${r.pokayoke_pass ? 'audit-ok' : 'audit-fail'}">${r.pokayoke_pass ? 'Poka-Yoke OK' : `Poka-Yoke FAIL: ${(r.pokayoke_violaciones || []).join(',')}`}</span>
+                <span class="badge ${cohPass ? 'audit-ok' : 'audit-warn'}">${cohPass ? 'Coherencia OK' : `⚠️ ${(r.coherencia_alertas || []).join(',')}`}</span>
+                ${r.auto_corregido ? `<span class="badge">⚡ Auto-corregido</span>` : ''}
+                ${r.editadoPorAriana ? `<span class="badge bone">${r.cloudSaved ? '☁️ ENSEÑADA' : 'LOCAL'}</span>` : ''}
                 <span>${esc(m.hora)}</span>
               </div>
               <div class="msg-actions">
-                <button class="mini-btn" onclick="copiarBubble(${i})">Copiar texto</button>
-                <button class="mini-btn" onclick="toggleEditBubble(${i})">${m.editing ? 'Cancelar edición' : '✍️ Corregir esta respuesta / Enseñarle a Mar'}</button>
+                <button class="mini-btn" onclick="copiarBubble(${i})">Copiar</button>
+                <button class="mini-btn" onclick="toggleEditBubble(${i})">${m.editing ? 'Cancelar' : '✍️ Corregir / Enseñarle a Mar'}</button>
               </div>
               ${m.editing ? `
                 <div class="edit-box">
-                  <label>Cómo querés que conteste Mar cuando ocurra "${esc(r.subtipo)}" en ${esc(canalActual)}:</label>
+                  <label>Cómo querés que conteste Mar en este caso (${esc(r.subtipo)} · ${esc(canalActual)}):</label>
                   <textarea class="textarea-box" id="editTa_${i}" rows="4">${esc(m.text)}</textarea>
-                  <input class="search-box" id="editNote_${i}" style="margin-top:6px;" type="text" placeholder="Regla o motivo en 1 línea (opcional · ej: si pregunta por niños, confirmar primero sin pedir cita)...">
+                  <input class="search-box" id="editNote_${i}" style="margin-top:6px;" type="text" placeholder="Regla para la IA y el motor (ej: si sube presupuesto en turno 3, acusar recibo y ofrecer unidades nuevas)...">
                   <div style="margin-top:8px;display:flex;gap:8px;flex-wrap:wrap;">
-                    <button class="send-btn" style="padding:7px 12px;font-size:11.5px;" onclick="guardarCorreccionBubble(${i})">💾 Guardar y enseñarle a Mar (en la nube)</button>
+                    <button class="send-btn" style="padding:7px 12px;font-size:11.5px;" onclick="guardarCorreccionBubble(${i})">💾 Guardar y activar ya en Mar</button>
                   </div>
                 </div>
               ` : ''}
@@ -2677,7 +2943,109 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           </div>
         `;
       }).join('');
+      if (showTyping) {
+        html += `<div class="msg-row mar"><div class="bubble" style="opacity:0.8;">⏳ Mar está leyendo la memoria del hilo y verificando los 15 candados...</div></div>`;
+      }
+      thread.innerHTML = html;
       thread.scrollTop = thread.scrollHeight;
+    }
+
+    function renderJourneyBar() {
+      const bar = document.getElementById('journeyNextBar');
+      if (!bar) return;
+      const pills = [];
+      if (activeJourney && activeJourneyStep < activeJourney.turnos.length) {
+        const nextTxt = activeJourney.turnos[activeJourneyStep];
+        pills.push(
+          `<button class="journey-pill" onclick="enviarSiguientePasoGuion()"><strong>▶ Turno ${activeJourneyStep + 1} (${esc(activeJourney.id)}):</strong> "${esc(nextTxt.slice(0, 72))}${nextTxt.length > 72 ? '...' : ''}"</button>`
+        );
+      } else if (activeJourney && activeJourneyStep >= activeJourney.turnos.length) {
+        pills.push(`<span style="font-size:11.5px;color:#B7D6E0;">✅ Guion completo (${activeJourney.turnos.length} turnos). Seguí desafiando a Mar abajo:</span>`);
+      } else if (mensajes.some(m => m.role === 'lead')) {
+        pills.push(`<span style="font-size:11.5px;color:#9FB3C8;">Desafíos rápidos en este hilo:</span>`);
+      }
+      if (mensajes.some(m => m.role === 'lead')) {
+        pills.push(`<button class="journey-pill" onclick="ejecutarTurno('Capaz puedo estirar hasta $U 45.000 si tiene cochera', 'T1_SEGUIMIENTO')">💰 Cambiar tope a $U 45.000</button>`);
+        pills.push(`<button class="journey-pill" onclick="ejecutarTurno('Ah me olvidé de decirte que tenga fondo cercado', 'T1_SEGUIMIENTO')">➕ Sumar detalle sin resetear</button>`);
+        pills.push(`<button class="journey-pill" onclick="ejecutarTurno('Cuánto cobran de comisión?', 'T1_SEGUIMIENTO')">🛡️ Probar trampa comisión</button>`);
+      }
+      bar.innerHTML = pills.join('');
+      bar.style.display = pills.length ? 'flex' : 'none';
+    }
+
+    function renderMemoryPanel() {
+      const box = document.getElementById('memoryGrid');
+      const sumBox = document.getElementById('coherenceSummaryBox');
+      const chgBox = document.getElementById('turnChangesBox');
+      const chkBox = document.getElementById('coherenceChecklist');
+      if (!box || !sumBox || !chkBox) return;
+
+      const marMsgs = mensajes.filter(m => m.role === 'mar' && m.res);
+      const cleanTurns = marMsgs.filter(m => m.res.pokayoke_pass && m.res.coherencia_pass !== false).length;
+      const allAlertas = marMsgs.flatMap(m => [...(m.res.coherencia_alertas || []), ...(m.res.pokayoke_violaciones || [])]);
+
+      sumBox.innerHTML = marMsgs.length
+        ? `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">
+             <strong>Turnos evaluados: ${marMsgs.length}</strong>
+             <span class="badge ${allAlertas.length ? 'audit-warn' : 'audit-ok'}">${cleanTurns}/${marMsgs.length} limpios</span>
+           </div>
+           ${allAlertas.length ? `<div style="color:#FCD34D;margin-top:5px;">Alertas acumuladas: ${esc(allAlertas.join(', '))}</div>` : '<div style="color:#B7D6E0;margin-top:5px;">Sin contradicciones ni olvidos en todo el hilo.</div>'}`
+        : '<div style="color:var(--muted);">Enviá el Turno 1 para activar el seguimiento de memoria y coherencia.</div>';
+
+      const s = simuladorLeadState || {};
+      const chgs = Array.isArray(s.cambios_detectados) ? s.cambios_detectados : [];
+      if (chgBox) {
+        chgBox.innerHTML = chgs.length
+          ? `<div class="mem-change"><strong>⚡ Capturado en el último turno:</strong><br>${chgs.map(c => esc(c)).join('<br>')}</div>`
+          : '';
+      }
+
+      const rows = [
+        ['Nombre', s.nombre],
+        ['Rol', s.rol_detectado],
+        ['Vertical', s.vertical_actual],
+        ['Zona', s.zona_display || s.zona_preferida],
+        ['Presupuesto', s.presupuesto_declarado ? `${s.moneda || 'UYU'} ${Number(s.presupuesto_declarado).toLocaleString('de-DE')} (elást. ${Number(s.presupuesto_elastico_max || s.presupuesto_declarado).toLocaleString('de-DE')})` : null],
+        ['Fecha', s.desde_cuando],
+        ['Espacio / Personas', [s.dormitorios_abiertos, s.personas_cantidad].filter(Boolean).join(' · ') || null],
+        ['Mobiliario', s.amoblado_explicito ? (s.amoblado_preferencia === 'amoblado' ? 'Amoblado' : s.amoblado_preferencia === 'sin_muebles' ? 'Sin muebles' : 'Indistinto') : null],
+        ['Mascota', s.mascota_detalle || (s.tiene_mascota === 'no' ? 'Sin mascota' : s.tiene_mascota)],
+        ['Comodidades', s.comodidades_pedidas],
+        ['Garantía', s.garantia_disponible || s.situacion_laboral],
+        ['Visita', s.dia_hora_visita],
+        ['Links ya enviados', Array.isArray(s.links_ya_enviados) && s.links_ya_enviados.length ? String(s.links_ya_enviados.length) : null],
+      ].filter(([, v]) => v);
+
+      box.innerHTML = rows.length
+        ? rows.map(([k, v]) => `<div class="mem-item"><span>${esc(k)}</span><strong>${esc(v)}</strong></div>`).join('')
+        : '<div style="font-size:11.5px;color:var(--muted);">Todavía no hay variables confirmadas en esta conversación.</div>';
+
+      const hasAlerta = (code) => marMsgs.some(m => (m.res.coherencia_alertas || []).includes(code));
+      const hasPkFail = marMsgs.some(m => !m.res.pokayoke_pass);
+      const checks = [
+        ['No re-saludó en turno 2+', !hasAlerta('RE_SALUDO_TURNO_2')],
+        ['No repitió enlaces enviados', !hasAlerta('LINK_REPETIDO')],
+        ['No re-preguntó datos ya dichos', !hasAlerta('REPREGUNTO_GARANTIA') && !hasAlerta('REPREGUNTO_NOMBRE') && !hasAlerta('REPREGUNTO_MASCOTA') && !hasAlerta('REPREGUNTO_FECHA_MUDANZA')],
+        ['15 candados Poka-Yoke + 0 alquiladas', !hasPkFail && !hasAlerta('OFRECIO_PROPIEDAD_ALQUILADA')],
+      ];
+      chkBox.innerHTML = checks.map(([lbl, ok]) => `
+        <div class="mem-item">
+          <span>${esc(lbl)}</span>
+          <strong style="color:${ok ? '#B7D6E0' : '#FCA5A5'};">${marMsgs.length ? (ok ? '✅ OK' : '❌ FALLÓ') : '—'}</strong>
+        </div>
+      `).join('');
+    }
+
+    function renderJourneys() {
+      const box = document.getElementById('journeyList');
+      if (!box) return;
+      box.innerHTML = MULTI_TURNO_GUIONES.map((g, idx) => `
+        <button class="preset-btn" onclick="iniciarGuion(${idx})">
+          <div class="preset-tag">${esc(g.tag)}</div>
+          <strong>${esc(g.title)}</strong>
+          <span>${esc(g.desc)}</span>
+        </button>
+      `).join('');
     }
 
     function renderPresets() {
@@ -2686,7 +3054,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
         .map((p, idx) => ({ ...p, idx }))
         .filter(p => !presetFilter || `${p.tag} ${p.title} ${p.text}`.toLowerCase().includes(presetFilter));
       list.innerHTML = items.map(p => `
-        <button class="preset-btn" onclick="usarPreset(${p.idx})">
+        <button class="preset-btn" onclick="usarPresetEnHiloActual(${p.idx})">
           <div class="preset-tag">${esc(p.tag)}</div>
           <strong>${esc(p.title)}</strong>
           <span>"${esc(p.text)}"</span>
@@ -2704,7 +3072,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
       document.getElementById('overrideCount').textContent = vals.length + cloudTrainRules.length;
       const box = document.getElementById('overridesList');
       if (!vals.length && !cloudTrainRules.length) {
-        box.innerHTML = '<div style="font-size:11.5px;color:var(--muted);">Todavía no guardaste correcciones. Tocá "✍️ Corregir esta respuesta / Enseñarle a Mar" debajo de cualquier burbuja para grabar la regla en la nube.</div>';
+        box.innerHTML = '<div style="font-size:11.5px;color:var(--muted);">Todavía no guardaste correcciones. Tocá "✍️ Corregir / Enseñarle a Mar" debajo de cualquier respuesta.</div>';
         return;
       }
       const localHtml = vals.map(v => `
@@ -2719,9 +3087,9 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
         try { det = JSON.parse(q.detalle || '{}'); } catch {}
         return `
           <div class="rules-card" style="border-color:rgba(183,214,224,0.35);">
-            <strong>☁️ ${esc(q.estado === 'HECHO_AG' ? 'YA FIJA EN MAR' : 'GUARDADA EN NUBE')} · ${esc(det.subtipo || q.titulo)}</strong>
+            <strong>☁️ ${esc(q.estado === 'HECHO_AG' ? 'YA FIJA EN MAR' : 'ACTIVA EN LA NUBE')} · ${esc(det.subtipo || q.titulo)}</strong>
             ${det.regla_ariana ? `<div style="color:var(--bone);margin-top:2px;">Regla: ${esc(det.regla_ariana)}</div>` : ''}
-            <div style="color:var(--sky);margin-top:3px;">${esc(det.nueva_respuesta || '')}</div>
+            <div style="color:var(--sky);margin-top:3px;">${esc(det.nueva_respuesta || det.respuesta_corregida || '')}</div>
           </div>
         `;
       }).join('');
@@ -2753,6 +3121,7 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
     });
 
     updateCanalAndContextUI();
+    renderJourneys();
     renderPresets();
     renderOverrides();
     cargarAprendizajesNube();
