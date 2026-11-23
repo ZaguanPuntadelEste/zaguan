@@ -310,7 +310,19 @@
     <loc>https://zaguanpropiedades.com/garantias-alquiler/</loc>
     <lastmod>2026-11-23</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://zaguanpropiedades.com/propiedades/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+  <url>
+    <loc>https://zaguanpropiedades.com/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/</loc>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
     <loc>https://zaguanpropiedades.com/novedades-del-este/alquiler-anual-a-estrenar-la-fortuna-maldonado-mudate-ya/</loc>

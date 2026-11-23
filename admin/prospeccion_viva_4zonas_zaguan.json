@@ -1212,7 +1212,7 @@
       "url": "https://www.facebook.com/marketplace/item/2574841859596354/",
       "nota_auditoria": "Perfil verificado con 1 sola publicación activa en Marketplace; celular 094 728 495 visible en la descripción.",
       "mensaje_mar": "Hola Danilo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Las Delicias (USD 380.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-      "estado_envio": "respondio",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Danilo, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Las Delicias, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1225,15 +1225,20 @@
       "corchetes_faltantes": [
         "Puerta abierta — no insistir hoy (solo radar pasivo)"
       ],
-      "carril": "3_en_conversacion",
-      "nivel_semaforo": "1A_LIMPIO",
+      "carril": "5_cerrado_radar",
+      "nivel_semaforo": "ROJO_CERRADO",
       "ts_envio_1": 1795447939000,
       "fecha_envio_1": "2026-11-23 12:32",
       "fecha_respuesta": "2026-11-23 12:35",
       "respuesta_recibida": "[Audio 32s 12:35 hs]: \"Buenas tardes, ¿qué tal? Eh, mirá, el tema es así: es un tema familiar y me pidieron a mí que me hiciese cargo, así que por ahora no, se la dimos a una inmobiliaria que el dueño es amigo nuestro de hace más de 30 años y el resto ellos prefieren que yo me ocupe de manejar la venta. Este, me han llamado infinidad de inmobiliarias de Punta del Este, obviamente, pero la verdad que no autorizamos a que se ofrezcan por otro medio. Lamentablemente, pero es una decisión familiar. Dale, muchas gracias igual.\"",
       "contestacion_mar": "Gracias por responderme! Si algún día cambian de idea o necesitás una mano vos con estos temas familiares, nos dejarás saber. Un gusto.\n\nMar - www.zaguanpropiedades.com",
       "sugerencia_mar": "Dejar asentada la decisión familiar sin insistir. El cierre amable de Mar ya fue enviado a las 12:38 hs (puerta abierta si más adelante necesitan ayuda).",
-      "alerta_mar": "Audio 32s transcripto (12:35 hs): declinó publicación abierta por decisión familiar (inmobiliaria amiga de hace 30 años). Mar cerró con puerta abierta a las 12:38 hs."
+      "alerta_mar": null,
+      "sello_cierre": "DECISIÓN FAMILIAR / NO AUTORIZA",
+      "motivo_cierre": "Audio 32s (12:35 hs): decisión familiar, manejan la venta únicamente con inmobiliaria amiga de hace 30 años y no autorizan ofrecer por otro medio. Cierre cordial enviado por Mar a las 12:38 hs.",
+      "proximo_toque_tipo": "decision_familiar",
+      "proximo_toque_fecha": null,
+      "badge_alerta": null
     },
     {
       "id": "MP-28",
@@ -1576,7 +1581,7 @@
       "url": "https://www.facebook.com/marketplace/item/1762143044857747/",
       "nota_auditoria": "Perfil verificado con 1 sola publicación activa y gráfica sin logo inmobiliario que especifica 'Garantía aseguradora' y 'USD 1.500 mensuales'; celular +598 96 511 181 en la descripción y en la imagen. | ⚠️ Perfil WA Business verificado hoy: \"Giovanna Gonzalez Vizcaya Inmobiliaria\" (mensaje revocado en Comet 12:45 hs).",
       "mensaje_mar": "Hola Giovanna, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en alquiler anual en Pinares Parada 36 (USD 1.500 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Giovanna, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Pinares Parada 36, Punta del Este, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1592,12 +1597,16 @@
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
       ],
-      "carril": "2_esperando_respuesta_72h",
-      "nivel_semaforo": "1B_CON_ALERTA",
-      "badge_alerta": "⚠️ WA BUSINESS: VIZCAYA INMOBILIARIA (MSJ HOY REVOCADO EN COMET)",
-      "alerta_mar": "Su perfil de WhatsApp Business dice \"Giovanna Gonzalez Vizcaya Inmobiliaria\" y el mensaje de hoy 12:45 hs aparece revocado en Comet. Validar si trabaja como inmobiliaria colega antes de recontactar.",
+      "carril": "5_cerrado_radar",
+      "nivel_semaforo": "ROJO_CERRADO",
+      "badge_alerta": "INMOBILIARIA ENCUBIERTA (VIZCAYA)",
+      "alerta_mar": "Perfil WhatsApp Business verificado: Giovanna Gonzalez Vizcaya Inmobiliaria.",
       "ts_envio_1": 1795448739000,
-      "fecha_envio_1": "2026-11-23 12:45"
+      "fecha_envio_1": "2026-11-23 12:45",
+      "sello_cierre": "INMOBILIARIA ENCUBIERTA (VIZCAYA)",
+      "motivo_cierre": "Perfil de WhatsApp Business verificado: Giovanna Gonzalez Vizcaya Inmobiliaria (descartada por regla cero colegas en frío)",
+      "proximo_toque_tipo": "descartado_inmobiliaria",
+      "proximo_toque_fecha": null
     },
     {
       "id": "MP-39",
@@ -1610,7 +1619,7 @@
       "url": "https://www.facebook.com/marketplace/item/880460288464591/",
       "nota_auditoria": "Perfil verificado con solo 2 publicaciones activas (este apartamento y 1 artículo gratuito) y foto limpia sin inmobiliaria; indica 'Por ASEGURADORA' y 'WhatsApp 098607109' en la descripción.",
       "mensaje_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en alquiler anual en Centro de Maldonado ($U 32.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
-      "estado_envio": "enviado_1",
+      "estado_envio": "respondio",
       "seguimiento_72h": "Hola Claudia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Centro, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1627,10 +1636,15 @@
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
       ],
-      "carril": "2_esperando_respuesta_72h",
+      "carril": "3_en_conversacion",
       "nivel_semaforo": "1A_LIMPIO",
       "ts_envio_1": 1795448809000,
-      "fecha_envio_1": "2026-11-23 12:46"
+      "fecha_envio_1": "2026-11-23 12:46",
+      "garantias_aceptadas": "Aseguradora aprobada",
+      "respuesta_recibida": "Hola, un gusto. Si, sigue disponible",
+      "fecha_respuesta": "2026-11-23 13:25",
+      "contestacion_mar": "Hola Claudia, un gusto también.\n\nVi que pedís aseguradora en el aviso, te consulto: contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada?\nY te consulto también qué incluye el monto mensual con los gastos comunes (Wi-Fi / algún consumo?)\nTiene cochera?",
+      "sugerencia_mar": ""
     }
   ]
 }

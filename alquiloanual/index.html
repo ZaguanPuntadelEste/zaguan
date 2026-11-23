@@ -298,9 +298,10 @@
     .mob-header-cta { display: none; }
     @media (max-width: 600px) {
       .container { width: calc(100% - 24px); }
-      .header-inner { min-height: 48px; gap: 8px; }
+      .header-inner { flex-wrap: wrap; min-height: 48px; gap: 8px; padding: 10px 0; }
       .brand-logo { height: 22px; }
-      .main-nav { display: none; }
+      .main-nav { display: flex; order: 3; width: 100%; gap: 10px 14px; flex-wrap: wrap; padding-top: 8px; border-top: 1px solid rgba(243,240,232,0.14); }
+      .main-nav a { font-size: 10.5px; }
       .mob-header-cta { display: flex; align-items: center; gap: 8px; }
       .mob-header-cta a { font-size: 11px; font-weight: 700; padding: 5px 9px; border: 1px solid rgba(243,240,232,0.25); color: var(--bone); }
       .mob-header-cta a.mob-wa { background: var(--bone); color: var(--bigua); border-color: var(--bone); }
@@ -396,14 +397,7 @@
       <a href="/" aria-label="ZAGUÁN Propiedades, inicio">
         <img class="brand-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
       </a>
-      <nav class="main-nav" aria-label="Navegación principal">
-        <a href="/oportunidades/">Vitrina rápida</a>
-        <a href="/proyectos/">Propiedades en pozo</a>
-        <a href="/alquiloanual/" aria-current="page">Alquiler anual</a>
-        <a href="/garantias-alquiler/">Verificador de garantías</a>
-        <a href="/busqueda-personalizada/">Búsqueda personalizada</a>
-        <a href="/publicar/">Publicar propiedad</a>
-      </nav>
+      <nav class="main-nav" aria-label="Navegación principal"><a href="/propiedades/">Venta: Casas y Lotes</a><a href="/proyectos/">Desarrollos en Pozo</a><a href="/alquileres/">Alquiler Anual</a><a href="/garantias-alquiler/">Verificador de Garantías</a><a href="/novedades-del-este/">Novedades del Este</a><a href="/publicar/">Publicar Propiedad</a></nav>
       <div class="mob-header-cta">
         <a href="/garantias-alquiler/">Garantías</a>
         <a class="mob-wa" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20te%20escribo%20desde%20ZAGU%C3%81N%20Propiedades%20por%20alquiler%20anual." target="_blank" rel="noopener noreferrer">WhatsApp Mar →</a>
@@ -665,8 +659,9 @@
 
           <!-- PUERTA B EMBEDDED -->
           <div style="background:var(--bigua);color:var(--bone);padding:24px;border:1px solid var(--estuario);">
-            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta B · Calculadora 30% + Recibos</span>
-            <h3 style="font-size:22px;color:var(--bone);margin-bottom:8px;">Todavía no la tengo y quiero verificar si califico para tramitarla con gestión ZAGUÁN</h3>
+            <span style="display:inline-block;background:var(--estuario);color:var(--bone);font-size:11px;font-weight:700;padding:4px 9px;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:10px;">Puerta B · Simulador Multi-Persona (1 a 4)</span>
+            <h3 style="font-size:22px;color:var(--bone);margin-bottom:8px;">Todavía no la tengo y quiero simular si calificamos con gestión ZAGUÁN</h3>
+            <p style="font-size:13px;color:rgba(243,240,232,0.82);margin-bottom:10px;">Podés sumar de 1 a 4 solicitantes (todos los que aportan firman contrato · 1 póliza = 1 contrato) e incluir continuidad sin corte en BPS.</p>
             <div style="display:grid;gap:10px;margin-top:12px;">
               <select id="alq-pb-doc" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
                 <option value="ci_vigente_2y">CI uruguaya vigente (>= 2 años) + residencia</option>
@@ -674,27 +669,29 @@
                 <option value="extranjero_nuevo">Extranjero con menos de 18 meses (certificación escribanía/contable o Depósito)</option>
               </select>
               <select id="alq-pb-lab" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
-                <option value="dependencia_fijo">Relación de dependencia sueldo fijo (1 año + 3 recibos)</option>
-                <option value="dependencia_variable">Relación de dependencia sueldo variable / comisiones (1 año + 6 recibos)</option>
-                <option value="independiente">Independiente / Unipersonal (1-2 años + BPS/DGI + Contador Público)</option>
+                <option value="dependencia_fijo">Relación de dependencia sueldo fijo (1 año o continuidad BPS + 3 recibos)</option>
+                <option value="dependencia_variable">Relación de dependencia sueldo variable / comisiones (1 año o continuidad BPS + 6 recibos)</option>
+                <option value="independiente">Independiente / Unipersonal (1–2 años + BPS/DGI al día + Contador Público)</option>
                 <option value="exterior">Ingresos del exterior (facturas + bancos + escribanía aliada)</option>
                 <option value="sin_ingresos_formales">Sin ingresos formales demostrables (Depósito)</option>
               </select>
               <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
                 <input id="alq-pb-ing" type="number" value="105000" placeholder="Ingresos totales $U" oninput="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
                 <select id="alq-pb-sol" onchange="evalGarantiaInline()" style="padding:9px 11px;border:1px solid rgba(243,240,232,0.28);background:var(--estuario);color:var(--bone);font-size:13.5px;">
-                  <option value="1">1 ingreso</option>
-                  <option value="3">Hasta 3 ingresos combinados</option>
-                  <option value="5">Hasta 5 ingresos combinados</option>
+                  <option value="1">1 solicitante</option>
+                  <option value="2">2 solicitantes suman</option>
+                  <option value="3">3 solicitantes suman</option>
+                  <option value="4">4 solicitantes suman</option>
                 </select>
               </div>
               <div id="alq-pb-res" style="background:rgba(243,240,232,0.08);border:1px solid rgba(243,240,232,0.2);padding:12px;font-size:13px;">
-                Tope estimado al 30%: <strong>$U 31.500 / mes</strong> · Documentación: últimos 3 recibos de sueldo.
+                Tope estimado al 30%: <strong>$U 31.500 / mes</strong> · Documentación: últimos 3 recibos de sueldo (o Historia Laboral Nominada BPS + ambos empleos si cambiaste sin corte).
               </div>
               <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
-                <a class="btn btn--light" href="/garantias-alquiler/" style="flex:1;">Abrir verificador completo →</a>
-                <a class="btn btn--estuario" id="alq-pb-wa-btn" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20verificar%20mis%20prerrequisitos%20para%20garant%C3%ADa%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer" style="flex:1;">Consultar con Mar</a>
+                <a class="btn btn--light" id="alq-pb-sim-link" href="/garantias-alquiler/" style="flex:1;">Simulador Multi-Persona (1 a 4) →</a>
+                <a class="btn btn--estuario" href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="flex:1;">Guía 8 FAQs reales →</a>
               </div>
+              <a class="btn btn--estuario" id="alq-pb-wa-btn" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20verificar%20mis%20prerrequisitos%20para%20garant%C3%ADa%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer" style="width:100%;">Consultar directo con Mar por WhatsApp</a>
             </div>
           </div>
         </div>
@@ -762,6 +759,12 @@
       <img src="/assets/brand/zaguan-white.png" alt="ZAGUÁN" style="height:26px;width:auto;">
       <div>
         <span>Punta del Este · Maldonado · </span>
+        <a href="/propiedades/" style="text-decoration:underline;">Venta</a> ·
+        <a href="/proyectos/" style="text-decoration:underline;">Pozo</a> ·
+        <a href="/alquileres/" style="text-decoration:underline;">Alquiler Anual</a> ·
+        <a href="/garantias-alquiler/" style="text-decoration:underline;">Verificador de Garantías</a> ·
+        <a href="/novedades-del-este/" style="text-decoration:underline;">Novedades del Este</a> ·
+        <a href="/publicar/" style="text-decoration:underline;">Publicar Propiedad</a> ·
         <a href="/privacidad/" style="text-decoration:underline;">Privacidad</a> ·
         <a href="/aviso-legal/" style="text-decoration:underline;">Aviso legal</a>
       </div>
@@ -778,17 +781,19 @@
       const sol = document.getElementById('alq-pb-sol').value;
       const tope30 = Math.round(ing * 0.30);
       const reqMap = {
-        dependencia_fijo: '1 año antigüedad + últimos 3 recibos de sueldo',
-        dependencia_variable: '1 año antigüedad + últimos 6 recibos de sueldo',
+        dependencia_fijo: '1 año antigüedad (o continuidad BPS con Historia Laboral Nominada + recibos de ambos empleos) y últimos 3 recibos',
+        dependencia_variable: '1 año antigüedad (o continuidad BPS + recibos de ambos empleos) y últimos 6 recibos',
         independiente: '1 a 2 años antigüedad + BPS/DGI al día + Contador Público',
         exterior: 'Facturas + extractos bancarios + escribanía aliada',
         sin_ingresos_formales: 'Orientación directa a Depósito (2 a 5 meses)'
       };
       const resNote = doc === 'extranjero_nuevo' ? ' · Menos de 18 meses residencia: certificación notarial/contable o Depósito.' : '';
       document.getElementById('alq-pb-res').innerHTML =
-        'Tope sugerido al 30% (' + sol + ' ingreso' + (sol === '1' ? '' : 's') + ' sin Clearing): <strong>$U ' + tope30.toLocaleString('de-DE') + ' / mes</strong><br>' +
+        'Tope sugerido al 30% (' + sol + ' solicitante' + (sol === '1' ? '' : 's · firman contrato') + ' sin Clearing): <strong>$U ' + tope30.toLocaleString('de-DE') + ' / mes</strong><br>' +
         'Requisitos: ' + (reqMap[lab] || '') + resNote;
-      const waMsg = 'Hola Mar, revisé mis prerrequisitos en ZAGUÁN (' + lab + ', ' + sol + ' ingresos, tope 30% $U ' + tope30.toLocaleString('de-DE') + '). Quiero tramitar garantía con gestión ZAGUÁN.';
+      const simLink = document.getElementById('alq-pb-sim-link');
+      if (simLink && tope30 > 0) simLink.href = '/garantias-alquiler/?alquiler=' + tope30;
+      const waMsg = 'Hola Mar, revisé mis prerrequisitos en ZAGUÁN (' + lab + ', ' + sol + ' solicitante/s, tope 30% $U ' + tope30.toLocaleString('de-DE') + '). Quiero tramitar garantía con gestión ZAGUÁN.';
       document.getElementById('alq-pb-wa-btn').href = 'https://wa.me/59898712064?text=' + encodeURIComponent(waMsg);
     }
 

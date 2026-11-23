@@ -1,7 +1,7 @@
 {
-  "fecha": "2026-11-23T15:35:34.366Z",
-  "total": 88,
-  "pasaron": 88,
+  "fecha": "2026-11-23T16:58:25.591Z",
+  "total": 93,
+  "pasaron": 93,
   "fallaron_count": 0,
   "tasa_exito": "100%",
   "fallos_resumen": [],
@@ -1048,7 +1048,7 @@
     },
     {
       "id": "SIM-81",
-      "bloque": "Verificador de Garantías · Paleta ZAGUÁN",
+      "bloque": "Verificador de Garantías · Simulador Multi-Persona (1–4) y Paleta ZAGUÁN",
       "turno": "HTML vs. Motor",
       "contexto": "web_html",
       "input": "Auditoría en disco: garantias-alquiler/index.html",
@@ -1057,7 +1057,7 @@
       "vertical_detectada": "QA_HTML",
       "subtipo_detectado": "CONSISTENCIA_WEB_OK",
       "alerta_andon": false,
-      "replyText": "VERIFICADO EN DISCO (garantias-alquiler/index.html): sin contradicciones, 13 invariantes cumplidas."
+      "replyText": "VERIFICADO EN DISCO (garantias-alquiler/index.html): sin contradicciones, 15 invariantes cumplidas."
     },
     {
       "id": "SIM-82",
@@ -1149,6 +1149,71 @@
       "subtipo_detectado": "D2_RAMA_B_TURNO_2_PASO_3",
       "alerta_andon": false,
       "replyText": "Tomamos nota. *Tenés mascota o hay alguna comodidad que necesites sí o sí, como cochera, patio o que esté amoblado?*"
+    },
+    {
+      "id": "SIM-89",
+      "bloque": "Poka-Yoke 1° Contacto Propietarios + Anti-Duplicado (/go/wa + JSON)",
+      "turno": "T0 Propietarios Marketplace (cero URL, cero frase duplicada, 100% _cursiva_)",
+      "contexto": "admin_json",
+      "input": "prospeccion_viva_4zonas_zaguan.json + worker lintCopyMar",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "POKA_YOKE_T0_PROPIETARIOS",
+      "subtipo_detectado": "T0_39_DUENOS_LIMPIOS_OK",
+      "alerta_andon": false,
+      "replyText": "39/39 dueños Marketplace sin URL en T0, sin frase duplicada y con _cursiva_ en [CORCHETES]"
+    },
+    {
+      "id": "SIM-90",
+      "bloque": "Semáforo 3 Niveles + MP-29/MP-33 + Alerta MP-12 + Buscador Ctrl+F San Carlos",
+      "turno": "Cierre Operativo Comet <-> D1 <-> /admin/",
+      "contexto": "admin_html",
+      "input": "admin/index.html + prospeccion_viva_4zonas_zaguan.json",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "ADMIN_SEMAFORO_3_NIVELES",
+      "subtipo_detectado": "ADMIN_SEMAFORO_Y_BUSCADOR_OK",
+      "alerta_andon": false,
+      "replyText": "Semáforo 3 niveles + MP-29/33/27/38 cerradas + alerta MP-12 + filtro San Carlos + buscador global sin tope OK"
+    },
+    {
+      "id": "SIM-91",
+      "bloque": "Zero Comet 9222 + MP-39 Claudia sin re-preguntar aseguradora ni fotos + Caja única en /admin/",
+      "turno": "Cierre Operativo Comet & Cabina",
+      "contexto": "admin_html",
+      "input": "tools/ + admin/index.html + workers/shared/corchetes-14v.js (MP-39)",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "ZERO_COMET_Y_MP39_LIMPIA",
+      "subtipo_detectado": "ZERO_COMET_CAJA_UNICA_OK",
+      "alerta_andon": false,
+      "replyText": "Zero Comet 9222 + MP-39 reconoce aseguradora/2D sin pedir fotos + 1 caja única en /admin/ OK"
+    },
+    {
+      "id": "SIM-92",
+      "bloque": "Catálogo Unificado Ventas /propiedades/ + Hub / y /links/ + 0 sin exclusividad",
+      "turno": "Web UX/SEO",
+      "contexto": "web_publica",
+      "input": "propiedades/index.html + index.html + links/index.html + 11 páginas",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "CATALOGO_VENTAS_Y_NAV_UNIFICADO",
+      "subtipo_detectado": "PROPIEDADES_Y_HUBS_OK",
+      "alerta_andon": false,
+      "replyText": "Catálogo /propiedades/ indexable + Santa Mónica USD 160k + 5 pozos + nav unificado en 11+ páginas OK"
+    },
+    {
+      "id": "SIM-93",
+      "bloque": "Simulador Multi-Persona (1–4) + Guía Pilar 8 FAQs en Posición #1 + 6 PDPs enlazados",
+      "turno": "Garantías & SEO Pilar",
+      "contexto": "garantias_seo",
+      "input": "garantias-alquiler/index.html + novedades-del-este/ + alquileres/*/",
+      "pass": true,
+      "errores": [],
+      "vertical_detectada": "SIMULADOR_MULTIPERSONA_Y_GUIA_PILAR",
+      "subtipo_detectado": "SIMULADOR_Y_6_PDPS_OK",
+      "alerta_andon": false,
+      "replyText": "Simulador 1–4 personas + Guía 8 FAQs Posición #1 + Santa Mónica en Novedades + 6 PDPs enlazados OK"
     }
   ]
 }

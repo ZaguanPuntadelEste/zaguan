@@ -193,7 +193,7 @@ const BRACKET_META = {
   },
   fotos_video: {
     label: "Material visual",
-    pregunta: "si ya contas con fotos claras o video recorrido para armar la ficha",
+    pregunta: "si querés sumar alguna foto más de detalle o video corto (además de las publicadas en el aviso)",
   },
 };
 
@@ -319,18 +319,31 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     prevSaved = {};
   }
 
-  const tituloIn = propietario.titulo_o_activo || propietario.publicacion_titulo;
-  const zonaIn = propietario.zona_barrio || propietario.empresa_o_zona;
-  const precioIn = propietario.precio_publicado || propietario.precio_texto;
+  let rawObj = {};
+  try {
+    if (propietario.raw_json) {
+      rawObj = typeof propietario.raw_json === "string" ? JSON.parse(propietario.raw_json) : (propietario.raw_json || {});
+    }
+  } catch {
+    rawObj = {};
+  }
+
+  const tituloIn = propietario.titulo_o_activo || propietario.publicacion_titulo || propietario.titulo || rawObj.titulo;
+  const zonaIn = propietario.zona_barrio || propietario.empresa_o_zona || propietario.zona || rawObj.zona;
+  const precioIn = propietario.precio_publicado || propietario.precio_texto || propietario.precio || rawObj.precio;
+  const corchetesAvisoArr = Array.isArray(rawObj.corchetes_en_aviso)
+    ? rawObj.corchetes_en_aviso
+    : (Array.isArray(propietario.corchetes_en_aviso) ? propietario.corchetes_en_aviso : []);
+  const corchetesAvisoTxt = corchetesAvisoArr.join(" · ");
   const rawCorpus = [
     tituloIn,
     zonaIn,
     precioIn,
-    propietario.tipo_operacion,
+    propietario.tipo_operacion || propietario.operacion || rawObj.operacion,
+    corchetesAvisoTxt,
     propietario.notas,
-    propietario.notas_internas,
+    propietario.notas_internas || propietario.nota_auditoria || rawObj.nota_auditoria,
     propietario.respuesta_recibida,
-    propietario.mensaje_mar,
     propietario.dormitorios !== null && propietario.dormitorios !== undefined ? `${propietario.dormitorios} dormitorios` : "",
     propietario.garantias_aceptadas,
     propietario.gastos_comunes_incluidos ? "gastos comunes incluidos" : "",
@@ -340,7 +353,11 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     .filter(Boolean)
     .join(" · ");
 
-  const c = { ...(prevSaved.confirmados || prevSaved || {}) };
+  const c = {};
+  for (const [k, v] of Object.entries(prevSaved.confirmados || prevSaved || {})) {
+    if (k === "gastos_comunes" && String(v).trim() === "gastos comunes,") continue;
+    if (v) c[k] = v;
+  }
   if (zonaIn) {
     c.zona_barrio = c.zona_barrio || zonaIn;
   }
@@ -393,15 +410,27 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     c.garantias_aceptadas = gs.join(", ") || "Aseguradora";
   }
 
-  // Gastos comunes
-  const gc = extractFactValue(rawCorpus, /(?:gastos\s+comunes|gc)\s*(?:incluidos|inc\.?|de)?\s*(?:\$u?|\$)?\s*[\d.,]*/i);
+  // Gastos comunes (evitar falsos positivos si solo dice "gastos comunes" en una pregunta)
+  const gc = extractFactValue(rawCorpus, /(?:gastos\s+comunes|gc)\s*(?:son\s+de|de|aprox\.?|incluidos|incluido|inc\.?|aparte)\s*(?:\$u?|\$)?\s*[\d.,]+/i)
+    || extractFactValue(rawCorpus, /(?:gastos\s+comunes|gc)\s+(?:incluidos|incluido)/i);
   if (gc) c.gastos_comunes = gc;
-  else if (/sin\s+gastos\s+comunes|exento\s+de\s+gc/i.test(rawCorpus)) c.gastos_comunes = "Gastos comunes cero / propios";
+  else if (/sin\s+gastos\s+comunes|exento\s+de\s+gc|no\s+tiene\s+gastos\s+comunes|no\s+paga\s+gastos\s+comunes/i.test(rawCorpus)) {
+    c.gastos_comunes = "Sin gastos comunes";
+  }
 
   // Mascotas / Menores / Amoblado / Plazo
-  if (/pet[-\s]?friendly|acepta\s+mascotas|con\s+mascota|admite\s+mascotas/i.test(rawCorpus)) c.acepta_mascotas = "Admite mascotas";
-  else if (/mascotas?\s+(?:a\s+consultar|chicas?|peque[nñ]as?|en\s+evaluaci[oó]n)/i.test(rawCorpus)) c.acepta_mascotas = "Mascota pequena a evaluar";
-  if (/ni[nñ]os|menores|familia|apto\s+familia/i.test(rawCorpus)) c.acepta_menores = "Apto familia y ninos";
+  if (/no\s+(?:acepta|admite)\s+mascotas?|sin\s+mascotas?|prohibid[oa]s?\s+mascotas?/i.test(rawCorpus)) {
+    c.acepta_mascotas = "No admite mascotas";
+  } else if (/pet[-\s]?friendly|(?:acepta|admite)\s+mascotas?|con\s+mascota/i.test(rawCorpus)) {
+    c.acepta_mascotas = "Admite mascotas";
+  } else if (/mascotas?\s+(?:a\s+consultar|chicas?|peque[nñ]as?|en\s+evaluaci[oó]n)/i.test(rawCorpus)) {
+    c.acepta_mascotas = "Mascota pequena a evaluar";
+  }
+  if (/(?:acepta|admite|apto)\s+(?:ni[nñ]os|menores|familia)/i.test(rawCorpus)) {
+    c.acepta_menores = "Apto familia y ninos";
+  } else if (/persona\s+sola|sin\s+ni[nñ]os/i.test(rawCorpus)) {
+    c.acepta_menores = "Restriccion declarada en aviso";
+  }
   if (/amoblado|equipado|con\s+muebles|full\s+muebles/i.test(rawCorpus)) c.amoblado = "Amoblado completo";
   else if (/sin\s+muebles|vacio|desocupado/i.test(rawCorpus)) c.amoblado = "Sin muebles";
   const plazo = extractFactValue(rawCorpus, /\b(1\s*a[nñ]o|2\s*a[nñ]os|anual|plazo\s+\d+\s*(?:meses|a[nñ]os))\b/i);
@@ -436,8 +465,10 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
   if (/visita|coordinar|lunes|martes|miercoles|miércoles|jueves|viernes|sabado|sábado|tarde|ma[nñ]ana\s+de|horario/i.test(rawCorpus)) {
     c.disponibilidad_visitas = extractFactValue(rawCorpus, /(?:visitas?[^.,;]{3,50}|coordinar[^.,;]{3,40}|horarios?[^.,;]{3,40})/i) || "Horarios de visita informados";
   }
-  if (/foto|fotos|video|carpeta\s+visual|envio\s+material/i.test(rawCorpus)) {
-    c.fotos_video = "Material fotografico o video disponible";
+  if (propietario.tipo_contacto === "marketplace_dueno" || /foto|fotos|video|carpeta\s+visual|envio\s+material/i.test(rawCorpus)) {
+    c.fotos_video = propietario.tipo_contacto === "marketplace_dueno"
+      ? "Fotos publicadas en el aviso de Marketplace"
+      : "Material fotografico o video disponible";
   }
 
   // Compatibilidad por operacion
@@ -522,11 +553,21 @@ export function evaluarCorchetesPropietario(propietario = {}, extraTexto = "") {
 
   let siguientePreguntaWa = "";
   if (faltantes.length > 0) {
+    const yaTomados = [
+      confirmados.dormitorios,
+      zonaPublica,
+      confirmados.precio_uyu || confirmados.precio_usd || confirmados.precio_publicado,
+      confirmados.garantias_aceptadas ? `por ${confirmados.garantias_aceptadas.toLowerCase()}` : "",
+    ].filter(Boolean);
+    const introTomado = yaTomados.length
+      ? `${saludo}, gracias por confirmar. Ya tomé de tu publicación que es ${yaTomados.join(" · ")}. `
+      : `${saludo}, gracias por confirmar sobre ${tituloPublico} en ${zonaPublica}. `;
     const pedirLista = faltantes.slice(0, 3).map((f) => f.pregunta);
+    const cierreFoto = propietario.tipo_contacto === "marketplace_dueno"
+      ? `Podemos armar la presentación tomando las fotos que ya publicaste en el aviso (y si tenés alguna más de detalle o un video corto para sumar, bienvenido)?`
+      : `_Trabajamos con publicación abierta de propietario y coordinamos visitas solo con interesados calificados._`;
     siguientePreguntaWa = textoLimpioPokaYoke(
-      `${saludo}, gracias por confirmar sobre ${tituloPublico} en ${zonaPublica}. ` +
-      `Para completar la ficha pública y avanzar con interesados reales filtrados, pasame por favor ${pedirLista.join(" + ")}.\n\n` +
-      `_Trabajamos con publicación abierta de propietario y coordinamos visitas solo con interesados calificados._`
+      `${introTomado}Para completar la ficha y moverla con publicación abierta con interesados filtrados, confirmame por favor ${pedirLista.join(" + ")}.\n\n${cierreFoto}`
     );
   }
 

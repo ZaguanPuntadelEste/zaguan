@@ -448,6 +448,8 @@
           <p style="font-size:13px;color:var(--muted);">Incluye reglas silenciosas automáticas: presupuesto elástico <strong>+7,5% con y sin GC</strong>, <strong>Mono/1D/2D abiertos</strong> para 1–2 personas, amoblado/sin muebles y seguimiento 1 → 3 → 2 de Mar.</p>
         </div>
         <div class="btn-row">
+          <a class="btn btn-sm" href="https://zaguanpropiedades.com/garantias-alquiler/" target="_blank" rel="noopener noreferrer" style="background:#0A2B4C;border-color:#4DB6E2;color:#E6F2F8;">🛡️ Simulador Multi-Persona Garantías (1–4) ↗</a>
+          <a class="btn btn-sm" href="https://zaguanpropiedades.com/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" target="_blank" rel="noopener noreferrer" style="background:#162736;border-color:#B7D6E0;color:#F3F0E8;">📘 Guía 8 FAQs Garantías ↗</a>
           <button class="btn btn-yes btn-sm" onclick="loadRadar4Z()">🔄 Refrescar Pedidos en vivo</button>
         </div>
       </div>
@@ -1764,26 +1766,46 @@ function buildSuggestedReplyForMar(nombrePersona, tipoOperacion, respuestaTexto,
   if (itemFallback && itemFallback.sugerencia_mar) {
     return lintMarLocal(itemFallback.sugerencia_mar);
   }
-  const first = (nombrePersona || '').split(' ')[0] || '';
-  const saludoNombre = first && !first.includes('(') ? first : '';
-  const comaNombre = saludoNombre ? `, ${saludoNombre}` : '';
-  const low = (respuestaTexto || '').toLowerCase();
-  const esVenta = (tipoOperacion || '').toLowerCase().includes('venta') || (tipoOperacion || '').toLowerCase().includes('desarrolladora');
-  let msg = '';
-  if (low.includes('no tengo') || low.includes('ningun lado') || low.includes('ningún lado') || low.includes('equivoc')) {
+  const first = (nombrePersona || "").split(" ")[0] || "";
+  const saludoNombre = first && !first.includes("(") ? first : "";
+  const comaNombre = saludoNombre ? `, ${saludoNombre}` : "";
+  const low = (respuestaTexto || "").toLowerCase();
+  const esVenta = (tipoOperacion || "").toLowerCase().includes("venta") || (tipoOperacion || "").toLowerCase().includes("desarrolladora");
+  const adCorpus = [
+    itemFallback?.titulo,
+    itemFallback?.publicacion_titulo,
+    itemFallback?.precio,
+    itemFallback?.precio_texto,
+    itemFallback?.zona,
+    itemFallback?.empresa_o_zona,
+    Array.isArray(itemFallback?.corchetes_en_aviso) ? itemFallback.corchetes_en_aviso.join(" · ") : "",
+    itemFallback?.nota_auditoria,
+    respuestaTexto
+  ].filter(Boolean).join(" · ").toLowerCase();
+  const tieneAseguradora = /(aseguradora|porto|sura|mapfre|santander)/.test(adCorpus);
+  const tieneGc = /(gastos\s+comunes\s+(?:incluidos|son|de)|sin\s+gastos\s+comunes|no\s+tiene\s+gastos\s+comunes)/.test(adCorpus);
+  const tieneMascota = /(acepta\s+mascota|admite\s+mascota|no\s+(?:acepta|admite)\s+mascota|sin\s+mascota)/.test(adCorpus);
+  const cierreVisual = "Podemos armar la presentación tomando las fotos que ya publicaste en el aviso (y si tenés alguna más de detalle o un video corto para sumar, bienvenido)?";
+  let msg = "";
+  if (low.includes("no tengo") || low.includes("ningun lado") || low.includes("ningún lado") || low.includes("equivoc")) {
     msg = `Perdón la molestia${comaNombre}, figuraba este número en un aviso publicado en Facebook. Ya lo doy de baja de nuestra lista para no volver a escribirte. Buen día, Mar.`;
-  } else if (low.includes('no está disponible') || low.includes('no esta disponible') || low.includes('ya se alquil') || low.includes('ya alquil') || low.includes('ya vend')) {
+  } else if (low.includes("no está disponible") || low.includes("no esta disponible") || low.includes("ya se alquil") || low.includes("ya alquil") || low.includes("ya vend")) {
     msg = `Muchas gracias por avisarme${comaNombre}. Ya tomo nota de que no está disponible. Si más adelante se desocupa o tenés otra propiedad en la zona, contá con nosotros. Buen día, Mar — ZAGUÁN Propiedades.`;
-  } else if (low.includes('encargamos') || low.includes('no me interesa') || low.includes('por nuestra cuenta') || low.includes('sin inmobiliaria')) {
+  } else if (low.includes("encargamos") || low.includes("no me interesa") || low.includes("por nuestra cuenta") || low.includes("sin inmobiliaria")) {
     msg = `Perfecto${comaNombre}, gracias por responder con claridad y muchos éxitos. Quedamos a las órdenes si más adelante necesitás interesados con garantía aseguradora aprobada. Saludos, Mar — ZAGUÁN Propiedades.`;
-  } else if (low.includes('comisi') || low.includes('honorario') || low.includes('cuanto cobran') || low.includes('cuánto cobran') || low.includes('porcentaje')) {
+  } else if (low.includes("comisi") || low.includes("honorario") || low.includes("cuanto cobran") || low.includes("cuánto cobran") || low.includes("porcentaje")) {
     msg = esVenta
-      ? `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder.\n\nTrabajamos con autorización abierta (seguís ofreciendo por tu cuenta) y honorarios de plaza del 3% + IVA al concretar la venta con escribanía aliada.\n\n_Me confirmás metros, calidad constructiva/estado y si contás con fotos adicionales o algún detalle de planos para armar la presentación?_`
-      : `Hola${saludoNombre ? ' ' + saludoNombre : ''}, gracias por responder.\n\nTrabajamos alquiler anual con autorización abierta (seguís ofreciéndolo por tu cuenta) y honorarios de 1 mes de alquiler + IVA al firmar contrato.\n\n_Si ya nos indicaste valor y garantía, confirmame qué incluye el monto, si contemplás extranjeros certificando ingresos con escribanía aliada, y cómo es el tema cochera o mascotas._`;
+      ? `Hola${saludoNombre ? " " + saludoNombre : ""}, gracias por responder.\n\nTrabajamos con autorización abierta (seguís ofreciendo por tu cuenta) y honorarios de plaza del 3% + IVA al concretar la venta con escribanía aliada.\n\n_Me confirmás metros y detalle de planos/títulos para armar la presentación? ${cierreVisual}_`
+      : `Hola${saludoNombre ? " " + saludoNombre : ""}, gracias por responder.\n\nTrabajamos alquiler anual con autorización abierta (seguís ofreciéndolo por tu cuenta) y honorarios de 1 mes de alquiler + IVA al firmar contrato.\n\n_${tieneAseguradora ? "Ya tomé de tu aviso que es por aseguradora; " : ""}confirmame ${!tieneGc ? "qué incluye el monto (gastos comunes/Wi-Fi), " : ""}si contemplás extranjeros certificando ingresos con escribanía aliada, y cómo es el tema cochera${!tieneMascota ? " o mascotas" : ""}._`;
   } else if (esVenta) {
-    msg = `Genial${comaNombre}, gracias por responder.\n\nTrabajamos con publicación abierta y acompañamiento notarial de nuestra escribanía aliada.\n\n_Si tenés fotos adicionales de detalle o algún video continuo de los ambientes para enriquecer el material publicado, mandalos por acá junto con los datos de metros y planos/gastos comunes que falten confirmar._`;
+    msg = `Genial${comaNombre}, gracias por responder.\n\nTrabajamos con publicación abierta y acompañamiento notarial de nuestra escribanía aliada.\n\n_Confirmame los datos que falten de metros totales/edificados y si tiene títulos/planos al día. ${cierreVisual}_`;
   } else {
-    msg = `Genial${comaNombre}, gracias por responder.\n\nTrabajamos alquiler anual con publicación abierta (seguís ofreciéndolo por tu cuenta).\n\n_Para dejar el resumen listo y publicar el material con tu OK, confirmame los datos que falten del valor (gastos comunes/Wi-Fi), cochera (fija, techada o nivel), si acepta niños o mascotas y si tenés fotos adicionales de detalle o video para enriquecer el aviso._`;
+    const pedir = [];
+    if (!tieneAseguradora) pedir.push("qué garantías aceptás (Porto, Sura, Mapfre o Santander)");
+    if (!tieneGc) pedir.push("si tiene gastos comunes o Wi-Fi incluidos");
+    pedir.push("si cuenta con cochera");
+    if (!tieneMascota) pedir.push("si admite niños o mascotas");
+    msg = `Hola${saludoNombre ? " " + saludoNombre : ""}, gracias por confirmar.${tieneAseguradora ? " Ya tomé de tu publicación que trabaja con garantía aseguradora." : ""}\n\nPara completar la ficha y avanzar con publicación abierta con interesados filtrados, confirmame por favor ${pedir.join(", ")}.\n\n${cierreVisual}`;
   }
   return lintMarLocal(msg);
 }
@@ -1828,7 +1850,7 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
     }
     const selloCierre = (itemFallback && itemFallback.sello_cierre) || 'CERRADO';
     const fechaRadar = (itemFallback && itemFallback.proximo_toque_fecha) || '';
-    if (!fechaRadar || ['INMOBILIARIA ENCUBIERTA', 'ALQUILADO EN MARKETPLACE', 'DESCARTADO EN RADAR'].includes(selloCierre)) {
+    if (!fechaRadar || /(INMOBILIARIA|FAMILIAR|ALQUILADO EN MARKETPLACE|DESCARTADO)/i.test(selloCierre)) {
       return `
         <div style="background:rgba(127,29,29,0.22);border:1px solid rgba(239,68,68,0.45);border-radius:8px;padding:10px 12px;margin-top:6px;">
           ${timelineHtml}
@@ -1873,9 +1895,9 @@ function renderReplyLoaderBox(id, nombrePersona, tipoOperacion, telefonoWa, item
         <button class="btn btn-no btn-sm" onclick="aplicarSelloPrestigio('${id}', 'ALQUILADO')">🏷️ Alquilado (otro)</button>
         <button class="btn btn-no btn-sm" style="background:rgba(230,184,92,0.2);color:#FCD34D;border-color:#FCD34D;" onclick="aplicarSelloPrestigio('${id}', 'ALQUILADO POR ZAGUÁN')">🏆 Alquilado por Zaguán</button>
       </div>
-      ${sugerencia ? `
+      ${sugerencia && !(prefixId === 'mp' && rec.carril === '1_por_contactar' && rec.estado === 'pendiente') ? `
         <div style="margin-top:8px;border-top:1px dashed var(--border);padding-top:8px;">
-          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Próximo mensaje sugerido de Mar (Linter SÍ/NO verificado · adaptado al hilo):</label>
+          <label style="display:block;font-size:11px;color:#6EE7B7;font-weight:700;margin-bottom:4px;">🤖 Próximo mensaje sugerido de Mar (Linter SÍ/NO verificado · adaptado al aviso y al hilo):</label>
           <textarea class="msg-preview" id="sug-reply-${prefixId}-${id}" style="min-height:68px;font-size:12px;">${sugerencia}</textarea>
           <div class="btn-row" style="margin-top:6px;">
             <button class="btn btn-yes btn-sm" onclick="copyTextById('sug-reply-${prefixId}-${id}')">📋 Copiar copy de Mar</button>
@@ -2573,6 +2595,7 @@ function renderRadar4Z() {
           ${it.estado_material_aviso ? `<div style="color:#D4CCBD;"><strong>📷 Material en aviso:</strong> ${it.estado_material_aviso}</div>` : ''}
           ${(it.corchetes_faltantes && it.corchetes_faltantes.length) ? `<div style="color:#FBBF24;"><strong>🎯 Faltantes que pregunta Mar:</strong> ${it.corchetes_faltantes.join(' · ')}</div>` : ''}
         </div>
+        ${(rec.carril === '1_por_contactar' && rec.estado === 'pendiente') ? `
         <div class="field">
           <label>1° Mensaje con [CORCHETES] reales (Punto y aparte + _cursiva_ · Cero %/comisión · Cero URL)</label>
           <textarea class="msg-preview" id="mp-msg-${idx}">${msg1}</textarea>
@@ -2583,10 +2606,13 @@ function renderRadar4Z() {
           <button class="btn btn-outline btn-sm" style="margin-top:6px;" onclick="copyTextById('mp-seg-${idx}')">📋 Copiar Seguimiento 72 hs</button>
         </details>
         <div class="btn-row">
-          ${rec.estado !== 'cerrado' && waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(hydrateRadarFromCloud, 1800)">📲 1° WhatsApp Directo (${it.telefono_directo} · auto-registra 72h)</a>` : ''}
-          ${rec.estado !== 'cerrado' ? `<button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>` : ''}
+          ${waDirect ? `<a class="btn btn-wa btn-sm" href="${waDirect}" target="_blank" rel="noopener noreferrer" onclick="setTimeout(hydrateRadarFromCloud, 1800)">📲 1° WhatsApp Directo (${it.telefono_directo} · auto-registra 72h)</a>` : ''}
+          <button class="btn btn-yes btn-sm" onclick="copyTextById('mp-msg-${idx}')">📋 Copiar 1° Mensaje</button>
           ${it.url ? `<a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>` : ''}
-        </div>
+        </div>` : `
+        <div class="btn-row">
+          ${it.url ? `<a class="btn btn-email btn-sm" href="${it.url}" target="_blank" rel="noopener noreferrer">📘 Abrir Aviso Marketplace ↗</a>` : ''}
+        </div>`}
       </div>`;
     }).join('') || '<div style="padding:14px;color:var(--muted);">No hay dueños en este filtro.</div>';
     return;

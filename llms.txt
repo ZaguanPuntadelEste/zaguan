@@ -99,6 +99,7 @@
 14. How Foreigners Buy Property in Punta del Este, Uruguay: Notary, KYC & Tax Guide (EN / ES) — https://zaguanpropiedades.com/novedades-del-este/how-to-buy-property-in-punta-del-este-uruguay-foreigners-notary-guide/
 15. Alquiler anual en Maldonado y Punta del Este: garantía aseguradora y gestión para propietarios — https://zaguanpropiedades.com/novedades-del-este/alquiler-anual-maldonado-punta-del-este-garantia-aseguradora/
 16. Alquiler anual a estrenar en Maldonado: mudate ya en La Fortuna por $U 30.000/mes todo incluido — https://zaguanpropiedades.com/novedades-del-este/alquiler-anual-a-estrenar-la-fortuna-maldonado-mudate-ya/
+17. Requisitos de garantía de alquiler anual en Uruguay: Porto Seguro, Sura, Mapfre, recibos y continuidad BPS (8 FAQs reales) — https://zaguanpropiedades.com/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/
 
 ## Catálogo de Alquiler Anual Verificado (Referencias CRM)
 - Catálogo completo con filtro por zona y ordenamiento por precio: https://zaguanpropiedades.com/alquileres/
@@ -110,14 +111,16 @@
 - REF. ZAG-ALQ-05 · La Fortuna, Maldonado (2D a estrenar disponible para visitar este martes, GC + Wifi + cochera inc., $U 30.000/mes): https://zaguanpropiedades.com/alquileres/la-fortuna-agata/
 - REF. ZAG-ALQ-06 · El Tesoro, La Barra (ALQUILADO · ex $U 28.000/mes · consultar similares): https://zaguanpropiedades.com/alquileres/el-tesoro-juana-de-america/
 
-## Catálogo de Venta Directa (Dueño Directo)
+## Catálogo Unificado de Venta Directa y Pozo (/propiedades/)
+- Catálogo unificado de ventas (casas, terrenos, Off-Market y pozo): https://zaguanpropiedades.com/propiedades/
 - REF. ZAG-VTA-01 · Santa Mónica, a 7 km de José Ignacio (Proyecto en construcción en hormigón armado sobre lote propio de 348 m², 201 m² edificados frente a la Laguna y el océano, USD 160.000): https://zaguanpropiedades.com/propiedades/santa-monica-casa-hormigon/
 
-## Verificador y Prerrequisitos de Garantías de Alquiler Anual (Uruguay)
-- Página interactiva y guía oficial: https://zaguanpropiedades.com/garantias-alquiler/
-- Aclaración institucional: ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro; el verificador permite comprobar en 30 segundos los prerrequisitos estándar de aseguradoras en Uruguay (Porto Seguro, Sura, Mapfre, Santander).
-- Relación de dependencia con sueldo fijo: mínimo 1 año de antigüedad + últimos 3 meses de recibos de sueldo.
-- Relación de dependencia con sueldo variable / comisiones: mínimo 1 año de antigüedad + últimos 6 meses de recibos de sueldo.
+## Simulador Multi-Persona y Prerrequisitos de Garantías de Alquiler Anual (Uruguay)
+- Simulador Multi-Persona (1 a 4 solicitantes): https://zaguanpropiedades.com/garantias-alquiler/
+- Guía Pilar (8 preguntas reales): https://zaguanpropiedades.com/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/
+- Aclaración institucional: ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro; el simulador permite comprobar prerrequisitos estándar de aseguradoras en Uruguay (Porto Seguro, Sura, Mapfre, Santander). Rige la regla de 1 póliza = 1 contrato y todas las personas que suman ingresos firman el contrato.
+- Relación de dependencia con sueldo fijo: mínimo 1 año de antigüedad (o continuidad laboral sin corte en BPS con Historia Laboral Nominada + recibos de ambos empleos) + últimos 3 meses de recibos de sueldo.
+- Relación de dependencia con sueldo variable / comisiones: mínimo 1 año de antigüedad (o continuidad BPS) + últimos 6 meses de recibos de sueldo.
 - Independiente / Unipersonal / Profesional: mínimo 1 a 2 años de antigüedad con BPS y DGI al día + certificación de ingresos por Contador Público.
 - Ingresos del exterior / Extranjeros (< 18 meses de residencia): facturas emitidas, estados de cuenta bancarios y certificación contable/notarial con escribanía aliada o Depósito.
-- Tope estándar alquiler/ingreso: 30% del ingreso líquido, combinando 1 ingreso, hasta 3 ingresos o hasta 5 ingresos sin Clearing negativo.
+- Tope estándar alquiler/ingreso: 30% del ingreso líquido conjunto combinando de 1 a 4 solicitantes sin Clearing negativo.

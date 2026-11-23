@@ -13,6 +13,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { clasificarYResponder, aplicarPokaYokeMar, extraerVariablesSilenciosasB2C } from '../workers/whatsapp-triage/index.js';
+import { evaluarCorchetesPropietario } from '../workers/shared/corchetes-14v.js';
 
 const REPO_ROOT = '/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main';
 const DRIVE_OUT_60 = join(REPO_ROOT, 'admin/REPORTE_SIMULACION_60_ESCENARIOS.json');
@@ -786,7 +787,7 @@ export const ESCENARIOS_60 = [
     },
   },
   // BLOQUE 8: VERIFICADOR DE GARANTÍAS, FORMULARIOS SILENCIOSOS, 5 ACCIONES Y COMET LIVE
-  makeHtmlAuditScenario('SIM-81', 'Verificador de Garantías · Paleta ZAGUÁN', 'garantias-alquiler/index.html', {
+  makeHtmlAuditScenario('SIM-81', 'Verificador de Garantías · Simulador Multi-Persona (1–4) y Paleta ZAGUÁN', 'garantias-alquiler/index.html', {
     mustInclude: [
       'ZAGUÁN Propiedades no otorga, no emite ni evalúa garantías ni pólizas de seguro',
       'Puerta A',
@@ -795,8 +796,10 @@ export const ESCENARIOS_60 = [
       'últimos 6 meses de recibos de sueldo',
       '18 meses de residencia',
       'Contador Público',
-      'Hasta 3 ingresos combinados',
-      'Hasta 5 ingresos combinados',
+      '1 a 4 solicitantes',
+      '+ Sumar Solicitante',
+      'Historia Laboral Nominada de BPS',
+      '1 póliza = 1 contrato',
       'CIERRE_INMEDIATO_CON_GARANTIA_LISTA',
       'verificador_garantias_web',
       'Schema.org',
@@ -949,7 +952,10 @@ export const ESCENARIOS_60 = [
       if (findId('MP-29')?.sello_cierre !== 'INMOBILIARIA ENCUBIERTA') errs.push('MP29_NO_ARCHIVADA_INMOBILIARIA');
       if (findId('MP-33')?.sello_cierre !== 'ALQUILADO EN MARKETPLACE') errs.push('MP33_NO_ARCHIVADA_ALQUILADO');
       if (!String(findId('MP-12')?.alerta_mar || '').includes('MP-33')) errs.push('MP12_SIN_ALERTA_VERIFICAR_JORGE');
-      if (findId('MP-27')?.carril !== '3_en_conversacion') errs.push('MP27_DANILO_NO_EN_CONVERSACION');
+      if (findId('MP-27')?.carril !== '5_cerrado_radar') errs.push('MP27_DANILO_NO_CERRADO_RADAR');
+      if (findId('MP-27')?.sello_cierre !== 'DECISIÓN FAMILIAR / NO AUTORIZA') errs.push('MP27_SELLO_INCORRECTO');
+      if (findId('MP-38')?.carril !== '5_cerrado_radar') errs.push('MP38_VIZCAYA_NO_CERRADA_RADAR');
+      if (findId('MP-38')?.sello_cierre !== 'INMOBILIARIA ENCUBIERTA (VIZCAYA)') errs.push('MP38_SELLO_INCORRECTO');
       for (const alId of ['MP-24', 'MP-25', 'MP-31', 'MP-34', 'MP-37']) {
         if (findId(alId)?.nivel_semaforo !== '1B_CON_ALERTA') errs.push(`FALTA_SEMAFORO_AMARILLO_${alId}`);
       }
@@ -962,7 +968,147 @@ export const ESCENARIOS_60 = [
         vertical_detectada: 'ADMIN_SEMAFORO_3_NIVELES',
         subtipo_detectado: errs.length ? 'ADMIN_INCOMPLETO' : 'ADMIN_SEMAFORO_Y_BUSCADOR_OK',
         alerta_andon: errs.length > 0,
-        replyText: errs.length ? errs.join(',') : 'Semáforo 3 niveles + MP-29/33 cerradas + alerta MP-12 + filtro San Carlos + buscador global sin tope OK',
+        replyText: errs.length ? errs.join(',') : 'Semáforo 3 niveles + MP-29/33/27/38 cerradas + alerta MP-12 + filtro San Carlos + buscador global sin tope OK',
+      };
+    },
+  },
+  {
+    id: 'SIM-91',
+    bloque: 'Zero Comet 9222 + MP-39 Claudia sin re-preguntar aseguradora ni fotos + Caja única en /admin/',
+    turno: 'Cierre Operativo Comet & Cabina',
+    contexto: 'admin_html',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'tools/ + admin/index.html + workers/shared/corchetes-14v.js (MP-39)',
+    evaluate: () => {
+      const errs = [];
+      if (existsSync(join(REPO_ROOT, 'tools/puente_vivo_comet_wa.mjs'))) {
+        errs.push('COMET_SCRIPT_SIGUE_EN_DISCO');
+      }
+      const mpJson = JSON.parse(readFileSync(join(REPO_ROOT, 'admin/prospeccion_viva_4zonas_zaguan.json'), 'utf8'));
+      const mp39 = (mpJson.marketplace_duenos_directos || []).find((x) => x.id === 'MP-39');
+      if (!mp39) {
+        errs.push('FALTA_MP39_CLAUDIA');
+      } else {
+        if (mp39.carril !== '3_en_conversacion') errs.push('MP39_NO_EN_CONVERSACION');
+        const eval39 = evaluarCorchetesPropietario(mp39, mp39.respuesta_recibida || '');
+        if (!eval39?.confirmados?.garantias_aceptadas) errs.push('MP39_NO_CONFIRMA_GARANTIA_DE_AVISO');
+        if (!eval39?.confirmados?.dormitorios) errs.push('MP39_NO_CONFIRMA_2D_DE_AVISO');
+        if (eval39?.confirmados?.gastos_comunes === 'gastos comunes,') errs.push('MP39_FALSO_MATCH_GASTOS_COMUNES_MAR');
+        const preg = String(eval39?.siguiente_pregunta_wa || '').toLowerCase();
+        if (/qu[eé]\s+garant[ií]as\s+acept[aá]s/.test(preg)) errs.push('MP39_REPREGUNTA_GARANTIA');
+        if (/pasame\s+fotos\s+reales/.test(preg)) errs.push('MP39_PIDE_FOTOS_REALES_EXISTENTES');
+      }
+      const adminHtml = readHtml('admin/index.html') || '';
+      if (!adminHtml.includes("rec.carril === '1_por_contactar' && rec.estado === 'pendiente'")) {
+        errs.push('ADMIN_NO_OCULTA_PRIMER_MENSAJE_EN_SEGUIMIENTO');
+      }
+      if (!adminHtml.includes('aseguradora') || adminHtml.includes('pasame fotos reales de cómo está hoy')) {
+        errs.push('ADMIN_SUGERENCIA_MAR_NO_ACTUALIZADA');
+      }
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'ZERO_COMET_Y_MP39_LIMPIA',
+        subtipo_detectado: errs.length ? 'MP39_O_COMET_CON_FALLA' : 'ZERO_COMET_CAJA_UNICA_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Zero Comet 9222 + MP-39 reconoce aseguradora/2D sin pedir fotos + 1 caja única en /admin/ OK',
+      };
+    },
+  },
+  {
+    id: 'SIM-92',
+    bloque: 'Catálogo Unificado Ventas /propiedades/ + Hub / y /links/ + 0 sin exclusividad',
+    turno: 'Web UX/SEO',
+    contexto: 'web_publica',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'propiedades/index.html + index.html + links/index.html + 11 páginas',
+    evaluate: () => {
+      const errs = [];
+      const propsHtml = readHtml('propiedades/index.html') || '';
+      if (/noindex/i.test(propsHtml) || /http-equiv=["']refresh["']/i.test(propsHtml)) {
+        errs.push('PROPIEDADES_SIGUE_CON_NOINDEX_O_REDIRECT');
+      }
+      if (!propsHtml.includes('Santa Mónica') || !propsHtml.includes('USD 160.000') || !propsHtml.includes('/propiedades/santa-monica-casa-hormigon/')) {
+        errs.push('PROPIEDADES_SIN_SANTA_MONICA_160K');
+      }
+      for (const p of ['/proyectos/betania-iv/', '/proyectos/nostrum-roosevelt/', '/proyectos/more-atlantico/', '/proyectos/eve-tower/', '/proyectos/golden-rise/']) {
+        if (!propsHtml.includes(p)) errs.push(`PROPIEDADES_FALTA_POZO_${p}`);
+      }
+      for (const hub of ['index.html', 'links/index.html']) {
+        const h = readHtml(hub) || '';
+        if (!h.includes('La Fortuna') || !h.includes('Santa Mónica') || !h.includes('/garantias-alquiler/') || !h.includes('/propiedades/')) {
+          errs.push(`HUB_INCOMPLETO_${hub}`);
+        }
+      }
+      const paginas = [
+        'index.html', 'links/index.html', 'propiedades/index.html', 'proyectos/index.html',
+        'alquileres/index.html', 'alquiloanual/index.html', 'garantias-alquiler/index.html',
+        'novedades-del-este/index.html', 'oportunidades/index.html', 'publicar/index.html',
+        'busqueda-personalizada/index.html', 'propiedades/santa-monica-casa-hormigon/index.html',
+      ];
+      for (const f of paginas) {
+        const h = readHtml(f) || '';
+        if (/sin\s+exclusividad/i.test(h)) errs.push(`SIN_EXCLUSIVIDAD_EN_${f}`);
+        if (!h.includes('/propiedades/') || !h.includes('/garantias-alquiler/')) errs.push(`NAV_INCOMPLETO_EN_${f}`);
+      }
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'CATALOGO_VENTAS_Y_NAV_UNIFICADO',
+        subtipo_detectado: errs.length ? 'WEB_PUBLICA_INCOMPLETA' : 'PROPIEDADES_Y_HUBS_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Catálogo /propiedades/ indexable + Santa Mónica USD 160k + 5 pozos + nav unificado en 11+ páginas OK',
+      };
+    },
+  },
+  {
+    id: 'SIM-93',
+    bloque: 'Simulador Multi-Persona (1–4) + Guía Pilar 8 FAQs en Posición #1 + 6 PDPs enlazados',
+    turno: 'Garantías & SEO Pilar',
+    contexto: 'garantias_seo',
+    tipo: 'CROSS_AUDIT_HTML',
+    input: 'garantias-alquiler/index.html + novedades-del-este/ + alquileres/*/',
+    evaluate: () => {
+      const errs = [];
+      const garHtml = readHtml('garantias-alquiler/index.html') || '';
+      if (!garHtml.includes('agregarSolicitante') || !garHtml.includes('Historia Laboral Nominada de BPS') || !garHtml.includes('1 póliza = 1 contrato') || !garHtml.includes('veredictoDesbloqueado')) {
+        errs.push('GARANTIAS_SIN_SIMULADOR_MULTIPERSONA_COMPLETO');
+      }
+      const guiaSlug = 'requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos';
+      const guiaHtml = readHtml(`novedades-del-este/${guiaSlug}/index.html`) || '';
+      if (!guiaHtml || !guiaHtml.includes('8.') || !guiaHtml.includes('Historia Laboral Nominada de BPS') || !guiaHtml.includes('no otorga, no evalúa ni aprueba garantías')) {
+        errs.push('GUIA_PILAR_8_FAQS_INCOMPLETA');
+      }
+      const novHtml = readHtml('novedades-del-este/index.html') || '';
+      const idxGuia = novHtml.indexOf(guiaSlug);
+      const idxLaFortuna = novHtml.indexOf('alquiler-anual-a-estrenar-la-fortuna-maldonado-mudate-ya');
+      if (idxGuia === -1 || (idxLaFortuna !== -1 && idxGuia > idxLaFortuna)) {
+        errs.push('GUIA_PILAR_NO_EN_POSICION_1_NOVEDADES');
+      }
+      if (!novHtml.includes('/propiedades/santa-monica-casa-hormigon/')) {
+        errs.push('NOVEDADES_SIN_TARJETA_SANTA_MONICA');
+      }
+      const pdps = [
+        'alquileres/la-fortuna-agata/index.html',
+        'alquileres/el-tesoro-juana-de-america/index.html',
+        'alquileres/maldonado-residencial-2d/index.html',
+        'alquileres/la-mansa-parada-16-2d/index.html',
+        'alquileres/roosevelt-cantegril-2d/index.html',
+        'alquileres/la-brava-parada-8-3d/index.html',
+      ];
+      for (const p of pdps) {
+        const h = readHtml(p) || '';
+        if (!h.includes('/garantias-alquiler/?alquiler=') || !h.includes(guiaSlug)) {
+          errs.push(`PDP_SIN_ENLACE_SIMULADOR_O_GUIA_${p}`);
+        }
+      }
+      return {
+        pass: errs.length === 0,
+        errores: errs,
+        vertical_detectada: 'SIMULADOR_MULTIPERSONA_Y_GUIA_PILAR',
+        subtipo_detectado: errs.length ? 'GARANTIAS_O_LINKS_INCOMPLETOS' : 'SIMULADOR_Y_6_PDPS_OK',
+        alerta_andon: errs.length > 0,
+        replyText: errs.length ? errs.join(',') : 'Simulador 1–4 personas + Guía 8 FAQs Posición #1 + Santa Mónica en Novedades + 6 PDPs enlazados OK',
       };
     },
   },

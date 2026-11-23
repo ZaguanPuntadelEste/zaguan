@@ -247,6 +247,93 @@
     .faq-item h3 { font-size: 18px; color: var(--bigua); margin-bottom: 8px; }
     .faq-item p { font-size: 14px; color: var(--bigua); }
 
+    .multi-signer-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .signer-stack {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .signer-card {
+      background: #FFFFFF;
+      border: 1px solid var(--mist);
+      padding: 14px;
+    }
+    .signer-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--mist);
+    }
+    .signer-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--estuario);
+    }
+    .btn-mini-remove {
+      background: transparent;
+      border: 1px solid var(--mist);
+      color: var(--bigua);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      cursor: pointer;
+    }
+    .btn-mini-remove:hover { background: var(--limestone); }
+    .context-pill {
+      display: none;
+      background: var(--bigua);
+      color: var(--bone);
+      padding: 10px 12px;
+      font-size: 13px;
+      margin-bottom: 14px;
+      border-left: 3px solid var(--feather);
+    }
+    .verdict-locked-note {
+      margin-top: 12px;
+      background: rgba(243,240,232,0.1);
+      border: 1px dashed rgba(243,240,232,0.4);
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: rgba(243,240,232,0.92);
+    }
+    .verdict-unlocked {
+      display: none;
+      margin-top: 16px;
+      background: var(--bone);
+      color: var(--bigua);
+      border: 2px solid var(--estuario);
+      padding: 18px;
+    }
+    .verdict-person {
+      background: var(--limestone);
+      border: 1px solid var(--mist);
+      padding: 12px;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .verdict-person h4 {
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: var(--bigua);
+    }
+    .verdict-person ul {
+      padding-left: 18px;
+      display: grid;
+      gap: 4px;
+    }
+
     .site-footer {
       background: var(--bigua);
       color: rgba(243,240,232,0.78);
@@ -264,7 +351,17 @@
       .gates-grid, .req-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 600px) {
-      .main-nav { display: none; }
+      .header-inner { flex-wrap: wrap; padding: 10px 0; min-height: auto; gap: 10px; }
+      .main-nav {
+        display: flex;
+        order: 3;
+        width: 100%;
+        gap: 10px 14px;
+        flex-wrap: wrap;
+        padding-top: 8px;
+        border-top: 1px solid rgba(243,240,232,0.14);
+      }
+      .main-nav a { font-size: 10.5px; }
       .mob-wa-top {
         display: inline-block;
         background: var(--bone);
@@ -331,6 +428,14 @@
               "@type": "Answer",
               "text": "Sí. Si verificás que cumplís los prerrequisitos de ingresos y documentación antes de coordinar la visita, podemos avanzar con la visita y ayudarte a tramitar la garantía aseguradora con nuestra gestión ZAGUÁN."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué pasa si cambié de trabajo hace menos de un año sin corte en BPS o si sumamos ingresos entre varias personas?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Si tuviste continuidad laboral sin corte de aportes en BPS entre tu empleo anterior y el actual, podés presentar tu Historia Laboral Nominada de BPS junto con los recibos de ambos empleos. Además, todas las personas que suman ingresos (de 1 a 4 solicitantes en el simulador) deben firmar el contrato de alquiler, bajo la regla de 1 póliza igual 1 contrato."
+            }
           }
         ]
       }
@@ -346,13 +451,7 @@
       <a href="/" aria-label="ZAGUÁN Propiedades, inicio">
         <img class="brand-logo" src="/assets/brand/zaguan-white.png" alt="ZAGUÁN">
       </a>
-      <nav class="main-nav" aria-label="Navegación principal">
-        <a href="/alquileres/">Alquileres activos</a>
-        <a href="/alquiloanual/">Alquiler anual</a>
-        <a href="/garantias-alquiler/" aria-current="page">Verificador de garantías</a>
-        <a href="/proyectos/">Proyectos en pozo</a>
-        <a href="/publicar/">Publicar propiedad</a>
-      </nav>
+      <nav class="main-nav" aria-label="Navegación principal"><a href="/propiedades/">Venta: Casas y Lotes</a><a href="/proyectos/">Desarrollos en Pozo</a><a href="/alquileres/">Alquiler Anual</a><a href="/garantias-alquiler/">Verificador de Garantías</a><a href="/novedades-del-este/">Novedades del Este</a><a href="/publicar/">Publicar Propiedad</a></nav>
       <a class="mob-wa-top" href="https://wa.me/59898712064?text=Hola%20Mar%2C%20quiero%20consultar%20por%20garant%C3%ADas%20de%20alquiler%20anual." target="_blank" rel="noopener noreferrer">WhatsApp Mar →</a>
     </div>
   </header>
@@ -416,87 +515,33 @@
 
           <!-- PUERTA B -->
           <article class="gate-card gate-card--primary">
-            <span class="gate-tag">Puerta B · Verificador en vivo</span>
-            <h2>Todavía no la tengo y quiero verificar si califico para tramitarla con gestión ZAGUÁN</h2>
-            <p class="gate-sub">Comprobá al instante documento, residencia mínima (18 meses), recibos (3 vs. 6 según sueldo fijo o variable), tope del 30% y suma de hasta 3 o 5 ingresos sin Clearing.</p>
+            <span class="gate-tag">Puerta B · Simulador Multi-Persona (1 a 4)</span>
+            <h2>Todavía no la tengo y quiero simular si calificamos con gestión ZAGUÁN</h2>
+            <p class="gate-sub">Cargá de <strong>1 a 4 solicitantes</strong> (todos los que aportan ingresos firman el contrato · <strong>1 póliza = 1 contrato</strong>), verificá continuidad laboral en BPS, recibos (3 vs. 6) y tope del 30%.</p>
 
-            <div class="form-grid">
+            <div class="context-pill" id="pb-prop-banner"></div>
+
+            <div class="form-grid" style="margin-bottom:14px;">
               <div class="field field--full">
-                <label for="pb-doc">1. Documento y residencia en Uruguay</label>
-                <select id="pb-doc" onchange="calcularPrecalificacionGarantia()">
-                  <option value="ci_vigente_2y">Cédula uruguaya (CI) vigente (2 o más años hasta vencimiento) + residencia en Uruguay</option>
-                  <option value="ci_menor_2y">Cédula uruguaya próxima a vencer (menos de 2 años)</option>
-                  <option value="extranjero_18m">Pasaporte extranjero + más de 18 meses de residencia en Uruguay</option>
-                  <option value="extranjero_nuevo">Pasaporte / DNI extranjero con menos de 18 meses de residencia</option>
-                </select>
-              </div>
-
-              <div class="field field--full">
-                <label for="pb-laboral">2. Actividad laboral y antigüedad</label>
-                <select id="pb-laboral" onchange="calcularPrecalificacionGarantia()">
-                  <option value="dependencia_fijo">Relación de dependencia con sueldo fijo (mín. 1 año + últimos 3 recibos)</option>
-                  <option value="dependencia_variable">Relación de dependencia con sueldo variable / comisiones (mín. 1 año + últimos 6 recibos)</option>
-                  <option value="independiente">Independiente / Unipersonal / Profesional (1 a 2 años + BPS/DGI al día + Contador Público)</option>
-                  <option value="exterior">Ingresos del exterior (facturas + extractos bancarios + escribanía aliada)</option>
-                  <option value="sin_ingresos_formales">Sin ingresos formales demostrables (orientación directa a Depósito)</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="pb-antiguedad">Antigüedad laboral / en actividad</label>
-                <select id="pb-antiguedad" onchange="calcularPrecalificacionGarantia()">
-                  <option value="1_o_mas">1 año o más (cumple estándar)</option>
-                  <option value="2_o_mas">2 años o más</option>
-                  <option value="menos_1">Menos de 1 año</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="pb-solicitantes">Solicitantes que suman ingresos</label>
-                <select id="pb-solicitantes" onchange="calcularPrecalificacionGarantia()">
-                  <option value="1">1 ingreso individual</option>
-                  <option value="3">Hasta 3 ingresos combinados</option>
-                  <option value="5">Hasta 5 ingresos combinados</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="pb-ingreso-titular">3. Ingreso líquido mensual titular ($U)</label>
-                <input id="pb-ingreso-titular" type="number" min="0" value="75000" oninput="calcularPrecalificacionGarantia()">
-              </div>
-
-              <div class="field">
-                <label for="pb-ingreso-co">Ingresos líquidos co-solicitantes ($U)</label>
-                <input id="pb-ingreso-co" type="number" min="0" value="35000" oninput="calcularPrecalificacionGarantia()">
-              </div>
-
-              <div class="field">
                 <label for="pb-alquiler-obj">Alquiler mensual buscado ($U)</label>
                 <input id="pb-alquiler-obj" type="number" min="0" value="30000" oninput="calcularPrecalificacionGarantia()">
               </div>
-
-              <div class="field">
-                <label for="pb-clearing">Situación en Clearing de Informes</label>
-                <select id="pb-clearing" onchange="calcularPrecalificacionGarantia()">
-                  <option value="limpio">Sin antecedentes negativos en Clearing</option>
-                  <option value="con_registro">Con observación / a consultar</option>
-                </select>
-              </div>
             </div>
+
+            <div class="multi-signer-head">
+              <strong style="font-size:12.5px;text-transform:uppercase;letter-spacing:0.05em;color:var(--bigua);">Solicitantes incluidos en la póliza y contrato (<span id="pb-sol-count">1</span> de 4)</strong>
+              <button type="button" id="btn-add-solicitante" class="btn btn--estuario" style="min-height:36px;padding:7px 12px;font-size:11.5px;" onclick="agregarSolicitante()">+ Sumar Solicitante (2 / 3 / 4)</button>
+            </div>
+
+            <div class="signer-stack" id="pb-solicitantes-list"></div>
 
             <div class="result-box" id="pb-resultado">
               <span class="result-badge" id="pb-badge">Evaluando prerrequisitos</span>
-              <div class="result-title" id="pb-titulo">Tope sugerido al 30%: $U 33.000 / mes</div>
+              <div class="result-title" id="pb-titulo">Tope sugerido al 30%: $U 25.500 / mes</div>
               <p id="pb-detalle" style="font-size:13.5px;color:rgba(243,240,232,0.88);"></p>
-              <div class="req-grid">
-                <div class="req-col">
-                  <h3>Prerrequisitos cumplidos</h3>
-                  <ul id="pb-cumplidos"></ul>
-                </div>
-                <div class="req-col">
-                  <h3>Documentación a preparar</h3>
-                  <ul id="pb-preparar"></ul>
-                </div>
+
+              <div class="verdict-locked-note" id="pb-lock-note">
+                🔒 <strong>Paso final:</strong> dejá tu nombre y WhatsApp para destrabar el <strong>veredicto documental detallado por persona</strong> (recibos exactos, Historia Laboral Nominada de BPS si hubo cambio laboral, Contador/escribanía o Depósito) y coordinar con gestión ZAGUÁN.
               </div>
 
               <form id="puerta-b-form" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(243,240,232,0.2);">
@@ -511,13 +556,15 @@
                   </div>
                   <div class="field field--full">
                     <label for="pb-zona" style="color:var(--bone);">Zona o propiedad de interés</label>
-                    <input id="pb-zona" type="text" placeholder="Ej.: La Fortuna, Maldonado Centro, Pinares, Punta del Este" required>
+                    <input id="pb-zona" type="text" placeholder="Ej.: La Fortuna $U 30.000, Maldonado Centro, Pinares" required>
                   </div>
                 </div>
                 <div style="margin-top:12px;">
-                  <button type="submit" class="btn btn--light" style="width:100%;">Guardar verificación y hablar con Mar para tramitarla con gestión ZAGUÁN →</button>
+                  <button type="submit" class="btn btn--light" style="width:100%;">🔓 Ver mi veredicto completo por persona y recibir ayuda con gestión ZAGUÁN →</button>
                 </div>
               </form>
+
+              <div class="verdict-unlocked" id="pb-veredicto-detallado" aria-live="polite"></div>
             </div>
           </article>
         </div>
@@ -529,6 +576,10 @@
       <div class="container">
         <p class="eyebrow" style="color:var(--feather);">Preguntas frecuentes reales en Maldonado y Punta del Este</p>
         <h2 style="font-size:clamp(26px, 3.2vw, 38px);color:var(--bigua);">Lo que consultan propietarios e inquilinos antes de firmar contrato anual</h2>
+        <div style="background:var(--limestone);border:1px solid var(--mist);border-left:3px solid var(--estuario);padding:14px 18px;margin-top:16px;display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;">
+          <p style="font-size:14px;color:var(--bigua);margin:0;"><strong>Nueva guía pilar:</strong> leé las 8 preguntas reales respondidas sobre Porto Seguro, Sura, Mapfre, recibos, BPS y extranjeros.</p>
+          <a href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;background:var(--bigua);color:var(--bone);padding:9px 14px;">Leer guía completa (8 FAQs) →</a>
+        </div>
         <div class="faq-grid">
           <article class="faq-item">
             <h3>1. ¿Por qué muchas propiedades piden solo aseguradora privada y no ANDA/CGN?</h3>
@@ -539,16 +590,20 @@
             <p>Con relación de dependencia y sueldo fijo, el estándar es 1 año de antigüedad y los últimos 3 meses de recibos. Si parte de tu ingreso es variable o por comisiones, las aseguradoras piden los últimos 6 meses de recibos para promediar el líquido.</p>
           </article>
           <article class="faq-item">
-            <h3>3. ¿Qué pasa si tengo unipersonal nueva, ingresos independientes o del exterior?</h3>
+            <h3>3. Cambié de trabajo hace menos de 1 año sin corte en BPS: ¿puedo calificar?</h3>
+            <p>Sí, siempre que exista continuidad laboral comprobable sin meses en blanco en BPS: se solicita tu <strong>Historia Laboral Nominada de BPS</strong> junto con los recibos de sueldo del empleo actual y del empleo anterior.</p>
+          </article>
+          <article class="faq-item">
+            <h3>4. ¿Qué pasa si tengo unipersonal nueva, ingresos independientes o del exterior?</h3>
             <p>Independientes y unipersonales necesitan 1 a 2 años con BPS y DGI al día más certificación de Contador Público. Si cobrás del exterior o tenés menos de 18 meses de residencia en Uruguay, podés presentar facturas, extractos y certificación notarial/contable con nuestra escribanía aliada, o bien optar por garantía de Depósito.</p>
           </article>
           <article class="faq-item">
-            <h3>4. ¿Cómo funciona la regla del 30% y sumar varios ingresos?</h3>
-            <p>Por lo general el alquiler mensual no debe superar el 30% del ingreso líquido. Podés presentarte con 1 ingreso o combinar hasta 3 ingresos (y en ciertas pólizas hasta 5 co-solicitantes) sin antecedentes negativos en Clearing de Informes.</p>
+            <h3>5. ¿Cómo funciona la regla del 30%, sumar de 1 a 4 personas y quiénes firman?</h3>
+            <p>Por lo general el alquiler mensual no debe superar el 30% del ingreso líquido conjunto. Podés combinar de 1 a 4 solicitantes sin antecedentes negativos en Clearing, recordando que <strong>1 póliza = 1 contrato</strong> y todas las personas que aportan ingresos firman el contrato.</p>
           </article>
           <article class="faq-item">
-            <h3>5. ¿Puedo visitar una casa o apartamento antes de tener la póliza emitida?</h3>
-            <p>Sí. Si ya verificaste que contás con los ingresos y documentación requeridos, coordinamos la visita y luego te ayudamos a tramitar la garantía aseguradora con nuestra gestión ZAGUÁN.</p>
+            <h3>6. ¿Puedo visitar una casa o apartamento antes de tener la póliza emitida?</h3>
+            <p>Sí. Si ya verificaste con el simulador que contás con los ingresos y documentación requeridos, coordinamos la visita y luego te ayudamos a tramitar la garantía aseguradora con nuestra gestión ZAGUÁN.</p>
           </article>
         </div>
       </div>
@@ -560,8 +615,12 @@
       <img src="/assets/brand/zaguan-white.png" alt="ZAGUÁN" style="height:24px;width:auto;">
       <div>
         <span>Punta del Este · Maldonado · </span>
-        <a href="/alquiloanual/" style="text-decoration:underline;">Alquiler anual</a> ·
-        <a href="/alquileres/" style="text-decoration:underline;">Propiedades</a> ·
+        <a href="/propiedades/" style="text-decoration:underline;">Venta</a> ·
+        <a href="/proyectos/" style="text-decoration:underline;">Pozo</a> ·
+        <a href="/alquiloanual/" style="text-decoration:underline;">Alquiler Anual</a> ·
+        <a href="/garantias-alquiler/" style="text-decoration:underline;">Verificador de Garantías</a> ·
+        <a href="/novedades-del-este/" style="text-decoration:underline;">Novedades del Este</a> ·
+        <a href="/publicar/" style="text-decoration:underline;">Publicar Propiedad</a> ·
         <a href="/privacidad/" style="text-decoration:underline;">Privacidad</a>
       </div>
     </div>
@@ -569,93 +628,288 @@
 
   <script>
     const CRM_API_URL = 'https://zaguan-crm-bot.943ari.workers.dev';
+    const PROP_MAP = {
+      'la-fortuna-agata': 'Apartamento 2D en La Fortuna (Maldonado)',
+      'el-tesoro-juana-de-america': 'Apartamento en El Tesoro (La Barra)',
+      'maldonado-residencial-2d': 'Apartamento 2D en Maldonado Residencial',
+      'la-mansa-parada-16-2d': 'Apartamento 2D en Playa Mansa Pda. 16',
+      'roosevelt-cantegril-2d': 'Apartamento 2D en Av. Roosevelt / Cantegril',
+      'la-brava-parada-8-3d': 'Apartamento 3D en Playa Brava Pda. 8'
+    };
+
+    let solicitantes = [
+      { doc: 'ci_vigente_2y', laboral: 'dependencia_fijo', continuidad: 'mismo_empleo_1y', ingreso: 85000, clearing: 'limpio' }
+    ];
+    let veredictoDesbloqueado = false;
     let ultimoEval = {};
+    let propSlugPrefill = '';
 
-    function calcularPrecalificacionGarantia() {
-      const doc = document.getElementById('pb-doc').value;
-      const lab = document.getElementById('pb-laboral').value;
-      const ant = document.getElementById('pb-antiguedad').value;
-      const sol = document.getElementById('pb-solicitantes').value;
-      const ing1 = Number(document.getElementById('pb-ingreso-titular').value || 0);
-      const ing2 = Number(document.getElementById('pb-ingreso-co').value || 0);
-      const alqObj = Number(document.getElementById('pb-alquiler-obj').value || 0);
-      const clearing = document.getElementById('pb-clearing').value;
+    function escHtml(s) {
+      return String(s || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    }
 
-      const totalIng = ing1 + ing2;
-      const maxAlq30 = Math.round(totalIng * 0.30);
-      const pctAfectacion = totalIng > 0 && alqObj > 0 ? Math.round((alqObj / totalIng) * 100) : 0;
+    function aplicarPrefillUrl() {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        const alq = Number(params.get('alquiler') || 0);
+        const prop = (params.get('propiedad') || '').trim();
+        if (alq > 0) {
+          document.getElementById('pb-alquiler-obj').value = alq;
+          document.getElementById('pa-presu').value = '$U ' + alq.toLocaleString('de-DE');
+        }
+        if (prop) {
+          propSlugPrefill = prop;
+          const nice = PROP_MAP[prop] || prop.replace(/-/g, ' ');
+          const banner = document.getElementById('pb-prop-banner');
+          banner.style.display = 'block';
+          banner.innerHTML = '<strong>Propiedad pre-cargada:</strong> ' + escHtml(nice) + (alq > 0 ? ' · Alquiler objetivo: <strong>$U ' + alq.toLocaleString('de-DE') + ' / mes</strong>' : '');
+          const pbZona = document.getElementById('pb-zona');
+          const paZona = document.getElementById('pa-zona');
+          if (pbZona && !pbZona.value) pbZona.value = nice + (alq > 0 ? ' ($U ' + alq.toLocaleString('de-DE') + ')' : '');
+          if (paZona && !paZona.value) paZona.value = nice + (alq > 0 ? ' ($U ' + alq.toLocaleString('de-DE') + ')' : '');
+        }
+      } catch (err) {}
+    }
 
+    window.renderSolicitantes = function() {
+      const wrap = document.getElementById('pb-solicitantes-list');
+      document.getElementById('pb-sol-count').textContent = String(solicitantes.length);
+      const addBtn = document.getElementById('btn-add-solicitante');
+      if (solicitantes.length >= 4) {
+        addBtn.disabled = true;
+        addBtn.textContent = 'Máximo 4 solicitantes cargado';
+        addBtn.style.opacity = '0.55';
+      } else {
+        addBtn.disabled = false;
+        addBtn.textContent = '+ Sumar Solicitante (' + (solicitantes.length + 1) + ' de 4)';
+        addBtn.style.opacity = '1';
+      }
+
+      wrap.innerHTML = solicitantes.map((s, idx) => {
+        const num = idx + 1;
+        const titulo = num === 1 ? 'Solicitante 1 (Titular · firma contrato)' : 'Solicitante ' + num + ' (Co-solicitante · firma contrato)';
+        return '<div class="signer-card">' +
+          '<div class="signer-card-top">' +
+            '<span class="signer-badge">' + titulo + '</span>' +
+            (idx > 0 ? '<button type="button" class="btn-mini-remove" onclick="quitarSolicitante(' + idx + ')">✕ Quitar</button>' : '<span style="font-size:11px;color:var(--feather);">1 póliza = 1 contrato</span>') +
+          '</div>' +
+          '<div class="form-grid">' +
+            '<div class="field field--full">' +
+              '<label>Documento y residencia en Uruguay</label>' +
+              '<select onchange="actualizarSolicitante(' + idx + ', \'doc\', this.value)">' +
+                '<option value="ci_vigente_2y"' + (s.doc === 'ci_vigente_2y' ? ' selected' : '') + '>CI uruguaya vigente (2 o más años) + residencia</option>' +
+                '<option value="ci_menor_2y"' + (s.doc === 'ci_menor_2y' ? ' selected' : '') + '>CI uruguaya próxima a vencer (menos de 2 años)</option>' +
+                '<option value="extranjero_18m"' + (s.doc === 'extranjero_18m' ? ' selected' : '') + '>Pasaporte / DNI extranjero (18+ meses en Uruguay)</option>' +
+                '<option value="extranjero_nuevo"' + (s.doc === 'extranjero_nuevo' ? ' selected' : '') + '>Extranjero con menos de 18 meses (certificación escribanía o Depósito)</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="field field--full">' +
+              '<label>Tipo de ingreso / actividad laboral</label>' +
+              '<select onchange="actualizarSolicitante(' + idx + ', \'laboral\', this.value)">' +
+                '<option value="dependencia_fijo"' + (s.laboral === 'dependencia_fijo' ? ' selected' : '') + '>Dependiente con sueldo fijo (últimos 3 recibos)</option>' +
+                '<option value="dependencia_variable"' + (s.laboral === 'dependencia_variable' ? ' selected' : '') + '>Dependiente con sueldo variable / comisiones (últimos 6 recibos)</option>' +
+                '<option value="independiente"' + (s.laboral === 'independiente' ? ' selected' : '') + '>Independiente / Unipersonal (1–2 años + BPS/DGI + Contador Público)</option>' +
+                '<option value="exterior"' + (s.laboral === 'exterior' ? ' selected' : '') + '>Ingresos del exterior (facturas + bancos + escribanía aliada)</option>' +
+                '<option value="sin_ingresos_formales"' + (s.laboral === 'sin_ingresos_formales' ? ' selected' : '') + '>Sin ingresos formales demostrables (Depósito)</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="field field--full">' +
+              '<label>Continuidad laboral y aportes en BPS</label>' +
+              '<select onchange="actualizarSolicitante(' + idx + ', \'continuidad\', this.value)">' +
+                '<option value="mismo_empleo_1y"' + (s.continuidad === 'mismo_empleo_1y' ? ' selected' : '') + '>Más de 1 año en el empleo o actividad actual</option>' +
+                '<option value="cambio_con_bps"' + (s.continuidad === 'cambio_con_bps' ? ' selected' : '') + '>Cambié de trabajo hace menos de 1 año SIN corte de aportes en BPS</option>' +
+                '<option value="discontinuo_o_nuevo"' + (s.continuidad === 'discontinuo_o_nuevo' ? ' selected' : '') + '>Menos de 1 año con meses sin aportes o recién iniciado</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="field">' +
+              '<label>Ingreso líquido mensual ($U)</label>' +
+              '<input type="number" min="0" value="' + Number(s.ingreso || 0) + '" oninput="actualizarSolicitante(' + idx + ', \'ingreso\', Number(this.value || 0))">' +
+            '</div>' +
+            '<div class="field">' +
+              '<label>Clearing de Informes</label>' +
+              '<select onchange="actualizarSolicitante(' + idx + ', \'clearing\', this.value)">' +
+                '<option value="limpio"' + (s.clearing === 'limpio' ? ' selected' : '') + '>Sin antecedentes negativos</option>' +
+                '<option value="con_registro"' + (s.clearing === 'con_registro' ? ' selected' : '') + '>Con observación / registro</option>' +
+              '</select>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    };
+
+    window.agregarSolicitante = function() {
+      if (solicitantes.length >= 4) return;
+      solicitantes.push({
+        doc: 'ci_vigente_2y',
+        laboral: 'dependencia_fijo',
+        continuidad: 'mismo_empleo_1y',
+        ingreso: 45000,
+        clearing: 'limpio'
+      });
+      renderSolicitantes();
+      calcularPrecalificacionGarantia();
+    };
+
+    window.quitarSolicitante = function(idx) {
+      if (solicitantes.length <= 1 || idx === 0) return;
+      solicitantes.splice(idx, 1);
+      renderSolicitantes();
+      calcularPrecalificacionGarantia();
+    };
+
+    window.actualizarSolicitante = function(idx, key, val) {
+      if (!solicitantes[idx]) return;
+      solicitantes[idx][key] = val;
+      calcularPrecalificacionGarantia();
+    };
+
+    function evaluarPersona(s, idx) {
+      const num = idx + 1;
       const cumplidos = [];
       const preparar = [];
+      let bloqueanteDeposito = false;
 
-      if (doc === 'ci_vigente_2y') {
-        cumplidos.push('CI uruguaya con 2 o más años de vigencia + residencia.');
-      } else if (doc === 'ci_menor_2y') {
+      if (s.doc === 'ci_vigente_2y') {
+        cumplidos.push('CI uruguaya vigente (>= 2 años) + residencia en Uruguay.');
+      } else if (s.doc === 'ci_menor_2y') {
         preparar.push('Renovar CI uruguaya antes de emitir póliza (vigencia actual < 2 años).');
-      } else if (doc === 'extranjero_18m') {
-        cumplidos.push('Pasaporte extranjero con más de 18 meses de residencia en Uruguay.');
+      } else if (s.doc === 'extranjero_18m') {
+        cumplidos.push('Pasaporte extranjero con >= 18 meses de residencia en Uruguay.');
       } else {
         preparar.push('Menos de 18 meses de residencia: requiere certificación contable/notarial con escribanía aliada o Depósito.');
       }
 
-      if (clearing === 'limpio') {
+      if (s.clearing === 'limpio') {
         cumplidos.push('Sin antecedentes negativos en Clearing de Informes.');
       } else {
-        preparar.push('Antecedente en Clearing: evaluar co-solicitante limpio o garantía de Depósito.');
+        bloqueanteDeposito = true;
+        preparar.push('Antecedente en Clearing: las aseguradoras rechazan al titular con registro; evaluar co-solicitante limpio o Depósito.');
       }
 
-      if (lab === 'dependencia_fijo') {
-        preparar.push('Últimos 3 meses de recibos de sueldo (sueldo fijo).');
-        if (ant === 'menos_1') preparar.push('Antigüedad menor a 1 año: sumar co-solicitante con >= 1 año o Depósito.');
-        else cumplidos.push('Antigüedad laboral mínima de 1 año cumplida.');
-      } else if (lab === 'dependencia_variable') {
-        preparar.push('Últimos 6 meses de recibos de sueldo (sueldo variable / comisiones).');
-        if (ant === 'menos_1') preparar.push('Antigüedad menor a 1 año: sumar co-solicitante o Depósito.');
-        else cumplidos.push('Antigüedad laboral mínima de 1 año cumplida.');
-      } else if (lab === 'independiente') {
-        preparar.push('Certificación de ingresos por Contador Público + constancia BPS y DGI al día.');
-        if (ant === 'menos_1') preparar.push('Para unipersonal menor a 1-2 años conviene Depósito o co-solicitante dependiente.');
-        else cumplidos.push('Antigüedad 1 a 2 años como independiente/unipersonal cumplida.');
-      } else if (lab === 'exterior') {
-        preparar.push('Facturas emitidas + estados de cuenta bancarios + certificación contable/notarial en Uruguay.');
+      if (s.laboral === 'dependencia_fijo') {
+        if (s.continuidad === 'mismo_empleo_1y') {
+          cumplidos.push('Antigüedad >= 1 año en relación de dependencia (sueldo fijo).');
+          preparar.push('Últimos 3 meses de recibos de sueldo (sueldo fijo).');
+        } else if (s.continuidad === 'cambio_con_bps') {
+          cumplidos.push('Continuidad laboral sin corte en BPS reportada.');
+          preparar.push('Historia Laboral Nominada de BPS + últimos recibos del empleo actual y del empleo anterior.');
+        } else {
+          preparar.push('Menos de 1 año con corte de aportes: requiere sumar co-solicitante calificado o evaluar Depósito.');
+        }
+      } else if (s.laboral === 'dependencia_variable') {
+        if (s.continuidad === 'mismo_empleo_1y') {
+          cumplidos.push('Antigüedad >= 1 año con ingresos variables/comisiones.');
+          preparar.push('Últimos 6 meses de recibos de sueldo para promedio de ingreso variable.');
+        } else if (s.continuidad === 'cambio_con_bps') {
+          cumplidos.push('Continuidad laboral sin corte en BPS reportada.');
+          preparar.push('Historia Laboral Nominada de BPS + recibos de sueldo de los últimos 6 meses cubriendo ambos empleos.');
+        } else {
+          preparar.push('Menos de 1 año con corte: sumar co-solicitante calificado o evaluar Depósito.');
+        }
+      } else if (s.laboral === 'independiente') {
+        preparar.push('Certificación de ingresos emitida por Contador Público + constancias BPS y DGI al día.');
+        if (s.continuidad === 'discontinuo_o_nuevo') {
+          preparar.push('Unipersonal/profesional menor a 1–2 años: evaluar Depósito o sumar co-solicitante dependiente.');
+        } else {
+          cumplidos.push('Actividad independiente con trayectoria >= 1–2 años.');
+        }
+      } else if (s.laboral === 'exterior') {
+        preparar.push('Facturas emitidas + extractos bancarios + certificación contable/notarial mediante escribanía aliada en Uruguay.');
       } else {
-        preparar.push('Orientación directa a garantía de Depósito (2 a 5 meses según propietario).');
+        bloqueanteDeposito = true;
+        preparar.push('Sin ingresos formales demostrables: orientación directa a garantía de Depósito (2 a 5 meses según propietario).');
       }
+
+      return {
+        numero: num,
+        rol: num === 1 ? 'Titular' : 'Co-solicitante',
+        ingreso: Number(s.ingreso || 0),
+        doc: s.doc,
+        laboral: s.laboral,
+        continuidad: s.continuidad,
+        clearing: s.clearing,
+        bloqueanteDeposito,
+        cumplidos,
+        preparar
+      };
+    }
+
+    function calcularPrecalificacionGarantia() {
+      const alqObj = Number(document.getElementById('pb-alquiler-obj').value || 0);
+      const evaluaciones = solicitantes.map((s, idx) => evaluarPersona(s, idx));
+      const totalIng = evaluaciones.reduce((acc, ev) => acc + ev.ingreso, 0);
+      const maxAlq30 = Math.round(totalIng * 0.30);
+      const pctAfectacion = totalIng > 0 && alqObj > 0 ? Math.round((alqObj / totalIng) * 100) : 0;
+
+      const alguienBloqueado = evaluaciones.some(ev => ev.bloqueanteDeposito);
+      const alguienDiscontinuo = evaluaciones.some(ev => ev.continuidad === 'discontinuo_o_nuevo' && ev.laboral !== 'exterior' && ev.laboral !== 'sin_ingresos_formales');
 
       let estadoPre = 'APTA_PARA_TRAMITAR_ASEGURADORA';
-      let badgeTxt = 'Prerrequisitos alineados para tramitar póliza';
-      if (lab === 'sin_ingresos_formales' || clearing === 'con_registro') {
-        estadoPre = 'ORIENTACION_DEPOSITO_O_CO_SOLICITANTE';
-        badgeTxt = 'Orientación sugerida: Depósito o suma de co-solicitantes';
+      let badgeTxt = 'Prerrequisitos alineados para tramitar póliza (' + evaluaciones.length + ' persona' + (evaluaciones.length === 1 ? '' : 's') + ')';
+      if (alguienBloqueado) {
+        estadoPre = 'ORIENTACION_DEPOSITO_O_AJUSTE_TITULAR';
+        badgeTxt = 'Orientación sugerida: Depósito o ajustar solicitante con observación';
       } else if (alqObj > 0 && maxAlq30 < alqObj) {
         estadoPre = 'AJUSTAR_TOPE_O_SUMAR_INGRESOS';
-        badgeTxt = 'Sumar co-solicitantes (hasta 3 o 5 ingresos) o ajustar rango';
+        badgeTxt = 'Falta ingreso para el 30%: sumá hasta 4 solicitantes o ajustá rango';
+      } else if (alguienDiscontinuo) {
+        estadoPre = 'REVISAR_CONTINUIDAD_O_CO_SOLICITANTE';
+        badgeTxt = 'Falta continuidad >= 1 año: conviene sumar co-solicitante calificado';
       }
 
       document.getElementById('pb-badge').textContent = badgeTxt;
-      document.getElementById('pb-titulo').textContent = 'Tope sugerido al 30%: $U ' + maxAlq30.toLocaleString('de-DE') + ' / mes';
+      document.getElementById('pb-titulo').textContent = 'Tope conjunto al 30%: $U ' + maxAlq30.toLocaleString('de-DE') + ' / mes';
       document.getElementById('pb-detalle').textContent =
-        'Ingresos declarados (' + sol + ' ingreso' + (sol === '1' ? '' : 's') + '): $U ' + totalIng.toLocaleString('de-DE') +
-        (alqObj > 0 ? ' · Tu alquiler buscado ($U ' + alqObj.toLocaleString('de-DE') + ') representa el ' + pctAfectacion + '% de ese total.' : '');
-
-      document.getElementById('pb-cumplidos').innerHTML = cumplidos.length
-        ? cumplidos.map(x => '<li>' + x + '</li>').join('')
-        : '<li>Revisá los ítems a preparar a la derecha.</li>';
-      document.getElementById('pb-preparar').innerHTML = preparar.map(x => '<li>' + x + '</li>').join('');
+        'Solicitantes: ' + evaluaciones.length + ' (1 póliza = 1 contrato; todos los que suman firman contrato) · Ingreso conjunto: $U ' + totalIng.toLocaleString('de-DE') +
+        (alqObj > 0 ? ' · Alquiler buscado ($U ' + alqObj.toLocaleString('de-DE') + ') = ' + pctAfectacion + '% de afectación.' : '');
 
       ultimoEval = {
-        doc,
-        lab,
-        ant,
-        sol,
         totalIng,
         maxAlq30,
         alqObj,
-        clearing,
+        pctAfectacion,
+        personasCantidad: evaluaciones.length,
         estadoPre,
-        cumplidos,
-        preparar,
+        evaluaciones,
+        propSlug: propSlugPrefill
       };
+
+      if (veredictoDesbloqueado) {
+        renderVeredictoDetallado();
+      }
+    }
+
+    function renderVeredictoDetallado() {
+      const panel = document.getElementById('pb-veredicto-detallado');
+      if (!panel) return;
+      const nombre = (document.getElementById('pb-nombre').value || '').trim();
+      const wa = (document.getElementById('pb-wa').value || '').trim();
+      const zona = (document.getElementById('pb-zona').value || '').trim();
+
+      const waMsg = 'Hola Mar, completé el Simulador Multi-Persona (' + ultimoEval.personasCantidad + ' solicitante/s) en ZAGUÁN. Soy ' + nombre + ' (' + wa + '). Busco en ' + zona + ' hasta $U ' + (ultimoEval.alqObj || 30000).toLocaleString('de-DE') + ' (ingreso conjunto $U ' + ultimoEval.totalIng.toLocaleString('de-DE') + ', tope 30% $U ' + ultimoEval.maxAlq30.toLocaleString('de-DE') + '). Estado: ' + ultimoEval.estadoPre + '. Quiero avanzar con gestión ZAGUÁN.';
+
+      const cardsHtml = (ultimoEval.evaluaciones || []).map(ev => {
+        return '<div class="verdict-person">' +
+          '<h4>Solicitante ' + ev.numero + ' (' + ev.rol + ') · Ingreso: $U ' + ev.ingreso.toLocaleString('de-DE') + '</h4>' +
+          (ev.cumplidos.length ? '<p style="margin-bottom:4px;"><strong>Cumplidos:</strong> ' + ev.cumplidos.map(escHtml).join(' ') + '</p>' : '') +
+          '<p style="margin-bottom:4px;"><strong>Documentación a preparar:</strong></p>' +
+          '<ul>' + ev.preparar.map(x => '<li>' + escHtml(x) + '</li>').join('') + '</ul>' +
+        '</div>';
+      }).join('');
+
+      panel.innerHTML =
+        '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;">' +
+          '<strong style="font-size:15px;color:var(--bigua);">Veredicto documental por persona desbloqueado</strong>' +
+          '<span style="font-size:11px;font-weight:700;background:var(--estuario);color:var(--bone);padding:3px 8px;">1 PÓLIZA = 1 CONTRATO</span>' +
+        '</div>' +
+        '<p style="font-size:13px;color:var(--estuario);margin-bottom:10px;">ZAGUÁN Propiedades no otorga, evalúa ni aprueba pólizas: te armamos la carpeta exacta por solicitante para tramitar con Porto Seguro, Sura, Mapfre o Santander mediante gestión ZAGUÁN. Todas las personas que suman ingresos deben firmar el contrato.</p>' +
+        cardsHtml +
+        '<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;">' +
+          '<a class="btn btn--dark" style="flex:1;" href="https://wa.me/59898712064?text=' + encodeURIComponent(waMsg) + '" target="_blank" rel="noopener noreferrer">📲 Enviar carpeta a Mar por WhatsApp ahora →</a>' +
+          '<a class="btn btn--light" href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/">📘 Guía 8 preguntas reales →</a>' +
+        '</div>';
+
+      panel.style.display = 'block';
     }
 
     document.getElementById('puerta-a-form').addEventListener('submit', function(e) {
@@ -679,6 +933,7 @@
             tipo_operacion: 'Alquiler Anual',
             modalidad_contrato: 'Anual',
             zona_preferida: zona,
+            propiedad_interes: propSlugPrefill || null,
             presupuesto_max: Number(presu.replace(/[^\d]/g, '')) || null,
             moneda: /usd/i.test(presu) ? 'USD' : 'UYU',
             garantia_disponible: aseg,
@@ -701,7 +956,11 @@
       const wa = document.getElementById('pb-wa').value.trim();
       const zona = document.getElementById('pb-zona').value.trim();
 
-      const msg = 'Hola Mar, completé el Verificador de Garantías de ZAGUÁN. Soy ' + nombre + ' (' + wa + '). Busco en ' + zona + ' hasta $U ' + (ultimoEval.alqObj || 30000).toLocaleString('de-DE') + ' (' + ultimoEval.sol + ' ingresos · tope 30% $U ' + (ultimoEval.maxAlq30 || 0).toLocaleString('de-DE') + ' · perfil: ' + ultimoEval.lab + '). Estado: ' + ultimoEval.estadoPre + '. Quiero avanzar con gestión ZAGUÁN.';
+      const resumenPersonas = (ultimoEval.evaluaciones || []).map(ev =>
+        'P' + ev.numero + '(' + ev.laboral + '/' + ev.continuidad + '/$U' + ev.ingreso + ')'
+      ).join(' + ');
+
+      const msg = 'Hola Mar, completé el Simulador Multi-Persona (' + ultimoEval.personasCantidad + ' solicitante/s) en ZAGUÁN. Soy ' + nombre + ' (' + wa + '). Busco en ' + zona + ' hasta $U ' + (ultimoEval.alqObj || 30000).toLocaleString('de-DE') + ' · Ingreso conjunto $U ' + (ultimoEval.totalIng || 0).toLocaleString('de-DE') + ' (tope 30% $U ' + (ultimoEval.maxAlq30 || 0).toLocaleString('de-DE') + '). Estado: ' + ultimoEval.estadoPre + '. Quiero avanzar con gestión ZAGUÁN.';
 
       try {
         fetch(CRM_API_URL + '/api/interesados', {
@@ -714,23 +973,33 @@
             tipo_operacion: 'Alquiler Anual',
             modalidad_contrato: 'Anual',
             zona_preferida: zona,
+            propiedad_interes: propSlugPrefill || null,
             presupuesto_max: ultimoEval.alqObj || null,
             moneda: 'UYU',
-            garantia_disponible: 'En trámite con gestión ZAGUÁN (' + ultimoEval.lab + ')',
-            garantia_tipo: ultimoEval.lab,
-            situacion_laboral: ultimoEval.lab,
-            garantia_precalificacion: ultimoEval.estadoPre + ' | Cumplidos: ' + (ultimoEval.cumplidos || []).join('; ') + ' | Preparar: ' + (ultimoEval.preparar || []).join('; '),
+            personas_cantidad: ultimoEval.personasCantidad,
+            garantia_disponible: 'En trámite con gestión ZAGUÁN (' + ultimoEval.personasCantidad + ' solicitante/s)',
+            garantia_tipo: resumenPersonas,
+            situacion_laboral: (ultimoEval.evaluaciones && ultimoEval.evaluaciones[0] ? ultimoEval.evaluaciones[0].laboral : ''),
+            garantia_precalificacion: ultimoEval.estadoPre + ' | Tope 30%: $U ' + ultimoEval.maxAlq30 + ' | ' + resumenPersonas,
             estado_conversacion: 'verificador_garantia_completado',
             estado_busqueda: 'caza_activa_hoy',
             canal: 'verificador_garantias_web',
+            notas: JSON.stringify(ultimoEval.evaluaciones || []),
             texto: msg
           })
         }).catch(() => {});
       } catch (err) {}
 
-      window.open('https://wa.me/59898712064?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+      veredictoDesbloqueado = true;
+      const lockNote = document.getElementById('pb-lock-note');
+      if (lockNote) lockNote.style.display = 'none';
+      renderVeredictoDetallado();
+      const verPanel = document.getElementById('pb-veredicto-detallado');
+      if (verPanel) verPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
 
+    aplicarPrefillUrl();
+    renderSolicitantes();
     calcularPrecalificacionGarantia();
   </script>
 </body>
