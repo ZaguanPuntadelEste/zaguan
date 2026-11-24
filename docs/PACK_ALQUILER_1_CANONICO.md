@@ -41,13 +41,16 @@
 
 ---
 
-## 3. Flujo móvil 4 rayitas Story + Captación cruzada
+## 3. Flujo móvil 4 rayitas Story (Vuelta 2) + Captación cruzada + Corchetes de entrada
 
-- Arriba del módulo: 4 rayitas progresivas tipo Story (`respondiste → pasaste` al tocar opción).
-- Anterior respondido arriba al `38%` de opacidad (tocable para corregir), pregunta activa al centro al `100%`, anticipo abajo al `25%`.
-- **Nombre recién en la Rayita 4** + 1 casilla limpia de consentimiento (Ley 18.331 Uruguay) con enlace inline a 4 líneas de privacidad.
-- Cada rayita registra avance anónimo en `/api/ficha-intento` para auditar en qué paso caen los visitantes desde `/admin/`.
-- Enlace sutil debajo: **`Buscás amoblado, patio u otra zona (La Barra / Punta del Este)? Contanos acá →`** captura mudadores solventes por atributos de vida y recién al final pregunta rango mensual cómodo en `$U` o `USD`.
+- **Cero preselección muda:** en Rayita 1 y en Cruzada Paso 2 todas las filas arrancan sin selección previa; avanza recién al completar las 3 opciones.
+- **Separación de ANDA / Contaduría (CGN) + Escala 2 en menores ingresos:** Rayita 2 separa `Tengo ANDA o Contaduría (CGN)` (con puente rápido para evaluar aseguradora con su recibo limpio) de `Cobro sin recibo formal o estoy en Clearing`. Rayita 3 abre `Escala 2 (co-firmante que firma el contrato)` tanto entre `\$U 65k–94k` como por debajo de `\$U 65k` individuales.
+- **Cero casillero nativo:** el propio botón (`Aceptar y abrir WhatsApp con Mar →` / `Aceptar y guardar mi búsqueda →`) incluye el acto expreso de aceptación bajo Ley 18.331 con leyenda informativa de 1ª capa y acceso a `Privacidad`.
+- **Preaviso suave hacia WhatsApp:** cápsula discreta antes del CTA (`Se abrirá tu WhatsApp con la consulta armada para que la revises antes de enviar`) + cambio del botón al tocar.
+- **Devolución activa en «Más adelante» y desvíos (`BUSQUEDA_REGISTRADA`):** resumen visible editable en 1 toque (`✎ Corregir algún dato` sin duplicar fila en D1) + botón secundario opcional `Sumar un requisito extra por WhatsApp` encabezado con `[SEGUIMIENTO / REQUISITO EXTRA]`.
+- **Reinicio siempre a Rayita 1 en celular:** al salir hacia WhatsApp, guardar o volver por BFCache / historial móvil (`pageshow` / `visibilitychange`), el módulo vuelve al Paso 1; botón visible `↺ Empezar de nuevo` desde el Paso 2.
+- **Captación cruzada combinable:** Zona (`La Barra / Manantiales`, `Punta del Este`, `Maldonado otros barrios`, `Solanas / Punta Ballena / Piriápolis`) + Comodidades combinables (`Amoblado`, `Sin muebles`, `Patio o planta baja`, `3+ dormitorios`, `Cochera`) + Respaldo + Escalones de precio sin solapamiento + Gate de realidad a `BUSQUEDA_REGISTRADA`.
+- **Los 4 corchetes de entrada hacia D1 y Mar:** `[VISITA CALIFICADA]`, `[BÚSQUEDA PRIORITARIA]`, `[SEGUIMIENTO / REQUISITO EXTRA]` y `[ALERTA PASIVA D1]`.
 
 ---
 

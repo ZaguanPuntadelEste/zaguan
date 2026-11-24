@@ -66,7 +66,7 @@ export const MATRIZ_14V = {
     cruce: "Inversores locales y del exterior D6/D7 + compradores estreno con reserva temprana.",
   },
   D1: { codigo: "D1", operacion: "Compra vivienda", nombre: "Demanda compra casa o apartamento pronto", capa1: ["zona_barrio", "presupuesto_usd", "dormitorios", "forma_pago"], capa2: ["plazo_mudanza", "cochera"], cruce: "Oferta O1/O2." },
-  D2: { codigo: "D2", operacion: "Alquiler anual", nombre: "Demanda alquiler anual vivienda", capa1: ["zona_barrio", "presupuesto_uyu", "dormitorios", "garantia_aseguradora"], capa2: ["mascotas", "menores", "fecha_ingreso"], cruce: "Oferta O6." },
+  D2: { codigo: "D2", operacion: "Alquiler anual", nombre: "Demanda alquiler anual vivienda", capa1: ["etiqueta_entrada", "zona_barrio", "presupuesto_uyu", "dormitorios", "respaldo_declarado"], capa2: ["personas_hogar", "mascotas", "plazo_mudanza", "escala_2"], cruce: "Oferta O6." },
   D3: { codigo: "D3", operacion: "Alquiler temporal", nombre: "Demanda estadia o temporada", capa1: ["zona_barrio", "fechas", "huespedes", "presupuesto"], capa2: ["mascotas", "distancia_playa"], cruce: "Derivacion o filtro estancia." },
   D4: { codigo: "D4", operacion: "Compra lote", nombre: "Demanda terreno o casa con terreno", capa1: ["zona_barrio", "presupuesto_usd", "superficie_minima"], capa2: ["uso_previsto", "permisos"], cruce: "Oferta O3/O5." },
   D5: { codigo: "D5", operacion: "Comercial", nombre: "Demanda local o deposito", capa1: ["zona_barrio", "operacion", "superficie_m2", "rubro"], capa2: ["presupuesto", "acceso_carga"], cruce: "Oferta O4." },
@@ -199,6 +199,26 @@ const BRACKET_META = {
     label: "Material visual",
     pregunta: "si querés sumar alguna foto más de detalle o video corto (además de las publicadas en el aviso)",
   },
+  etiqueta_entrada: {
+    label: "Canal y tipo de entrada",
+    pregunta: "si llega como visita calificada, búsqueda prioritaria o seguimiento",
+  },
+  personas_hogar: {
+    label: "Personas que vivirían",
+    pregunta: "cuántas personas vivirían en la unidad",
+  },
+  plazo_mudanza: {
+    label: "Plazo de mudanza",
+    pregunta: "desde qué fecha o mes se mudarían",
+  },
+  respaldo_declarado: {
+    label: "Respaldo de garantía",
+    pregunta: "qué respaldo o aseguradora utilizan",
+  },
+  escala_2: {
+    label: "Co-firmante (Escala 2)",
+    pregunta: "si suman un co-firmante con recibo limpio que firme el contrato",
+  },
 };
 
 // Claves y patrones estrictamente restringidos a Boveda Privada (Candado anti-puenteo)
@@ -312,6 +332,11 @@ function extractFactValue(corpus, regex, formatter) {
 }
 
 export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", vertical = "O1") {
+  if (typeof propietario === "string") {
+    vertical = typeof extraTexto === "string" && extraTexto ? extraTexto : "D2";
+    extraTexto = propietario;
+    propietario = {};
+  }
   let prevSaved = {};
   try {
     if (propietario.corchetes_json) {
@@ -488,6 +513,33 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
     c.fotos_video = propietario.tipo_contacto === "marketplace_dueno"
       ? "Fotos publicadas en el aviso de Marketplace"
       : "Material fotografico o video disponible";
+  }
+
+  // Corchetes de demanda D2 y flujo 4 rayitas
+  if (/\[visita\s+calificada\]/i.test(rawCorpus)) c.etiqueta_entrada = "[VISITA CALIFICADA]";
+  else if (/\[b[uú]squeda\s+prioritaria\]/i.test(rawCorpus)) c.etiqueta_entrada = "[BÚSQUEDA PRIORITARIA]";
+  else if (/\[seguimiento\s*\/\s*requisito\s+extra\]/i.test(rawCorpus)) c.etiqueta_entrada = "[SEGUIMIENTO / REQUISITO EXTRA]";
+  else if (/\[alerta\s+pasiva\s+d1\]/i.test(rawCorpus)) c.etiqueta_entrada = "[ALERTA PASIVA D1]";
+
+  const personasHogar = extractFactValue(rawCorpus, /\b(1 persona o pareja|3 a 4 personas|5 o m[aá]s personas|familia con hijos|\d+\s*(?:personas|en total)|(?:dos|tres|cuatro)\s*ni[nñ]os(?:\s+de\s+\d+\s+y\s+\d+)?|matrimonio con \d+ hijos)\b/i);
+  if (personasHogar) c.personas_hogar = personasHogar;
+
+  const plazoMudanza = extractFactValue(rawCorpus, /\b(dentro de 30 d[ií]as|pr[oó]ximos 60 d[ií]as|m[aá]s adelante|vence en (?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)|para (?:enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)(?:\s+202\d)?)\b/i);
+  if (plazoMudanza) c.plazo_mudanza = plazoMudanza;
+
+  if (/co[-\s]?firmante/i.test(rawCorpus)) {
+    c.escala_2 = "Suma 1 co-firmante firmante";
+    c.respaldo_declarado = "Ingresos + co-firmante (Escala 2)";
+  } else if (/p[oó]liza\s+pre-?aprobada/i.test(rawCorpus)) {
+    c.respaldo_declarado = "Póliza pre-aprobada";
+  } else if (/1\s*o\s*2\s*ingresos\s+formales|recibos?\s+limpios?/i.test(rawCorpus)) {
+    c.respaldo_declarado = "1 o 2 ingresos formales (Escala 1)";
+  } else if (/\banda\b|\bcgn\b|contadur[ií]a/i.test(rawCorpus)) {
+    c.respaldo_declarado = "ANDA / Contaduría (CGN)";
+  } else if (/exterior|empresa/i.test(rawCorpus)) {
+    c.respaldo_declarado = "Exterior / Empresa";
+  } else if (/no tengo recibo|sin recibo|solo efectivo|sin garant[ií]a tradicional|clearing/i.test(rawCorpus)) {
+    c.respaldo_declarado = "Sin recibo formal / Depósito o Clearing";
   }
 
   // Compatibilidad por operacion

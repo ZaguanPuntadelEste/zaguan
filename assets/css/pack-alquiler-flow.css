@@ -1,5 +1,5 @@
-/* ZAGUÁN Propiedades — Pack Alquiler 1 · Flujo móvil 4 rayitas Story + Desplegable técnico */
-/* Paleta mineral estricta: #081521 · #123B4A · #1A4D60 · #F3F0E8 · #E8E4DA · #B7D6E0 */
+/* ZAGUÁN Propiedades — Flujo móvil 4 rayitas Story (Typeform Vuelta 2) + Captación cruzada + Log D1 */
+/* Paleta mineral estricta: #081521 · #123B4A · #1A4D60 · #F3F0E8 · #E8E4DA · #B7D6E0 · #A3B3C2 */
 
 .zg-specs-collapse {
   background: #123B4A;
@@ -152,6 +152,7 @@
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 8px;
+  flex-wrap: wrap;
 }
 
 .zg-tf-kicker {
@@ -162,10 +163,33 @@
   color: #B7D6E0;
 }
 
+.zg-tf-step-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
 .zg-tf-step-count {
   font-size: 11px;
   font-weight: 700;
   color: #E8E4DA;
+}
+
+.zg-reset-top-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #B7D6E0;
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.zg-reset-top-btn:hover {
+  color: #F3F0E8;
 }
 
 .zg-tf-stories {
@@ -293,12 +317,17 @@
   background: rgba(8, 21, 33, 0.72);
   color: #E8E4DA;
   border-radius: 999px;
-  padding: 6px 11px;
+  padding: 7px 11px;
   font-size: 12px;
   font-weight: 600;
   font-family: inherit;
   cursor: pointer;
   transition: all 150ms ease;
+}
+
+.zg-chip:hover,
+.zg-chip:focus-visible {
+  border-color: #B7D6E0;
 }
 
 .zg-chip.is-selected {
@@ -340,7 +369,8 @@
   border-color: #B7D6E0;
 }
 
-.zg-opt-btn.is-tapped {
+.zg-opt-btn.is-tapped,
+.zg-opt-btn.is-selected {
   background: #F3F0E8;
   color: #081521;
   border-color: #F3F0E8;
@@ -355,7 +385,8 @@
   margin-top: 2px;
 }
 
-.zg-opt-btn.is-tapped .zg-opt-sub {
+.zg-opt-btn.is-tapped .zg-opt-sub,
+.zg-opt-btn.is-selected .zg-opt-sub {
   color: #123B4A;
 }
 
@@ -364,6 +395,10 @@
   font-size: 14px;
   font-weight: 700;
   flex-shrink: 0;
+}
+
+.zg-opt-btn.is-selected .zg-opt-arrow {
+  color: #081521;
 }
 
 .zg-escala2-box {
@@ -417,7 +452,7 @@
   width: 100%;
   padding: 10px 12px;
   border-radius: 9px;
-  border: 1px solid rgba(243, 240, 232, 0.3);
+  border: 1px solid rgba(243, 240, 232, 0.35);
   background: #081521;
   color: #F3F0E8;
   font-size: 14px;
@@ -429,23 +464,46 @@
   border-color: #B7D6E0;
 }
 
-.zg-consent-row {
+/* Preaviso suave hacia WhatsApp (sin freno ni tono de alerta) */
+.zg-wa-preaviso {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: rgba(183, 214, 224, 0.12);
+  border: 1px solid rgba(183, 214, 224, 0.24);
+  color: #B7D6E0;
   font-size: 11.5px;
+  line-height: 1.38;
+  margin-top: 2px;
+}
+
+.zg-wa-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #B7D6E0;
+  flex-shrink: 0;
+}
+
+/* Leyenda legal Ley 18.331 limpia (sin checkbox nativo roto) */
+.zg-legal-note {
+  font-size: 11px;
   color: #E8E4DA;
+  opacity: 0.82;
   line-height: 1.4;
   margin-top: 4px;
 }
 
-.zg-consent-row input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  margin-top: 2px;
-  accent-color: #F3F0E8;
-  flex-shrink: 0;
-  cursor: pointer;
+.zg-legal-pill {
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(8, 21, 33, 0.55);
+  border-left: 2px solid #B7D6E0;
+  font-size: 11px;
+  color: #E8E4DA;
+  line-height: 1.42;
 }
 
 .zg-privacy-btn {
@@ -453,15 +511,15 @@
   border: 0;
   padding: 0;
   color: #B7D6E0;
-  font-size: 11.5px;
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
   font-family: inherit;
 }
 
 .zg-privacy-drawer {
-  margin-top: 6px;
+  margin-top: 4px;
   padding: 9px 10px;
   border-radius: 8px;
   background: #081521;
@@ -483,10 +541,10 @@
   background: #F3F0E8;
   color: #081521;
   font-family: inherit;
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 800;
   cursor: pointer;
-  margin-top: 8px;
+  margin-top: 4px;
   text-decoration: none;
   transition: background 160ms ease, transform 160ms ease;
 }
@@ -496,14 +554,121 @@
   transform: translateY(-1px);
 }
 
+.zg-cta-primary:disabled {
+  opacity: 0.65;
+  cursor: default;
+  transform: none;
+}
+
+.zg-cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1px solid #B7D6E0;
+  background: rgba(8, 21, 33, 0.85);
+  color: #F3F0E8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.zg-cta-secondary:hover {
+  background: #1A4D60;
+  border-color: #F3F0E8;
+}
+
 .zg-alert-inline {
-  margin-top: 6px;
+  margin-top: 4px;
   padding: 8px 10px;
   border-radius: 8px;
   background: rgba(232, 228, 218, 0.12);
   border: 1px solid rgba(232, 228, 218, 0.35);
   color: #F3F0E8;
   font-size: 12px;
+}
+
+/* Devolución post-guardado editable + requisito extra opcional */
+.zg-saved-card {
+  display: grid;
+  gap: 10px;
+}
+
+.zg-saved-badge {
+  display: inline-block;
+  width: fit-content;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #B7D6E0;
+  color: #081521;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.zg-saved-summary {
+  background: #081521;
+  border: 1px solid rgba(183, 214, 224, 0.28);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 12px;
+  color: #E8E4DA;
+  line-height: 1.5;
+  display: grid;
+  gap: 6px;
+}
+
+.zg-edit-saved-btn {
+  background: none;
+  border: 0;
+  padding: 2px 0 0;
+  width: fit-content;
+  color: #B7D6E0;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.zg-edit-saved-btn:hover {
+  color: #F3F0E8;
+}
+
+.zg-extra-wa-block {
+  padding-top: 10px;
+  border-top: 1px solid rgba(243, 240, 232, 0.14);
+  display: grid;
+  gap: 7px;
+}
+
+.zg-extra-wa-title {
+  font-size: 12px;
+  color: #B7D6E0;
+  line-height: 1.4;
+}
+
+.zg-new-consult-btn {
+  background: none;
+  border: 0;
+  padding: 4px 0 0;
+  color: #A3B3C2;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: center;
+}
+
+.zg-new-consult-btn:hover {
+  color: #F3F0E8;
 }
 
 .zg-cruzada-trigger {

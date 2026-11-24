@@ -637,7 +637,13 @@
           <span class="tag tag-ley">EMBUDO SILENCIOSO EN FICHAS · PACK ALQUILER 1</span>
           <h2 style="font-size:19px;margin-top:6px;">Log de Intentos Paso a Paso en Fichas Web (Incluso Abandonos)</h2>
         </div>
-        <button class="btn btn-outline btn-sm" onclick="loadFichaIntentosLog()">🔄 Actualizar embudo</button>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+          <button class="btn btn-outline btn-sm" onclick="setFichaFiltroModo('todos')">Todos</button>
+          <button class="btn btn-outline btn-sm" onclick="setFichaFiltroModo('reales')">Solo reales</button>
+          <button class="btn btn-outline btn-sm" onclick="setFichaFiltroModo('tests')">Solo 🧪 TEST</button>
+          <button class="btn btn-outline btn-sm" onclick="loadFichaIntentosLog()">🔄 Actualizar</button>
+          <button class="btn btn-outline btn-sm" style="border-color:rgba(183,214,224,0.6);color:#B7D6E0;" onclick="purgarTestsPackAlquiler()">🧹 Limpiar [🧪 TEST]</button>
+        </div>
       </div>
       <div id="ficha-intentos-funnel-box" style="font-size:12.5px;color:#B7D6E0;">Cargando embudo de pasos desde D1...</div>
     </div>
@@ -2156,14 +2162,24 @@ window.marcarColaAg = async function(id, estado) {
 };
 
 function renderFourLanesTab() {
+  const filtroModo = window.__fichaFiltroModo || 'todos';
   const b2cBox = document.getElementById('b2c-d1-list');
   if (b2cBox) {
-    const items = crmCloudState.interesados_b2c || [];
+    const rawItems = crmCloudState.interesados_b2c || [];
+    const items = rawItems.filter(it => {
+      const isTest = Number(it.es_prueba || 0) === 1 || String(it.nombre || '').includes('[🧪 TEST]') || /^598990000/.test(String(it.telefono || '').replace(/\D/g, ''));
+      if (filtroModo === 'reales') return !isTest;
+      if (filtroModo === 'tests') return isTest;
+      return true;
+    });
     b2cBox.innerHTML = items.length ? items.map(it => {
       let ms = []; try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch(e) {}
-      return `<div class="card approved"><div class="card-top"><div><span class="tag tag-active">${it.id} · ${it.estado}</span><h3 style="margin-top:6px;">${it.nombre}</h3><p style="font-size:12.5px;color:var(--muted);">${it.tipo_operacion} · ${it.zona_preferida || 'Cualquier zona'} · ${it.dormitorios_min ?? '?'}D · Hasta ${it.moneda} ${it.presupuesto_max || 's/d'}</p></div></div>
-      <div style="font-size:12px;color:#D5E0EA;">Garantía: ${it.garantia_disponible || 's/d'} · Mascota: ${it.tiene_mascota || 's/d'}<br>Matches: ${ms.map(m => `${m.id} (${m.nombre})`).join(', ') || 'Sin matches aún'}</div></div>`;
-    }).join('') : '<p style="color:var(--muted);font-size:13px;">Todavía no cargaste interesados B2C en D1.</p>';
+      let corch = {}; try { corch = it.corchetes_json ? JSON.parse(it.corchetes_json) : {}; } catch(e) {}
+      const isTest = Number(it.es_prueba || 0) === 1 || String(it.nombre || '').includes('[🧪 TEST]');
+      const corchPairs = Object.entries(corch || {}).filter(([, v]) => Boolean(v)).slice(0, 6).map(([k, v]) => `[${k}: ${v}]`).join(' · ');
+      return `<div class="card approved"><div class="card-top"><div><span class="tag tag-active">${it.id} · ${it.estado}</span>${isTest ? ' <span class="tag tag-pending">[🧪 TEST]</span>' : ''}<h3 style="margin-top:6px;">${it.nombre}</h3><p style="font-size:12.5px;color:var(--muted);">${it.tipo_operacion} · ${it.zona_preferida || 'Cualquier zona'} · ${it.dormitorios_min ?? '?'}D · Hasta ${it.moneda} ${it.presupuesto_max || 's/d'}</p></div></div>
+      <div style="font-size:12px;color:#D5E0EA;">Garantía: ${it.garantia_disponible || 's/d'} · Mascota: ${it.tiene_mascota || 's/d'}${corchPairs ? `<br><span style="color:#B7D6E0;">Corchetes: ${corchPairs}</span>` : ''}<br>Matches: ${ms.map(m => `${m.id} (${m.nombre})`).join(', ') || 'Sin matches aún'}</div></div>`;
+    }).join('') : '<p style="color:var(--muted);font-size:13px;">Sin interesados en este filtro.</p>';
   }
   const visBox = document.getElementById('visitas-d1-list');
   if (visBox) {
@@ -2183,32 +2199,59 @@ function renderFourLanesTab() {
   loadFichaIntentosLog();
 }
 
+window.__fichaFiltroModo = window.__fichaFiltroModo || 'todos';
+
+window.setFichaFiltroModo = function(modo) {
+  window.__fichaFiltroModo = modo || 'todos';
+  renderFourLanesTab();
+  loadFichaIntentosLog();
+};
+
+window.purgarTestsPackAlquiler = async function() {
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/tests/purgar`, { method: 'POST' });
+    const out = await res.json();
+    if (res.ok && out.ok) {
+      await loadRadar4Z();
+      showToast(`🧹 Limpiados ${out.purgados_intentos || 0} intentos y ${out.purgados_b2c || 0} leads [🧪 TEST]`);
+    } else {
+      showToast('⚠️ No se pudieron limpiar los tests');
+    }
+  } catch (e) {
+    showToast('⚠️ Error de conexión al limpiar tests');
+  }
+};
+
 window.loadFichaIntentosLog = async function() {
   const box = document.getElementById('ficha-intentos-funnel-box');
   if (!box) return;
+  const modoFiltro = window.__fichaFiltroModo || 'todos';
   try {
-    const res = await fetch(`${CRM_API_URL}/api/ficha-intentos?v=${Date.now()}`);
+    const res = await fetch(`${CRM_API_URL}/api/ficha-intentos?modo=${encodeURIComponent(modoFiltro)}&v=${Date.now()}`);
     const data = await res.json();
     if (!res.ok || !data.ok) throw new Error('Error leyendo embudo');
     const summary = data.resumen_por_slug || [];
     const items = data.intentos || [];
     if (!summary.length && !items.length) {
-      box.innerHTML = '<p style="color:var(--muted);">Aún no hay toques registrados en las rayitas de ficha (los próximos ingresos aparecerán acá en vivo).</p>';
+      box.innerHTML = '<p style="color:var(--muted);">Aún no hay toques registrados en este filtro.</p>';
       return;
     }
     const cardsHtml = summary.map(s => `
       <div style="background:rgba(8,21,33,0.72);border:1px solid var(--border);border-radius:10px;padding:10px 12px;">
-        <div style="font-weight:700;color:#F3F0E8;margin-bottom:4px;">${s.slug} (${s.total_sesiones} sesiones)</div>
+        <div style="font-weight:700;color:#F3F0E8;margin-bottom:4px;">${s.slug} (${s.total_sesiones} sesiones reales · ${s.tests_sesiones || 0} [🧪 TEST])</div>
         <div style="color:#B7D6E0;">Paso 1: <strong>${s.paso_1}</strong> → Paso 2: <strong>${s.paso_2}</strong> → Paso 3: <strong>${s.paso_3}</strong> → Paso 4: <strong>${s.paso_4}</strong></div>
         <div style="color:#E8E4DA;margin-top:4px;">WhatsApp calificado: <strong>${s.whatsapp_calificado}</strong> · Búsquedas registradas: <strong>${s.busqueda_registrada}</strong> · Escala 2: <strong>${s.escala_2}</strong> · Captación cruzada: <strong>${s.captacion_cruzada}</strong></div>
       </div>
     `).join('');
-    const listHtml = items.slice(0, 8).map(it => {
-      let resp = {};
-      try { resp = it.respuestas_json ? JSON.parse(it.respuestas_json) : {}; } catch (e) {}
-      return `<div style="padding:6px 8px;border-bottom:1px solid rgba(243,240,232,0.08);font-size:12px;">
-        <strong>${it.slug}</strong> · Paso ${it.paso_alcanzado} · <span style="color:#F3F0E8;">${it.resultado}</span>${it.nombre ? ` · ${it.nombre}` : ' · (anónimo)'} <span style="color:var(--muted);">(${(it.updated_at || '').slice(0,16).replace('T',' ')})</span>
-        ${resp.motivo_desvio || resp.cruzada_prioridad || resp.personas ? `<div style="color:var(--muted);">${[resp.personas, resp.mascota, resp.garantia, resp.ingresos, resp.cruzada_prioridad, resp.cruzada_rango, resp.motivo_desvio].filter(Boolean).join(' · ')}</div>` : ''}
+    const listHtml = items.slice(0, 40).map(it => {
+      let resp = {}; try { resp = it.respuestas_json ? JSON.parse(it.respuestas_json) : {}; } catch (e) {}
+      let corch = {}; try { corch = it.corchetes_json ? JSON.parse(it.corchetes_json) : {}; } catch (e) {}
+      const isTest = Number(it.es_prueba || 0) === 1 || String(it.nombre || '').includes('[🧪 TEST]');
+      const corchStr = Object.entries(corch || {}).filter(([, v]) => Boolean(v)).slice(0, 5).map(([k, v]) => `[${k}: ${v}]`).join(' · ');
+      return `<div style="padding:7px 8px;border-bottom:1px solid rgba(243,240,232,0.08);font-size:12px;">
+        ${isTest ? '<span class="tag tag-pending" style="margin-right:6px;">[🧪 TEST]</span>' : ''}<strong>${it.slug}</strong> · Paso ${it.paso_alcanzado} · <span style="color:#F3F0E8;">${it.resultado}</span>${it.nombre ? ` · ${it.nombre}` : ' · (anónimo)'} <span style="color:var(--muted);">(${(it.updated_at || '').slice(0,16).replace('T',' ')})</span>
+        ${resp.motivo_desvio || resp.cruzada_zona || resp.cruzada_respaldo || resp.personas ? `<div style="color:var(--muted);margin-top:2px;">${[resp.personas, resp.mascota, resp.plazo, resp.garantia, resp.ingresos, resp.cruzada_zona, resp.cruzada_comodidades, resp.cruzada_respaldo, resp.cruzada_rango, resp.motivo_desvio].filter(Boolean).join(' · ')}</div>` : ''}
+        ${corchStr ? `<div style="color:#B7D6E0;margin-top:2px;">${corchStr}</div>` : ''}
       </div>`;
     }).join('');
     box.innerHTML = `<div style="display:grid;gap:8px;margin-bottom:10px;">${cardsHtml}</div>${listHtml}`;
