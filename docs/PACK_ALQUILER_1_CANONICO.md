@@ -54,11 +54,22 @@
 
 ---
 
-## 4. Aduana fría en WhatsApp directo (`P-11`: `/frio1`, `/frio1f`, `/frio1c` y `/frio2`)
+## 4. Aduana fría en WhatsApp directo (`P-11`: `/hola`, `/alquiler`, `/frio1f`, `/frio1c` y `/frio2`)
 
-Cuando alguien busca el número por afuera, saltea la web y escribe en frío (*«Hola info y fotos»* o audio largo):
+Cuando alguien escribe por afuera de la web sin pasar por el filtro móvil:
 
-### Respuesta rápida `/frio1` (Entrada fría general — no aclaró cuál unidad vio)
+### Respuesta rápida `/hola` (Saludo ciego sin operación aclarada — puede querer Pozo, Compra, Alquiler o Publicar)
+```text
+¡Hola! Te damos la bienvenida a ZAGUÁN Propiedades (Maldonado y Punta del Este). Soy Mar.
+
+Contame con qué opción te puedo ayudar hoy:
+1) Desarrollos en pozo y a estrenar (desde USD 79.800 con financiación)
+2) Compra de casas, apartamentos o terrenos
+3) Alquiler anual de vivienda todo el año
+4) Publicar tu propiedad en venta o alquiler anual
+```
+
+### Respuesta rápida `/alquiler` (Antes `/frio1` — usar SOLO cuando ya pidió alquiler anual por afuera y no aclaró unidad)
 ```text
 ¡Hola! ¿Cómo estás? Te comparto las 2 opciones de alquiler anual de 2 dormitorios disponibles hoy en Maldonado (en cada enlace tenés todas las fotos y el desplegable con cada detalle):
 
@@ -98,4 +109,24 @@ Bárbaro. Esta propiedad opera con póliza de aseguradora privada (Porto Seguro,
 Calificás con 1 o 2 ingresos formales en BPS (3 recibos fijos o 6 variables) o unipersonal mayor a 1 año al día con contador e historial limpio (y si hace falta llegar al tope, se puede sumar 1 co-firmante que firme el contrato).
 
 ¿Contás con ese respaldo para que coordinemos día y horario de visita, o buscás otra modalidad o zona en Maldonado o Punta del Este?
+```
+
+---
+
+## 5. Respuestas rápidas del aviso web activo (`/visita` y `/prioritaria`)
+
+El aviso web actual envía clics a cada ficha con filtro móvil; quienes completan el flujo aterrizan en WhatsApp ya pre-calificados:
+
+### Respuesta rápida `/visita` (Cuando entra `[VISITA CALIFICADA]` desde el aviso — 0 repreguntas)
+```text
+¡Hola! Recibí tu consulta calificada desde la ficha, muchas gracias por completar los datos.
+
+Como tu perfil ya cumple las condiciones de ingreso (recordá que primero vamos a ver el apartamento y la póliza se gestiona recién si te gusta), ¿qué día y en qué franja horaria te queda cómodo para coordinar la visita?
+```
+
+### Respuesta rápida `/prioritaria` (Cuando entra `[BÚSQUEDA PRIORITARIA]` desde el aviso)
+```text
+¡Hola! Recibí el detalle de tu búsqueda anual desde nuestra web, muchas gracias.
+
+Ya tomé nota de la zona, comodidades, fecha de mudanza y respaldo que marcaste. ¿Tenés algún barrio o requisito puntual que quieras priorizar así reviso opciones activas acordes y te comparto las que calcen con lo que buscás?
 ```
