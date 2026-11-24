@@ -882,7 +882,7 @@
           </div>
 
           <div class="lf-triage-form" id="reservar-visita">
-            <div class="lf-triage-title">Semáforo rápido en 20 s (sin pedir teléfono)</div>
+            <div class="lf-triage-title">Verificación rápida de garantía (sin pedir teléfono)</div>
             <div class="lf-field">
               <label for="lf-garantia">1. Perfil laboral / garantía</label>
               <select id="lf-garantia" onchange="onSelectGarantia()">
@@ -905,7 +905,7 @@
               <input type="text" id="lf-nombre" placeholder="Ej. Laura Pérez" oninput="updateLaFortunaWaLinks()">
             </div>
             <div id="lf-semaforo-pill" style="padding:8px 10px;border-radius:8px;font-size:12px;font-weight:700;background:rgba(16,185,129,0.18);border:1px solid rgba(16,185,129,0.5);color:#A7F3D0;">
-              🟢 VERDE · Califica aseguradora: podés avanzar directo
+              ✓ Califica aseguradora: podés avanzar directo
             </div>
           </div>
 
@@ -916,14 +916,14 @@
             target="_blank"
             rel="noopener"
             onclick="trackWaLead('sidebar_form_cta')"
-            aria-label="Avanzar según semáforo">
+            aria-label="Avanzar según verificación">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.183 8.183 0 0 1 2.41 5.83c.02 4.54-3.68 8.23-8.22 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.44.06-.66.31-.22.25-.86.84-.86 2.05 0 1.21.88 2.38 1 2.55.12.17 1.74 2.66 4.21 3.73.59.25 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.07-.12-.23-.19-.48-.31z"/></svg>
-            <span id="btn-wa-main-label">🟢 Avanzar por WhatsApp</span>
+            <span id="btn-wa-main-label">Avanzar por WhatsApp</span>
           </a>
 
           <p class="sidebar-help" id="lf-sidebar-help">
             Atención directa de ZAGUÁN Propiedades.<br>
-            Validamos tu garantía primero: si da Amarillo podés simular hasta 4 firmantes abajo.
+            Validamos tu garantía primero: si te falta margen podés simular hasta 4 firmantes abajo.
           </p>
         </div>
       </aside>
@@ -934,7 +934,7 @@
         <span style="color:#B7D6E0;font-size:13px;">Simulá de 1 a 4 firmantes (tope ~30% = ~$U 100.000 líquidos, continuidad BPS, 3 vs. 6 recibos o unipersonal &gt; 1 año) gratis antes de escribir.</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="/garantias-alquiler/?alquiler=30000&propiedad=la-fortuna-agata" style="background:#F3F0E8;color:#081521;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-decoration:none;">Abrir Semáforo completo (1–4 firmantes) →</a>
+        <a href="/garantias-alquiler/?alquiler=30000&propiedad=la-fortuna-agata" style="background:#F3F0E8;color:#081521;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-decoration:none;">Verificar respaldo completo (1–4 firmantes) →</a>
         <a href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="border:1px solid rgba(243,240,232,0.45);color:#F3F0E8;font-weight:600;font-size:13px;padding:10px 14px;border-radius:8px;text-decoration:none;">Guía de requisitos</a>
       </div>
     </div>
@@ -1110,7 +1110,7 @@
         var perfilTxt = state.garantia === 'independiente'
           ? 'unipersonal +1 año BPS/DGI y certificación contable'
           : 'recibos continuos en BPS (3 fijos o 6 variables)';
-        return 'Hola Mar, pasé el Semáforo en VERDE para La Fortuna ($U 30.000 cerrados, piso 1 c/ balcón y cochera, sin patio)' + quien + '. Cumplo ' + perfilTxt + ', sumamos ~$U 100.000 líquidos entre 1–4 firmantes y estamos sin Clearing. Quiero avanzar.';
+        return 'Hola Mar, ya verifiqué garantía para La Fortuna ($U 30.000 cerrados, piso 1 c/ balcón y cochera, sin patio)' + quien + '. Cumplo ' + perfilTxt + ', sumamos ~$U 100.000 líquidos entre 1–4 firmantes y estamos sin Clearing. Quiero avanzar.';
       }
       return 'Hola Mar, ya tengo póliza aprobada (Porto, Sura, Mapfre o Santander)' + quien + '. Consulto por La Fortuna ($U 30.000 cerrados, piso 1 c/ balcón y cochera, sin patio) para avanzar.';
     }
@@ -1130,7 +1130,7 @@
           pill.style.background = 'rgba(239,68,68,0.18)';
           pill.style.borderColor = 'rgba(239,68,68,0.55)';
           pill.style.color = '#FECACA';
-          pill.textContent = '🔴 ROJO · Esta unidad exige aseguradora (~$U 100.000 entre 1–4 firmantes y sin Clearing)';
+          pill.textContent = 'Esta unidad exige aseguradora (~$U 100.000 entre 1–4 firmantes y sin Clearing)';
         }
         if (btnMain) {
           btnMain.href = '#zaguan-pedido-abierto-box';
@@ -1142,7 +1142,7 @@
           btnMobile.target = '_self';
           btnMobile.removeAttribute('rel');
         }
-        if (lblMain) lblMain.textContent = '🔴 Ver búsqueda alternativa abajo ↓';
+        if (lblMain) lblMain.textContent = 'Ver búsqueda alternativa abajo ↓';
         if (lblMob) lblMob.textContent = 'Otra opción ↓';
         return;
       }
@@ -1152,12 +1152,12 @@
           pill.style.background = 'rgba(245,158,11,0.18)';
           pill.style.borderColor = 'rgba(245,158,11,0.55)';
           pill.style.color = '#FDE68A';
-          pill.textContent = '🟡 AMARILLO · Probá sumar de 2 a 4 co-firmantes en nuestro Semáforo privado';
+          pill.textContent = 'Podés sumar de 2 a 4 co-firmantes en nuestro simulador privado';
         }
         var simUrl = '/garantias-alquiler/?alquiler=30000&propiedad=la-fortuna-agata';
         if (btnMain) { btnMain.href = simUrl; btnMain.target = '_self'; }
         if (btnMobile) { btnMobile.href = simUrl; btnMobile.target = '_self'; }
-        if (lblMain) lblMain.textContent = '🟡 Simular 1 a 4 firmantes (20 s) →';
+        if (lblMain) lblMain.textContent = 'Simular 1 a 4 firmantes (20 s) →';
         if (lblMob) lblMob.textContent = 'Simular 20 s →';
         return;
       }
@@ -1166,13 +1166,13 @@
         pill.style.background = 'rgba(16,185,129,0.18)';
         pill.style.borderColor = 'rgba(16,185,129,0.5)';
         pill.style.color = '#A7F3D0';
-        pill.textContent = '🟢 VERDE · Califica aseguradora: podés avanzar directo';
+        pill.textContent = '✓ Califica aseguradora: podés avanzar directo';
       }
       var url = 'https://wa.me/59898712064?text=' + encodeURIComponent(buildLaFortunaWaText());
       if (btnMain) { btnMain.href = url; btnMain.target = '_blank'; btnMain.rel = 'noopener'; }
       if (btnMobile) { btnMobile.href = url; btnMobile.target = '_blank'; btnMobile.rel = 'noopener'; }
-      if (lblMain) lblMain.textContent = '🟢 Avanzar por WhatsApp';
-      if (lblMob) lblMob.textContent = 'WhatsApp 🟢';
+      if (lblMain) lblMain.textContent = 'Avanzar por WhatsApp';
+      if (lblMob) lblMob.textContent = 'WhatsApp';
     }
 
     function onSelectGarantia() {

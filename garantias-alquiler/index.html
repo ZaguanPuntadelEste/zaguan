@@ -591,23 +591,8 @@
     <section class="hero">
       <div class="container">
         <p class="eyebrow">Punta del Este · Maldonado · Alquiler anual</p>
-        <h1>Semáforo de garantía en 20 segundos (sin pedir datos antes).</h1>
-        <p>Elegí la unidad, cargá de <strong>1 a 4 personas firmantes</strong> (~30% del ingreso líquido conjunto, continuidad en BPS y sin Clearing) y mirá al instante qué color te da.</p>
-
-        <div class="semaforo-legend" aria-label="Cómo leer el Semáforo de Garantía">
-          <div class="sem-leg-item">
-            <strong>🟢 Verde · Calificás</strong>
-            Cubrís el ~30% con BPS al día y sin Clearing. Pasás directo a WhatsApp.
-          </div>
-          <div class="sem-leg-item">
-            <strong>🟡 Amarillo · Estás cerca</strong>
-            Te muestra cuánto falta y podés sumar hasta 4 firmantes al contrato.
-          </div>
-          <div class="sem-leg-item">
-            <strong>🔴 Rojo · Hoy no llega</strong>
-            No califica a aseguradora; dejás alerta para otras opciones sin WhatsApp.
-          </div>
-        </div>
+        <h1>Verificá tu garantía de alquiler en 20 segundos.</h1>
+        <p>Elegí la unidad, cargá de <strong>1 a 4 personas firmantes</strong> (~30% del ingreso líquido conjunto, continuidad en BPS y sin Clearing) y confirmá al instante si calificás a aseguradora.</p>
 
         <div class="unit-picker" id="unit-picker" aria-label="Elegir apartamento en alquiler anual en Maldonado">
           <div class="unit-card" id="u-card-centro" role="button" tabindex="0" onclick="seleccionarUnidadObjetivo('maldonado-centro-piso-4-norte', 32000)">
@@ -635,9 +620,9 @@
         </div>
 
         <div class="gates-grid">
-          <!-- SEMÁFORO ANÓNIMO (PRIMERO EN MOBILE Y DESKTOP) -->
+          <!-- EVALUADOR PRIVADO (PRIMERO EN MOBILE Y DESKTOP) -->
           <article class="gate-card gate-card--primary">
-            <span class="gate-tag">Semáforo anónimo (1 a 4 firmantes)</span>
+            <span class="gate-tag">Evaluación privada (1 a 4 firmantes)</span>
             <h2>Simulá gratis y en privado si calificás a aseguradora</h2>
             <p class="gate-sub">Sumá de <strong>1 a 4 personas firmantes</strong> (<strong>1 póliza = 1 contrato</strong>). <strong>Dependientes:</strong> 3 recibos fijos o 6 variables con continuidad en BPS. <strong>Independientes:</strong> unipersonal &gt; 1 año al día en BPS y DGI + cert. contable. Siempre sin Clearing.</p>
 
@@ -665,7 +650,7 @@
             <div class="signer-stack" id="pb-solicitantes-list"></div>
 
             <div class="result-box semaforo-verde" id="pb-resultado">
-              <span class="result-badge sem-verde" id="pb-badge">🟢 VERDE · Calificás para tramitar aseguradora</span>
+              <span class="result-badge sem-verde" id="pb-badge">✓ Calificás para tramitar aseguradora</span>
               <div class="result-title" id="pb-titulo">Ingreso líquido conjunto: $U 105.000 (Tope al 30%: $U 31.500 / mes)</div>
               <div class="sem-meter-wrap">
                 <div class="sem-meter-labels">
@@ -682,7 +667,7 @@
 
               <div id="pb-alerta-alternativa-box" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(243,240,232,0.22);">
                 <form id="puerta-b-form">
-                  <p id="pb-form-heading" style="font-size:13px;font-weight:700;margin-bottom:10px;color:#F3F0E8;">🟢 ¿Te dio Verde? Opcional: dejá tu nombre y WhatsApp para abrir el chat ya con este resultado:</p>
+                  <p id="pb-form-heading" style="font-size:13px;font-weight:700;margin-bottom:10px;color:#F3F0E8;">Tu perfil califica. Opcional: dejá tu nombre y WhatsApp para abrir el chat con este respaldo:</p>
                   <div class="form-grid">
                     <div class="field">
                       <label for="pb-nombre">Tu nombre</label>
@@ -781,8 +766,8 @@
             <p>El alquiler debe representar aprox. el <strong>30% de lo que cobran líquido en mano</strong> entre 1 y 4 firmantes (para $U 30.000 son aprox. <strong>$U 100.000 líquidos</strong>). Quienes suman ingresos firman el contrato bajo <strong>1 póliza = 1 contrato</strong>, sin Clearing.</p>
           </article>
           <article class="faq-item">
-            <h3>6. ¿Cómo seguimos después de pasar el Semáforo en Verde?</h3>
-            <p>Con el Semáforo en 🟢 Verde ya sabés qué carpeta llevar y podés avanzar directo por WhatsApp con Mar para revisar detalles finales de la propiedad y coordinar visita presencial.</p>
+            <h3>6. ¿Cómo seguimos después de confirmar que califico?</h3>
+            <p>Una vez confirmados los requisitos ya sabés qué carpeta llevar y podés avanzar directo por WhatsApp con Mar para revisar detalles finales de la propiedad y coordinar visita presencial.</p>
           </article>
         </div>
 
@@ -1113,14 +1098,14 @@
       const faltanteParaCentroBase = esCentro ? Math.max(0, metaBase30 - totalIngValido) : faltanteParaFull;
 
       let color = 'VERDE';
-      let badgeTxt = '🟢 VERDE · Calificás para tramitar aseguradora';
+      let badgeTxt = '✓ Calificás para tramitar aseguradora';
       let tituloTxt = 'Ingreso líquido conjunto: $U ' + totalIngValido.toLocaleString('de-DE') + ' (Cubre ~30% hasta $U ' + maxAlq30.toLocaleString('de-DE') + ' / mes)';
       let estadoPre = 'SEMAFORO_VERDE';
 
       if (forzarModoRojoAlternativo || tieneClearingRojoAportante || todosSinIngresosFormales || totalIngValido === 0 || pctAfectacion > 58 || unipersonalNuevoSolo) {
         color = 'ROJO';
         estadoPre = 'SEMAFORO_ROJO';
-        badgeTxt = '🔴 ROJO · Hoy no califica para póliza de aseguradora en estas unidades';
+        badgeTxt = 'Hoy no califica para póliza de aseguradora en estas unidades';
         if (forzarModoRojoAlternativo) {
           tituloTxt = 'Búsqueda exclusiva con ANDA, CGN o depósito';
         } else if (tieneClearingRojoAportante) {
@@ -1133,7 +1118,7 @@
       } else if ((esCentro ? pctAfectacionBase > 32 : pctAfectacion > 32) || !hayAportanteApto || evaluaciones.some(ev => ev.esAportanteReal && !ev.aptoAseg)) {
         color = 'AMARILLO';
         estadoPre = 'SEMAFORO_AMARILLO';
-        badgeTxt = '🟡 AMARILLO · Estás cerca: mirá cómo pasarlo a Verde hoy';
+        badgeTxt = 'Estás cerca: mirá cómo completar el respaldo hoy';
         const faltanteVer = esCentro && faltanteParaCentroBase > 0 ? faltanteParaCentroBase : faltanteParaFull;
         tituloTxt = faltanteVer > 0
           ? 'Te faltan aprox. $U ' + faltanteVer.toLocaleString('de-DE') + ' líquidos para cubrir el ~30%'
@@ -1141,7 +1126,7 @@
       } else if (esCentro && pctAfectacion > 32 && pctAfectacionBase <= 32) {
         color = 'VERDE';
         estadoPre = 'SEMAFORO_VERDE';
-        badgeTxt = '🟢 VERDE (Base $U 27.000 cubierta) · Verificar GC según aseguradora';
+        badgeTxt = '✓ Base $U 27.000 cubierta · Verificar GC según aseguradora';
         tituloTxt = 'Cubrís $U 27.000 al ~30% ($U ' + totalIngValido.toLocaleString('de-DE') + ' líq.)';
       }
 
@@ -1187,13 +1172,13 @@
 
       if (color === 'VERDE') {
         gapEl.innerHTML = '';
-        if (formHead) formHead.textContent = '🟢 Ya te dio Verde. Opcional: dejá nombre y WhatsApp para abrir el chat con este resultado (sin exponer sueldos):';
-        if (subBtn) subBtn.textContent = '🟢 Abrir WhatsApp con este respaldo aprobado →';
+        if (formHead) formHead.textContent = 'Tu perfil califica. Opcional: dejá nombre y WhatsApp para abrir el chat con este respaldo (sin exponer sueldos):';
+        if (subBtn) subBtn.textContent = 'Abrir WhatsApp con este respaldo →';
       } else if (color === 'AMARILLO') {
         const faltanteVer = Math.max(0, (esCentro ? metaBase30 : metaFull30) - totalIngValido);
         gapEl.innerHTML =
           '<div class="gap-box">' +
-            '<strong>Cómo pasarlo a 🟢 Verde ahora mismo:</strong> ' +
+            '<strong>Cómo completar el respaldo ahora mismo:</strong> ' +
             (faltanteVer > 0
               ? 'podés sumar hasta <strong>4 firmantes</strong> al contrato (pareja, familiar o co-garante aunque viva en otra dirección) que aporte <strong>$U ' + faltanteVer.toLocaleString('de-DE') + '</strong> líquidos.'
               : 'cargá un co-firmante con +1 año / continuidad en BPS (3 recibos fijos, 6 variables o unipersonal > 1 año con BPS/DGI y certificación contable).') +
@@ -1202,14 +1187,14 @@
               '<a class="btn btn--light" style="min-height:38px;padding:7px 12px;font-size:12px;" href="https://wa.me/?text=' + encodeURIComponent(shareMsg) + '" target="_blank" rel="noopener noreferrer">📲 Compartir cálculo a mi pareja o co-firmante</a>' +
             '</div>' +
           '</div>';
-        if (formHead) formHead.textContent = '🟡 ¿Querés que revisemos tu carpeta en Amarillo? Dejá nombre y WhatsApp para abrir consulta puntual:';
-        if (subBtn) subBtn.textContent = '🟡 Validar mi caso en Amarillo por WhatsApp →';
+        if (formHead) formHead.textContent = '¿Querés que revisemos tu carpeta puntual? Dejá nombre y WhatsApp para consultar:';
+        if (subBtn) subBtn.textContent = 'Consultar mi caso por WhatsApp →';
       } else {
         gapEl.innerHTML =
           '<div class="gap-box gap-box--rojo">' +
-            '<strong>Aclaración importante:</strong> tanto Centro de Maldonado como La Fortuna piden garantía de aseguradora privada (Porto Seguro, Sura, Mapfre o Santander), libre de Clearing y con ingresos formales de ~3x. <strong>No abrimos WhatsApp para estas 2 unidades en estado Rojo</strong>, aunque podés sumar arriba un co-firmante con recibo o dejar tu búsqueda guardada acá abajo para cuando entre otra unidad con ANDA, CGN o depósito.' +
+            '<strong>Aclaración importante:</strong> tanto Centro de Maldonado como La Fortuna piden garantía de aseguradora privada (Porto Seguro, Sura, Mapfre o Santander), libre de Clearing y con ingresos formales de ~3x. <strong>No abrimos WhatsApp para estas 2 unidades con este perfil</strong>, aunque podés sumar arriba un co-firmante con recibo o dejar tu búsqueda guardada acá abajo para cuando entre otra unidad con ANDA, CGN o depósito.' +
           '</div>';
-        if (formHead) formHead.textContent = '🔴 Guardá tu búsqueda para futuras propiedades con ANDA, CGN, depósito o menor valor (sin abrir WhatsApp):';
+        if (formHead) formHead.textContent = 'Guardá tu búsqueda para futuras propiedades con ANDA, CGN, depósito o menor valor:';
         if (subBtn) subBtn.textContent = '🔔 Guardar búsqueda para otras propiedades →';
       }
 
