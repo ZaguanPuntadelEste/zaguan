@@ -276,11 +276,11 @@
 </header>
 
 <main class="container">
-  <!-- SEMÁFORO ANTI-APAGÓN DE 4 LUCES EN VIVO -->
+  <!-- SEMÁFORO TÉCNICO DE SERVIDORES 24/7 -->
   <div class="section-box" id="semaforo-box" style="border:1.5px solid rgba(16,185,129,0.55);background:rgba(8,21,33,0.94);margin-bottom:14px;padding:12px 16px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
-        <span class="tag tag-active">🚦 SEMÁFORO DE SERVICIOS 24/7</span>
+        <span class="tag tag-active">🚦 ESTADO TÉCNICO DE SERVIDORES 24/7</span>
         <div id="semaforo-luces" style="display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:#E2E8F0;">
           <span>⏳ Verificando nube, bot, web y calendario...</span>
         </div>
@@ -290,6 +290,39 @@
         <a class="btn btn-email btn-sm" href="https://zaguan-crm-bot.943ari.workers.dev/api/calendario.ics" target="_blank" rel="noopener noreferrer">📅 Suscribir Calendario Vivo (.ics)</a>
         <a class="btn btn-wa btn-sm" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ Abrir @zaguan_crm_bot ↗</a>
       </div>
+    </div>
+  </div>
+
+  <!-- TABLERO EN VIVO: SEMÁFORO COMERCIAL DE GARANTÍAS + ANUNCIO ACTIVO EN META ADS -->
+  <div class="section-box" id="semaforo-garantias-pc-box" style="border:1.5px solid rgba(230,184,92,0.55);background:linear-gradient(180deg,rgba(18,59,74,0.38) 0%,rgba(8,21,33,0.96) 100%);margin-bottom:14px;padding:14px 18px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+      <div>
+        <span class="tag tag-ley">🛡️ ADUANA IA-FIRST ALQUILER ANUAL · LO QUE VE ARIANA EN SU COMPUTADORA</span>
+        <h2 style="font-size:17px;color:#FFFFFF;margin-top:5px;">Semáforo de Garantías (🟢 Verde / 🟡 Amarillo / 🔴 Rojo) + Qué Opciones Tiene Hoy Tu Anuncio</h2>
+      </div>
+      <div class="btn-row">
+        <a class="btn btn-email btn-sm" href="/garantias-alquiler/" target="_blank" rel="noopener noreferrer">🛡️ Abrir Semáforo Público (Web) ↗</a>
+        <a class="btn btn-outline btn-sm" href="/alquileres/maldonado-centro-piso-4-norte/" target="_blank" rel="noopener noreferrer">🏠 Centro $U 27k+5k ↗</a>
+        <a class="btn btn-outline btn-sm" href="/alquileres/la-fortuna-agata/" target="_blank" rel="noopener noreferrer">🏠 La Fortuna $U 30k ↗</a>
+        <a class="btn btn-outline btn-sm" href="/admin/simulador-mar.html" target="_blank" rel="noopener noreferrer">💬 Simulador Mar ↗</a>
+      </div>
+    </div>
+    <div id="semaforo-garantias-kpis" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;margin-bottom:10px;">
+      <button type="button" class="btn btn-outline" style="justify-content:space-between;border-color:rgba(16,185,129,0.6);background:rgba(16,185,129,0.1);" onclick="abrirPedidosPorSemaforo('VERDE')">
+        <span>🟢 Verdes (Califican aseguradora)</span>
+        <strong id="kpi-sem-verde" style="font-size:18px;color:#34D399;">0</strong>
+      </button>
+      <button type="button" class="btn btn-outline" style="justify-content:space-between;border-color:rgba(245,158,11,0.6);background:rgba(245,158,11,0.1);" onclick="abrirPedidosPorSemaforo('AMARILLO')">
+        <span>🟡 Amarillos (Sumando co-firmante / BPS)</span>
+        <strong id="kpi-sem-amarillo" style="font-size:18px;color:#FBBF24;">0</strong>
+      </button>
+      <button type="button" class="btn btn-outline" style="justify-content:space-between;border-color:rgba(239,68,68,0.6);background:rgba(239,68,68,0.1);" onclick="abrirPedidosPorSemaforo('ROJO')">
+        <span>🔴 Rojos (ANDA / Depósito / Clearing)</span>
+        <strong id="kpi-sem-rojo" style="font-size:18px;color:#FCA5A5;">0</strong>
+      </button>
+    </div>
+    <div style="background:rgba(8,21,33,0.82);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:12.5px;color:#D6E0EA;line-height:1.5;">
+      <strong>Reglas cargadas en el Semáforo &amp; Anuncio Unificado:</strong> <strong>1–4 firmantes</strong> en contrato (alquiler ~30% del líquido conjunto: <strong>~$U 100.000</strong> para La Fortuna $U 30.000 cerrados piso 1 sin patio; <strong>~$U 90.000 a $U 106.700</strong> para Centro $U 27.000 + $U 5.000 GC) · <strong>Dependientes:</strong> 3 recibos consecutivos (fijo) o 6 (variable) + continuidad BPS · <strong>Independientes:</strong> unipersonal &gt; 1 año al día BPS/DGI + certificación contable · <strong>Sin Clearing</strong>. Los 3 botones de WhatsApp mandan directo a fotos y Semáforo anónimo sin interrogar sueldo en el chat.
     </div>
   </div>
 
@@ -516,6 +549,15 @@
             <option value="TRAMITE">A tramitar en reserva (Dep/Indep/Ext)</option>
             <option value="ANDA">ANDA / CGN</option>
             <option value="DEPOSITO">Depósito / Sin garantía previa</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Semáforo Garantía</label>
+          <select id="pa-f-sem" onchange="renderPedidosAbiertos()">
+            <option value="TODOS">🟢🟡🔴 Todos</option>
+            <option value="VERDE">🟢 Verde (Califica aseguradora)</option>
+            <option value="AMARILLO">🟡 Amarillo (Sumando / en análisis)</option>
+            <option value="ROJO">🔴 Rojo (ANDA / Depósito / Clearing)</option>
           </select>
         </div>
       </div>
@@ -2174,12 +2216,47 @@ window.eliminarPedidoAbiertoD1 = async function(id) {
   }
 };
 
+function clasificarSemaforoLead(it) {
+  const txt = `${it.garantia_precalificacion || ''} ${it.garantia_disponible || ''} ${it.garantia_tipo || ''} ${it.estado_conversacion || ''} ${it.canal || ''} ${it.notas || ''}`.toLowerCase();
+  if (/(semaforo_rojo|anda|cgn|contaduria|deposito|depósito|sin garant|sin_garant|con observación|con registro|espera_otra_garantia|otra garantía)/.test(txt)) {
+    return 'ROJO';
+  }
+  if (/(semaforo_verde|cierre_inmediato|poliza_lista|póliza aprobada|poliza aprobada|\bporto\b|\bsura\b|\bmapfre\b|\bsantander\b)/.test(txt)) {
+    return 'VERDE';
+  }
+  return 'AMARILLO';
+}
+
+window.abrirPedidosPorSemaforo = function(color) {
+  const btn = document.getElementById('btn-tab-pedidos');
+  switchTab('tab-pedidos', btn);
+  const sel = document.getElementById('pa-f-sem');
+  if (sel) sel.value = color || 'TODOS';
+  renderPedidosAbiertos();
+  const el = document.getElementById('tab-pedidos');
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
 function renderPedidosAbiertos() {
   const all = crmCloudState.interesados_b2c || [];
   const countBadge = document.getElementById('kpi-pedidos-tab-count');
   const kpiTotal = document.getElementById('kpi-b2c-total');
   if (countBadge) countBadge.textContent = String(all.length);
   if (kpiTotal) kpiTotal.textContent = String(all.length);
+
+  let cntV = 0, cntA = 0, cntR = 0;
+  all.forEach(it => {
+    const c = clasificarSemaforoLead(it);
+    if (c === 'VERDE') cntV++;
+    else if (c === 'ROJO') cntR++;
+    else cntA++;
+  });
+  const elV = document.getElementById('kpi-sem-verde');
+  const elA = document.getElementById('kpi-sem-amarillo');
+  const elR = document.getElementById('kpi-sem-rojo');
+  if (elV) elV.textContent = String(cntV);
+  if (elA) elA.textContent = String(cntA);
+  if (elR) elR.textContent = String(cntR);
 
   const grid = document.getElementById('pedidos-abiertos-grid');
   const sumEl = document.getElementById('pedidos-abiertos-summary');
@@ -2191,8 +2268,12 @@ function renderPedidosAbiertos() {
   const fDorms = document.getElementById('pa-f-dorms')?.value || 'TODOS';
   const fMasc = document.getElementById('pa-f-mascota')?.value || 'TODOS';
   const fGar = document.getElementById('pa-f-gar')?.value || 'TODOS';
+  const fSem = document.getElementById('pa-f-sem')?.value || 'TODOS';
 
   const filtrados = all.filter(it => {
+    const semColor = clasificarSemaforoLead(it);
+    if (fSem !== 'TODOS' && semColor !== fSem) return false;
+
     const modTxt = String(it.modalidad_contrato || it.tipo_operacion || 'Anual');
     if (fMod !== 'TODAS' && !modTxt.toLowerCase().includes(fMod.toLowerCase())) return false;
 
@@ -2223,13 +2304,23 @@ function renderPedidosAbiertos() {
     if (fGar === 'DEPOSITO' && !/(deposito|depósito|sin garantía)/.test(garTxt)) return false;
 
     return true;
+  }).sort((a, b) => {
+    const rank = { VERDE: 1, AMARILLO: 2, ROJO: 3 };
+    return (rank[clasificarSemaforoLead(a)] || 2) - (rank[clasificarSemaforoLead(b)] || 2);
   });
 
   if (sumEl) {
-    sumEl.innerHTML = `Mostrando <strong>${filtrados.length}</strong> de <strong>${all.length}</strong> Pedidos Abiertos en D1.`;
+    sumEl.innerHTML = `Mostrando <strong>${filtrados.length}</strong> de <strong>${all.length}</strong> Pedidos Abiertos en D1 (🟢 Verdes: <strong>${cntV}</strong> · 🟡 Amarillos: <strong>${cntA}</strong> · 🔴 Rojos: <strong>${cntR}</strong>).`;
   }
 
   grid.innerHTML = filtrados.length ? filtrados.map(it => {
+    const semColor = clasificarSemaforoLead(it);
+    const semPill = semColor === 'VERDE'
+      ? '<span class="tag" style="background:rgba(16,185,129,0.2);color:#34D399;border:1px solid rgba(16,185,129,0.55);">🟢 SEMÁFORO VERDE</span>'
+      : semColor === 'ROJO'
+        ? '<span class="tag" style="background:rgba(239,68,68,0.2);color:#FCA5A5;border:1px solid rgba(239,68,68,0.55);">🔴 SEMÁFORO ROJO</span>'
+        : '<span class="tag" style="background:rgba(245,158,11,0.2);color:#FBBF24;border:1px solid rgba(245,158,11,0.55);">🟡 SEMÁFORO AMARILLO</span>';
+
     let ms = Array.isArray(it.matches) ? it.matches : [];
     if (!ms.length) {
       try { ms = it.matches_json ? JSON.parse(it.matches_json) : []; } catch (e) {}
@@ -2253,6 +2344,7 @@ function renderPedidosAbiertos() {
     const safeHistory = cleanLines.join('\n').replace(/</g, '&lt;');
 
     const confirmedChips = [];
+    if (it.canal) confirmedChips.push(`Origen: ${it.canal}`);
     if (it.modalidad_contrato || it.tipo_operacion) confirmedChips.push(it.modalidad_contrato || it.tipo_operacion);
     if (it.desde_cuando && !/por confirmar|a definir/i.test(it.desde_cuando)) confirmedChips.push(`Para ${it.desde_cuando}`);
     if (it.zona_preferida && it.zona_preferida !== 'Punta del Este / Maldonado') confirmedChips.push(`📍 ${it.zona_preferida}`);
@@ -2288,6 +2380,7 @@ function renderPedidosAbiertos() {
       <div class="card approved" id="pa-card-${it.id}">
         <div class="card-top">
           <div>
+            <div style="margin-bottom:6px;">${semPill}</div>
             <h3 style="font-size:17px;">${String(it.nombre || 'Interesado B2C').replace(/</g, '&lt;')}</h3>
             <p style="font-size:12.5px;color:#B7D6E0;margin-top:3px;">📱 ${it.telefono || 'Sin WhatsApp cargado'}</p>
           </div>

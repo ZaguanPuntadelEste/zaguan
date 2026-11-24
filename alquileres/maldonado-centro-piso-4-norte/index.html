@@ -607,8 +607,8 @@
             <strong>Garantía solicitada:</strong> Aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Se entrega sin muebles, con aire acondicionado y calefón instalados.
           </div>
           <div style="margin-top: 10px; display: flex; gap: 14px; flex-wrap: wrap;">
-            <a href="#reservar-visita" style="font-size:12.5px; font-weight:700; color:#B7D6E0; text-decoration:underline;">Elegir garantía y consultar visita →</a>
-            <a href="/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte" style="font-size:12.5px; font-weight:700; color:var(--bone); text-decoration:underline;">Simular mi garantía en 30 segundos →</a>
+            <a href="#reservar-visita" style="font-size:12.5px; font-weight:700; color:#B7D6E0; text-decoration:underline;">Validar garantía en 20 segundos →</a>
+            <a href="/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte" style="font-size:12.5px; font-weight:700; color:var(--bone); text-decoration:underline;">Simular de 1 a 4 firmantes →</a>
           </div>
         </div>
 
@@ -774,42 +774,46 @@
           </div>
 
           <div class="lf-triage-form" id="reservar-visita">
-            <div class="lf-triage-title">Alquiler anual · Coordiná tu visita</div>
+            <div class="lf-triage-title">Semáforo rápido en 20 s (sin pedir teléfono)</div>
             <div class="lf-field">
-              <label for="cl-garantia">1. Tu garantía hoy</label>
+              <label for="cl-garantia">1. Perfil laboral / garantía</label>
               <select id="cl-garantia" onchange="onSelectGarantia()">
-                <option value="poliza">Ya tengo Porto, Sura, Mapfre o Santander aprobada</option>
-                <option value="ingresos">Tengo ingresos para tramitar aseguradora en Uruguay</option>
-                <option value="otra">Busco con otra garantía o en otra zona de Maldonado</option>
+                <option value="poliza">Ya tengo póliza Porto, Sura, Mapfre o Santander</option>
+                <option value="dependiente">Dependientes: 3 recibos fijos o 6 variables + BPS</option>
+                <option value="independiente">Unipersonal &gt; 1 año: BPS y DGI al día + cert. contable</option>
+                <option value="otra">Solo ANDA / CGN / Depósito o con Clearing</option>
               </select>
             </div>
             <div class="lf-field">
-              <label for="cl-turno">2. Preferencia para visitar</label>
-              <select id="cl-turno" onchange="updateWaLinks()">
-                <option value="esta semana de tarde">Esta semana de tarde</option>
-                <option value="esta semana de mañana">Esta semana de mañana</option>
-                <option value="a convenir">Horario a convenir</option>
+              <label for="cl-ingresos">2. Ingreso líquido entre 1 a 4 firmantes (~30%)</label>
+              <select id="cl-ingresos" onchange="onSelectGarantia()">
+                <option value="ok_100k">Sumamos ~$U 90.000 a $U 106.700+ líquidos (sin Clearing)</option>
+                <option value="cerca">Sumamos $U 60.000 a $U 89.000 (ver si sumamos co-firmante)</option>
+                <option value="bajo">Menos de $U 60.000 o con Clearing</option>
               </select>
             </div>
             <div class="lf-field">
-              <label for="cl-nombre">3. Tu nombre</label>
+              <label for="cl-nombre">3. Tu nombre (opcional)</label>
               <input type="text" id="cl-nombre" placeholder="Ej.: Lucía Silva" oninput="updateWaLinks()">
+            </div>
+            <div id="cl-semaforo-pill" style="padding:8px 10px;border-radius:8px;font-size:12px;font-weight:700;background:rgba(16,185,129,0.18);border:1px solid rgba(16,185,129,0.5);color:#A7F3D0;">
+              🟢 VERDE · Califica aseguradora: podés avanzar directo
             </div>
           </div>
 
           <a
             id="btn-wa-main"
             class="btn-wa-main"
-            href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20por%20el%20alquiler%20anual%20en%20Centro%20de%20Maldonado%20Ref.%20ZAG-ALQ-07%20(%24U%2027.000%20%2B%20%24U%205.000%20GC)."
+            href="https://wa.me/59898712064?text=Hola%20Mar%2C%20tengo%20p%C3%B3liza%20aseguradora%20y%20consulto%20por%20Centro%20de%20Maldonado%20Ref.%20ZAG-ALQ-07%20(%24U%2027.000%20%2B%20%24U%205.000%20GC)."
             target="_blank"
             rel="noopener noreferrer"
             onclick="trackWaLead('sidebar_form_cta')">
-            <span>Consultar por WhatsApp →</span>
+            <span id="btn-wa-main-label">🟢 Avanzar por WhatsApp →</span>
           </a>
 
-          <p class="sidebar-help">
+          <p class="sidebar-help" id="cl-sidebar-help">
             Atención de ZAGUÁN Propiedades.<br>
-            Coordinamos visitas validando primero garantía aseguradora.
+            Validamos tu garantía primero: si da Amarillo podés simular hasta 4 firmantes abajo.
           </p>
         </div>
       </aside>
@@ -818,10 +822,10 @@
     <div style="max-width:1216px;margin:24px auto 0;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;">
       <div style="min-width:240px;flex:1;">
         <strong style="color:#F3F0E8;display:block;font-size:15px;">¿Querés comprobar si tu carpeta califica para $U 27.000 + $U 5.000 GC ($U 32.000)?</strong>
-        <span style="color:#B7D6E0;font-size:13px;">Simulá de 1 a 4 personas solicitantes (tope 30%, continuidad en BPS, 3 vs. 6 recibos) o leé las 8 preguntas reales.</span>
+        <span style="color:#B7D6E0;font-size:13px;">Simulá de 1 a 4 firmantes (~$U 90.000 base a $U 106.700 total líquidos, continuidad BPS, 3 vs. 6 recibos o unipersonal &gt; 1 año) gratis antes de escribir.</span>
       </div>
       <div style="display:flex;gap:10px;flex-wrap:wrap;">
-        <a href="/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte" style="background:#F3F0E8;color:#081521;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-decoration:none;">Simular garantía para esta unidad →</a>
+        <a href="/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte" style="background:#F3F0E8;color:#081521;font-weight:700;font-size:13px;padding:10px 16px;border-radius:8px;text-decoration:none;">Abrir Semáforo completo (1–4 firmantes) →</a>
         <a href="/novedades-del-este/requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos/" style="border:1px solid rgba(243,240,232,0.45);color:#F3F0E8;font-weight:600;font-size:13px;padding:10px 14px;border-radius:8px;text-decoration:none;">Guía de requisitos</a>
       </div>
     </div>
@@ -835,11 +839,11 @@
     <a
       id="btn-wa-mobile"
       class="btn-wa-mobile"
-      href="https://wa.me/59898712064?text=Hola%20Mar%2C%20consulto%20por%20el%20alquiler%20anual%20en%20Centro%20de%20Maldonado%20Ref.%20ZAG-ALQ-07%20(%24U%2027.000%20%2B%20%24U%205.000%20GC)."
+      href="https://wa.me/59898712064?text=Hola%20Mar%2C%20tengo%20p%C3%B3liza%20aseguradora%20y%20consulto%20por%20Centro%20de%20Maldonado%20Ref.%20ZAG-ALQ-07%20(%24U%2027.000%20%2B%20%24U%205.000%20GC)."
       target="_blank"
       rel="noopener noreferrer"
       onclick="trackWaLead('mobile_sticky_cta')">
-      <span>Consultar visita →</span>
+      <span id="btn-wa-mobile-label">Validar garantía →</span>
     </a>
   </div>
 
@@ -909,33 +913,82 @@
 
     function getFormState() {
       var gEl = document.getElementById('cl-garantia');
-      var tEl = document.getElementById('cl-turno');
+      var iEl = document.getElementById('cl-ingresos');
       var nEl = document.getElementById('cl-nombre');
-      return {
-        garantia: gEl ? gEl.value : 'poliza',
-        turno: tEl ? tEl.value : 'esta semana de tarde',
-        nombre: nEl ? nEl.value.trim() : ''
-      };
+      var garantia = gEl ? gEl.value : 'poliza';
+      var ingresos = iEl ? iEl.value : 'ok_100k';
+      var nombre = nEl ? nEl.value.trim() : '';
+      var semaforo = 'VERDE';
+      if (garantia === 'otra' || ingresos === 'bajo') {
+        semaforo = 'ROJO';
+      } else if (garantia !== 'poliza' && ingresos === 'cerca') {
+        semaforo = 'AMARILLO';
+      }
+      return { garantia: garantia, ingresos: ingresos, nombre: nombre, semaforo: semaforo };
     }
 
     function buildWaText() {
       var st = getFormState();
       var quien = st.nombre ? ' (soy ' + st.nombre + ')' : '';
-      if (st.garantia === 'ingresos') {
-        return 'Tengo ingresos para tramitar aseguradora' + quien + ' y consulto por Centro de Maldonado Piso 4 Norte ($U 27.000 + $U 5.000 GC) para visitar ' + st.turno + '.';
+      if (st.garantia === 'dependiente' || st.garantia === 'independiente') {
+        var perfilTxt = st.garantia === 'independiente'
+          ? 'unipersonal +1 año BPS/DGI y certificación contable'
+          : 'recibos continuos en BPS (3 fijos o 6 variables)';
+        return 'Hola Mar, pasé el Semáforo en VERDE para Centro de Maldonado Piso 4 Norte ($U 27.000 + $U 5.000 GC)' + quien + '. Cumplo ' + perfilTxt + ', sumamos $U 90k–$U 106.7k+ líquidos entre 1–4 firmantes y estamos sin Clearing. Quiero avanzar.';
       }
-      if (st.garantia === 'otra') {
-        return 'Consulto opciones en Centro o alrededores' + quien + ' - vi Centro de Maldonado Piso 4 Norte ($U 27.000 + $U 5.000 GC).';
-      }
-      return 'Tengo Porto, Sura, Mapfre o Santander' + quien + ': consulto por Centro de Maldonado Piso 4 Norte ($U 27.000 + $U 5.000 GC) para visitar ' + st.turno + '.';
+      return 'Hola Mar, ya tengo póliza aprobada (Porto, Sura, Mapfre o Santander)' + quien + '. Consulto por Centro de Maldonado Piso 4 Norte ($U 27.000 + $U 5.000 GC) para avanzar.';
     }
 
     function updateWaLinks() {
-      var url = 'https://wa.me/59898712064?text=' + encodeURIComponent(buildWaText());
+      var st = getFormState();
       var btnMain = document.getElementById('btn-wa-main');
       var btnMob = document.getElementById('btn-wa-mobile');
-      if (btnMain) btnMain.href = url;
-      if (btnMob) btnMob.href = url;
+      var lblMain = document.getElementById('btn-wa-main-label');
+      var lblMob = document.getElementById('btn-wa-mobile-label');
+      var pill = document.getElementById('cl-semaforo-pill');
+      var ingWrap = document.getElementById('cl-ingresos') ? document.getElementById('cl-ingresos').parentNode : null;
+      if (ingWrap) ingWrap.style.display = st.garantia === 'poliza' || st.garantia === 'otra' ? 'none' : '';
+
+      if (st.semaforo === 'ROJO') {
+        if (pill) {
+          pill.style.background = 'rgba(239,68,68,0.18)';
+          pill.style.borderColor = 'rgba(239,68,68,0.55)';
+          pill.style.color = '#FECACA';
+          pill.textContent = '🔴 ROJO · Esta unidad exige aseguradora (~$U 90k–$U 106.7k entre 1–4 firmantes y sin Clearing)';
+        }
+        if (btnMain) { btnMain.href = '#zaguan-pedido-abierto-box'; btnMain.target = '_self'; btnMain.removeAttribute('rel'); }
+        if (btnMob) { btnMob.href = '#zaguan-pedido-abierto-box'; btnMob.target = '_self'; btnMob.removeAttribute('rel'); }
+        if (lblMain) lblMain.textContent = '🔴 Ver búsqueda alternativa abajo ↓';
+        if (lblMob) lblMob.textContent = 'Otra opción ↓';
+        return;
+      }
+
+      if (st.semaforo === 'AMARILLO') {
+        if (pill) {
+          pill.style.background = 'rgba(245,158,11,0.18)';
+          pill.style.borderColor = 'rgba(245,158,11,0.55)';
+          pill.style.color = '#FDE68A';
+          pill.textContent = '🟡 AMARILLO · Probá sumar de 2 a 4 co-firmantes en nuestro Semáforo privado';
+        }
+        var simUrl = '/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte';
+        if (btnMain) { btnMain.href = simUrl; btnMain.target = '_self'; }
+        if (btnMob) { btnMob.href = simUrl; btnMob.target = '_self'; }
+        if (lblMain) lblMain.textContent = '🟡 Simular 1 a 4 firmantes (20 s) →';
+        if (lblMob) lblMob.textContent = 'Simular 20 s →';
+        return;
+      }
+
+      if (pill) {
+        pill.style.background = 'rgba(16,185,129,0.18)';
+        pill.style.borderColor = 'rgba(16,185,129,0.5)';
+        pill.style.color = '#A7F3D0';
+        pill.textContent = '🟢 VERDE · Califica aseguradora: podés avanzar directo';
+      }
+      var url = 'https://wa.me/59898712064?text=' + encodeURIComponent(buildWaText());
+      if (btnMain) { btnMain.href = url; btnMain.target = '_blank'; btnMain.rel = 'noopener noreferrer'; }
+      if (btnMob) { btnMob.href = url; btnMob.target = '_blank'; btnMob.rel = 'noopener noreferrer'; }
+      if (lblMain) lblMain.textContent = '🟢 Avanzar por WhatsApp →';
+      if (lblMob) lblMob.textContent = 'WhatsApp 🟢 →';
     }
 
     function onSelectGarantia() {
@@ -946,23 +999,24 @@
         event: 'select_garantia_centro_maldonado',
         property_id: 'ZAG-ALQ-07',
         garantia_tipo: st.garantia,
-        lead_calificado: st.garantia !== 'otra'
+        semaforo: st.semaforo,
+        lead_calificado: st.semaforo === 'VERDE'
       });
     }
 
     function trackWaLead(loc) {
       updateWaLinks();
       var st = getFormState();
-      var qualified = st.garantia !== 'otra';
+      if (st.semaforo !== 'VERDE') return;
       var payload = {
         event: 'generate_lead',
         property_id: 'ZAG-ALQ-07',
         property_name: 'Centro Maldonado Piso 4 Norte 2D',
         garantia_tipo: st.garantia,
-        turno_visita: st.turno,
-        lead_calificado: qualified,
+        semaforo: st.semaforo,
+        lead_calificado: true,
         cta_location: loc || 'sidebar_form_cta',
-        value: qualified ? 32000 : 0,
+        value: 32000,
         currency: 'UYU'
       };
       window.dataLayer = window.dataLayer || [];
