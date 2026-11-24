@@ -109,10 +109,51 @@
 
     .gates-grid {
       display: grid;
-      grid-template-columns: 1fr 1.25fr;
+      grid-template-columns: 1.3fr 0.95fr;
       gap: 22px;
-      margin-top: 28px;
+      margin-top: 22px;
       align-items: start;
+    }
+    .semaforo-legend {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .sem-leg-item {
+      background: rgba(243,240,232,0.09);
+      border: 1px solid rgba(243,240,232,0.22);
+      padding: 10px 12px;
+      font-size: 13px;
+      line-height: 1.35;
+      color: var(--bone);
+    }
+    .sem-leg-item strong { display: block; margin-bottom: 2px; font-size: 13.5px; color: #FFFFFF; }
+    .sem-meter-wrap {
+      margin: 10px 0 12px;
+    }
+    .sem-meter-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 5px;
+      color: #F3F0E8;
+    }
+    .sem-meter {
+      width: 100%;
+      height: 10px;
+      background: rgba(243,240,232,0.18);
+      overflow: hidden;
+    }
+    .sem-meter-fill {
+      height: 100%;
+      width: 100%;
+      background: #4ADE80;
+      transition: width 0.25s ease, background 0.25s ease;
+    }
+    @media (max-width: 760px) {
+      .semaforo-legend { grid-template-columns: 1fr; }
     }
     .gate-card {
       background: var(--bone);
@@ -551,7 +592,22 @@
       <div class="container">
         <p class="eyebrow">Punta del Este · Maldonado · Alquiler anual</p>
         <h1>Semáforo de garantía en 20 segundos (sin pedir datos antes).</h1>
-        <p>Elegí la unidad que querés ver, cargá de <strong>1 a 4 personas firmantes</strong> (~30% del ingreso líquido conjunto, continuidad en BPS y sin Clearing) y mirá en el acto si tu semáforo da <strong>🟢 Verde</strong>, <strong>🟡 Amarillo</strong> o <strong>🔴 Rojo</strong>.</p>
+        <p>Elegí la unidad, cargá de <strong>1 a 4 personas firmantes</strong> (~30% del ingreso líquido conjunto, continuidad en BPS y sin Clearing) y mirá al instante qué color te da.</p>
+
+        <div class="semaforo-legend" aria-label="Cómo leer el Semáforo de Garantía">
+          <div class="sem-leg-item">
+            <strong>🟢 Verde · Calificás</strong>
+            Cubrís el ~30% con BPS al día y sin Clearing. Pasás directo a WhatsApp.
+          </div>
+          <div class="sem-leg-item">
+            <strong>🟡 Amarillo · Estás cerca</strong>
+            Te muestra cuánto falta y podés sumar hasta 4 firmantes al contrato.
+          </div>
+          <div class="sem-leg-item">
+            <strong>🔴 Rojo · Hoy no llega</strong>
+            No califica a aseguradora; dejás alerta para otras opciones sin WhatsApp.
+          </div>
+        </div>
 
         <div class="unit-picker" id="unit-picker" aria-label="Elegir apartamento en alquiler anual en Maldonado">
           <div class="unit-card" id="u-card-centro" role="button" tabindex="0" onclick="seleccionarUnidadObjetivo('maldonado-centro-piso-4-norte', 32000)">
@@ -579,11 +635,81 @@
         </div>
 
         <div class="gates-grid">
-          <!-- PUERTA A -->
+          <!-- SEMÁFORO ANÓNIMO (PRIMERO EN MOBILE Y DESKTOP) -->
+          <article class="gate-card gate-card--primary">
+            <span class="gate-tag">Semáforo anónimo (1 a 4 firmantes)</span>
+            <h2>Simulá gratis y en privado si calificás a aseguradora</h2>
+            <p class="gate-sub">Sumá de <strong>1 a 4 personas firmantes</strong> (<strong>1 póliza = 1 contrato</strong>). <strong>Dependientes:</strong> 3 recibos fijos o 6 variables con continuidad en BPS. <strong>Independientes:</strong> unipersonal &gt; 1 año al día en BPS y DGI + cert. contable. Siempre sin Clearing.</p>
+
+            <div class="context-pill" id="pb-prop-banner"></div>
+
+            <div class="quick-pills" aria-label="Cantidad rápida de personas firmantes">
+              <button type="button" class="q-pill" id="q-pill-1" onclick="setCantidadSolicitantes(1)">1 persona firma</button>
+              <button type="button" class="q-pill active" id="q-pill-2" onclick="setCantidadSolicitantes(2)">Sumamos entre 2</button>
+              <button type="button" class="q-pill" id="q-pill-3" onclick="setCantidadSolicitantes(3)">Sumamos entre 3</button>
+              <button type="button" class="q-pill" id="q-pill-4" onclick="setCantidadSolicitantes(4)">Sumamos entre 4</button>
+            </div>
+
+            <div class="form-grid" style="margin-bottom:14px;">
+              <div class="field field--full">
+                <label for="pb-alquiler-obj">Valor mensual de referencia ($U)</label>
+                <input id="pb-alquiler-obj" type="number" min="0" step="1000" inputmode="numeric" value="30000" oninput="calcularPrecalificacionGarantia()">
+              </div>
+            </div>
+
+            <div class="multi-signer-head">
+              <strong style="font-size:12.5px;text-transform:uppercase;letter-spacing:0.05em;color:#081521;">Firmantes en póliza y contrato (<span id="pb-sol-count">2</span> de 4)</strong>
+              <button type="button" id="btn-add-solicitante" class="btn btn--estuario" style="min-height:36px;padding:7px 12px;font-size:11.5px;" onclick="agregarSolicitante()">+ Sumar firmante (3 de 4)</button>
+            </div>
+
+            <div class="signer-stack" id="pb-solicitantes-list"></div>
+
+            <div class="result-box semaforo-verde" id="pb-resultado">
+              <span class="result-badge sem-verde" id="pb-badge">🟢 VERDE · Calificás para tramitar aseguradora</span>
+              <div class="result-title" id="pb-titulo">Ingreso líquido conjunto: $U 105.000 (Tope al 30%: $U 31.500 / mes)</div>
+              <div class="sem-meter-wrap">
+                <div class="sem-meter-labels">
+                  <span id="pb-meter-left">Tu suma líquida: $U 105.000</span>
+                  <span id="pb-meter-right">Meta (~30%): $U 100.000</span>
+                </div>
+                <div class="sem-meter"><div class="sem-meter-fill" id="pb-meter-fill"></div></div>
+              </div>
+              <p id="pb-detalle" style="font-size:13.5px;"></p>
+
+              <div id="pb-gap-feedback"></div>
+
+              <div class="verdict-unlocked" id="pb-veredicto-detallado" style="display:block;" aria-live="polite"></div>
+
+              <div id="pb-alerta-alternativa-box" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(243,240,232,0.22);">
+                <form id="puerta-b-form">
+                  <p id="pb-form-heading" style="font-size:13px;font-weight:700;margin-bottom:10px;color:#F3F0E8;">🟢 ¿Te dio Verde? Opcional: dejá tu nombre y WhatsApp para abrir el chat ya con este resultado:</p>
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="pb-nombre">Tu nombre</label>
+                      <input id="pb-nombre" type="text" placeholder="Nombre y apellido" required>
+                    </div>
+                    <div class="field">
+                      <label for="pb-wa">Tu WhatsApp</label>
+                      <input id="pb-wa" type="tel" placeholder="+598 ..." required>
+                    </div>
+                    <div class="field field--full">
+                      <label for="pb-zona">Unidad de interés</label>
+                      <input id="pb-zona" type="text" value="La Fortuna $U 30.000 (Maldonado)" placeholder="Ej.: La Fortuna $U 30.000 o Centro $U 27.000 + GC" required>
+                    </div>
+                  </div>
+                  <div style="margin-top:12px;">
+                    <button type="submit" id="pb-submit-btn" class="btn btn--light" style="width:100%;line-height:1.3;text-align:center;">🟢 Guardar resultado y abrir WhatsApp →</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </article>
+
+          <!-- OPCIÓN RÁPIDA: YA TENGO PÓLIZA -->
           <article class="gate-card">
-            <span class="gate-tag">Puerta A · Ya tengo póliza</span>
-            <h2>Ya tengo Porto Seguro, Sura, Mapfre o Santander aprobada</h2>
-            <p class="gate-sub">Estas 2 unidades operan exclusivamente con póliza de aseguradora privada. Si ya tenés póliza vigente o pre-aprobación emitida, pasás directo a avanzar sin simular recibos.</p>
+            <span class="gate-tag">Opción rápida · Ya tengo póliza</span>
+            <h2>Ya tengo Porto, Sura, Mapfre o Santander aprobada</h2>
+            <p class="gate-sub">Estas 2 unidades operan con póliza de aseguradora privada. Si ya tenés póliza vigente o pre-aprobación emitida, pasás directo sin usar el simulador.</p>
             <form id="puerta-a-form">
               <div class="form-grid">
                 <div class="field">
@@ -619,69 +745,6 @@
                 ¿Buscás únicamente con <strong>ANDA, CGN o depósito</strong>? <a href="#pb-alerta-alternativa-box" onclick="activarModoAlternativoRojo(event)" style="text-decoration:underline;font-weight:700;">Dejá tu búsqueda acá para otras unidades →</a>
               </p>
             </form>
-          </article>
-
-          <!-- PUERTA B -->
-          <article class="gate-card gate-card--primary">
-            <span class="gate-tag">Puerta B · Semáforo anónimo (1 a 4 firmantes)</span>
-            <h2>Simulá gratis y en privado si calificás a aseguradora</h2>
-            <p class="gate-sub">Sumá de <strong>1 a 4 personas firmantes</strong> en el contrato (<strong>1 póliza = 1 contrato</strong>). <strong>Dependientes:</strong> 3 recibos consecutivos (sueldo fijo) o 6 (variable), continuidad en BPS y sin Clearing. <strong>Independientes:</strong> unipersonal &gt; 1 año al día en BPS y DGI + certificación contable.</p>
-
-            <div class="context-pill" id="pb-prop-banner"></div>
-
-            <div class="quick-pills" aria-label="Cantidad rápida de personas firmantes">
-              <button type="button" class="q-pill" id="q-pill-1" onclick="setCantidadSolicitantes(1)">1 persona firma</button>
-              <button type="button" class="q-pill active" id="q-pill-2" onclick="setCantidadSolicitantes(2)">Sumamos entre 2</button>
-              <button type="button" class="q-pill" id="q-pill-3" onclick="setCantidadSolicitantes(3)">Sumamos entre 3</button>
-              <button type="button" class="q-pill" id="q-pill-4" onclick="setCantidadSolicitantes(4)">Sumamos entre 4</button>
-            </div>
-
-            <div class="form-grid" style="margin-bottom:14px;">
-              <div class="field field--full">
-                <label for="pb-alquiler-obj">Valor mensual de referencia ($U)</label>
-                <input id="pb-alquiler-obj" type="number" min="0" step="1000" inputmode="numeric" value="30000" oninput="calcularPrecalificacionGarantia()">
-              </div>
-            </div>
-
-            <div class="multi-signer-head">
-              <strong style="font-size:12.5px;text-transform:uppercase;letter-spacing:0.05em;color:#081521;">Firmantes en póliza y contrato (<span id="pb-sol-count">2</span> de 4)</strong>
-              <button type="button" id="btn-add-solicitante" class="btn btn--estuario" style="min-height:36px;padding:7px 12px;font-size:11.5px;" onclick="agregarSolicitante()">+ Sumar firmante (3 de 4)</button>
-            </div>
-
-            <div class="signer-stack" id="pb-solicitantes-list"></div>
-
-            <div class="result-box semaforo-verde" id="pb-resultado">
-              <span class="result-badge sem-verde" id="pb-badge">🟢 VERDE · Calificás para tramitar aseguradora</span>
-              <div class="result-title" id="pb-titulo">Ingreso líquido conjunto: $U 105.000 (Tope al 30%: $U 31.500 / mes)</div>
-              <p id="pb-detalle" style="font-size:13.5px;"></p>
-
-              <div id="pb-gap-feedback"></div>
-
-              <div class="verdict-unlocked" id="pb-veredicto-detallado" style="display:block;" aria-live="polite"></div>
-
-              <div id="pb-alerta-alternativa-box" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(243,240,232,0.22);">
-                <form id="puerta-b-form">
-                  <p id="pb-form-heading" style="font-size:13px;font-weight:700;margin-bottom:10px;color:#F3F0E8;">🟢 ¿Te dio Verde? Opcional: dejá tu nombre y WhatsApp para abrir el chat ya con este resultado:</p>
-                  <div class="form-grid">
-                    <div class="field">
-                      <label for="pb-nombre">Tu nombre</label>
-                      <input id="pb-nombre" type="text" placeholder="Nombre y apellido" required>
-                    </div>
-                    <div class="field">
-                      <label for="pb-wa">Tu WhatsApp</label>
-                      <input id="pb-wa" type="tel" placeholder="+598 ..." required>
-                    </div>
-                    <div class="field field--full">
-                      <label for="pb-zona">Unidad de interés</label>
-                      <input id="pb-zona" type="text" value="La Fortuna $U 30.000 (Maldonado)" placeholder="Ej.: La Fortuna $U 30.000 o Centro $U 27.000 + GC" required>
-                    </div>
-                  </div>
-                  <div style="margin-top:12px;">
-                    <button type="submit" id="pb-submit-btn" class="btn btn--light" style="width:100%;line-height:1.3;text-align:center;">🟢 Guardar resultado y abrir WhatsApp →</button>
-                  </div>
-                </form>
-              </div>
-            </div>
           </article>
         </div>
       </div>
@@ -871,41 +934,41 @@
           '</div>' +
           '<div class="form-grid">' +
             '<div class="field field--full">' +
-              '<label for="sol-doc-' + idx + '">Documento y residencia en Uruguay</label>' +
-              '<select id="sol-doc-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'doc\', this.value)">' +
-                '<option value="ci_vigente_2y"' + (s.doc === 'ci_vigente_2y' ? ' selected' : '') + '>CI uruguaya vigente (2 o más años) + residencia</option>' +
-                '<option value="ci_menor_2y"' + (s.doc === 'ci_menor_2y' ? ' selected' : '') + '>CI uruguaya con vigencia menor a 2 años</option>' +
-                '<option value="extranjero_18m"' + (s.doc === 'extranjero_18m' ? ' selected' : '') + '>Pasaporte / DNI con residencia de 18+ meses en Uruguay</option>' +
-                '<option value="extranjero_nuevo"' + (s.doc === 'extranjero_nuevo' ? ' selected' : '') + '>Residencia extranjera menor a 18 meses</option>' +
-              '</select>' +
-            '</div>' +
-            '<div class="field field--full">' +
-              '<label for="sol-lab-' + idx + '">Situación laboral / ingresos</label>' +
+              '<label for="sol-lab-' + idx + '">1. ¿Cómo cobrás?</label>' +
               '<select id="sol-lab-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'laboral\', this.value)">' +
                 '<option value="dependencia_fijo"' + (s.laboral === 'dependencia_fijo' ? ' selected' : '') + '>Dependiente sueldo fijo (3 recibos consecutivos)</option>' +
-                '<option value="dependencia_variable"' + (s.laboral === 'dependencia_variable' ? ' selected' : '') + '>Dependiente montos variables / comisiones (6 recibos consecutivos)</option>' +
+                '<option value="dependencia_variable"' + (s.laboral === 'dependencia_variable' ? ' selected' : '') + '>Dependiente variable / comisiones (6 recibos consecutivos)</option>' +
                 '<option value="independiente"' + (s.laboral === 'independiente' ? ' selected' : '') + '>Independiente / unipersonal (+1 año, BPS y DGI al día + cert. contable)</option>' +
                 '<option value="exterior"' + (s.laboral === 'exterior' ? ' selected' : '') + '>Ingresos del exterior (facturas + bancos + escribanía)</option>' +
                 '<option value="sin_ingresos_formales"' + (s.laboral === 'sin_ingresos_formales' ? ' selected' : '') + '>Sin recibo propio (acompañante o solo depósito/ANDA)</option>' +
               '</select>' +
             '</div>' +
-            '<div class="field field--full">' +
-              '<label for="sol-cont-' + idx + '">Antigüedad y continuidad en BPS / DGI</label>' +
-              '<select id="sol-cont-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'continuidad\', this.value)">' +
-                '<option value="mismo_empleo_1y"' + (s.continuidad === 'mismo_empleo_1y' ? ' selected' : '') + '>Más de 1 año en empleo o unipersonal actual</option>' +
-                '<option value="cambio_con_bps"' + (s.continuidad === 'cambio_con_bps' ? ' selected' : '') + '>Cambio laboral reciente sin corte en BPS</option>' +
-                '<option value="discontinuo_o_nuevo"' + (s.continuidad === 'discontinuo_o_nuevo' ? ' selected' : '') + '>Menos de 1 año en unipersonal o inicio reciente sin continuidad BPS</option>' +
-              '</select>' +
-            '</div>' +
             '<div class="field">' +
-              '<label for="sol-ing-' + idx + '">Sueldo líquido en mano ($U)</label>' +
+              '<label for="sol-ing-' + idx + '">2. ¿Cuánto cobrás en mano ($U)?</label>' +
               '<input id="sol-ing-' + idx + '" type="number" min="0" step="1000" inputmode="numeric" value="' + Number(s.ingreso || 0) + '" oninput="actualizarSolicitante(' + idx + ', \'ingreso\', Number(this.value || 0))">' +
             '</div>' +
             '<div class="field">' +
-              '<label for="sol-clr-' + idx + '">Clearing de Informes</label>' +
+              '<label for="sol-clr-' + idx + '">3. ¿Libre de Clearing?</label>' +
               '<select id="sol-clr-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'clearing\', this.value)">' +
-                '<option value="limpio"' + (s.clearing === 'limpio' ? ' selected' : '') + '>Sin Clearing (historial limpio)</option>' +
-                '<option value="con_registro"' + (s.clearing === 'con_registro' ? ' selected' : '') + '>Con observación / Clearing activo</option>' +
+                '<option value="limpio"' + (s.clearing === 'limpio' ? ' selected' : '') + '>Sí, sin Clearing</option>' +
+                '<option value="con_registro"' + (s.clearing === 'con_registro' ? ' selected' : '') + '>Con Clearing activo</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="field">' +
+              '<label for="sol-cont-' + idx + '">4. Antigüedad / BPS</label>' +
+              '<select id="sol-cont-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'continuidad\', this.value)">' +
+                '<option value="mismo_empleo_1y"' + (s.continuidad === 'mismo_empleo_1y' ? ' selected' : '') + '>+1 año en empleo o unipersonal</option>' +
+                '<option value="cambio_con_bps"' + (s.continuidad === 'cambio_con_bps' ? ' selected' : '') + '>Cambio laboral sin corte BPS</option>' +
+                '<option value="discontinuo_o_nuevo"' + (s.continuidad === 'discontinuo_o_nuevo' ? ' selected' : '') + '>Menos de 1 año / sin continuidad BPS</option>' +
+              '</select>' +
+            '</div>' +
+            '<div class="field">' +
+              '<label for="sol-doc-' + idx + '">Documento en Uruguay</label>' +
+              '<select id="sol-doc-' + idx + '" onchange="actualizarSolicitante(' + idx + ', \'doc\', this.value)">' +
+                '<option value="ci_vigente_2y"' + (s.doc === 'ci_vigente_2y' ? ' selected' : '') + '>CI uruguaya vigente (+2 años)</option>' +
+                '<option value="ci_menor_2y"' + (s.doc === 'ci_menor_2y' ? ' selected' : '') + '>CI uruguaya menor a 2 años</option>' +
+                '<option value="extranjero_18m"' + (s.doc === 'extranjero_18m' ? ' selected' : '') + '>Extranjero con 18+ meses en UY</option>' +
+                '<option value="extranjero_nuevo"' + (s.doc === 'extranjero_nuevo' ? ' selected' : '') + '>Extranjero menor a 18 meses</option>' +
               '</select>' +
             '</div>' +
           '</div>' +
@@ -1105,6 +1168,17 @@
 
       badgeEl.textContent = badgeTxt;
       tituloEl.textContent = tituloTxt;
+      const metaRef = esCentro ? metaBase30 : metaFull30;
+      const pctMeta = metaRef > 0 ? Math.min(100, Math.round((totalIngValido / metaRef) * 100)) : 0;
+      const mLeft = document.getElementById('pb-meter-left');
+      const mRight = document.getElementById('pb-meter-right');
+      const mFill = document.getElementById('pb-meter-fill');
+      if (mLeft) mLeft.textContent = 'Tu suma hoy: $U ' + totalIngValido.toLocaleString('de-DE');
+      if (mRight) mRight.textContent = 'Meta (~30%): $U ' + metaRef.toLocaleString('de-DE');
+      if (mFill) {
+        mFill.style.width = Math.max(4, pctMeta) + '%';
+        mFill.style.background = color === 'VERDE' ? '#4ADE80' : (color === 'AMARILLO' ? '#FBBF24' : '#F87171');
+      }
       detEl.textContent =
         'Firmantes cargados: ' + evaluaciones.length + ' (1 póliza = 1 contrato) · Suma líquida computable: $U ' + totalIngValido.toLocaleString('de-DE') +
         (totalIngBruto > 0 && pctAfectacion < 999 ? ' · Relación vs. $U ' + alqObj.toLocaleString('de-DE') + ': ' + pctAfectacion + '%.' : '.');
