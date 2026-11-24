@@ -24,7 +24,7 @@
 3. **Capa 3 · Cocina interna y prospección de Mar (`[CORCHETES]`)**
    - Preguntar al propietario en prospección **cómo se calefacciona y refrigera** (`climatizacion`: aire instalado, preinstalación/cañería prevista, losa radiante, estufa, ventilador o sin equipos).
    - Deducir misceláneas desde fotos reales sin preguntar obviedades de horno o calefón.
-   - Guardar el cupo máximo de personas en memoria para filtrar por pregunta humana (*«¿quiénes vivirían?»*) sin carteles agresivos de rechazo en vidriera.
+   - Guardar el cupo máximo de personas en memoria para filtrar por pregunta humana (*«¿cuántas personas habitarán el apartamento?»*) sin carteles agresivos de rechazo en vidriera.
    - **Diccionario UY ↔ AR:**
      - `2 ambientes` (AR) = `1 dormitorio + living` (UY).
      - `3 ambientes` (AR) = `2 dormitorios + living` (UY).
@@ -41,32 +41,61 @@
 
 ---
 
-## 3. Flujo móvil 4 rayitas Story (Vuelta 2) + Captación cruzada + Corchetes de entrada
+## 3. Flujo móvil rayitas Story (Vuelta 3B · 1 pantalla = 1 pregunta = 1 toque avanza en 150 ms) + Captación cruzada + Corchetes de entrada
 
-- **Cero preselección muda:** en Rayita 1 y en Cruzada Paso 2 todas las filas arrancan sin selección previa; avanza recién al completar las 3 opciones.
-- **Separación de ANDA / Contaduría (CGN) + Escala 2 en menores ingresos:** Rayita 2 separa `Tengo ANDA o Contaduría (CGN)` (con puente rápido para evaluar aseguradora con su recibo limpio) de `Cobro sin recibo formal o estoy en Clearing`. Rayita 3 abre `Escala 2 (co-firmante que firma el contrato)` tanto entre `\$U 65k–94k` como por debajo de `\$U 65k` individuales.
-- **Cero casillero nativo:** el propio botón (`Aceptar y abrir WhatsApp con Mar →` / `Aceptar y guardar mi búsqueda →`) incluye el acto expreso de aceptación bajo Ley 18.331 con leyenda informativa de 1ª capa y acceso a `Privacidad`.
+- **1 pregunta por tarjeta y 0 bloqueos mudos:** el flujo `Visita` avanza en 5 toques de 1 sola pregunta por pantalla en presente/futuro cercano (`¿Cuándo planificás mudarte?`, `¿Cuántas personas habitarán el apartamento?`, `¿Conviven con mascotas?`, `¿Con qué respaldo planificás alquilar?` e ingresos). Jamás apila filas obligatorias ni devuelve silencios sin avance.
+- **Separación de ANDA / Contaduría (CGN) + Escala 2 en subvistas dedicadas:** `Tengo ANDA o Contaduría (CGN)` reemplaza la tarjeta con el puente rápido para evaluar aseguradora privada con recibo limpio o guardar búsqueda por ANDA/CGN; los rangos debajo de `ingAlto` abren la subvista de co-firmante en contrato (`Escala 2`).
+- **Validaciones afirmativas y cero casillero nativo:** si falta texto antes de enviar o guardar, remarca el campo y muestra `Completá tu nombre, por favor.` / `Completá tu nombre y tu WhatsApp, por favor.`. El botón (`Aceptar y abrir WhatsApp con Mar →` / `Aceptar y guardar mi búsqueda →`) incluye el acto expreso de aceptación bajo Ley 18.331 con leyenda informativa y acceso a `Privacidad`.
 - **Preaviso suave hacia WhatsApp:** cápsula discreta antes del CTA (`Se abrirá tu WhatsApp con la consulta armada para que la revises antes de enviar`) + cambio del botón al tocar.
 - **Devolución activa en «Más adelante» y desvíos (`BUSQUEDA_REGISTRADA`):** resumen visible editable en 1 toque (`✎ Corregir algún dato` sin duplicar fila en D1) + botón secundario opcional `Sumar un requisito extra por WhatsApp` encabezado con `[SEGUIMIENTO / REQUISITO EXTRA]`.
-- **Reinicio siempre a Rayita 1 en celular:** al salir hacia WhatsApp, guardar o volver por BFCache / historial móvil (`pageshow` / `visibilitychange`), el módulo vuelve al Paso 1; botón visible `↺ Empezar de nuevo` desde el Paso 2.
-- **Captación cruzada combinable:** Zona (`La Barra / Manantiales`, `Punta del Este`, `Maldonado otros barrios`, `Solanas / Punta Ballena / Piriápolis`) + Comodidades combinables (`Amoblado`, `Sin muebles`, `Patio o planta baja`, `3+ dormitorios`, `Cochera`) + Respaldo + Escalones de precio sin solapamiento + Gate de realidad a `BUSQUEDA_REGISTRADA`.
+- **Reinicio siempre a Paso 1 en celular:** al salir hacia WhatsApp, guardar o volver por BFCache / historial móvil (`pageshow` / `visibilitychange`), el módulo vuelve al Paso 1; botón visible `↺ Empezar de nuevo` desde el Paso 2.
+- **Captación cruzada en 4 rayitas:** Zona en 1 toque (`La Barra / Manantiales`, `Punta del Este`, `Maldonado (otros barrios)`, `Solanas / Punta Ballena`) + Comodidades opcionales con botón siempre habilitado (`Sin requisito especial · Continuar →` / `Continuar con lo elegido →`) + subvistas separadas de mudanza/quiénes habitarán la propiedad/respaldo + escalones de valor mensual sin solapamiento + desvío `BUSQUEDA_REGISTRADA` cuando corresponda.
 - **Los 4 corchetes de entrada hacia D1 y Mar:** `[VISITA CALIFICADA]`, `[BÚSQUEDA PRIORITARIA]`, `[SEGUIMIENTO / REQUISITO EXTRA]` y `[ALERTA PASIVA D1]`.
 
 ---
 
-## 4. Aduana fría en WhatsApp directo (`/frio1` y `/frio2`, máximo 2 turnos)
+## 4. Aduana fría en WhatsApp directo (`P-11`: `/frio1`, `/frio1f`, `/frio1c` y `/frio2`)
 
 Cuando alguien busca el número por afuera, saltea la web y escribe en frío (*«Hola info y fotos»* o audio largo):
 
-### Respuesta rápida `/frio1` (Turno 1 · resumen positivo + enlace al desplegable + hogar/fecha)
+### Respuesta rápida `/frio1` (Entrada fría general — no aclaró cuál unidad vio)
 ```text
-Hola, cómo estás? Te paso la ficha del apartamento en La Fortuna (Maldonado):
-• Alquiler anual: $U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos (2 dormitorios a estrenar, piso 1 por escalera exterior, terraza al frente, preinstalación de aire acondicionado).
-• Acá ves las fotos y el detalle completo: https://zaguanpropiedades.com/alquileres/la-fortuna-agata/
-Para confirmar disponibilidad según tu búsqueda: cuántas personas vivirían, tienen mascota y desde qué fecha calculan mudarse?
+¡Hola! ¿Cómo estás? Te comparto las 2 opciones de alquiler anual de 2 dormitorios disponibles hoy en Maldonado (en cada enlace tenés todas las fotos y el desplegable con cada detalle):
+
+1) Barrio La Fortuna — $U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos (a estrenar, piso 1 por escalera exterior con terraza al frente y preinstalación de aire acondicionado):
+https://zaguanpropiedades.com/alquileres/la-fortuna-agata/
+
+2) Centro de Maldonado — $U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida (piso 4 con orientación Norte, cocina definida con lavadero, doble ventanal de vidrio, con aire acondicionado y edificio pet-friendly con cámaras):
+https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/
+
+Para orientarte bien: ¿cuál de los dos te interesa, cuándo planificás mudarte, cuántas personas habitarán el apartamento y si conviven con mascotas?
 ```
 
-### Respuesta rápida `/frio2` (Turno 2 · sin exigir póliza previa + validación 1 o 2 ingresos)
+### Respuesta rápida `/frio1f` (Entrada fría preguntando por La Fortuna `$U 30.000`)
 ```text
-Perfecto. Este apartamento se alquila con póliza de aseguradora privada (Porto, Sura, Mapfre, Santander o BSE); no necesitás tenerla emitida antes de ir a verlo, se tramita recién si te gusta. Con 1 o 2 ingresos formales en BPS (3 recibos fijos o 6 variables) o unipersonal +1 año al día y sin Clearing llegás tranquilo. Contás con ese respaldo o buscás amoblado / otra zona en Maldonado o La Barra?
+¡Hola! ¿Cómo estás? Te paso la ficha del apartamento de 2 dormitorios a estrenar en Barrio La Fortuna (Maldonado):
+• Alquiler anual: $U 30.000/mes con gastos comunes, Internet Wi-Fi y cochera fija incluidos (piso 1 por escalera exterior, terraza al frente y preinstalación de aire acondicionado).
+• Acá ves las 11 fotos y el desplegable con todos los detalles:
+https://zaguanpropiedades.com/alquileres/la-fortuna-agata/
+
+Para confirmar según tu búsqueda: ¿cuándo planificás mudarte, cuántas personas habitarán el apartamento y si conviven con mascotas?
+```
+
+### Respuesta rápida `/frio1c` (Entrada fría preguntando por Centro de Maldonado `$U 27.000 + $U 5.000`)
+```text
+¡Hola! ¿Cómo estás? Te paso la ficha del apartamento de 2 dormitorios en Centro de Maldonado:
+• Alquiler anual: $U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida (~50 m² en piso 4 con orientación Norte, cocina definida con salida a lavadero, doble ventanal de vidrio, con aire acondicionado y cámaras; el edificio acepta mascotas).
+• Acá ves las 8 fotos, el croquis y el desplegable completo:
+https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/
+
+Para confirmar según tu búsqueda: ¿cuándo planificás mudarte, cuántas personas habitarán el apartamento y si conviven con mascotas?
+```
+
+### Respuesta rápida `/frio2` (Turno 2 · garantía aseguradora sin pedir póliza previa + desvío a otra búsqueda)
+```text
+Bárbaro. Esta propiedad opera con póliza de aseguradora privada (Porto Seguro, Sura, Mapfre o Santander): primero visitás el apartamento y tramitamos la póliza recién si te gusta.
+
+Calificás con 1 o 2 ingresos formales en BPS (3 recibos fijos o 6 variables) o unipersonal mayor a 1 año al día con contador e historial limpio (y si hace falta llegar al tope, se puede sumar 1 co-firmante que firme el contrato).
+
+¿Contás con ese respaldo para que coordinemos día y horario de visita, o buscás otra modalidad o zona en Maldonado o Punta del Este?
 ```
