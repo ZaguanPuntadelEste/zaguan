@@ -170,16 +170,19 @@
       }
 
       function sendSilentLog(paso, resultado, consentFlag) {
+        var utmSrc = params.get('utm_source') || '';
+        var utmCont = params.get('utm_content') || '';
+        var utmFull = utmSrc ? (utmCont ? (utmSrc + ' · ' + utmCont) : utmSrc) : '(directo)';
         var payload = {
           session_id: sessionId,
           slug: opts.slug,
           ref_publica: opts.refPublica,
           modo: state.modo,
           paso_alcanzado: paso,
-          resultado: resultado || 'en_curso',
+          resultado: resultado || (paso === 0 ? 'ficha_abierta' : 'en_curso'),
           consentimiento: consentFlag ? 1 : 0,
           nombre: consentFlag ? state.nombre : undefined,
-          utm_source: params.get('utm_source') || '(directo)',
+          utm_source: utmFull.slice(0, 60),
           texto_resumen: buildSummaryText(),
           respuestas: {
             plazo: state.plazo || undefined,
@@ -701,7 +704,7 @@
             animateAndGo(el, function () {
               if (val !== 'Dentro de 30 días') {
                 goToFinal('BUSQUEDA_REGISTRADA', 'plazo', 'Esta unidad está pronta para ingresar ahora', 1, '');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_PLAZO', false);
+                sendSilentLog(1, 'BUSQUEDA_REGISTRADA_PLAZO', false);
               } else {
                 state.step = 2;
                 state.substep = '';
@@ -720,7 +723,7 @@
             animateAndGo(el, function () {
               if (val === '5 o más personas') {
                 goToFinal('BUSQUEDA_REGISTRADA', 'espacio_mascota', 'Este apartamento admite hasta 4 personas', 2, '');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_CUPO', false);
+                sendSilentLog(2, 'BUSQUEDA_REGISTRADA_CUPO', false);
               } else {
                 state.step = 3;
                 state.substep = '';
@@ -739,7 +742,7 @@
             animateAndGo(el, function () {
               if (mascotaPolicy !== 'edificio_acepta' && val === '2 mascotas o perro grande') {
                 goToFinal('BUSQUEDA_REGISTRADA', 'espacio_mascota', 'Esta unidad en piso 1 con terraza al frente admite hasta 1 mascota pequeña', 3, '');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_MASCOTA', false);
+                sendSilentLog(3, 'BUSQUEDA_REGISTRADA_MASCOTA', false);
               } else {
                 state.step = 4;
                 state.substep = '';
@@ -770,12 +773,12 @@
                 state.garantiaLabel = 'Póliza pre-aprobada';
                 state.ingresos = 'ok';
                 goToFinal('WHATSAPP_CALIFICADO', '', '', 4, '');
-                sendSilentLog(4, 'califico_poliza', false);
+                sendSilentLog(6, 'WHATSAPP_CALIFICADO_LISTA_POLIZA', false);
               } else {
                 state.garantiaLabel = 'Sin recibo formal o con Clearing';
                 state.ingresos = 'bajo';
                 goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'Esta propiedad opera con póliza de aseguradora privada', 4, '');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_GARANTIA', false);
+                sendSilentLog(4, 'BUSQUEDA_REGISTRADA_GARANTIA', false);
               }
               render();
             });
@@ -798,7 +801,7 @@
                 state.garantia = 'anda_cgn';
                 state.garantiaLabel = 'ANDA o Contaduría (CGN)';
                 goToFinal('BUSQUEDA_REGISTRADA', 'anda_cgn', 'Buscamos opciones compatibles con ANDA o Contaduría (CGN)', 4, 'anda_bridge');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_ANDA_CGN', false);
+                sendSilentLog(4, 'BUSQUEDA_REGISTRADA_ANDA_CGN', false);
               }
               render();
             });
@@ -835,7 +838,7 @@
                 sendSilentLog(5, 'califico_escala_2', false);
               } else {
                 goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'La aseguradora requiere ' + formatIngAlto() + ' líquidos o sumar co-firmante', 5, 'escala2');
-                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_ESCALA2_NO', false);
+                sendSilentLog(5, 'BUSQUEDA_REGISTRADA_ESCALA2_NO', false);
               }
               render();
             });
@@ -973,7 +976,7 @@
                   texto: '[ALERTA PASIVA D1] Registro desde filtro en ' + opts.tituloCorto + ': ' + buildSummaryText() + ' (' + state.motivoDesvio + ')'
                 };
 
-            sendSilentLog(esCruzada ? 5 : 6, 'BUSQUEDA_REGISTRADA', true);
+            sendSilentLog(esCruzada ? (state.lastQuestionStep || 4) : (state.lastQuestionStep || 4), 'BUSQUEDA_REGISTRADA', true);
             fetch(CRM_BASE + '/api/interesados', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -1012,7 +1015,7 @@
             extraReqWaBtn.disabled = true;
             flujoCerrado = true;
             leftToWhatsApp = true;
-            sendSilentLog(state.modo === 'captacion_cruzada' ? 5 : 6, 'REQUISITO_EXTRA_WHATSAPP', true);
+            sendSilentLog(state.lastQuestionStep || 4, 'REQUISITO_EXTRA_WHATSAPP', true);
             window.open(buildExtraReqWaUrl(), '_blank', 'noopener,noreferrer');
           });
         }
@@ -1236,6 +1239,7 @@
       }
 
       render();
+      sendSilentLog(0, 'ficha_abierta', false);
     }
   };
 })();

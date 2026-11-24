@@ -328,6 +328,16 @@
     <div style="background:rgba(8,21,33,0.82);border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:12.5px;color:#D6E0EA;line-height:1.5;">
       <strong>Reglas cargadas en el Semáforo &amp; Anuncios Separados:</strong> <strong>1–4 firmantes</strong> en contrato (alquiler ~30% del líquido conjunto: <strong>~$U 100.000</strong> para La Fortuna $U 30.000 incluye gastos comunes, piso 1 sin patio; <strong>~$U 90.000 a $U 106.700</strong> para Centro $U 27.000 + $U 5.000 de gastos comunes) · <strong>Dependientes:</strong> 3 recibos consecutivos (fijo) o 6 (variable) + continuidad BPS · <strong>Independientes:</strong> unipersonal &gt; 1 año al día BPS/DGI + certificación contable · <strong>Sin Clearing</strong>.
     </div>
+    <div id="top-embudo-vivo-strip" style="margin-top:10px;background:rgba(18,59,74,0.38);border:1px solid rgba(183,214,224,0.45);border-radius:10px;padding:10px 14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+      <div style="font-size:12.5px;color:#F3F0E8;">
+        <strong style="color:#B7D6E0;">📊 EMBUDO VIVO ADS (Paso 0 → WhatsApp):</strong>
+        <span id="top-embudo-vivo-text">Cargando sesiones reales desde D1...</span>
+      </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a class="btn btn-outline btn-sm" href="/admin/stories-estados/" target="_blank" rel="noopener noreferrer">📲 Stories &amp; Estados 9:16</a>
+        <button type="button" class="btn btn-email btn-sm" onclick="switchTab('tab-crm4c', document.getElementById('btn-tab-crm4c'));document.getElementById('ficha-intentos-funnel-box').scrollIntoView({behavior:'smooth'});">📊 Ver detalle Paso a Paso ↓</button>
+      </div>
+    </div>
   </div>
 
   <!-- BARRA OPERATIVA DE 5 ACCIONES DEL DÍA (LINKTREE INTERNO 1 CLIC) -->
@@ -465,7 +475,7 @@
   <nav class="tabs" aria-label="Secciones de la Cabina Comercial">
     <button class="tab-btn active" id="btn-tab-radar4z" onclick="switchTab('tab-radar4z', this)">0. Propietarios · 5 Sub-Carriles (39 Dueños + 6 Dev + 15 Colegas)</button>
     <button class="tab-btn" id="btn-tab-pedidos" onclick="switchTab('tab-pedidos', this)">🎯 Pedidos Abiertos B2C (<span id="kpi-pedidos-tab-count">0</span>)</button>
-    <button class="tab-btn" onclick="switchTab('tab-crm4c', this)">1B. Matchmaker · Visitas · Cierres · Cola Mac</button>
+    <button class="tab-btn" id="btn-tab-crm4c" onclick="switchTab('tab-crm4c', this)">1B. Embudo Ads · Matchmaker · Visitas · Cola</button>
     <button class="tab-btn" onclick="switchTab('tab-b2c', this)">1. Respuesta WhatsApp Pozo & Pre-Registro 60 Días</button>
     <button class="tab-btn" onclick="switchTab('tab-devs', this)">2. Captación de Desarrolladoras de Pozo (PDE · Maldonado)</button>
     <button class="tab-btn" onclick="switchTab('tab-portales', this)">3. Fichas para Portales UY (ML / Gallito / InfoCasas) & Google Ads</button>
@@ -2231,7 +2241,7 @@ window.purgarTestsPackAlquiler = async function() {
 
 window.loadFichaIntentosLog = async function() {
   const box = document.getElementById('ficha-intentos-funnel-box');
-  if (!box) return;
+  const topTxt = document.getElementById('top-embudo-vivo-text');
   const modoFiltro = window.__fichaFiltroModo || 'todos';
   try {
     const res = await fetch(`${CRM_API_URL}/api/ficha-intentos?modo=${encodeURIComponent(modoFiltro)}&v=${Date.now()}`);
@@ -2239,31 +2249,55 @@ window.loadFichaIntentosLog = async function() {
     if (!res.ok || !data.ok) throw new Error('Error leyendo embudo');
     const summary = data.resumen_por_slug || [];
     const items = data.intentos || [];
+    const g = data.resumen_global || {};
+    if (topTxt) {
+      topTxt.innerHTML = `Abrieron ficha (P0): <strong>${g.paso_0 ?? 0}</strong> · Plazo (P1): <strong>${g.paso_1 ?? 0}</strong> · Personas (P2): <strong>${g.paso_2 ?? 0}</strong> · Mascota (P3): <strong>${g.paso_3 ?? 0}</strong> · Respaldo (P4): <strong>${g.paso_4 ?? 0}</strong> · Ingresos (P5): <strong>${g.paso_5 ?? 0}</strong> · Calificaron (P6): <strong>${g.paso_6 ?? 0}</strong> · Tocaron WhatsApp: <strong style="color:#6EE7B7;">${g.abrio_whatsapp ?? 0}</strong> · Guardaron búsqueda: <strong>${g.busqueda_guardada ?? 0}</strong> <span style="opacity:.8;">(Meta Ads: ${g.meta_ads ?? 0} · Directo: ${g.organico_directo ?? 0})</span>`;
+    }
+    if (!box) return;
     if (!summary.length && !items.length) {
       box.innerHTML = '<p style="color:var(--muted);">Aún no hay toques registrados en este filtro.</p>';
       return;
     }
     const cardsHtml = summary.map(s => `
-      <div style="background:rgba(8,21,33,0.72);border:1px solid var(--border);border-radius:10px;padding:10px 12px;">
-        <div style="font-weight:700;color:#F3F0E8;margin-bottom:4px;">${s.slug} (${s.total_sesiones} sesiones reales · ${s.tests_sesiones || 0} [🧪 TEST])</div>
-        <div style="color:#B7D6E0;">Paso 1: <strong>${s.paso_1}</strong> → Paso 2: <strong>${s.paso_2}</strong> → Paso 3: <strong>${s.paso_3}</strong> → Paso 4: <strong>${s.paso_4}</strong></div>
-        <div style="color:#E8E4DA;margin-top:4px;">WhatsApp calificado: <strong>${s.whatsapp_calificado}</strong> · Búsquedas registradas: <strong>${s.busqueda_registrada}</strong> · Escala 2: <strong>${s.escala_2}</strong> · Captación cruzada: <strong>${s.captacion_cruzada}</strong></div>
+      <div style="background:rgba(8,21,33,0.72);border:1px solid var(--border);border-radius:10px;padding:12px 14px;">
+        <div style="font-weight:700;color:#F3F0E8;margin-bottom:6px;">${s.slug} (${s.total_sesiones} sesiones reales · Meta Ads: ${s.por_origen?.meta_ads ?? 0} · ${s.tests_sesiones || 0} [🧪 TEST])</div>
+        <div style="color:#B7D6E0;line-height:1.5;">
+          Abrió ficha (P0): <strong>${s.paso_0 ?? s.total_sesiones}</strong> →
+          Plazo (P1): <strong>${s.paso_1}</strong> →
+          Personas (P2): <strong>${s.paso_2}</strong> →
+          Mascota (P3): <strong>${s.paso_3}</strong> →
+          Respaldo (P4): <strong>${s.paso_4}</strong> →
+          Ingresos (P5): <strong>${s.paso_5 ?? 0}</strong> →
+          Calificó (P6): <strong>${s.paso_6 ?? s.whatsapp_calificado}</strong>
+        </div>
+        <div style="color:#E8E4DA;margin-top:6px;">
+          Tocó WhatsApp: <strong style="color:#6EE7B7;">${s.abrio_whatsapp ?? 0}</strong> ·
+          Guardó búsqueda: <strong>${s.busqueda_guardada ?? 0}</strong> ·
+          Escala 2: <strong>${s.escala_2}</strong> ·
+          Captación cruzada: <strong>${s.captacion_cruzada}</strong>
+        </div>
       </div>
     `).join('');
-    const listHtml = items.slice(0, 40).map(it => {
+    const pasoLabel = p => ({0:'P0 Abrió ficha',1:'P1 Plazo',2:'P2 Personas',3:'P3 Mascota',4:'P4 Respaldo',5:'P5 Ingresos',6:'P6 Calificó'}[Number(p)] || ('Paso ' + p));
+    const listHtml = items.slice(0, 50).map(it => {
       let resp = {}; try { resp = it.respuestas_json ? JSON.parse(it.respuestas_json) : {}; } catch (e) {}
       let corch = {}; try { corch = it.corchetes_json ? JSON.parse(it.corchetes_json) : {}; } catch (e) {}
       const isTest = Number(it.es_prueba || 0) === 1 || String(it.nombre || '').includes('[🧪 TEST]');
+      const isMeta = /meta|facebook|instagram|\bfb\b|\big\b/i.test(String(it.utm_source || ''));
+      const origenBadge = isMeta ? `<span class="tag tag-ley" style="margin-right:6px;">Meta: ${it.utm_source}</span>` : `<span style="color:var(--muted);margin-right:6px;">[${it.utm_source || '(directo)'}]</span>`;
+      const waBadge = Number(it.consentimiento || 0) === 1 ? '<span class="tag tag-active" style="margin-left:6px;">✓ Enviado</span>' : '';
       const corchStr = Object.entries(corch || {}).filter(([, v]) => Boolean(v)).slice(0, 5).map(([k, v]) => `[${k}: ${v}]`).join(' · ');
-      return `<div style="padding:7px 8px;border-bottom:1px solid rgba(243,240,232,0.08);font-size:12px;">
-        ${isTest ? '<span class="tag tag-pending" style="margin-right:6px;">[🧪 TEST]</span>' : ''}<strong>${it.slug}</strong> · Paso ${it.paso_alcanzado} · <span style="color:#F3F0E8;">${it.resultado}</span>${it.nombre ? ` · ${it.nombre}` : ' · (anónimo)'} <span style="color:var(--muted);">(${(it.updated_at || '').slice(0,16).replace('T',' ')})</span>
-        ${resp.motivo_desvio || resp.cruzada_zona || resp.cruzada_respaldo || resp.personas ? `<div style="color:var(--muted);margin-top:2px;">${[resp.personas, resp.mascota, resp.plazo, resp.garantia, resp.ingresos, resp.cruzada_zona, resp.cruzada_comodidades, resp.cruzada_respaldo, resp.cruzada_rango, resp.motivo_desvio].filter(Boolean).join(' · ')}</div>` : ''}
+      const fechaUy = it.updated_at ? new Date(it.updated_at).toLocaleString('es-UY', { timeZone: 'America/Montevideo', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' }) : '';
+      return `<div style="padding:8px 10px;border-bottom:1px solid rgba(243,240,232,0.08);font-size:12px;">
+        ${isTest ? '<span class="tag tag-pending" style="margin-right:6px;">[🧪 TEST]</span>' : ''}${origenBadge}<strong>${it.slug}</strong> · <strong>${pasoLabel(it.paso_alcanzado)}</strong> · <span style="color:#F3F0E8;">${it.resultado}</span>${it.nombre ? ` · <strong>${it.nombre}</strong>` : ' · (anónimo)'}${waBadge} <span style="color:var(--muted);">(${fechaUy} UY)</span>
+        ${resp.motivo_desvio || resp.cruzada_zona || resp.cruzada_respaldo || resp.personas || resp.plazo ? `<div style="color:var(--muted);margin-top:2px;">${[resp.plazo, resp.personas, resp.mascota, resp.garantia, resp.ingresos, resp.cruzada_zona, resp.cruzada_comodidades, resp.cruzada_respaldo, resp.cruzada_rango, resp.motivo_desvio].filter(Boolean).join(' · ')}</div>` : ''}
         ${corchStr ? `<div style="color:#B7D6E0;margin-top:2px;">${corchStr}</div>` : ''}
       </div>`;
     }).join('');
     box.innerHTML = `<div style="display:grid;gap:8px;margin-bottom:10px;">${cardsHtml}</div>${listHtml}`;
   } catch (e) {
-    box.innerHTML = '<p style="color:var(--muted);">Sin datos de intentos por ahora.</p>';
+    if (topTxt) topTxt.textContent = 'Sin datos por ahora.';
+    if (box) box.innerHTML = '<p style="color:var(--muted);">Sin datos de intentos por ahora.</p>';
   }
 };
 
