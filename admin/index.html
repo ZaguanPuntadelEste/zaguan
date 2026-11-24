@@ -1602,7 +1602,13 @@ let radar4ZData = { mapa_inmobiliarias_maldonado_pde: [], prospectos_directos_4z
 let globalSearchFilterMode = 'ACTIVOS';
 
 function lintMarLocal(text) {
-  let s = String(text || '').replace(/[¿¡]/g, '');
+  const extUrls = [];
+  let s = String(text || '').replace(/https?:\/\/[^\s)]+/gi, (m) => {
+    const idx = extUrls.length;
+    extUrls.push(m);
+    return `__EXTURL_${idx}__`;
+  });
+  s = s.replace(/[¿¡]/g, '');
   s = s
     .replace(/\blibremente\s+por\s+tu\s+cuenta\b/gi, 'por tu cuenta')
     .replace(/\blibremente\b/gi, 'por tu cuenta')
@@ -1613,6 +1619,7 @@ function lintMarLocal(text) {
     .replace(/\bgeneralmente\b/gi, 'por lo general')
     .replace(/\bsolamente\b/gi, 'solo')
     .replace(/\bencajar\b/gi, 'calzar');
+  s = s.replace(/__EXTURL_(\d+)__/g, (_, i) => extUrls[Number(i)] || '');
   return s;
 }
 
@@ -2815,7 +2822,7 @@ function renderRadar4Z() {
         </div>
         ${(rec.carril === '1_por_contactar' && rec.estado === 'pendiente') ? `
         <div class="field">
-          <label>1° Mensaje con [CORCHETES] reales (Punto y aparte + _cursiva_ · Cero %/comisión · Cero URL)</label>
+          <label>1° Mensaje con [CORCHETES] reales (Link del aviso original · Punto y aparte + _cursiva_ · Cero %/comisión · Cero URL propia)</label>
           <textarea class="msg-preview" id="mp-msg-${idx}">${msg1}</textarea>
         </div>
         <details style="font-size:12px;color:var(--muted);">
