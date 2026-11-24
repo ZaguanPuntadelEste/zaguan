@@ -1,6 +1,6 @@
 {
   "proyecto": "1 - ZAGUÁN",
-  "actualizado": "2026-11-23T01:40:26.055Z",
+  "actualizado": "2026-11-24T14:10:37.034Z",
   "total_registros": 66,
   "pokayoke_aprobados": 66,
   "pokayoke_fallidos": 0,
@@ -997,15 +997,13 @@
       "candado_franja_gris": true,
       "dolor_detectado": "Colocar activo comercial o galpón con rubro e infraestructura habilitada.",
       "corchetes_en_aviso": [
-        "Operación: Venta terreno / padrón",
-        "Zona: Maldonado Centro / Pinares",
-        "Precio en aviso: USD 14.500 – 180.000"
+        "Operación: Venta casa Pedro Loustane (USD 180.000) / opción alquiler anual ~$U 33.000",
+        "Disponibilidad: Queda libre a fines de noviembre (inquilinos salientes)",
+        "Papeles: Agrimensor / regularización en trámite"
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Metros totales, frente y fondo",
-        "Servicios en puerta (UTE, OSE, saneamiento)",
-        "Régimen y estado documental (padrón independiente listo para escriturar)"
+        "Aviso al recibir llaves a fin de noviembre + fotos actuales / metraje"
       ],
       "faltantes_capa_2": [
         "Planos en PDF",
@@ -1100,7 +1098,7 @@
         "Zona: La Fortuna, Maldonado",
         "Precio en aviso: $U 30.000 / mes"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Fotos base limpias publicadas en ficha ZAG-ALQ-05.",
       "faltantes_capa_1": [
         "Garantía o meses de depósito (+ opción extranjeros con escribanía aliada)",
         "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
@@ -1709,10 +1707,9 @@
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Títulos y planos al día (apto banco vs. contado)",
+        "Fotos actuales del interior y frente",
+        "Metros de terreno y edificados"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -1721,8 +1718,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Dady, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos (USD 60.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-        "link_wa_me_1clic": "https://wa.me/59891006302?text=Hola%20Dady%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20(USD%2060.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
+        "1_guion_whatsapp_mar": "Hola Dady, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos sobre calle 25 de Agosto (USD 60.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, confirmame por favor si tiene títulos y planos al día para escriturar, cuántos metros de terreno y edificados son, qué estado constructivo tiene y si nos podés pasar fotos del interior y frente._",
+        "link_wa_me_1clic": "https://wa.me/59891006302?text=Hola%20Dady%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20sobre%20calle%2025%20de%20Agosto%20(USD%2060.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20confirmame%20por%20favor%20si%20tiene%20t%C3%ADtulos%20y%20planos%20al%20d%C3%ADa%20para%20escriturar%2C%20cu%C3%A1ntos%20metros%20de%20terreno%20y%20edificados%20son%2C%20qu%C3%A9%20estado%20constructivo%20tiene%20y%20si%20nos%20pod%C3%A9s%20pasar%20fotos%20del%20interior%20y%20frente._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 60.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1760,10 +1757,9 @@
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
+        "Confirmar si evalúa venta directa en USD (vs. solo permuta)",
         "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Planos y títulos al día (apto banco vs. contado)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -1772,8 +1768,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Fabian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Barrio Rodríguez Barrios, San Carlos (USD 50.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-        "link_wa_me_1clic": "https://wa.me/59894237595?text=Hola%20Fabian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Barrio%20Rodr%C3%ADguez%20Barrios%2C%20San%20Carlos%20(USD%2050.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
+        "1_guion_whatsapp_mar": "Hola Fabian, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Barrio Rodríguez Barrios, San Carlos (USD 50.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Quería consultarte antes de sumarla si evaluás oferta de compra directa en dólares además de permuta o canje?\n\n_Si evaluás venta directa en dólares, contame también metros de terreno y edificados, si tiene títulos y planos al día y cómo es el acceso vehicular._",
+        "link_wa_me_1clic": "https://wa.me/59894237595?text=Hola%20Fabian%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Barrio%20Rodr%C3%ADguez%20Barrios%2C%20San%20Carlos%20(USD%2050.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Quer%C3%ADa%20consultarte%20antes%20de%20sumarla%20si%20evalu%C3%A1s%20oferta%20de%20compra%20directa%20en%20d%C3%B3lares%20adem%C3%A1s%20de%20permuta%20o%20canje%3F%0A%0A_Si%20evalu%C3%A1s%20venta%20directa%20en%20d%C3%B3lares%2C%20contame%20tambi%C3%A9n%20metros%20de%20terreno%20y%20edificados%2C%20si%20tiene%20t%C3%ADtulos%20y%20planos%20al%20d%C3%ADa%20y%20c%C3%B3mo%20es%20el%20acceso%20vehicular._",
         "2_angulo_redes_aprobalo": "Carrusel territorial Barrio Rodríguez Barrios, San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 50.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Barrio Rodríguez Barrios, San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1805,16 +1801,15 @@
       "candado_franja_gris": true,
       "dolor_detectado": "Vender sin atarse a exclusividad y filtrar curiosos sin fondos reales.",
       "corchetes_en_aviso": [
-        "Operación: Venta casa",
-        "Zona: Pinares, Maldonado",
-        "Precio en aviso: USD 380.000"
+        "Descartado: opera como inmobiliaria (Sandra)"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Descartado de cartera directa el 23/11/2026.",
       "faltantes_capa_1": [
+        "Ubicación exacta / padrón",
         "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Precio en USD",
+        "Estado de títulos / planos",
+        "Banco o permuta"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -1823,8 +1818,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Flo, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en Pinares (USD 380.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-        "link_wa_me_1clic": "https://wa.me/59892552522?text=Hola%20Flo%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20Pinares%20(USD%20380.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
+        "1_guion_whatsapp_mar": "Cerrado por perfil inmobiliario (Sandra). Cero envíos.",
+        "link_wa_me_1clic": "https://wa.me/59892552522?text=Cerrado%20por%20perfil%20inmobiliario%20(Sandra).%20Cero%20env%C3%ADos.",
         "2_angulo_redes_aprobalo": "Carrusel territorial Pinares, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 380.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en Pinares, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -1858,14 +1853,12 @@
       "corchetes_en_aviso": [
         "Operación: Venta casa",
         "Zona: Las Delicias, Maldonado",
-        "Precio en aviso: USD 380.000"
+        "Precio en aviso: USD 380.000",
+        "Disponibilidad: Decisión familiar, manejan directo con amigo inmobiliario de hace 30 años; no autorizan difusión por otros medios por ahora (cierre amable enviado 12:38 hs)"
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Puerta abierta — no insistir hoy (solo radar pasivo)"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -2066,10 +2059,8 @@
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
         "Valor pretendido en USD",
-        "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Títulos y planos al día para escriturar",
+        "Fotos del interior y metros totales"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -2078,8 +2069,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O1]: Valor pretendido en USD, Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola María, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame qué valor en USD estás manejando, metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-        "link_wa_me_1clic": "https://wa.me/59894702274?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20qu%C3%A9%20valor%20en%20USD%20est%C3%A1s%20manejando%2C%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
+        "1_guion_whatsapp_mar": "Hola María, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame qué valor en dólares estás pidiendo, si cuenta con títulos y planos al día para escriturar, metros de terreno y edificados y si tenés más fotos del interior para evaluar._",
+        "link_wa_me_1clic": "https://wa.me/59894702274?text=Hola%20Mar%C3%ADa%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos.%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20qu%C3%A9%20valor%20en%20d%C3%B3lares%20est%C3%A1s%20pidiendo%2C%20si%20cuenta%20con%20t%C3%ADtulos%20y%20planos%20al%20d%C3%ADa%20para%20escriturar%2C%20metros%20de%20terreno%20y%20edificados%20y%20si%20ten%C3%A9s%20m%C3%A1s%20fotos%20del%20interior%20para%20evaluar._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (A consultar).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2220,10 +2211,9 @@
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "faltantes_capa_1": [
-        "Metros de terreno y edificados",
-        "Calidad constructiva y mejoras realizadas",
-        "Cochera o entrada vehicular",
-        "Planos y final de obra al día (apto banco vs. contado)"
+        "Títulos y planos al día (apto banco vs. contado)",
+        "Fotos reales actuales del interior y frente",
+        "Metros de terreno y edificados"
       ],
       "faltantes_capa_2": [
         "Quién construyó y calidad estructural (humedad, aberturas, vientos)",
@@ -2232,8 +2222,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O1]: Metros de terreno y edificados, Calidad constructiva y mejoras realizadas, Cochera o entrada vehicular, Planos y final de obra al día (apto banco vs. contado)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Susana, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos (USD 45.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, contame metros de terreno y edificados, qué destacás de la construcción o mejoras hechas, cómo es el espacio para auto y si tiene planos y final de obra al día para banco o solo contado._",
-        "link_wa_me_1clic": "https://wa.me/59895358136?text=Hola%20Susana%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20(USD%2045.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20metros%20de%20terreno%20y%20edificados%2C%20qu%C3%A9%20destac%C3%A1s%20de%20la%20construcci%C3%B3n%20o%20mejoras%20hechas%2C%20c%C3%B3mo%20es%20el%20espacio%20para%20auto%20y%20si%20tiene%20planos%20y%20final%20de%20obra%20al%20d%C3%ADa%20para%20banco%20o%20solo%20contado._",
+        "1_guion_whatsapp_mar": "Hola Susana, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa en venta en San Carlos (USD 45.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue en venta, confirmame por favor si tiene títulos y planos al día para escriturar, metros totales, estado constructivo y si nos podés pasar fotos actuales del interior por acá._",
+        "link_wa_me_1clic": "https://wa.me/59895358136?text=Hola%20Susana%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20casa%20en%20venta%20en%20San%20Carlos%20(USD%2045.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20confirmame%20por%20favor%20si%20tiene%20t%C3%ADtulos%20y%20planos%20al%20d%C3%ADa%20para%20escriturar%2C%20metros%20totales%2C%20estado%20constructivo%20y%20si%20nos%20pod%C3%A9s%20pasar%20fotos%20actuales%20del%20interior%20por%20ac%C3%A1._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 45.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2366,15 +2356,14 @@
       "candado_franja_gris": true,
       "dolor_detectado": "Demostrar edificabilidad real y papeles limpios para dar liquidez al padrón.",
       "corchetes_en_aviso": [
-        "Operación: Venta terreno / padrón",
-        "Zona: San Carlos, Maldonado",
-        "Precio en aviso: USD 240.000"
+        "Operación: Venta bloque comercial + renta · San Carlos sobre avenida (USD 240.000)",
+        "Composición: 2 casas independientes + monoambiente + local equipado al frente",
+        "Renta vigente: USD 1.000/mes con contrato por escribano y cláusula de salida 2–3 meses"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "Autorizó ingreso a cartera el 23/11 15:01 hs; relevar m², renta de locales, títulos/planos y fotos por WhatsApp.",
       "faltantes_capa_1": [
-        "Metros totales, frente y fondo",
-        "Servicios en puerta (UTE, OSE, saneamiento)",
-        "Régimen y estado documental (padrón independiente listo para escriturar)"
+        "Dirección exacta sobre avenida y Padrón (consulta al padre)",
+        "Croquis / medidas y fotos interiores"
       ],
       "faltantes_capa_2": [
         "FOT/FOS/retiros permitidos",
@@ -2382,8 +2371,8 @@
       ],
       "condiciones_actuales": "Falta confirmar [O4]: Metros totales, frente y fondo, Servicios en puerta (UTE, OSE, saneamiento), Régimen y estado documental (padrón independiente listo para escriturar)",
       "concatenado_4_salidas": {
-        "1_guion_whatsapp_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu padrón entero en venta en San Carlos (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame cuántos metros totales tiene (frente y fondo), qué servicios tiene en puerta (luz, agua, saneamiento) y si es padrón independiente con papeles al día para escriturar (y si evaluás contado, banco o entrega en pago)._",
-        "link_wa_me_1clic": "https://wa.me/59895630415?text=Hola%20Alejandro%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20padr%C3%B3n%20entero%20en%20venta%20en%20San%20Carlos%20(USD%20240.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarla%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20disponible%2C%20contame%20cu%C3%A1ntos%20metros%20totales%20tiene%20(frente%20y%20fondo)%2C%20qu%C3%A9%20servicios%20tiene%20en%20puerta%20(luz%2C%20agua%2C%20saneamiento)%20y%20si%20es%20padr%C3%B3n%20independiente%20con%20papeles%20al%20d%C3%ADa%20para%20escriturar%20(y%20si%20evalu%C3%A1s%20contado%2C%20banco%20o%20entrega%20en%20pago)._",
+        "1_guion_whatsapp_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu padrón entero con locales en venta en San Carlos (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarlo a nuestra cartera?\n\n_Si sigue en venta, contame por favor cuántos metros totales y comerciales son, cuántos locales tiene, si hoy genera renta activa y si está con títulos y planos al día para escriturar._",
+        "link_wa_me_1clic": "https://wa.me/59895630415?text=Hola%20Alejandro%2C%20c%C3%B3mo%20est%C3%A1s%3F%20Te%20escribe%20Mar%2C%20de%20ZAGU%C3%81N%20Propiedades.%20Vi%20tu%20padr%C3%B3n%20entero%20con%20locales%20en%20venta%20en%20San%20Carlos%20(USD%20240.000).%0A%0ATrabajamos%20con%20publicaci%C3%B3n%20abierta%20(segu%C3%ADs%20ofreciendo%20por%20tu%20cuenta)%20y%20respaldo%20de%20nuestra%20escriban%C3%ADa%20aliada.%20Sigue%20disponible%20para%20sumarlo%20a%20nuestra%20cartera%3F%0A%0A_Si%20sigue%20en%20venta%2C%20contame%20por%20favor%20cu%C3%A1ntos%20metros%20totales%20y%20comerciales%20son%2C%20cu%C3%A1ntos%20locales%20tiene%2C%20si%20hoy%20genera%20renta%20activa%20y%20si%20est%C3%A1%20con%20t%C3%ADtulos%20y%20planos%20al%20d%C3%ADa%20para%20escriturar._",
         "2_angulo_redes_aprobalo": "Carrusel territorial San Carlos, Maldonado: destacar potencial constructivo, metros y ubicación real (USD 240.000).",
         "3_angulo_pauta_ads": {
           "publico": "Compradores en San Carlos, Maldonado, Punta del Este y Montevideo (28 a 60 años)",
@@ -2466,18 +2455,21 @@
       "candado_franja_gris": true,
       "dolor_detectado": "Evitar impagos, destrozos y visitas en vano sin respaldo.",
       "corchetes_en_aviso": [
-        "Operación: Alquiler anual",
-        "Zona: Centro, Maldonado",
-        "Precio en aviso: $U 32.000 / mes",
-        "Dormitorios en aviso: 2",
-        "Garantía en aviso: aseguradora"
+        "Operación: Alquiler anual · Centro, Maldonado",
+        "Precio: $U 27.000/mes + $U 5.000 GC con agua OSE incluida ($U 32.000 total)",
+        "Superficie y piso: ~50 m², Piso 4 por ascensor, orientación Norte",
+        "Luz y aberturas: sol en invierno en dormitorios, sombra verano, puestas de sol en living y cocina, doble ventanal de vidrio al frente",
+        "Edificio y equipo: cámaras de seguridad, terraza lavadero, sin muebles, aire acondicionado y calefón instalados",
+        "Admisión y cochera: acepta niños y mascotas; cocheras en alquiler en el edificio · Garantía: solo aseguradora de Uruguay",
+        "Visitas: de 16:00 hs en adelante, cualquier día"
       ],
-      "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
+      "estado_material_aviso": "6 fotos reales recibidas por WhatsApp el 23/11 + ficha pública REF. ZAG-ALQ-07 activa (calle exacta resguardada en Bóveda Privada).",
       "faltantes_capa_1": [
-        "Aceptación de depósito o extranjeros certificando ingresos con escribanía aliada",
-        "Qué incluye el valor (gastos comunes, Wi-Fi, consumos aparte)",
-        "Si cuenta con cochera y características",
-        "Si admite niños y mascota (y porte)"
+        "Canon mensual en $U o USD",
+        "Qué incluye (GC, Wi-Fi, consumos)",
+        "Garantías aceptadas y rechazadas (Porto, Sura, Mapfre, Santander, ANDA, depósito)",
+        "Capacidad máxima de personas y mascotas (y porte)",
+        "Plazo"
       ],
       "faltantes_capa_2": [
         "Quién tiene llaves y horarios",

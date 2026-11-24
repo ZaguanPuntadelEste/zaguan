@@ -3,11 +3,11 @@
   "marca": "1 - ZAGUÁN",
   "dominio_oficial": "https://zaguanpropiedades.com",
   "responsable_comercial": "Mar, de ZAGUÁN Propiedades (+598 98 712 064)",
-  "fecha_verificacion_html_vivo": "2026-11-21",
+  "fecha_verificacion_html_vivo": "2026-11-24",
   "metodologia_auditoria": "100% extraído desde cero vía curl -sL --max-time 12 sobre sitios web oficiales vivos (HTTP 200), inspeccionando etiquetas reales href='mailto:', href='tel:', wa.me/, api.whatsapp.com/send y bloques de contacto en HTML. Cero uso de los 13 contactos descartados del WhatsApp/CSV anterior y cero cruce con otras cuentas.",
   "resumen_verificacion": {
     "total_registros_verificados": 36,
-    "duenos_directos_marketplace_auditados_1_inmueble": 10,
+    "duenos_directos_marketplace_auditados_1_inmueble": 49,
     "prospectos_directos_http_200": 11,
     "inmobiliarias_http_200": 15,
     "posadas_descartadas_purgadas": 9,
@@ -741,7 +741,7 @@
       "nota_auditoria": "Perfil particular (tapicería); indica dueño alquila directo anual en Parada 5 Brava y contacto 094 284 460 en la descripción.",
       "mensaje_mar": "Hola Sylvia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento en alquiler anual en Parada 5 de la Brava.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué valor mensual estás pidiendo, qué garantía o cuántos meses de depósito aceptás (en ZAGUÁN también recibimos extranjeros certificando ingresos con nuestra escribanía aliada), qué incluye el monto y cómo es el tema cochera o mascotas._",
       "estado_envio": "enviado_1",
-      "seguimiento_72h": "Hola Sylvia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Parada 5 Brava / Aidy Grill, Punta del Este. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
+      "seguimiento_72h": "Hola Sylvia, retomo mi consulta anterior sobre tu apartamento de 2 dormitorios en Parada 5 de Playa Brava.\n\nTe escribo hoy por un pedido puntual: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n\n_Trabajamos con publicación abierta. Si todavía lo tenés libre y está equipado, evaluás recibir este perfil y me confirmás valor, qué incluye, cochera y condiciones de mascotas?_",
       "ts_envio_1": 1794932182680,
       "fecha_envio_1": "17/11 13:16 · Enviado por WhatsApp",
       "vertical_calculada": "O6",
@@ -759,7 +759,11 @@
         "Si admite niños y mascota (y porte)"
       ],
       "carril": "2_esperando_respuesta_72h",
-      "nivel_semaforo": "1A_LIMPIO"
+      "nivel_semaforo": "1A_LIMPIO",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Re-toque 72h con cliente USD 1.200–1.400",
+      "sugerencia_mar": "Hola Sylvia, retomo mi consulta anterior sobre tu apartamento de 2 dormitorios en Parada 5 de Playa Brava.\n\nTe escribo hoy por un pedido puntual: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n\n_Trabajamos con publicación abierta. Si todavía lo tenés libre y está equipado, evaluás recibir este perfil y me confirmás valor, qué incluye, cochera y condiciones de mascotas?_"
     },
     {
       "id": "MP-14",
@@ -1633,6 +1637,315 @@
       "fecha_respuesta": "2026-11-23 15:00",
       "contestacion_mar": "Tomamos todos los datos ($U 27.000 más $U 5.000 de GC con agua incluida, aseguradora de acá, doble ventanal, cámaras, aire, calefón, niños y mascotas). Te avisamos directo cuando tengamos persona con garantía validada después de las 16 hs.",
       "sugerencia_mar": ""
+    },
+    {
+      "id": "MP-40",
+      "vendedor": "Gustavo Rojo Blanco",
+      "telefono_directo": "59894238971",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "Edificio Vertientes · 2 dormitorios con garaje en Manantiales",
+      "precio": "U$S 231 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Manantiales, La Barra, Maldonado",
+      "url": "https://www.infocasas.com.uy/edificio-vertientes/216961",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Gustavo, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado con garaje cerrado en Edificio Vertientes, Manantiales.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales, es decir entre USD 14.400 y 16.800 anuales asegurados).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo todo el año que esté amoblado para este perfil puntual y me confirmás gastos comunes y condiciones vigentes?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Gustavo, te escribo breve por mi consulta sobre tu 2 dormitorios en Manantiales para nuestro cliente anual pre-calificado (USD 1.200 a 1.400 mensuales con Sura, Porto o BSE). *Evaluarías recibir esa propuesta o cierro la nota?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Manantiales (Edificio Vertientes, a 3 cuadras de Bikini)",
+        "Tipología: 2 dormitorios, 2 baños (1 en suite), totalmente equipado",
+        "Cochera: Garaje cerrado para un vehículo · deck con parrillero",
+        "Condición en aviso: No acepta mascotas"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual (desde dic. o post-temporada) en USD 1.200–1.400/mes",
+        "Gastos comunes mensuales y consumos aparte",
+        "Garantías aceptadas (Sura, Porto, BSE)"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-41",
+      "vendedor": "Gerónimo Blanco",
+      "telefono_directo": "59899200156",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "Casa 2 dormitorios equipada en El Tesoro, La Barra",
+      "precio": "U$S 257 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "El Tesoro, La Barra, Maldonado",
+      "url": "https://www.infocasas.com.uy/full-house-en-el-tesoro-la-barra/193245221",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Gerónimo, te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios equipada con parrillero techado y espacio para autos en El Tesoro, La Barra.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales, es decir entre USD 14.400 y 16.800 anuales asegurados).\n_Trabajamos con publicación abierta. Evaluarías alquilarla todo el año que esté amoblada para este perfil y me contás consumos aparte y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Gerónimo, te escribo breve sobre mi consulta por tu casa de 2 dormitorios en El Tesoro para el interesado anual con Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Te sirve evaluarlo o cierro el recordatorio?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · El Tesoro, La Barra",
+        "Tipología: Casa 2 dormitorios (principal + 2º con camas), equipada, parrillero",
+        "Cochera: Entrada vehicular amplia en jardín para 2 autos"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual (desde dic. o post-temporada) en USD 1.200–1.400/mes",
+        "Consumos aparte (UTE, OSE, Wi-Fi)",
+        "Si admite mascotas y qué porte"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-42",
+      "vendedor": "Pablo",
+      "telefono_directo": "59899675340",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "El Manero · 2 dormitorios equipado c/ terraza en Manantiales",
+      "precio": "U$S 269 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Manantiales, La Barra, Maldonado",
+      "url": "https://www.infocasas.com.uy/el-manero-manantiales/216782",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Pablo, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado en El Manero, Manantiales.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales, es decir entre USD 14.400 y 16.800 anuales asegurados).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo todo el año que esté amoblado para este perfil y me confirmás si cuenta con cochera, gastos comunes y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Pablo, te consulto breve sobre tu apartamento de 2 dormitorios en Manantiales por si te interesa evaluar la propuesta de alquiler anual con garantía Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Evaluarías recibirla?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Manantiales (a 1 cuadra de Ruta 10)",
+        "Tipología: 2 dormitorios (1 en suite), 100 m² + terraza 50 m² c/ parrillero, aire en todos los ambientes"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual en USD 1.200–1.400/mes",
+        "Si cuenta con cochera y gastos comunes mensuales",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-43",
+      "vendedor": "Diego Young",
+      "telefono_directo": "59895326170",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "2 dormitorios equipado c/ parrillero · Playa Brava Parada 24 (Rincón del Indio)",
+      "precio": "U$S 300 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Rincón del Indio · Parada 24 Brava, Punta del Este",
+      "url": "https://www.infocasas.com.uy/apto-playa-brava-p24-a-50-mts-del-mar/194341191",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Puente inmediato a La Barra -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Diego, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento equipado de 2 dormitorios y 2 baños en Playa Brava Parada 24, Rincón del Indio.\nTe consulto por un pedido concreto en esa zona: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo en contrato anual que esté amoblado para este perfil y me confirmás detalle de cochera, gastos comunes y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Diego, te escribo breve sobre mi mensaje por tu 2 dormitorios en Parada 24 de la Brava por si evaluás contrato anual con garantía Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Te interesa conversarlo?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Rincón del Indio (Parada 24 Playa Brava, a pasos de La Barra)",
+        "Tipología: 2 dormitorios amplios, 2 baños (1 en suite), parrillero propio, equipado",
+        "Seguridad 24 hs y cochera declarada en ficha"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual (desde dic. o post-temporada) en USD 1.200–1.400/mes",
+        "Detalle de gastos comunes mensuales",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-44",
+      "vendedor": "Leonor Elizabeth Menéndez",
+      "telefono_directo": "59898805811",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "2 dormitorios equipado c/ garaje fijo · Playa Brava Parada 8",
+      "precio": "U$S 120 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Playa Brava Parada 8 · Aidy Grill, Punta del Este",
+      "url": "https://www.infocasas.com.uy/playa-brava-2-dorm-1-bano-amenities-a-100-mts-de-la-playa/227287",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Leonor, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado al detalle con garaje fijo en Playa Brava Parada 8.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales, es decir entre USD 14.400 y 16.800 anuales asegurados).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo en contrato anual que esté amoblado para este perfil puntual y me confirmás gastos comunes y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Leonor, te escribo cortito por mi consulta anterior sobre tu 2 dormitorios en Parada 8 de la Brava para alquiler anual con garantía Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Te interesa evaluarlo o cierro la nota?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Playa Brava Parada 8 (Aidy Grill)",
+        "Tipología: 2 dormitorios (principal sommier + 2º dorm con cama marinera), totalmente equipado",
+        "Cochera: Garaje con plaza fija"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual (desde dic. o post-temporada) en USD 1.200–1.400/mes",
+        "Gastos comunes mensuales y consumos",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-45",
+      "vendedor": "Graciana Andregnette",
+      "telefono_directo": "59899885524",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "Edificio Celchamar · 2 dormitorios equipado c/ cochera en Aidy Grill",
+      "precio": "U$S 170 / día (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Aidy Grill · Playa Brava, Punta del Este",
+      "url": "https://www.infocasas.com.uy/celchamar/214514",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Graciana, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado con cochera y parrillero en Edificio Celchamar, Aidy Grill.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales, es decir entre USD 14.400 y 16.800 anuales asegurados).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo todo el año que esté amoblado para este perfil puntual y me confirmás gastos comunes y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Graciana, te consulto breve sobre tu 2 dormitorios en Celchamar por si te sirve evaluar contrato anual con Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Evaluarías conversarlo?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Aidy Grill (Edificio Celchamar)",
+        "Tipología: 2 dormitorios (master suite + 2º dorm con 2 camas), 2 baños, super equipado",
+        "Cochera y parrillero incluidos en ficha"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual en USD 1.200–1.400/mes",
+        "Gastos comunes mensuales",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-46",
+      "vendedor": "Pedro",
+      "telefono_directo": "59899307192",
+      "operacion": "Temporada -> Conversión Alquiler Anual · Dueño Directo",
+      "titulo": "Edificio Moon Punta · 2 dormitorios equipado c/ garaje · Brava Parada 8",
+      "precio": "A consultar (temporada · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Playa Brava Parada 8 · Aidy Grill, Punta del Este",
+      "url": "https://www.infocasas.com.uy/edificio-moon-punta/216815",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Temporada libre -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Pedro, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado con garaje y parrillero propio en Edificio Moon Punta, altura Parada 8 de la Brava.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual desde diciembre o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n_Trabajamos con publicación abierta. Evaluarías alquilarlo todo el año que esté amoblado para este perfil y me confirmás valor mensual pretendido, gastos comunes y si admite mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Pedro, te consulto breve sobre mi mensaje por tu 2 dormitorios en Edificio Moon Punta para alquiler anual con Sura, Porto o BSE. *Te interesa evaluarlo o cierro el recordatorio?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler temporal · Parada 8 Playa Brava (Edificio Moon Punta)",
+        "Tipología: 2 dormitorios equipado, aire en los dos dormitorios y living, parrillero propio",
+        "Cochera: Garaje y portería 24 hs"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual y valor mensual en USD 1.200–1.400",
+        "Gastos comunes mensuales",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-47",
+      "vendedor": "Ana Miller",
+      "telefono_directo": "59899159976",
+      "operacion": "Temporada Post-Enero -> Conversión Anual · Dueño Directo",
+      "titulo": "2 dormitorios equipado frente al mar · Playa Brava Parada 2 (disponible post-enero)",
+      "precio": "U$S 429 / día (post-enero · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Playa Brava Parada 2, Punta del Este",
+      "url": "https://www.infocasas.com.uy/apartamento-en-alquiler-frente-al-mar-brava-piscina-mucamas-diario/193186473",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Enero ocupado / libre post-temporada -> Renta anual",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Ana, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios equipado frente a Playa Brava Parada 2 publicado para febrero.\nTe consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual ingresando enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n_Trabajamos con publicación abierta. Te sirve evaluar dejarlo con contrato anual desde febrero o marzo para este perfil y me confirmás si incluye cochera, gastos comunes y condiciones de mascotas?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Ana, te escribo breve sobre mi consulta anterior por tu 2 dormitorios en Playa Brava Parada 2 para contrato anual desde febrero o marzo con Sura, Porto o BSE. *Evaluarías esta opción?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Alquiler febrero/carnaval · Playa Brava Parada 2 primera línea",
+        "Tipología: 2 dormitorios, 2 baños, balcón frente al mar, totalmente equipado",
+        "Ventana real: libre post-enero (calza con ingreso enseguida de la temporada)"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Confirmar si evalúa contrato anual desde febrero/marzo y valor",
+        "Detalle de cochera y gastos comunes",
+        "Si admite mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-48",
+      "vendedor": "Carolina Mazzino",
+      "telefono_directo": "59899602498",
+      "operacion": "Temporada -> Conversión Anual Post-Enero · Dueña Directa",
+      "titulo": "Casa 2 dormitorios equipada c/ estacionamiento · Cantegril a 2 cuadras de Devoto",
+      "precio": "U$S 194 / día (libre 2ª enero · propuesta anual USD 1.200–1.400/mes)",
+      "zona": "Cantegril · Maldonado / Punta del Este",
+      "url": "https://www.infocasas.com.uy/preciosa-casa-dueno-alquila-2a-enero-cantegril-a-2c-devoto-imperdible/187275627",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo B · Libre desde fin de enero -> Renta anual USD 14.400–16.800",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Carolina, te escribe Mar, de ZAGUÁN Propiedades. Vi tu casa de 2 dormitorios equipada en Cantegril, con estacionamiento y parrillero techado.\nComo publicaste disponibilidad desde segunda quincena de enero, te consulto por un pedido concreto: tenemos un interesado ya filtrado para contrato anual al cierre de enero o enseguida de la temporada (un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales).\n_Trabajamos con publicación abierta. Evaluarías dejarla en alquiler todo el año que esté amoblada desde febrero para este perfil y me confirmás si sigue libre después de enero y qué consumos van aparte?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Carolina, te consulto breve sobre mi mensaje por tu casa de 2 dormitorios en Cantegril para contrato anual post-enero con garantía Sura, Porto o BSE. *Te sirve evaluarlo?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Dueño alquila 2ª quincena enero · Cantegril a 2c de Devoto",
+        "Tipología: Casa 2 dormitorios, 2 baños (1 en suite), totalmente equipada",
+        "Cochera y extras: estacionamiento techado, parrillero, acepta mascota pequeña"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si evalúa contrato anual desde febrero/post-temporada en USD 1.200–1.400/mes",
+        "Garantías aceptadas (Sura, Porto, BSE) y consumos aparte"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
+    },
+    {
+      "id": "MP-49",
+      "vendedor": "Álvaro Martínez",
+      "telefono_directo": "59899331838",
+      "operacion": "Venta Amoblada -> Renta Anual USD 1.200–1.400 · Dueño Directo",
+      "titulo": "Club Sol del Este Piso 8 · 2 dormitorios equipado c/ garaje · Av. Roosevelt",
+      "precio": "USD 190.000 venta (propuesta alquiler anual USD 1.200–1.400/mes)",
+      "zona": "Av. Roosevelt, Maldonado / Punta del Este",
+      "url": "https://www.infocasas.com.uy/dueno-vende-club-sol-del-este-piso-8-2-dorm/193951305",
+      "caza_pedido_id": "B2C-59895535999",
+      "badge_caza": "🎯 CAZA PUNTUAL · BÚSQUEDA LA BARRA / MALDONADO (USD 1.200–1.400)",
+      "bolsillo_caza": "Bolsillo C · Dueño vende -> Renta anual USD 14.400–16.800 mientras define venta",
+      "nota_auditoria": "Auditado 24/11 en InfoCasas (owner.particular=true, teléfono verificado sin inmobiliaria en Google) para pedido B2C-59895535999.",
+      "mensaje_mar": "Hola Álvaro, te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en Club Sol del Este sobre Av. Roosevelt.\nAdemás de ofrecerlo a la venta con publicación abierta mientras buscás comprador, te consulto por un pedido concreto de alquiler anual desde diciembre o enseguida de la temporada: un adulto con sus dos hijos de 7 y 12 años, garantía aseguradora Sura, Porto o BSE y presupuesto de USD 1.200 a 1.400 mensuales.\n_Si está libre y equipado, evaluarías alquilarlo todo el año (que esté amoblado) o con cláusula de venta para asegurar esa renta mensual y me confirmás detalle de garaje y gastos comunes?_",
+      "estado_envio": "pendiente",
+      "seguimiento_72h": "Hola Álvaro, te escribo breve por tu 2 dormitorios en Club Sol del Este: por si te sirve sumarlo a la venta con publicación abierta o evaluar al interesado anual con Sura, Porto o BSE (USD 1.200–1.400 mensuales). *Lo conversamos?* Saludos, Mar — ZAGUÁN Propiedades.",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [
+        "Operación origen: Venta directa propietario (USD 190.000) · Av. Roosevelt Club Sol del Este Piso 8",
+        "Tipología: 2 dormitorios, garaje con baulera, piscina climatizada todo el año",
+        "Gastos comunes en aviso: $U 16.500"
+      ],
+      "estado_material_aviso": "Fotos reales publicadas en aviso InfoCasas; si confirma disponibilidad anual, solicitar video de recorrido y condiciones finales.",
+      "corchetes_faltantes": [
+        "Si está disponible y equipado para evaluar alquiler anual USD 1.200–1.400/mes",
+        "Si suma ficha de venta con publicación abierta",
+        "Condición sobre mascotas"
+      ],
+      "carril": "1_por_contactar",
+      "nivel_semaforo": "1A_LIMPIO"
     }
   ]
 }

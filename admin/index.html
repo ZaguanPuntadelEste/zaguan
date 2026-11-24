@@ -616,7 +616,7 @@
         <div class="field">
           <label>Filtrar por Tipo de Frente</label>
           <select id="r4z-tipo" onchange="renderRadar4Z()">
-            <option value="MARKETPLACE">🔥 Dueños Directos Marketplace UY (39 cargados)</option>
+            <option value="MARKETPLACE">🔥 Dueños Directos Marketplace & Portales UY (49 cargados)</option>
             <option value="DIRECTOS">🏗️ Desarrolladoras Locales de Obra Nueva (6 activas)</option>
             <option value="INMOBILIARIAS">🤝 Inmobiliarias Colegas por Zona (15 referencias)</option>
           </select>
@@ -2700,6 +2700,8 @@ function renderRadar4Z() {
       const okZona = zonaSel === 'TODAS'
         || zTxt.includes(zonaSel.split('/')[0].trim())
         || zTxt === zonaSel
+        || (zonaSel === 'La Barra / Manantiales' && /la barra|el tesoro|manantiales|montoya|rinc[oó]n del indio/i.test(zTxt))
+        || (zonaSel === 'Roosevelt / Aidy Grill' && /roosevelt|aidy grill|playa brava|cantegril|san rafael/i.test(zTxt))
         || (zonaSel === 'San Carlos' && /san carlos|balneario buenos aires|santa m[oó]nica|jos[eé] ignacio/i.test(zTxt));
       const okCarril = carrilSel === 'TODOS' || (it.carril || '1_por_contactar') === carrilSel;
       return okZona && okCarril;
@@ -2718,6 +2720,9 @@ function renderRadar4Z() {
       const ra = carrilRank[ca] || 9;
       const rb = carrilRank[cb] || 9;
       if (ra !== rb) return ra - rb;
+      const cazaA = a.caza_pedido_id ? 0 : 1;
+      const cazaB = b.caza_pedido_id ? 0 : 1;
+      if (cazaA !== cazaB) return cazaA - cazaB;
       const sa = a.nivel_semaforo === '1B_CON_ALERTA' ? 2 : a.nivel_semaforo === 'ROJO_CERRADO' ? 3 : 1;
       const sb = b.nivel_semaforo === '1B_CON_ALERTA' ? 2 : b.nivel_semaforo === 'ROJO_CERRADO' ? 3 : 1;
       if (sa !== sb) return sa - sb;
@@ -2733,6 +2738,11 @@ function renderRadar4Z() {
       const rec = getContactRecord(it.id, it);
       const isAlert = it.nivel_semaforo === '1B_CON_ALERTA' || Boolean(it.alerta_mar);
       const canDiscard = rec.estado !== 'cerrado' && (rec.carril === '1_por_contactar' || rec.carril === '2_esperando_respuesta_72h');
+      const cazaBannerHtml = it.caza_pedido_id && rec.estado !== 'cerrado' ? `
+        <div style="background:rgba(16,185,129,0.14);border:1.5px solid #10B981;border-radius:8px;padding:8px 11px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
+          <div style="font-size:12px;font-weight:800;color:#6EE7B7;">${it.badge_caza || '🎯 CAZA PUNTUAL · PEDIDO ACTIVO'}</div>
+          ${it.bolsillo_caza ? `<span style="font-size:11.5px;color:#D1FAE5;">${it.bolsillo_caza}</span>` : ''}
+        </div>` : '';
       const alertBannerHtml = isAlert && it.alerta_mar ? `
         <div style="background:rgba(245,158,11,0.16);border:1.5px solid #F59E0B;border-radius:8px;padding:9px 11px;margin:6px 0;display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;">
           <div style="flex:1;min-width:210px;">
@@ -2742,7 +2752,7 @@ function renderRadar4Z() {
           ${canDiscard ? `<button class="btn btn-no btn-sm" onclick="descartarOwnerDirectoD1('${it.id}', '${String(it.badge_alerta || '').replace(/'/g, '')}')">🗑️ Descartar en 1 clic</button>` : ''}
         </div>` : '';
       return `
-      <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}" id="mp-card-${it.id}" style="${isAlert && rec.estado !== 'cerrado' ? 'border-color:rgba(245,158,11,0.75);' : ''}">
+      <div class="card ${rec.estado === 'cerrado' ? 'descartado' : 'aprobado'}" id="mp-card-${it.id}" style="${isAlert && rec.estado !== 'cerrado' ? 'border-color:rgba(245,158,11,0.75);' : (it.caza_pedido_id && rec.estado !== 'cerrado' ? 'border-color:rgba(16,185,129,0.75);' : '')}">
         <div class="card-top">
           <div>
             <span class="tag tag-active">${it.id} · ${it.operacion}</span>
@@ -2752,6 +2762,7 @@ function renderRadar4Z() {
           </div>
           <strong style="color:var(--gold);font-size:15px;white-space:nowrap;">${it.precio}</strong>
         </div>
+        ${cazaBannerHtml}
         ${alertBannerHtml}
         ${renderReplyLoaderBox(it.id, it.vendedor, it.operacion, it.telefono_directo, it, 'mp')}
         <div style="font-size:11.5px;color:#A3B3C2;background:rgba(8,21,33,0.55);padding:7px 10px;border-radius:6px;border:1px solid var(--border);display:grid;gap:4px;">
