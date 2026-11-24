@@ -2397,6 +2397,43 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
 
     const MULTI_TURNO_GUIONES = [
       {
+        id: 'G-HOY-954',
+        tag: '🔥 Hoy 23/11 · +598 99 495 954',
+        ctx: 'la_fortuna',
+        title: '🔥 Hoy 18:47 · "Hola me pasas fotos de la casa?!" (sin irse a Santa Mónica)',
+        desc: 'Caso real de hoy: preguntó "fotos de la casa" desde el aviso de alquiler. Antes se iba a D3 Santa Mónica USD 160k; ahora manda ficha del aviso y filtra aseguradora.',
+        turnos: [
+          'Hola me pasas fotos de la casa?!',
+          'Gracias! Vi que es piso 1 sin patio. Tiene cochera y cuánto son los gastos comunes?',
+          'Mi pareja y yo tenemos recibos de sueldo hace 3 años en BPS, llegamos a $U 105.000 líquidos sin Clearing'
+        ]
+      },
+      {
+        id: 'G-HOY-412',
+        tag: '🔥 Hoy 23/11 · +598 95 518 412',
+        ctx: 'la_fortuna',
+        title: '🔥 Hoy 18:55 · "Mi marido y yo tenemos recibos de sueldo. Cómo sería eso"',
+        desc: 'Caso real de hoy: ya vio los aptos ("Están re lindos") y pregunta cómo calificar con recibos en pareja. Cero re-bienvenida, explica ~30% (3 o 6 recibos BPS, sin Clearing).',
+        turnos: [
+          'Espectaculares! Están re lindos',
+          'Mi marido y yo tenemos recibos de sueldo. Cómo sería eso?',
+          'Los dos tenemos sueldo fijo hace 2 años y sumamos $U 105.000 en mano, preferimos ver primero Centro de Maldonado ($U 27.000 + $U 5.000 gastos comunes)'
+        ]
+      },
+      {
+        id: 'G-HOY-999',
+        tag: '🔥 Hoy 23/11 · +598 95 535 999',
+        ctx: 'general',
+        title: '🔥 Hoy 22:07 · Audio La Barra / Maldonado 2D Amoblado USD 1.200–1.400 + 2 niños',
+        desc: 'Caso real de hoy: reenvió El Tesoro (alquilado), escuchó opciones, pidió La Barra o Maldonado Centro, amoblado, 2 niños (7 y 12), Sura/BSE/Porto, USD 1.200–1.400.',
+        turnos: [
+          'Buenas noches, vi el de El Tesoro de $U 28.000 en La Barra, sigue disponible?',
+          'Yo busco más zona La Barra o Punta del Este, La Fortuna me queda a trasmano. Maldonado Centro me queda bien. En lo posible amoblado, si es más quiero saber cuánta diferencia hay',
+          'Esos de USD 1.200 a 1.400 en La Barra de alquiler anual en 2 dormitorios no me disgustan, hoy vivo en La Barra',
+          'Somos dos niños de 7 y 12 además de mí, amueblado y si es posible cochera mejor, con Sura, BSE o Porto'
+        ]
+      },
+      {
         id: 'G-B2C-MEM',
         tag: '5 turnos · B2C 2027',
         ctx: 'general',
@@ -2465,6 +2502,9 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
     ];
 
     const PRESETS_ENSAYO = [
+      { ctx: 'la_fortuna', tag: '🔥 Hoy · +598 99 495 954', title: 'Pide "fotos de la casa" desde aviso de alquiler', text: 'Hola me pasas fotos de la casa?!' },
+      { ctx: 'la_fortuna', tag: '🔥 Hoy · +598 95 518 412', title: 'Pareja con recibos pregunta "Cómo sería eso"', text: 'Mi marido y yo tenemos recibos de sueldo, cómo sería eso?' },
+      { ctx: 'general', tag: '🔥 Hoy · +598 95 535 999', title: 'La Barra 2D anual amoblado USD 1.400 + 2 niños + Sura/BSE', text: 'Busco alquiler anual en La Barra o Maldonado Centro, 2 dormitorios amoblado, dos niños de 7 y 12 años, con Sura, BSE o Porto, hasta USD 1400' },
       { ctx: 'la_fortuna', tag: 'Meta Ads · Saludo', title: 'Escribe solo "Hola" desde el aviso de La Fortuna', text: 'Hola' },
       { ctx: 'la_fortuna', tag: 'Meta Ads · Botón 1', title: 'Ya tiene póliza Porto, Sura, Mapfre o Santander', text: 'Tengo Porto, Sura, Mapfre o Santander: quiero ver ficha y visitar' },
       { ctx: 'la_fortuna', tag: 'Caso Lianet · T1', title: 'Objeción niños en La Fortuna', text: 'Ya esa yo la fui a ver y me dijeron que no querían niños' },
