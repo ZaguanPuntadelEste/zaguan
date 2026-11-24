@@ -1,0 +1,541 @@
+/* ZAGUÁN Propiedades — Pack Alquiler 1 · Flujo móvil 4 rayitas Story + Desplegable técnico */
+/* Paleta mineral estricta: #081521 · #123B4A · #1A4D60 · #F3F0E8 · #E8E4DA · #B7D6E0 */
+
+.zg-specs-collapse {
+  background: #123B4A;
+  border: 1px solid rgba(243, 240, 232, 0.18);
+  border-radius: 16px;
+  padding: 0;
+  margin: 0 0 24px 0;
+  overflow: hidden;
+}
+
+.zg-specs-collapse summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 18px 24px;
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #F3F0E8;
+  user-select: none;
+  transition: background 180ms ease;
+}
+
+.zg-specs-collapse summary::-webkit-details-marker {
+  display: none;
+}
+
+.zg-specs-collapse summary:hover {
+  background: rgba(26, 77, 96, 0.55);
+}
+
+.zg-specs-arrow {
+  display: inline-block;
+  font-size: 13px;
+  color: #B7D6E0;
+  transition: transform 200ms ease;
+}
+
+.zg-specs-collapse[open] .zg-specs-arrow {
+  transform: rotate(180deg);
+}
+
+.zg-specs-body {
+  border-top: 1px solid rgba(243, 240, 232, 0.14);
+  padding: 18px 24px 22px;
+  background: rgba(8, 21, 33, 0.36);
+}
+
+.zg-specs-note {
+  font-size: 12.5px;
+  color: #A3B3C2;
+  margin-bottom: 12px;
+}
+
+.zg-specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .zg-specs-collapse summary {
+    padding: 16px 18px;
+    font-size: 15px;
+  }
+
+  .zg-specs-body {
+    padding: 14px 16px 18px;
+  }
+
+  .zg-specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.zg-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 240, 232, 0.12);
+  background: rgba(8, 21, 33, 0.55);
+  font-size: 13.5px;
+  line-height: 1.4;
+}
+
+.zg-spec-item.is-yes {
+  border-color: rgba(183, 214, 224, 0.32);
+  color: #F3F0E8;
+}
+
+.zg-spec-item.is-no {
+  border-color: rgba(243, 240, 232, 0.1);
+  color: #A3B3C2;
+}
+
+.zg-spec-check {
+  flex: 0 0 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.zg-spec-item.is-yes .zg-spec-check {
+  background: #B7D6E0;
+  color: #081521;
+}
+
+.zg-spec-item.is-no .zg-spec-check {
+  border: 1.5px solid rgba(163, 179, 194, 0.55);
+  background: transparent;
+  color: transparent;
+}
+
+.zg-spec-label {
+  display: block;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #B7D6E0;
+  font-weight: 700;
+}
+
+.zg-spec-item.is-no .zg-spec-label {
+  color: #A3B3C2;
+}
+
+/* Typeform · 4 rayitas Story progresivas */
+.zg-tf-shell {
+  margin-bottom: 14px;
+  padding: 14px;
+  background: rgba(8, 21, 33, 0.72);
+  border: 1px solid rgba(243, 240, 232, 0.22);
+  border-radius: 14px;
+}
+
+.zg-tf-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.zg-tf-kicker {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #B7D6E0;
+}
+
+.zg-tf-step-count {
+  font-size: 11px;
+  font-weight: 700;
+  color: #E8E4DA;
+}
+
+.zg-tf-stories {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+
+.zg-tf-story-track {
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(243, 240, 232, 0.16);
+  overflow: hidden;
+  position: relative;
+}
+
+.zg-tf-story-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: #B7D6E0;
+  transition: width 260ms ease, background 260ms ease;
+}
+
+.zg-tf-story-track.is-done .zg-tf-story-fill {
+  width: 100%;
+  background: #F3F0E8;
+}
+
+.zg-tf-story-track.is-active .zg-tf-story-fill {
+  width: 65%;
+  background: #B7D6E0;
+}
+
+.zg-tf-stage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.zg-tf-prev {
+  opacity: 0.38;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px dashed rgba(243, 240, 232, 0.24);
+  background: rgba(18, 59, 74, 0.35);
+  color: #E8E4DA;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: opacity 160ms ease, border-color 160ms ease;
+}
+
+.zg-tf-prev:hover,
+.zg-tf-prev:focus-visible {
+  opacity: 0.92;
+  border-color: #B7D6E0;
+}
+
+.zg-tf-prev-edit {
+  font-weight: 700;
+  color: #B7D6E0;
+  white-space: nowrap;
+}
+
+.zg-tf-current {
+  opacity: 1;
+  background: rgba(18, 59, 74, 0.56);
+  border: 1.5px solid rgba(243, 240, 232, 0.28);
+  border-radius: 12px;
+  padding: 13px;
+  animation: zgSlidePass 220ms ease-out;
+}
+
+@keyframes zgSlidePass {
+  from {
+    opacity: 0.45;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.zg-tf-q {
+  font-family: 'Archivo', sans-serif;
+  font-size: 15.5px;
+  font-weight: 700;
+  color: #F3F0E8;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.zg-tf-sub {
+  font-size: 12.5px;
+  color: #B7D6E0;
+  line-height: 1.45;
+  margin-bottom: 10px;
+}
+
+.zg-tf-sublabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #A3B3C2;
+  margin: 8px 0 5px;
+}
+
+.zg-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.zg-chip {
+  border: 1px solid rgba(243, 240, 232, 0.25);
+  background: rgba(8, 21, 33, 0.72);
+  color: #E8E4DA;
+  border-radius: 999px;
+  padding: 6px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.zg-chip.is-selected {
+  background: #F3F0E8;
+  color: #081521;
+  border-color: #F3F0E8;
+  font-weight: 700;
+}
+
+.zg-opt-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 6px;
+}
+
+.zg-opt-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(243, 240, 232, 0.24);
+  background: #081521;
+  color: #F3F0E8;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, transform 120ms ease;
+}
+
+.zg-opt-btn:hover,
+.zg-opt-btn:focus-visible {
+  background: #1A4D60;
+  border-color: #B7D6E0;
+}
+
+.zg-opt-btn.is-tapped {
+  background: #F3F0E8;
+  color: #081521;
+  border-color: #F3F0E8;
+  transform: scale(0.99);
+}
+
+.zg-opt-sub {
+  display: block;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: #A3B3C2;
+  margin-top: 2px;
+}
+
+.zg-opt-btn.is-tapped .zg-opt-sub {
+  color: #123B4A;
+}
+
+.zg-opt-arrow {
+  color: #B7D6E0;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.zg-escala2-box {
+  margin-top: 10px;
+  padding: 11px;
+  border-radius: 10px;
+  background: rgba(8, 21, 33, 0.85);
+  border: 1px solid #B7D6E0;
+}
+
+.zg-escala2-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: #F3F0E8;
+  margin-bottom: 4px;
+}
+
+.zg-escala2-desc {
+  font-size: 12px;
+  color: #E8E4DA;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.zg-tf-next {
+  opacity: 0.25;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(243, 240, 232, 0.14);
+  font-size: 11.5px;
+  color: #A3B3C2;
+  pointer-events: none;
+}
+
+.zg-input-stack {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.zg-input-stack label {
+  display: block;
+  font-size: 11.5px;
+  color: #E8E4DA;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.zg-input-stack input[type="text"],
+.zg-input-stack input[type="tel"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid rgba(243, 240, 232, 0.3);
+  background: #081521;
+  color: #F3F0E8;
+  font-size: 14px;
+  font-family: inherit;
+}
+
+.zg-input-stack input:focus {
+  outline: 2px solid #B7D6E0;
+  border-color: #B7D6E0;
+}
+
+.zg-consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11.5px;
+  color: #E8E4DA;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+.zg-consent-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: #F3F0E8;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.zg-privacy-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #B7D6E0;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.zg-privacy-drawer {
+  margin-top: 6px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  background: #081521;
+  border: 1px solid rgba(183, 214, 224, 0.28);
+  font-size: 11.5px;
+  color: #A3B3C2;
+  line-height: 1.45;
+}
+
+.zg-cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 13px 16px;
+  border: 0;
+  border-radius: 10px;
+  background: #F3F0E8;
+  color: #081521;
+  font-family: inherit;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 8px;
+  text-decoration: none;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.zg-cta-primary:hover {
+  background: #B7D6E0;
+  transform: translateY(-1px);
+}
+
+.zg-alert-inline {
+  margin-top: 6px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(232, 228, 218, 0.12);
+  border: 1px solid rgba(232, 228, 218, 0.35);
+  color: #F3F0E8;
+  font-size: 12px;
+}
+
+.zg-cruzada-trigger {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 9px 10px;
+  border-radius: 10px;
+  border: 1px dashed rgba(183, 214, 224, 0.42);
+  background: rgba(18, 59, 74, 0.32);
+  color: #B7D6E0;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  text-align: center;
+  cursor: pointer;
+  transition: background 150ms ease, color 150ms ease;
+}
+
+.zg-cruzada-trigger:hover {
+  background: rgba(26, 77, 96, 0.55);
+  color: #F3F0E8;
+}
+
+.zg-back-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: #B7D6E0;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+}

@@ -54,7 +54,7 @@ export const MATRIZ_14V = {
     operacion: "Alquiler anual",
     nombre: "Alquiler anual vivienda dueno directo",
     capa1: ["zona_barrio", "precio_uyu", "dormitorios", "garantias_aceptadas", "gastos_comunes"],
-    capa2: ["acepta_mascotas", "acepta_menores", "amoblado", "plazo_contrato", "disponibilidad_visitas"],
+    capa2: ["acepta_mascotas", "acepta_menores", "amoblado", "plazo_contrato", "climatizacion", "disponibilidad_visitas"],
     cruce: "Demanda D2 filtrada previamente con garantia aseguradora (Porto, Sura, Mapfre, Santander).",
   },
   O7: {
@@ -138,6 +138,10 @@ const BRACKET_META = {
   plazo_contrato: {
     label: "Plazo contractual",
     pregunta: "plazo minimo de contrato (1 o 2 anos)",
+  },
+  climatizacion: {
+    label: "Climatización",
+    pregunta: "cómo se calefacciona o si cuenta con aire acondicionado o preinstalación prevista",
   },
   titulos_regla: {
     label: "Documentacion en regla",
@@ -435,6 +439,21 @@ export function extraerCorchetesDesdeTexto(propietario = {}, extraTexto = "", ve
   else if (/sin\s+muebles|vacio|desocupado/i.test(rawCorpus)) c.amoblado = "Sin muebles";
   const plazo = extractFactValue(rawCorpus, /\b(1\s*a[nñ]o|2\s*a[nñ]os|anual|plazo\s+\d+\s*(?:meses|a[nñ]os))\b/i);
   if (plazo) c.plazo_contrato = plazo;
+
+  // Climatizacion (aire acondicionado, preinstalacion / caneria prevista, losa, estufa, ventilador)
+  if (/preinstalaci[oó]n|ca[nñ]er[ií]a\s+prevista|previsto\s+para\s+(?:colocar\s+)?aire|previsi[oó]n(?:\s+lista)?\s+para\s+(?:colocar\s+)?aire/i.test(rawCorpus)) {
+    c.climatizacion = "Preinstalación prevista para aire acondicionado";
+  } else if (/(?:con|dejo(?:\s+el)?|incluye|tiene)\s+aire\s+acondicionado|aire\s+acondicionado(?:\s+instalado)?|\bsplit\b/i.test(rawCorpus)) {
+    c.climatizacion = "Con aire acondicionado";
+  } else if (/losa\s+radiante/i.test(rawCorpus)) {
+    c.climatizacion = "Losa radiante";
+  } else if (/estufa\s+a\s+le[nñ]a|estufa\b/i.test(rawCorpus)) {
+    c.climatizacion = "Estufa";
+  } else if (/ventilador(?:\s+de\s+techo)?/i.test(rawCorpus)) {
+    c.climatizacion = "Ventilador de techo";
+  } else if (/no\s+hay\s+nada\s+instalado|sin\s+aire|sin\s+calefacci[oó]n/i.test(rawCorpus)) {
+    c.climatizacion = "Sin equipos de climatización";
+  }
 
   // Documentacion / titulos / obra
   if (/t[ií]tulos\s+al\s+d[ií]a|listo\s+para\s+escriturar|escritura|con\s+planos|aprobado|al\s+d[ií]a|bps|bps\s+al\s+d[ií]a/i.test(rawCorpus)) {

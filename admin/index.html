@@ -631,6 +631,17 @@
   <!-- TAB 1B: INTERESADOS B2C + MATCHMAKER + VISITAS + CIERRES + COLA MAC   -->
   <!-- ===================================================================== -->
   <section id="tab-crm4c" class="tab-panel">
+    <div class="section-box" style="border-color:rgba(183,214,224,0.45);">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+        <div>
+          <span class="tag tag-ley">EMBUDO SILENCIOSO EN FICHAS · PACK ALQUILER 1</span>
+          <h2 style="font-size:19px;margin-top:6px;">Log de Intentos Paso a Paso en Fichas Web (Incluso Abandonos)</h2>
+        </div>
+        <button class="btn btn-outline btn-sm" onclick="loadFichaIntentosLog()">🔄 Actualizar embudo</button>
+      </div>
+      <div id="ficha-intentos-funnel-box" style="font-size:12.5px;color:#B7D6E0;">Cargando embudo de pasos desde D1...</div>
+    </div>
+
     <div class="section-box" style="border-color:rgba(16,185,129,0.45);">
       <span class="tag tag-active">CARRIL 2 · INTERESADOS B2C Y MATCHMAKER (OFERTA × DEMANDA EN VIVO)</span>
       <h2 style="font-size:19px;margin-top:6px;">Cargar Interesado B2C (Inquilino / Comprador) y Cruzar contra Cartera D1</h2>
@@ -2169,7 +2180,42 @@ function renderFourLanesTab() {
     const cola = crmCloudState.cola_ag || [];
     colaBox.innerHTML = cola.length ? cola.map(q => `<div class="card"><span class="tag ${q.estado === 'PENDIENTE_AG' ? 'tag-pending' : 'tag-active'}">${q.id} · ${q.estado}</span><h3 style="margin-top:6px;">${q.titulo}</h3><p style="font-size:12px;color:var(--muted);white-space:pre-wrap;">${q.detalle}</p>${q.estado !== 'HECHO_AG' ? `<div class="btn-row"><button class="btn btn-yes btn-sm" onclick="marcarColaAg('${q.id}', 'HECHO_AG')">✅ Marcar HECHO_AG</button></div>` : ''}</div>`).join('') : '<p style="color:var(--muted);font-size:13px;">Cola Mac vacía (0 tareas pendientes).</p>';
   }
+  loadFichaIntentosLog();
 }
+
+window.loadFichaIntentosLog = async function() {
+  const box = document.getElementById('ficha-intentos-funnel-box');
+  if (!box) return;
+  try {
+    const res = await fetch(`${CRM_API_URL}/api/ficha-intentos?v=${Date.now()}`);
+    const data = await res.json();
+    if (!res.ok || !data.ok) throw new Error('Error leyendo embudo');
+    const summary = data.resumen_por_slug || [];
+    const items = data.intentos || [];
+    if (!summary.length && !items.length) {
+      box.innerHTML = '<p style="color:var(--muted);">Aún no hay toques registrados en las rayitas de ficha (los próximos ingresos aparecerán acá en vivo).</p>';
+      return;
+    }
+    const cardsHtml = summary.map(s => `
+      <div style="background:rgba(8,21,33,0.72);border:1px solid var(--border);border-radius:10px;padding:10px 12px;">
+        <div style="font-weight:700;color:#F3F0E8;margin-bottom:4px;">${s.slug} (${s.total_sesiones} sesiones)</div>
+        <div style="color:#B7D6E0;">Paso 1: <strong>${s.paso_1}</strong> → Paso 2: <strong>${s.paso_2}</strong> → Paso 3: <strong>${s.paso_3}</strong> → Paso 4: <strong>${s.paso_4}</strong></div>
+        <div style="color:#E8E4DA;margin-top:4px;">WhatsApp calificado: <strong>${s.whatsapp_calificado}</strong> · Búsquedas registradas: <strong>${s.busqueda_registrada}</strong> · Escala 2: <strong>${s.escala_2}</strong> · Captación cruzada: <strong>${s.captacion_cruzada}</strong></div>
+      </div>
+    `).join('');
+    const listHtml = items.slice(0, 8).map(it => {
+      let resp = {};
+      try { resp = it.respuestas_json ? JSON.parse(it.respuestas_json) : {}; } catch (e) {}
+      return `<div style="padding:6px 8px;border-bottom:1px solid rgba(243,240,232,0.08);font-size:12px;">
+        <strong>${it.slug}</strong> · Paso ${it.paso_alcanzado} · <span style="color:#F3F0E8;">${it.resultado}</span>${it.nombre ? ` · ${it.nombre}` : ' · (anónimo)'} <span style="color:var(--muted);">(${(it.updated_at || '').slice(0,16).replace('T',' ')})</span>
+        ${resp.motivo_desvio || resp.cruzada_prioridad || resp.personas ? `<div style="color:var(--muted);">${[resp.personas, resp.mascota, resp.garantia, resp.ingresos, resp.cruzada_prioridad, resp.cruzada_rango, resp.motivo_desvio].filter(Boolean).join(' · ')}</div>` : ''}
+      </div>`;
+    }).join('');
+    box.innerHTML = `<div style="display:grid;gap:8px;margin-bottom:10px;">${cardsHtml}</div>${listHtml}`;
+  } catch (e) {
+    box.innerHTML = '<p style="color:var(--muted);">Sin datos de intentos por ahora.</p>';
+  }
+};
 
 window.ingestarPedidoAbiertoRapido = async function() {
   const nombre = (document.getElementById('pa-quick-nombre')?.value || '').trim();
