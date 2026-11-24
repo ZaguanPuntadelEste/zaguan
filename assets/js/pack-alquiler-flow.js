@@ -281,7 +281,7 @@
           return 'Como buscás mudarte más adelante, te avisamos con prioridad cerca de tu fecha según disponibilidad activa.';
         }
         if (state.reasonKey === 'espacio_mascota') {
-          return 'Esta unidad no se adapta a la cantidad de personas o mascotas que marcaste, así que te anotamos para opciones con esa comodidad.';
+          return 'Este apartamento admite hasta 4 personas y 1 mascota pequeña; agendamos tu búsqueda para avisarte por unidades con la capacidad que buscás.';
         }
         if (state.reasonKey === 'anda_cgn') {
           return 'Esta propiedad opera con aseguradora privada; dejamos tu pedido guardado para avisarte apenas ingrese una unidad compatible con ANDA o Contaduría.';
@@ -386,7 +386,7 @@
         html += '<div><label for="zg-tf-wa">Tu WhatsApp *</label><input type="tel" id="zg-tf-wa" class="' + (state.invalidWa ? 'is-invalid' : '') + '" placeholder="099 123 456" value="' + escHtml(state.whatsapp) + '"></div>';
         html += '<div class="zg-legal-pill">' + escHtml(legalText) + ' <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
         if (state.showPrivacy) {
-          html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades registra tu búsqueda solo para avisarte cuando ingrese una unidad compatible. Sin cesión a terceros. Baja en todo momento por WhatsApp al +598 98 712 064.</div>';
+          html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): ZAGUÁN Propiedades registra tu búsqueda solo para avisarte cuando ingrese una unidad compatible. Sin cesión a terceros. Baja en todo momento por WhatsApp al +598 98 712 064.</div>';
         }
         if (state.validationMsg) {
           html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
@@ -421,7 +421,7 @@
         html += '<div class="zg-tf-current">';
 
         if (state.step === 1) {
-          html += '<div class="zg-tf-q">¿Cuándo buscás mudarte?</div>';
+          html += '<div class="zg-tf-q">¿Cuándo planificás mudarte?</div>';
           html += '<div class="zg-tf-sub">Tocá tu opción para pasar al siguiente paso.</div>';
           html += '<div class="zg-opt-list">';
           html += '<button type="button" class="zg-opt-btn" data-plazo="Dentro de 30 días"><span>Dentro de 30 días</span><span class="zg-opt-arrow">→</span></button>';
@@ -429,17 +429,17 @@
           html += '<button type="button" class="zg-opt-btn" data-plazo="Más adelante (otro mes)"><span>Más adelante (otro mes)</span><span class="zg-opt-arrow">→</span></button>';
           html += '</div>';
         } else if (state.step === 2) {
-          html += '<div class="zg-tf-q">¿Cuántas personas vivirían en el apartamento?</div>';
-          html += '<div class="zg-tf-sub">Tocá la cantidad de integrantes del hogar.</div>';
+          html += '<div class="zg-tf-q">¿Cuántas personas habitarán el apartamento?</div>';
+          html += '<div class="zg-tf-sub">Tocá la cantidad de integrantes de tu hogar.</div>';
           html += '<div class="zg-opt-list">';
           html += '<button type="button" class="zg-opt-btn" data-personas="1 persona o pareja"><span>1 persona o pareja</span><span class="zg-opt-arrow">→</span></button>';
           html += '<button type="button" class="zg-opt-btn" data-personas="3 a 4 personas"><span>3 a 4 personas</span><span class="zg-opt-arrow">→</span></button>';
           html += '<button type="button" class="zg-opt-btn" data-personas="5 o más personas"><span>5 o más personas</span><span class="zg-opt-arrow">→</span></button>';
           html += '</div>';
         } else if (state.step === 3) {
-          html += '<div class="zg-tf-q">¿Vivirían con mascotas?</div>';
+          html += '<div class="zg-tf-q">¿Conviven con mascotas?</div>';
           if (mascotaPolicy === 'edificio_acepta') {
-            html += '<div class="zg-tf-sub">El edificio acepta mascotas; confirmamos el detalle antes de coordinar.</div>';
+            html += '<div class="zg-tf-sub">El edificio acepta mascotas; confirmamos el detalle al coordinar tu visita.</div>';
             html += '<div class="zg-opt-list">';
             html += '<button type="button" class="zg-opt-btn" data-mascota="Sin mascotas"><span>Sin mascotas</span><span class="zg-opt-arrow">→</span></button>';
             html += '<button type="button" class="zg-opt-btn" data-mascota="1 mascota (edificio pet-friendly)"><span>1 mascota (edificio pet-friendly)</span><span class="zg-opt-arrow">→</span></button>';
@@ -456,14 +456,14 @@
         } else if (state.step === 4) {
           if (state.substep === 'anda_bridge') {
             html += '<div class="zg-tf-q">Con recibo limpio de ANDA o Contaduría solés aprobar Porto o Sura en 24 hs</div>';
-            html += '<div class="zg-tf-sub">¿Qué preferís hacer con tu recibo?</div>';
+            html += '<div class="zg-tf-sub">¿Qué camino preferís tomar con tu recibo?</div>';
             html += '<div class="zg-opt-list">';
             html += '<button type="button" class="zg-opt-btn" data-anda-bridge="si"><span>Evaluar aseguradora privada con mis recibos</span><span class="zg-opt-arrow">→</span></button>';
             html += '<button type="button" class="zg-opt-btn" data-anda-bridge="no"><span>Buscar solo unidades que acepten ANDA o CGN</span><span class="zg-opt-arrow">→</span></button>';
             html += '</div>';
           } else {
-            html += '<div class="zg-tf-q">¿Con qué respaldo pensás alquilar?</div>';
-            html += '<div class="zg-tf-sub">Esta propiedad trabaja con aseguradora privada (no necesitás tener la póliza emitida antes de ir a verla; se tramita si te gusta).</div>';
+            html += '<div class="zg-tf-q">¿Con qué respaldo planificás alquilar?</div>';
+            html += '<div class="zg-tf-sub">Esta propiedad opera con aseguradora privada (visitás primero el apartamento y tramitamos la póliza si te gusta).</div>';
             html += '<div class="zg-opt-list">';
             html += '<button type="button" class="zg-opt-btn" data-gar="ingresos"><span>1 o 2 ingresos formales<span class="zg-opt-sub">Recibo en BPS, jubilación o unipersonal +1 año con contador</span></span><span class="zg-opt-arrow">→</span></button>';
             html += '<button type="button" class="zg-opt-btn" data-gar="poliza"><span>Ya cuento con póliza pre-aprobada<span class="zg-opt-sub">Porto Seguro, Sura, Mapfre, Santander o BSE</span></span><span class="zg-opt-arrow">→</span></button>';
@@ -481,7 +481,7 @@
             html += '</div>';
           } else {
             html += '<div class="zg-tf-q">¿En qué rango están los ingresos líquidos mensuales?</div>';
-            html += '<div class="zg-tf-sub">Sumando 1 o 2 titulares que firman el contrato (~30% del alquiler sobre historial limpio).</div>';
+            html += '<div class="zg-tf-sub">Sumando 1 o 2 ingresos formales de quienes firman el contrato (~30% del alquiler con historial limpio).</div>';
             html += '<div class="zg-opt-list">';
             html += '<button type="button" class="zg-opt-btn" data-ing="ok"><span>' + escHtml(formatIngAlto()) + ' o más líquidos por mes</span><span class="zg-opt-arrow">→</span></button>';
             html += '<button type="button" class="zg-opt-btn" data-ing="cerca"><span>Entre $U ' + ingMedio.toLocaleString('de-DE') + ' y $U ' + (ingAlto - 1000).toLocaleString('de-DE') + ' por mes<span class="zg-opt-sub">Opción de sumar co-firmante</span></span><span class="zg-opt-arrow">→</span></button>';
@@ -500,9 +500,9 @@
               html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
             }
             html += '<button type="button" class="zg-cta-primary" id="zg-wa-go-btn">Aceptar y abrir WhatsApp con Mar →</button>';
-            html += '<div class="zg-legal-note">Al tocar el botón aceptás que Zaguán use tus respuestas solo para atender esta consulta de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
+            html += '<div class="zg-legal-note">Al tocar el botón aceptás que ZAGUÁN use tus respuestas solo para atender esta consulta de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
             if (state.showPrivacy) {
-              html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades usa estas respuestas solo para coordinar visitas y validar búsquedas de alquiler, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
+              html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): ZAGUÁN Propiedades usa estas respuestas solo para coordinar visitas y validar búsquedas de alquiler, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
             }
             html += '</div>';
           } else if (state.submitted) {
@@ -510,7 +510,7 @@
           } else {
             html += '<div class="zg-tf-q">' + escHtml(state.motivoDesvio || 'Guardá tu búsqueda para avisarte') + '</div>';
             html += '<div class="zg-tf-sub">' + escHtml(getSavedReasonExplanation()) + '</div>';
-            html += renderSearchSaveForm('Al guardar autorizás a Zaguán Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese un alquiler acorde, sin cesión a terceros (Ley 18.331).');
+            html += renderSearchSaveForm('Al guardar autorizás a ZAGUÁN Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese un alquiler acorde, sin cesión a terceros (Ley 18.331).');
           }
         }
 
@@ -553,7 +553,7 @@
         html += '<div class="zg-tf-current">';
         if (state.step === 1) {
           html += '<div class="zg-tf-q">¿En qué zona buscás alquiler anual?</div>';
-          html += '<div class="zg-tf-sub">Tocá tu zona preferida para pasar a comodidades.</div>';
+          html += '<div class="zg-tf-sub">Tocá tu zona preferida para elegir comodidades.</div>';
           html += '<div class="zg-opt-list">';
           ['La Barra / Manantiales', 'Punta del Este', 'Maldonado (otros barrios)', 'Solanas / Punta Ballena'].forEach(function (zn) {
             html += '<button type="button" class="zg-opt-btn" data-czona="' + escHtml(zn) + '"><span>' + escHtml(zn) + '</span><span class="zg-opt-arrow">→</span></button>';
@@ -561,7 +561,7 @@
           html += '</div>';
         } else if (state.step === 2) {
           html += '<div class="zg-tf-q">¿Qué comodidades priorizás? (opcional)</div>';
-          html += '<div class="zg-tf-sub">Podés tocar una o varias fichas, o seguir sin marcar ninguna.</div>';
+          html += '<div class="zg-tf-sub">Podés elegir una o varias opciones, o continuar directo.</div>';
           html += '<div class="zg-chip-row">';
           ['Amoblado', 'Sin muebles', 'Patio o planta baja', '3+ dormitorios', 'Con mascotas', 'Cochera'].forEach(function (cm) {
             var active = state.cruzadaComodidades.indexOf(cm) !== -1;
@@ -572,24 +572,24 @@
           html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-com-next">' + nextComTxt + '</button>';
         } else if (state.step === 3) {
           if (state.cruzadaSub === 'hogar') {
-            html += '<div class="zg-tf-q">¿Quiénes vivirían en la unidad?</div>';
-            html += '<div class="zg-tf-sub">Tocá una opción para seguir al respaldo.</div>';
+            html += '<div class="zg-tf-q">¿Quiénes habitarán la propiedad?</div>';
+            html += '<div class="zg-tf-sub">Tocá una opción para pasar al respaldo.</div>';
             html += '<div class="zg-opt-list">';
             ['1 persona o pareja', 'Familia (3 a 4 personas)', '5 o más personas'].forEach(function (hg) {
               html += '<button type="button" class="zg-opt-btn" data-chogar="' + escHtml(hg) + '"><span>' + escHtml(hg) + '</span><span class="zg-opt-arrow">→</span></button>';
             });
             html += '</div>';
           } else if (state.cruzadaSub === 'respaldo') {
-            html += '<div class="zg-tf-q">¿Con qué respaldo de garantía contás?</div>';
-            html += '<div class="zg-tf-sub">Tocá el respaldo principal para ajustar opciones de mercado.</div>';
+            html += '<div class="zg-tf-q">¿Con qué respaldo tenés pensado alquilar?</div>';
+            html += '<div class="zg-tf-sub">Tocá el respaldo principal para presentarte opciones reales de mercado.</div>';
             html += '<div class="zg-opt-list">';
             ['Aseguradora / Recibos limpios', 'ANDA o Contaduría (CGN)', 'Mudanza desde el exterior / Empresa', 'Sin garantía tradicional aún'].forEach(function (rs) {
               html += '<button type="button" class="zg-opt-btn" data-crespaldo="' + escHtml(rs) + '"><span>' + escHtml(rs) + '</span><span class="zg-opt-arrow">→</span></button>';
             });
             html += '</div>';
           } else {
-            html += '<div class="zg-tf-q">¿Cuándo pensás mudarte?</div>';
-            html += '<div class="zg-tf-sub">Tocá tu plazo estimado de ingreso.</div>';
+            html += '<div class="zg-tf-q">¿Cuándo planificás mudarte?</div>';
+            html += '<div class="zg-tf-sub">Tocá tu fecha estimada de mudanza.</div>';
             html += '<div class="zg-opt-list">';
             ['Dentro de 30 días', 'Próximos 60 días', 'Más adelante'].forEach(function (pl) {
               html += '<button type="button" class="zg-opt-btn" data-cplazo="' + escHtml(pl) + '"><span>' + escHtml(pl) + '</span><span class="zg-opt-arrow">→</span></button>';
@@ -597,8 +597,8 @@
             html += '</div>';
           }
         } else if (state.step === 4) {
-          html += '<div class="zg-tf-q">¿Hasta qué valor mensual te queda cómodo evaluar?</div>';
-          html += '<div class="zg-tf-sub">Lo usamos solo para filtrar zona y comodidades reales de mercado.</div>';
+          html += '<div class="zg-tf-q">¿Hasta qué valor mensual tenés previsto?</div>';
+          html += '<div class="zg-tf-sub">Lo usamos para seleccionar zona y comodidades acordes a tu búsqueda.</div>';
           html += '<div class="zg-opt-list">';
           ['Hasta $U 35.000/mes', '$U 35.000 a $U 55.000/mes', 'USD 1.200 a USD 1.600/mes', 'Más de USD 1.600/mes'].forEach(function (rg) {
             html += '<button type="button" class="zg-opt-btn" data-cruzada-rango="' + escHtml(rg) + '"><span>' + escHtml(rg) + '</span><span class="zg-opt-arrow">→</span></button>';
@@ -615,7 +615,7 @@
             } else {
               html += '<div class="zg-tf-q">Dejá tu búsqueda registrada para avisarte</div>';
               html += '<div class="zg-tf-sub">' + escHtml(ev.motivo) + '.</div>';
-              html += renderSearchSaveForm('Al guardar autorizás a Zaguán Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese una opción acorde, sin cesión a terceros (Ley 18.331).');
+              html += renderSearchSaveForm('Al guardar autorizás a ZAGUÁN Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese una opción acorde, sin cesión a terceros (Ley 18.331).');
             }
           } else {
             html += '<div class="zg-tf-q">' + (state.nombre ? ('Listo, ' + escHtml(state.nombre) + ': ') : '') + 'buscamos en ' + escHtml(state.cruzadaZona) + '</div>';
@@ -627,9 +627,9 @@
               html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
             }
             html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-wa-btn">Aceptar y abrir WhatsApp prioritario →</button>';
-            html += '<div class="zg-legal-note">Al tocar el botón aceptás que Zaguán use tus respuestas solo para atender esta búsqueda de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
+            html += '<div class="zg-legal-note">Al tocar el botón aceptás que ZAGUÁN use tus respuestas solo para atender esta búsqueda de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
             if (state.showPrivacy) {
-              html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades guarda tu búsqueda solo para presentarte propiedades compatibles, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
+              html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): ZAGUÁN Propiedades guarda tu búsqueda solo para presentarte propiedades compatibles, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
             }
             html += '</div>';
           }
@@ -774,7 +774,7 @@
               } else {
                 state.garantiaLabel = 'Sin recibo formal o con Clearing';
                 state.ingresos = 'bajo';
-                goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'Este propietario alquila solo con póliza de aseguradora privada', 4, '');
+                goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'Esta propiedad opera con póliza de aseguradora privada', 4, '');
                 sendSilentLog(6, 'BUSQUEDA_REGISTRADA_GARANTIA', false);
               }
               render();
@@ -883,7 +883,7 @@
             var curNombre = ((document.getElementById('zg-tf-nombre') || {}).value || state.nombre || '').trim();
             state.nombre = curNombre;
             if (!curNombre) {
-              state.validationMsg = 'Falta escribir tu nombre arriba para abrir WhatsApp con tu consulta.';
+              state.validationMsg = 'Completá tu nombre, por favor.';
               state.invalidNombre = true;
               render();
               return;
@@ -925,8 +925,8 @@
               state.invalidNombre = !curNombre;
               state.invalidWa = digits.length < 8;
               state.validationMsg = !curNombre && digits.length < 8
-                ? 'Falta completar tu nombre y tu celular (mínimo 8 números) para agendar tu búsqueda.'
-                : (!curNombre ? 'Falta escribir tu nombre arriba para agendar tu búsqueda.' : 'Falta escribir un WhatsApp válido de al menos 8 números.');
+                ? 'Completá tu nombre y tu WhatsApp, por favor.'
+                : (!curNombre ? 'Completá tu nombre, por favor.' : 'Completá tu WhatsApp (mínimo 8 números), por favor.');
               render();
               return;
             }
@@ -985,7 +985,7 @@
               flujoCerrado = true;
               render();
             }).catch(function () {
-              state.validationMsg = 'No pudimos guardar en este instante. Probá de nuevo en un segundo.';
+              state.validationMsg = 'Probá guardar de nuevo en un instante, por favor.';
               render();
             });
           });
@@ -1156,7 +1156,7 @@
             var curNombre = ((document.getElementById('zg-tf-nombre') || {}).value || state.nombre || '').trim();
             state.nombre = curNombre;
             if (!curNombre) {
-              state.validationMsg = 'Falta escribir tu nombre arriba antes de abrir WhatsApp.';
+              state.validationMsg = 'Completá tu nombre, por favor.';
               state.invalidNombre = true;
               render();
               return;
