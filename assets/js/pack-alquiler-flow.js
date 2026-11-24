@@ -1,8 +1,8 @@
-/* ZAGUÁN Propiedades — Flujo móvil 4 rayitas Story (Vuelta 2) + Captación cruzada + Log D1 */
+/* ZAGUÁN Propiedades — Flujo móvil Vuelta 3 (1 pregunta = 1 toque avanza en 150 ms) + Captación cruzada + Log D1 */
 (function () {
   var CRM_BASE = 'https://zaguan-crm-bot.943ari.workers.dev';
   var WA_PHONE = '59898712064';
-  var CONSENT_VERSION = 'ley18331-btn-v2';
+  var CONSENT_VERSION = 'ley18331-btn-v3';
 
   function makeSessionId() {
     return 'S-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2, 7).toUpperCase();
@@ -34,6 +34,7 @@
       var baseValor = Number(opts.valorMensual || 30000);
       var ingAlto = Math.max(90000, Math.round((baseValor * 3.16) / 5000) * 5000);
       var ingMedio = 65000;
+      var mascotaPolicy = opts.mascotaPolicy || 'chica';
 
       var flujoCerrado = false;
       var leftToWhatsApp = false;
@@ -41,17 +42,18 @@
 
       var state = {
         modo: 'visita', // 'visita' | 'captacion_cruzada'
-        step: 1,        // 1..4 (visita) | 1..3 (captacion_cruzada)
-        plazo: '',      // sin preselección muda
-        mascota: '',
+        step: 1,        // visita: 1..5 preguntas, 6 final | cruzada: 1..4 preguntas, 5 final
+        substep: '',    // '' | 'anda_bridge' | 'escala2'
+        lastQuestionStep: 1,
+        lastSubstep: '',
+        plazo: '',
         personas: '',
+        mascota: '',
         garantia: '',
         garantiaLabel: '',
         andaBridge: false,
-        showAndaBridge: false,
         ingresos: '',
         escala2: '',
-        showEscala2: false,
         outcome: 'WHATSAPP_CALIFICADO', // 'WHATSAPP_CALIFICADO' | 'BUSQUEDA_REGISTRADA'
         reasonKey: '',
         motivoDesvio: '',
@@ -61,42 +63,53 @@
         showPrivacy: false,
         submitted: false,
         validationMsg: '',
+        invalidNombre: false,
+        invalidWa: false,
         cruzadaZona: '',
         cruzadaComodidades: [],
+        cruzadaSub: 'plazo', // 'plazo' | 'hogar' | 'respaldo'
         cruzadaPlazo: '',
         cruzadaHogar: '',
         cruzadaRespaldo: '',
         cruzadaRango: ''
       };
 
+      function clearValidation() {
+        state.validationMsg = '';
+        state.invalidNombre = false;
+        state.invalidWa = false;
+      }
+
       function resetToStep1(resetOpts) {
         var o = resetOpts || {};
         if (o.newSession) sessionId = makeSessionId();
         state.modo = 'visita';
         state.step = 1;
+        state.substep = '';
+        state.lastQuestionStep = 1;
+        state.lastSubstep = '';
         state.plazo = '';
-        state.mascota = '';
         state.personas = '';
+        state.mascota = '';
         state.garantia = '';
         state.garantiaLabel = '';
         state.andaBridge = false;
-        state.showAndaBridge = false;
         state.ingresos = '';
         state.escala2 = '';
-        state.showEscala2 = false;
         state.outcome = 'WHATSAPP_CALIFICADO';
         state.reasonKey = '';
         state.motivoDesvio = '';
         state.showPrivacy = false;
         state.submitted = false;
-        state.validationMsg = '';
         state.savedLeadId = '';
         state.cruzadaZona = '';
         state.cruzadaComodidades = [];
+        state.cruzadaSub = 'plazo';
         state.cruzadaPlazo = '';
         state.cruzadaHogar = '';
         state.cruzadaRespaldo = '';
         state.cruzadaRango = '';
+        clearValidation();
         if (!o.keepContact) {
           state.nombre = '';
           state.whatsapp = '';
@@ -123,8 +136,16 @@
         var mobBtn = document.getElementById('btn-wa-mobile');
         var mobLbl = document.getElementById('btn-wa-mobile-label');
         if (!mobBtn || !mobLbl) return;
-        if (state.modo === 'visita' && state.step === 4 && state.outcome === 'WHATSAPP_CALIFICADO' && state.nombre) {
+        var curNombre = state.nombre;
+        var readyVisita = state.modo === 'visita' && state.step === 6 && state.outcome === 'WHATSAPP_CALIFICADO' && curNombre;
+        var readyCruzada = state.modo === 'captacion_cruzada' && state.step === 5 && state.outcome === 'WHATSAPP_CALIFICADO' && curNombre;
+        if (readyVisita) {
           mobBtn.href = buildQualifiedWaUrl();
+          mobBtn.target = '_blank';
+          mobBtn.rel = 'noopener noreferrer';
+          mobLbl.textContent = 'Abrir WhatsApp con Mar →';
+        } else if (readyCruzada) {
+          mobBtn.href = buildCruzadaWaUrl();
           mobBtn.target = '_blank';
           mobBtn.rel = 'noopener noreferrer';
           mobLbl.textContent = 'Abrir WhatsApp con Mar →';
@@ -142,10 +163,10 @@
 
       function buildSummaryText() {
         if (state.modo === 'captacion_cruzada') {
-          var coms = state.cruzadaComodidades.length ? state.cruzadaComodidades.join(', ') : 'sin restricción especial';
-          return [state.cruzadaZona || 'Zona a definir', coms, state.cruzadaHogar, state.cruzadaPlazo, state.cruzadaRespaldo, state.cruzadaRango].filter(Boolean).join(' · ');
+          var coms = state.cruzadaComodidades.length ? state.cruzadaComodidades.join(', ') : 'sin requisito especial';
+          return [state.cruzadaZona || 'Zona a definir', coms, state.cruzadaPlazo, state.cruzadaHogar, state.cruzadaRespaldo, state.cruzadaRango].filter(Boolean).join(' · ');
         }
-        return [state.personas, state.mascota, state.plazo, state.garantiaLabel || state.garantia].filter(Boolean).join(' · ');
+        return [state.plazo, state.personas, state.mascota, state.garantiaLabel || state.garantia].filter(Boolean).join(' · ');
       }
 
       function sendSilentLog(paso, resultado, consentFlag) {
@@ -223,7 +244,7 @@
 
       function animateAndGo(btnEl, fn) {
         if (btnEl && btnEl.classList) btnEl.classList.add('is-tapped');
-        setTimeout(fn, 170);
+        setTimeout(fn, 150);
       }
 
       function evaluateCruzadaOutcome() {
@@ -235,7 +256,7 @@
           return {
             outcome: 'BUSQUEDA_REGISTRADA',
             reasonKey: 'cruzada_realidad',
-            motivo: 'En La Barra / Manantiales ese tipo de propiedad se mueve en rangos en USD; guardamos tu pedido y podemos cruzar alternativas en Maldonado'
+            motivo: 'En La Barra / Manantiales ese tipo de propiedad se mueve en rangos en USD; guardamos tu pedido para cruzar alternativas en Maldonado'
           };
         }
         if (state.cruzadaRespaldo === 'Sin garantía tradicional aún') {
@@ -271,58 +292,60 @@
         return 'Esta propiedad trabaja con póliza aprobada de aseguradora; guardamos tu búsqueda para avisarte cuando ingrese una opción acorde o si sumás co-firmante.';
       }
 
-      function checkStep1ReadyAndAdvance(triggerBtn) {
-        if (!state.plazo || !state.mascota || !state.personas) return;
-        animateAndGo(triggerBtn, function () {
-          state.motivoDesvio = '';
-          state.reasonKey = '';
-          if (state.personas === '5 o más personas') {
-            state.outcome = 'BUSQUEDA_REGISTRADA';
-            state.reasonKey = 'espacio_mascota';
-            state.motivoDesvio = 'Este apartamento admite hasta 4 personas';
-            state.step = 4;
-            sendSilentLog(4, 'BUSQUEDA_REGISTRADA_CUPO', false);
-          } else if (state.mascota === '2 mascotas o perro grande') {
-            state.outcome = 'BUSQUEDA_REGISTRADA';
-            state.reasonKey = 'espacio_mascota';
-            state.motivoDesvio = 'Esta unidad es en piso 1 con balcón al frente (admite 1 mascota chica)';
-            state.step = 4;
-            sendSilentLog(4, 'BUSQUEDA_REGISTRADA_MASCOTA', false);
-          } else if (state.plazo !== 'Dentro de 30 días') {
-            state.outcome = 'BUSQUEDA_REGISTRADA';
-            state.reasonKey = 'plazo';
-            state.motivoDesvio = 'Esta unidad está pronta para ingresar ahora';
-            state.step = 4;
-            sendSilentLog(4, 'BUSQUEDA_REGISTRADA_PLAZO', false);
-          } else {
-            state.step = 2;
-            sendSilentLog(1, 'en_curso', false);
-          }
-          render();
-        });
-      }
-
-      function getPrevSummaryVisita() {
+      function getPrevControlVisita() {
+        if (state.step === 1) return null;
         if (state.step === 2) {
-          return { stepTo: 1, text: state.personas + ' · ' + state.mascota + ' · ' + state.plazo };
+          return { goStep: 1, goSub: '', text: state.plazo };
         }
         if (state.step === 3) {
-          return {
-            stepTo: 2,
-            text: state.andaBridge ? 'Validar aseguradora con recibos (consulta ANDA/CGN)' : '1 o 2 ingresos formales'
-          };
+          return { goStep: 2, goSub: '', text: state.personas + ' · ' + state.plazo };
         }
         if (state.step === 4) {
-          if (state.motivoDesvio) {
-            return { stepTo: state.garantia ? 2 : 1, text: state.motivoDesvio };
+          if (state.substep === 'anda_bridge') {
+            return { goStep: 4, goSub: '', text: 'ANDA o Contaduría (CGN)' };
           }
-          if (state.garantia === 'poliza') {
-            return { stepTo: 2, text: 'Póliza pre-aprobada · ' + state.personas };
+          return { goStep: 3, goSub: '', text: state.mascota + ' · ' + state.personas };
+        }
+        if (state.step === 5) {
+          if (state.substep === 'escala2') {
+            return { goStep: 5, goSub: '', text: 'Ingresos debajo de ' + formatIngAlto() };
           }
-          if (state.escala2 === 'si') {
-            return { stepTo: 3, text: 'Suma co-firmante con recibo limpio que firma el contrato' };
+          return {
+            goStep: 4,
+            goSub: state.andaBridge ? 'anda_bridge' : '',
+            text: state.andaBridge ? 'Validar aseguradora con recibos (ANDA/CGN)' : '1 o 2 ingresos formales'
+          };
+        }
+        if (state.step === 6) {
+          return {
+            goStep: state.lastQuestionStep || 1,
+            goSub: state.lastSubstep || '',
+            text: state.motivoDesvio || buildSummaryText() || 'Tu respuesta anterior'
+          };
+        }
+        return null;
+      }
+
+      function getPrevControlCruzada() {
+        if (state.step === 1) return null;
+        if (state.step === 2) {
+          return { goStep: 1, goSub: 'plazo', text: state.cruzadaZona };
+        }
+        if (state.step === 3) {
+          if (state.cruzadaSub === 'plazo') {
+            var comTxt = state.cruzadaComodidades.length ? state.cruzadaComodidades.join(', ') : 'Sin requisito especial';
+            return { goStep: 2, goSub: 'plazo', text: state.cruzadaZona + ' · ' + comTxt };
           }
-          return { stepTo: 3, text: formatIngAlto() + '+ con 1 o 2 ingresos formales' };
+          if (state.cruzadaSub === 'hogar') {
+            return { goStep: 3, goSub: 'plazo', text: 'Mudanza: ' + state.cruzadaPlazo };
+          }
+          return { goStep: 3, goSub: 'hogar', text: state.cruzadaHogar };
+        }
+        if (state.step === 4) {
+          return { goStep: 3, goSub: 'respaldo', text: state.cruzadaRespaldo };
+        }
+        if (state.step === 5) {
+          return { goStep: 4, goSub: 'respaldo', text: 'Rango: ' + state.cruzadaRango };
         }
         return null;
       }
@@ -359,14 +382,14 @@
 
       function renderSearchSaveForm(legalText) {
         var html = '<div class="zg-input-stack">';
-        html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" placeholder="Ej. Martín" value="' + escHtml(state.nombre) + '"></div>';
-        html += '<div><label for="zg-tf-wa">Tu WhatsApp *</label><input type="tel" id="zg-tf-wa" placeholder="099 123 456" value="' + escHtml(state.whatsapp) + '"></div>';
+        html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" class="' + (state.invalidNombre ? 'is-invalid' : '') + '" placeholder="Ej. Martín" value="' + escHtml(state.nombre) + '"></div>';
+        html += '<div><label for="zg-tf-wa">Tu WhatsApp *</label><input type="tel" id="zg-tf-wa" class="' + (state.invalidWa ? 'is-invalid' : '') + '" placeholder="099 123 456" value="' + escHtml(state.whatsapp) + '"></div>';
         html += '<div class="zg-legal-pill">' + escHtml(legalText) + ' <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
         if (state.showPrivacy) {
           html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades registra tu búsqueda solo para avisarte cuando ingrese una unidad compatible. Sin cesión a terceros. Baja en todo momento por WhatsApp al +598 98 712 064.</div>';
         }
         if (state.validationMsg) {
-          html += '<div class="zg-alert-inline">' + escHtml(state.validationMsg) + '</div>';
+          html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
         }
         html += '<button type="button" class="zg-cta-primary" id="zg-save-search-btn">Aceptar y guardar mi búsqueda →</button>';
         html += '</div>';
@@ -374,22 +397,23 @@
       }
 
       function renderVisitaMode() {
-        var prev = getPrevSummaryVisita();
+        var prev = getPrevControlVisita();
+        var isFinal = state.step === 6;
         var html = '';
 
         html += '<div class="zg-tf-top">';
-        html += '<span class="zg-tf-kicker">Coordinar visita · 4 toques</span>';
-        html += '<span class="zg-tf-step-meta"><span class="zg-tf-step-count">Paso ' + state.step + ' de 4</span>';
-        if (state.step > 1) {
+        html += '<span class="zg-tf-kicker">Coordinar visita · 1 toque por pantalla</span>';
+        html += '<span class="zg-tf-step-meta"><span class="zg-tf-step-count">' + (isFinal ? 'Listo · Último paso' : ('Paso ' + state.step + ' de 5')) + '</span>';
+        if (state.step > 1 || state.substep) {
           html += ' · <button type="button" class="zg-reset-top-btn" id="zg-reset-top">↺ Empezar de nuevo</button>';
         }
         html += '</span></div>';
-        html += renderStoryBars(4, state.step);
+        html += renderStoryBars(5, isFinal ? 6 : state.step);
         html += '<div class="zg-tf-stage">';
 
         if (prev && !state.submitted) {
-          html += '<button type="button" class="zg-tf-prev" data-go-step="' + prev.stepTo + '">';
-          html += '<span>Respondiste: <strong>' + escHtml(prev.text) + '</strong></span>';
+          html += '<button type="button" class="zg-tf-prev" data-go-step="' + prev.goStep + '" data-go-sub="' + escHtml(prev.goSub) + '">';
+          html += '<span>Elegiste: <strong>' + escHtml(prev.text) + '</strong></span>';
           html += '<span class="zg-tf-prev-edit">Cambiar ↺</span>';
           html += '</button>';
         }
@@ -397,76 +421,83 @@
         html += '<div class="zg-tf-current">';
 
         if (state.step === 1) {
-          html += '<div class="zg-tf-q">Quiénes vivirían acá y cuándo buscás mudarte?</div>';
-          html += '<div class="zg-tf-sub">Marcá las 3 filas abajo y avanzás en automático.</div>';
-
-          html += '<div class="zg-tf-sublabel">1. Fecha estimada de mudanza</div>';
-          html += '<div class="zg-chip-row">';
-          ['Dentro de 30 días', 'Más adelante (otro mes)'].forEach(function (pl) {
-            html += '<button type="button" class="zg-chip' + (state.plazo === pl ? ' is-selected' : '') + '" data-plazo="' + escHtml(pl) + '">' + escHtml(pl) + '</button>';
-          });
-          html += '</div>';
-
-          html += '<div class="zg-tf-sublabel">2. Mascotas</div>';
-          html += '<div class="zg-chip-row">';
-          ['Sin mascotas', '1 mascota chica', '2 mascotas o perro grande'].forEach(function (mc) {
-            html += '<button type="button" class="zg-chip' + (state.mascota === mc ? ' is-selected' : '') + '" data-mascota="' + escHtml(mc) + '">' + escHtml(mc) + '</button>';
-          });
-          html += '</div>';
-
-          html += '<div class="zg-tf-sublabel">3. Cuántas personas vivirían acá</div>';
+          html += '<div class="zg-tf-q">¿Cuándo buscás mudarte?</div>';
+          html += '<div class="zg-tf-sub">Tocá tu opción para pasar al siguiente paso.</div>';
           html += '<div class="zg-opt-list">';
-          ['1 persona o pareja', '3 a 4 personas', '5 o más personas'].forEach(function (pe) {
-            html += '<button type="button" class="zg-opt-btn' + (state.personas === pe ? ' is-selected' : '') + '" data-personas="' + escHtml(pe) + '"><span>' + escHtml(pe) + '</span><span class="zg-opt-arrow">→</span></button>';
-          });
+          html += '<button type="button" class="zg-opt-btn" data-plazo="Dentro de 30 días"><span>Dentro de 30 días</span><span class="zg-opt-arrow">→</span></button>';
+          html += '<button type="button" class="zg-opt-btn" data-plazo="En 30 a 60 días"><span>En 30 a 60 días</span><span class="zg-opt-arrow">→</span></button>';
+          html += '<button type="button" class="zg-opt-btn" data-plazo="Más adelante (otro mes)"><span>Más adelante (otro mes)</span><span class="zg-opt-arrow">→</span></button>';
           html += '</div>';
         } else if (state.step === 2) {
-          html += '<div class="zg-tf-q">Con qué respaldo pensás alquilar?</div>';
-          html += '<div class="zg-tf-sub">Esta unidad trabaja con aseguradora privada (no necesitás tener la póliza emitida antes de visitar; se tramita si te gusta).</div>';
+          html += '<div class="zg-tf-q">¿Cuántas personas vivirían en el apartamento?</div>';
+          html += '<div class="zg-tf-sub">Tocá la cantidad de integrantes del hogar.</div>';
           html += '<div class="zg-opt-list">';
-          html += '<button type="button" class="zg-opt-btn" data-gar="ingresos"><span>1 o 2 ingresos formales<span class="zg-opt-sub">Recibo en BPS, jubilación o unipersonal +1 año con contador</span></span><span class="zg-opt-arrow">→</span></button>';
-          html += '<button type="button" class="zg-opt-btn" data-gar="poliza"><span>Ya cuento con póliza pre-aprobada<span class="zg-opt-sub">Porto, Sura, Mapfre, Santander o BSE</span></span><span class="zg-opt-arrow">→</span></button>';
-          html += '<button type="button" class="zg-opt-btn' + (state.showAndaBridge ? ' is-selected' : '') + '" data-gar="anda_cgn"><span>Tengo ANDA o Contaduría (CGN)<span class="zg-opt-sub">Con recibo limpio — validamos aseguradora o unidades acordes</span></span><span class="zg-opt-arrow">→</span></button>';
-          html += '<button type="button" class="zg-opt-btn" data-gar="otra"><span>Cobro sin recibo formal o estoy en Clearing</span><span class="zg-opt-arrow">→</span></button>';
+          html += '<button type="button" class="zg-opt-btn" data-personas="1 persona o pareja"><span>1 persona o pareja</span><span class="zg-opt-arrow">→</span></button>';
+          html += '<button type="button" class="zg-opt-btn" data-personas="3 a 4 personas"><span>3 a 4 personas</span><span class="zg-opt-arrow">→</span></button>';
+          html += '<button type="button" class="zg-opt-btn" data-personas="5 o más personas"><span>5 o más personas</span><span class="zg-opt-arrow">→</span></button>';
           html += '</div>';
-
-          if (state.showAndaBridge) {
-            html += '<div class="zg-escala2-box">';
-            html += '<div class="zg-escala2-title">Puente rápido · Teniendo recibo limpio</div>';
-            html += '<div class="zg-escala2-desc">Si tenés recibo para ANDA o Contaduría, con ese mismo recibo solés aprobar Porto o Sura en 24 hs. Qué preferís hacer?</div>';
+        } else if (state.step === 3) {
+          html += '<div class="zg-tf-q">¿Vivirían con mascotas?</div>';
+          if (mascotaPolicy === 'edificio_acepta') {
+            html += '<div class="zg-tf-sub">El edificio acepta mascotas; confirmamos el detalle antes de coordinar.</div>';
+            html += '<div class="zg-opt-list">';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="Sin mascotas"><span>Sin mascotas</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="1 mascota (edificio pet-friendly)"><span>1 mascota (edificio pet-friendly)</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="2 o más mascotas (consultar reglamento)"><span>2 o más mascotas (consultar reglamento)</span><span class="zg-opt-arrow">→</span></button>';
+            html += '</div>';
+          } else {
+            html += '<div class="zg-tf-sub">Tocá una opción para pasar al respaldo de garantía.</div>';
+            html += '<div class="zg-opt-list">';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="Sin mascotas"><span>Sin mascotas</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="1 mascota chica"><span>1 mascota chica</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-mascota="2 mascotas o perro grande"><span>2 mascotas o perro grande</span><span class="zg-opt-arrow">→</span></button>';
+            html += '</div>';
+          }
+        } else if (state.step === 4) {
+          if (state.substep === 'anda_bridge') {
+            html += '<div class="zg-tf-q">Con recibo limpio de ANDA o Contaduría solés aprobar Porto o Sura en 24 hs</div>';
+            html += '<div class="zg-tf-sub">¿Qué preferís hacer con tu recibo?</div>';
             html += '<div class="zg-opt-list">';
             html += '<button type="button" class="zg-opt-btn" data-anda-bridge="si"><span>Evaluar aseguradora privada con mis recibos</span><span class="zg-opt-arrow">→</span></button>';
             html += '<button type="button" class="zg-opt-btn" data-anda-bridge="no"><span>Buscar solo unidades que acepten ANDA o CGN</span><span class="zg-opt-arrow">→</span></button>';
-            html += '</div></div>';
-          }
-        } else if (state.step === 3) {
-          html += '<div class="zg-tf-q">En qué rango están los ingresos formales?</div>';
-          html += '<div class="zg-tf-sub">Sumando quienes firman el contrato (~30% del valor del alquiler sobre historial limpio).</div>';
-          html += '<div class="zg-opt-list">';
-          html += '<button type="button" class="zg-opt-btn" data-ing="ok"><span>' + escHtml(formatIngAlto()) + ' o más líquidos por mes</span><span class="zg-opt-arrow">→</span></button>';
-          html += '<button type="button" class="zg-opt-btn' + (state.showEscala2 && state.ingresos === 'cerca' ? ' is-selected' : '') + '" data-ing="cerca"><span>Entre $U ' + ingMedio.toLocaleString('de-DE') + ' y $U ' + (ingAlto - 1000).toLocaleString('de-DE') + ' por mes<span class="zg-opt-sub">Opción de sumar co-firmante</span></span><span class="zg-opt-arrow">→</span></button>';
-          html += '<button type="button" class="zg-opt-btn' + (state.showEscala2 && state.ingresos === 'bajo' ? ' is-selected' : '') + '" data-ing="bajo"><span>Menos de $U ' + ingMedio.toLocaleString('de-DE') + ' individuales<span class="zg-opt-sub">Consultamos si sumás co-firmante</span></span><span class="zg-opt-arrow">→</span></button>';
-          html += '</div>';
-
-          if (state.showEscala2) {
-            html += '<div class="zg-escala2-box">';
-            html += '<div class="zg-escala2-title">Escala 2 · Sumar co-firmante</div>';
-            html += '<div class="zg-escala2-desc">Para alcanzar el tope de la aseguradora podés sumar 1 familiar o co-firmante con recibo limpio (toda persona que aporta recibo firma el contrato). Contás con alguien para sumar?</div>';
+            html += '</div>';
+          } else {
+            html += '<div class="zg-tf-q">¿Con qué respaldo pensás alquilar?</div>';
+            html += '<div class="zg-tf-sub">Esta propiedad trabaja con aseguradora privada (no necesitás tener la póliza emitida antes de ir a verla; se tramita si te gusta).</div>';
             html += '<div class="zg-opt-list">';
-            html += '<button type="button" class="zg-opt-btn" data-escala2="si"><span>Sí, sumamos 1 co-firmante con recibo limpio que firma el contrato</span><span class="zg-opt-arrow">→</span></button>';
-            html += '<button type="button" class="zg-opt-btn" data-escala2="no"><span>Por ahora contamos solo con este ingreso</span><span class="zg-opt-arrow">→</span></button>';
-            html += '</div></div>';
+            html += '<button type="button" class="zg-opt-btn" data-gar="ingresos"><span>1 o 2 ingresos formales<span class="zg-opt-sub">Recibo en BPS, jubilación o unipersonal +1 año con contador</span></span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-gar="poliza"><span>Ya cuento con póliza pre-aprobada<span class="zg-opt-sub">Porto Seguro, Sura, Mapfre, Santander o BSE</span></span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-gar="anda_cgn"><span>Tengo ANDA o Contaduría (CGN)<span class="zg-opt-sub">Con recibo limpio — validamos aseguradora o unidades acordes</span></span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-gar="otra"><span>Cobro sin recibo formal o estoy en Clearing</span><span class="zg-opt-arrow">→</span></button>';
+            html += '</div>';
           }
-        } else if (state.step === 4) {
+        } else if (state.step === 5) {
+          if (state.substep === 'escala2') {
+            html += '<div class="zg-tf-q">¿Contás con 1 familiar o co-firmante con recibo limpio que firme el contrato?</div>';
+            html += '<div class="zg-tf-sub">Para alcanzar el tope de la aseguradora podés sumar 1 familiar o co-firmante con recibo limpio (toda persona que aporta recibo firma el contrato).</div>';
+            html += '<div class="zg-opt-list">';
+            html += '<button type="button" class="zg-opt-btn" data-escala2="si"><span>Sí, sumamos 1 co-firmante en el contrato</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-escala2="no"><span>Por ahora contamos solo con este ingreso</span><span class="zg-opt-arrow">→</span></button>';
+            html += '</div>';
+          } else {
+            html += '<div class="zg-tf-q">¿En qué rango están los ingresos líquidos mensuales?</div>';
+            html += '<div class="zg-tf-sub">Sumando 1 o 2 titulares que firman el contrato (~30% del alquiler sobre historial limpio).</div>';
+            html += '<div class="zg-opt-list">';
+            html += '<button type="button" class="zg-opt-btn" data-ing="ok"><span>' + escHtml(formatIngAlto()) + ' o más líquidos por mes</span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-ing="cerca"><span>Entre $U ' + ingMedio.toLocaleString('de-DE') + ' y $U ' + (ingAlto - 1000).toLocaleString('de-DE') + ' por mes<span class="zg-opt-sub">Opción de sumar co-firmante</span></span><span class="zg-opt-arrow">→</span></button>';
+            html += '<button type="button" class="zg-opt-btn" data-ing="bajo"><span>Menos de $U ' + ingMedio.toLocaleString('de-DE') + ' individuales<span class="zg-opt-sub">Consultamos si sumás co-firmante</span></span><span class="zg-opt-arrow">→</span></button>';
+            html += '</div>';
+          }
+        } else if (state.step === 6) {
           if (state.outcome === 'WHATSAPP_CALIFICADO') {
             var greet = state.nombre ? ('Listo, ' + escHtml(state.nombre) + ': ') : '';
             html += '<div class="zg-tf-q">' + greet + 'cumplís los requisitos para visitar ' + escHtml(opts.tituloCorto) + '</div>';
             html += '<div class="zg-tf-sub">Escribí tu nombre de pila para armar tu consulta y coordinar horario con Mar.</div>';
             html += '<div class="zg-input-stack">';
-            html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" placeholder="Ej. Lucía" value="' + escHtml(state.nombre) + '"></div>';
+            html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" class="' + (state.invalidNombre ? 'is-invalid' : '') + '" placeholder="Ej. Lucía" value="' + escHtml(state.nombre) + '"></div>';
             html += '<div class="zg-wa-preaviso"><span class="zg-wa-dot"></span><span>Se abrirá tu WhatsApp con la consulta armada para que la revises antes de enviar.</span></div>';
             if (state.validationMsg) {
-              html += '<div class="zg-alert-inline">' + escHtml(state.validationMsg) + '</div>';
+              html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
             }
             html += '<button type="button" class="zg-cta-primary" id="zg-wa-go-btn">Aceptar y abrir WhatsApp con Mar →</button>';
             html += '<div class="zg-legal-note">Al tocar el botón aceptás que Zaguán use tus respuestas solo para atender esta consulta de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
@@ -485,9 +516,11 @@
 
         html += '</div>'; // .zg-tf-current
 
-        if (state.step === 1) html += '<div class="zg-tf-next">Siguiente: Modalidad de garantía</div>';
-        else if (state.step === 2) html += '<div class="zg-tf-next">Siguiente: Ingresos formales</div>';
-        else if (state.step === 3) html += '<div class="zg-tf-next">Siguiente: Tu nombre y coordinación</div>';
+        if (state.step === 1) html += '<div class="zg-tf-next">Siguiente: Cantidad de personas</div>';
+        else if (state.step === 2) html += '<div class="zg-tf-next">Siguiente: Mascotas</div>';
+        else if (state.step === 3) html += '<div class="zg-tf-next">Siguiente: Respaldo de garantía</div>';
+        else if (state.step === 4 && !state.substep) html += '<div class="zg-tf-next">Siguiente: Ingresos o cierre</div>';
+        else if (state.step === 5 && !state.substep) html += '<div class="zg-tf-next">Siguiente: Tu nombre y coordinación</div>';
 
         html += '</div>'; // .zg-tf-stage
 
@@ -498,121 +531,128 @@
       }
 
       function renderCruzadaMode() {
+        var prev = getPrevControlCruzada();
+        var isFinal = state.step === 5;
         var html = '';
         html += '<div class="zg-tf-top">';
         html += '<button type="button" class="zg-back-link" id="zg-back-visita">← Volver a esta unidad</button>';
-        html += '<span class="zg-tf-step-meta"><span class="zg-tf-step-count">Búsqueda ' + state.step + ' de 3</span>';
+        html += '<span class="zg-tf-step-meta"><span class="zg-tf-step-count">' + (isFinal ? 'Listo · Último paso' : ('Búsqueda ' + state.step + ' de 4')) + '</span>';
         if (state.step > 1) {
           html += ' · <button type="button" class="zg-reset-top-btn" id="zg-reset-top">↺ Empezar de nuevo</button>';
         }
         html += '</span></div>';
-        html += renderStoryBars(3, state.step);
+        html += renderStoryBars(4, isFinal ? 5 : state.step);
         html += '<div class="zg-tf-stage">';
 
-        if (state.step > 1 && !state.submitted) {
-          var prevTxt = state.step === 2
-            ? ((state.cruzadaZona || '') + (state.cruzadaComodidades.length ? ' · ' + state.cruzadaComodidades.join(', ') : ''))
-            : ([state.cruzadaZona, state.cruzadaHogar, state.cruzadaPlazo, state.cruzadaRespaldo].filter(Boolean).join(' · '));
-          html += '<button type="button" class="zg-tf-prev" data-go-cruzada="' + (state.step - 1) + '">';
-          html += '<span>Respondiste: <strong>' + escHtml(prevTxt) + '</strong></span>';
+        if (prev && !state.submitted) {
+          html += '<button type="button" class="zg-tf-prev" data-go-cruzada="' + prev.goStep + '" data-go-csub="' + escHtml(prev.goSub) + '">';
+          html += '<span>Elegiste: <strong>' + escHtml(prev.text) + '</strong></span>';
           html += '<span class="zg-tf-prev-edit">Cambiar ↺</span></button>';
         }
 
         html += '<div class="zg-tf-current">';
         if (state.step === 1) {
-          html += '<div class="zg-tf-q">En qué zona buscás y qué comodidades priorizás?</div>';
-          html += '<div class="zg-tf-sub">Elegí tu zona principal y combiná lo que necesitás para la mudanza.</div>';
-
-          html += '<div class="zg-tf-sublabel">1. Zona preferida</div>';
-          html += '<div class="zg-chip-row">';
-          ['La Barra / Manantiales', 'Punta del Este', 'Maldonado (otros barrios)', 'Solanas / Punta Ballena / Piriápolis'].forEach(function (zn) {
-            html += '<button type="button" class="zg-chip' + (state.cruzadaZona === zn ? ' is-selected' : '') + '" data-czona="' + escHtml(zn) + '">' + escHtml(zn) + '</button>';
+          html += '<div class="zg-tf-q">¿En qué zona buscás alquiler anual?</div>';
+          html += '<div class="zg-tf-sub">Tocá tu zona preferida para pasar a comodidades.</div>';
+          html += '<div class="zg-opt-list">';
+          ['La Barra / Manantiales', 'Punta del Este', 'Maldonado (otros barrios)', 'Solanas / Punta Ballena'].forEach(function (zn) {
+            html += '<button type="button" class="zg-opt-btn" data-czona="' + escHtml(zn) + '"><span>' + escHtml(zn) + '</span><span class="zg-opt-arrow">→</span></button>';
           });
           html += '</div>';
-
-          html += '<div class="zg-tf-sublabel">2. Qué priorizás (podés marcar varias)</div>';
+        } else if (state.step === 2) {
+          html += '<div class="zg-tf-q">¿Qué comodidades priorizás? (opcional)</div>';
+          html += '<div class="zg-tf-sub">Podés tocar una o varias fichas, o seguir sin marcar ninguna.</div>';
           html += '<div class="zg-chip-row">';
-          ['Amoblado', 'Sin muebles', 'Patio o planta baja', '3+ dormitorios', 'Cochera'].forEach(function (cm) {
+          ['Amoblado', 'Sin muebles', 'Patio o planta baja', '3+ dormitorios', 'Con mascotas', 'Cochera'].forEach(function (cm) {
             var active = state.cruzadaComodidades.indexOf(cm) !== -1;
             html += '<button type="button" class="zg-chip' + (active ? ' is-selected' : '') + '" data-ccom="' + escHtml(cm) + '">' + escHtml(cm) + '</button>';
           });
           html += '</div>';
-
-          if (state.validationMsg) {
-            html += '<div class="zg-alert-inline">' + escHtml(state.validationMsg) + '</div>';
-          }
-          html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-p1-next">Siguiente →</button>';
-        } else if (state.step === 2) {
-          html += '<div class="zg-tf-q">Cuándo se mudan, quiénes son y con qué respaldo alquilan?</div>';
-          html += '<div class="zg-tf-sub">Marcá las 3 filas abajo para ajustar el filtro de cartera.</div>';
-
-          html += '<div class="zg-tf-sublabel">1. Fecha estimada de mudanza</div>';
-          html += '<div class="zg-chip-row">';
-          ['Dentro de 30 días', 'Próximos 60 días', 'Más adelante'].forEach(function (pl) {
-            html += '<button type="button" class="zg-chip' + (state.cruzadaPlazo === pl ? ' is-selected' : '') + '" data-cplazo="' + escHtml(pl) + '">' + escHtml(pl) + '</button>';
-          });
-          html += '</div>';
-
-          html += '<div class="zg-tf-sublabel">2. Quiénes se mudan</div>';
-          html += '<div class="zg-chip-row">';
-          ['1 persona o pareja', 'Familia con hijos', 'Con mascotas'].forEach(function (hg) {
-            html += '<button type="button" class="zg-chip' + (state.cruzadaHogar === hg ? ' is-selected' : '') + '" data-chogar="' + escHtml(hg) + '">' + escHtml(hg) + '</button>';
-          });
-          html += '</div>';
-
-          html += '<div class="zg-tf-sublabel">3. Respaldo de garantía</div>';
-          html += '<div class="zg-opt-list">';
-          ['Aseguradora / Recibos limpios', 'ANDA o Contaduría (CGN)', 'Mudanza desde el exterior / Empresa', 'Sin garantía tradicional aún'].forEach(function (rs) {
-            html += '<button type="button" class="zg-opt-btn' + (state.cruzadaRespaldo === rs ? ' is-selected' : '') + '" data-crespaldo="' + escHtml(rs) + '"><span>' + escHtml(rs) + '</span><span class="zg-opt-arrow">→</span></button>';
-          });
-          html += '</div>';
+          var nextComTxt = state.cruzadaComodidades.length ? 'Continuar con lo elegido →' : 'Sin requisito especial · Continuar →';
+          html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-com-next">' + nextComTxt + '</button>';
         } else if (state.step === 3) {
-          if (!state.cruzadaRango) {
-            html += '<div class="zg-tf-q">Hasta qué valor mensual te queda cómodo evaluar?</div>';
-            html += '<div class="zg-tf-sub">Lo usamos solo para filtrar zona y comodidades reales de mercado.</div>';
+          if (state.cruzadaSub === 'hogar') {
+            html += '<div class="zg-tf-q">¿Quiénes vivirían en la unidad?</div>';
+            html += '<div class="zg-tf-sub">Tocá una opción para seguir al respaldo.</div>';
             html += '<div class="zg-opt-list">';
-            ['Hasta $U 35.000/mes', '$U 35.000 a $U 55.000/mes', 'USD 1.200 a USD 1.600/mes', 'Más de USD 1.600/mes'].forEach(function (rg) {
-              html += '<button type="button" class="zg-opt-btn" data-cruzada-rango="' + escHtml(rg) + '"><span>' + escHtml(rg) + '</span><span class="zg-opt-arrow">→</span></button>';
+            ['1 persona o pareja', 'Familia (3 a 4 personas)', '5 o más personas'].forEach(function (hg) {
+              html += '<button type="button" class="zg-opt-btn" data-chogar="' + escHtml(hg) + '"><span>' + escHtml(hg) + '</span><span class="zg-opt-arrow">→</span></button>';
+            });
+            html += '</div>';
+          } else if (state.cruzadaSub === 'respaldo') {
+            html += '<div class="zg-tf-q">¿Con qué respaldo de garantía contás?</div>';
+            html += '<div class="zg-tf-sub">Tocá el respaldo principal para ajustar opciones de mercado.</div>';
+            html += '<div class="zg-opt-list">';
+            ['Aseguradora / Recibos limpios', 'ANDA o Contaduría (CGN)', 'Mudanza desde el exterior / Empresa', 'Sin garantía tradicional aún'].forEach(function (rs) {
+              html += '<button type="button" class="zg-opt-btn" data-crespaldo="' + escHtml(rs) + '"><span>' + escHtml(rs) + '</span><span class="zg-opt-arrow">→</span></button>';
             });
             html += '</div>';
           } else {
-            var ev = evaluateCruzadaOutcome();
-            state.outcome = ev.outcome;
-            state.reasonKey = ev.reasonKey;
-            state.motivoDesvio = ev.motivo;
-            if (ev.outcome === 'BUSQUEDA_REGISTRADA') {
-              if (state.submitted) {
-                html += renderSavedCardHtml();
-              } else {
-                html += '<div class="zg-tf-q">Dejá tu búsqueda registrada para avisarte</div>';
-                html += '<div class="zg-tf-sub">' + escHtml(ev.motivo) + '.</div>';
-                html += renderSearchSaveForm('Al guardar autorizás a Zaguán Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese una opción acorde, sin cesión a terceros (Ley 18.331).');
-              }
+            html += '<div class="zg-tf-q">¿Cuándo pensás mudarte?</div>';
+            html += '<div class="zg-tf-sub">Tocá tu plazo estimado de ingreso.</div>';
+            html += '<div class="zg-opt-list">';
+            ['Dentro de 30 días', 'Próximos 60 días', 'Más adelante'].forEach(function (pl) {
+              html += '<button type="button" class="zg-opt-btn" data-cplazo="' + escHtml(pl) + '"><span>' + escHtml(pl) + '</span><span class="zg-opt-arrow">→</span></button>';
+            });
+            html += '</div>';
+          }
+        } else if (state.step === 4) {
+          html += '<div class="zg-tf-q">¿Hasta qué valor mensual te queda cómodo evaluar?</div>';
+          html += '<div class="zg-tf-sub">Lo usamos solo para filtrar zona y comodidades reales de mercado.</div>';
+          html += '<div class="zg-opt-list">';
+          ['Hasta $U 35.000/mes', '$U 35.000 a $U 55.000/mes', 'USD 1.200 a USD 1.600/mes', 'Más de USD 1.600/mes'].forEach(function (rg) {
+            html += '<button type="button" class="zg-opt-btn" data-cruzada-rango="' + escHtml(rg) + '"><span>' + escHtml(rg) + '</span><span class="zg-opt-arrow">→</span></button>';
+          });
+          html += '</div>';
+        } else if (state.step === 5) {
+          var ev = evaluateCruzadaOutcome();
+          state.outcome = ev.outcome;
+          state.reasonKey = ev.reasonKey;
+          state.motivoDesvio = ev.motivo;
+          if (ev.outcome === 'BUSQUEDA_REGISTRADA') {
+            if (state.submitted) {
+              html += renderSavedCardHtml();
             } else {
-              html += '<div class="zg-tf-q">' + (state.nombre ? ('Listo, ' + escHtml(state.nombre) + ': ') : '') + 'buscamos en ' + escHtml(state.cruzadaZona) + '</div>';
-              html += '<div class="zg-tf-sub">Rango cómodo: <strong>' + escHtml(state.cruzadaRango) + '</strong> · ' + escHtml(state.cruzadaRespaldo) + '. Dejá tu nombre para abrir WhatsApp prioritario con Mar.</div>';
-              html += '<div class="zg-input-stack">';
-              html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" placeholder="Ej. Valeria" value="' + escHtml(state.nombre) + '"></div>';
-              html += '<div class="zg-wa-preaviso"><span class="zg-wa-dot"></span><span>Se abrirá tu WhatsApp con tu pedido armado para que lo revises antes de enviar.</span></div>';
-              if (state.validationMsg) {
-                html += '<div class="zg-alert-inline">' + escHtml(state.validationMsg) + '</div>';
-              }
-              html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-wa-btn">Aceptar y abrir WhatsApp prioritario →</button>';
-              html += '<div class="zg-legal-note">Al tocar el botón aceptás que Zaguán use tus respuestas solo para atender esta búsqueda de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
-              if (state.showPrivacy) {
-                html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades guarda tu búsqueda solo para presentarte propiedades compatibles, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
-              }
-              html += '</div>';
+              html += '<div class="zg-tf-q">Dejá tu búsqueda registrada para avisarte</div>';
+              html += '<div class="zg-tf-sub">' + escHtml(ev.motivo) + '.</div>';
+              html += renderSearchSaveForm('Al guardar autorizás a Zaguán Propiedades a registrar tu nombre y celular solo para avisarte cuando ingrese una opción acorde, sin cesión a terceros (Ley 18.331).');
             }
+          } else {
+            html += '<div class="zg-tf-q">' + (state.nombre ? ('Listo, ' + escHtml(state.nombre) + ': ') : '') + 'buscamos en ' + escHtml(state.cruzadaZona) + '</div>';
+            html += '<div class="zg-tf-sub">Rango cómodo: <strong>' + escHtml(state.cruzadaRango) + '</strong> · ' + escHtml(state.cruzadaRespaldo) + '. Dejá tu nombre para abrir WhatsApp prioritario con Mar.</div>';
+            html += '<div class="zg-input-stack">';
+            html += '<div><label for="zg-tf-nombre">Tu nombre *</label><input type="text" id="zg-tf-nombre" class="' + (state.invalidNombre ? 'is-invalid' : '') + '" placeholder="Ej. Valeria" value="' + escHtml(state.nombre) + '"></div>';
+            html += '<div class="zg-wa-preaviso"><span class="zg-wa-dot"></span><span>Se abrirá tu WhatsApp con tu pedido armado para que lo revises antes de enviar.</span></div>';
+            if (state.validationMsg) {
+              html += '<div class="zg-alert-inline" role="alert">' + escHtml(state.validationMsg) + '</div>';
+            }
+            html += '<button type="button" class="zg-cta-primary" id="zg-cruzada-wa-btn">Aceptar y abrir WhatsApp prioritario →</button>';
+            html += '<div class="zg-legal-note">Al tocar el botón aceptás que Zaguán use tus respuestas solo para atender esta búsqueda de alquiler (Ley 18.331). <button type="button" class="zg-privacy-btn" id="zg-privacy-toggle">Privacidad</button></div>';
+            if (state.showPrivacy) {
+              html += '<div class="zg-privacy-drawer">Ley 18.331 (Uruguay): Zaguán Propiedades guarda tu búsqueda solo para presentarte propiedades compatibles, sin cesión a terceros. Baja por WhatsApp al +598 98 712 064.</div>';
+            }
+            html += '</div>';
           }
         }
         html += '</div>';
 
-        if (state.step === 1) html += '<div class="zg-tf-next">Siguiente: Plazo, hogar y respaldo</div>';
-        else if (state.step === 2) html += '<div class="zg-tf-next">Siguiente: Rango mensual cómodo</div>';
+        if (state.step === 1) html += '<div class="zg-tf-next">Siguiente: Comodidades opcionales</div>';
+        else if (state.step === 2) html += '<div class="zg-tf-next">Siguiente: Plazo, hogar y respaldo</div>';
+        else if (state.step === 3) html += '<div class="zg-tf-next">Siguiente: Rango mensual cómodo</div>';
 
         html += '</div>';
         return html;
+      }
+
+      function focusFirstInvalid() {
+        if (!state.validationMsg) return;
+        var target = document.querySelector('#zg-pack-flow-root .is-invalid') || document.querySelector('#zg-pack-flow-root .zg-alert-inline');
+        if (target && typeof target.focus === 'function') {
+          target.focus();
+          if (typeof target.scrollIntoView === 'function') {
+            try { target.scrollIntoView({ behavior: 'smooth', block: 'center' }); } catch (e) {}
+          }
+        }
       }
 
       function render() {
@@ -620,6 +660,18 @@
         syncHiddenLegacy();
         syncMobileBottomBar();
         bindEvents();
+        focusFirstInvalid();
+      }
+
+      function goToFinal(outcome, reasonKey, motivoDesvio, fromStep, fromSubstep) {
+        state.outcome = outcome;
+        state.reasonKey = reasonKey || '';
+        state.motivoDesvio = motivoDesvio || '';
+        state.lastQuestionStep = fromStep;
+        state.lastSubstep = fromSubstep || '';
+        state.substep = '';
+        state.step = 6;
+        clearValidation();
       }
 
       function bindEvents() {
@@ -635,35 +687,67 @@
         root.querySelectorAll('[data-go-step]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.step = Number(el.getAttribute('data-go-step')) || 1;
-            state.validationMsg = '';
+            state.substep = el.getAttribute('data-go-sub') || '';
             state.submitted = false;
-            state.showEscala2 = false;
-            state.showAndaBridge = false;
+            clearValidation();
             render();
           });
         });
 
         root.querySelectorAll('[data-plazo]').forEach(function (el) {
           el.addEventListener('click', function () {
-            state.plazo = el.getAttribute('data-plazo');
-            render();
-            checkStep1ReadyAndAdvance(root.querySelector('[data-plazo="' + state.plazo.replace(/"/g, '\\"') + '"]'));
-          });
-        });
-
-        root.querySelectorAll('[data-mascota]').forEach(function (el) {
-          el.addEventListener('click', function () {
-            state.mascota = el.getAttribute('data-mascota');
-            render();
-            checkStep1ReadyAndAdvance(root.querySelector('[data-mascota="' + state.mascota.replace(/"/g, '\\"') + '"]'));
+            var val = el.getAttribute('data-plazo');
+            state.plazo = val;
+            animateAndGo(el, function () {
+              if (val !== 'Dentro de 30 días') {
+                goToFinal('BUSQUEDA_REGISTRADA', 'plazo', 'Esta unidad está pronta para ingresar ahora', 1, '');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_PLAZO', false);
+              } else {
+                state.step = 2;
+                state.substep = '';
+                clearValidation();
+                sendSilentLog(1, 'en_curso', false);
+              }
+              render();
+            });
           });
         });
 
         root.querySelectorAll('[data-personas]').forEach(function (el) {
           el.addEventListener('click', function () {
-            state.personas = el.getAttribute('data-personas');
-            render();
-            checkStep1ReadyAndAdvance(root.querySelector('[data-personas="' + state.personas.replace(/"/g, '\\"') + '"]'));
+            var val = el.getAttribute('data-personas');
+            state.personas = val;
+            animateAndGo(el, function () {
+              if (val === '5 o más personas') {
+                goToFinal('BUSQUEDA_REGISTRADA', 'espacio_mascota', 'Este apartamento admite hasta 4 personas', 2, '');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_CUPO', false);
+              } else {
+                state.step = 3;
+                state.substep = '';
+                clearValidation();
+                sendSilentLog(2, 'en_curso', false);
+              }
+              render();
+            });
+          });
+        });
+
+        root.querySelectorAll('[data-mascota]').forEach(function (el) {
+          el.addEventListener('click', function () {
+            var val = el.getAttribute('data-mascota');
+            state.mascota = val;
+            animateAndGo(el, function () {
+              if (mascotaPolicy !== 'edificio_acepta' && val === '2 mascotas o perro grande') {
+                goToFinal('BUSQUEDA_REGISTRADA', 'espacio_mascota', 'Esta unidad en piso 1 con terraza al frente admite hasta 1 mascota pequeña', 3, '');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_MASCOTA', false);
+              } else {
+                state.step = 4;
+                state.substep = '';
+                clearValidation();
+                sendSilentLog(3, 'en_curso', false);
+              }
+              render();
+            });
           });
         });
 
@@ -671,36 +755,27 @@
           el.addEventListener('click', function () {
             var g = el.getAttribute('data-gar');
             state.garantia = g;
-            state.motivoDesvio = '';
-            state.reasonKey = '';
-            state.showEscala2 = false;
             state.andaBridge = false;
-            if (g === 'anda_cgn') {
-              state.showAndaBridge = true;
-              sendSilentLog(2, 'anda_cgn_puente_abierto', false);
-              render();
-              return;
-            }
-            state.showAndaBridge = false;
             animateAndGo(el, function () {
-              if (g === 'ingresos') {
+              clearValidation();
+              if (g === 'anda_cgn') {
+                state.substep = 'anda_bridge';
+                sendSilentLog(4, 'anda_cgn_puente_abierto', false);
+              } else if (g === 'ingresos') {
                 state.garantiaLabel = '1 o 2 ingresos formales';
-                state.step = 3;
-                sendSilentLog(2, 'en_curso', false);
+                state.substep = '';
+                state.step = 5;
+                sendSilentLog(4, 'en_curso', false);
               } else if (g === 'poliza') {
                 state.garantiaLabel = 'Póliza pre-aprobada';
                 state.ingresos = 'ok';
-                state.outcome = 'WHATSAPP_CALIFICADO';
-                state.step = 4;
-                sendSilentLog(3, 'califico_poliza', false);
+                goToFinal('WHATSAPP_CALIFICADO', '', '', 4, '');
+                sendSilentLog(4, 'califico_poliza', false);
               } else {
                 state.garantiaLabel = 'Sin recibo formal o con Clearing';
                 state.ingresos = 'bajo';
-                state.outcome = 'BUSQUEDA_REGISTRADA';
-                state.reasonKey = 'garantia';
-                state.motivoDesvio = 'Este propietario alquila solo con póliza de aseguradora privada';
-                state.step = 4;
-                sendSilentLog(4, 'BUSQUEDA_REGISTRADA_GARANTIA', false);
+                goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'Este propietario alquila solo con póliza de aseguradora privada', 4, '');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_GARANTIA', false);
               }
               render();
             });
@@ -711,21 +786,19 @@
           el.addEventListener('click', function () {
             var ans = el.getAttribute('data-anda-bridge');
             animateAndGo(el, function () {
-              state.showAndaBridge = false;
+              clearValidation();
               if (ans === 'si') {
                 state.andaBridge = true;
                 state.garantia = 'ingresos';
                 state.garantiaLabel = 'Recibos limpios (consulta ANDA/CGN)';
-                state.step = 3;
-                sendSilentLog(2, 'anda_puente_aseguradora', false);
+                state.substep = '';
+                state.step = 5;
+                sendSilentLog(4, 'anda_puente_aseguradora', false);
               } else {
                 state.garantia = 'anda_cgn';
                 state.garantiaLabel = 'ANDA o Contaduría (CGN)';
-                state.outcome = 'BUSQUEDA_REGISTRADA';
-                state.reasonKey = 'anda_cgn';
-                state.motivoDesvio = 'Buscamos opciones compatibles con ANDA o Contaduría (CGN)';
-                state.step = 4;
-                sendSilentLog(4, 'BUSQUEDA_REGISTRADA_ANDA_CGN', false);
+                goToFinal('BUSQUEDA_REGISTRADA', 'anda_cgn', 'Buscamos opciones compatibles con ANDA o Contaduría (CGN)', 4, 'anda_bridge');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_ANDA_CGN', false);
               }
               render();
             });
@@ -737,19 +810,15 @@
             var ing = el.getAttribute('data-ing');
             state.ingresos = ing;
             state.escala2 = '';
-            state.motivoDesvio = '';
-            state.reasonKey = '';
-            if (ing === 'cerca' || ing === 'bajo') {
-              state.showEscala2 = true;
-              sendSilentLog(3, 'escala_2_abierta_' + ing, false);
-              render();
-              return;
-            }
             animateAndGo(el, function () {
-              state.showEscala2 = false;
-              state.outcome = 'WHATSAPP_CALIFICADO';
-              state.step = 4;
-              sendSilentLog(3, 'califico_ingresos', false);
+              clearValidation();
+              if (ing === 'cerca' || ing === 'bajo') {
+                state.substep = 'escala2';
+                sendSilentLog(5, 'escala_2_abierta_' + ing, false);
+              } else {
+                goToFinal('WHATSAPP_CALIFICADO', '', '', 5, '');
+                sendSilentLog(5, 'califico_ingresos', false);
+              }
               render();
             });
           });
@@ -762,15 +831,11 @@
             animateAndGo(el, function () {
               if (ans === 'si') {
                 state.garantiaLabel = 'Ingresos + 1 co-firmante firmante';
-                state.outcome = 'WHATSAPP_CALIFICADO';
-                state.step = 4;
-                sendSilentLog(3, 'califico_escala_2', false);
+                goToFinal('WHATSAPP_CALIFICADO', '', '', 5, 'escala2');
+                sendSilentLog(5, 'califico_escala_2', false);
               } else {
-                state.outcome = 'BUSQUEDA_REGISTRADA';
-                state.reasonKey = 'garantia';
-                state.motivoDesvio = 'La aseguradora requiere ' + formatIngAlto() + ' líquidos o sumar co-firmante';
-                state.step = 4;
-                sendSilentLog(4, 'BUSQUEDA_REGISTRADA_ESCALA2_NO', false);
+                goToFinal('BUSQUEDA_REGISTRADA', 'garantia', 'La aseguradora requiere ' + formatIngAlto() + ' líquidos o sumar co-firmante', 5, 'escala2');
+                sendSilentLog(6, 'BUSQUEDA_REGISTRADA_ESCALA2_NO', false);
               }
               render();
             });
@@ -781,6 +846,10 @@
         if (nombreIn) {
           nombreIn.addEventListener('input', function () {
             state.nombre = nombreIn.value.trim();
+            if (state.nombre) {
+              state.invalidNombre = false;
+              nombreIn.classList.remove('is-invalid');
+            }
             var qEl = root.querySelector('.zg-tf-q');
             if (qEl && state.outcome === 'WHATSAPP_CALIFICADO' && state.modo === 'visita') {
               qEl.textContent = (state.nombre ? ('Listo, ' + state.nombre + ': ') : '') + 'cumplís los requisitos para visitar ' + opts.tituloCorto;
@@ -793,6 +862,10 @@
         if (waIn) {
           waIn.addEventListener('input', function () {
             state.whatsapp = waIn.value.trim();
+            if (state.whatsapp.replace(/\D/g, '').length >= 8) {
+              state.invalidWa = false;
+              waIn.classList.remove('is-invalid');
+            }
           });
         }
 
@@ -807,17 +880,20 @@
         var waGoBtn = document.getElementById('zg-wa-go-btn');
         if (waGoBtn) {
           waGoBtn.addEventListener('click', function () {
-            if (!state.nombre) {
-              state.validationMsg = 'Escribí tu nombre arriba para personalizar tu consulta.';
+            var curNombre = ((document.getElementById('zg-tf-nombre') || {}).value || state.nombre || '').trim();
+            state.nombre = curNombre;
+            if (!curNombre) {
+              state.validationMsg = 'Falta escribir tu nombre arriba para abrir WhatsApp con tu consulta.';
+              state.invalidNombre = true;
               render();
               return;
             }
-            state.validationMsg = '';
+            clearValidation();
             waGoBtn.textContent = 'Abriendo tu WhatsApp con la consulta lista…';
             waGoBtn.disabled = true;
             flujoCerrado = true;
             leftToWhatsApp = true;
-            sendSilentLog(4, 'WHATSAPP_CALIFICADO', true);
+            sendSilentLog(6, 'WHATSAPP_CALIFICADO', true);
             var leadPayload = {
               event: 'generate_lead',
               property_id: opts.refPublica,
@@ -826,12 +902,13 @@
               escala_2: state.escala2 || 'no_aplica',
               consent_version: CONSENT_VERSION,
               lead_calificado: true,
-              cta_location: 'typeform_4_rayitas_v2',
+              cta_location: 'typeform_5_rayitas_v3',
               value: opts.valorMensual || 30000,
               currency: 'UYU'
             };
             if (typeof opts.onLead === 'function') opts.onLead(leadPayload);
             else pushDataLayer(leadPayload);
+            syncMobileBottomBar();
             window.open(buildQualifiedWaUrl(), '_blank', 'noopener,noreferrer');
           });
         }
@@ -839,12 +916,21 @@
         var saveBtn = document.getElementById('zg-save-search-btn');
         if (saveBtn) {
           saveBtn.addEventListener('click', function () {
-            var digits = String(state.whatsapp || '').replace(/\D/g, '');
-            if (!state.nombre || digits.length < 8) {
-              state.validationMsg = 'Completá tu nombre y un WhatsApp válido de al menos 8 dígitos.';
+            var curNombre = ((document.getElementById('zg-tf-nombre') || {}).value || state.nombre || '').trim();
+            var curWa = ((document.getElementById('zg-tf-wa') || {}).value || state.whatsapp || '').trim();
+            state.nombre = curNombre;
+            state.whatsapp = curWa;
+            var digits = String(curWa).replace(/\D/g, '');
+            if (!curNombre || digits.length < 8) {
+              state.invalidNombre = !curNombre;
+              state.invalidWa = digits.length < 8;
+              state.validationMsg = !curNombre && digits.length < 8
+                ? 'Falta completar tu nombre y tu celular (mínimo 8 números) para agendar tu búsqueda.'
+                : (!curNombre ? 'Falta escribir tu nombre arriba para agendar tu búsqueda.' : 'Falta escribir un WhatsApp válido de al menos 8 números.');
               render();
               return;
             }
+            clearValidation();
             if (/^09/.test(digits)) digits = '598' + digits.slice(1);
             else if (digits.length === 8) digits = '598' + digits;
             saveBtn.disabled = true;
@@ -887,7 +973,7 @@
                   texto: '[ALERTA PASIVA D1] Registro desde filtro en ' + opts.tituloCorto + ': ' + buildSummaryText() + ' (' + state.motivoDesvio + ')'
                 };
 
-            sendSilentLog(esCruzada ? 3 : 4, 'BUSQUEDA_REGISTRADA', true);
+            sendSilentLog(esCruzada ? 5 : 6, 'BUSQUEDA_REGISTRADA', true);
             fetch(CRM_BASE + '/api/interesados', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -895,7 +981,7 @@
             }).then(function (r) { return r.json(); }).then(function (out) {
               if (out && out.id) state.savedLeadId = out.id;
               state.submitted = true;
-              state.validationMsg = '';
+              clearValidation();
               flujoCerrado = true;
               render();
             }).catch(function () {
@@ -910,7 +996,9 @@
           editSavedBtn.addEventListener('click', function () {
             state.submitted = false;
             state.step = 1;
-            state.validationMsg = '';
+            state.substep = '';
+            state.cruzadaSub = 'plazo';
+            clearValidation();
             flujoCerrado = false;
             if (state.modo === 'captacion_cruzada') state.cruzadaRango = '';
             render();
@@ -924,7 +1012,7 @@
             extraReqWaBtn.disabled = true;
             flujoCerrado = true;
             leftToWhatsApp = true;
-            sendSilentLog(state.modo === 'captacion_cruzada' ? 3 : 4, 'REQUISITO_EXTRA_WHATSAPP', true);
+            sendSilentLog(state.modo === 'captacion_cruzada' ? 5 : 6, 'REQUISITO_EXTRA_WHATSAPP', true);
             window.open(buildExtraReqWaUrl(), '_blank', 'noopener,noreferrer');
           });
         }
@@ -943,9 +1031,11 @@
           openCruzadaBtn.addEventListener('click', function () {
             state.modo = 'captacion_cruzada';
             state.step = 1;
+            state.substep = '';
+            state.cruzadaSub = 'plazo';
             state.submitted = false;
             state.cruzadaRango = '';
-            state.validationMsg = '';
+            clearValidation();
             flujoCerrado = false;
             sendSilentLog(1, 'cruzada_iniciada', false);
             render();
@@ -955,21 +1045,17 @@
         var backVisBtn = document.getElementById('zg-back-visita');
         if (backVisBtn) {
           backVisBtn.addEventListener('click', function () {
-            state.modo = 'visita';
-            state.step = 1;
-            state.submitted = false;
-            state.validationMsg = '';
-            flujoCerrado = false;
-            render();
+            resetToStep1({ newSession: false, keepContact: true });
           });
         }
 
         root.querySelectorAll('[data-go-cruzada]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.step = Number(el.getAttribute('data-go-cruzada')) || 1;
-            if (state.step < 3) state.cruzadaRango = '';
+            state.cruzadaSub = el.getAttribute('data-go-csub') || 'plazo';
+            if (state.step < 5) state.cruzadaRango = '';
             state.submitted = false;
-            state.validationMsg = '';
+            clearValidation();
             render();
           });
         });
@@ -977,8 +1063,12 @@
         root.querySelectorAll('[data-czona]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.cruzadaZona = el.getAttribute('data-czona');
-            state.validationMsg = '';
-            render();
+            animateAndGo(el, function () {
+              state.step = 2;
+              clearValidation();
+              sendSilentLog(1, 'cruzada_paso1', false);
+              render();
+            });
           });
         });
 
@@ -1000,51 +1090,51 @@
           });
         });
 
-        var p1NextBtn = document.getElementById('zg-cruzada-p1-next');
-        if (p1NextBtn) {
-          p1NextBtn.addEventListener('click', function () {
-            if (!state.cruzadaZona) {
-              state.validationMsg = 'Elegí primero la zona principal donde buscás alquilar.';
+        var comNextBtn = document.getElementById('zg-cruzada-com-next');
+        if (comNextBtn) {
+          comNextBtn.addEventListener('click', function () {
+            animateAndGo(comNextBtn, function () {
+              state.step = 3;
+              state.cruzadaSub = 'plazo';
+              clearValidation();
+              sendSilentLog(2, 'cruzada_paso2', false);
               render();
-              return;
-            }
-            state.validationMsg = '';
-            state.step = 2;
-            sendSilentLog(1, 'cruzada_paso1', false);
-            render();
-          });
-        }
-
-        function checkCruzadaStep2AndAdvance(btnEl) {
-          if (!state.cruzadaPlazo || !state.cruzadaHogar || !state.cruzadaRespaldo) return;
-          animateAndGo(btnEl, function () {
-            state.step = 3;
-            sendSilentLog(2, 'cruzada_paso2', false);
-            render();
+            });
           });
         }
 
         root.querySelectorAll('[data-cplazo]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.cruzadaPlazo = el.getAttribute('data-cplazo');
-            render();
-            checkCruzadaStep2AndAdvance(root.querySelector('[data-cplazo="' + state.cruzadaPlazo.replace(/"/g, '\\"') + '"]'));
+            animateAndGo(el, function () {
+              state.cruzadaSub = 'hogar';
+              clearValidation();
+              render();
+            });
           });
         });
 
         root.querySelectorAll('[data-chogar]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.cruzadaHogar = el.getAttribute('data-chogar');
-            render();
-            checkCruzadaStep2AndAdvance(root.querySelector('[data-chogar="' + state.cruzadaHogar.replace(/"/g, '\\"') + '"]'));
+            animateAndGo(el, function () {
+              state.cruzadaSub = 'respaldo';
+              clearValidation();
+              render();
+            });
           });
         });
 
         root.querySelectorAll('[data-crespaldo]').forEach(function (el) {
           el.addEventListener('click', function () {
             state.cruzadaRespaldo = el.getAttribute('data-crespaldo');
-            render();
-            checkCruzadaStep2AndAdvance(root.querySelector('[data-crespaldo="' + state.cruzadaRespaldo.replace(/"/g, '\\"') + '"]'));
+            animateAndGo(el, function () {
+              state.step = 4;
+              state.cruzadaSub = 'respaldo';
+              clearValidation();
+              sendSilentLog(3, 'cruzada_paso3', false);
+              render();
+            });
           });
         });
 
@@ -1052,7 +1142,9 @@
           el.addEventListener('click', function () {
             state.cruzadaRango = el.getAttribute('data-cruzada-rango');
             animateAndGo(el, function () {
-              sendSilentLog(3, 'cruzada_paso3', false);
+              state.step = 5;
+              clearValidation();
+              sendSilentLog(4, 'cruzada_paso4', false);
               render();
             });
           });
@@ -1061,17 +1153,20 @@
         var cruzWaBtn = document.getElementById('zg-cruzada-wa-btn');
         if (cruzWaBtn) {
           cruzWaBtn.addEventListener('click', function () {
-            if (!state.nombre) {
-              state.validationMsg = 'Escribí tu nombre arriba antes de abrir WhatsApp.';
+            var curNombre = ((document.getElementById('zg-tf-nombre') || {}).value || state.nombre || '').trim();
+            state.nombre = curNombre;
+            if (!curNombre) {
+              state.validationMsg = 'Falta escribir tu nombre arriba antes de abrir WhatsApp.';
+              state.invalidNombre = true;
               render();
               return;
             }
-            state.validationMsg = '';
+            clearValidation();
             cruzWaBtn.textContent = 'Abriendo tu WhatsApp con la consulta lista…';
             cruzWaBtn.disabled = true;
             flujoCerrado = true;
             leftToWhatsApp = true;
-            sendSilentLog(3, 'CAPTACION_CRUZADA', true);
+            sendSilentLog(5, 'CAPTACION_CRUZADA', true);
             fetch(CRM_BASE + '/api/interesados', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -1104,6 +1199,7 @@
             };
             if (typeof opts.onLead === 'function') opts.onLead(cruzLeadPayload);
             else pushDataLayer(cruzLeadPayload);
+            syncMobileBottomBar();
             window.open(buildCruzadaWaUrl(), '_blank', 'noopener,noreferrer');
           });
         }
@@ -1129,7 +1225,8 @@
         });
 
         window.addEventListener('pageshow', function (ev) {
-          if (ev.persisted || flujoCerrado || leftToWhatsApp || state.step === 4 || state.submitted) {
+          var inFinal = (state.modo === 'visita' && state.step === 6) || (state.modo === 'captacion_cruzada' && state.step === 5);
+          if (ev.persisted || flujoCerrado || leftToWhatsApp || inFinal || state.submitted) {
             leftToWhatsApp = false;
             flujoCerrado = false;
             hiddenAt = 0;
