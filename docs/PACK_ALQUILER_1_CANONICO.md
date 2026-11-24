@@ -56,23 +56,25 @@
 
 ## 4. Operación real en WhatsApp Business HOY (sin bot conectado) + Atajos `/`
 
-La app común de WhatsApp Business en el celular **dispara el mismo Mensaje de Bienvenida para todos los contactos nuevos** y no distingue si alguien viene del anuncio (`[VISITA CALIFICADA]`) o escribe en frío (`"Hola"`). Hasta conectar el QR de Coexistencia (`P-13`), se opera así en `2` segundos por chat:
+La app común de WhatsApp Business en el celular **dispara el mismo Mensaje de Bienvenida para todos los contactos nuevos** y no distingue si alguien viene del anuncio (`[VISITA CALIFICADA]`) o escribe en frío (`"Hola"`). Hasta conectar el QR de Coexistencia (`P-13`), se opera así con atajos `/`:
+
+- **Prohibición absoluta de promesas de tiempo de respuesta:** jamás usar `"en minutos"`, `"ya mismo"`, `"enseguida"`, `"a la brevedad"`, `"en breve"` ni `"mañana a primera hora"` en bienvenidas, respuestas rápidas ni documentos.
+- **Prohibición de plurales de inventario inexistente:** sin atajo plural de reventa de casas (Zaguán no tiene catálogo general de reventa; Santa Mónica `Ref. ZAG-VTA-01` entra directo desde su ficha con texto pre-armado).
 
 ### Mensaje de bienvenida automático de WhatsApp Business para HOY *(sin menú numérico `1-2-3-4`)*
-*(Pegar en `WhatsApp Business → Herramientas → Mensaje de bienvenida`. Funciona tanto para quien ya mandó su ficha desde el anuncio web como para quien escribe `"Hola"` buscando Pozo, Venta o Alquiler).*
+*(Pegar en `WhatsApp Business → Herramientas → Mensaje de bienvenida`. Funciona tanto para quien ya mandó su ficha desde el anuncio web como para quien escribe `"Hola"` buscando Alquiler anual, Pozo o Publicar propiedad).*
 ```text
-¡Hola! Te damos la bienvenida a ZAGUÁN Propiedades (Punta del Este · Maldonado). Soy Mar y ya recibí tu mensaje.
+¡Hola! Te damos la bienvenida a ZAGUÁN Propiedades (Punta del Este · Maldonado). Soy Mar y recibí tu mensaje.
 
-Si recién enviaste tu ficha desde la web, en minutos te paso horarios disponibles con tus datos en mano; si nos escribís directo, contame acá si buscás desarrollos en pozo, compra de casa o terreno, alquiler anual o publicar tu propiedad.
+Si enviaste tu consulta desde una ficha de nuestra web, ya tengo tus respuestas registradas para seguir por acá; si nos escribís directo, contame si buscás alquiler anual, desarrollos en pozo o publicar tu propiedad.
 
-Mientras te respondo, podés recorrer nuestro catálogo ordenado por categoría o visitar zaguanpropiedades.com
+También podés ver las fichas completas en https://zaguanpropiedades.com
 ```
 
-### Cómo responder cada caso en `2` segundos con `/` *(Respuestas rápidas)*
+### Cómo responder cada caso con `/` *(Respuestas rápidas)*
 * **Llegó `[VISITA CALIFICADA]` desde el aviso web:** abrí el chat, escribí `/visita` y enviá *(cero repreguntas)*.
 * **Llegó `[BÚSQUEDA PRIORITARIA]` desde el aviso web:** abrí el chat, escribí `/prioritaria` y enviá.
 * **Escribió en frío buscando desarrollos / pozo (`USD`):** escribí `/pozo` y enviá.
-* **Escribió en frío buscando compra de casa o terreno (`USD`):** escribí `/venta` y enviá.
 * **Escribió en frío buscando alquiler anual (`$U`):** escribí `/alquiler` *(o `/frio1f` para La Fortuna, `/frio1c` para Centro, `/frio2` para respaldo)*.
 * **Cómo se automatiza 100% sin usar `/` a mano:** escaneando el **QR de Coexistencia (`P-13`)**, que conecta este mismo número `+598 98 712 064` al motor de Mar manteniendo tu WhatsApp Business activo en el celular.
 
@@ -84,14 +86,6 @@ Mientras te respondo, podés recorrer nuestro catálogo ordenado por categoría 
 https://zaguanpropiedades.com/proyectos/
 
 ¿Buscás para vivir todo el año, renta o inversión en cuotas, y en qué rango en USD evaluás? Así te paso planos y condiciones exactas de obra.
-```
-
-### Respuesta rápida `/venta` (Entrada fría buscando compra de casa, apto o terreno en USD)
-```text
-¡Hola! Te paso nuestras opciones activas de venta en Maldonado, Punta del Este y José Ignacio:
-https://zaguanpropiedades.com/propiedades/
-
-¿Qué tipo de propiedad buscás (casa, apartamento o terreno), en qué zona y si evaluás pago contado, financiación bancaria o entrega?
 ```
 
 ### Respuesta rápida `/alquiler` (Antes `/frio1` — usar SOLO cuando ya pidió alquiler anual por afuera y no aclaró unidad)
