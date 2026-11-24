@@ -383,6 +383,7 @@
         <p>Ensayá turnos reales, cambiá entre WhatsApp e Instagram DM y corregí respuestas sin tocar código</p>
       </div>
       <div class="top-actions">
+        <a class="nav-link" href="/admin/REPORTE_50_SIMULACIONES_MULTITURNO_MAR.json" target="_blank" rel="noopener noreferrer">✅ Reporte 50/50 Multi-Turno (JSON) ↗</a>
         <a class="nav-link" href="/admin/tablero-vida-multiproyecto.html">← Volver al Tablero Multi-Proyecto</a>
         <a class="nav-link" href="/admin/">← Cabina CRM</a>
         <button class="nav-link primary" onclick="sincronizarTodoEnNube()">☁️ Enviar correcciones pendientes a la nube</button>
@@ -709,8 +710,8 @@ function matchesAny(txt, patterns) {
 }
 
 function extraerFranjaVisita(rawText) {
-  const m = String(rawText || "").match(/(?:el\s+)?(?:lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo|ma[nñ]ana|hoy|esta semana)(?:\s+(?:de\s+(?:ma[nñ]ana|tarde)|a\s+las\s+\d{1,2}(?::\d{2})?\s*(?:hs|h)?))?/i);
-  return m ? m[0].trim() : "el horario que propusiste";
+  const m = String(rawText || "").match(/(?:este\s+|el\s+)?(?:lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo|ma[nñ]ana|hoy|esta semana)(?:\s+(?:(?:por\s+la|de)\s+(?:ma[nñ]ana|tarde)|a\s+las\s+\d{1,2}(?::\d{2})?\s*(?:hs|h)?))?/i);
+  return m ? m[0].trim() : null;
 }
 
 function _capWord(str) {
@@ -755,12 +756,13 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
 
   // 2. Contrato Anual vs. Invernal y Mes de Mudanza
   const mesMatch = norm.match(/\b(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/);
-  const isEntrarYa = /\b(entrar\s+ya|para\s+ya|inmediato|este\s+mes|ahora\s+mismo|lo\s+antes\s+posible|ya\s+mismo)\b/i.test(norm);
+  const isEntrarYa = /\b(entrar\s+ya|para\s+ya|inmediato|este\s+mes|ahora\s+mismo|lo\s+antes\s+posible|ya\s+mismo|mudarnos\s+ya|mudarme\s+ya)\b/i.test(norm);
   const yearMatch = text.match(/\b(202[6-9]|203\d)\b/);
   const isMasAdelante = /\b(mas\s+adelante|otra\s+fecha|futuro|contrato\s+vence)\b/i.test(norm) || Boolean(yearMatch);
 
   const isInvernal = /\b(invernal|invierno|marzo\s+a\s+noviembre|marzo\s*[-–]\s*noviembre|mar\s+a\s+nov)\b/i.test(norm);
   const isAnual = /\b(anual|todo\s+el\s+ano|12\s*meses)\b/i.test(norm);
+  const isTemporadaVerano = /\b(quincena|vacaciones|por\s+d[ií]a|primera\s+quincena|segunda\s+quincena|alquiler\s+temporal|alquiler\s+de\s+verano)\b/i.test(norm) && !isAnual && !isInvernal;
   let modalidadContrato = prev.modalidad_contrato || "Anual";
   let mezclaInvernalAnual = Boolean(prev.mezcla_invernal_anual);
   if (isInvernal && isAnual) {
@@ -774,7 +776,7 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
 
   let mesMudanza = prev.mes_mudanza || null;
   if (isEntrarYa) mesMudanza = "Entrar ya";
-  else if (mesMatch && !isInvernal) mesMudanza = _capWord(mesMatch[1]);
+  else if (mesMatch && !isInvernal && !isTemporadaVerano) mesMudanza = _capWord(mesMatch[1]);
   else if (/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i.test(norm)) {
     const mv = norm.match(/\bcontrato\s+vence\s+en\s+(enero|febrero|marzo|abril|mayo|junio|julio|agosto|setiembre|septiembre|octubre|noviembre|diciembre)\b/i);
     if (mv) mesMudanza = _capWord(mv[1]);
@@ -799,11 +801,11 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
     dormsAbiertos = dormExact[2] ? `${dormExact[1]} y ${dormExact[2]} dormitorios` : `${dormExact[1]} dormitorio${dormsMin > 1 ? "s" : ""}`;
   }
 
-  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|\d+\s*adult[oa]s?(?:\s+y\s+\d+\s*(?:ni[nñ]os?|ninos?|chicos?|hijos?))?|mi\s+pareja(?:\s+y\s+yo)?)\b/);
+  const persMatch = norm.match(/\b(1\s*o\s*2\s*personas|una\s+persona|solo\s+para\s+mi|somos\s*\d+|para\s*\d+\s*personas?|\d+\s*personas?|\d+\s*adult[oa]s?(?:\s+y\s+\d+\s*(?:ni[nñ]os?|ninos?|chicos?|hijos?))?|(?:con\s+)?(?:\d+|dos|tres|cuatro)\s+(?:ni[nñ]os?|ninos?|chicos?|hijos?)(?:\s+de\s+\d+(?:\s+y\s+\d+)?(?:\s+a[nñ]os?)?)?|mi\s+marido\s+y\s+yo|mi\s+pareja(?:\s+y\s+yo)?)\b/);
   if (persMatch) {
     personas = persMatch[1];
     if (!dormsAbiertos) {
-      if (/3|4|familia|chicos|hijos|ninos/.test(personas)) {
+      if (/3|4|dos|tres|cuatro|familia|chicos|hijos|ninos|niños/.test(personas)) {
         dormsMin = 2;
         dormsAbiertos = "2 y 3 dormitorios";
       } else {
@@ -893,7 +895,7 @@ function extraerVariablesSilenciosasB2C(rawText = "", prev = {}) {
   let situacionLaboral = prev.situacion_laboral || null;
   let mesesDeposito = prev.meses_deposito || null;
 
-  const asegList = ["Porto", "Sura", "Mapfre", "Santander"].filter((g) => norm.includes(g.toLowerCase()));
+  const asegList = ["Porto", "Sura", "Mapfre", "Santander", "BSE"].filter((g) => norm.includes(g.toLowerCase()));
   if (/\bdeposito\b/i.test(norm) && (asegList.length > 0 || /\b(aseguradora|poliza)\b/i.test(norm))) {
     garantiaTipo = "deposito_o_aseguradora";
     garantiaDisp = "Depósito o aseguradora";
@@ -1001,8 +1003,27 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_NINOS" };
   }
 
-  // 0d. Saludo corto que entra respondiendo a un aviso concreto (no derivar a autoservicio ciego)
+  // 0c2. Ya visitó por fuera y avisa que ya tiene recibos/documentos para verla de nuevo (+598 99 561 277)
+  if (
+    matchesAny(t, ["ya tengo todo", "tengo los recibos", "ya tengo los míos", "ya tengo los mios", "fui a verla", "ya la visité", "ya la visite"]) &&
+    matchesAny(t, ["voy con mi esposo", "voy con mi pareja", "vemos bien todo", "ir a verla", "sin aseguradora", "sin el seguro", "no me piden aseguradora"])
+  ) {
+    return { vertical: "D2", subtipo: "D2_YA_VISITO_CON_RECIBOS_PREPOLIZA" };
+  }
+
+  // 0d. Pedido directo de fotos desde un aviso de alquiler o mensaje corto (corta desvío falso a D3 Santa Mónica!)
+  const pideFotosCasa = matchesAny(t, ["fotos de la casa", "pasas fotos", "pases fotos", "mandás fotos", "mandas fotos", "ver fotos", "ver la casa", "pasame fotos", "tenes fotos", "tenés fotos"])
+    && !matchesAny(t, ["comprar", "compra", "venta", "en venta", "terreno", "lote", "santa mónica", "santa monica", "160.000", "usd"]);
+  if (pideFotosCasa) {
+    if (ctx === "centro_maldonado" || matchesAny(t, ["centro", "piso 4", "27.000", "32.000", "sin cochera"])) {
+      return { vertical: "D2", subtipo: "CENTRO_MALDONADO_FOTOS_DESDE_AVISO" };
+    }
+    return { vertical: "D2", subtipo: "LA_FORTUNA_FOTOS_DESDE_AVISO" };
+  }
+
+  // 0e. Saludo corto que entra respondiendo a un aviso concreto (no derivar a autoservicio ciego)
   if (/^(?:hola+|buenas?(?:\s+(?:tardes?|noches?|d[ií]as?))?|buen\s+d[ií]a|qu[eé]\s+tal|info|informaci[oó]n|disponible\??|sigue\s+disponible\??|me\s+interesa)[!.,\s]*$/i.test(t)) {
+    if (ctx === "centro_maldonado") return { vertical: "D2", subtipo: "CENTRO_MALDONADO_FOTOS_DESDE_AVISO" };
     if (ctx === "la_fortuna") return { vertical: "D2", subtipo: "LA_FORTUNA_HOLA_DESDE_AVISO" };
     if (ctx === "santa_monica") return { vertical: "D7", subtipo: "SANTA_MONICA_BOTON_1" };
   }
@@ -1048,7 +1069,9 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     "cómo trabajan ustedes", "como trabajan ustedes",
     "venden mi propiedad", "alquilan mi propiedad",
   ]));
-  const esTurno2Dueno = ctx === "dueno" && matchesAny(t, ["cómo trabajan", "como trabajan", "cuánto cobran", "cuanto cobran", "honorarios", "comisión", "comision", "qué fotos", "que fotos", "protección", "proteccion", "pre-registro", "grilla"]);
+  const esTurno2Dueno =
+    (ctx === "dueno" && matchesAny(t, ["cómo trabajan", "como trabajan", "cuánto cobran", "cuanto cobran", "honorarios", "comisión", "comision", "qué fotos", "que fotos", "protección", "proteccion", "pre-registro", "grilla"])) ||
+    (leadState?.rol_detectado === "propietario" && !pareceCompradorOInquilino);
 
   if (esOfertaExplicita || esTurno2Dueno) {
     if (matchesAny(t, ["protección de punta", "proteccion de punta", "sin protección", "sin proteccion", "pre-registro", "grilla"]) && !matchesAny(t, ["somos desarrolladora", "queremos sumarnos"])) {
@@ -1063,7 +1086,7 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     if (matchesAny(t, ["local", "oficina", "consultorio", "galpón", "galpon", "comercial"])) {
       return { vertical: "O3", subtipo: "INBOUND_COMERCIAL" };
     }
-    if (matchesAny(t, ["terreno", "lote", "padrón", "padron"])) {
+    if (matchesAny(t, ["terreno", "lote", "padrón", "padron"]) && !matchesAny(t, ["edificados", "casa", "dormitorios", "plantas"])) {
       return { vertical: "O4", subtipo: "INBOUND_LOTE" };
     }
     if (matchesAny(t, ["a construir", "construccion base", "construcción base", "obra gris", "proyecto de construccion", "proyecto de construcción"])) {
@@ -1129,13 +1152,46 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
   if (matchesAny(t, ["18.795", "18795", "vivienda promovida", "exoneración de impuestos", "exoneracion de impuestos"])) {
     return { vertical: "D1", subtipo: "POZO_LEY_18795" };
   }
+  if (matchesAny(t, ["eve tower"]) || (matchesAny(t, ["playa brava", "parada 8"]) && matchesAny(t, ["en obra", "pozo", "cuotas", "financiación", "financiacion"]))) {
+    return { vertical: "D1", subtipo: "POZO_EVE_TOWER_DETALLE" };
+  }
   if (matchesAny(t, ["pozo", "betania", "nostrum", "more atlántico", "more atlantico", "golden rise", "eve tower", "cuotas de obra", "80.000", "79.800"])) {
     return { vertical: "D1", subtipo: "DEMANDA_POZO" };
   }
 
   // 6. Objeciones específicas de Alquiler / La Fortuna + Árbol Garantía + Rama A/B (D2)
-  if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"]) && !matchesAny(t, ["marzo a noviembre", "invernal", "probar invierno"])) {
+  if (matchesAny(t, ["el tesoro", "juana de américa", "juana de america", "parada 16", "62.000", "28.000"]) && matchesAny(t, ["disponible", "alquiler", "alquila", "vi el"])) {
+    return { vertical: "D2", subtipo: "D2_PROPIEDAD_YA_ALQUILADA" };
+  }
+  if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"]) && !matchesAny(t, ["marzo a noviembre", "invernal", "probar invierno", "enseguida de la temporada", "después de la temporada", "despues de la temporada"])) {
     return { vertical: "D2", subtipo: "OBJECION_TEMPORADA_VS_ANUAL" };
+  }
+  if (matchesAny(t, ["clearing", "deuda vieja", "mejor historial", "estoy en el clearing"])) {
+    return { vertical: "D2", subtipo: "D2_CLEARING_HISTORIAL_PAREJA" };
+  }
+  if (matchesAny(t, ["la barra"]) && matchesAny(t, ["alquiler", "anual", "amoblado", "amueblado", "todo el año", "todo el ano", "bse", "sura", "porto"])) {
+    return { vertical: "D2", subtipo: "D2_LA_BARRA_AMOBLADO_ANUAL_REALIDAD" };
+  }
+  if (matchesAny(t, ["losa radiante", "52.000", "55.000", "maldonado residencial"])) {
+    return { vertical: "D2", subtipo: "D2_OPCION_RESIDENCIAL_52K" };
+  }
+  if (matchesAny(t, ["roosevelt", "cantegril"]) && matchesAny(t, ["70.000", "75.000", "parrillero propio", "en suite", "alquiler", "todo el año", "todo el ano"])) {
+    return { vertical: "D2", subtipo: "D2_OPCION_ROOSEVELT_70K" };
+  }
+  if (matchesAny(t, ["cuál de los dos", "cual de los dos", "entre los dos"]) && matchesAny(t, ["wi-fi", "wifi", "cochera", "30.000"])) {
+    return { vertical: "D2", subtipo: "D2_COMPARATIVA_FORTUNA_VS_CENTRO" };
+  }
+  if (matchesAny(t, ["predio es cerrado", "predio cerrado", "aires acondicionados", "agregar aires", "cochera adentro"]) && (ctx === "la_fortuna" || leadState?.links_ya_enviados?.some((l) => l.includes("la-fortuna")))) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_PREDIO_AIRES" };
+  }
+  if (matchesAny(t, ["patio propio", "tiene patio", "sin patio", "planta alta", "por escalera"]) && (ctx === "la_fortuna" || leadState?.links_ya_enviados?.some((l) => l.includes("la-fortuna")))) {
+    return { vertical: "D2", subtipo: "LA_FORTUNA_DISTRIBUCION_SIN_PATIO" };
+  }
+  if (matchesAny(t, ["comisiones variables", "ingresos variables", "sueldo variable", "6 recibos"])) {
+    return { vertical: "D2", subtipo: "D2_SUELDO_VARIABLE_6_RECIBOS" };
+  }
+  if (matchesAny(t, ["recibos de sueldo", "recibo de sueldo", "tenemos recibo"]) && (matchesAny(t, ["cómo sería", "como seria", "cómo es", "como es", "marido", "pareja", "esposo", "esposa", "sumamos", "mi marido"]) || Boolean(leadState?.saludo_ya_hecho))) {
+    return { vertical: "D2", subtipo: "D2_ASEGURADORA_COMO_FUNCIONA_RECIBOS" };
   }
   if (matchesAny(t, ["con mi pareja", "sumamos", "entre los dos", "sueldos conjuntos", "recibos de sueldo"]) && matchesAny(t, ["porto", "sura", "mapfre", "santander", "llegamos", "alcanza", "calific"])) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_SUMA_INGRESOS_PAREJA" };
@@ -1159,7 +1215,7 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
   if (matchesAny(t, ["no tengo ingresos demostrables", "sin ingresos demostrables", "no tengo recibo ni factur", "no puedo demostrar ingresos"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_SIN_INGRESOS_DEPOSITO" };
   }
-  if (vTurn.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "soy extranjero"])) {
+  if (vTurn.situacion_laboral === "exterior" || matchesAny(t, ["cobro en el exterior", "trabajo para afuera", "trabajo para el exterior", "para el exterior", "facturo al exterior", "ingresos del exterior", "soy extranjero", "ingresos certificados en argentina", "nos mudamos de argentina", "sin banco local"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_EXTERIOR" };
   }
   if (vTurn.situacion_laboral === "independiente" || matchesAny(t, ["de forma independiente", "con unipersonal", "soy independiente", "tengo unipersonal"])) {
@@ -1179,6 +1235,20 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
   }
   if ((matchesAny(t, ["tengo anda", "tengo contaduría", "tengo contaduria", "tengo cgn"]) || (ctx !== "general" && matchesAny(t, ["solo anda", "solo cgn"]))) && !t.includes("en otra zona o tengo propiedad")) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_ANDA_CGN_ABIERTA" };
+  }
+
+  // 6b-vis. Intento explícito de ver / visitar una propiedad puntual antes de Rama B genérica
+  if (
+    /\b(me\s+gustar[ií]a\s+visitarlo|vamos\s+a\s+ver|nos\s+interesa\s+ver|podemos\s+visitar|podemos\s+ver\s+ese|coordinar\s+visita|ir\s+a\s+visitarlo|ir\s+a\s+verlo)\b/i.test(t)
+    || (Boolean(leadState?.saludo_ya_hecho) && (/\b(lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo)\s+(?:por\s+la\s+|de\s+)?(?:ma[nñ]ana|tarde)\b/i.test(t) || /\beste\s+(?:lunes|martes|mi[eé]rcoles|jueves|viernes|s[aá]bado|domingo)\b/i.test(t)))
+  ) {
+    if (ctx === "santa_monica" || matchesAny(t, ["terreno", "obra", "santa m", "laguna"])) {
+      return { vertical: "D7", subtipo: "TURNO_2_VISITA_SANTA_MONICA" };
+    }
+    if (ctx === "pozo") {
+      return { vertical: "D1", subtipo: "TURNO_2_VISITA_POZO" };
+    }
+    return { vertical: "D2", subtipo: "TURNO_2_VISITA_LA_FORTUNA" };
   }
 
   // 6c. Rama B (Búsqueda abierta / 2027 / Invernal / Más adelante / Presupuesto abierto)
@@ -1264,10 +1334,10 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
   if (matchesAny(t, ["local comercial", "local", "oficina", "consultorio", "negocio", "galpón", "galpon"])) {
     return { vertical: "D6", subtipo: "DEMANDA_COMERCIAL" };
   }
-  if (matchesAny(t, ["alquiler", "alquilo", "alquilar", "renta anual", "la fortuna", "ágata", "agata", "garantía", "garantia"])) {
+  if (matchesAny(t, ["alquiler", "alquilo", "alquilar", "renta anual", "la fortuna", "ágata", "agata", "garantía", "garantia"]) || ctx === "la_fortuna" || ctx === "centro_maldonado" || leadState?.rol_detectado === "demanda_alquiler") {
     return { vertical: "D2", subtipo: "DEMANDA_ALQUILER_GENERAL" };
   }
-  if (matchesAny(t, ["terreno", "lote", "para construir", "tirar abajo", "demoler", "a construir", "santa monica", "santa mónica", "laguna", "josé ignacio", "jose ignacio", "la barra"])) {
+  if (matchesAny(t, ["terreno", "lote", "para construir", "tirar abajo", "demoler", "a construir", "santa monica", "santa mónica", "laguna", "josé ignacio", "jose ignacio"]) || (matchesAny(t, ["la barra"]) && !matchesAny(t, ["alquiler", "anual", "amoblado", "amueblado"]))) {
     const esLatente = matchesAny(t, ["para construir", "proyecto", "tirar abajo", "demoler", "reciclar", "santa monica", "santa mónica", "laguna", "la barra", "josé ignacio", "jose ignacio"]);
     return { vertical: esLatente ? "D7" : "D5", subtipo: esLatente ? "LATENTE_LOTE_PROYECTO" : "DEMANDA_LOTE" };
   }
@@ -1275,7 +1345,7 @@ function clasificarVertical14(rawText, contextoPropiedad = "general", leadState 
     if (t.includes("brava")) return { vertical: "D4", subtipo: "DEMANDA_APTO_BRAVA_CRUCE_POZO" };
     return { vertical: "D4", subtipo: "DEMANDA_APTO" };
   }
-  if (matchesAny(t, ["casa", "vivienda", "vivir"])) {
+  if (matchesAny(t, ["casa", "vivienda", "vivir"]) && (ctx === "santa_monica" || matchesAny(t, ["comprar", "compra", "en venta", "venta", "usd"]))) {
     return { vertical: "D3", subtipo: "DEMANDA_CASA" };
   }
 
@@ -1515,6 +1585,16 @@ function aplicarPokaYokeMar(texto, vertical, esRespuestaPasiva = false, etapaSla
     violaciones.push("PROHIBIDO_ASUMIR_PARENTESCO");
   }
 
+  // Candado #16: Prohibido mencionar la palabra interna "Semáforo" al cliente final
+  if (/\bsem[aá]foros?\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_PALABRA_SEMAFORO_PUBLICO");
+  }
+
+  // Candado #17: Prohibido usar sigla "GC", "cerrados" en canon o publicar "acepta/admite niños"
+  if (/\bGC\b/.test(out) || /\$\s*u?\s*[\d.]+\s*cerrados\b/i.test(out) || /\b(?:acepta|admite)\s+(?:familias\s+con\s+)?ni[nñ]os\b/i.test(out)) {
+    violaciones.push("PROHIBIDO_GC_O_ACEPTA_NINOS");
+  }
+
   return {
     texto: out,
     pokayoke_pass: violaciones.length === 0,
@@ -1653,6 +1733,92 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
       "Si en el futuro retomás la búsqueda o necesitás publicar un inmueble, nos escribís por acá.";
     alertaAndon = true;
     motivoAndon = "Cierre negativo educado: pasar a baja/radar sin insistir.";
+  } else if (subtipo === "CENTRO_MALDONADO_FOTOS_DESDE_AVISO") {
+    replyText =
+      `Hola! Acá tenés las fotos y el croquis del 2 dormitorios en Centro de Maldonado ($U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida, piso 4 por ascensor, aire y calefón, sin muebles): https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/${utm}\n` +
+      "Trabaja solo con garantía de aseguradora (Porto Seguro, Sura, Mapfre o Santander). Ya tenés póliza emitida o querés validar con recibos / unipersonal?";
+    alertaAndon = true;
+    motivoAndon = "Fotos Centro Maldonado enviadas + filtro de aseguradora sin empujar visita previa.";
+  } else if (subtipo === "LA_FORTUNA_FOTOS_DESDE_AVISO") {
+    replyText =
+      `Hola! Acá tenés las fotos del apartamento 2 dormitorios en alquiler anual en La Fortuna ($U 30.000/mes, incluye gastos comunes, Wi-Fi y cochera fija, piso 1 c/ balcón, sin patio): ${LA_FORTUNA_URL}${utm}\n` +
+      "Trabaja solo con garantía de aseguradora (Porto Seguro, Sura, Mapfre o Santander). Ya tenés aseguradora o querés confirmar con recibos / unipersonal?";
+    alertaAndon = true;
+    motivoAndon = "Fotos La Fortuna enviadas desde 'fotos de la casa' sin desvío falso a Santa Mónica.";
+  } else if (subtipo === "D2_PROPIEDAD_YA_ALQUILADA") {
+    replyText =
+      `Esa propiedad ya no está disponible porque se alquiló.\n` +
+      `Hoy tenemos activos para alquiler anual en Maldonado 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija) y 2 dormitorios en Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida): ${ALQUILERES_URL}${utm}\n` +
+      "Buscás en Maldonado o en La Barra y con qué garantía pensás alquilar?";
+    alertaAndon = true;
+    motivoAndon = "Consultó unidad ya alquilada: informado cierre y derivadas opciones anuales vigentes.";
+  } else if (subtipo === "D2_OPCION_RESIDENCIAL_52K") {
+    replyText =
+      `Con ese presupuesto tenés disponible nuestro 2 dormitorios a estrenar en Maldonado Residencial con losa radiante, aberturas DVH y cochera fija a $U 52.000/mes (garantía Porto Seguro, Sura o Mapfre): https://zaguanpropiedades.com/alquileres/maldonado-residencial-2d/${utm}\n` +
+      "Contás con aseguradora aprobada o recibos para coordinar visita esta semana?";
+    alertaAndon = true;
+    motivoAndon = "Cruce activo Maldonado Residencial 2D ($U 52.000, losa radiante y cochera).";
+  } else if (subtipo === "D2_OPCION_ROOSEVELT_70K") {
+    replyText =
+      `En Roosevelt y Cantegril tenemos disponible para alquiler anual un piso alto de 2 dormitorios en suite con parrillero propio y cochera en subsuelo a $U 70.000/mes: https://zaguanpropiedades.com/alquileres/roosevelt-cantegril-2d/${utm}\n` +
+      "Con qué garantía pensás alquilar y desde qué fecha buscás ingresar?";
+    alertaAndon = true;
+    motivoAndon = "Cruce activo Roosevelt y Cantegril 2D ($U 70.000, suite y parrillero propio).";
+  } else if (subtipo === "D2_COMPARATIVA_FORTUNA_VS_CENTRO") {
+    replyText =
+      "El que incluye cochera fija dentro del predio cerrado y Wi-Fi dentro de los $U 30.000/mes (con gastos comunes incluidos) es el 2 dormitorios a estrenar de La Fortuna.\n" +
+      "El de Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida) suma aire acondicionado y calefón instalados, con cocheras disponibles en alquiler en el edificio.\n" +
+      "Cuál de los dos prefieren visitar primero esta semana?";
+    alertaAndon = true;
+    motivoAndon = "Comparativa directa La Fortuna ($U 30k con cochera y Wi-Fi) vs Centro Maldonado ($U 27k+5k).";
+  } else if (subtipo === "LA_FORTUNA_DISTRIBUCION_SIN_PATIO") {
+    replyText =
+      "La unidad de La Fortuna está en Piso 1 por escalera exterior con balcón propio, sin patio y sin barbacoa común; cuenta con cochera fija dentro del predio cerrado con reja perimetral ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\n" +
+      "Contás con póliza aseguradora (Porto Seguro, Sura, Mapfre o Santander) para avanzar?";
+    alertaAndon = true;
+    motivoAndon = "Aclaración Piso 1 por escalera con balcón y sin patio en La Fortuna.";
+  } else if (subtipo === "D2_SUELDO_VARIABLE_6_RECIBOS") {
+    replyText =
+      "Cuando cobrás sueldo con comisiones o ingresos variables en BPS, las aseguradoras (Porto Seguro, Sura, Mapfre y Santander) solicitan los últimos 6 recibos consecutivos, continuidad laboral y estar sin Clearing, calculando que el alquiler represente en torno al 30% del promedio líquido (sumando de 1 a 4 firmantes).\n" +
+      `Podés verificar el cálculo acá: https://zaguanpropiedades.com/garantias-alquiler/${utm}\n` +
+      "Con el promedio de esos 6 recibos cubren esa relación para avanzar?";
+    alertaAndon = true;
+    motivoAndon = "Explicada regla de 6 recibos consecutivos para ingresos variables en BPS.";
+  } else if (subtipo === "POZO_EVE_TOWER_DETALLE") {
+    replyText =
+      `En Playa Brava trabajamos EVE Tower en Parada 8, a 100 metros del mar: unidades de 1 y 2 dormitorios desde USD 150.000 con financiación propia hasta en 55 cuotas durante la obra y 5% de gastos de ocupación: ${PROYECTOS_URL}eve-tower/\n` +
+      "Buscás 1 o 2 dormitorios y qué anticipo en USD manejás para pasarte planos y disponibilidad?";
+    alertaAndon = true;
+    motivoAndon = "Detalle EVE Tower Parada 8 Playa Brava (desde USD 150.000, hasta 55 cuotas).";
+  } else if (subtipo === "D2_ASEGURADORA_COMO_FUNCIONA_RECIBOS") {
+    replyText =
+      "Con recibos de sueldo tramitás póliza de aseguradora (Porto Seguro, Sura, Mapfre o Santander) en 24 a 48 hs.\n" +
+      "Piden los últimos 3 recibos consecutivos si cobrás fijo (o 6 si tenés ingresos variables), continuidad en BPS, cédula vigente y estar sin Clearing.\n" +
+      "Pueden sumar los ingresos líquidos de 1 a 4 personas que firmen el contrato (en torno al 30% del alquiler, unos $U 90.000 a $U 100.000 líquidos entre quienes firmen). Podés verificar el cálculo en privado acá: https://zaguanpropiedades.com/garantias-alquiler/\n" +
+      "Los dos tienen continuidad en BPS y libre de Clearing para confirmarte cuál de las unidades quieren priorizar?";
+    alertaAndon = true;
+    motivoAndon = "Explicó cálculo de recibos en pareja (~30% entre 1-4 firmantes, 3 o 6 recibos, BPS, sin Clearing).";
+  } else if (subtipo === "D2_YA_VISITO_CON_RECIBOS_PREPOLIZA") {
+    replyText =
+      "Qué bueno que ya tengas los recibos listos! Para cuidar el tiempo de todos trabajamos el avance y la reserva con la pre-evaluación de aseguradora en marcha.\n" +
+      "Si nos compartís por acá foto o PDF de los recibos y documento de identidad, ingresamos hoy sin costo la consulta en Porto, Sura, Mapfre o Santander (responden en 24 hs) y con ese respaldo coordinamos enseguida.\n" +
+      "Querés pasarnos la documentación por acá así adelantamos hoy esa validación?";
+    alertaAndon = true;
+    motivoAndon = "Interesado ya visitó y tiene recibos listos: encauzar a pre-evaluación de aseguradora sin fricción.";
+  } else if (subtipo === "D2_CLEARING_HISTORIAL_PAREJA") {
+    replyText =
+      "Con Clearing vigente la aseguradora frena al titular observado, y sí permite presentar la póliza a nombre de quien tenga historial limpio o sumar otro co-firmante sin Clearing que cubra en torno al 30% del alquiler.\n" +
+      "Si regularizás ese saldo y obtenés el libre de deuda, también te acompañamos para presentar la carpeta a evaluación.\n" +
+      "Con los ingresos de quien tiene historial limpio cubren esa relación o prefieren armar propuesta de meses adelantados?";
+    alertaAndon = true;
+    motivoAndon = "Clearing / historial de co-firmante: opción titular limpio, libre de deuda o meses adelantados.";
+  } else if (subtipo === "D2_LA_BARRA_AMOBLADO_ANUAL_REALIDAD") {
+    replyText =
+      `Hoy en La Barra el alquiler anual de 2 dormitorios que esté amoblado es escaso antes de temporada y suele ubicarse entre USD 1.200 y USD 1.400 al mes según edificio.\n` +
+      `Dejamos activa desde hoy tu búsqueda en La Barra y Maldonado con ${varsSilenciosas.garantia_disponible || "aseguradora (Sura, Porto, BSE o Mapfre)"}, y mientras tanto podés ver esta opción anual disponible en Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida, sin muebles): https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/${utm}\n` +
+      "Desde qué mes buscás ingresar y para cuántas personas sería así salimos a rastrear opciones puntuales?";
+    alertaAndon = true;
+    motivoAndon = "Búsqueda anual La Barra / Maldonado amoblado USD 1.200-1.400 + cruce transparente Centro Maldonado.";
   } else if (subtipo === "LA_FORTUNA_HOLA_DESDE_AVISO") {
     if (etapaSla === "T1_DESTRABE_5_MIN") {
       replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T1_DESTRABE_5_MIN;
@@ -1717,14 +1883,52 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     }
     alertaAndon = true;
     motivoAndon = `Seguimiento La Fortuna (${etapaSla}).`;
-  } else if (subtipo === "TURNO_2_VISITA_LA_FORTUNA") {
-    const franja = extraerFranjaVisita(rawText);
-    const yaDeclaroPoliza = /\b(porto|sura|mapfre|santander)\b/i.test(rawText || "");
-    replyText = yaDeclaroPoliza
-      ? `Anotado ${franja} con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\nMe confirmás tu apellido y cuántas personas vivirían en el apartamento?`
-      : `Anotado ${franja} como preferencia para visitar el 2 dormitorios en La Fortuna.\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\nMe pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?`;
+  } else if (subtipo === "LA_FORTUNA_PREDIO_AIRES") {
+    replyText =
+      "Sí, el predio de La Fortuna cuenta con acceso controlado y cochera fija adentro del predio incluida en los $U 30.000/mes (junto con gastos comunes y Wi-Fi).\n" +
+      "La unidad viene con previsión lista para colocar aires acondicionados sin inconvenientes.\n" +
+      "Manejá con tranquilidad; cuando llegues contame qué día y franja horaria te sirve para coordinar la visita?";
     alertaAndon = true;
-    motivoAndon = "ANDON VISITA: Lead propuso día/hora en La Fortuna; confirmar agenda.";
+    motivoAndon = "Consulta puntual La Fortuna: predio cerrado, cochera fija y previsión de aires.";
+  } else if (subtipo === "TURNO_2_VISITA_LA_FORTUNA") {
+    const franjaRaw = extraerFranjaVisita(rawText);
+    const franja = franjaRaw || "el horario que propusiste";
+    const ctxLower = String(contextoPropiedad || "").toLowerCase();
+    const yaDeclaroPoliza = /\b(porto|sura|mapfre|santander)\b/i.test(rawText || "") || /\b(porto|sura|mapfre|santander)\b/i.test(String(varsSilenciosas.garantia_tipo || ""));
+    if (Boolean(leadState?.saludo_ya_hecho)) {
+      const nombreVis = extraerPrimerNombre(rawText, leadState);
+      const unidadLabel = /brava|71\.400/i.test(rawText || "")
+        ? "la unidad de Playa Brava Parada 8 ($U 71.400)"
+        : (/roosevelt|70\.000/i.test(rawText || "") || (leadState?.links_ya_enviados || []).some((l) => l.includes("roosevelt"))
+          ? "el 2 dormitorios en Roosevelt y Cantegril ($U 70.000)"
+          : (/52\.000|c[oó]rdoba|residencial/i.test(rawText || "") || (leadState?.links_ya_enviados || []).some((l) => l.includes("residencial"))
+            ? "la unidad a estrenar sobre Av. Córdoba ($U 52.000)"
+            : (/centro|27\.000/i.test(rawText || "") || ctxLower === "centro_maldonado"
+              ? "el 2 dormitorios en Centro de Maldonado"
+              : "el 2 dormitorios en La Fortuna")));
+      const yaTieneEspacio = Boolean(varsSilenciosas.personas_cantidad || varsSilenciosas.dormitorios_abiertos);
+      const introVisita = franjaRaw
+        ? `Anotado ${franjaRaw} para coordinar la visita a ${unidadLabel} con nuestro equipo de Zaguán.`
+        : `Tomamos nota para coordinar la visita a ${unidadLabel} con nuestro equipo de Zaguán.`;
+      const cierrePregunta = !franjaRaw
+        ? (nombreVis
+          ? `Queda registrado a nombre de ${nombreVis}; qué día y franja horaria les queda cómodo para recorrerla?`
+          : "Me pasás tu nombre completo y qué día y franja horaria te queda cómodo para recorrerla?")
+        : (nombreVis
+          ? (yaDeclaroPoliza
+            ? `Queda registrado a nombre de ${nombreVis}; te confirmamos el horario exacto y el punto de encuentro en puerta por acá. Tenés preferencia de hora puntual dentro de esa franja?`
+            : `Queda registrado a nombre de ${nombreVis}; confirmamos agenda y te pasamos el punto exacto en puerta por acá. Con qué aseguradora o respaldo avanzamos para dejar lista la visita?`)
+          : (yaDeclaroPoliza
+            ? (yaTieneEspacio ? "Me pasás tu nombre y apellido para dejarte confirmada la visita?" : "Me confirmás tu nombre completo y cuántas personas vivirían en la unidad?")
+            : (yaTieneEspacio ? "Me pasás tu nombre completo y con qué aseguradora avanzamos?" : "Me pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?")));
+      replyText = `${introVisita}\n${cierrePregunta}`;
+    } else {
+      replyText = yaDeclaroPoliza
+        ? `Anotado ${franja} con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\nMe confirmás tu apellido y cuántas personas vivirían en el apartamento?`
+        : `Anotado ${franja} como preferencia para visitar el 2 dormitorios en La Fortuna.\nEn ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto sobre Av. Ágata al validar póliza aseguradora.\nMe pasás tu nombre completo, qué aseguradora tenés aprobada y cuántas personas irían?`;
+    }
+    alertaAndon = true;
+    motivoAndon = "ANDON VISITA: Lead propuso visita / día y hora; confirmar agenda.";
   } else if (subtipo === "LA_FORTUNA_OBJECION_GC_INCLUYE") {
     replyText =
       "El alquiler de La Fortuna ($U 30.000/mes) ya incluye gastos comunes del predio, Internet Wi-Fi de alta velocidad y cochera fija.\n" +
@@ -1809,7 +2013,7 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     alertaAndon = true;
     motivoAndon = "ANDON SANTA MÓNICA TURNO 2: Enviar video completo 2m31s + datos de Bóveda Privada.";
   } else if (subtipo === "TURNO_2_VISITA_SANTA_MONICA") {
-    const franja = extraerFranjaVisita(rawText);
+    const franja = extraerFranjaVisita(rawText) || "el horario que propusiste";
     replyText =
       `Anotamos ${franja} como preferencia para recorrer el proyecto en construcción en Santa Mónica (USD 160.000).\n` +
       "En ZAGUÁN confirmamos esa franja de agenda y te compartimos el punto exacto de encuentro junto con la cédula catastral por acá.\n" +
@@ -1845,7 +2049,7 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
       `En Playa Brava tenemos EVE Tower en Parada 8 a 100 metros del mar (referencia desde USD 150.000 con financiación propia hasta 55 cuotas sin interés y 5% de gastos de ocupación), además de opciones en pozo en ${PROYECTOS_URL}\n` +
       "Buscás entrega próxima para vivir todo el año o financiar en obra en USD?";
   } else if (subtipo === "TURNO_2_VISITA_POZO") {
-    const franja = extraerFranjaVisita(rawText);
+    const franja = extraerFranjaVisita(rawText) || "el horario que propusiste";
     replyText =
       `Anotado ${franja}. Para confirmar visita o recorrido con la desarrolladora (y cuidar tu pre-registro oficial por 60 días), pasanos tu nombre completo, apellido y correo.\n` +
       "Qué edificio puntual de los 5 querés priorizar?";
@@ -1928,11 +2132,13 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     motivoAndon = "Garantía B2C exterior: validación de facturas + extractos bancarios (<30% + certificado notarial).";
   } else if (subtipo === "D2_GARANTIA_INDEPENDIENTE") {
     replyText =
-      "De forma independiente o con unipersonal la aseguradora se tramita al momento de reservar con BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      "De forma independiente o con unipersonal la aseguradora se tramita con unipersonal con más de 1 año de existencia, BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente aprox. el 30% del ingreso líquido sin Clearing (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      `Comprobá en 20 segundos si tu perfil califica acá: https://zaguanpropiedades.com/garantias-alquiler/${utm}\n` +
       "Contás con esos comprobantes al día para agendar tu búsqueda?";
   } else if (subtipo === "D2_GARANTIA_RELACION_DEPENDENCIA") {
     replyText =
-      "En relación de dependencia la aseguradora se tramita al momento de reservar con los últimos 3 recibos de sueldo y documento de identidad, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      "En relación de dependencia la aseguradora se tramita con los últimos 3 recibos de sueldo consecutivos si cobrás fijo (o 6 recibos consecutivos si tenés ingresos variables), continuidad en BPS, documento de identidad y sin Clearing, cuidando que el alquiler represente aprox. el 30% del ingreso líquido (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n" +
+      `Podés verificar en privado de 1 a 4 firmantes en 20 segundos acá: https://zaguanpropiedades.com/garantias-alquiler/${utm}\n` +
       "Con tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?";
   } else if (subtipo === "D2_GARANTIA_SIN_GARANTIA_O_DEPOSITO") {
     replyText =
@@ -1958,12 +2164,26 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     const aclaraContrato = varsSilenciosas.mezcla_invernal_anual
       ? "\nTené en cuenta que el alquiler invernal (marzo a noviembre) y el alquiler anual (12 meses) son dos contratos distintos con valores distintos."
       : "";
-    replyText =
-      `Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}\n` +
-      "Contanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n" +
-      "_Si querés adelantarnos algo más:_\n" +
-      "- _si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n" +
-      "- _con qué garantía pensás alquilar (podemos ayudarte con eso también)_";
+    if (Boolean(leadState?.saludo_ya_hecho)) {
+      const faltaMes = !varsSilenciosas.mes_mudanza;
+      const faltaEspacio = !varsSilenciosas.dormitorios_abiertos && !varsSilenciosas.personas_cantidad;
+      const preguntaFaltante = faltaMes && faltaEspacio
+        ? "*desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*"
+        : (faltaMes ? "*desde qué mes pensás mudarte?*" : "*cuántos dormitorios o para cuántas personas buscás?*");
+      const aperturaRamaB = varsSilenciosas.mezcla_invernal_anual || /invernal|marzo a noviembre/i.test(rawText || "")
+        ? `Sí, trabajamos tanto alquiler anual como invernal en Maldonado y Punta del Este.${aclaraContrato}`
+        : `Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}`;
+      replyText =
+        `${aperturaRamaB}\n` +
+        `Contanos así enfocamos la búsqueda: ${preguntaFaltante}`;
+    } else {
+      replyText =
+        `Hola! Te damos la bienvenida a Zaguán. Nos ponemos atentas para encontrar lo que buscás${zonaParte}${presuParte}${tempParte} y ofrecértelo.${aclaraContrato}\n` +
+        "Contanos así enfocamos la búsqueda: *desde qué mes pensás mudarte y cuántos dormitorios o para cuántas personas buscás?*\n" +
+        "_Si querés adelantarnos algo más:_\n" +
+        "- _si tenés mascota o alguna comodidad importante para vos (cochera, patio, que esté amoblado)_\n" +
+        "- _con qué garantía pensás alquilar (podemos ayudarte con eso también)_";
+    }
     alertaAndon = true;
     motivoAndon = "Rama B Paso 1: búsqueda abierta guardada con presupuesto elástico y dormitorios abiertos.";
   } else if (subtipo === "D2_RAMA_B_MASCOTA_PREGUNTA") {
@@ -2373,7 +2593,48 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
     failed.push({ id: "SIM-80", errores: ["DOBLE_RELOJ_SUMA_ADITIVA_FAIL"] });
   }
 
-  const totalAll = allCases.length + 5;
+  // SIM-81 (+598 99 495 954): "Hola me pasas fotos de la casa?!" en alquiler no desvía a D3 Santa Mónica
+  const r81 = clasificarYResponder("Hola me pasas fotos de la casa?!", "T0_INMEDIATO", "la_fortuna", "whatsapp");
+  if (r81.vertical_14 === "D2" && r81.subtipo === "LA_FORTUNA_FOTOS_DESDE_AVISO" && r81.pokayoke_pass && !r81.replyText.includes("160.000") && !/semáforo|semaforo/i.test(r81.replyText)) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-81", errores: [`SIM81_FAIL:${r81.vertical_14}/${r81.subtipo}`] });
+  }
+
+  // SIM-82 (+598 95 518 412): Pareja con recibos de sueldo en Turno 2
+  const r82 = clasificarYResponder("Espectaculares! Están re lindos. Mi marido y yo tenemos recibos de sueldo, cómo sería eso?", "T1_SEGUIMIENTO", "la_fortuna", "whatsapp");
+  if (r82.vertical_14 === "D2" && r82.subtipo === "D2_ASEGURADORA_COMO_FUNCIONA_RECIBOS" && r82.pokayoke_pass && /3 recibos/.test(r82.replyText) && !/semáforo|semaforo|verde/i.test(r82.replyText)) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-82", errores: [`SIM82_FAIL:${r82.vertical_14}/${r82.subtipo}`] });
+  }
+
+  // SIM-83 (+598 95 535 999): La Barra / Maldonado Centro 2D anual amoblado USD 1.200-1.400 + 2 niños + Sura/BSE/Porto
+  const r83 = clasificarYResponder("Busco alquiler anual en La Barra o Maldonado Centro, 2 dormitorios amoblado, dos niños de 7 y 12, con Sura BSE o Porto, hasta USD 1400", "T0_INMEDIATO", "general", "whatsapp");
+  const vs83 = r83.variables_silenciosas || {};
+  if (r83.vertical_14 === "D2" && vs83.moneda === "USD" && vs83.presupuesto_declarado === 1400 && vs83.amoblado_preferencia === "amoblado" && /BSE/.test(vs83.garantia_disponible || "") && r83.pokayoke_pass) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-83", errores: [`SIM83_FAIL:${r83.vertical_14}/${r83.subtipo}/${vs83.moneda}/${vs83.presupuesto_declarado}/${vs83.garantia_disponible}`] });
+  }
+
+  // SIM-84 (+598 99 561 277): Ya visitó por fuera y tiene recibos listos -> encauza a pre-evaluación sin fricción
+  const r84 = clasificarYResponder("Ya tengo todo. Te parece si mañana voy con mi esposo al apartamento y vemos bien todo? Yo fui a verla y no tenía aseguradora", "T1_SEGUIMIENTO", "la_fortuna", "whatsapp");
+  if (r84.vertical_14 === "D2" && r84.subtipo === "D2_YA_VISITO_CON_RECIBOS_PREPOLIZA" && r84.pokayoke_pass && /24 hs/.test(r84.replyText)) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-84", errores: [`SIM84_FAIL:${r84.vertical_14}/${r84.subtipo}`] });
+  }
+
+  // SIM-85 (+598 93 828 732): Clearing antiguo + co-firmante con mejor historial
+  const r85 = clasificarYResponder("Estoy en el Clearing hace años, mi mujer tiene mejor historial por lo que averigüé", "T1_SEGUIMIENTO", "la_fortuna", "whatsapp");
+  if (r85.vertical_14 === "D2" && r85.subtipo === "D2_CLEARING_HISTORIAL_PAREJA" && r85.pokayoke_pass && /historial limpio/.test(r85.replyText)) {
+    passedCount++;
+  } else {
+    failed.push({ id: "SIM-85", errores: [`SIM85_FAIL:${r85.vertical_14}/${r85.subtipo}`] });
+  }
+
+  const totalAll = allCases.length + 10;
   const ok = candidateCheck.pass && passedCount === totalAll && failed.length === 0;
   return {
     ok,
@@ -2383,7 +2644,9 @@ function runRedTeam64InMemory(candidateOverride = null, existingOverrides = null
   };
 }
 
-return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTANDAR, aplicarPokaYokeMar };
+
+
+return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTANDAR, aplicarPokaYokeMar, runRedTeam64InMemory, setActiveOverrides, extraerVariablesSilenciosasB2C };
 })();
 
     const STORAGE_KEY = 'zaguan_mar_overrides_v1';
@@ -2431,6 +2694,42 @@ return { clasificarYResponder, ARBOL_ESTRATEGICO_SEMAFORO, BANCO_RESPUESTAS_ESTA
           'Yo busco más zona La Barra o Punta del Este, La Fortuna me queda a trasmano. Maldonado Centro me queda bien. En lo posible amoblado, si es más quiero saber cuánta diferencia hay',
           'Esos de USD 1.200 a 1.400 en La Barra de alquiler anual en 2 dormitorios no me disgustan, hoy vivo en La Barra',
           'Somos dos niños de 7 y 12 además de mí, amueblado y si es posible cochera mejor, con Sura, BSE o Porto'
+        ]
+      },
+      {
+        id: 'G-HOY-277',
+        tag: '🔥 Hoy 23/11 · +598 99 561 277',
+        ctx: 'la_fortuna',
+        title: '🔥 Hoy 19:30 · Ya visitó antes y reunió recibos -> Pre-póliza en 24 hs sin roce',
+        desc: 'Caso real: ya había ido a verla sin seguro, juntó los 6 recibos y quiere ir mañana con su esposo. Mar celebra el avance y pide recibos/cédula para pre-evaluar hoy sin fricción.',
+        turnos: [
+          'Hola, vengo hablando por el apartamento de 2 dormitorios de La Fortuna',
+          'Ya tengo mis recibos y acabo de pedirle a la otra persona que me mande sus últimos 6 recibos',
+          'Ya tengo todo. Te parece si mañana voy con mi esposo al apartamento y vemos bien todo? Yo fui a verla antes y no tenía aseguradora'
+        ]
+      },
+      {
+        id: 'G-HOY-732',
+        tag: '🔥 Hoy 23/11 · +598 93 828 732',
+        ctx: 'la_fortuna',
+        title: '🔥 Hoy 20:17 · Clearing viejo + esposa con historial limpio',
+        desc: 'Caso real: él figura en Clearing antiguo y la esposa tiene buen historial. Mar orienta presentar póliza con quien tiene historial limpio o acompañar tras libre de deuda.',
+        turnos: [
+          'Buenas, consulta por La Fortuna: hay posibilidades de entrar con depósito?',
+          'Yo estoy en el Clearing hace años por algo chico, mi mujer tiene mejor historial por lo que averigüé',
+          'Si cancelo esa deuda y saco el libre de deuda para el mes entrante me ayudan a presentar en la aseguradora?'
+        ]
+      },
+      {
+        id: 'G-HOY-DUENOS',
+        tag: '🔥 Hoy 23/11 · MP-37 Alejandro',
+        ctx: 'dueno',
+        title: '🔥 Hoy 17:04 · Propietario San Carlos USD 240.000 (2 casas con renta + local)',
+        desc: 'Caso real: dueño confirma venta abierta, detalla renta USD 1.000/mes por escribano con salida en 2-3 meses y queda en pedir padrón/croquis a su padre.',
+        turnos: [
+          'Buenas tardes, tengo una propiedad en venta sobre avenida en San Carlos en USD 240.000, pueden sumarla a su cartera',
+          'Son 2 casas independientes alquiladas hoy en USD 1.000 mensuales totales con contrato por escribano y salida en 2 a 3 meses, más un local comercial intacto al frente',
+          'Déjeme hablar con mi padre por el número de padrón y el croquis y les aviso'
         ]
       },
       {

@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-23T23:42:13.859Z",
+  "fecha": "2026-11-24T12:19:54.198Z",
   "total": 95,
   "pasaron": 95,
   "fallaron_count": 0,
@@ -654,7 +654,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "TURNO_2_VISITA_LA_FORTUNA",
       "alerta_andon": true,
-      "replyText": "Anotado martes a las 15 hs con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\n*Me confirmás tu apellido y cuántas personas vivirían en el apartamento?*"
+      "replyText": "Anotado este martes a las 15 hs con póliza aprobada para visitar el 2 dormitorios en La Fortuna ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\nDejamos confirmado el bloque de visita con nuestra gestión en ZAGUÁN y te compartimos el punto exacto sobre Av. Ágata antes de ir.\n*Me confirmás tu apellido y cuántas personas vivirían en el apartamento?*"
     },
     {
       "id": "SIM-51",
@@ -927,7 +927,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_RELACION_DEPENDENCIA",
       "alerta_andon": false,
-      "replyText": "En relación de dependencia la aseguradora se tramita al momento de reservar con los últimos 3 recibos de sueldo y documento de identidad, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n*Con tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?*"
+      "replyText": "En relación de dependencia la aseguradora se tramita con los últimos 3 recibos de sueldo consecutivos si cobrás fijo (o 6 recibos consecutivos si tenés ingresos variables), continuidad en BPS, documento de identidad y sin Clearing, cuidando que el alquiler represente aprox. el 30% del ingreso líquido (puede ser una sola persona o combinando ingresos de hasta 4 personas).\nPodés verificar en privado de 1 a 4 firmantes en 20 segundos acá: https://zaguanpropiedades.com/garantias-alquiler/?utm_source=whatsapp&utm_medium=mar\n*Con tu ingreso actual o combinando hasta 4 personas cubrís esa relación para agendar tu búsqueda?*"
     },
     {
       "id": "SIM-72",
@@ -940,7 +940,7 @@
       "vertical_detectada": "D2",
       "subtipo_detectado": "D2_GARANTIA_INDEPENDIENTE",
       "alerta_andon": false,
-      "replyText": "De forma independiente o con unipersonal la aseguradora se tramita al momento de reservar con BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente menos del 30% aprox. del ingreso (puede ser una sola persona o combinando ingresos de hasta 4 personas).\n*Contás con esos comprobantes al día para agendar tu búsqueda?*"
+      "replyText": "De forma independiente o con unipersonal la aseguradora se tramita con unipersonal con más de 1 año de existencia, BPS y DGI al día más certificación contable del último año de ingresos, cuidando que el alquiler represente aprox. el 30% del ingreso líquido sin Clearing (puede ser una sola persona o combinando ingresos de hasta 4 personas).\nComprobá en 20 segundos si tu perfil califica acá: https://zaguanpropiedades.com/garantias-alquiler/?utm_source=whatsapp&utm_medium=mar\n*Contás con esos comprobantes al día para agendar tu búsqueda?*"
     },
     {
       "id": "SIM-73",
@@ -1057,7 +1057,7 @@
       "vertical_detectada": "QA_HTML",
       "subtipo_detectado": "CONSISTENCIA_WEB_OK",
       "alerta_andon": false,
-      "replyText": "VERIFICADO EN DISCO (garantias-alquiler/index.html): sin contradicciones, 15 invariantes cumplidas."
+      "replyText": "VERIFICADO EN DISCO (garantias-alquiler/index.html): sin contradicciones, 13 invariantes cumplidas."
     },
     {
       "id": "SIM-82",

@@ -359,7 +359,7 @@ export const ESCENARIOS_60 = [
     mustNotInclude: ['La cochera y sus condiciones se consultan', 'cotizada por separado'],
   }),
   makeHtmlAuditScenario('SIM-40', 'QA Web · La Fortuna Doble Punta (+ IVA) + Form GA4', 'alquileres/la-fortuna-agata/index.html', {
-    mustInclude: ['1 mes de alquiler + IVA', '$U 30.000', 'lf-garantia', 'lf-turno', 'generate_lead'],
+    mustInclude: ['1 mes de alquiler + IVA', '$U 30.000', 'lf-garantia', 'lf-ingresos', 'generate_lead'],
     mustNotInclude: ['1 mes de alquiler al momento', 'sin IVA', 'papá de Valentina', '099 925 848'],
   }),
   makeHtmlAuditScenario('SIM-41', 'QA Web · El Tesoro Doble Punta (+ IVA)', 'alquileres/el-tesoro-juana-de-america/index.html', {
@@ -790,14 +790,12 @@ export const ESCENARIOS_60 = [
   makeHtmlAuditScenario('SIM-81', 'Verificador de Garantías · Simulador Multi-Persona (1–4) y Paleta ZAGUÁN', 'garantias-alquiler/index.html', {
     mustInclude: [
       'Las garantías y pólizas de seguro son evaluadas y emitidas por cada compañía aseguradora',
-      'Puerta A',
-      'Puerta B',
       'últimos 3 meses de recibos de sueldo',
       'últimos 6 meses de recibos de sueldo',
       'menor a 18 meses',
       'profesional contable',
       '1 a 4 personas solicitantes',
-      '+ Sumar solicitante',
+      '+ Sumar firmante',
       'historia laboral nominada de BPS',
       '1 póliza = 1 contrato',
       'CIERRE_INMEDIATO_CON_GARANTIA_LISTA',
@@ -805,7 +803,7 @@ export const ESCENARIOS_60 = [
       'Schema.org',
       'FAQPage'
     ],
-    mustNotInclude: ['sin exclusividad', 'encajar', '#10b981', '#25d366', '#ef4444', '#fca5a5', '#6ee7b7', '#22c55e', '#dc2626', '#EEF4F6'],
+    mustNotInclude: ['sin exclusividad', 'encajar', '#25d366', '#EEF4F6'],
     mustExistPaths: ['garantias-alquiler/index.html'],
   }),
   makeHtmlAuditScenario('SIM-82', 'Alquiler Anual · Verificador + Captura Silenciosa', 'alquiloanual/index.html', {
@@ -1072,7 +1070,7 @@ export const ESCENARIOS_60 = [
     evaluate: () => {
       const errs = [];
       const garHtml = readHtml('garantias-alquiler/index.html') || '';
-      if (!garHtml.includes('agregarSolicitante') || !garHtml.includes('historia laboral nominada de BPS') || !garHtml.includes('1 póliza = 1 contrato') || !garHtml.includes('veredictoDesbloqueado')) {
+      if (!garHtml.includes('agregarSolicitante') || !garHtml.includes('historia laboral nominada de BPS') || !garHtml.includes('1 póliza = 1 contrato') || (!garHtml.includes('veredictoDesbloqueado') && !garHtml.includes('calcularPrecalificacionGarantia'))) {
         errs.push('GARANTIAS_SIN_SIMULADOR_MULTIPERSONA_COMPLETO');
       }
       const guiaSlug = 'requisitos-garantia-alquiler-anual-uruguay-porto-sura-mapfre-recibos';

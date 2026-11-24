@@ -1,7 +1,7 @@
 {
   "project_id": "ZAGUAN_PROYECTO",
   "brand_name": "1 - ZAGUÁN",
-  "updated_at": "2026-11-23T12:30:00-03:00",
+  "updated_at": "2026-11-24T08:45:00-03:00",
   "links": [
     {
       "title": "🧭 Mis 5 Acciones del Día + Qué Invocar (Linktree Operativo)",
@@ -10,13 +10,23 @@
     },
     {
       "title": "🎯 Pedidos Abiertos B2C + Cabina Comercial D1",
-      "type": "Buscador Global y Cruce en Vivo",
+      "type": "Semáforo Comercial Real y Cruce en Vivo",
       "url": "https://zaguanpropiedades.com/admin/#tab-pedidos"
     },
     {
       "title": "🛡️ Verificador de Garantías de Alquiler Anual (Uruguay)",
-      "type": "Puerta A + Puerta B + FAQs Reales",
+      "type": "1 a 4 Firmantes (~30%) + 8 FAQs Reales",
       "url": "https://zaguanpropiedades.com/garantias-alquiler/"
+    },
+    {
+      "title": "🏠 Alquiler Anual Centro de Maldonado 2D ($U 27k + $U 5k gastos comunes)",
+      "type": "Ficha Activa REF. ZAG-ALQ-07",
+      "url": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/"
+    },
+    {
+      "title": "🏠 Alquiler Anual La Fortuna 2D a Estrenar ($U 30.000 todo incluido)",
+      "type": "Ficha Activa REF. ZAG-ALQ-05",
+      "url": "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/"
     },
     {
       "title": "🔑 Alquiler Anual Todo el Año (Propietarios e Inquilinos)",

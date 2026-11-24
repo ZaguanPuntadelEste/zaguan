@@ -622,7 +622,7 @@
       "id": "MP-10",
       "operacion": "Venta Vivienda + Local / Padrón · Dueño con WhatsApp",
       "titulo": "Propiedad particular con mejoras en eje San Carlos / La Capuera",
-      "precio": "USD 14.500 – 180.000",
+      "precio": "USD 180.000",
       "zona": "Maldonado Centro / Pinares",
       "vendedor": "Mario Viroga",
       "telefono_directo": "59895398869",
@@ -633,18 +633,16 @@
       "estado_envio": "respondio",
       "ts_envio_1": 1794405253776,
       "fecha_envio_1": "17/11 08:58 · Casa en Pedro Loustane a la venta",
-      "respuesta_recibida": "Buenos días !!!! Un gusto Tengo una casa en Pedro Loustane a la venta si. A la orden",
+      "respuesta_recibida": "Queda libre a fines de noviembre · Venta USD 180.000 (papeles en trámite) + evalúa alquiler anual ~$U 33.000/mes c/ cláusula de venta. Avisa al recibir llaves.",
       "vertical_calculada": "O4",
       "corchetes_en_aviso": [
-        "Operación: Venta terreno / padrón",
-        "Zona: Maldonado Centro / Pinares",
-        "Precio en aviso: USD 14.500 – 180.000"
+        "Operación: Venta casa Pedro Loustane (USD 180.000) / opción alquiler anual ~$U 33.000",
+        "Disponibilidad: Queda libre a fines de noviembre (inquilinos salientes)",
+        "Papeles: Agrimensor / regularización en trámite"
       ],
       "estado_material_aviso": "Fotos base limpias publicadas en aviso; si sigue disponible y avanza, pedir fotos de detalle/cochera o video continuo",
       "corchetes_faltantes": [
-        "Metros totales, frente y fondo",
-        "Servicios en puerta (UTE, OSE, saneamiento)",
-        "Régimen y estado documental (padrón independiente listo para escriturar)"
+        "Aviso al recibir llaves a fin de noviembre + fotos actuales / metraje"
       ],
       "nivel_semaforo": "1A_LIMPIO",
       "carril": "3_en_conversacion"
@@ -1540,24 +1538,21 @@
       "url": "https://www.facebook.com/marketplace/item/1068347979492853/",
       "nota_auditoria": "Perfil verificado con 1 sola publicación activa en Marketplace y foto limpia de calle sin marcas; celular 095 630 415 (y secundario 099 135 800) en la descripción.",
       "mensaje_mar": "Hola Alejandro, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu padrón entero con locales en venta en San Carlos (USD 240.000).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. Sigue disponible para sumarlo a nuestra cartera?\n\n_Si sigue en venta, contame por favor cuántos metros totales y comerciales son, cuántos locales tiene, si hoy genera renta activa y si está con títulos y planos al día para escriturar._",
-      "estado_envio": "enviado_1",
+      "estado_envio": "esperando_respuesta_t2",
       "seguimiento_72h": "Hola Alejandro, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en San Carlos, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O4",
       "corchetes_en_aviso": [
-        "Operación: Venta terreno / padrón",
-        "Zona: San Carlos, Maldonado",
-        "Precio en aviso: USD 240.000"
+        "Operación: Venta bloque comercial + renta · San Carlos sobre avenida (USD 240.000)",
+        "Composición: 2 casas independientes + monoambiente + local equipado al frente",
+        "Renta vigente: USD 1.000/mes con contrato por escribano y cláusula de salida 2–3 meses"
       ],
       "estado_material_aviso": "Autorizó ingreso a cartera el 23/11 15:01 hs; relevar m², renta de locales, títulos/planos y fotos por WhatsApp.",
       "corchetes_faltantes": [
-        "Metros comerciales, locales activos y frente/fondo",
-        "Renta actual estimada (si los locales están alquilados)",
-        "Estado documental y planos al día para escriturar",
-        "Fotos actuales o video corto por WhatsApp"
+        "Dirección exacta sobre avenida y Padrón (consulta al padre)",
+        "Croquis / medidas y fotos interiores"
       ],
       "carril": "3_en_conversacion",
-      "estado_envio": "respondio",
-      "respuesta_recibida": "Buenas tardes, si la propiedad sigue disponible y a la venta. Pueden agregarla a su cartera, gracias.",
+      "respuesta_recibida": "2 casas independientes + monoambiente + local al frente · Renta actual USD 1.000/mes por escribano (salida 2-3 meses). Consulta a su padre dirección, Padrón y croquis.",
       "fecha_respuesta": "2026-11-23 15:01",
       "nivel_semaforo": "1B_CON_ALERTA",
       "badge_alerta": "🟡 SAN CARLOS · ALTO POTENCIAL COMERCIAL (USD 240.000)",
@@ -1614,7 +1609,7 @@
       "url": "https://www.facebook.com/marketplace/item/880460288464591/",
       "nota_auditoria": "Perfil verificado con solo 2 publicaciones activas y foto limpia sin inmobiliaria; indica 'Por ASEGURADORA' y 098607109 en aviso Marketplace (+598 94 294 017 contacto WA activo).",
       "mensaje_mar": "Hola Claudia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu apartamento de 2 dormitorios en alquiler anual en Centro de Maldonado ($U 32.000 / mes).\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Vi que pedís garantía de aseguradora. Si sigue libre, contame si además de aseguradora contemplás depósito o clientes del exterior con ingresos certificados mediante nuestra escribanía aliada, qué incluye el monto mensual (gastos comunes, Wi-Fi o consumos), si tiene cochera (fija, techada o descubierta, subsuelo o calle) y si admite niños o mascotas._",
-      "estado_envio": "esperando_respuesta_t2",
+      "estado_envio": "ficha_activa",
       "seguimiento_72h": "Hola Claudia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Centro, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1629,7 +1624,6 @@
       "estado_material_aviso": "6 fotos reales recibidas por WhatsApp el 23/11 + ficha pública REF. ZAG-ALQ-07 activa (calle exacta resguardada en Bóveda Privada).",
       "corchetes_faltantes": [],
       "carril": "4_ficha_activa",
-      "estado_envio": "ficha_activa",
       "url_ficha_publica": "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/",
       "disponibilidad_visitas": "De 16:00 hs en adelante, cualquier día",
       "ts_envio_1": 1795448809000,

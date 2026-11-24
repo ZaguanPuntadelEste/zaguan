@@ -276,7 +276,7 @@
 </header>
 
 <main class="container">
-  <!-- SEMÁFORO TÉCNICO DE SERVIDORES 24/7 -->
+  <!-- SEMÁFORO TÉCNICO + PULSO COMERCIAL REAL 24/7 -->
   <div class="section-box" id="semaforo-box" style="border:1.5px solid rgba(16,185,129,0.55);background:rgba(8,21,33,0.94);margin-bottom:14px;padding:12px 16px;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
       <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
@@ -290,6 +290,10 @@
         <a class="btn btn-email btn-sm" href="https://zaguan-crm-bot.943ari.workers.dev/api/calendario.ics" target="_blank" rel="noopener noreferrer">📅 Suscribir Calendario Vivo (.ics)</a>
         <a class="btn btn-wa btn-sm" href="https://t.me/zaguan_crm_bot" target="_blank" rel="noopener noreferrer">✈️ Abrir @zaguan_crm_bot ↗</a>
       </div>
+    </div>
+    <div id="semaforo-negocio-wrap" style="display:none;margin-top:10px;padding-top:10px;border-top:1px solid var(--border);align-items:center;gap:10px;flex-wrap:wrap;">
+      <span class="tag tag-ley">📈 SEMÁFORO COMERCIAL REAL</span>
+      <div id="semaforo-luces-negocio" style="display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:#E2E8F0;"></div>
     </div>
   </div>
 
@@ -1708,6 +1712,8 @@ async function loadRadar4Z() {
 window.loadSemaforoLive = async function() {
   const box = document.getElementById('semaforo-box');
   const lightsEl = document.getElementById('semaforo-luces');
+  const negWrap = document.getElementById('semaforo-negocio-wrap');
+  const negEl = document.getElementById('semaforo-luces-negocio');
   if (!lightsEl) return;
   try {
     const res = await fetch(`${CRM_API_URL}/api/semaforo?v=${Date.now()}`);
@@ -1715,9 +1721,13 @@ window.loadSemaforoLive = async function() {
     if (box) {
       box.style.borderColor = data.ok ? 'rgba(16,185,129,0.6)' : 'rgba(239,68,68,0.8)';
     }
-    lightsEl.innerHTML = (data.luces || []).map(l =>
-      `<span title="${String(l.detalle || '').replace(/"/g, '&quot;')}" style="padding:4px 9px;border-radius:999px;background:rgba(15,23,42,0.85);border:1px solid ${l.estado === 'verde' ? 'rgba(16,185,129,0.5)' : l.estado === 'amarillo' ? 'rgba(245,158,11,0.5)' : 'rgba(239,68,68,0.7)'};">${l.icono} <strong>${l.nombre}:</strong> ${l.detalle}</span>`
-    ).join('');
+    const renderLight = l =>
+      `<span title="${String(l.detalle || '').replace(/"/g, '&quot;')}" style="padding:4px 9px;border-radius:999px;background:rgba(15,23,42,0.85);border:1px solid ${l.estado === 'verde' ? 'rgba(16,185,129,0.5)' : l.estado === 'amarillo' ? 'rgba(245,158,11,0.5)' : 'rgba(239,68,68,0.7)'};">${l.icono} <strong>${l.nombre}:</strong> ${l.detalle}</span>`;
+    lightsEl.innerHTML = (data.luces || []).map(renderLight).join('');
+    if (negWrap && negEl && Array.isArray(data.luces_negocio) && data.luces_negocio.length) {
+      negWrap.style.display = 'flex';
+      negEl.innerHTML = data.luces_negocio.map(renderLight).join('');
+    }
   } catch (e) {
     if (box) box.style.borderColor = 'rgba(239,68,68,0.85)';
     lightsEl.innerHTML = `<span style="color:#FCA5A5;">🔴 Sin respuesta del servidor en la nube (${CRM_API_URL}/api/semaforo)</span>`;

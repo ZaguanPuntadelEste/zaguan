@@ -29,14 +29,14 @@
     "botones_whatsapp_calificadores_80c": [
       "Tengo Porto, Sura, Mapfre o Santander: quiero ver la ficha completa",
       "Tengo recibos en BPS y quiero simular si califico para aseguradora",
-      "Quiero comparar las 2 opciones de 2D ($U 30.000 y $U 27.000 + $U 5.000 GC)"
+      "Quiero comparar las 2 opciones 2D ($U 30.000 y $U 27.000 + gastos comunes)"
     ],
     "comentario_precio_publico_ig": "El alquiler es de $U 27.000/mes más $U 5.000 (agua OSE incluida) de gastos comunes. Requisito excluyente: solo aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o Santander). Tocá el botón del anuncio o el enlace de nuestro perfil para ver la ficha completa con las 8 fotos, el croquis y el simulador de garantía.",
     "piezas_a_rotar": [
       {
         "codigo": "ZAG-ALQ-07-P1",
         "portada_url": "https://zaguanpropiedades.com/assets/packs/ZAG-ALQ-07/01-portada-precio-visita.jpg",
-        "tema": "Pieza 1 · Centro, Maldonado: 2 dormitorios a $U 27.000/mes + GC con agua incluida"
+        "tema": "Pieza 1 · Centro, Maldonado: 2 dormitorios a $U 27.000/mes más gastos comunes con agua incluida"
       },
       {
         "codigo": "ZAG-ALQ-07-P2",
@@ -60,7 +60,7 @@
     {
       "num": 1,
       "codigo": "ZAG-ALQ-07-P1",
-      "tema": "Pieza 1 · Centro, Maldonado: 2 dormitorios a $U 27.000/mes + GC con agua incluida",
+      "tema": "Pieza 1 · Centro, Maldonado: 2 dormitorios a $U 27.000/mes más gastos comunes con agua incluida",
       "cover_photo_local": "/Users/arianawajntraub/Library/CloudStorage/GoogleDrive-ariana@starunionservicios.com.ar/Mi unidad/zaguan/zaguan-main/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg",
       "cover_filename": "01-portada-precio-visita.jpg",
       "badge_top": "ALQUILER ANUAL",
