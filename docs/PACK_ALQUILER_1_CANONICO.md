@@ -54,19 +54,44 @@
 
 ---
 
-## 4. Aduana fría en WhatsApp directo (`P-11`: `/hola`, `/alquiler`, `/frio1f`, `/frio1c` y `/frio2`)
+## 4. Operación real en WhatsApp Business HOY (sin bot conectado) + Atajos `/`
 
-Cuando alguien escribe por afuera de la web sin pasar por el filtro móvil:
+La app común de WhatsApp Business en el celular **dispara el mismo Mensaje de Bienvenida para todos los contactos nuevos** y no distingue si alguien viene del anuncio (`[VISITA CALIFICADA]`) o escribe en frío (`"Hola"`). Hasta conectar el QR de Coexistencia (`P-13`), se opera así en `2` segundos por chat:
 
-### Respuesta rápida `/hola` (Saludo ciego sin operación aclarada — puede querer Pozo, Compra, Alquiler o Publicar)
+### Mensaje de bienvenida automático de WhatsApp Business para HOY *(sin menú numérico `1-2-3-4`)*
+*(Pegar en `WhatsApp Business → Herramientas → Mensaje de bienvenida`. Funciona tanto para quien ya mandó su ficha desde el anuncio web como para quien escribe `"Hola"` buscando Pozo, Venta o Alquiler).*
 ```text
-¡Hola! Te damos la bienvenida a ZAGUÁN Propiedades (Maldonado y Punta del Este). Soy Mar.
+¡Hola! Te damos la bienvenida a ZAGUÁN Propiedades (Punta del Este · Maldonado). Soy Mar y ya recibí tu mensaje.
 
-Contame con qué opción te puedo ayudar hoy:
-1) Desarrollos en pozo y a estrenar (desde USD 79.800 con financiación)
-2) Compra de casas, apartamentos o terrenos
-3) Alquiler anual de vivienda todo el año
-4) Publicar tu propiedad en venta o alquiler anual
+Si recién enviaste tu ficha desde la web, en minutos te paso horarios disponibles con tus datos en mano; si nos escribís directo, contame acá si buscás desarrollos en pozo, compra de casa o terreno, alquiler anual o publicar tu propiedad.
+
+Mientras te respondo, podés recorrer nuestro catálogo ordenado por categoría o visitar zaguanpropiedades.com
+```
+
+### Cómo responder cada caso en `2` segundos con `/` *(Respuestas rápidas)*
+* **Llegó `[VISITA CALIFICADA]` desde el aviso web:** abrí el chat, escribí `/visita` y enviá *(cero repreguntas)*.
+* **Llegó `[BÚSQUEDA PRIORITARIA]` desde el aviso web:** abrí el chat, escribí `/prioritaria` y enviá.
+* **Escribió en frío buscando desarrollos / pozo (`USD`):** escribí `/pozo` y enviá.
+* **Escribió en frío buscando compra de casa o terreno (`USD`):** escribí `/venta` y enviá.
+* **Escribió en frío buscando alquiler anual (`$U`):** escribí `/alquiler` *(o `/frio1f` para La Fortuna, `/frio1c` para Centro, `/frio2` para respaldo)*.
+* **Cómo se automatiza 100% sin usar `/` a mano:** escaneando el **QR de Coexistencia (`P-13`)**, que conecta este mismo número `+598 98 712 064` al motor de Mar manteniendo tu WhatsApp Business activo en el celular.
+
+*(Nota: el menú numérico `/hola` `1-2-3-4` queda reservado solo para cuando `P-13` esté conectado respondiendo solo).*
+
+### Respuesta rápida `/pozo` (Entrada fría buscando inversión o compra en pozo en USD)
+```text
+¡Hola! Qué bueno saludarte. Te comparto nuestras propuestas de desarrollos en pozo en Maldonado y Punta del Este (desde USD 79.800 con financiación directa y beneficios Ley 18.795 según el proyecto):
+https://zaguanpropiedades.com/proyectos/
+
+¿Buscás para vivir todo el año, renta o inversión en cuotas, y en qué rango en USD evaluás? Así te paso planos y condiciones exactas de obra.
+```
+
+### Respuesta rápida `/venta` (Entrada fría buscando compra de casa, apto o terreno en USD)
+```text
+¡Hola! Te paso nuestras opciones activas de venta en Maldonado, Punta del Este y José Ignacio:
+https://zaguanpropiedades.com/propiedades/
+
+¿Qué tipo de propiedad buscás (casa, apartamento o terreno), en qué zona y si evaluás pago contado, financiación bancaria o entrega?
 ```
 
 ### Respuesta rápida `/alquiler` (Antes `/frio1` — usar SOLO cuando ya pidió alquiler anual por afuera y no aclaró unidad)
