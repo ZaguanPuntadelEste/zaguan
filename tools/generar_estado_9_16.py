@@ -13,7 +13,9 @@ import subprocess
 from PIL import Image, ImageDraw, ImageFont
 
 W, H = 1080, 1920
-SPLIT_Y = 1060
+SPLIT_Y = 960
+SAFE_L, SAFE_R = 96, 936
+MAX_W = SAFE_R - SAFE_L
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOGO_PATH = os.path.join(ROOT, "assets/brand/zaguan-white.png")
@@ -23,6 +25,15 @@ FFMPEG_DEFAULT = "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3
 FONT_BLACK = "/Library/Fonts/Lato-Black.ttf"
 FONT_BOLD = "/Library/Fonts/Lato-Bold.ttf"
 FONT_REG = "/Library/Fonts/Lato-Regular.ttf"
+
+
+def crop_source(img: Image.Image, crop_top_frac: float = 0.0, crop_bot_frac: float = 0.0) -> Image.Image:
+    iw, ih = img.size
+    y0 = int(round(ih * max(0.0, min(0.45, crop_top_frac))))
+    y1 = int(round(ih * (1.0 - max(0.0, min(0.45, crop_bot_frac)))))
+    if y1 <= y0 + 20:
+        return img
+    return img.crop((0, y0, iw, y1))
 
 
 def fit_cover(img: Image.Image, tw: int, th: int, focus_y: float = 0.45) -> Image.Image:
@@ -35,8 +46,10 @@ def fit_cover(img: Image.Image, tw: int, th: int, focus_y: float = 0.45) -> Imag
     return resized.crop((x0, y0, x0 + tw, y0 + th))
 
 
-def wrap_two_lines(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int):
+def wrap_all_lines(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int) -> list[str]:
     words = text.strip().split()
+    if not words:
+        return []
     lines = []
     cur = []
     for w in words:
@@ -46,23 +59,36 @@ def wrap_two_lines(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTyp
         else:
             lines.append(" ".join(cur))
             cur = [w]
-            if len(lines) == 2:
-                break
-    if cur and len(lines) < 2:
+    if cur:
         lines.append(" ".join(cur))
-    return lines[:2]
+    return lines
+
+
+def fit_text_lines(draw: ImageDraw.ImageDraw, text: str, font_path: str, max_size: int, min_size: int, max_lines: int, max_w: int):
+    for sz in range(max_size, min_size - 1, -2):
+        fnt = ImageFont.truetype(font_path, sz)
+        lines = wrap_all_lines(draw, text, fnt, max_w)
+        if len(lines) <= max_lines and all(draw.textlength(ln, font=fnt) <= max_w for ln in lines):
+            return fnt, lines, sz
+    fnt = ImageFont.truetype(font_path, min_size)
+    lines = wrap_all_lines(draw, text, fnt, max_w)[:max_lines]
+    return fnt, lines, min_size
+
+
+def wrap_two_lines(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, max_w: int):
+    return wrap_all_lines(draw, text, font, max_w)[:2]
 
 
 def build_overlay(spec: dict, scratch_dir: str) -> tuple[str, Image.Image]:
     ov = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     draw = ImageDraw.Draw(ov)
 
-    for y in range(260):
-        alpha = int(175 * (1 - y / 260) ** 1.4)
+    for y in range(340):
+        alpha = int(190 * (1 - y / 340) ** 1.3)
         draw.line([(0, y), (W, y)], fill=(8, 21, 33, alpha))
 
-    for y in range(SPLIT_Y - 140, SPLIT_Y):
-        t = (y - (SPLIT_Y - 140)) / 140.0
+    for y in range(SPLIT_Y - 120, SPLIT_Y):
+        t = (y - (SPLIT_Y - 120)) / 120.0
         alpha = int(255 * (t ** 1.6))
         draw.line([(0, y), (W, y)], fill=(8, 21, 33, alpha))
 
@@ -71,64 +97,84 @@ def build_overlay(spec: dict, scratch_dir: str) -> tuple[str, Image.Image]:
 
     if os.path.isfile(LOGO_PATH):
         logo = Image.open(LOGO_PATH).convert("RGBA")
-        target_h = 46
+        target_h = 44
         ratio = target_h / logo.height
         logo_resized = logo.resize((int(round(logo.width * ratio)), target_h), Image.LANCZOS)
-        ov.paste(logo_resized, (74, 150), logo_resized)
+        ov.paste(logo_resized, (SAFE_L, 232), logo_resized)
 
-    f_pill = ImageFont.truetype(FONT_BOLD, 22)
+    f_pill = ImageFont.truetype(FONT_BOLD, 20)
     pill_txt = (spec.get("operacion_badge") or "ALQUILER ANUAL").upper()
     tw = draw.textlength(pill_txt, font=f_pill)
-    px0, py0, px1, py1 = W - 74 - tw - 48, 146, W - 74, 198
+    px0, py0, px1, py1 = max(SAFE_L + 220, SAFE_R - tw - 44), 230, SAFE_R, 278
     draw.rectangle([(px0, py0), (px1, py1)], fill=(18, 59, 74, 240), outline=(45, 118, 138, 255), width=2)
-    draw.text((px0 + 24, py0 + 13), pill_txt, font=f_pill, fill=(243, 240, 232, 255))
+    draw.text((px0 + 22, py0 + 13), pill_txt, font=f_pill, fill=(243, 240, 232, 255))
 
-    f_tag = ImageFont.truetype(FONT_BOLD, 22)
-    tag_txt = (spec.get("estado_pill") or f"{spec.get('zona_publica', 'MALDONADO')} · {spec.get('precio_publico', '')}").upper()[:52]
+    f_tag = ImageFont.truetype(FONT_BOLD, 20)
+    tag_raw = (spec.get("estado_pill") or f"{spec.get('zona_publica', 'MALDONADO')} · {spec.get('precio_publico', '')}").upper()
+    tag_txt = tag_raw[:54]
+    while draw.textlength(tag_txt, font=f_tag) > MAX_W - 44 and len(tag_txt) > 10:
+        tag_txt = tag_txt[:-1].rstrip(" ·")
     ttw = draw.textlength(tag_txt, font=f_tag)
-    tx0, ty0, tx1, ty1 = 78, SPLIT_Y + 66, min(W - 78, 78 + ttw + 44), SPLIT_Y + 120
+    tx0, ty0, tx1, ty1 = SAFE_L, SPLIT_Y + 44, min(SAFE_R, SAFE_L + ttw + 44), SPLIT_Y + 94
     draw.rectangle([(tx0, ty0), (tx1, ty1)], fill=(12, 36, 52, 255), outline=(45, 118, 138, 255), width=2)
-    draw.text((tx0 + 22, ty0 + 13), tag_txt, font=f_tag, fill=(243, 240, 232, 255))
+    draw.text((tx0 + 22, ty0 + 14), tag_txt, font=f_tag, fill=(243, 240, 232, 255))
 
-    f_head = ImageFont.truetype(FONT_BLACK, 60)
-    head_lines = wrap_two_lines(draw, spec.get("estado_titulo") or spec.get("titulo_corto") or "Oportunidad en Maldonado", f_head, W - 156)
+    head_txt = spec.get("estado_titulo") or spec.get("titulo_corto") or "Oportunidad en Maldonado"
+    f_head, head_lines, head_sz = fit_text_lines(draw, head_txt, FONT_BLACK, 54, 38, 2, MAX_W)
+    head_y = SPLIT_Y + 118
     for idx, line in enumerate(head_lines):
-        draw.text((78, SPLIT_Y + 158 + idx * 72), line, font=f_head, fill=(243, 240, 232, 255))
+        draw.text((SAFE_L, head_y + idx * (head_sz + 10)), line, font=f_head, fill=(243, 240, 232, 255))
 
-    f_sub = ImageFont.truetype(FONT_REG, 32)
-    sub_lines = wrap_two_lines(draw, spec.get("estado_subtitulo") or spec.get("resumen_corto") or "", f_sub, W - 156)
+    sub_txt = (spec.get("estado_subtitulo") or spec.get("resumen_corto") or "").strip()
+    sub_y = head_y + len(head_lines) * (head_sz + 10) + 22
+    f_sub, sub_lines, sub_sz = fit_text_lines(draw, sub_txt, FONT_REG, 30, 22, 3, MAX_W)
     for idx, line in enumerate(sub_lines):
-        draw.text((78, SPLIT_Y + 336 + idx * 46), line, font=f_sub, fill=(184, 197, 208, 255))
+        draw.text((SAFE_L, sub_y + idx * (sub_sz + 12)), line, font=f_sub, fill=(184, 197, 208, 255))
 
-    bx0, by0, bx1, by1 = 78, SPLIT_Y + 480, W - 78, SPLIT_Y + 572
+    bx0, by0, bx1, by1 = SAFE_L, 1384, SAFE_R, 1470
     draw.rectangle([(bx0, by0), (bx1, by1)], fill=(243, 240, 232, 255))
-    f_cta = ImageFont.truetype(FONT_BLACK, 29)
     cta_txt = spec.get("estado_cta") or (
         "Ver ficha y simular garantía · @zaguanpropiedades"
         if "alquiler" in (spec.get("operacion") or "").lower()
         else "Ver ficha y croquis · @zaguanpropiedades"
     )
-    draw.text((bx0 + 36, by0 + 28), cta_txt, font=f_cta, fill=(8, 21, 33, 255))
+    f_cta, cta_lines, cta_sz = fit_text_lines(draw, cta_txt, FONT_BLACK, 26, 20, 1, MAX_W - 108)
+    cta_line = cta_lines[0] if cta_lines else cta_txt
+    draw.text((bx0 + 32, by0 + (86 - cta_sz) // 2 - 2), cta_line, font=f_cta, fill=(8, 21, 33, 255))
     arrow_font_path = "/System/Library/Fonts/Supplemental/Arial Unicode.ttf"
     if os.path.isfile(arrow_font_path):
-        draw.text((bx1 - 68, by0 + 24), "→", font=ImageFont.truetype(arrow_font_path, 36), fill=(8, 21, 33, 255))
+        draw.text((bx1 - 56, by0 + 22), "→", font=ImageFont.truetype(arrow_font_path, 34), fill=(8, 21, 33, 255))
 
     overlay_path = os.path.join(scratch_dir, "overlay_9_16.png")
     ov.save(overlay_path, "PNG")
     return overlay_path, ov
 
 
-def build_jpg(lead_photo: str, ov: Image.Image, jpg_out: str):
-    lead = Image.open(lead_photo).convert("RGB")
+def open_prepped_photo(entry, default_focus_y: float = 0.45):
+    if isinstance(entry, dict):
+        p = entry["path"]
+        fy = entry.get("focus_y", default_focus_y)
+        ct = entry.get("crop_top_frac", 0.0)
+        cb = entry.get("crop_bot_frac", 0.0)
+    else:
+        p, fy, ct, cb = entry, default_focus_y, 0.0, 0.0
+    im = Image.open(p).convert("RGB")
+    if ct or cb:
+        im = crop_source(im, ct, cb)
+    return im, fy
+
+
+def build_jpg(lead_photo, ov: Image.Image, jpg_out: str, focus_y: float = 0.45):
+    lead, fy = open_prepped_photo(lead_photo, focus_y)
     bg = Image.new("RGB", (W, H), (8, 21, 33))
-    top_crop = fit_cover(lead, W, SPLIT_Y + 40, focus_y=0.45)
+    top_crop = fit_cover(lead, W, SPLIT_Y + 40, focus_y=fy)
     bg.paste(top_crop, (0, 0))
     comp = Image.alpha_composite(bg.convert("RGBA"), ov).convert("RGB")
     os.makedirs(os.path.dirname(jpg_out), exist_ok=True)
     comp.save(jpg_out, "JPEG", quality=92)
 
 
-def build_mp4(photos: list[str], overlay_path: str, mp4_out: str, audio_path: str, ffmpeg_bin: str, scratch_dir: str):
+def build_mp4(photos: list, overlay_path: str, mp4_out: str, audio_path: str, ffmpeg_bin: str, scratch_dir: str, focus_y: float = 0.45):
     chosen = (photos * 5)[:5]
     zoom_specs = [
         "z='min(zoom+0.0018,1.14)':x='iw/2-(iw/zoom/2)':y='ih*0.44-(ih/zoom/2)'",
@@ -138,10 +184,10 @@ def build_mp4(photos: list[str], overlay_path: str, mp4_out: str, audio_path: st
         "z='min(zoom+0.0015,1.11)':x='iw/2-(iw/zoom/2)':y='ih*0.42-(ih/zoom/2)'",
     ]
     prepped = []
-    for idx, p in enumerate(chosen):
-        im = Image.open(p).convert("RGB")
+    for idx, entry in enumerate(chosen):
+        im, fy = open_prepped_photo(entry, focus_y)
         canvas = Image.new("RGB", (W, H), (8, 21, 33))
-        top_part = fit_cover(im, W, SPLIT_Y + 80, focus_y=0.42)
+        top_part = fit_cover(im, W, SPLIT_Y + 80, focus_y=fy)
         canvas.paste(top_part, (0, 0))
         p_out = os.path.join(scratch_dir, f"scene_{idx}.jpg")
         canvas.save(p_out, "JPEG", quality=95)
@@ -263,24 +309,28 @@ def main():
         print(json.dumps({"ok": True, "pack_4_redes": out_files}))
         return
 
-    photos_dir = spec["photos_dir"]
-    photos = sorted([
-        os.path.join(photos_dir, fn)
-        for fn in os.listdir(photos_dir)
-        if fn.lower().endswith((".jpg", ".jpeg", ".png")) and not fn.startswith(".")
-    ])
+    if isinstance(spec.get("photos"), list) and spec["photos"]:
+        photos = spec["photos"]
+    else:
+        photos_dir = spec["photos_dir"]
+        photos = sorted([
+            os.path.join(photos_dir, fn)
+            for fn in os.listdir(photos_dir)
+            if fn.lower().endswith((".jpg", ".jpeg", ".png")) and not fn.startswith(".")
+        ])
     if not photos:
-        raise SystemExit(f"No hay fotos en {photos_dir}")
+        raise SystemExit("No hay fotos para generar la pieza 9:16")
 
     ffmpeg_bin = spec.get("ffmpeg_bin") or FFMPEG_DEFAULT
     audio_path = spec.get("audio_path") or AUDIO_DEFAULT
     jpg_out = spec["jpg_out"]
     mp4_out = spec["mp4_out"]
+    focus_y = float(spec.get("focus_y", 0.45))
 
     with tempfile.TemporaryDirectory() as scratch_dir:
         overlay_path, ov = build_overlay(spec, scratch_dir)
-        build_jpg(photos[0], ov, jpg_out)
-        build_mp4(photos, overlay_path, mp4_out, audio_path, ffmpeg_bin, scratch_dir)
+        build_jpg(photos[0], ov, jpg_out, focus_y=focus_y)
+        build_mp4(photos, overlay_path, mp4_out, audio_path, ffmpeg_bin, scratch_dir, focus_y=focus_y)
 
     print(json.dumps({"ok": True, "jpg": jpg_out, "mp4": mp4_out, "photos_used": len(photos)}))
 
