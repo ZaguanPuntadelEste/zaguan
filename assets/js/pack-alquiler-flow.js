@@ -173,6 +173,8 @@
         var utmSrc = params.get('utm_source') || '';
         var utmCont = params.get('utm_content') || '';
         var utmFull = utmSrc ? (utmCont ? (utmSrc + ' · ' + utmCont) : utmSrc) : '(directo)';
+        var isOwnerBrowser = false;
+        try { isOwnerBrowser = localStorage.getItem('zg_owner_device') === '1'; } catch (e) {}
         var payload = {
           session_id: sessionId,
           slug: opts.slug,
@@ -182,6 +184,7 @@
           resultado: resultado || (paso === 0 ? 'ficha_abierta' : 'en_curso'),
           consentimiento: consentFlag ? 1 : 0,
           nombre: consentFlag ? state.nombre : undefined,
+          es_prueba: isOwnerBrowser || params.get('test') === '1' ? 1 : 0,
           utm_source: utmFull.slice(0, 60),
           texto_resumen: buildSummaryText(),
           respuestas: {
