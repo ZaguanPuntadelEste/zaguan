@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Cabina Google My Business · ZAGUÁN Propiedades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #081521;
+      --surface: #0F2536;
+      --estuario: #123B4A;
+      --bone: #F3F0E8;
+      --mist: #B7D6E0;
+      --muted: #A3B3C2;
+      --border: rgba(243,240,232,0.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--bone); font-family: 'Inter', Arial, sans-serif; line-height: 1.5; padding-bottom: 64px; }
+    .wrap { width: min(calc(100% - 28px), 1200px); margin: 0 auto; }
+    .topbar { background: rgba(8,21,33,0.96); border-bottom: 1px solid var(--border); padding: 14px 0; position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px); }
+    .topbar-in { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    h1, h2, h3 { font-family: 'Archivo', sans-serif; letter-spacing: -0.02em; }
+    .hero { padding: 24px 0 14px; }
+    .kicker { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(183,214,224,0.16); color: var(--mist); border: 1px solid rgba(183,214,224,0.35); margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 6px; }
+    .muted { color: var(--muted); }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 18px; }
+    .tab-btn { background: var(--surface); color: var(--bone); border: 1px solid var(--border); padding: 10px 15px; border-radius: 10px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
+    .tab-btn.active { background: var(--bone); color: var(--bg); border-color: var(--bone); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 980px) { .grid-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    @media (max-width: 720px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 10px; }
+    .card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .pill { background: rgba(183,214,224,0.16); color: var(--mist); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .field-lbl { display: block; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mist); margin-top: 4px; }
+    .copy-box { background: #081521; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13px; color: var(--bone); display: flex; justify-content: space-between; align-items: center; gap: 10px; word-break: break-word; }
+    .copy-ta { width: 100%; background: #081521; color: var(--bone); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.5; resize: vertical; }
+    input[type=text] { width: 100%; background: #081521; color: var(--bone); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 13.5px; }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 13px; border-radius: 10px; font-size: 12.5px; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+    .btn-primary { background: var(--bone); color: var(--bg); }
+    .btn-sec { background: var(--estuario); color: var(--bone); border-color: var(--border); }
+    .btn-sm { padding: 6px 10px; font-size: 11.5px; border-radius: 8px; flex-shrink: 0; }
+    .lock-banner { background: rgba(18,59,74,0.72); border: 1px solid rgba(183,214,224,0.38); border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; font-size: 13.5px; }
+    .prod-thumb { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 12px; border: 1px solid var(--border); background: #081521; }
+    .meta-row { display: flex; justify-content: space-between; align-items: center; gap: 8px; background: #081521; border: 1px solid var(--border); border-radius: 9px; padding: 7px 10px; font-size: 12.5px; }
+    .meta-row span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .list-clean { padding-left: 18px; color: var(--bone); font-size: 13.5px; display: grid; gap: 6px; }
+    @media (max-width: 640px) { .topbar .btn { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <strong>ZAGUÁN · Cabina Google My Business</strong>
+      <div class="btn-row">
+        <a class="btn btn-sec" href="/admin/">Cabina Admin</a>
+        <a class="btn btn-sec" href="/assets/kits-gbp/zaguan_my_business_6_fotos_limpias_galeria.zip" download>⬇ ZIP 6 fotos limpias + Logo</a>
+        <a class="btn btn-sec" href="/assets/kits-gbp/zaguan_my_business_12_placas_1200x1200.zip" download>⬇ ZIP 12 placas 1200x1200</a>
+        <a class="btn btn-primary" href="https://business.google.com/" target="_blank" rel="noopener noreferrer">Abrir Google My Business (arianabaires) ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">Cuenta arianabaires@gmail.com · Solo Punta del Este y Maldonado · Cero mezcla entre marcas</span>
+      <h1>Google My Business de Zaguán: alquileres arriba, prueba social alquilada y pozos en 1 clic</h1>
+      <p class="muted">Todo auditado en 1200x1200 sin bordes cortados ni amarillos, con textos SEO/GEO verificados y seguimiento en Analytics para medir cada clic que llega desde Google Maps.</p>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" onclick="showTab('perfil', this)">1. Perfil, Descripción y Servicios (3 min)</button>
+      <button type="button" class="tab-btn" onclick="showTab('productos', this)">2. Los 12 Productos 1200x1200 (Alquileres arriba)</button>
+      <button type="button" class="tab-btn" onclick="showTab('novedades', this)">3. Novedades + 4 Preguntas GEO</button>
+      <button type="button" class="tab-btn" onclick="showTab('resenas', this)">4. Destrabar Reseñas Reales (0 → 3+)</button>
+    </div>
+
+    <section id="tab-perfil" class="tab-pane active">
+      <div class="lock-banner">
+        <b>Checklist rápido de 3 minutos en Editar perfil:</b> 1) Cambiá la web actual por el enlace de abajo (así Analytics mide por separado el tráfico de Maps). 2) Sumá las 6 zonas de servicio sin poner dirección física. 3) Quitá <b>"Alquiler de propiedades a corto plazo"</b> de Servicios y cargá los 4 servicios propios.
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Descripción oficial del negocio (675 caracteres · tope 750)</h3>
+          <span class="pill">SEO + GEO local</span>
+        </div>
+        <textarea id="gbp-desc" class="copy-ta" rows="5">ZAGUÁN Propiedades gestiona alquiler anual con garantía aseguradora, venta directa e inversiones en pozo en Maldonado, Punta del Este y La Barra. Trabajamos con apartamentos y casas verificados para vivir todo el año (Centro de Maldonado, La Fortuna, Playa Mansa, Playa Brava y Roosevelt), pre-validación ágil de pólizas de Porto Seguro, Sura, Mapfre y Santander, y publicación abierta para propietarios particulares con filtro real de solvencia. En obra nueva comercializamos desarrollos con respaldo de escribanía local aliada, beneficios impositivos de la Ley 18.795 de Vivienda Promovida y atención bilingüe en español e inglés para residentes y compradores del exterior.</textarea>
+        <div class="btn-row"><button type="button" class="btn btn-primary" onclick="copyById('gbp-desc', this)">Copiar descripción</button></div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Sitio web y categorías exactas</h3>
+          <span class="field-lbl">Sitio web oficial con medición en Analytics</span>
+          <div class="copy-box">
+            <span id="gbp-web">https://zaguanpropiedades.com/?utm_source=google&amp;utm_medium=gbp_perfil</span>
+            <button type="button" class="btn btn-sec btn-sm" onclick="copyById('gbp-web', this)">Copiar URL</button>
+          </div>
+          <span class="field-lbl">Categoría principal</span>
+          <div class="copy-box"><span id="cat-p">Agencia inmobiliaria</span><button type="button" class="btn btn-sec btn-sm" onclick="copyById('cat-p', this)">Copiar</button></div>
+          <span class="field-lbl">Categorías secundarias</span>
+          <div class="copy-box"><span id="cat-s1">Agente inmobiliario</span><button type="button" class="btn btn-sec btn-sm" onclick="copyById('cat-s1', this)">Copiar</button></div>
+          <div class="copy-box"><span id="cat-s2">Consultor inmobiliario</span><button type="button" class="btn btn-sec btn-sm" onclick="copyById('cat-s2', this)">Copiar</button></div>
+        </div>
+
+        <div class="card">
+          <h3>6 áreas de servicio (sin dirección física)</h3>
+          <p class="muted" style="font-size:13px;">Mantener perfil sin domicilio al público y cubrir estas zonas del departamento de Maldonado:</p>
+          <ul class="list-clean">
+            <li>Maldonado, Departamento de Maldonado, Uruguay</li>
+            <li>Punta del Este, Departamento de Maldonado, Uruguay</li>
+            <li>La Barra, Departamento de Maldonado, Uruguay</li>
+            <li>El Tesoro, Departamento de Maldonado, Uruguay</li>
+            <li>Pinares, Departamento de Maldonado, Uruguay</li>
+            <li>José Ignacio / Santa Mónica, Departamento de Maldonado, Uruguay</li>
+          </ul>
+          <span class="field-lbl">Logo cuadrado y fotos de galería limpia</span>
+          <p class="muted" style="font-size:12.5px;">Subí el logo cuadrado (`00_Logo_Cuadrado_ZAGUAN_1000x1000.png`) y las 6 fotos limpias sin texto sobreimpreso en la pestaña <b>Fotos</b> de tu perfil para evitar rechazos.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/assets/kits-gbp/zaguan_my_business_6_fotos_limpias_galeria.zip" download>⬇ Descargar ZIP 6 fotos limpias + Logo</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>4 servicios personalizados para cargar (quitar "Alquiler a corto plazo")</h3>
+          <span class="pill">Sección Servicios</span>
+        </div>
+        <div class="grid-2" id="services-grid"></div>
+      </div>
+    </section>
+
+    <section id="tab-productos" class="tab-pane">
+      <div class="lock-banner">
+        <b>Orden recomendado de subida en Productos:</b> cargá primero los <b>4 de Alquiler anual</b> (#01 a #04), seguí con los <b>2 Alquilados con franja diagonal</b> (#05 y #06, muestran operaciones reales cerradas y llevan al catálogo general), después los <b>5 proyectos en pozo</b> (#07 a #11) y por último la <b>portada institucional</b> (#12).
+      </div>
+      <div class="grid-3" id="products-grid"></div>
+    </section>
+
+    <section id="tab-novedades" class="tab-pane">
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h3>3 novedades listas ("Agregar novedad")</h3>
+            <span class="pill">Publicar 1 cada semana</span>
+          </div>
+          <div id="posts-wrap"></div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <h3>4 preguntas y respuestas semilla (Q&amp;A)</h3>
+            <span class="pill">GEO para búsquedas de voz e IA</span>
+          </div>
+          <p class="muted" style="font-size:13px;">En tu ficha de Google Maps tocá "Hacer una pregunta" y luego respondé desde tu cuenta de propietario para dejar estas 4 dudas frecuentes fijas:</p>
+          <div id="qa-wrap"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-resenas" class="tab-pane">
+      <div class="card">
+        <div class="card-head">
+          <h3>Pasar de 0 reseñas a tus primeras 3 reseñas verificadas</h3>
+          <span class="pill">Máximo 1 a 2 por semana</span>
+        </div>
+        <p class="muted" style="font-size:13.5px;">Pasales este enlace corto en 1 clic a personas reales ya atendidas (por ejemplo Rosario tras el cierre de El Tesoro, Claudia o Jorge). Nunca pedir muchas el mismo día.</p>
+        <span class="field-lbl">Link oficial directo de reseñas ZAGUÁN</span>
+        <div class="copy-box">
+          <span id="rev-link">https://g.page/r/CS7YBIytKEGoEBM/review</span>
+          <div class="btn-row">
+            <button type="button" class="btn btn-sec btn-sm" onclick="copyById('rev-link', this)">Copiar link</button>
+            <a class="btn btn-primary btn-sm" href="https://g.page/r/CS7YBIytKEGoEBM/review" target="_blank" rel="noopener noreferrer">Probar link ↗</a>
+          </div>
+        </div>
+        <span class="field-lbl">Nombre de quien recibe (opcional)</span>
+        <input type="text" id="rev-nombre" placeholder="Ej. Rosario" oninput="updateRevMsg()">
+        <span class="field-lbl">Mensaje listo para enviar por WhatsApp</span>
+        <textarea id="rev-msg" class="copy-ta" rows="4"></textarea>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="copyById('rev-msg', this)">Copiar mensaje</button>
+          <a id="rev-wa-btn" class="btn btn-sec" href="#" target="_blank" rel="noopener noreferrer">📲 Enviar por WhatsApp (1 clic)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    var SERVICES = [
+      {
+        name: "Alquiler anual con garantía aseguradora",
+        desc: "Apartamentos y casas verificados para vivir todo el año en Maldonado y Punta del Este con póliza Porto Seguro, Sura, Mapfre o Santander."
+      },
+      {
+        name: "Publicación abierta para propietarios",
+        desc: "Captación y promoción de alquileres anuales y ventas directas con pre-calificación previa de solvencia de los interesados."
+      },
+      {
+        name: "Apartamentos en pozo y Ley 18.795",
+        desc: "Asesoramiento en proyectos en obra nueva con financiación directa, precios oficiales de desarrolladora y beneficios fiscales de Vivienda Promovida."
+      },
+      {
+        name: "Compra a distancia con escribanía local",
+        desc: "Gestión integral en español e inglés para residentes y compradores del exterior con análisis de costos totales de cierre y respaldo notarial."
+      }
+    ];
+
+    var PRODUCTS = [
+      {
+        n: "#01 · Alquiler activo",
+        img: "/assets/kits-gbp/01_Alquiler_Centro_Maldonado_2D.jpg",
+        file: "01_Alquiler_Centro_Maldonado_2D.jpg",
+        name: "Alquiler anual Centro Maldonado · 2 dormitorios Piso 4",
+        cat: "Alquileres anuales",
+        price: "$U 27.000 / mes (+ $U 5.000 gastos comunes)",
+        desc: "Apartamento luminoso de 2 dormitorios (~50 m²) en piso 4 al Norte con doble ventanal de vidrio, aire acondicionado, calefón, terraza lavadero y agua OSE incluida en gastos comunes. El edificio acepta mascotas.",
+        url: "https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#02 · Alquiler activo",
+        img: "/assets/kits-gbp/02_Alquiler_La_Fortuna_2D_Estrenar.jpg",
+        file: "02_Alquiler_La_Fortuna_2D_Estrenar.jpg",
+        name: "Alquiler anual La Fortuna · 2 dormitorios a estrenar",
+        cat: "Alquileres anuales",
+        price: "$U 30.000 / mes todo incluido",
+        desc: "Apartamento 100% a estrenar en piso 1 por escalera exterior con balcón al frente, gastos comunes, internet Wi-Fi y 1 cochera fija dentro de predio cerrado incluidos. Máximo 4 personas; acepta mascota pequeña.",
+        url: "https://zaguanpropiedades.com/alquileres/la-fortuna-agata/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#03 · Conversión alquiler",
+        img: "/assets/kits-gbp/03_Verificador_Garantias_Alquiler.jpg",
+        file: "03_Verificador_Garantias_Alquiler.jpg",
+        name: "Verificador gratuito de garantías de alquiler anual",
+        cat: "Alquileres anuales",
+        price: "",
+        desc: "Comprobá en 30 segundos si calificás para Porto Seguro, Sura, Mapfre o Santander sumando 1 a 4 firmantes (sueldo fijo, variable, continuidad BPS o unipersonal).",
+        url: "https://zaguanpropiedades.com/garantias-alquiler/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#04 · Propietarios",
+        img: "/assets/kits-gbp/04_Publicar_Propiedad_Alquiler_Anual.jpg",
+        file: "04_Publicar_Propiedad_Alquiler_Anual.jpg",
+        name: "Publicar propiedad en alquiler anual en Maldonado",
+        cat: "Alquileres anuales",
+        price: "",
+        desc: "Publicación abierta para dueños directos de apartamentos o casas en Maldonado, Punta del Este y La Barra. Filtramos ingresos previos y coordinamos visitas con cita previa.",
+        url: "https://zaguanpropiedades.com/alquiloanual/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#05 · Alquilado c/franja",
+        img: "/assets/kits-gbp/05_Alquilado_El_Tesoro_La_Barra.jpg",
+        file: "05_Alquilado_El_Tesoro_La_Barra.jpg",
+        name: "Alquilado en El Tesoro, La Barra · Operación anual cerrada",
+        cat: "Operaciones concretadas",
+        price: "",
+        desc: "Unidad ya alquilada en contrato anual en El Tesoro, La Barra. Consultá las opciones disponibles hoy o sumá tu propiedad para próximos interesados filtrados.",
+        url: "https://zaguanpropiedades.com/alquileres/?utm_source=google&utm_medium=gbp_alquilado"
+      },
+      {
+        n: "#06 · Alquilado c/franja",
+        img: "/assets/kits-gbp/06_Alquilado_Playa_Mansa_Parada_16.jpg",
+        file: "06_Alquilado_Playa_Mansa_Parada_16.jpg",
+        name: "Alquilado en Playa Mansa Parada 16 · Operación anual cerrada",
+        cat: "Operaciones concretadas",
+        price: "",
+        desc: "Semipiso de 2 dormitorios ya cerrado en alquiler anual en Playa Mansa. Visitá nuestras unidades disponibles en el catálogo actualizado.",
+        url: "https://zaguanpropiedades.com/alquileres/?utm_source=google&utm_medium=gbp_alquilado"
+      },
+      {
+        n: "#07 · Pozo",
+        img: "/assets/kits-gbp/07_Pozo_Betania_IV_Maldonado.jpg",
+        file: "07_Pozo_Betania_IV_Maldonado.jpg",
+        name: "Betania IV · Apartamentos en pozo en Maldonado",
+        cat: "Proyectos en pozo",
+        price: "USD 79.800 (desde)",
+        desc: "1, 2 y 3 dormitorios en Fraccionamiento 4H desde USD 79.800 con estacionamiento en planta baja incluido, 1,5% de gastos de ocupación y financiación hasta en 24 cuotas.",
+        url: "https://zaguanpropiedades.com/proyectos/betania-iv/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#08 · Pozo Ley 18.795",
+        img: "/assets/kits-gbp/08_Pozo_Nostrum_Roosevelt_Ley18795.jpg",
+        file: "08_Pozo_Nostrum_Roosevelt_Ley18795.jpg",
+        name: "Nostrum Roosevelt · Parada 19 Ley 18.795",
+        cat: "Proyectos en pozo",
+        price: "USD 107.419 (desde)",
+        desc: "Apartamentos de Vivienda Promovida Ley 18.795 sobre Av. Roosevelt con exoneración de ITP e IRPF/IRNR sobre alquileres por 10 años y 4% de gastos de ocupación.",
+        url: "https://zaguanpropiedades.com/proyectos/nostrum-roosevelt/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#09 · Pozo LEED",
+        img: "/assets/kits-gbp/09_Pozo_More_Atlantico_Torre3.jpg",
+        file: "09_Pozo_More_Atlantico_Torre3.jpg",
+        name: "More Atlántico Torre 3 · Parada 22 Roosevelt",
+        cat: "Proyectos en pozo",
+        price: "USD 139.121 (desde)",
+        desc: "Unidades con certificación LEED y beneficios fiscales de Ley 18.795 junto a Atlántico Shopping, piscinas climatizadas, spa y cowork.",
+        url: "https://zaguanpropiedades.com/proyectos/more-atlantico/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#10 · Pozo financiación",
+        img: "/assets/kits-gbp/10_Pozo_Golden_Rise_Parada18.jpg",
+        file: "10_Pozo_Golden_Rise_Parada18.jpg",
+        name: "Golden Rise · Parada 18 Av. Roosevelt y Salt Lake",
+        cat: "Proyectos en pozo",
+        price: "USD 139.900 (desde)",
+        desc: "Torre residencial con parque privado y 15 espacios comunes en Parada 18. Financiación en 30 cuotas durante obra y saldo en hasta 120 cuotas.",
+        url: "https://zaguanpropiedades.com/proyectos/golden-rise/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#11 · Pozo Playa Brava",
+        img: "/assets/kits-gbp/11_Pozo_EVE_Tower_Playa_Brava.jpg",
+        file: "11_Pozo_EVE_Tower_Playa_Brava.jpg",
+        name: "EVE Tower · Parada 8 a 100 m de Playa Brava",
+        cat: "Proyectos en pozo",
+        price: "USD 150.000 (desde)",
+        desc: "Torre de 26 pisos con obra activa sobre Roosevelt y Guanabara, piscina climatizada, canchas y cowork. Monoambientes y apartamentos de 1 y 2 dormitorios.",
+        url: "https://zaguanpropiedades.com/proyectos/eve-tower/?utm_source=google&utm_medium=gbp_producto"
+      },
+      {
+        n: "#12 · Institucional",
+        img: "/assets/kits-gbp/12_Institucional_ZAGUAN_Portada.jpg",
+        file: "12_Institucional_ZAGUAN_Portada.jpg",
+        name: "ZAGUÁN Propiedades · Alquileres, Ventas y Pozo",
+        cat: "Catálogo institucional",
+        price: "",
+        desc: "Cartera completa de alquileres anuales en Maldonado y Punta del Este, verificador de garantías y desarrollos en pozo con respaldo notarial local.",
+        url: "https://zaguanpropiedades.com/proyectos/?utm_source=google&utm_medium=gbp_producto"
+      }
+    ];
+
+    var POSTS = [
+      {
+        titulo: "Semana 1 · Alquiler anual 2D en Maldonado (subir con placa #01)",
+        img: "01_Alquiler_Centro_Maldonado_2D.jpg",
+        txt: "Comparativa transparente de alquiler anual de 2 dormitorios en Maldonado listos para ingresar con contrato de 1 a 2 años:\n- Centro de Maldonado piso 4 Norte: $U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida, aire instalado, lavadero y edificio que acepta mascotas.\n- Barrio La Fortuna a estrenar: $U 30.000/mes cerrados con gastos comunes, internet Wi-Fi y 1 cochera fija incluidos.\nValidá tu garantía Porto Seguro, Sura, Mapfre o Santander en 30 segundos y coordiná visita doble con cita previa.",
+        cta: "Más información",
+        url: "https://zaguanpropiedades.com/novedades-del-este/alquiler-anual-2-dormitorios-maldonado-centro-la-fortuna-precios/?utm_source=google&utm_medium=gbp_novedad"
+      },
+      {
+        titulo: "Semana 2 · Prueba social Alquilado en La Barra (subir con placa #05)",
+        img: "05_Alquilado_El_Tesoro_La_Barra.jpg",
+        txt: "Cerramos nuevo alquiler anual en El Tesoro, La Barra, con garantía aseguradora validada y contrato formal de vivienda permanente.\nSi buscás mudarte todo el año en Maldonado, Punta del Este o La Barra — o tenés un apartamento para ofrecer en publicación abierta con filtro previo de solvencia — entrá a nuestra vidriera actualizada.",
+        cta: "Ver catálogo",
+        url: "https://zaguanpropiedades.com/alquileres/?utm_source=google&utm_medium=gbp_novedad"
+      },
+      {
+        titulo: "Semana 3 · Verificador gratuito de garantías (subir con placa #03)",
+        img: "03_Verificador_Garantias_Alquiler.jpg",
+        txt: "Calculá antes de visitar qué aseguradora (Porto Seguro, Sura, Mapfre o Santander) calza con tus recibos de sueldo fijos, variables, continuidad en BPS o certificación contable de unipersonal, sumando de 1 a 4 firmantes sin Clearing negativo.\nCuando elegís la propiedad, te ayudamos a tramitar la póliza con nuestra gestión ZAGUÁN.",
+        cta: "Simular gratis",
+        url: "https://zaguanpropiedades.com/garantias-alquiler/?utm_source=google&utm_medium=gbp_novedad"
+      }
+    ];
+
+    var QAS = [
+      {
+        q: "Qué alquileres anuales de 2 dormitorios tienen disponibles en Maldonado hoy?",
+        a: "Tenemos dos unidades activas para ingreso con contrato anual de 1 a 2 años: un apartamento piso 4 Norte en Centro de Maldonado a $U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida (con aire, lavadero y acepta mascotas), y un apartamento a estrenar en Barrio La Fortuna a $U 30.000/mes cerrados con gastos comunes, internet Wi-Fi y cochera fija incluidos. Podés ver fotos y reservar visita con cita previa en zaguanpropiedades.com/alquileres/."
+      },
+      {
+        q: "Qué garantías de alquiler aceptan y hace falta tener la póliza emitida antes de visitar?",
+        a: "Trabajamos con aseguradoras privadas: Porto Seguro, Sura, Mapfre y Santander (y BSE en La Fortuna). Alcanza con validar tus ingresos en 30 segundos en zaguanpropiedades.com/garantias-alquiler/ antes de ir; al definir la propiedad te ayudamos a tramitar la garantía aseguradora con nuestra gestión ZAGUÁN en 24 a 48 horas hábiles."
+      },
+      {
+        q: "Cómo publico mi propiedad en alquiler anual en Punta del Este o Maldonado con ZAGUÁN?",
+        a: "Trabajamos con publicación abierta de tu propiedad, armamos la ficha técnica y el paquete visual sin exponer la dirección exacta ni la fachada, filtramos por adelantado ingresos y garantía de los interesados y registramos cada visita en forma nominal por WhatsApp."
+      },
+      {
+        q: "Asesoran a compradores del exterior para comprar apartamentos en pozo en Punta del Este?",
+        a: "Sí. Atendemos en español e inglés sobre 5 desarrollos en Maldonado y Punta del Este desde USD 79.800 (incluyendo opciones bajo Ley 18.795 de Vivienda Promovida con 10 años de exoneración de ITP e IRPF en alquileres), junto a nuestra escribanía local aliada para cierre presencial o a distancia."
+      }
+    ];
+
+    function showTab(key, btn) {
+      document.querySelectorAll('.tab-pane').forEach(function(p) { p.classList.remove('active'); });
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.getElementById('tab-' + key).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function copyText(txt, btn) {
+      navigator.clipboard.writeText(txt).then(function() {
+        var prev = btn.innerText;
+        btn.innerText = '✓ Copiado';
+        setTimeout(function() { btn.innerText = prev; }, 1500);
+      });
+    }
+
+    function copyById(id, btn) {
+      var el = document.getElementById(id);
+      copyText(el.value !== undefined ? el.value : el.innerText, btn);
+    }
+
+    function renderServices() {
+      var wrap = document.getElementById('services-grid');
+      SERVICES.forEach(function(s, i) {
+        var card = document.createElement('div');
+        card.className = 'copy-box';
+        card.style.flexDirection = 'column';
+        card.style.alignItems = 'stretch';
+        card.innerHTML =
+          '<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;">' +
+            '<strong id="srv-n-' + i + '">' + s.name + '</strong>' +
+            '<button type="button" class="btn btn-sec btn-sm" onclick="copyById(\'srv-n-' + i + '\', this)">Copiar título</button>' +
+          '</div>' +
+          '<p id="srv-d-' + i + '" class="muted" style="font-size:12.5px;margin-top:4px;">' + s.desc + '</p>' +
+          '<div><button type="button" class="btn btn-sec btn-sm" onclick="copyById(\'srv-d-' + i + '\', this)">Copiar descripción</button></div>';
+        wrap.appendChild(card);
+      });
+    }
+
+    function renderProducts() {
+      var wrap = document.getElementById('products-grid');
+      PRODUCTS.forEach(function(p, i) {
+        var card = document.createElement('article');
+        card.className = 'card';
+        var priceHtml = p.price ?
+          '<div class="meta-row"><span id="p-pr-' + i + '"><b>Precio:</b> ' + p.price + '</span><button type="button" class="btn btn-sec btn-sm" onclick="copyText(' + JSON.stringify(p.price).replace(/"/g, '&quot;') + ', this)">Copiar</button></div>' : '';
+        card.innerHTML =
+          '<div class="card-head"><span class="pill">' + p.n + '</span><a class="btn btn-primary btn-sm" href="' + p.img + '" download="' + p.file + '">⬇ JPG 1200x1200</a></div>' +
+          '<img class="prod-thumb" src="' + p.img + '" alt="' + p.name + '" loading="lazy">' +
+          '<div class="meta-row"><span id="p-nm-' + i + '"><b>Nombre:</b> ' + p.name + '</span><button type="button" class="btn btn-sec btn-sm" onclick="copyText(' + JSON.stringify(p.name).replace(/"/g, '&quot;') + ', this)">Copiar</button></div>' +
+          '<div class="meta-row"><span id="p-ct-' + i + '"><b>Cat.:</b> ' + p.cat + '</span><button type="button" class="btn btn-sec btn-sm" onclick="copyText(' + JSON.stringify(p.cat).replace(/"/g, '&quot;') + ', this)">Copiar</button></div>' +
+          priceHtml +
+          '<textarea id="p-ds-' + i + '" class="copy-ta" rows="3">' + p.desc + '</textarea>' +
+          '<div class="btn-row">' +
+            '<button type="button" class="btn btn-sec btn-sm" onclick="copyById(\'p-ds-' + i + '\', this)">Copiar descripción</button>' +
+            '<button type="button" class="btn btn-primary btn-sm" onclick="copyText(' + JSON.stringify(p.url).replace(/"/g, '&quot;') + ', this)">Copiar link botón</button>' +
+          '</div>';
+        wrap.appendChild(card);
+      });
+    }
+
+    function renderPostsAndQa() {
+      var pw = document.getElementById('posts-wrap');
+      POSTS.forEach(function(pt, i) {
+        var box = document.createElement('div');
+        box.style.marginBottom = '16px';
+        box.innerHTML =
+          '<span class="field-lbl">' + pt.titulo + '</span>' +
+          '<textarea id="post-t-' + i + '" class="copy-ta" rows="4">' + pt.txt + '</textarea>' +
+          '<div class="btn-row" style="margin-top:8px;">' +
+            '<button type="button" class="btn btn-primary btn-sm" onclick="copyById(\'post-t-' + i + '\', this)">Copiar texto</button>' +
+            '<button type="button" class="btn btn-sec btn-sm" onclick="copyText(' + JSON.stringify(pt.url).replace(/"/g, '&quot;') + ', this)">Copiar link (' + pt.cta + ')</button>' +
+          '</div>';
+        pw.appendChild(box);
+      });
+
+      var qw = document.getElementById('qa-wrap');
+      QAS.forEach(function(qa, i) {
+        var box = document.createElement('div');
+        box.style.marginBottom = '14px';
+        box.innerHTML =
+          '<div class="copy-box" style="margin-bottom:6px;"><span><b>P' + (i + 1) + ':</b> ' + qa.q + '</span><button type="button" class="btn btn-sec btn-sm" onclick="copyText(' + JSON.stringify(qa.q).replace(/"/g, '&quot;') + ', this)">Copiar pregunta</button></div>' +
+          '<textarea id="qa-a-' + i + '" class="copy-ta" rows="3">' + qa.a + '</textarea>' +
+          '<div class="btn-row" style="margin-top:6px;"><button type="button" class="btn btn-primary btn-sm" onclick="copyById(\'qa-a-' + i + '\', this)">Copiar respuesta</button></div>';
+        qw.appendChild(box);
+      });
+    }
+
+    function updateRevMsg() {
+      var nom = (document.getElementById('rev-nombre').value || '').trim();
+      var saludo = nom ? ('Hola ' + nom + ', ') : 'Hola, ';
+      var txt = saludo + 'qué alegría que ya tengamos todo encaminado. Si la atención y la ficha te resultaron claras, te animás a dejarnos una reseña breve en nuestro perfil de Google? Nos ayuda a sumar propietarios e interesados directos en Maldonado: https://g.page/r/CS7YBIytKEGoEBM/review Muchas gracias.';
+      document.getElementById('rev-msg').value = txt;
+      document.getElementById('rev-wa-btn').href = 'https://wa.me/?text=' + encodeURIComponent(txt);
+    }
+
+    renderServices();
+    renderProducts();
+    renderPostsAndQa();
+    updateRevMsg();
+  </script>
+</body>
+</html>
