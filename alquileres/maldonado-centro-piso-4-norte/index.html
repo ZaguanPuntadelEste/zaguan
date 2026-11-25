@@ -868,7 +868,7 @@
           "@type": "Offer",
           "price": "27000",
           "priceCurrency": "UYU",
-          "availability": "https://schema.org/InStock",
+          "availability": "https://schema.org/OutOfStock",
           "businessFunction": "https://schema.org/LeaseOut",
           "validFrom": "2026-11-23"
         }
@@ -941,9 +941,9 @@
     <div class="property-layout">
       <section>
         <div class="badges-row">
+          <span class="badge" style="background:#7f1d1d;color:#fff;border-color:#7f1d1d;">🔒 ALQUILADO · PROPIEDAD CERRADA (25/11)</span>
           <span class="badge badge-outline">REF. ZAG-ALQ-07</span>
           <span class="badge badge-primary">ALQUILER ANUAL · CENTRO DE MALDONADO</span>
-          <span class="badge badge-green">ORIENTACIÓN NORTE · LAVADERO</span>
           <span class="badge badge-outline">CON AIRE ACONDICIONADO</span>
           <span class="badge badge-outline">DOBLE VENTANAL AL FRENTE</span>
           <span class="badge badge-outline">ACEPTA MASCOTAS</span>
@@ -962,19 +962,21 @@
           <span class="gallery-lead-hint">🔍 Tocar para ampliar (8 fotos)</span>
         </div>
 
-        <div class="mobile-conversion-lead">
+        <div class="mobile-conversion-lead" style="border-color:#fca5a5;background:#fef2f2;">
           <div class="price-breakdown">
             <div>
-              <span class="price-big">$U 27.000</span>
-              <span class="price-unit">/ mes + $U 5.000 GC ($U 32.000 total)</span>
+              <span class="price-big" style="text-decoration:line-through;opacity:0.55;">$U 27.000</span>
+              <span class="price-unit" style="color:#991b1b;font-weight:700;">🔒 ALQUILADO (25/11)</span>
             </div>
-            <span class="price-pill">Lavadero · Orientación Norte</span>
+            <span class="price-pill" style="background:#7f1d1d;color:#fff;">Propiedad cerrada</span>
           </div>
           <div class="price-detail-line">
-            <strong>Respaldo solicitado:</strong> Aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o
-            Santander; no necesitás tener la póliza emitida antes de visitar). Gastos comunes ($U 5.000) incluyen OSE.
+            <strong>Esta unidad ya se alquiló.</strong> Si buscás 2 dormitorios en Maldonado en rango similar, tenés disponible hoy <strong>La Fortuna a estrenar a $U 30.000/mes</strong> (incluye gastos comunes, Wi-Fi y cochera fija).
           </div>
-          <div id="zg-mobile-flow-slot"></div>
+          <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;">
+            <a href="/alquileres/la-fortuna-agata/" class="btn-wa-mobile" style="flex:1;justify-content:center;text-align:center;">Ver 2D La Fortuna ($U 30.000) →</a>
+            <a href="/alquileres/" class="btn-wa-mobile" style="background:#fff;color:#111827;border:1px solid #d1d5db;flex:1;justify-content:center;text-align:center;">Ver catálogo</a>
+          </div>
         </div>
 
         <p class="prop-location">
@@ -1204,47 +1206,28 @@
       </section>
 
       <aside>
-        <div class="sticky-card">
-          <div class="price-tag">
-            $U 27.000 <span class="price-period">/ mes + $U 5.000 GC</span>
+        <div class="sticky-card" style="border-color:#fca5a5;">
+          <div class="price-tag" style="color:#991b1b;">
+            <span style="text-decoration:line-through;opacity:0.5;">$U 27.000</span> <span class="price-period" style="color:#991b1b;font-weight:700;">🔒 ALQUILADO</span>
           </div>
-          <div class="price-subtitle">
-            ✓ Total $U 32.000/mes con gastos comunes (OSE incluida)
+          <div class="price-subtitle" style="background:#fef2f2;color:#991b1b;border-color:#fca5a5;">
+            Propiedad alquilada el 25/11 · Agenda cerrada
           </div>
 
           <div class="checklist-sidebar">
-            <div class="check-item"><span class="check-icon">✓</span> <span>~50 m² · Piso 4 orientación Norte ·
-                Cámaras</span></div>
-            <div class="check-item"><span class="check-icon">✓</span> <span>Cocina definida con lavadero y doble
-                ventanal al frente</span></div>
-            <div class="check-item"><span class="check-icon">✓</span> <span>Con aire acondicionado · Edificio acepta
-                mascotas</span></div>
-            <div class="check-item"><span class="check-icon">✓</span> <span>Aseguradora (no necesitás póliza emitida
-                antes de ver)</span></div>
+            <div class="check-item"><span class="check-icon">→</span> <span><strong>Alternativa 2D disponible hoy:</strong> La Fortuna a estrenar a <strong>$U 30.000/mes</strong> (GC, Wi-Fi y cochera incluidos)</span></div>
+            <div class="check-item"><span class="check-icon">✓</span> <span>Garantía aseguradora (Porto Seguro, Sura, Mapfre, Santander o BSE)</span></div>
           </div>
 
           <div id="zg-desktop-flow-slot">
-            <div id="reservar-visita">
-              <div id="zg-pack-flow-root"></div>
-              <div style="display:none;" aria-hidden="true">
-                <select id="cl-garantia">
-                  <option value="poliza">Póliza</option>
-                  <option value="dependiente">Ingresos</option>
-                  <option value="independiente">Unipersonal</option>
-                  <option value="otra">Otra</option>
-                </select>
-                <select id="cl-ingresos">
-                  <option value="ok_100k">OK</option>
-                  <option value="cerca">Cerca</option>
-                  <option value="bajo">Bajo</option>
-                </select>
-              </div>
+            <div id="reservar-visita" style="display:flex;flex-direction:column;gap:10px;">
+              <a href="/alquileres/la-fortuna-agata/" class="btn-wa-mobile" style="width:100%;justify-content:center;text-align:center;">Ver 2D La Fortuna ($U 30.000) →</a>
+              <a href="/alquileres/" class="btn-wa-mobile" style="width:100%;justify-content:center;text-align:center;background:#fff;color:#111827;border:1px solid #d1d5db;">Ver todo el catálogo anual</a>
             </div>
           </div>
 
           <p class="sidebar-help" id="cl-sidebar-help">
-            Atención directa de ZAGUÁN Propiedades · Tus respuestas agilizan la visita sin pedir documentos antes de
-            conocer el apartamento.
+            Atención directa de ZAGUÁN Propiedades · Esta unidad cerró alquiler el 25/11; consultá la opción 2D activa en La Fortuna.
           </p>
         </div>
       </aside>
@@ -1273,11 +1256,10 @@
 
   <div class="mobile-bar">
     <div class="mobile-price">
-      $U 27.000 <span style="display:inline;font-weight:700;">+ $U 5.000 de gastos comunes</span> <span>Orientación
-        Norte · Lavadero</span>
+      <span style="text-decoration:line-through;opacity:0.55;">$U 27.000</span> <span style="display:inline;font-weight:700;color:#991b1b;">🔒 ALQUILADO</span> <span>2D similar en La Fortuna ($U 30.000)</span>
     </div>
-    <a id="btn-wa-mobile" class="btn-wa-mobile" href="#reservar-visita" aria-label="Coordinar visita">
-      <span id="btn-wa-mobile-label">Coordinar visita →</span>
+    <a id="btn-wa-mobile" class="btn-wa-mobile" href="/alquileres/la-fortuna-agata/" aria-label="Ver 2 dormitorios en La Fortuna">
+      <span id="btn-wa-mobile-label">Ver La Fortuna →</span>
     </a>
   </div>
 

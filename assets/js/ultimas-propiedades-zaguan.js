@@ -2,15 +2,6 @@
   const REGISTRO = {
     alquiler: [
       {
-        titulo_corto: 'Centro de Maldonado 2D Piso 4 Norte ($U 27.000 + $U 5.000 GC)',
-        href: '/alquileres/maldonado-centro-piso-4-norte/',
-        badge: 'Alquiler anual · Nuevo ingreso',
-        precio: '$U 32.000 / mes total',
-        detalle: '~50 m², piso 4 por ascensor con cámaras, doble ventanal al frente, sol de invierno, lavadero, aire y calefón · Acepta mascotas · Porto, Sura, Mapfre o Santander.',
-        alquiler_uyu: 32000,
-        fecha_ingreso: '2026-11-23'
-      },
-      {
         titulo_corto: 'La Fortuna en Maldonado ($U 30.000/mes)',
         href: '/alquileres/la-fortuna-agata/',
         badge: 'Alquiler anual · Disponible',

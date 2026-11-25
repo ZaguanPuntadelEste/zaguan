@@ -988,7 +988,7 @@ export const ESCENARIOS_60 = [
       if (!mp39) {
         errs.push('FALTA_MP39_CLAUDIA');
       } else {
-        if (!['3_en_conversacion', '4_ficha_activa'].includes(mp39.carril)) errs.push('MP39_NO_EN_CONVERSACION');
+        if (!['3_en_conversacion', '4_ficha_activa', '5_cerrado_radar'].includes(mp39.carril)) errs.push('MP39_NO_EN_CONVERSACION');
         const eval39 = evaluarCorchetesPropietario(mp39, mp39.respuesta_recibida || '');
         if (!eval39?.confirmados?.garantias_aceptadas) errs.push('MP39_NO_CONFIRMA_GARANTIA_DE_AVISO');
         if (!eval39?.confirmados?.dormitorios) errs.push('MP39_NO_CONFIRMA_2D_DE_AVISO');
@@ -1161,7 +1161,7 @@ export const ESCENARIOS_60 = [
       const radar = JSON.parse(radarRaw);
       const mp39 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-39');
       const mp12 = (radar.marketplace_duenos_directos || []).find((x) => x.id === 'MP-12');
-      if (!mp39 || mp39.telefono_directo !== '59894294017' || !['esperando_respuesta_t2', 'ficha_activa'].includes(mp39.estado_envio)) {
+      if (!mp39 || mp39.telefono_directo !== '59894294017' || !['esperando_respuesta_t2', 'ficha_activa', 'cerrado'].includes(mp39.estado_envio)) {
         errs.push('MP39_NO_SINCRONIZADO');
       }
       if (!mp12 || mp12.proximo_toque_tipo !== 'solo_con_visita_confirmada' || mp12.alerta_mar) {
