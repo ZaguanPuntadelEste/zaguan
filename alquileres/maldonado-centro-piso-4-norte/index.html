@@ -14,6 +14,26 @@
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-KTKLTW5T');</script>
   <!-- End Google Tag Manager -->
+  <!-- Meta Pixel Code -->
+  <script>
+    (function () {
+      try {
+        var qs = new URLSearchParams(window.location.search);
+        if (localStorage.getItem('zg_owner_device') === '1' || qs.get('test') === '1') return;
+      } catch (e) {}
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+        s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1550457020243051');
+      fbq('track', 'PageView');
+    })();
+  </script>
+  <!-- End Meta Pixel Code -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081521">
@@ -752,6 +772,69 @@
     .lightbox-next {
       right: 14px;
     }
+
+    @media (max-width: 960px) {
+      #site-header .header-inner {
+        min-height: 54px !important;
+      }
+
+      main.container {
+        padding-top: 62px !important;
+      }
+
+      #zg-mobile-flow-slot {
+        margin-top: 10px;
+      }
+
+      #zg-mobile-flow-slot .zg-tf-shell {
+        margin-bottom: 2px;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .breadcrumbs {
+        display: none;
+      }
+
+      .badges-row {
+        margin-bottom: 6px;
+        gap: 5px;
+      }
+
+      .badges-row .badge-outline {
+        display: none;
+      }
+
+      .prop-title {
+        font-size: 20px;
+        line-height: 1.22;
+        margin-bottom: 6px;
+      }
+
+      .prop-sub {
+        display: none;
+      }
+
+      .prop-location {
+        font-size: 12.5px;
+        margin-bottom: 8px;
+      }
+
+      .gallery-lead {
+        height: 205px;
+        margin-bottom: 8px;
+      }
+
+      .mobile-conversion-lead {
+        padding: 11px 12px;
+        margin: 8px 0 12px;
+      }
+
+      .price-big {
+        font-size: 22px;
+      }
+    }
   </style>
 
   <!-- Schema.org Structured Data -->
@@ -873,6 +956,12 @@
           dormitorios, sombra fresca en verano y puestas de sol desde el living-comedor y la cocina. Con aire
           acondicionado, terraza lavadero y edificio seguro con cámaras.</p>
 
+        <div class="gallery-lead" onclick="openLightbox(0)">
+          <img id="main-img" src="/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg"
+            alt="Living comedor con doble ventanal de vidrio al frente y vista despejada en Centro de Maldonado">
+          <span class="gallery-lead-hint">🔍 Tocar para ampliar (8 fotos)</span>
+        </div>
+
         <div class="mobile-conversion-lead">
           <div class="price-breakdown">
             <div>
@@ -885,24 +974,13 @@
             <strong>Respaldo solicitado:</strong> Aseguradora privada en Uruguay (Porto Seguro, Sura, Mapfre o
             Santander; no necesitás tener la póliza emitida antes de visitar). Gastos comunes ($U 5.000) incluyen OSE.
           </div>
-          <div style="margin-top: 12px; display: flex; flex-direction: column; gap: 8px;">
-            <a href="#reservar-visita"
-              style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:46px;padding:11px 16px;background:#F3F0E8;color:#081521;font-size:14px;font-weight:800;border-radius:8px;text-decoration:none;text-align:center;">Validar garantía y coordinar visita ↓</a>
-            <a href="/garantias-alquiler/?alquiler=32000&propiedad=maldonado-centro-piso-4-norte"
-              style="font-size:12.5px; font-weight:700; color:#B7D6E0; text-decoration:underline; text-align:center;">Abrir simulador completo →</a>
-          </div>
+          <div id="zg-mobile-flow-slot"></div>
         </div>
 
         <p class="prop-location">
           📍 Centro de Maldonado, Uruguay · Entorno céntrico con locomoción y servicios · Edificio con cámaras y
           ascensor
         </p>
-
-        <div class="gallery-lead" onclick="openLightbox(0)">
-          <img id="main-img" src="/assets/images/propiedades/maldonado-centro-claudia/foto_01.jpg"
-            alt="Living comedor con doble ventanal de vidrio al frente y vista despejada en Centro de Maldonado">
-          <span class="gallery-lead-hint">🔍 Tocar para ampliar (8 fotos)</span>
-        </div>
 
         <div class="gallery-thumbs">
           <div class="thumb active" onclick="openLightbox(0)"
@@ -1145,20 +1223,22 @@
                 antes de ver)</span></div>
           </div>
 
-          <div id="reservar-visita">
-            <div id="zg-pack-flow-root"></div>
-            <div style="display:none;" aria-hidden="true">
-              <select id="cl-garantia">
-                <option value="poliza">Póliza</option>
-                <option value="dependiente">Ingresos</option>
-                <option value="independiente">Unipersonal</option>
-                <option value="otra">Otra</option>
-              </select>
-              <select id="cl-ingresos">
-                <option value="ok_100k">OK</option>
-                <option value="cerca">Cerca</option>
-                <option value="bajo">Bajo</option>
-              </select>
+          <div id="zg-desktop-flow-slot">
+            <div id="reservar-visita">
+              <div id="zg-pack-flow-root"></div>
+              <div style="display:none;" aria-hidden="true">
+                <select id="cl-garantia">
+                  <option value="poliza">Póliza</option>
+                  <option value="dependiente">Ingresos</option>
+                  <option value="independiente">Unipersonal</option>
+                  <option value="otra">Otra</option>
+                </select>
+                <select id="cl-ingresos">
+                  <option value="ok_100k">OK</option>
+                  <option value="cerca">Cerca</option>
+                  <option value="bajo">Bajo</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -1309,7 +1389,7 @@
       mountPackFlow();
     })();
   </script>
-  <script src="/assets/js/pack-alquiler-flow.js?v=20261124f"></script>
+  <script src="/assets/js/pack-alquiler-flow.js?v=20261125a"></script>
   <script>
     if (typeof window.__zgMountCentroFlow === 'function') {
       window.__zgMountCentroFlow();

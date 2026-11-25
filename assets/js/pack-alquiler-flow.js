@@ -24,6 +24,36 @@
     }
   }
 
+  function isOwnerOrTest(params) {
+    try {
+      if (localStorage.getItem('zg_owner_device') === '1') return true;
+    } catch (e) {}
+    return !!(params && params.get('test') === '1');
+  }
+
+  function fireMetaPixel(eventName, extra, params) {
+    if (isOwnerOrTest(params)) return;
+    if (typeof window.fbq !== 'function') return;
+    try {
+      window.fbq('track', eventName, extra || {});
+    } catch (e) {}
+  }
+
+  function syncFlowSlot() {
+    var flow = document.getElementById('reservar-visita');
+    var mobSlot = document.getElementById('zg-mobile-flow-slot');
+    var deskSlot = document.getElementById('zg-desktop-flow-slot');
+    if (!flow || !mobSlot || !deskSlot) return;
+    var asideEl = deskSlot.closest ? deskSlot.closest('aside') : null;
+    if (window.innerWidth <= 960) {
+      if (flow.parentNode !== mobSlot) mobSlot.appendChild(flow);
+      if (asideEl) asideEl.style.display = 'none';
+    } else {
+      if (flow.parentNode !== deskSlot) deskSlot.appendChild(flow);
+      if (asideEl) asideEl.style.display = '';
+    }
+  }
+
   window.ZaguanPackFlow = {
     mount: function (opts) {
       var root = document.getElementById(opts.rootId || 'zg-pack-flow-root');
@@ -704,6 +734,7 @@
           el.addEventListener('click', function () {
             var val = el.getAttribute('data-plazo');
             state.plazo = val;
+            fireMetaPixel('ViewContent', { content_name: opts.tituloCorto, step: 1 }, params);
             animateAndGo(el, function () {
               if (val !== 'Dentro de 30 días') {
                 goToFinal('BUSQUEDA_REGISTRADA', 'plazo', 'Esta unidad está pronta para ingresar ahora', 1, '');
@@ -900,6 +931,12 @@
             flujoCerrado = true;
             leftToWhatsApp = true;
             sendSilentLog(6, 'WHATSAPP_CALIFICADO', true);
+            fireMetaPixel('Lead', {
+              content_name: opts.tituloCorto,
+              content_ids: [opts.refPublica],
+              value: opts.valorMensual || 30000,
+              currency: 'UYU'
+            }, params);
             var leadPayload = {
               event: 'generate_lead',
               property_id: opts.refPublica,
@@ -986,6 +1023,12 @@
               body: JSON.stringify(payload)
             }).then(function (r) { return r.json(); }).then(function (out) {
               if (out && out.id) state.savedLeadId = out.id;
+              fireMetaPixel('Lead', {
+                content_name: opts.tituloCorto,
+                content_ids: [opts.refPublica],
+                value: opts.valorMensual || 30000,
+                currency: 'UYU'
+              }, params);
               state.submitted = true;
               clearValidation();
               flujoCerrado = true;
@@ -1173,6 +1216,12 @@
             flujoCerrado = true;
             leftToWhatsApp = true;
             sendSilentLog(5, 'CAPTACION_CRUZADA', true);
+            fireMetaPixel('Lead', {
+              content_name: opts.tituloCorto,
+              content_ids: [opts.refPublica],
+              value: opts.valorMensual || 30000,
+              currency: 'UYU'
+            }, params);
             fetch(CRM_BASE + '/api/interesados', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
@@ -1239,8 +1288,11 @@
             resetToStep1({ newSession: true, keepContact: false });
           }
         });
+
+        window.addEventListener('resize', syncFlowSlot);
       }
 
+      syncFlowSlot();
       render();
       sendSilentLog(0, 'ficha_abierta', false);
     }

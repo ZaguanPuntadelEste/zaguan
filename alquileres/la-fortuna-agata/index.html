@@ -15,6 +15,26 @@
   <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) { w[l] = w[l] || []; w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' }); var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f); })(window, document, 'script', 'dataLayer', 'GTM-KTKLTW5T');</script>
   <!-- End Google Tag Manager -->
+  <!-- Meta Pixel Code -->
+  <script>
+    (function () {
+      try {
+        var qs = new URLSearchParams(window.location.search);
+        if (localStorage.getItem('zg_owner_device') === '1' || qs.get('test') === '1') return;
+      } catch (e) {}
+      !function (f, b, e, v, n, t, s) {
+        if (f.fbq) return; n = f.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+        };
+        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+        n.queue = []; t = b.createElement(e); t.async = !0; t.src = v;
+        s = b.getElementsByTagName(e)[0]; s.parentNode.insertBefore(t, s)
+      }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1550457020243051');
+      fbq('track', 'PageView');
+    })();
+  </script>
+  <!-- End Meta Pixel Code -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#081521">
@@ -925,6 +945,65 @@
       max-width: 100%;
       overflow-x: hidden !important;
     }
+
+    @media (max-width: 960px) {
+      #site-header .header-inner {
+        min-height: 54px !important;
+      }
+
+      main.container {
+        padding-top: 62px !important;
+      }
+
+      #zg-mobile-flow-slot {
+        margin-top: 10px;
+      }
+
+      #zg-mobile-flow-slot .zg-tf-shell {
+        margin-bottom: 2px;
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .breadcrumbs {
+        display: none;
+      }
+
+      .badges-row {
+        margin-bottom: 6px;
+        gap: 5px;
+      }
+
+      .badges-row .badge-outline {
+        display: none;
+      }
+
+      .prop-title {
+        font-size: 20px;
+        line-height: 1.22;
+        margin-bottom: 6px;
+      }
+
+      .prop-sub {
+        display: none;
+      }
+
+      .prop-location {
+        font-size: 12.5px;
+        margin-bottom: 8px;
+      }
+
+      .gallery-lead {
+        height: 205px;
+        margin-bottom: 8px;
+      }
+
+      .mobile-conversion-lead {
+        padding: 11px 12px !important;
+        margin: 8px 0 12px !important;
+      }
+    }
   </style>
 
   <!-- Schema.org Structured Data -->
@@ -1038,12 +1117,19 @@
         </div>
 
         <h1 class="prop-title">Alquiler anual: apartamento 2 dormitorios a estrenar en La Fortuna</h1>
-        <p style="font-size:15.5px; color:#d6e0ea; margin:8px 0 14px; line-height:1.5;">Alquiler anual todo el año en
+        <p class="prop-sub" style="font-size:15.5px; color:#d6e0ea; margin:8px 0 14px; line-height:1.5;">Alquiler anual todo el año en
           Maldonado · Apartamento 2 dormitorios a estrenar en piso 1 por escalera exterior con terraza al frente
           (balcón), preinstalación para aire acondicionado en dormitorios y living, cochera fija en predio cerrado,
           gastos comunes y Wi-Fi incluidos en los $U 30.000/mes.</p>
 
-        <!-- BLOQUE MOBILE-FIRST 1ª PANTALLA: PRECIO Y GARANTIAS -->
+        <!-- Galería Principal (Living como portada + Apertura táctil en pantalla completa) -->
+        <div class="gallery-lead" onclick="openLightbox(0)">
+          <img id="main-img" src="/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg"
+            alt="Living y balcón apartamento a estrenar en La Fortuna, Maldonado">
+          <span class="gallery-lead-hint">🔍 Tocar para ampliar (11 fotos)</span>
+        </div>
+
+        <!-- BLOQUE MOBILE-FIRST 1ª PANTALLA: PRECIO, GARANTIAS Y FLUJO 1 TOQUE -->
         <div class="mobile-conversion-lead"
           style="background: rgba(18, 59, 74, 0.48); border: 1px solid rgba(243, 240, 232, 0.35); border-radius: 10px; padding: 14px 16px; margin: 16px 0 20px 0;">
           <div style="display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px;">
@@ -1061,22 +1147,12 @@
             BSE; se tramita si te gusta al visitarlo). <strong style="color: #F3EFE6;">Capacidad:</strong> hasta 4
             personas · mascota de raza pequeña.
           </div>
-          <div style="margin-top: 12px;">
-            <a href="#reservar-visita"
-              style="display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:46px;padding:11px 16px;background:#F3F0E8;color:#081521;font-size:14px;font-weight:800;border-radius:8px;text-decoration:none;text-align:center;">Validar garantía y coordinar visita ↓</a>
-          </div>
+          <div id="zg-mobile-flow-slot"></div>
         </div>
 
         <p class="prop-location">
           📍 Av. Ágata, Barrio La Fortuna · Maldonado, Uruguay · Zona residencial con rápidos accesos
         </p>
-
-        <!-- Galería Principal (Living como portada + Apertura táctil en pantalla completa) -->
-        <div class="gallery-lead" onclick="openLightbox(0)">
-          <img id="main-img" src="/assets/images/propiedades/la-fortuna-jorge/foto_01.jpg"
-            alt="Living y balcón apartamento a estrenar en La Fortuna, Maldonado">
-          <span class="gallery-lead-hint">🔍 Tocar para ampliar (11 fotos)</span>
-        </div>
 
         <div class="gallery-thumbs">
           <div class="thumb active" onclick="openLightbox(0)" title="Cocina integrada luminosa con salida al balcón">
@@ -1306,20 +1382,22 @@
                 para visitarlo)</span></div>
           </div>
 
-          <div id="reservar-visita">
-            <div id="zg-pack-flow-root"></div>
-            <div style="display:none;" aria-hidden="true">
-              <select id="lf-garantia">
-                <option value="poliza">Póliza</option>
-                <option value="dependiente">Ingresos</option>
-                <option value="independiente">Unipersonal</option>
-                <option value="otra">Otra</option>
-              </select>
-              <select id="lf-ingresos">
-                <option value="ok_100k">OK</option>
-                <option value="cerca">Cerca</option>
-                <option value="bajo">Bajo</option>
-              </select>
+          <div id="zg-desktop-flow-slot">
+            <div id="reservar-visita">
+              <div id="zg-pack-flow-root"></div>
+              <div style="display:none;" aria-hidden="true">
+                <select id="lf-garantia">
+                  <option value="poliza">Póliza</option>
+                  <option value="dependiente">Ingresos</option>
+                  <option value="independiente">Unipersonal</option>
+                  <option value="otra">Otra</option>
+                </select>
+                <select id="lf-ingresos">
+                  <option value="ok_100k">OK</option>
+                  <option value="cerca">Cerca</option>
+                  <option value="bajo">Bajo</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -1562,7 +1640,7 @@
       mountPackFlow();
     })();
   </script>
-  <script src="/assets/js/pack-alquiler-flow.js?v=20261124f"></script>
+  <script src="/assets/js/pack-alquiler-flow.js?v=20261125a"></script>
   <script>
     if (typeof window.__zgMountLaFortunaFlow === 'function') {
       window.__zgMountLaFortunaFlow();
