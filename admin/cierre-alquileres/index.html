@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es-UY">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Plan de Cierre Alquileres Maldonado · ZAGUÁN Propiedades</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #081521;
+      --surface: #0F2536;
+      --estuario: #123B4A;
+      --bone: #F3F0E8;
+      --mist: #B7D6E0;
+      --muted: #A3B3C2;
+      --border: rgba(243,240,232,0.18);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--bone); font-family: 'Inter', Arial, sans-serif; line-height: 1.5; padding-bottom: 56px; }
+    .wrap { width: min(calc(100% - 28px), 1180px); margin: 0 auto; }
+    .topbar { background: rgba(8,21,33,0.95); border-bottom: 1px solid var(--border); padding: 14px 0; position: sticky; top: 0; z-index: 40; backdrop-filter: blur(10px); }
+    .topbar-in { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
+    h1, h2, h3 { font-family: 'Archivo', sans-serif; letter-spacing: -0.02em; }
+    .hero { padding: 24px 0 14px; }
+    .kicker { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: rgba(183,214,224,0.16); color: var(--mist); border: 1px solid rgba(183,214,224,0.35); margin-bottom: 10px; }
+    .hero h1 { font-size: clamp(22px, 3vw, 30px); margin-bottom: 6px; }
+    .muted { color: var(--muted); }
+    .tabs { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0 18px; }
+    .tab-btn { background: var(--surface); color: var(--bone); border: 1px solid var(--border); padding: 10px 15px; border-radius: 10px; font-weight: 700; font-size: 13.5px; cursor: pointer; }
+    .tab-btn.active { background: var(--bone); color: var(--bg); border-color: var(--bone); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+    @media (max-width: 860px) { .grid-2 { grid-template-columns: 1fr; } }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px; margin-bottom: 16px; }
+    .card-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+    .pill { background: rgba(183,214,224,0.16); color: var(--mist); font-size: 11.5px; font-weight: 700; padding: 4px 10px; border-radius: 999px; }
+    .field-lbl { display: block; font-size: 11.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--mist); margin: 12px 0 5px; }
+    .copy-box { background: #081521; border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; color: var(--bone); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .copy-ta { width: 100%; background: #081521; color: var(--bone); border: 1px solid var(--border); border-radius: 10px; padding: 10px 12px; font-family: 'Inter', sans-serif; font-size: 13px; line-height: 1.5; resize: vertical; }
+    .btn-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 14px; border-radius: 10px; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer; border: 1px solid transparent; }
+    .btn-primary { background: var(--bone); color: var(--bg); }
+    .btn-sec { background: var(--estuario); color: var(--bone); border-color: var(--border); }
+    .ph-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-top: 10px; }
+    .ph-card { background: #081521; border: 1px solid var(--border); border-radius: 10px; overflow: hidden; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+    .ph-card img { width: 100%; height: 96px; object-fit: cover; border-radius: 6px; }
+    .ph-card span { font-size: 10.5px; color: var(--mist); word-break: break-all; font-weight: 600; }
+    .ph-card small { font-size: 11px; color: var(--muted); line-height: 1.25; }
+    .lock-banner { background: rgba(18,59,74,0.72); border: 1px solid rgba(183,214,224,0.38); border-radius: 14px; padding: 14px 16px; margin-bottom: 16px; font-size: 13.5px; }
+    .inputs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px; }
+    @media (max-width: 560px) { .inputs-row { grid-template-columns: 1fr; } }
+    input[type=text] { width: 100%; background: #081521; color: var(--bone); border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; font-size: 13px; }
+    .quote { border-left: 3px solid var(--mist); padding-left: 10px; font-size: 13px; color: #DCE6EE; margin: 8px 0; }
+    .tri-state { display: flex; gap: 12px; flex-wrap: wrap; font-size: 12px; color: var(--mist); margin-bottom: 8px; }
+    .kw-wrap { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+    .kw-wrap code, .neg-chip { background: #081521; border: 1px solid var(--border); padding: 4px 8px; border-radius: 6px; font-size: 12px; }
+    .neg-chip { color: #E8C5B0; }
+    .notice-box { border-color: rgba(183,214,224,0.4); }
+    @media (max-width: 640px) { .btn { width: 100%; } }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <strong>ZAGUÁN · Plan de cierre alquileres Maldonado</strong>
+      <div class="btn-row" style="margin:0;">
+        <a class="btn btn-sec" href="/admin/">Cabina Admin</a>
+        <a class="btn btn-primary" href="https://www.mercadolibre.com.uy/publicar" target="_blank" rel="noopener noreferrer">Abrir Publicar en Mercado Libre ↗</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <span class="kicker">2 dormitorios anual · Modalidad abierta · Cero puenteo</span>
+      <h1>Centro Maldonado ($U 27k + $U 5k GC) y La Fortuna ($U 30k todo incluido)</h1>
+      <p class="muted">Todo listo en 1 clic: fotos sin fachada ni calle rastreable para Mercado Libre UY, demanda inversa 2026 y campaña exacta de Google Search para Maldonado.</p>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" onclick="showTab('ml', this)">1. Kit Mercado Libre UY Anti-Puenteo</button>
+      <button type="button" class="tab-btn" onclick="showTab('demanda', this)">2. Demanda inversa 2026 ("Busco anual")</button>
+      <button type="button" class="tab-btn" onclick="showTab('gsearch', this)">3. Google Search Exacto Maldonado</button>
+    </div>
+
+    <section id="tab-ml" class="tab-pane active">
+      <div class="lock-banner">
+        <b>Candado rápido al subir en Mercado Libre Uruguay:</b> empezá usando el <b>cupo gratuito de $U 0</b> con <b>Centro Maldonado</b>. Al cargar la ubicación seleccioná <b>Departamento: Maldonado &rarr; Centro</b> (o <b>La Fortuna</b>) y tildá <b>"Mostrar ubicación aproximada / No mostrar calle ni altura"</b>. Prohibido poner teléfonos, links externos ni nombres de calles en la descripción.
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-head">
+            <h3>Unidad 1 · Centro Maldonado ($U 27.000 + $U 5.000 GC)</h3>
+            <span class="pill">Empezar acá con aviso $U 0</span>
+          </div>
+          <p class="muted" style="font-size:12.5px;">Excluidas foto con desorden y foto con biblioratos. Cero calle exacta.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/assets/kits-ml/centro_maldonado_ml_antipuenteo.zip" download>⬇ Descargar ZIP 7 fotos limpias</a>
+            <a class="btn btn-sec" href="/alquileres/maldonado-centro-piso-4-norte/" target="_blank" rel="noopener noreferrer">Ver ficha web ↗</a>
+          </div>
+          <span class="field-lbl">Título (56 caracteres)</span>
+          <div class="copy-box">
+            <span id="ml-c-tit">Alquiler Anual 2 Dormitorios Centro Maldonado Piso Alto</span>
+            <button type="button" class="btn btn-sec" onclick="copyById('ml-c-tit', this)">Copiar</button>
+          </div>
+          <span class="field-lbl">Precio y Gastos Comunes</span>
+          <div class="copy-box"><span>Alquiler: <b>27000</b> UYU · Gastos comunes: <b>5000</b> UYU</span></div>
+          <span class="field-lbl">Descripción limpia para pegar en ML</span>
+          <textarea id="ml-c-desc" class="copy-ta" rows="10">Alquiler anual (12 meses, vivienda permanente) de apartamento luminoso de 2 dormitorios en el Centro de Maldonado, en piso alto con orientación Norte y sol directo en invierno.
+
+Valor mensual: $U 27.000 + $U 5.000 de gastos comunes (los gastos comunes ya incluyen consumo de agua OSE).
+
+Comodidades incluidas:
+- Living-comedor amplio al frente con doble ventanal de vidrio.
+- Aire acondicionado y calefón instalados.
+- Cocina definida funcional con salida a terraza lavadero.
+- Dos dormitorios luminosos con piso de parquet.
+- Edificio con ascensor y cámaras de seguridad. Admite mascotas.
+- Unidad sin muebles. Consumo eléctrico independiente (UTE).
+
+Garantía solicitada:
+Opera con póliza de aseguradora privada (Porto Seguro, Sura, Mapfre o Santander). No hace falta tener la póliza emitida antes de ir a verlo: podés pre-calificar en el día presentando últimos 3 recibos fijos o 6 variables en BPS (~$U 96.000 líquidos entre 1 a 4 firmantes, sin Clearing) o unipersonal mayor a 1 año con certificación contable.
+
+Recorrida doble en 35 minutos:
+Si evaluás mudarte dentro de los próximos 30 días, coordinamos visita de esta unidad y de otro apartamento de 2 dormitorios a estrenar en La Fortuna ($U 30.000 todo incluido con cochera fija y Wi-Fi) en la misma salida de 35 minutos con cita previa.
+
+Condiciones claras de alquiler anual: contrato 1 a 2 años, garantía de aseguradora habilitada y honorarios inmobiliarios equivalentes a 1 mes de alquiler + IVA al momento de la firma. Consultá por la mensajería de Mercado Libre o el botón de WhatsApp del aviso para validar requisitos y agendar horario.</textarea>
+          <div class="btn-row"><button type="button" class="btn btn-primary" onclick="copyById('ml-c-desc', this)">Copiar descripción Centro</button></div>
+          <span class="field-lbl">Fotos del ZIP (en este orden)</span>
+          <div class="ph-grid"><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/01_portada_living_doble_ventanal_1200x900.jpg" alt="Portada 4:3 · Living doble ventanal al frente" loading="lazy"><span>01_portada_living_doble_ventanal_1200x900.jpg</span><small>Portada 4:3 · Living doble ventanal al frente</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/02_living_doble_ventanal_aire.jpg" alt="Living-comedor c/ aire acondicionado" loading="lazy"><span>02_living_doble_ventanal_aire.jpg</span><small>Living-comedor c/ aire acondicionado</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/03_dormitorio_principal_parquet.jpg" alt="Dormitorio principal c/ parquet y sol norte" loading="lazy"><span>03_dormitorio_principal_parquet.jpg</span><small>Dormitorio principal c/ parquet y sol norte</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/04_dormitorio_2_parquet.jpg" alt="Segundo dormitorio luminoso c/ vista despejada" loading="lazy"><span>04_dormitorio_2_parquet.jpg</span><small>Segundo dormitorio luminoso c/ vista despejada</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/05_dormitorio_angulo_amplio.jpg" alt="Segundo ángulo de dormitorio" loading="lazy"><span>05_dormitorio_angulo_amplio.jpg</span><small>Segundo ángulo de dormitorio</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/06_cocina_definida.jpg" alt="Cocina definida c/ mesada y placares" loading="lazy"><span>06_cocina_definida.jpg</span><small>Cocina definida c/ mesada y placares</small></div><div class="ph-card"><img src="/assets/kits-ml/centro-maldonado/07_bano_con_calefon.jpg" alt="Baño completo c/ calefón instalado" loading="lazy"><span>07_bano_con_calefon.jpg</span><small>Baño completo c/ calefón instalado</small></div></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <h3>Unidad 2 · La Fortuna a Estrenar ($U 30.000 todo inc.)</h3>
+            <span class="pill">Sin fachada ni Av. Ágata</span>
+          </div>
+          <p class="muted" style="font-size:12.5px;">Excluidas escalera exterior, reja frente, esquina y fachada nocturna.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="/assets/kits-ml/la_fortuna_ml_antipuenteo.zip" download>⬇ Descargar ZIP 7 fotos limpias</a>
+            <a class="btn btn-sec" href="/alquileres/la-fortuna-agata/" target="_blank" rel="noopener noreferrer">Ver ficha web ↗</a>
+          </div>
+          <span class="field-lbl">Título (57 caracteres)</span>
+          <div class="copy-box">
+            <span id="ml-f-tit">Alquiler Anual 2 Dormitorios Estrenar La Fortuna Cochera</span>
+            <button type="button" class="btn btn-sec" onclick="copyById('ml-f-tit', this)">Copiar</button>
+          </div>
+          <span class="field-lbl">Precio y Gastos Comunes</span>
+          <div class="copy-box"><span>Alquiler: <b>30000</b> UYU · Gastos comunes: <b>0</b> (incluidos)</span></div>
+          <span class="field-lbl">Descripción limpia para pegar en ML</span>
+          <textarea id="ml-f-desc" class="copy-ta" rows="10">Alquiler anual (12 meses, vivienda permanente) de apartamento de 2 dormitorios 100% a estrenar en Barrio La Fortuna, Maldonado.
+
+Valor mensual cerrado: $U 30.000/mes con gastos comunes, Internet Wi-Fi y 1 cochera fija descubierta dentro de predio cerrado con reja perimetral incluidos.
+
+Comodidades y distribución:
+- Living-comedor luminoso con cocina integrada y mesadas nuevas.
+- Balcón / terraza al frente en piso 1 por escalera exterior (no cuenta con patio exclusivo).
+- Dos dormitorios luminosos con cortinas roller instaladas y preinstalación para aire acondicionado en dormitorios y living.
+- Baño completo moderno en porcelanato.
+- Se entrega sin muebles. Capacidad máxima: 4 personas. Se admite 1 mascota de raza pequeña.
+- Consumos independientes de UTE (luz) y OSE (agua).
+
+Garantía solicitada:
+Póliza de aseguradora privada (Porto Seguro, Sura, Mapfre, Santander o BSE). No necesitás tener la póliza emitida antes de visitar: evaluamos pre-aprobación con 3 recibos fijos o 6 variables en BPS (~$U 95.000 líquidos conjuntos entre 1 a 4 firmantes, sin Clearing) o unipersonal mayor a 1 año al día con certificación contable.
+
+Recorrida doble en 35 minutos:
+Si buscás 2 dormitorios para ingresar dentro de 30 días, coordinamos en la misma salida de 35 minutos visita a esta unidad y a otro apartamento de 2 dormitorios en Centro de Maldonado ($U 27.000 + $U 5.000 gastos comunes c/OSE y aire) con cita previa.
+
+Honorarios inmobiliarios: 1 mes de alquiler + IVA al momento de la firma y entrega de llaves. Escribinos desde el botón de contacto o preguntas de la publicación para confirmar requisitos y día de visita.</textarea>
+          <div class="btn-row"><button type="button" class="btn btn-primary" onclick="copyById('ml-f-desc', this)">Copiar descripción La Fortuna</button></div>
+          <span class="field-lbl">Fotos del ZIP (en este orden)</span>
+          <div class="ph-grid"><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/01_portada_cocina_estrenar_1200x900.jpg" alt="Portada 4:3 · Cocina integrada a estrenar c/ balcón" loading="lazy"><span>01_portada_cocina_estrenar_1200x900.jpg</span><small>Portada 4:3 · Cocina integrada a estrenar c/ balcón</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/02_cocina_integrada_balcon.jpg" alt="Cocina integrada luminosa c/ salida a balcón" loading="lazy"><span>02_cocina_integrada_balcon.jpg</span><small>Cocina integrada luminosa c/ salida a balcón</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/03_living_comedor_luminoso.jpg" alt="Living-comedor amplio a estrenar" loading="lazy"><span>03_living_comedor_luminoso.jpg</span><small>Living-comedor amplio a estrenar</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/04_dormitorio_principal_roller.jpg" alt="Dormitorio principal c/ aberturas nuevas y cortina roller" loading="lazy"><span>04_dormitorio_principal_roller.jpg</span><small>Dormitorio principal c/ aberturas nuevas y cortina roller</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/05_dormitorio_2_roller.jpg" alt="Segundo dormitorio luminoso" loading="lazy"><span>05_dormitorio_2_roller.jpg</span><small>Segundo dormitorio luminoso</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/06_bano_moderno_estrenar.jpg" alt="Baño completo a estrenar c/ porcelanato" loading="lazy"><span>06_bano_moderno_estrenar.jpg</span><small>Baño completo a estrenar c/ porcelanato</small></div><div class="ph-card"><img src="/assets/kits-ml/la-fortuna/07_cochera_fija_interna.jpg" alt="Cochera fija interna (sin fachada a calle)" loading="lazy"><span>07_cochera_fija_interna.jpg</span><small>Cochera fija interna (sin fachada a calle)</small></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <h3>Blindaje nominal antes de abrir la puerta (1 clic hacia el dueño)</h3>
+          <span class="pill">Deja fecha y hora por WhatsApp</span>
+        </div>
+        <p class="muted" style="font-size:13px;">En cartera abierta siempre registrá nombre y últimos 3 números de documento antes de visitar para proteger tus honorarios frente a otro corredor o visita directa posterior.</p>
+        <div class="inputs-row">
+          <div>
+            <span class="field-lbl">Nombre y apellido del interesado</span>
+            <input type="text" id="reg-nombre" placeholder="Ej. Martín Silva">
+          </div>
+          <div>
+            <span class="field-lbl">Últimos 3 dígitos CI + día y horario</span>
+            <input type="text" id="reg-ci" placeholder="Ej. CI term. 482 · Hoy 17:30 hs">
+          </div>
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-primary" onclick="sendOwnerReg('59894294017','Claudia','el apartamento de Centro piso 4 Norte')">📲 Registrar visita con Claudia (Centro)</button>
+          <button type="button" class="btn btn-primary" onclick="sendOwnerReg('59899925848','Jorge','el apartamento a estrenar de La Fortuna')">📲 Registrar visita con Jorge (La Fortuna)</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-demanda" class="tab-pane">
+      
+        <div class="card notice-box">
+          <strong>Resultado honesto del barrido automático ahora mismo:</strong>
+          <p style="margin-top:6px;">Facebook Search devolvió <code>15</code> resultado único útil público (y <code>0</code> pedidos recientes de 2026 que pasen los 4 candados anti-invento) porque la demanda real de alquiler anual en Maldonado circula dentro de los grupos cerrados locales donde tenés membresía. Cero relleno ni inventos.</p>
+          <p style="margin-top:8px;">Abrí en 1 toque cualquiera de estas búsquedas ya ordenadas por <b>Más recientes</b> y usá la respuesta validada de abajo pegando el link exacto del post:</p>
+        </div>
+        
+      <div class="card">
+        <div class="card-head">
+          <h3>Accesos directos 2026 ordenados por Más recientes</h3>
+          <span class="pill">Barridos filtrados: 12 descartados fuera de criterio</span>
+        </div>
+        <div class="btn-row"><a class="btn btn-sec" href="https://www.facebook.com/search/posts/?q=busco%20alquiler%20anual%20maldonado&amp;filters=eyJyZWNlbnRfcG9zdHM6MCI6IntcIm5hbWVcIjpcInJlY2VudF9wb3N0c1wiLFwiYXJnc1wiOlwiXCJ9In0%3D" target="_blank" rel="noopener noreferrer">Busco alquiler anual Maldonado (Más recientes) ↗</a><a class="btn btn-sec" href="https://www.facebook.com/search/posts/?q=busco%20alquiler%20todo%20el%20a%C3%B1o%20maldonado%202%20dormitorios&amp;filters=eyJyZWNlbnRfcG9zdHM6MCI6IntcIm5hbWVcIjpcInJlY2VudF9wb3N0c1wiLFwiYXJnc1wiOlwiXCJ9In0%3D" target="_blank" rel="noopener noreferrer">Busco alquiler 2 dormitorios todo el año Maldonado (Más recientes) ↗</a><a class="btn btn-sec" href="https://www.facebook.com/search/posts/?q=buscamos%20alquiler%20anual%20maldonado&amp;filters=eyJyZWNlbnRfcG9zdHM6MCI6IntcIm5hbWVcIjpcInJlY2VudF9wb3N0c1wiLFwiYXJnc1wiOlwiXCJ9In0%3D" target="_blank" rel="noopener noreferrer">Buscamos alquiler anual Maldonado (Más recientes) ↗</a><a class="btn btn-sec" href="https://listado.mercadolibre.com.uy/inmuebles/apartamentos/alquiler/maldonado/2-dormitorios/" target="_blank" rel="noopener noreferrer">InfoCasas Demanda / Mercado Libre Alquileres Anuales 2D Maldonado ↗</a></div>
+        <span class="field-lbl">Respuesta 1 a 1 validada (pegar link exacto de la publicación arriba)</span>
+        <textarea id="dem-generic-ta" class="copy-ta" rows="6">Hola, vi tu publicación reciente buscando alquiler anual de 2 dormitorios en Maldonado (PEGAR LINK DEL POST ACÁ).
+En ZAGUÁN Propiedades tenemos hoy dos opciones para entrar dentro de los próximos 30 días con aseguradora privada (Porto Seguro, Sura, Mapfre o Santander):
+1) Centro de Maldonado: $U 27.000/mes + $U 5.000 de gastos comunes con agua incluida (piso 4 Norte, luminoso, con aire, lavadero y edificio que acepta mascotas).
+2) Barrio La Fortuna: $U 30.000/mes cerrados a estrenar (incluye gastos comunes, Wi-Fi y cochera fija; hasta 4 personas y 1 mascota pequeña).
+Coordinamos visita a los dos en la misma salida de 35 minutos. Qué garantía tenés disponible o para cuántas personas sería?</textarea>
+        <div class="btn-row"><button type="button" class="btn btn-primary" onclick="copyById('dem-generic-ta', this)">Copiar respuesta validada</button></div>
+      </div>
+    </section>
+
+    <section id="tab-gsearch" class="tab-pane">
+      <div class="lock-banner">
+        <b>Estado real de cuenta Google Ads:</b> en tu navegador hoy solo está abierta la cuenta de otro proyecto (bloqueada por cortafuegos). Apenas entres a <code>ads.google.com</code> con el correo de Zaguán, importás este CSV con Google Ads Editor en 1 clic o me avisás y la cargo en vivo. La medición de conversiones GA4 ya está activa en ambas fichas web.
+      </div>
+      <div class="card">
+        <div class="card-head">
+          <h3>ZAG - Search Alquiler Anual Maldonado (Exacta)</h3>
+          <span class="pill">Presupuesto sugerido: $U 350/día · CPC máx $U 25</span>
+        </div>
+        <p class="muted" style="font-size:13px;">Solo Red de Búsqueda de Google · Presencia física en Maldonado, Uruguay · Países excluidos: Argentina, Brazil, Paraguay, Chile, United States, Spain.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/assets/kits-ml/google_ads_search_alquiler_maldonado.csv" download>⬇ Descargar CSV listo para Google Ads Editor</a>
+        </div>
+        <span class="field-lbl">Palabras clave exactas (Grupo Centro)</span>
+        <div class="kw-wrap"><code>[alquiler anual maldonado]</code><code>[alquiler anual 2 dormitorios maldonado]</code><code>[apartamento alquiler anual maldonado]</code><code>[alquiler todo el año maldonado]</code><code>[alquileres anuales en maldonado]</code><code>[apto 2 dormitorios alquiler anual maldonado]</code><code>[alquiler anual centro maldonado]</code></div>
+        <span class="field-lbl">Palabras clave exactas (Grupo La Fortuna)</span>
+        <div class="kw-wrap"><code>[alquiler anual maldonado 30000]</code><code>[alquiler anual la fortuna maldonado]</code></div>
+        <span class="field-lbl">50 palabras negativas obligatorias a nivel campaña</span>
+        <div class="kw-wrap"><span class="neg-chip">-temporada</span><span class="neg-chip">-verano</span><span class="neg-chip">-enero</span><span class="neg-chip">-febrero</span><span class="neg-chip">-por dia</span><span class="neg-chip">-diario</span><span class="neg-chip">-quincena</span><span class="neg-chip">-anda</span><span class="neg-chip">-contaduria</span><span class="neg-chip">-cgn</span><span class="neg-chip">-sin garantia</span><span class="neg-chip">-amoblado</span><span class="neg-chip">-amueblado</span><span class="neg-chip">-con muebles</span><span class="neg-chip">-venta</span><span class="neg-chip">-comprar</span><span class="neg-chip">-pozo</span><span class="neg-chip">-montevideo</span><span class="neg-chip">-piriapolis</span><span class="neg-chip">-rocha</span><span class="neg-chip">-canelones</span><span class="neg-chip">-trabajo</span><span class="neg-chip">-empleo</span><span class="neg-chip">-gratis</span><span class="neg-chip">-marzo a diciembre</span><span class="neg-chip">-invernal</span><span class="neg-chip">-estudiantes</span><span class="neg-chip">-bhu</span><span class="neg-chip">-deposito</span><span class="neg-chip">-dueño directo</span><span class="neg-chip">-dueno directo</span><span class="neg-chip">-propietario directo</span><span class="neg-chip">-airbnb</span><span class="neg-chip">-booking</span><span class="neg-chip">-hotel</span><span class="neg-chip">-posada</span><span class="neg-chip">-hostel</span><span class="neg-chip">-local comercial</span><span class="neg-chip">-galpon</span><span class="neg-chip">-terreno</span><span class="neg-chip">-chacra</span><span class="neg-chip">-campo</span><span class="neg-chip">-casa con piscina</span><span class="neg-chip">-beverly hills</span><span class="neg-chip">-jose ignacio</span><span class="neg-chip">-manantiales</span><span class="neg-chip">-la barra</span><span class="neg-chip">-solanas</span><span class="neg-chip">-monoambiente</span><span class="neg-chip">-1 dormitorio</span></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function showTab(key, btn) {
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + key).classList.add('active');
+      btn.classList.add('active');
+    }
+    function copyById(id, btn) {
+      var el = document.getElementById(id);
+      var txt = el.value !== undefined ? el.value : el.innerText;
+      navigator.clipboard.writeText(txt).then(function() {
+        var prev = btn.innerText;
+        btn.innerText = '✓ Copiado';
+        setTimeout(function() { btn.innerText = prev; }, 1600);
+      });
+    }
+    function sendOwnerReg(phone, ownerName, propLabel) {
+      var nom = (document.getElementById('reg-nombre').value || '').trim();
+      var ci = (document.getElementById('reg-ci').value || '').trim();
+      if (!nom) { alert('Completá primero el nombre y apellido del interesado.'); return; }
+      var msg = 'Hola ' + ownerName + ', te dejo registrado por ZAGUÁN Propiedades a ' + nom +
+        (ci ? ' (' + ci + ')' : '') + ' para visitar ' + propLabel +
+        ' en condición de interesado pre-calificado. Cualquier consulta te aviso apenas confirmemos.';
+      window.open('https://wa.me/' + phone + '?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+    }
+  </script>
+</body>
+</html>
