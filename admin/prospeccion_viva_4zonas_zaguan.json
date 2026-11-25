@@ -320,6 +320,63 @@
   ],
   "marketplace_duenos_directos": [
     {
+      "id": "PD-26-01",
+      "vendedor": "Natalia Ascue",
+      "titulo": "Apartamento Piso 19 Jardines del Country · 2 dormitorios y 2 baños (75 m²)",
+      "precio": "USD 1.300 / mes",
+      "zona": "Av. Roosevelt Parada 14, Punta del Este",
+      "operacion": "Alquiler anual · Dueño Directo 2026",
+      "telefono_directo": "59898259650",
+      "url": "https://www.gallito.com.uy/alquiler-apartamento-punta-del-este-maldonado-2-dormitorios-inmuebles-29762195",
+      "nota_auditoria": "Alta 2026-09-16 · 1 única propiedad · Verificada sin inmobiliaria en Google · Calza directo con pedido +598 95 535 999 (2D anual USD 1.200-1.400 c/ Sura/Porto/BSE).",
+      "mensaje_mar": "Hola Natalia, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de alquiler anual en Av. Roosevelt Parada 14 (USD 1.300/mes): https://www.gallito.com.uy/alquiler-apartamento-punta-del-este-maldonado-2-dormitorios-inmuebles-29762195\n\n_Sigue disponible para trabajarlo con publicación abierta y me confirmás si el valor incluye gastos comunes, qué garantías aceptás (Porto, Sura, BSE o depósito) y si admite mascotas?_",
+      "seguimiento_72h": "Hola Natalia, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Av. Roosevelt Parada 14, Punta del Este (https://www.gallito.com.uy/alquiler-apartamento-punta-del-este-maldonado-2-dormitorios-inmuebles-29762195). Avisame si sigue disponible para sumarla con publicación abierta o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
+      "estado_envio": "pendiente",
+      "carril": "1_por_contactar",
+      "vertical_calculada": "O6",
+      "corchetes_en_aviso": [],
+      "corchetes_faltantes": [],
+      "estado_material_aviso": "Publicación 2026 activa con enlace directo verificado incluido en el 1° mensaje."
+    },
+    {
+      "id": "PD-26-02",
+      "vendedor": "Julio Martínez",
+      "titulo": "Dueño vende 1 dormitorio Piso 5 con terraza, garaje propio y baulera",
+      "precio": "USD 145.000",
+      "zona": "Península (a 3 cuadras del Puerto), Punta del Este",
+      "operacion": "Venta apartamento · Dueño Directo 2026",
+      "telefono_directo": "59899622921",
+      "url": "https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-29890231",
+      "nota_auditoria": "Alta 2026-10-05 · 1 única propiedad · Gastos comunes  4.700 · Cocina hecha a nuevo · Calza con pedido Macarena (<= USD 155.000 cerca del mar).",
+      "mensaje_mar": "Hola Julio, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación del apartamento de 1 dormitorio con garaje a 3 cuadras del Puerto (USD 145.000): https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-29890231\n\n_Sigue disponible para sumarlo con publicación abierta y me confirmás metros propios, si tiene sanitaria y eléctrica actualizadas y si cuenta con títulos al día?_",
+      "seguimiento_72h": "Hola Julio, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Península (a 3 cuadras del Puerto), Punta del Este (https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-29890231). Avisame si sigue disponible para sumarla con publicación abierta o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
+      "estado_envio": "pendiente",
+      "carril": "1_por_contactar",
+      "vertical_calculada": "O2",
+      "corchetes_en_aviso": [],
+      "corchetes_faltantes": [],
+      "estado_material_aviso": "Publicación 2026 activa con enlace directo verificado incluido en el 1° mensaje."
+    },
+    {
+      "id": "PD-26-03",
+      "vendedor": "Gustavo Martín",
+      "titulo": "Apartamento 1 dormitorio orientación Norte con terraza y garaje",
+      "precio": "USD 119.800",
+      "zona": "Cantegril (a 300 m de Playa Mansa Pda 16), Punta del Este",
+      "operacion": "Venta apartamento · Dueño Directo 2026",
+      "telefono_directo": "59893574388",
+      "url": "https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-30000894",
+      "nota_auditoria": "Alta 2026-10-15 · 1 única propiedad (InfoCasas 194406954 + Gallito) · Gastos comunes  6.900 c/ OSE · Papeles al día.",
+      "mensaje_mar": "Hola Martín, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación del apartamento de 1 dormitorio orientación Norte en Cantegril (USD 119.800): https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-30000894\n\n_Sigue disponible para ofrecerlo con publicación abierta y me confirmás si cuenta con actualizaciones de sanitaria y eléctrica hechas?_",
+      "seguimiento_72h": "Hola Gustavo, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Cantegril (a 300 m de Playa Mansa Pda 16), Punta del Este (https://www.gallito.com.uy/venta-apartamento-punta-del-este-maldonado-1-dormitorio-inmuebles-30000894). Avisame si sigue disponible para sumarla con publicación abierta o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
+      "estado_envio": "pendiente",
+      "carril": "1_por_contactar",
+      "vertical_calculada": "O2",
+      "corchetes_en_aviso": [],
+      "corchetes_faltantes": [],
+      "estado_material_aviso": "Publicación 2026 activa con enlace directo verificado incluido en el 1° mensaje."
+    },
+    {
       "id": "MP-01",
       "operacion": "Alquiler anual · Dueña Directa con WhatsApp",
       "titulo": "Casa 2 dormitorios con entrada para auto y fondo con churrasquero (Barrio 4H)",
@@ -1022,7 +1079,7 @@
       "url": "https://www.facebook.com/marketplace/item/4524914991159477/",
       "nota_auditoria": "Perfil verificado con solo 2 publicaciones de la misma propiedad en Barrio San Francisco; celular 096 125 093 visible en la descripción del aviso.",
       "mensaje_mar": "Hola Anabella, cómo estás? Te escribe Mar, de ZAGUÁN Propiedades. Vi tu propiedad en alquiler anual en Barrio San Francisco.\n\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta). Sigue disponible para sumarla a nuestra cartera?\n\n_Si sigue disponible, contame qué valor mensual estás pidiendo, qué garantía o cuántos meses de depósito aceptás (en ZAGUÁN también recibimos extranjeros certificando ingresos con nuestra escribanía aliada), qué incluye el monto y cómo es el tema cochera o mascotas._",
-      "estado_envio": "enviado_1",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Anabella, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Barrio San Francisco, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O6",
       "corchetes_en_aviso": [
@@ -1038,10 +1095,12 @@
         "Si cuenta con cochera y características",
         "Si admite niños y mascota (y porte)"
       ],
-      "carril": "2_esperando_respuesta_72h",
+      "carril": "5_cerrado_radar",
       "nivel_semaforo": "1A_LIMPIO",
       "ts_envio_1": 1795447995000,
-      "fecha_envio_1": "2026-11-23 12:33"
+      "fecha_envio_1": "2026-11-23 12:33",
+      "sello_cierre": "ALQUILADO EN MARKETPLACE",
+      "motivo_cierre": "25/11/2026: respondió por WhatsApp (+598 96 125 093) que ya entraron inquilinos."
     },
     {
       "id": "MP-22",
@@ -1118,7 +1177,7 @@
       "url": "https://www.facebook.com/marketplace/item/1469657851781759/",
       "nota_auditoria": "Perfil verificado con 1 sola publicación activa en Marketplace; celular 091 006 302 en la descripción.",
       "mensaje_mar": "Hola Dady, te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de la casa en venta en San Carlos sobre calle 25 de Agosto (USD 60.000): https://www.facebook.com/marketplace/item/1469657851781759/\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. *Sigue disponible para sumarla a nuestra cartera?*\n_Si sigue en venta, confirmame por favor si tiene títulos y planos al día para escriturar, cuántos metros de terreno y edificados son, qué estado constructivo tiene y si nos podés pasar fotos del interior y frente._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Dady, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en San Carlos, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1132,12 +1191,14 @@
         "Fotos actuales del interior y frente",
         "Metros de terreno y edificados"
       ],
-      "carril": "1_por_contactar",
+      "carril": "5_cerrado_radar",
       "nivel_semaforo": "1B_CON_ALERTA",
       "ts_envio_1": null,
       "fecha_envio_1": null,
       "badge_alerta": "⚠️ ALERTA MAR: 1 SOLA FOTO / VALIDAR TÍTULOS EN SAN CARLOS (USD 45K–60K)",
-      "alerta_mar": "San Carlos calle 25 de Agosto (USD 60.000). Aviso no enviado aún en Comet; validar títulos, planos al día y solicitar más fotos reales."
+      "alerta_mar": "San Carlos calle 25 de Agosto (USD 60.000). Aviso no enviado aún en Comet; validar títulos, planos al día y solicitar más fotos reales.",
+      "sello_cierre": "DESCARTADO EN RADAR",
+      "motivo_cierre": "Archivado fuera de foco prioritario (casa chica San Carlos)."
     },
     {
       "id": "MP-25",
@@ -1150,7 +1211,7 @@
       "url": "https://www.facebook.com/marketplace/item/29603820252569952/",
       "nota_auditoria": "Perfil verificado únicamente con duplicados de esta misma casa y artículos personales (cables/bomba); celular 094 237 595 en la descripción.",
       "mensaje_mar": "Hola Fabian, te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de la casa en venta en Barrio Rodríguez Barrios, San Carlos (USD 50.000): https://www.facebook.com/marketplace/item/29603820252569952/\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. *Quería consultarte antes de sumarla si evaluás oferta de compra directa en dólares además de permuta o canje?*\n_Si evaluás venta directa en dólares, contame también metros de terreno y edificados, si tiene títulos y planos al día y cómo es el acceso vehicular._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Fabian, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en Barrio Rodríguez Barrios, San Carlos, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1164,12 +1225,14 @@
         "Metros de terreno y edificados",
         "Planos y títulos al día (apto banco vs. contado)"
       ],
-      "carril": "1_por_contactar",
+      "carril": "5_cerrado_radar",
       "nivel_semaforo": "1B_CON_ALERTA",
       "ts_envio_1": null,
       "fecha_envio_1": null,
       "badge_alerta": "⚠️ ALERTA MAR: PERMUTA CAMIONETA / TERRENO",
-      "alerta_mar": "Barrio Rodríguez Barrios, San Carlos (USD 50.000). Antes de avanzar, validar si evalúa oferta de compra directa en dólares además de permuta o canje de vehículo/terreno."
+      "alerta_mar": "Barrio Rodríguez Barrios, San Carlos (USD 50.000). Antes de avanzar, validar si evalúa oferta de compra directa en dólares además de permuta o canje de vehículo/terreno.",
+      "sello_cierre": "DESCARTADO EN RADAR",
+      "motivo_cierre": "Archivado fuera de foco prioritario (casa chica San Carlos)."
     },
     {
       "id": "MP-26",
@@ -1346,7 +1409,7 @@
       "url": "https://www.facebook.com/marketplace/item/1751495919260007/",
       "nota_auditoria": "Reside en San Carlos; perfil verificado con 1 sola publicación activa y foto limpia sin marcas de inmobiliaria; celular 094 702 274 en la descripción.",
       "mensaje_mar": "Hola María, te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de la casa en venta en San Carlos: https://www.facebook.com/marketplace/item/1751495919260007/\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. *Sigue disponible para sumarla a nuestra cartera?*\n_Si sigue en venta, contame qué valor en dólares estás pidiendo, si cuenta con títulos y planos al día para escriturar, metros de terreno y edificados y si tenés más fotos del interior para evaluar._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola María, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en San Carlos, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1360,12 +1423,14 @@
         "Títulos y planos al día para escriturar",
         "Fotos del interior y metros totales"
       ],
-      "carril": "1_por_contactar",
+      "carril": "5_cerrado_radar",
       "nivel_semaforo": "1B_CON_ALERTA",
       "ts_envio_1": null,
       "fecha_envio_1": null,
       "badge_alerta": "⚠️ ALERTA MAR: 1 SOLA FOTO / VALIDAR TÍTULOS EN SAN CARLOS (USD 45K–60K)",
-      "alerta_mar": "San Carlos sin precio declarado y foto única exterior. Validar valor pretendido en USD, títulos y planos al día."
+      "alerta_mar": "San Carlos sin precio declarado y foto única exterior. Validar valor pretendido en USD, títulos y planos al día.",
+      "sello_cierre": "DESCARTADO EN RADAR",
+      "motivo_cierre": "Archivado fuera de foco prioritario (San Carlos sin precio)."
     },
     {
       "id": "MP-32",
@@ -1449,7 +1514,7 @@
       "url": "https://www.facebook.com/marketplace/item/2360308348037727/",
       "nota_auditoria": "Perfil verificado con solo 2 publicaciones (1 libro + 1 casa en San Carlos) y foto sin marcas de agencia; indica 'llamar al: 095 358 136, Susana Navarro' en la descripción.",
       "mensaje_mar": "Hola Susana, te escribe Mar, de ZAGUÁN Propiedades. Vi tu publicación de la casa en venta en San Carlos (USD 45.000): https://www.facebook.com/marketplace/item/2360308348037727/\nTrabajamos con publicación abierta (seguís ofreciendo por tu cuenta) y respaldo de nuestra escribanía aliada. *Sigue disponible para sumarla a nuestra cartera?*\n_Si sigue en venta, confirmame por favor si tiene títulos y planos al día para escriturar, metros totales, estado constructivo y si nos podés pasar fotos actuales del interior por acá._",
-      "estado_envio": "pendiente",
+      "estado_envio": "cerrado",
       "seguimiento_72h": "Hola Susana, cómo estás? Te escribo breve sobre mi consulta anterior por tu propiedad en San Carlos, Maldonado. Avisame si sigue disponible y querés sumarla con publicación abierta, o si cierro el recordatorio. Saludos, Mar — ZAGUÁN Propiedades.",
       "vertical_calculada": "O1",
       "corchetes_en_aviso": [
@@ -1463,12 +1528,14 @@
         "Fotos reales actuales del interior y frente",
         "Metros de terreno y edificados"
       ],
-      "carril": "1_por_contactar",
+      "carril": "5_cerrado_radar",
       "nivel_semaforo": "1B_CON_ALERTA",
       "ts_envio_1": null,
       "fecha_envio_1": null,
       "badge_alerta": "⚠️ ALERTA MAR: 1 SOLA FOTO / VALIDAR TÍTULOS EN SAN CARLOS (USD 45K–60K)",
-      "alerta_mar": "1 sola foto precaria en San Carlos (USD 45.000). Validar títulos, planos y si cuenta con fotos reales del interior antes de ofrecer."
+      "alerta_mar": "1 sola foto precaria en San Carlos (USD 45.000). Validar títulos, planos y si cuenta con fotos reales del interior antes de ofrecer.",
+      "sello_cierre": "DESCARTADO EN RADAR",
+      "motivo_cierre": "Archivado fuera de foco prioritario (casa chica San Carlos)."
     },
     {
       "id": "MP-35",
