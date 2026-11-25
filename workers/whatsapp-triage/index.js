@@ -477,6 +477,25 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
     return { vertical: v, subtipo: "CIERRE_NEGATIVO_EDUCADO" };
   }
 
+  // 0a-web. Etiquetas oficiales desde las 4 rayitas Story + Captación cruzada + Seguimiento
+  if (/\[visita\s+calificada\]/i.test(t)) {
+    return { vertical: "D2", subtipo: "D2_WEB_VISITA_CALIFICADA" };
+  }
+  if (/\[b[uú]squeda\s+prioritaria\]/i.test(t)) {
+    return { vertical: "D2", subtipo: "D2_WEB_BUSQUEDA_PRIORITARIA" };
+  }
+  if (/\[seguimiento\s*\/\s*requisito\s+extra\]/i.test(t)) {
+    return { vertical: "D2", subtipo: "D2_WEB_SEGUIMIENTO_EXTRA" };
+  }
+
+  // 0a-cupo. Cupo 5 o más integrantes en unidades de 2 dormitorios (hasta 4 personas)
+  if (
+    (ctx === "la_fortuna" || ctx === "centro_maldonado" || matchesAny(t, ["la fortuna", "centro de maldonado"])) &&
+    /\b([5-9]\s*(?:personas|en total|integrantes)|(?:matrimonio|pareja)\s+con\s+[3-9]\s+hijos|somos\s+[5-9]\b|5\s+o\s+m[aá]s\s+personas)\b/i.test(t)
+  ) {
+    return { vertical: "D2", subtipo: "D2_CUPO_SUPERADO_3D" };
+  }
+
   // 0a-bis. Post-Cierre Puerta Abierta (busqueda_activa_abierta) -> Suma Incremental T_ADD_DETAIL sin resetear a T0
   const enBusquedaActivaAbierta = Boolean(
     leadState && (
@@ -503,8 +522,12 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
     return { vertical: "D2", subtipo: "LA_FORTUNA_CIERRE_CALIENTE_COMPETENCIA" };
   }
 
-  // 0c. Objeción niños / familias (Caso Lianet T1)
-  if ((ctx === "la_fortuna" || matchesAny(t, ["la fortuna", "ágata", "agata", "la fui a ver", "ya la vi"])) && matchesAny(t, ["niños", "ninos", "niño", "nino", "hijos", "chicos", "bebé", "bebe", "familia con"])) {
+  // 0c. Objeción niños / familias (Caso Lianet T1) — solo en consulta sobre La Fortuna, nunca en búsqueda cruzada de otra zona
+  if (
+    (ctx === "la_fortuna" || matchesAny(t, ["la fortuna", "ágata", "agata", "la fui a ver", "ya la vi"])) &&
+    !matchesAny(t, ["estoy buscando", "la barra", "amoblado", "amueblado", "búsqueda prioritaria", "busqueda prioritaria"]) &&
+    matchesAny(t, ["niños", "ninos", "niño", "nino", "hijos", "chicos", "bebé", "bebe", "familia con"])
+  ) {
     return { vertical: "D2", subtipo: "LA_FORTUNA_OBJECION_NINOS" };
   }
 
@@ -643,6 +666,13 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
   }
   if (
     matchesAny(t, ["argentino", "exterior", "buenos aires", "desde argentina", "no residente", "a distancia", "firmar desde"]) &&
+    (ctx === "la_fortuna" || ctx === "centro_maldonado" || matchesAny(t, ["alquiler", "alquilar", "alquilo", "todo el año", "todo el ano", "por mes", "mensuales", "mil pesos", "$u", "2 ambientes", "3 ambientes"])) &&
+    !matchesAny(t, ["comprar", "compra", "pozo", "escritura", "boleto", "reservar en pozo"])
+  ) {
+    return { vertical: "D2", subtipo: "D2_ALQUILER_EXTERIOR_ARGENTINO" };
+  }
+  if (
+    matchesAny(t, ["argentino", "exterior", "buenos aires", "desde argentina", "no residente", "a distancia", "firmar desde"]) &&
     (ctx === "pozo" || (
       leadState?.rama_conversacion !== "B" &&
       !leadState?.garantia_tipo &&
@@ -671,8 +701,18 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
   if (matchesAny(t, ["enero", "quincena", "verano", "temporada", "por día", "por dia", "vacaciones"]) && !matchesAny(t, ["marzo a noviembre", "invernal", "probar invierno", "enseguida de la temporada", "después de la temporada", "despues de la temporada"])) {
     return { vertical: "D2", subtipo: "OBJECION_TEMPORADA_VS_ANUAL" };
   }
-  if (matchesAny(t, ["clearing", "deuda vieja", "mejor historial", "estoy en el clearing"])) {
+  if (
+    matchesAny(t, ["clearing", "deuda vieja", "mejor historial", "estoy en el clearing"]) &&
+    (!/\bsin\s+clearing\b/i.test(t) || matchesAny(t, ["estoy en el clearing", "deuda vieja", "mejor historial"]))
+  ) {
     return { vertical: "D2", subtipo: "D2_CLEARING_HISTORIAL_PAREJA" };
+  }
+  if (
+    (ctx === "centro_maldonado" || matchesAny(t, ["centro de maldonado", "maldonado centro"])) &&
+    matchesAny(t, ["aire", "calefón", "calefon", "lavadero", "ventanal", "orientación", "orientacion", "piso 4", "gastos comunes"]) &&
+    !matchesAny(t, ["no tengo recibo", "sin recibo", "meses juntos", "efectivo"])
+  ) {
+    return { vertical: "D2", subtipo: "CENTRO_MALDONADO_DETALLE_UNIDAD" };
   }
   if (matchesAny(t, ["la barra"]) && matchesAny(t, ["alquiler", "anual", "amoblado", "amueblado", "todo el año", "todo el ano", "bse", "sura", "porto"])) {
     return { vertical: "D2", subtipo: "D2_LA_BARRA_AMOBLADO_ANUAL_REALIDAD" };
@@ -728,6 +768,12 @@ export function clasificarVertical14(rawText, contextoPropiedad = "general", lea
   }
   if (vTurn.situacion_laboral === "relacion_dependencia" || matchesAny(t, ["relación de dependencia", "relacion de dependencia", "empleado en planilla", "tengo recibo de sueldo"])) {
     return { vertical: "D2", subtipo: "D2_GARANTIA_RELACION_DEPENDENCIA" };
+  }
+  if (
+    (ctx === "la_fortuna" || ctx === "centro_maldonado") &&
+    matchesAny(t, ["no tengo recibo", "sin recibo", "meses juntos", "meses por adelantado", "pago en efectivo", "en efectivo"])
+  ) {
+    return { vertical: "D2", subtipo: "D2_UNIDAD_SOLO_ASEGURADORA_DESVIO" };
   }
   if (
     matchesAny(t, ["no tengo garantía", "no tengo garantia", "sin garantía", "sin garantia", "solo efectivo", "pago solo efectivo", "tengo solo depósito", "tengo solo deposito"]) &&
@@ -1238,25 +1284,86 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
       "Si en el futuro retomás la búsqueda o necesitás publicar un inmueble, nos escribís por acá.";
     alertaAndon = true;
     motivoAndon = "Cierre negativo educado: pasar a baja/radar sin insistir.";
+  } else if (subtipo === "D2_WEB_VISITA_CALIFICADA") {
+    const pNombre = extraerPrimerNombre(rawText, leadState);
+    const esCentro = String(contextoPropiedad || "").toLowerCase() === "centro_maldonado" || /centro\s+de\s+maldonado|27\.000|32\.000/i.test(rawText || "");
+    const propNom = esCentro
+      ? "Centro de Maldonado ($U 27.000/mes + $U 5.000 de gastos comunes)"
+      : "La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija)";
+    replyText =
+      `Hola${pNombre ? " " + pNombre : ""}! Recibimos tu perfil calificado para ${propNom}.\n` +
+      "Recordá que primero visitamos el apartamento y recién si te gusta tramitamos la póliza en 24/48 hs.\n" +
+      "*Qué día y franja horaria les queda cómodo esta semana para ir a verlo?*";
+    alertaAndon = true;
+    motivoAndon = "VISITA CALIFICADA WEB: perfil validado en 4 rayitas; confirmar día/hora sin repreguntar.";
+  } else if (subtipo === "D2_WEB_BUSQUEDA_PRIORITARIA") {
+    const pNombre = extraerPrimerNombre(rawText, leadState);
+    const zTxt = varsSilenciosas.zona_display || "Maldonado y Punta del Este";
+    const pTxt = varsSilenciosas.presupuesto_declarado
+      ? ` hasta ${varsSilenciosas.moneda === "USD" ? "USD " : "$U "}${Number(varsSilenciosas.presupuesto_declarado).toLocaleString("de-DE")}`
+      : "";
+    replyText =
+      `Hola${pNombre ? " " + pNombre : ""}! Recibimos tu búsqueda prioritaria desde la web en ${zTxt}${pTxt}.\n` +
+      "Ya activamos el rastreo en nuestra cartera y red de colegas con las comodidades y el respaldo que marcaste.\n" +
+      "*Tienen preferencia de piso o tipo de calefacción mientras preparamos las opciones?*";
+    alertaAndon = true;
+    motivoAndon = "BÚSQUEDA PRIORITARIA WEB: cruzar con cartera y red de colegas sin ofrecer unidad incompatible.";
+  } else if (subtipo === "D2_WEB_SEGUIMIENTO_EXTRA") {
+    const pNombre = extraerPrimerNombre(rawText, leadState);
+    replyText =
+      `Anotado${pNombre ? ", " + pNombre : ""}! Sumamos ese detalle extra a tu búsqueda guardada sin perder tu lugar de aviso.\n` +
+      "Te escribimos por acá apenas ingrese una propiedad acorde a lo que detallaste.\n" +
+      "*Querés dejar anotada alguna otra zona de preferencia o referencia de fecha?*";
+    alertaAndon = true;
+    motivoAndon = "SEGUIMIENTO / REQUISITO EXTRA: búsqueda actualizada sin mezclar con visitas del día.";
+  } else if (subtipo === "D2_CUPO_SUPERADO_3D") {
+    replyText =
+      "Gracias por consultar! Tanto La Fortuna como Centro de Maldonado cuentan con 2 dormitorios y capacidad máxima de hasta 4 personas.\n" +
+      "Para grupos de 5 integrantes te anotamos para unidades de 3 dormitorios o casas amplias en Maldonado.\n" +
+      "*Qué tope mensual y zona te queda cómodo evaluar para avisarte apenas ingrese una opción de 3 dormitorios?*";
+    alertaAndon = true;
+    motivoAndon = "Cupo 5+ personas en unidad 2D: derivado con respeto a búsqueda de 3 dormitorios.";
+  } else if (subtipo === "D2_ALQUILER_EXTERIOR_ARGENTINO") {
+    replyText =
+      "Hola! Para alquiler anual en Maldonado tenemos disponible un 2 dormitorios a estrenar en La Fortuna a $U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos (2 dormitorios + living con balcón al frente, equivalente a 3 ambientes).\n" +
+      "Si llegás desde Argentina y aún no contás con recibo local ni póliza en Uruguay, evaluamos respaldo con comprobantes certificados o sumando un co-firmante local que firme el contrato.\n" +
+      "*Venís con residencia o recibos en Uruguay, o buscás armar respaldo desde Argentina?*";
+    alertaAndon = true;
+    motivoAndon = "Alquiler anual exterior/argentino en $U: traducido UY/AR hacia La Fortuna sin desvío falso a pozo.";
+  } else if (subtipo === "CENTRO_MALDONADO_DETALLE_UNIDAD") {
+    replyText =
+      `El 2 dormitorios de Centro de Maldonado ($U 27.000 + gastos comunes) ya se alquiló.\n` +
+      `En ese rango de presupuesto te queda activo el 2 dormitorios a estrenar en La Fortuna a $U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos (piso 1 por escalera con balcón y preinstalación de aire acondicionado): ${LA_FORTUNA_URL}${utm}\n` +
+      "*Ya contás con póliza aseguradora aprobada o querés validar tus ingresos para coordinar visita?*";
+    alertaAndon = true;
+    motivoAndon = "Centro Maldonado ya alquilado (25/11): deriva limpio a La Fortuna ($U 30.000 todo incluido).";
+  } else if (subtipo === "D2_UNIDAD_SOLO_ASEGURADORA_DESVIO") {
+    replyText =
+      "Entiendo! Esta unidad opera solo con garantía de aseguradora privada (Porto, Sura, Mapfre o Santander), ya sea con 1 o 2 ingresos formales o sumando un co-firmante con recibo limpio que firme el contrato.\n" +
+      "También podemos dejar anotada tu búsqueda por si ingresa una unidad que evalúe meses adelantados o depósito en garantía.\n" +
+      "*Preferís que dejemos registrada tu búsqueda en Maldonado con esa modalidad y qué tope mensual manejás?*";
+    alertaAndon = true;
+    motivoAndon = "Desvío efectivo/sin recibo en unidad con aseguradora: co-firmante o búsqueda depósito.";
   } else if (subtipo === "CENTRO_MALDONADO_FOTOS_DESDE_AVISO") {
     replyText =
-      `Hola! Acá tenés las fotos y el croquis del 2 dormitorios en Centro de Maldonado ($U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida, piso 4 por ascensor, aire y calefón, sin muebles): https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/${utm}\n` +
+      `Hola! El 2 dormitorios de Centro de Maldonado ($U 27.000 + gastos comunes) ya se alquiló.\n` +
+      `Hoy tenemos disponible en Maldonado el 2 dormitorios a estrenar en La Fortuna a $U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos: ${LA_FORTUNA_URL}${utm}\n` +
       "Trabaja solo con garantía de aseguradora (Porto Seguro, Sura, Mapfre o Santander). Ya tenés póliza emitida o querés validar con recibos / unipersonal?";
     alertaAndon = true;
-    motivoAndon = "Fotos Centro Maldonado enviadas + filtro de aseguradora sin empujar visita previa.";
+    motivoAndon = "Centro Maldonado alquilado: informa cierre real y envía ficha activa de La Fortuna.";
   } else if (subtipo === "LA_FORTUNA_FOTOS_DESDE_AVISO") {
     replyText =
-      `Hola! Acá tenés las fotos del apartamento 2 dormitorios en alquiler anual en La Fortuna ($U 30.000/mes, incluye gastos comunes, Wi-Fi y cochera fija, piso 1 c/ balcón, sin patio): ${LA_FORTUNA_URL}${utm}\n` +
+      `Hola! Acá tenés las fotos del apartamento 2 dormitorios en alquiler anual en La Fortuna ($U 30.000/mes, incluye gastos comunes, Wi-Fi y cochera fija, piso 1 por escalera exterior con balcón al frente y preinstalación de aire acondicionado): ${LA_FORTUNA_URL}${utm}\n` +
       "Trabaja solo con garantía de aseguradora (Porto Seguro, Sura, Mapfre o Santander). Ya tenés aseguradora o querés confirmar con recibos / unipersonal?";
     alertaAndon = true;
     motivoAndon = "Fotos La Fortuna enviadas desde 'fotos de la casa' sin desvío falso a Santa Mónica.";
   } else if (subtipo === "D2_PROPIEDAD_YA_ALQUILADA") {
     replyText =
-      `Esa propiedad ya no está disponible porque se alquiló.\n` +
-      `Hoy tenemos activos para alquiler anual en Maldonado 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija) y 2 dormitorios en Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida): ${ALQUILERES_URL}${utm}\n` +
+      `Esa propiedad ya se alquiló.\n` +
+      `Hoy tenemos activo para alquiler anual en Maldonado el 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos): ${LA_FORTUNA_URL}${utm}\n` +
       "Buscás en Maldonado o en La Barra y con qué garantía pensás alquilar?";
     alertaAndon = true;
-    motivoAndon = "Consultó unidad ya alquilada: informado cierre y derivadas opciones anuales vigentes.";
+    motivoAndon = "Consultó unidad ya alquilada: informado cierre y derivada opción anual vigente La Fortuna.";
   } else if (subtipo === "D2_OPCION_RESIDENCIAL_52K") {
     replyText =
       `Con ese presupuesto tenés disponible nuestro 2 dormitorios a estrenar en Maldonado Residencial con losa radiante, aberturas DVH y cochera fija a $U 52.000/mes (garantía Porto Seguro, Sura o Mapfre): https://zaguanpropiedades.com/alquileres/maldonado-residencial-2d/${utm}\n` +
@@ -1271,11 +1378,11 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
     motivoAndon = "Cruce activo Roosevelt y Cantegril 2D ($U 70.000, suite y parrillero propio).";
   } else if (subtipo === "D2_COMPARATIVA_FORTUNA_VS_CENTRO") {
     replyText =
-      "El que incluye cochera fija dentro del predio cerrado y Wi-Fi dentro de los $U 30.000/mes (con gastos comunes incluidos) es el 2 dormitorios a estrenar de La Fortuna.\n" +
-      "El de Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida) suma aire acondicionado y calefón instalados, con cocheras disponibles en alquiler en el edificio.\n" +
-      "Cuál de los dos prefieren visitar primero esta semana?";
+      `El 2 dormitorios de Centro de Maldonado ($U 27.000 + gastos comunes) ya se alquiló.\n` +
+      `El que sigue disponible para visitar esta semana es el 2 dormitorios a estrenar de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija dentro del predio cerrado incluidos): ${LA_FORTUNA_URL}${utm}\n` +
+      "Contás con garantía aseguradora aprobada o recibos para coordinar visita esta semana?";
     alertaAndon = true;
-    motivoAndon = "Comparativa directa La Fortuna ($U 30k con cochera y Wi-Fi) vs Centro Maldonado ($U 27k+5k).";
+    motivoAndon = "Centro Maldonado alquilado: redirige comparativa directo a La Fortuna ($U 30k con cochera y Wi-Fi).";
   } else if (subtipo === "LA_FORTUNA_DISTRIBUCION_SIN_PATIO") {
     replyText =
       "La unidad de La Fortuna está en Piso 1 por escalera exterior con balcón propio, sin patio y sin barbacoa común; cuenta con cochera fija dentro del predio cerrado con reja perimetral ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\n" +
@@ -1320,10 +1427,10 @@ export function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", context
   } else if (subtipo === "D2_LA_BARRA_AMOBLADO_ANUAL_REALIDAD") {
     replyText =
       `Hoy en La Barra el alquiler anual de 2 dormitorios que esté amoblado es escaso antes de temporada y suele ubicarse entre USD 1.200 y USD 1.400 al mes según edificio.\n` +
-      `Dejamos activa desde hoy tu búsqueda en La Barra y Maldonado con ${varsSilenciosas.garantia_disponible || "aseguradora (Sura, Porto, BSE o Mapfre)"}, y mientras tanto podés ver esta opción anual disponible en Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida, sin muebles): https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/${utm}\n` +
+      `Dejamos activa desde hoy tu búsqueda en La Barra y Maldonado con ${varsSilenciosas.garantia_disponible || "aseguradora (Sura, Porto, BSE o Mapfre)"}, y mientras tanto podés ver esta opción anual a estrenar en La Fortuna, Maldonado ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos, sin muebles): ${LA_FORTUNA_URL}${utm}\n` +
       "Desde qué mes buscás ingresar y para cuántas personas sería así salimos a rastrear opciones puntuales?";
     alertaAndon = true;
-    motivoAndon = "Búsqueda anual La Barra / Maldonado amoblado USD 1.200-1.400 + cruce transparente Centro Maldonado.";
+    motivoAndon = "Búsqueda anual La Barra / Maldonado amoblado USD 1.200-1.400 + cruce transparente La Fortuna.";
   } else if (subtipo === "LA_FORTUNA_HOLA_DESDE_AVISO") {
     if (etapaSla === "T1_DESTRABE_5_MIN") {
       replyText = ARBOL_ESTRATEGICO_SEMAFORO.FAMILIA_A_ALQUILER_ANUAL.tiempos.T1_DESTRABE_5_MIN;
