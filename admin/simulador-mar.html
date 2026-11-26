@@ -1735,10 +1735,11 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     motivoAndon = "Cierre negativo educado: pasar a baja/radar sin insistir.";
   } else if (subtipo === "CENTRO_MALDONADO_FOTOS_DESDE_AVISO") {
     replyText =
-      `Hola! Acá tenés las fotos y el croquis del 2 dormitorios en Centro de Maldonado ($U 27.000/mes + $U 5.000 de gastos comunes con agua OSE incluida, piso 4 por ascensor, aire y calefón, sin muebles): https://zaguanpropiedades.com/alquileres/maldonado-centro-piso-4-norte/${utm}\n` +
+      `Hola! El 2 dormitorios de Centro de Maldonado ($U 27.000 + gastos comunes) ya se alquiló.\n` +
+      `Hoy tenemos disponible el 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos): ${LA_FORTUNA_URL}${utm}\n` +
       "Trabaja solo con garantía de aseguradora (Porto Seguro, Sura, Mapfre o Santander). Ya tenés póliza emitida o querés validar con recibos / unipersonal?";
     alertaAndon = true;
-    motivoAndon = "Fotos Centro Maldonado enviadas + filtro de aseguradora sin empujar visita previa.";
+    motivoAndon = "Centro Maldonado alquilado: deriva limpio a La Fortuna.";
   } else if (subtipo === "LA_FORTUNA_FOTOS_DESDE_AVISO") {
     replyText =
       `Hola! Acá tenés las fotos del apartamento 2 dormitorios en alquiler anual en La Fortuna ($U 30.000/mes, incluye gastos comunes, Wi-Fi y cochera fija, piso 1 c/ balcón, sin patio): ${LA_FORTUNA_URL}${utm}\n` +
@@ -1747,11 +1748,11 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
     motivoAndon = "Fotos La Fortuna enviadas desde 'fotos de la casa' sin desvío falso a Santa Mónica.";
   } else if (subtipo === "D2_PROPIEDAD_YA_ALQUILADA") {
     replyText =
-      `Esa propiedad ya no está disponible porque se alquiló.\n` +
-      `Hoy tenemos activos para alquiler anual en Maldonado 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija) y 2 dormitorios en Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida): ${ALQUILERES_URL}${utm}\n` +
+      `Esa propiedad ya se alquiló.\n` +
+      `Hoy tenemos activo para alquiler anual en Maldonado el 2 dormitorios a estrenar en La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija): ${LA_FORTUNA_URL}${utm}\n` +
       "Buscás en Maldonado o en La Barra y con qué garantía pensás alquilar?";
     alertaAndon = true;
-    motivoAndon = "Consultó unidad ya alquilada: informado cierre y derivadas opciones anuales vigentes.";
+    motivoAndon = "Consultó unidad ya alquilada: informado cierre y derivada opción anual vigente La Fortuna.";
   } else if (subtipo === "D2_OPCION_RESIDENCIAL_52K") {
     replyText =
       `Con ese presupuesto tenés disponible nuestro 2 dormitorios a estrenar en Maldonado Residencial con losa radiante, aberturas DVH y cochera fija a $U 52.000/mes (garantía Porto Seguro, Sura o Mapfre): https://zaguanpropiedades.com/alquileres/maldonado-residencial-2d/${utm}\n` +
@@ -1763,14 +1764,14 @@ function clasificarYResponder(rawText, etapaSla = "T0_INMEDIATO", contextoPropie
       `En Roosevelt y Cantegril tenemos disponible para alquiler anual un piso alto de 2 dormitorios en suite con parrillero propio y cochera en subsuelo a $U 70.000/mes: https://zaguanpropiedades.com/alquileres/roosevelt-cantegril-2d/${utm}\n` +
       "Con qué garantía pensás alquilar y desde qué fecha buscás ingresar?";
     alertaAndon = true;
-    motivoAndon = "Cruce activo Roosevelt y Cantegril 2D ($U 70.000, suite y parrillero propio).";
+    motivoAndon = "Cruce activo Roosevelt y Cantegril 2D ($U 52.000, suite y parrillero propio).";
   } else if (subtipo === "D2_COMPARATIVA_FORTUNA_VS_CENTRO") {
     replyText =
-      "El que incluye cochera fija dentro del predio cerrado y Wi-Fi dentro de los $U 30.000/mes (con gastos comunes incluidos) es el 2 dormitorios a estrenar de La Fortuna.\n" +
-      "El de Centro de Maldonado ($U 27.000 + $U 5.000 de gastos comunes con agua incluida) suma aire acondicionado y calefón instalados, con cocheras disponibles en alquiler en el edificio.\n" +
-      "Cuál de los dos prefieren visitar primero esta semana?";
+      `El 2 dormitorios de Centro de Maldonado ($U 27.000 + gastos comunes) ya se alquiló.\n` +
+      `El que sigue disponible para visitar esta semana es el 2 dormitorios a estrenar de La Fortuna ($U 30.000/mes con gastos comunes, Wi-Fi y cochera fija incluidos): ${LA_FORTUNA_URL}${utm}\n` +
+      "Contás con garantía aseguradora aprobada o recibos para coordinar visita esta semana?";
     alertaAndon = true;
-    motivoAndon = "Comparativa directa La Fortuna ($U 30k con cochera y Wi-Fi) vs Centro Maldonado ($U 27k+5k).";
+    motivoAndon = "Centro Maldonado alquilado: redirige comparativa a La Fortuna.";
   } else if (subtipo === "LA_FORTUNA_DISTRIBUCION_SIN_PATIO") {
     replyText =
       "La unidad de La Fortuna está en Piso 1 por escalera exterior con balcón propio, sin patio y sin barbacoa común; cuenta con cochera fija dentro del predio cerrado con reja perimetral ($U 30.000/mes con gastos comunes y Wi-Fi incluidos).\n" +
